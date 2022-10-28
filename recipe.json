@@ -28,8 +28,8 @@
         "welcome": {
             "template": "welcome"
         },
-        "theme": {
-            "template": "theme"
+        "keyboard": {
+            "template": "keyboard"
         },
         "packages": {
             "template": "preferences",

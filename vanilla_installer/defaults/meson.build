@@ -4,7 +4,7 @@ defaultsdir = join_paths(pkgdatadir, 'vanilla_installer/defaults')
 sources = [
   '__init__.py',
   'welcome.py',
-  'theme.py',
+  'keyboard.py',
 ]
 
 install_data(sources, install_dir: defaultsdir)

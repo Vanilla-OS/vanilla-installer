@@ -33,9 +33,10 @@ configure_file(
   install_dir: get_option('bindir')
 )
 
-subdir('utils')
 subdir('defaults')
 subdir('layouts')
+subdir('models')
+subdir('utils')
 subdir('views')
 
 vanilla_installer_sources = [
