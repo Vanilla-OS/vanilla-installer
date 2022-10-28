@@ -6,7 +6,6 @@ subdir('locales')
 sources = [
   '__init__.py',
   'locale.py',
-  'keymap.py',
   'keymaps.py',
 ]
 
