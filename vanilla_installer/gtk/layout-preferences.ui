@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0" />
+    <template class="VanillaLayoutPreferences" parent="AdwBin">
+        <property name="halign">fill</property>
+        <property name="valign">fill</property>
+        <property name="hexpand">true</property>
+        <child>
+            <object class="AdwStatusPage" id="status_page">
+                <property name="halign">fill</property>
+                <property name="valign">fill</property>
+                <property name="hexpand">true</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="vexpand">True</property>
+                        <property name="hexpand">True</property>
+                        <property name="valign">center</property>
+                        <child>
+                            <object class="AdwPreferencesPage">
+                                <child>
+                                    <object class="AdwPreferencesGroup" id="prefs_list"></object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkButton" id="btn_next">
+                                <property name="label">Next</property>
+                                <property name="halign">center</property>
+                                <style>
+                                    <class name="pill" />
+                                    <class name="suggested-action" />
+                                </style>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>

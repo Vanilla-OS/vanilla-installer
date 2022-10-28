@@ -1,0 +1,27 @@
+Source: vanilla-installer
+Section: utils
+Priority: optional
+Maintainer: Mirko Brombin <send@mirko.pm>
+Build-Depends: 
+            build-essential,
+            debhelper,
+            python3,
+            meson,
+            libadwaita-1-dev,
+            gettext,
+            desktop-file-utils,
+            make
+Homepage: https://github.com/mirkobrombin/vanilla-installer/
+Vcs-Browser: hhttps://github.com/mirkobrombin/vanilla-installer
+Vcs-Git: https://github.com/mirkobrombin/vanilla-installer.git
+Rules-Requires-Root: no
+
+Package: vanilla-installer
+Architecture: any
+Depends: python3,
+         python3-gi,
+         libadwaita-1-0,
+         gir1.2-gtk-4.0,
+         gir1.2-adw-1,
+         ubuntu-drivers-common
+Description: This utility is meant to be used in Ubuntu Vanilla GNOME as a first-setup wizard.

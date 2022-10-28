@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0" />
+    <template class="VanillaTour" parent="AdwBin">
+        <property name="halign">fill</property>
+        <property name="valign">fill</property>
+        <property name="hexpand">true</property>
+        <child>
+            <object class="AdwStatusPage" id="status_page">
+                <property name="halign">fill</property>
+                <property name="valign">fill</property>
+                <property name="hexpand">true</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="vexpand">True</property>
+                        <property name="hexpand">True</property>
+                        <property name="valign">center</property>
+                        <child>
+                            <object class="GtkBox">
+                                <property name="valign">center</property>
+                                <property name="spacing">10</property>
+                                <property name="halign">center</property>
+                                <child>
+                                    <object class="GtkButton" id="btn_read_more">
+                                    <property name="label" translatable="true">Read More</property>
+                                    <property name="halign">center</property>
+                                    <style>
+                                        <class name="pill" />
+                                    </style>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>

@@ -1,0 +1,6 @@
+vanilla-installer (1.2.1) jammy; urgency=low
+
+  * Rewrite from scratch to support custom recipes and
+    to be more modular.
+
+ -- Mirko Brombin <send@mirko.pm>  Thu, 20 Sep 2022 22:01:00 +0000

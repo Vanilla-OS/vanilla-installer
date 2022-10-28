@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0" />
+    <template class="VanillaDefaultWelcome" parent="AdwBin">
+        <property name="halign">fill</property>
+        <property name="valign">fill</property>
+        <property name="hexpand">true</property>
+        <child>
+            <object class="AdwStatusPage" id="status_page">
+                <property name="icon-name">org.vanillaos.Installer</property>
+                <property name="title" translatable="true">Welcome!</property>
+                <property name="description" translatable="true">Make your choices, this wizard will take care of everything.</property>
+                <child>
+                    <object class="GtkButton" id="btn_next">
+                        <property name="label">Let's Start</property>
+                        <property name="halign">center</property>
+                        <style>
+                            <class name="pill" />
+                            <class name="suggested-action" />
+                        </style>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>

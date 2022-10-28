@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/vanilla-os/FirstSetup">
+    <file>gtk/window.ui</file>
+    <file>gtk/done.ui</file>
+    <file>gtk/progress.ui</file>
+    <file>gtk/dialog.ui</file>
+    <file>gtk/tour.ui</file>
+
+    <file>gtk/default-theme.ui</file>
+    <file>gtk/default-welcome.ui</file>
+
+    <file>gtk/layout-preferences.ui</file>
+    <file>gtk/layout-yes-no.ui</file>
+  </gresource>
+  <gresource prefix="/io/github/vanilla-os/FirstSetup/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-package-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-container-terminal-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-puzzle-piece-symbolic.svg</file>
+  </gresource>
+</gresources>

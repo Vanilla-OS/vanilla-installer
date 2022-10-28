@@ -1,0 +1,53 @@
+#!@PYTHON@
+
+# vanilla-installer-processor.in
+#
+# Copyright 2022 mirkobrombin
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundationat version 3 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import os
+import sys
+import signal
+import locale
+import gettext
+import argparse
+import logging
+
+
+logging.basicConfig(level=logging.INFO)
+
+
+VERSION = '@VERSION@'
+pkgdatadir = '@pkgdatadir@'
+localedir = '@localedir@'
+
+sys.path.insert(1, pkgdatadir)
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+locale.bindtextdomain('vanilla_installer', localedir)
+locale.textdomain('vanilla_installer')
+gettext.install('vanilla_installer', localedir)
+
+
+if __name__ == '__main__':
+    from vanilla_installer.utils.configurator import Configurator
+    from vanilla_installer.models.config import Config
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        'config', help='The configuration string (e.g. snap::True|flatpak::False|apport::True)')
+    args = parser.parse_args()
+
+    config = Config.from_str(args.config)
+    print(config.get_str())
+    Configurator(config).apply()
