@@ -22,6 +22,7 @@ from gettext import gettext as _
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
+gi.require_version('GnomeDesktop', '4.0')
 
 from gi.repository import Gtk, Gdk, Gio, Adw
 from vanilla_installer.window import VanillaWindow

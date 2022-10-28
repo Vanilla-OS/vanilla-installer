@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0" />
+    <template class="VanillaDefaultKeyboard" parent="AdwBin">
+        <property name="halign">fill</property>
+        <property name="valign">fill</property>
+        <property name="hexpand">true</property>
+        <child>
+            <object class="AdwStatusPage" id="status_page">
+                <property name="icon-name">input-keyboard-symbolic</property>
+                <property name="title">Keyboard Layout</property>
+                <child>
+                    <object class="AdwPreferencesPage">
+                        <child>
+                            <object class="AdwPreferencesGroup">
+                                <child>
+                                    <object class="AdwComboRow" id="combo_layouts">
+                                        <property name="title">Layout</property>
+                                        <property name="model">
+                                            <object class="GtkStringList" id="str_list_layouts"></object>
+                                        </property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="AdwComboRow" id="combo_variants">
+                                        <property name="title">Variant</property>
+                                        <property name="model">
+                                            <object class="GtkStringList" id="str_list_variants"></object>
+                                        </property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="AdwEntryRow" id="entry_test">
+                                        <property name="title">Test the Keyboard</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="GtkButton" id="btn_next">
+                                    <property name="label" translatable="true">Next</property>
+                                    <property name="halign">center</property>
+                                    <property name="margin-top">10</property>
+                                    <style>
+                                        <class name="pill" />
+                                        <class name="suggested-action" />
+                                    </style>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>
