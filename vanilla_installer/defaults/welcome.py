@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
 import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
@@ -24,45 +25,9 @@ from vanilla_installer.utils.run_async import RunAsync
 class VanillaDefaultWelcome(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultWelcome'
 
-    btn_next = Gtk.Template.Child()
+    btn_live = Gtk.Template.Child()
+    btn_install = Gtk.Template.Child()
     status_page = Gtk.Template.Child()
-
-    welcome = [
-        'Welcome',
-        'Benvenuto',
-        'Bienvenido',
-        'Bienvenue',
-        'Willkommen',
-        'Bem-vindo',
-        'Добро пожаловать',
-        '欢迎',
-        'ようこそ',
-        '환영합니다',
-        'أهلا بك',
-        'ברוך הבא',
-        'Καλώς ήρθατε',
-        'Hoşgeldiniz',
-        'Welkom',
-        'Witamy',
-        'Välkommen',
-        'Tervetuloa',
-        'Vítejte',
-        'Üdvözöljük',
-        'Bun venit',
-        'Vitajte',
-        'Tere tulemast',
-        'Sveiki atvykę',
-        'Dobrodošli',
-        'خوش آمدید',
-        'आपका स्वागत है',
-        'স্বাগতম',
-        'வரவேற்கிறோம்',
-        'స్వాగతం',
-        'मुबारक हो',
-        'સુસ્વાગત છે',
-        'ಸುಸ್ವಾಗತ',
-        'സ്വാഗതം'
-    ]
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -71,23 +36,13 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.__key = key
         self.__step = step
 
-        # animation start
-        self.__start_welcome_animation()
-
         # signals
-        self.btn_next.connect("clicked", self.__window.next)
-
-        # set distro logo
-        self.status_page.set_icon_name(self.__distro_info["logo"])
-
-    def __start_welcome_animation(self):
-        def change_langs():
-            while True:
-                for lang in self.welcome:
-                    GLib.idle_add(self.status_page.set_title, lang)
-                    time.sleep(1.2)
-
-        RunAsync(change_langs, None)
+        self.btn_live.connect('clicked', self.__on_live_clicked)
+        self.btn_install.connect("clicked", self.__window.next)
 
     def get_finals(self):
         return {}
+
+    def __on_live_clicked(self, button):
+        sys.exit(0)
+        

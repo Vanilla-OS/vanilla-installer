@@ -30,3 +30,11 @@ install_data(
     join_paths(actions_dir, 'vanilla-puzzle-piece-symbolic.svg'),
     install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
 )
+install_data(
+    join_paths(actions_dir, 'harddisk-symbolic.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
+)
+install_data(
+    join_paths(actions_dir, 'display-with-window-symbolic.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
+)
