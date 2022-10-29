@@ -21,9 +21,9 @@ from gi.repository import Gtk, Gio, GLib, Adw
 from vanilla_installer.utils.run_async import RunAsync
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-partitioning.ui')
-class VanillaDefaultPartitioning(Adw.Bin):
-    __gtype_name__ = 'VanillaDefaultPartitioning'
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-disk.ui')
+class VanillaDefaultDisk(Adw.Bin):
+    __gtype_name__ = 'VanillaDefaultDisk'
 
     btn_next = Gtk.Template.Child()
 
