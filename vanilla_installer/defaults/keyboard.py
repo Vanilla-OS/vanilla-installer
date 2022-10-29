@@ -20,7 +20,7 @@ import subprocess
 import contextlib
 from gi.repository import Gtk, Gio, GLib, Adw
 
-from vanilla_installer.models.keymaps import all_keymaps
+from vanilla_installer.models.keymaps import KeyMaps
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-keyboard.ui')
@@ -43,19 +43,20 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.__keymaps = KeyMaps()
         
         # set up the string list for keyboard layouts
-        for country in all_keymaps.keys():
+        for country in self.__keymaps.list_all.keys():
             self.str_list_layouts.append(country)
         
         # set up current keyboard layout
         current_layout, current_variant = self.__get_current_layout()
-        for country in all_keymaps.keys():
-            if current_layout in all_keymaps[country].keys():
-                self.combo_layouts.set_selected(list(all_keymaps.keys()).index(country))
+        for country in self.__keymaps.list_all.keys():
+            if current_layout in self.__keymaps.list_all[country].keys():
+                self.combo_layouts.set_selected(list(self.__keymaps.list_all.keys()).index(country))
                 self.__on_layout_selected()
 
-                for index, variant in enumerate(all_keymaps[country].values()):
+                for index, variant in enumerate(self.__keymaps.list_all[country].values()):
                     if variant["xkb_variant"] == current_variant:
                         self.combo_variants.set_selected(index)
                         break
@@ -94,8 +95,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.str_list_variants.splice(0, self.str_list_variants.get_n_items())
 
         layout_index = self.combo_layouts.get_selected()
-        layout = list(all_keymaps.keys())[layout_index]
-        layout = all_keymaps[layout]
+        layout = list(self.__keymaps.list_all.keys())[layout_index]
+        layout = self.__keymaps.list_all[layout]
         
         for variant in layout.keys():
             self.str_list_variants.append(layout[variant]["display_name"])
@@ -111,8 +112,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         variant = variant.get_string()
         layout_index = self.combo_layouts.get_selected()
-        layout = list(all_keymaps.keys())[layout_index]
-        layout = all_keymaps[layout]
+        layout = list(self.__keymaps.list_all.keys())[layout_index]
+        layout = self.__keymaps.list_all[layout]
 
         for key in layout.keys():
             if layout[key]["display_name"] == variant:
@@ -129,9 +130,9 @@ class VanillaDefaultKeyboard(Adw.Bin):
         if keywords == "" or len(keywords) < 3:
             return
 
-        for country in all_keymaps.keys():
+        for country in self.__keymaps.list_all.keys():
             if keywords in country.lower():
-                self.combo_layouts.set_selected(list(all_keymaps.keys()).index(country))
+                self.combo_layouts.set_selected(list(self.__keymaps.list_all.keys()).index(country))
                 self.__on_layout_selected()
                 break
 
