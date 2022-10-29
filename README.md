@@ -12,6 +12,8 @@
 - libadwaita-1-dev
 - gettext
 - desktop-file-utils
+- libgnome-desktop-4-dev
+- libgweather-4-dev
 
 ### Build
 ```bash

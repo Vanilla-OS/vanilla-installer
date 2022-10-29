@@ -7,6 +7,7 @@ sources = [
   '__init__.py',
   'locale.py',
   'keymaps.py',
+  'timezones.py',
 ]
 
 install_data(sources, install_dir: modelsdir)

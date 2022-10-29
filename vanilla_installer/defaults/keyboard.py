@@ -18,7 +18,6 @@ import sys
 import time
 import subprocess
 from gi.repository import Gtk, Gio, GLib, Adw
-from gi.repository.GnomeDesktop import XkbInfo
 
 from vanilla_installer.models.keymaps import all_keymaps
 

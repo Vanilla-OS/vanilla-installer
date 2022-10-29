@@ -31,6 +31,9 @@
         "keyboard": {
             "template": "keyboard"
         },
+        "timezone": {
+            "template": "timezone"
+        },
         "packages": {
             "template": "preferences",
             "icon": "vanilla-package-symbolic",

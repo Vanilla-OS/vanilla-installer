@@ -2,38 +2,39 @@
 <interface>
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.0" />
-    <template class="VanillaDefaultKeyboard" parent="AdwBin">
+    <template class="VanillaDefaultTimezone" parent="AdwBin">
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <property name="hexpand">true</property>
         <child>
             <object class="AdwStatusPage" id="status_page">
-                <property name="icon-name">input-keyboard-symbolic</property>
-                <property name="title">Keyboard Layout</property>
-                <property name="description">Select your preferred keyboard layout</property>
+                <property name="icon-name">preferences-system-time-symbolic</property>
+                <property name="title">Time &amp; Date</property>
+                <property name="description">Select your preferred timezone</property>
                 <child>
                     <object class="AdwPreferencesPage">
                         <child>
                             <object class="AdwPreferencesGroup">
                                 <child>
-                                    <object class="AdwComboRow" id="combo_layouts">
-                                        <property name="title">Layout</property>
+                                    <object class="AdwComboRow" id="combo_country">
+                                        <property name="title">Country</property>
                                         <property name="model">
-                                            <object class="GtkStringList" id="str_list_layouts"></object>
+                                            <object class="GtkStringList" id="str_list_country"></object>
                                         </property>
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="AdwComboRow" id="combo_variants">
-                                        <property name="title">Variant</property>
+                                    <object class="AdwComboRow" id="combo_city">
+                                        <property name="title">Timezone</property>
                                         <property name="model">
-                                            <object class="GtkStringList" id="str_list_variants"></object>
+                                            <object class="GtkStringList" id="str_list_city"></object>
                                         </property>
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="AdwEntryRow" id="entry_test">
-                                        <property name="title">Test the Keyboard</property>
+                                    <object class="AdwActionRow" id="row_preview">
+                                        <property name="title">19:07:00</property>
+                                        <property name="subtitle">Saturday, 29 Oct 2022</property>
                                     </object>
                                 </child>
                                 <child>

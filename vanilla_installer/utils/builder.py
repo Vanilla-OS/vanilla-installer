@@ -26,6 +26,7 @@ from vanilla_installer.utils.recipe import RecipeLoader
 
 from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
 from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
+from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
 
 from vanilla_installer.layouts.preferences import VanillaLayoutPreferences
 from vanilla_installer.layouts.yes_no import VanillaLayoutYesNo
@@ -37,6 +38,7 @@ logger = logging.getLogger("FirstSetup::Builder")
 templates = {
     "welcome": VanillaDefaultWelcome,
     "keyboard": VanillaDefaultKeyboard,
+    "timezone": VanillaDefaultTimezone,
     "preferences": VanillaLayoutPreferences,
     "yes-no": VanillaLayoutYesNo
 }
