@@ -6,6 +6,7 @@ sources = [
   'welcome.py',
   'keyboard.py',
   'timezone.py',
+  'users.py',
   'disk.py',
 ]
 

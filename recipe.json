@@ -37,6 +37,9 @@
         "disk": {
             "template": "disk"
         },
+        "users": {
+            "template": "users"
+        },
         "packages": {
             "template": "preferences",
             "icon": "vanilla-package-symbolic",
