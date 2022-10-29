@@ -4,6 +4,7 @@ import pytz
 from gi.repository import GnomeDesktop, GWeather
 
 
+# TODO: port to a dedicated class
 all_timezones = {}
 cleanup_rules = [
     "etc",
