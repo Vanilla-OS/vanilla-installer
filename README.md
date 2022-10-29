@@ -14,6 +14,7 @@
 - desktop-file-utils
 - libgnome-desktop-4-dev
 - libgweather-4-dev
+- python3-tz
 
 ### Build
 ```bash
