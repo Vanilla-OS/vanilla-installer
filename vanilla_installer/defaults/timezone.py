@@ -30,10 +30,10 @@ class VanillaDefaultTimezone(Adw.Bin):
 
     btn_next = Gtk.Template.Child()
     row_preview = Gtk.Template.Child()
-    combo_country = Gtk.Template.Child()
-    combo_city = Gtk.Template.Child()
-    str_list_country = Gtk.Template.Child()
-    str_list_city = Gtk.Template.Child()
+    combo_region = Gtk.Template.Child()
+    combo_zone = Gtk.Template.Child()
+    str_list_region = Gtk.Template.Child()
+    str_list_zone = Gtk.Template.Child()
     entry_search_timezone = Gtk.Template.Child()
 
     search_controller = Gtk.EventControllerKey.new()
@@ -47,26 +47,26 @@ class VanillaDefaultTimezone(Adw.Bin):
         
         # set up the string list for keyboard layouts
         for country, _ in all_timezones.items():
-            self.str_list_country.append(country)
+            self.str_list_region.append(country)
         
         # set up current timezone
         current_country, current_city = get_current_timezone()
         for country, _ in all_timezones.items():
             if country == current_country:
-                self.combo_country.set_selected(list(all_timezones.keys()).index(country))
+                self.combo_region.set_selected(list(all_timezones.keys()).index(country))
                 self.__on_country_selected(None, None)
 
                 for index, city in enumerate(all_timezones[country]):
                     if city == current_city:
-                        self.combo_city.set_selected(index)
+                        self.combo_zone.set_selected(index)
                         break
 
                 break
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
-        self.combo_country.connect("notify::selected", self.__on_country_selected)
-        self.combo_city.connect("notify::selected", self.__on_city_selected)
+        self.combo_region.connect("notify::selected", self.__on_country_selected)
+        self.combo_zone.connect("notify::selected", self.__on_city_selected)
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
 
@@ -74,17 +74,17 @@ class VanillaDefaultTimezone(Adw.Bin):
         return {}
     
     def __on_country_selected(self, combo, param):
-        self.str_list_city.splice(0, self.str_list_city.get_n_items())
+        self.str_list_zone.splice(0, self.str_list_zone.get_n_items())
 
-        country_index = self.combo_country.get_selected()
+        country_index = self.combo_region.get_selected()
         country = list(all_timezones.keys())[country_index]
         for timezone in all_timezones[country]:
-            self.str_list_city.append(timezone)
+            self.str_list_zone.append(timezone)
 
     def __on_city_selected(self, combo, param):
-        country_index = self.combo_country.get_selected()
+        country_index = self.combo_region.get_selected()
         country = list(all_timezones.keys())[country_index]
-        city_index = self.combo_city.get_selected()
+        city_index = self.combo_zone.get_selected()
 
         with contextlib.suppress(IndexError):
             city = all_timezones[country][city_index]
@@ -103,11 +103,11 @@ class VanillaDefaultTimezone(Adw.Bin):
             for city in cities:
 
                 if keywords in city.lower():
-                    self.combo_country.set_selected(list(all_timezones.keys()).index(country))
+                    self.combo_region.set_selected(list(all_timezones.keys()).index(country))
 
                     for index, _city in enumerate(all_timezones[country]):
                         if city == _city:
-                            self.combo_city.set_selected(index)
+                            self.combo_zone.set_selected(index)
                             break
 
                     return
