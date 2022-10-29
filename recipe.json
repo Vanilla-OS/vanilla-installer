@@ -37,6 +37,9 @@
         "partitioning": {
             "template": "partitioning"
         },
+        "users": {
+            "template": "users"
+        },
         "packages": {
             "template": "preferences",
             "icon": "vanilla-package-symbolic",
