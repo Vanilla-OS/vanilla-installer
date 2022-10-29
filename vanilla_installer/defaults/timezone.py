@@ -75,8 +75,6 @@ class VanillaDefaultTimezone(Adw.Bin):
         country = list(all_timezones.keys())[country_index]
         for timezone in all_timezones[country]:
             self.str_list_city.append(timezone)
-            
-        self.combo_city.set_selected(0)
 
     def __on_city_selected(self, combo, param):
         country_index = self.combo_country.get_selected()
@@ -86,6 +84,6 @@ class VanillaDefaultTimezone(Adw.Bin):
         with contextlib.suppress(IndexError):
             city = all_timezones[country][city_index]
             _time, _date = get_preview_timezone(country, city)
-            
+
             self.row_preview.set_title(_time)
             self.row_preview.set_subtitle(_date)
