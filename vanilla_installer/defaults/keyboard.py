@@ -35,6 +35,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
     str_list_variants = Gtk.Template.Child()
     entry_search_keyboard = Gtk.Template.Child()
 
+    search_controller = Gtk.EventControllerKey.new()
+
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
@@ -64,6 +66,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.btn_next.connect("clicked", self.__window.next)
         self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
         self.combo_variants.connect("notify::selected", self.__on_variant_selected)
+        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        self.entry_search_keyboard.add_controller(self.search_controller)
 
     def get_finals(self):
         return {}
@@ -75,7 +79,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         current_layout = [l.split(": ")[1] for l in res if l.startswith("layout")][0]
         current_variant = None
-        
+
         if "," in current_layout:
             current_layout = current_layout.split(",")[0].strip()
 
@@ -118,6 +122,18 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         # set the layout
         self.__set_xkbmap(xkb_layout, xkb_variant)
+
+    def __on_search_key_pressed(self, *args):
+        keywords = self.entry_search_keyboard.get_text().lower()
+
+        if keywords == "" or len(keywords) < 3:
+            return
+
+        for country in all_keymaps.keys():
+            if keywords in country.lower():
+                self.combo_layouts.set_selected(list(all_keymaps.keys()).index(country))
+                self.__on_layout_selected()
+                break
 
     def __set_xkbmap(self, layout, variant=None):
         if variant is None:
