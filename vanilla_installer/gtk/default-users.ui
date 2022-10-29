@@ -7,55 +7,43 @@
         <property name="valign">fill</property>
         <property name="hexpand">true</property>
         <child>
-            <object class="GtkBox">
-                <property name="vexpand">true</property>
-                <property name="hexpand">true</property>
-                <child>
-                    <object class="GtkOverlay">
+            <object class="GtkOverlay">
+                <property name="valign">center</property>
+                <child type="overlay">
+                    <object class="GtkButton" id="btn_next">
+                        <property name="margin-end">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="halign">end</property>
                         <property name="valign">center</property>
-                        <child type="overlay">
-                            <object class="GtkButton" id="btn_next">
-                                <property name="margin-end">12</property>
-                                <property name="margin-start">12</property>
-                                <property name="icon-name">go-next-symbolic</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <property name="tooltip-text" translatable="yes">Next</property>
-                                <style>
-                                    <class name="circular" />
-                                </style>
-                            </object>
-                        </child>
+                        <property name="tooltip-text" translatable="yes">Next</property>
+                        <style>
+                            <class name="circular" />
+                        </style>
+                    </object>
+                </child>
+                <child>
+                    <object class="AdwStatusPage" id="status_page">
+                        <property name="icon-name">avatar-default-symbolic</property>
+                        <property name="title">Create User</property>
+                        <property name="description">Provide User-account details</property>
                         <child>
-                            <object class="AdwStatusPage" id="status_page">
-                                <property name="icon-name">avatar-default-symbolic</property>
-                                <property name="title">Create User</property>
-                                <property name="description">Provide User-account details</property>
+                            <object class="AdwPreferencesPage">
                                 <child>
-                                    <object class="AdwClamp">
-                                        <property name="maximum-size">570</property>
+                                    <object class="AdwPreferencesGroup">
                                         <child>
-                                            <object class="GtkBox">
-                                                <property name="orientation">vertical</property>
-                                                <child>
-                                                    <object class="AdwPreferencesGroup">
-                                                        <child>
-                                                            <object class="AdwEntryRow" id="username_entry">
-                                                              <property name="title" translatable="true">Enter Username</property>
-                                                            </object>
-                                                          </child>
-                                                          <child>
-                                                            <object class="AdwPasswordEntryRow" id="password_entry">
-                                                              <property name="title" translatable="true">Enter Password</property>
-                                                            </object>
-                                                          </child>
-                                                          <child>
-                                                            <object class="AdwPasswordEntryRow" id="password_confirmation">
-                                                              <property name="title" translatable="true">Re-enter Password</property>
-                                                            </object>
-                                                          </child>
-                                                    </object>
-                                                </child>
+                                            <object class="AdwEntryRow" id="username_entry">
+                                                <property name="title" translatable="true">Enter Username</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="AdwPasswordEntryRow" id="password_entry">
+                                                <property name="title" translatable="true">Enter Password</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="AdwPasswordEntryRow" id="password_confirmation">
+                                                <property name="title" translatable="true">Re-enter Password</property>
                                             </object>
                                         </child>
                                     </object>
