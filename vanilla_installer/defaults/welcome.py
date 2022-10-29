@@ -21,13 +21,12 @@ from gi.repository import Gtk, Gio, GLib, Adw
 from vanilla_installer.utils.run_async import RunAsync
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/default-welcome.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-welcome.ui')
 class VanillaDefaultWelcome(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultWelcome'
 
     btn_live = Gtk.Template.Child()
     btn_install = Gtk.Template.Child()
-    status_page = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)

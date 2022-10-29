@@ -23,7 +23,7 @@ from gi.repository.GnomeDesktop import XkbInfo
 from vanilla_installer.models.keymaps import all_keymaps
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/default-keyboard.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-keyboard.ui')
 class VanillaDefaultKeyboard(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultKeyboard'
 
@@ -40,55 +40,84 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
-        self.__xkb_info = XkbInfo()
+        
+        # set up the string list for keyboard layouts
+        for country in all_keymaps.keys():
+            self.str_list_layouts.append(country)
+        
+        # set up current keyboard layout
+        current_layout, current_variant = self.__get_current_layout()
+        for country in all_keymaps.keys():
+            if current_layout in all_keymaps[country].keys():
+                self.combo_layouts.set_selected(list(all_keymaps.keys()).index(country))
+                self.__on_layout_selected()
+
+                for index, variant in enumerate(all_keymaps[country].values()):
+                    if variant["xkb_variant"] == current_variant:
+                        self.combo_variants.set_selected(index)
+                        break
+
+                break
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
         self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
         self.combo_variants.connect("notify::selected", self.__on_variant_selected)
 
-        # set combo_variants visibility based on the number of variants
-        self.combo_variants.set_visible(self.str_list_variants.get_n_items() != 0)
-        
-        # set up the string list for keyboard layouts
-        for _, lang in all_keymaps.items():
-            self.str_list_layouts.append(lang)
-
     def get_finals(self):
         return {}
+    
+    def __get_current_layout(self):
+        res = subprocess.run(
+            ["setxkbmap", "-query"], capture_output=True, text=True
+        ).stdout.splitlines()
+
+        current_layout = [l.split(": ")[1] for l in res if l.startswith("layout")][0]
+        current_variant = [l.split(": ")[1] for l in res if l.startswith("variant")][0]
+
+        if "," in current_layout:
+            current_layout = current_layout.split(",")[0].strip()
+
+        if "," in current_variant:
+            current_variant = current_variant.split(",")[0].strip()
+        
+        return current_layout, current_variant
     
     def __on_layout_selected(self, *args):
         self.str_list_variants.splice(0, self.str_list_variants.get_n_items())
 
         layout_index = self.combo_layouts.get_selected()
         layout = list(all_keymaps.keys())[layout_index]
+        layout = all_keymaps[layout]
         
-        for variant in self.__xkb_info.get_layouts_for_language(layout):
-            self.str_list_variants.append(variant)
+        for variant in layout.keys():
+            self.str_list_variants.append(layout[variant]["display_name"])
 
-        self.__set_xkbmap(layout)
+        self.combo_variants.set_visible(self.str_list_variants.get_n_items() != 0)
     
     def __on_variant_selected(self, *args):
-        self.combo_variants.set_visible(self.str_list_variants.get_n_items() != 0)
-
         variant_index = self.combo_variants.get_selected()
         variant = self.str_list_variants.get_item(variant_index)
-        
+
         if variant is None:
             return
-        
+
         variant = variant.get_string()
+        layout_index = self.combo_layouts.get_selected()
+        layout = list(all_keymaps.keys())[layout_index]
+        layout = all_keymaps[layout]
 
-        if "+" in variant:
-            layout, variant = variant.split("+")
-        else:
-            layout = variant
-            variant = None
+        for key in layout.keys():
+            if layout[key]["display_name"] == variant:
+                xkb_layout = layout[key]["xkb_layout"]
+                xkb_variant = layout[key]["xkb_variant"]
+                break
 
-        self.__set_xkbmap(layout, variant)
-        
+        # set the layout
+        self.__set_xkbmap(xkb_layout, xkb_variant)
+
     def __set_xkbmap(self, layout, variant=None):
-        subprocess.run(
-            ["setxkbmap", "-layout", layout]
-            + (["-variant", variant] if variant is not None else [])
-        )
+        if variant is None:
+            subprocess.run(["setxkbmap", layout])
+        else:
+            subprocess.run(["setxkbmap", layout, "-variant", variant])

@@ -22,7 +22,7 @@ from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.views.tour import VanillaTour
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/progress.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/progress.ui')
 class VanillaProgress(Gtk.Box):
     __gtype_name__ = 'VanillaProgress'
 

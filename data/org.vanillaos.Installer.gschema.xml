@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="vanilla-installer">
-	<schema id="org.vanillaos.Installer" path="/io/github/vanilla-os/FirstSetup/">
+	<schema id="org.vanillaos.Installer" path="/org/vanillaos/Installer/">
 	</schema>
 </schemalist>

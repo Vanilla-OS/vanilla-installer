@@ -26,7 +26,7 @@ from vanilla_installer.views.progress import VanillaProgress
 from vanilla_installer.views.done import VanillaDone
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/window.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/window.ui')
 class VanillaWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'VanillaWindow'
 

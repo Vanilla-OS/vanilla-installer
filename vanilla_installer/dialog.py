@@ -17,7 +17,7 @@
 from gi.repository import Gtk, Adw
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/dialog.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog.ui')
 class VanillaDialog(Adw.Window):
     __gtype_name__ = 'VanillaDialog'
 

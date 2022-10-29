@@ -1,97 +1,31 @@
-all_keymaps = {
-    'af': 'Afghanistan',
-    'al': 'Albania',
-    'am': 'Armenia',
-    'ara': 'Arabic',
-    'at': 'Austria',
-    'au': 'Australia',
-    'az': 'Azerbaijan',
-    'ba': 'Bosnia and Herzegovina',
-    'bd': 'Bangladesh',
-    'be': 'Belgium',
-    'bg': 'Bulgaria',
-    'br': 'Brazil',
-    'bt': 'Bhutan',
-    'bw': 'Botswana',
-    'by': 'Belarus',
-    'ca': 'Canada',
-    'cd': 'Democratic Republic of Congo',
-    'ch': 'Switzerland',
-    'cm': 'Cameroon',
-    'cn': 'China',
-    'cz': 'Czechia',
-    'de': 'Germany',
-    'dk': 'Denmark',
-    'dz': 'Algeria',
-    'ee': 'Estonia',
-    'es': 'Spain',
-    'et': 'Ethiopia',
-    'fi': 'Finland',
-    'fo': 'Faroe Islands',
-    'fr': 'France',
-    'gb': 'Great Britian',
-    'ge': 'Georgia',
-    'gh': 'Ghana',
-    'gn': 'Guinea',
-    'gr': 'Greece',
-    'hr': 'Croatia',
-    'hu': 'Hungary',
-    'id': 'Indonesia',
-    'ie': 'Ireland',
-    'il': 'Israel',
-    'in': 'India',
-    'iq': 'Iraq',
-    'ir': 'Iran',
-    'is': 'Iceland',
-    'it': 'Italy',
-    'jp': 'Japan',
-    'ke': 'Kenya',
-    'kg': 'Kyrgyzstan',
-    'kh': 'Cambodia',
-    'kr': 'The Republic of Korea',
-    'kz': 'Kazakhstan',
-    'la': 'Laos',
-    'lk': 'Sri Lanka',
-    'lt': 'Lithuania',
-    'la-latin1': 'Latin America',
-    'lv': 'Lativa',
-    'ma': 'Morocco',
-    'md': 'Moldova',
-    'me': 'Montenegro',
-    'mk': 'Republic of North Macedonia',
-    'ml': 'Mali',
-    'mm': 'Myanmar',
-    'mn': 'Mongolia',
-    'mt': 'Malta',
-    'mv': 'Maldives',
-    'my': 'Malaysia',
-    'ng': 'Nigeria',
-    'nl': 'Netherlands',
-    'no': 'Norway',
-    'np': 'Nepal',
-    'ph': 'Philippines',
-    'pk': 'Pakistan',
-    'pl': 'Poland',
-    'pt': 'Portugal',
-    'ro': 'Romania',
-    'rs': 'Serbia',
-    'ru': 'Russia',
-    'se': 'Sweden',
-    'si': 'Slovenia',
-    'sk': 'Slovakia',
-    'sn': 'Senegal',
-    'sl': 'Sierra Leone',
-    'sy': 'Syria',
-    'tg': 'Togo',
-    'th': 'Thailand',
-    'tj': 'Tajikistan',
-    'tm': 'Turkmenistan',
-    'tr': 'Turkey',
-    'tw': 'Taiwan',
-    'tz': 'Tanzania',
-    'ua': 'Ukraine',
-    'us': 'United States of America',
-    'uz': 'Uzbekistan',
-    'vn': 'Vietnam',
-    'za': 'South Africa'
-}
+from gi.repository.GnomeDesktop import XkbInfo
+
+xkb_info = XkbInfo()
+all_layouts = xkb_info.get_all_layouts()
+_all_keymaps = {}
+all_keymaps = {}
+cleanup_rules = [
+    "A"
+]
+
+for layout in all_layouts:
+    _all_keymaps[layout] = {}
+    _info = xkb_info.get_layout_info(layout)
+    _all_keymaps[layout]['display_name'] = _info[1]
+    _all_keymaps[layout]['short_name'] = _info[2]
+    _all_keymaps[layout]['xkb_layout'] = _info[3]
+    _all_keymaps[layout]['xkb_variant'] = _info[4]
+
+for layout in _all_keymaps:
+    country = _all_keymaps[layout]['display_name'].split(' ')[0]
+    
+    if country in cleanup_rules:
+        continue
+
+    if country not in all_keymaps:
+        all_keymaps[country] = {}
+
+    all_keymaps[country][layout] = _all_keymaps[layout]
+
+all_keymaps = {k: v for k, v in sorted(all_keymaps.items(), key=lambda item: item[0])}
+

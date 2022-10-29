@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/github/vanilla-os/FirstSetup">
+  <gresource prefix="/org/vanillaos/Installer">
     <file>gtk/window.ui</file>
     <file>gtk/done.ui</file>
     <file>gtk/progress.ui</file>
@@ -14,11 +14,14 @@
     <file>gtk/layout-preferences.ui</file>
     <file>gtk/layout-yes-no.ui</file>
   </gresource>
-  <gresource prefix="/io/github/vanilla-os/FirstSetup/icons/scalable/actions/">
+  <gresource prefix="/org/vanillaos/Installer/icons/scalable/actions/">
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-package-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-container-terminal-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-puzzle-piece-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/harddisk-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/display-with-window-symbolic.svg</file>
   </gresource>
+    <gresource prefix="/org/vanillaos/installer/images">
+        <file alias="images/welcome.svg">../data/images/welcome.svg</file>
+    </gresource>
 </gresources>

@@ -18,7 +18,7 @@ import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/default-theme.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-theme.ui')
 class VanillaDefaultTheme(Gtk.Box):
     __gtype_name__ = 'VanillaDefaultTheme'
 

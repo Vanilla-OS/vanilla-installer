@@ -18,7 +18,7 @@ import webbrowser
 from gi.repository import Gtk, Adw
 
 
-@Gtk.Template(resource_path='/io/github/vanilla-os/FirstSetup/gtk/tour.ui')
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/tour.ui')
 class VanillaTour(Adw.Bin):
     __gtype_name__ = 'VanillaTour'
 
