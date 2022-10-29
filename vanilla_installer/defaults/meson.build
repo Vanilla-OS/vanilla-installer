@@ -6,6 +6,7 @@ sources = [
   'welcome.py',
   'keyboard.py',
   'timezone.py',
+  'partitioning.py',
 ]
 
 install_data(sources, install_dir: defaultsdir)

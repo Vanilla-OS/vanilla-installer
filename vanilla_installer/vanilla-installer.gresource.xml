@@ -11,6 +11,7 @@
     <file>gtk/default-welcome.ui</file>
     <file>gtk/default-keyboard.ui</file>
     <file>gtk/default-timezone.ui</file>
+    <file>gtk/default-partitioning.ui</file>
 
     <file>gtk/layout-preferences.ui</file>
     <file>gtk/layout-yes-no.ui</file>

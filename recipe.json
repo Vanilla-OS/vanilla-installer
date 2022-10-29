@@ -34,6 +34,9 @@
         "timezone": {
             "template": "timezone"
         },
+        "partitioning": {
+            "template": "partitioning"
+        },
         "packages": {
             "template": "preferences",
             "icon": "vanilla-package-symbolic",
