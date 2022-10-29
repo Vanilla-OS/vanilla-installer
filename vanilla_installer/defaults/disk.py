@@ -21,11 +21,22 @@ from gi.repository import Gtk, Gio, GLib, Adw
 from vanilla_installer.utils.run_async import RunAsync
 
 
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk.ui')
+class VanillaDefaultDiskPartModal(Adw.Window):
+    __gtype_name__ = 'VanillaDefaultDiskPartModal'
+
+    def __init__(self, window, **kwargs):
+        super().__init__(**kwargs)
+        self.__window = window
+        self.set_transient_for(self.__window)
+
+
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-disk.ui')
 class VanillaDefaultDisk(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultDisk'
 
     btn_next = Gtk.Template.Child()
+    btn_configure = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -36,10 +47,11 @@ class VanillaDefaultDisk(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
+        self.btn_configure.connect("clicked", self.__on_configure_clicked)
 
     def get_finals(self):
         return {}
-
-    def __on_live_clicked(self, button):
-        sys.exit(0)
-        
+    
+    def __on_configure_clicked(self, button):
+        modal = VanillaDefaultDiskPartModal(self.__window)
+        modal.present()
