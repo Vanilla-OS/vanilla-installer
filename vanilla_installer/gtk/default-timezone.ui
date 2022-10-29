@@ -46,18 +46,18 @@
                                                 <child>
                                                     <object class="AdwPreferencesGroup">
                                                         <child>
-                                                            <object class="AdwComboRow" id="combo_country">
-                                                                <property name="title">Country</property>
+                                                            <object class="AdwComboRow" id="combo_region">
+                                                                <property name="title">Region</property>
                                                                 <property name="model">
-                                                                    <object class="GtkStringList" id="str_list_country"></object>
+                                                                    <object class="GtkStringList" id="str_list_region"></object>
                                                                 </property>
                                                             </object>
                                                         </child>
                                                         <child>
-                                                            <object class="AdwComboRow" id="combo_city">
-                                                                <property name="title">Timezone</property>
+                                                            <object class="AdwComboRow" id="combo_zone">
+                                                                <property name="title">Zone</property>
                                                                 <property name="model">
-                                                                    <object class="GtkStringList" id="str_list_city"></object>
+                                                                    <object class="GtkStringList" id="str_list_zone"></object>
                                                                 </property>
                                                             </object>
                                                         </child>

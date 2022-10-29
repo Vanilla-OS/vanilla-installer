@@ -19,7 +19,7 @@ import sys
 import logging
 import json
 
-logger = logging.getLogger("FirstSetup::Parser")
+logger = logging.getLogger("Installer::Parser")
 
 
 class Parser:

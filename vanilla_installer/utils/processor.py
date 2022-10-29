@@ -20,7 +20,7 @@ import tempfile
 import subprocess
 
 
-logger = logging.getLogger("FirstSetup::Processor")
+logger = logging.getLogger("Installer::Processor")
 
 
 class Processor:

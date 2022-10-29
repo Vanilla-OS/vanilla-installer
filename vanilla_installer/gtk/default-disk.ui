@@ -2,7 +2,7 @@
 <interface>
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.0" />
-    <template class="VanillaDefaultPartitioning" parent="AdwBin">
+    <template class="VanillaDefaultDisk" parent="AdwBin">
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <property name="hexpand">true</property>

@@ -34,8 +34,8 @@
         "timezone": {
             "template": "timezone"
         },
-        "partitioning": {
-            "template": "partitioning"
+        "disk": {
+            "template": "disk"
         },
         "users": {
             "template": "users"

@@ -27,15 +27,14 @@ from vanilla_installer.utils.recipe import RecipeLoader
 from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
 from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
 from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
-from vanilla_installer.defaults.partitioning import VanillaDefaultPartitioning
 from vanilla_installer.defaults.users import VanillaDefaultUsers
-
+from vanilla_installer.defaults.disk import VanillaDefaultDisk
 
 from vanilla_installer.layouts.preferences import VanillaLayoutPreferences
 from vanilla_installer.layouts.yes_no import VanillaLayoutYesNo
 
 
-logger = logging.getLogger("FirstSetup::Builder")
+logger = logging.getLogger("Installer::Builder")
 
 
 templates = {
@@ -43,8 +42,8 @@ templates = {
     "keyboard": VanillaDefaultKeyboard,
     "timezone": VanillaDefaultTimezone,
     "preferences": VanillaLayoutPreferences,
-    "partitioning": VanillaDefaultPartitioning,
     "users": VanillaDefaultUsers,
+    "disk": VanillaDefaultDisk,
     "yes-no": VanillaLayoutYesNo
 }
 
