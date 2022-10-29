@@ -35,7 +35,6 @@ class VanillaDefaultUsers(Adw.Bin):
     username_filled = False
     password_filled = False
 
-
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
@@ -45,45 +44,43 @@ class VanillaDefaultUsers(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
-        self.username_entry.connect('changed', self.__username_passes_regex)
-        self.password_entry.connect('changed', self.__verify_password)
-        self.password_confirmation.connect('changed', self.__verify_password)
+        self.username_entry.connect('changed', self.__on_username_entry_changed)
+        self.password_entry.connect('changed', self.__on_password_changed)
+        self.password_confirmation.connect('changed', self.__on_password_changed)
 
-    def __username_passes_regex(self, *args):
-        input = self.username_entry.get_text()
-        print(input)
-        if not re.search("^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$", input):
-            print("Invalid username!")
+    def __on_username_entry_changed(self, *args):
+        _input = self.username_entry.get_text()
+        if not re.search("^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$", _input):
             self.username_entry.add_css_class('error')
             self.username_filled = False
             self.__verify_continue()
         else:
-            print("Valid username!")
             self.username_entry.remove_css_class('error')
             self.username_filled = True
             self.__verify_continue()
-            self.username = input
+            self.username = _input
 
-    def __verify_password(self, *args):
-        if self.password_entry.get_text() == self.password_confirmation.get_text() and self.password_entry.get_text().strip():
-            #self.btn_next.set_sensitive(True)
+    def __on_password_changed(self, *args):
+        password = self.password_entry.get_text()
+        if password == self.password_confirmation.get_text() \
+                and password.strip():
             self.password_filled = True;
-            self.__verify_continue();
             self.password_confirmation.remove_css_class('error')
-            self.password = self.__encrypt_password(self.password_entry.get_text())
+            self.password = self.__encrypt_password(password)
         else:
             self.password_filled = False;
-            self.__verify_continue();
             self.password_confirmation.add_css_class('error')
 
+        self.__verify_continue();
+
     def __verify_continue(self):
-        if self.password_filled and self.username_filled:
-            self.btn_next.set_sensitive(True)
-        else:
-            self.btn_next.set_sensitive(False)
+        self.btn_next.set_sensitive(self.password_filled and self.username_filled)
 
     def __encrypt_password(self, password):
-        command=subprocess.run([shutil.which("openssl"), "passwd", "-crypt", password], capture_output=True)
-        password_encrypted=command.stdout.decode('utf-8').strip('\n')
+        command = subprocess.run(
+            [shutil.which("openssl"), "passwd", "-crypt", password], 
+            capture_output=True
+        )
+        password_encrypted = command.stdout.decode('utf-8').strip('\n')
         return password_encrypted
         
