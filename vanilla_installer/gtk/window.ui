@@ -4,7 +4,7 @@
   <requires lib="libadwaita" version="1.0" />
   <template class="VanillaWindow" parent="AdwApplicationWindow">
     <property name="default-width">900</property>
-    <property name="default-height">640</property>
+    <property name="default-height">680</property>
     <property name="title">First Setup</property>
     <child>
       <object class="GtkBox">

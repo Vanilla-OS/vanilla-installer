@@ -12,39 +12,51 @@
                 <property name="title">Keyboard Layout</property>
                 <property name="description">Select your preferred keyboard layout</property>
                 <child>
-                    <object class="AdwPreferencesPage">
+                    <object class="AdwClamp">
+                        <property name="maximum-size">570</property>
                         <child>
-                            <object class="AdwPreferencesGroup">
+                            <object class="GtkBox">
+                                <property name="orientation">vertical</property>
                                 <child>
-                                    <object class="AdwComboRow" id="combo_layouts">
-                                        <property name="title">Layout</property>
-                                        <property name="model">
-                                            <object class="GtkStringList" id="str_list_layouts"></object>
-                                        </property>
+                                    <object class="GtkSearchEntry" id="entry_search_keyboard">
+                                        <property name="hexpand">true</property>
+                                        <property name="placeholder-text" translatable="true">Search for a Keyboard Layout</property>
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="AdwComboRow" id="combo_variants">
-                                        <property name="title">Variant</property>
-                                        <property name="model">
-                                            <object class="GtkStringList" id="str_list_variants"></object>
-                                        </property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="AdwEntryRow" id="entry_test">
-                                        <property name="title">Test the Keyboard</property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="GtkButton" id="btn_next">
-                                    <property name="label" translatable="true">Next</property>
-                                    <property name="halign">center</property>
-                                    <property name="margin-top">20</property>
-                                    <style>
-                                        <class name="pill" />
-                                        <class name="suggested-action" />
-                                    </style>
+                                    <object class="AdwPreferencesGroup">
+                                        <child>
+                                            <object class="AdwComboRow" id="combo_layouts">
+                                                <property name="title">Layout</property>
+                                                <property name="model">
+                                                    <object class="GtkStringList" id="str_list_layouts"></object>
+                                                </property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="AdwComboRow" id="combo_variants">
+                                                <property name="title">Variant</property>
+                                                <property name="model">
+                                                    <object class="GtkStringList" id="str_list_variants"></object>
+                                                </property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="AdwEntryRow" id="entry_test">
+                                                <property name="title">Test the Keyboard</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="btn_next">
+                                            <property name="label" translatable="true">Next</property>
+                                            <property name="halign">center</property>
+                                            <property name="margin-top">20</property>
+                                            <style>
+                                                <class name="pill" />
+                                                <class name="suggested-action" />
+                                            </style>
+                                            </object>
+                                        </child>
                                     </object>
                                 </child>
                             </object>

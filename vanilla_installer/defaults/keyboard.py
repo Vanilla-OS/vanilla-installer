@@ -32,6 +32,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
     combo_variants = Gtk.Template.Child()
     str_list_layouts = Gtk.Template.Child()
     str_list_variants = Gtk.Template.Child()
+    entry_search_keyboard = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)

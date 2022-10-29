@@ -34,6 +34,9 @@ class VanillaDefaultTimezone(Adw.Bin):
     combo_city = Gtk.Template.Child()
     str_list_country = Gtk.Template.Child()
     str_list_city = Gtk.Template.Child()
+    entry_search_timezone = Gtk.Template.Child()
+
+    search_controller = Gtk.EventControllerKey.new()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -64,6 +67,8 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.btn_next.connect("clicked", self.__window.next)
         self.combo_country.connect("notify::selected", self.__on_country_selected)
         self.combo_city.connect("notify::selected", self.__on_city_selected)
+        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        self.entry_search_timezone.add_controller(self.search_controller)
 
     def get_finals(self):
         return {}
@@ -87,3 +92,23 @@ class VanillaDefaultTimezone(Adw.Bin):
 
             self.row_preview.set_title(_time)
             self.row_preview.set_subtitle(_date)
+
+    def __on_search_key_pressed(self, *args):
+        keywords = self.entry_search_timezone.get_text().lower()
+
+        if keywords == "" or len(keywords) < 3:
+            return
+        
+        for country, cities in all_timezones.items():
+            for city in cities:
+
+                if keywords in city.lower():
+                    self.combo_country.set_selected(list(all_timezones.keys()).index(country))
+
+                    for index, _city in enumerate(all_timezones[country]):
+                        if city == _city:
+                            self.combo_city.set_selected(index)
+                            break
+
+                    return
+
