@@ -20,24 +20,43 @@
                 <property name="orientation">horizontal</property>
               </object>
             </property>
-            <child type="start">
-              <object class="GtkButton" id="btn_back">
-                <property name="label" translatable="true">Back</property>
-                <property name="halign">center</property>
-                <property name="visible">False</property>
-              </object>
-            </child>
+            
           </object>
         </child>
         <child>
-          <object class="AdwToastOverlay" id="toasts">
+          <object class="GtkOverlay">
+            <property name="valign">center</property>
+            <child type="overlay">
+              <object class="GtkButton" id="btn_back">
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="icon-name">go-previous-symbolic</property>
+                <property name="halign">start</property>
+                <property name="valign">center</property>
+                <property name="tooltip-text" translatable="yes">Back</property>
+                <style>
+                  <class name="circular" />
+                </style>
+              </object>
+            </child>
             <child>
-              <object class="AdwCarousel" id="carousel">
-                <property name="vexpand">True</property>
-                <property name="hexpand">True</property>
-                <property name="allow_scroll_wheel">False</property>
-                <property name="allow_mouse_drag">False</property>
-                <property name="allow_long_swipes">False</property>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="vexpand">true</property>
+                <property name="hexpand">true</property>
+                <child>
+                  <object class="AdwToastOverlay" id="toasts">
+                    <child>
+                      <object class="AdwCarousel" id="carousel">
+                        <property name="vexpand">True</property>
+                        <property name="hexpand">True</property>
+                        <property name="allow_scroll_wheel">False</property>
+                        <property name="allow_mouse_drag">False</property>
+                        <property name="allow_long_swipes">False</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

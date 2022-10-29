@@ -7,55 +7,68 @@
         <property name="valign">fill</property>
         <property name="hexpand">true</property>
         <child>
-            <object class="AdwStatusPage" id="status_page">
-                <property name="icon-name">preferences-system-time-symbolic</property>
-                <property name="title">Time &amp; Date</property>
-                <property name="description">Select your preferred timezone</property>
+            <object class="GtkBox">
+                <property name="vexpand">true</property>
+                <property name="hexpand">true</property>
                 <child>
-                    <object class="AdwClamp">
-                        <property name="maximum-size">570</property>
+                    <object class="GtkOverlay">
+                        <property name="valign">center</property>
+                        <child type="overlay">
+                            <object class="GtkButton" id="btn_next">
+                                <property name="margin-end">12</property>
+                                <property name="margin-start">12</property>
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="tooltip-text" translatable="yes">Next</property>
+                                <style>
+                                    <class name="circular" />
+                                </style>
+                            </object>
+                        </child>
                         <child>
-                            <object class="GtkBox">
-                                <property name="orientation">vertical</property>
+                            <object class="AdwStatusPage" id="status_page">
+                                <property name="icon-name">preferences-system-time-symbolic</property>
+                                <property name="title">Time &amp; Date</property>
+                                <property name="description">Select your preferred timezone</property>
                                 <child>
-                                    <object class="GtkSearchEntry" id="entry_search_timezone">
-                                        <property name="hexpand">true</property>
-                                        <property name="placeholder-text" translatable="true">Search for a Timezone</property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="AdwPreferencesGroup">
+                                    <object class="AdwClamp">
+                                        <property name="maximum-size">570</property>
                                         <child>
-                                            <object class="AdwComboRow" id="combo_country">
-                                                <property name="title">Country</property>
-                                                <property name="model">
-                                                    <object class="GtkStringList" id="str_list_country"></object>
-                                                </property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwComboRow" id="combo_city">
-                                                <property name="title">Timezone</property>
-                                                <property name="model">
-                                                    <object class="GtkStringList" id="str_list_city"></object>
-                                                </property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwActionRow" id="row_preview">
-                                                <property name="title">19:07:00</property>
-                                                <property name="subtitle">Saturday, 29 Oct 2022</property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="GtkButton" id="btn_next">
-                                            <property name="label" translatable="true">Next</property>
-                                            <property name="halign">center</property>
-                                            <property name="margin-top">20</property>
-                                            <style>
-                                                <class name="pill" />
-                                                <class name="suggested-action" />
-                                            </style>
+                                            <object class="GtkBox">
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                    <object class="GtkSearchEntry" id="entry_search_timezone">
+                                                        <property name="hexpand">true</property>
+                                                        <property name="placeholder-text" translatable="true">Search for a Timezone</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="AdwPreferencesGroup">
+                                                        <child>
+                                                            <object class="AdwComboRow" id="combo_country">
+                                                                <property name="title">Country</property>
+                                                                <property name="model">
+                                                                    <object class="GtkStringList" id="str_list_country"></object>
+                                                                </property>
+                                                            </object>
+                                                        </child>
+                                                        <child>
+                                                            <object class="AdwComboRow" id="combo_city">
+                                                                <property name="title">Timezone</property>
+                                                                <property name="model">
+                                                                    <object class="GtkStringList" id="str_list_city"></object>
+                                                                </property>
+                                                            </object>
+                                                        </child>
+                                                        <child>
+                                                            <object class="AdwActionRow" id="row_preview">
+                                                                <property name="title">19:07:00</property>
+                                                                <property name="subtitle">Saturday, 29 Oct 2022</property>
+                                                            </object>
+                                                        </child>
+                                                    </object>
+                                                </child>
                                             </object>
                                         </child>
                                     </object>
