@@ -22,7 +22,7 @@ import json
 from gi.repository import Gio
 
 
-logger = logging.getLogger("FirstSetup::RecipeLoader")
+logger = logging.getLogger("Installer::RecipeLoader")
 
 
 class RecipeLoader:

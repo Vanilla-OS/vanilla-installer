@@ -33,7 +33,7 @@ from vanilla_installer.layouts.preferences import VanillaLayoutPreferences
 from vanilla_installer.layouts.yes_no import VanillaLayoutYesNo
 
 
-logger = logging.getLogger("FirstSetup::Builder")
+logger = logging.getLogger("Installer::Builder")
 
 
 templates = {

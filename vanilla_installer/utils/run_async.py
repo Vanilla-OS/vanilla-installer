@@ -23,7 +23,7 @@ import logging
 
 from gi.repository import GLib
 
-logger = logging.getLogger("FirstSetup::Async")
+logger = logging.getLogger("Installer::Async")
 
 
 class RunAsync(threading.Thread):
