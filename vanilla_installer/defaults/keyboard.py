@@ -17,6 +17,7 @@
 import sys
 import time
 import subprocess
+import contextlib
 from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.models.keymaps import all_keymaps
@@ -73,13 +74,15 @@ class VanillaDefaultKeyboard(Adw.Bin):
         ).stdout.splitlines()
 
         current_layout = [l.split(": ")[1] for l in res if l.startswith("layout")][0]
-        current_variant = [l.split(": ")[1] for l in res if l.startswith("variant")][0]
-
+        current_variant = None
+        
         if "," in current_layout:
             current_layout = current_layout.split(",")[0].strip()
 
-        if "," in current_variant:
-            current_variant = current_variant.split(",")[0].strip()
+        with contextlib.suppress(IndexError):
+            current_variant = [l.split(": ")[1] for l in res if l.startswith("variant")][0]
+            if "," in current_variant:
+                current_variant = current_variant.split(",")[0].strip()
         
         return current_layout, current_variant
     
