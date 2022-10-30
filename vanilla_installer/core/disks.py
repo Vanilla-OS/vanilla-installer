@@ -128,6 +128,18 @@ class Partition:
         return self.__size
 
     @property
+    def pretty_size(self):
+        size = self.size
+        if size > 1024 ** 3:
+            return f"{round(size / 1024 ** 3, 2)} GB"
+        elif size > 1024 ** 2:
+            return f"{round(size / 1024 ** 2, 2)} MB"
+        elif size > 1024:
+            return f"{round(size / 1024, 2)} KB"
+        else:
+            return f"{size} B"
+
+    @property
     def fs_type(self):
         return self.__fs_type
 
