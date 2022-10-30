@@ -1,4 +1,4 @@
-# welcome.py
+# disk.py
 #
 # Copyright 2022 mirkobrombin
 #
