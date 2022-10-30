@@ -35,7 +35,7 @@ configure_file(
 
 subdir('defaults')
 subdir('layouts')
-subdir('models')
+subdir('core')
 subdir('utils')
 subdir('views')
 

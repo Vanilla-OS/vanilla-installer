@@ -1,5 +1,5 @@
 pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
-modelsdir = join_paths(pkgdatadir, 'vanilla_installer/models')
+coredir = join_paths(pkgdatadir, 'vanilla_installer/core')
 
 subdir('locales')
 
@@ -8,6 +8,7 @@ sources = [
   'locale.py',
   'keymaps.py',
   'timezones.py',
+  'disks.py',
 ]
 
-install_data(sources, install_dir: modelsdir)
+install_data(sources, install_dir: coredir)

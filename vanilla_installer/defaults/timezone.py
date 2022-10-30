@@ -20,7 +20,7 @@ import subprocess
 import contextlib
 from gi.repository import Gtk, Gio, GLib, Adw
 
-from vanilla_installer.models.timezones import all_timezones, get_current_timezone, get_preview_timezone
+from vanilla_installer.core.timezones import all_timezones, get_current_timezone, get_preview_timezone
 
 
 

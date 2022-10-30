@@ -20,7 +20,7 @@ import subprocess
 import contextlib
 from gi.repository import Gtk, Gio, GLib, Adw
 
-from vanilla_installer.models.keymaps import KeyMaps
+from vanilla_installer.core.keymaps import KeyMaps
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-keyboard.ui')

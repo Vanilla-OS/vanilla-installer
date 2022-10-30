@@ -9,7 +9,7 @@ files.remove(os.path.join(path, "__init__.py"))
 
 all_locales_categorized = {}
 for file in files:
-    module = importlib.import_module("vanilla_installer.models.locales." + os.path.basename(file)[:-3])
+    module = importlib.import_module("vanilla_installer.core.locales." + os.path.basename(file)[:-3])
     all_locales_categorized[module.name] = module.locales
 
 all_locales = []

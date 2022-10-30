@@ -1,4 +1,4 @@
-from vanilla_installer.models.locale import Locale
+from vanilla_installer.core.locale import Locale
 
 name = "brazil"
 locales = [
