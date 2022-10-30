@@ -47,7 +47,7 @@
                                 <child>
                                     <object class="AdwExpanderRow">
                                         <property name="title">Manual Partitioning</property>
-                                        <property name="subtitle">Choose how to partition the disk.</property>
+                                        <property name="subtitle">Choose how to partition the disk</property>
                                         <child type="prefix">
                                             <object class="GtkCheckButton" id="chk_manual_part">
                                                 <property name="valign">center</property>
@@ -56,7 +56,7 @@
                                         <child>
                                             <object class="AdwActionRow">
                                                 <property name="title">Open GParted</property>
-                                                <property name="subtitle">Open GParted to manually partition the disk.</property>
+                                                <property name="subtitle">Open GParted to manually partition the disk</property>
                                                 <property name="activatable">true</property>
                                                 <child type="suffix">
                                                     <object class="GtkImage">
@@ -74,7 +74,7 @@
                             <object class="AdwPreferencesGroup" id="group_partitions">
                                 <property name="visible">False</property>
                                 <property name="title">Partitions</property>
-                                <property name="description">The following partitions was found on the disk.</property>
+                                <property name="description">The following partitions were found on the disk</property>
                             </object>
                         </child>
                     </object>
