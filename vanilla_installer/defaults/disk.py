@@ -144,6 +144,43 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         return recipe
 
 
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk-confirm.ui')
+class VanillaDefaultDiskConfirmModal(Adw.Window):
+    __gtype_name__ = 'VanillaDefaultDiskConfirmModal'
+
+    btn_cancel = Gtk.Template.Child()
+    btn_apply = Gtk.Template.Child()
+    group_partitions = Gtk.Template.Child()
+
+    def __init__(self, window, partition_recipe, **kwargs):
+        super().__init__(**kwargs)
+        self.__window = window
+        self.set_transient_for(self.__window)
+
+        # signals
+        self.btn_cancel.connect('clicked', self.__on_btn_cancel_clicked)
+        self.btn_apply.connect('clicked', self.__on_btn_apply_clicked)
+
+        for partition in partition_recipe:
+            entry = Adw.ActionRow()
+            if partition == "auto":
+                entry.set_title(partition_recipe[partition])
+                entry.set_subtitle(_("Entire disk will be used."))
+            else:
+                entry.set_title(partition)
+                entry.set_subtitle(_("Will be formatted in {} and mounted in {}").format(
+                    partition_recipe[partition]["fs"],
+                    partition_recipe[partition]["mp"]
+                ))
+            self.group_partitions.add(entry)
+
+    def __on_btn_cancel_clicked(self, widget):
+        self.destroy()
+
+    def __on_btn_apply_clicked(self, widget):
+        self.__window.next()
+
+
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-disk.ui')
 class VanillaDefaultDisk(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultDisk'
@@ -175,7 +212,7 @@ class VanillaDefaultDisk(Adw.Bin):
             self.__registry_disks.append(entry)
 
         # signals
-        self.btn_next.connect("clicked", self.__window.next)
+        self.btn_next.connect("clicked", self.__on_btn_next_clicked)
         self.btn_configure.connect("clicked", self.__on_configure_clicked)
 
     def get_finals(self):
@@ -192,3 +229,7 @@ class VanillaDefaultDisk(Adw.Bin):
 
     def set_partition_recipe(self, recipe):
         self.__partition_recipe = recipe
+
+    def __on_btn_next_clicked(self, button):
+        modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
+        modal.present()
