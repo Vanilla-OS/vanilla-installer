@@ -16,6 +16,7 @@
 
 import sys
 import time
+import subprocess
 from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.core.disks import DisksManager
@@ -52,7 +53,6 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
     @property
     def disk(self):
         return self.__disk
-
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-partition.ui')
 class VanillaDefaultPartitionEntry(Adw.ExpanderRow):
@@ -94,6 +94,8 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     group_partitions = Gtk.Template.Child()
     btn_cancel = Gtk.Template.Child()
     btn_apply = Gtk.Template.Child()
+    launch_gparted = Gtk.Template.Child()
+
 
     def __init__(self, window, parent, disk, **kwargs):
         super().__init__(**kwargs)
@@ -108,6 +110,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.chk_manual_part.connect('toggled', self.__on_chk_manual_part_toggled)
         self.btn_cancel.connect('clicked', self.__on_btn_cancel_clicked)
         self.btn_apply.connect('clicked', self.__on_btn_apply_clicked)
+        self.launch_gparted.connect("clicked", self.__on_launch_gparted)
 
         for partition in self.__disk.partitions:
             entry = VanillaDefaultPartitionEntry(partition)
@@ -123,6 +126,9 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     def __on_btn_apply_clicked(self, widget):
         self.__parent.set_partition_recipe(self.partition_recipe)
         self.destroy()
+    
+    def __on_launch_gparted(self, widget):
+        subprocess.run(['gparted'])
 
     @property
     def partition_recipe(self):

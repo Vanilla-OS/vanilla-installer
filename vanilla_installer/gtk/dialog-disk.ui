@@ -55,13 +55,18 @@
                                         </child>
                                         <child>
                                             <object class="AdwActionRow">
+                                                <property name="icon-name">drive-harddisk-symbolic</property>
                                                 <property name="title">Open GParted</property>
                                                 <property name="subtitle">Open GParted to manually partition the disk</property>
                                                 <property name="activatable">true</property>
                                                 <child type="suffix">
-                                                    <object class="GtkImage">
-                                                        <property name="icon-name">drive-harddisk-symbolic</property>
-                                                        <property name="pixel-size">16</property>
+                                                    <object class="GtkButton" id="launch_gparted">
+                                                        <property name="icon-name">adw-external-link-symbolic</property>
+                                                        <property name="valign">center</property>
+                                                        <property name="halign">center</property>
+                                                        <style>
+                                                            <class name="circular" />
+                                                        </style>
                                                     </object>
                                                 </child>
                                             </object>
