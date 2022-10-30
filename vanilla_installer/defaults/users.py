@@ -27,10 +27,13 @@ class VanillaDefaultUsers(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultUsers'
 
     btn_next = Gtk.Template.Child()
+    fullname_entry = Gtk.Template.Child()
     username_entry = Gtk.Template.Child()
     password_entry = Gtk.Template.Child()
     password_confirmation = Gtk.Template.Child()
 
+    fullname = ""
+    fullname_filled = False
     username = ""
     username_filled = False
     password_filled = False
@@ -44,10 +47,17 @@ class VanillaDefaultUsers(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
+        self.fullname_entry.connect('changed', self.__on_fullname_entry_changed)
         self.username_entry.connect('changed', self.__on_username_entry_changed)
         self.password_entry.connect('changed', self.__on_password_changed)
         self.password_confirmation.connect('changed', self.__on_password_changed)
 
+    def __on_fullname_entry_changed(self, *args):
+        _fullname = self.fullname_entry.get_text()
+        self.fullname_filled = True
+        self.__verify_continue()
+        self.fullname = _fullname
+    
     def __on_username_entry_changed(self, *args):
         _input = self.username_entry.get_text()
         if not re.search("^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$", _input):
@@ -74,7 +84,7 @@ class VanillaDefaultUsers(Adw.Bin):
         self.__verify_continue();
 
     def __verify_continue(self):
-        self.btn_next.set_sensitive(self.password_filled and self.username_filled)
+        self.btn_next.set_sensitive(self.fullname_filled and self.password_filled and self.username_filled)
 
     def __encrypt_password(self, password):
         command = subprocess.run(

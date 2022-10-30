@@ -17,6 +17,7 @@
                         <property name="halign">end</property>
                         <property name="valign">center</property>
                         <property name="tooltip-text" translatable="yes">Next</property>
+                        <property name="sensitive">False</property>
                         <style>
                             <class name="circular" />
                         </style>
@@ -31,6 +32,11 @@
                             <object class="AdwPreferencesPage">
                                 <child>
                                     <object class="AdwPreferencesGroup">
+                                        <child>
+                                            <object class="AdwEntryRow" id="fullname_entry">
+                                                <property name="title" translatable="true">Enter Name</property>
+                                            </object>
+                                        </child>
                                         <child>
                                             <object class="AdwEntryRow" id="username_entry">
                                                 <property name="title" translatable="true">Enter Username</property>
