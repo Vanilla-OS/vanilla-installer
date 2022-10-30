@@ -40,7 +40,7 @@
         <child>
             <object class="AdwStatusPage">
                 <property name="title" translatable="true">Color Scheme</property>
-                <property name="description" translatable="true">Choose a color scheme for your system.</property>
+                <property name="description" translatable="true">Choose a color scheme for your system</property>
                 <property name="halign">fill</property>
                 <property name="valign">fill</property>
                 <property name="hexpand">true</property>

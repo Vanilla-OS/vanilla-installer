@@ -8,7 +8,7 @@
         <child>
             <object class="AdwComboRow" id="combo_fs">
                 <property name="title">Format</property>
-                <property name="subtitle">Choose a new file system or leave as is.</property>
+                <property name="subtitle">Choose a new file system or leave as is</property>
                 <property name="model">
                     <object class="GtkStringList" id="str_list_fs">
                         <items>
@@ -27,7 +27,7 @@
         <child>
             <object class="AdwComboRow" id="combo_mp">
                 <property name="title">Mount Point</property>
-                <property name="subtitle">Choose a mount point for the partition.</property>
+                <property name="subtitle">Choose a mount point for the partition</property>
                 <property name="model">
                     <object class="GtkStringList" id="str_list_mp">
                         <items>

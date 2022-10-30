@@ -29,7 +29,7 @@
                         <child>
                             <object class="AdwStatusPage" id="status_page">
                                 <property name="icon-name">preferences-system-time-symbolic</property>
-                                <property name="title">Time &amp; Date</property>
+                                <property name="title">Date &amp; Time</property>
                                 <property name="description">Select your preferred timezone</property>
                                 <child>
                                     <object class="AdwClamp">
