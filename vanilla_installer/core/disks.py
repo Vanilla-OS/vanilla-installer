@@ -35,6 +35,10 @@ class Disk:
     @property
     def disk(self):
         return f"/dev/{self.__disk}"
+
+    @property
+    def name(self):
+        return self.__disk
     
     @property
     def block(self):
@@ -43,6 +47,18 @@ class Disk:
     @property
     def size(self):
         return self.__size
+    
+    @property
+    def pretty_size(self):
+        size = self.size
+        if size > 1024 ** 3:
+            return f"{round(size / 1024 ** 3, 2)} GB"
+        elif size > 1024 ** 2:
+            return f"{round(size / 1024 ** 2, 2)} MB"
+        elif size > 1024:
+            return f"{round(size / 1024, 2)} KB"
+        else:
+            return f"{size} B"
 
 
 class Partition:
