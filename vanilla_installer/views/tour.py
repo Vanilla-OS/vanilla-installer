@@ -1,6 +1,8 @@
 # tour.py
 #
 # Copyright 2022 mirkobrombin
+# Copyright 2022 muqtadir
+#
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,8 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import webbrowser
-from gi.repository import Gtk, Adw
+from gi.repository import Gtk, Gio, GLib, Adw
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/tour.ui')
@@ -23,7 +24,7 @@ class VanillaTour(Adw.Bin):
     __gtype_name__ = 'VanillaTour'
 
     status_page = Gtk.Template.Child()
-    btn_read_more = Gtk.Template.Child()
+    assets_svg = Gtk.Template.Child()
 
     def __init__(self, window, tour, **kwargs):
         super().__init__(**kwargs)
@@ -31,15 +32,8 @@ class VanillaTour(Adw.Bin):
         self.__tour = tour
         self.__build_ui()
 
-        # signals
-        self.btn_read_more.connect("clicked", self.__on_read_more)
-
     def __build_ui(self):
-        self.status_page.set_icon_name(self.__tour["icon"])
+        self.assets_svg.set_resource(self.__tour["resource"])
         self.status_page.set_title(self.__tour["title"])
         self.status_page.set_description(self.__tour["description"])
-        
-        self.btn_read_more.set_visible(bool("read_more_link" in self.__tour))
-        
-    def __on_read_more(self, e):
-        webbrowser.open_new_tab(self.__tour["read_more_link"])
+                

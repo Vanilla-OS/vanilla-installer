@@ -12,27 +12,8 @@
                 <property name="valign">fill</property>
                 <property name="hexpand">true</property>
                 <child>
-                    <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <property name="vexpand">True</property>
-                        <property name="hexpand">True</property>
-                        <property name="valign">center</property>
-                        <child>
-                            <object class="GtkBox">
-                                <property name="valign">center</property>
-                                <property name="spacing">10</property>
-                                <property name="halign">center</property>
-                                <child>
-                                    <object class="GtkButton" id="btn_read_more">
-                                    <property name="label" translatable="true">Read More</property>
-                                    <property name="halign">center</property>
-                                    <style>
-                                        <class name="pill" />
-                                    </style>
-                                    </object>
-                                </child>
-                            </object>
-                        </child>
+                    <object class="GtkPicture" id="assets_svg">
+                        <property name="can-shrink">False</property>
                     </object>
                 </child>
             </object>
