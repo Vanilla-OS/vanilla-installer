@@ -126,8 +126,6 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     @property
     def partition_recipe(self):
-        # returns a dictionary with all the partitions with the choosen
-        # filesystem and mountpoint
         recipe = {}
         if self.chk_entire_disk.get_active():
             return {"auto": self.__disk.name}
@@ -188,5 +186,3 @@ class VanillaDefaultDisk(Adw.Bin):
 
     def set_partition_recipe(self, recipe):
         self.__partition_recipe = recipe
-        from pprint import pprint
-        pprint(recipe)
