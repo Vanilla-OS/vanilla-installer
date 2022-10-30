@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0" />
+    <template class="VanillaDefaultPartitionEntry" parent="AdwExpanderRow">
+        <property name="title">/dev/nvme0n1p1</property>
+        <property name="subtitle">1 GB</property>
+        <child>
+            <object class="AdwComboRow" id="combo_fs">
+                <property name="title">Format</property>
+                <property name="subtitle">Choose a new file system or leave as is.</property>
+                <property name="model">
+                    <object class="GtkStringList" id="str_list_fs">
+                        <items>
+                            <item>Do not touch</item>
+                            <item>btrfs</item>
+                            <item>ext4</item>
+                            <item>ext3</item>
+                            <item>fat32</item>
+                            <item>xfs</item>
+                            <item>swap</item>
+                        </items>
+                    </object>
+                </property>
+            </object>
+        </child>
+        <child>
+            <object class="AdwComboRow" id="combo_mp">
+                <property name="title">Mount Point</property>
+                <property name="subtitle">Choose a mount point for the partition.</property>
+                <property name="model">
+                    <object class="GtkStringList" id="str_list_mp">
+                        <items>
+                            <item>Do not mount</item>
+                            <item>/</item>
+                            <item>/boot</item>
+                            <item>/boot/efi</item>
+                            <item>/home</item>
+                            <item>/opt</item>
+                            <item>/tmp</item>
+                            <item>/usr</item>
+                            <item>/var</item>
+                        </items>
+                    </object>
+                </property>
+            </object>
+        </child>
+    </template>
+</interface>

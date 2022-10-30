@@ -5,13 +5,28 @@
     <template class="VanillaDefaultDiskPartModal" parent="AdwWindow">
         <property name="title" translatable="yes">Configure Disk</property>
         <property name="modal">true</property>
+        <property name="deletable">false</property>
         <property name="default-width">500</property>
         <property name="default-height">450</property>
         <child>
             <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
-                    <object class="AdwHeaderBar"></object>
+                    <object class="AdwHeaderBar">
+                        <child type="start">
+                            <object class="GtkButton" id="btn_cancel">
+                                <property name="label" translatable="yes">Cancel</property>
+                            </object>
+                        </child>
+                        <child type="end">
+                            <object class="GtkButton" id="btn_apply">
+                                <property name="label" translatable="yes">Apply</property>
+                                <style>
+                                    <class name="suggested-action"/>
+                                </style>
+                            </object>
+                        </child>
+                    </object>
                 </child>
                 <child>
                     <object class="AdwPreferencesPage">
@@ -22,8 +37,9 @@
                                         <property name="title">Use Entire Disk</property>
                                         <property name="subtitle">This will erase all data on the disk.</property>
                                         <child type="prefix">
-                                            <object class="GtkCheckButton">
+                                            <object class="GtkCheckButton" id="chk_entire_disk">
                                                 <property name="valign">center</property>
+                                                <property name="active">true</property>
                                             </object>
                                         </child>
                                     </object>
@@ -33,7 +49,7 @@
                                         <property name="title">Manual Partitioning</property>
                                         <property name="subtitle">Choose how to partition the disk.</property>
                                         <child type="prefix">
-                                            <object class="GtkCheckButton">
+                                            <object class="GtkCheckButton" id="chk_manual_part">
                                                 <property name="valign">center</property>
                                             </object>
                                         </child>
@@ -56,54 +72,9 @@
                         </child>
                         <child>
                             <object class="AdwPreferencesGroup" id="group_partitions">
+                                <property name="visible">False</property>
                                 <property name="title">Partitions</property>
                                 <property name="description">The following partitions was found on the disk.</property>
-                                <child>
-                                    <object class="AdwExpanderRow">
-                                        <property name="title">/dev/nvme0n1p1</property>
-                                        <property name="subtitle">1 GB</property>
-                                        <child>
-                                            <object class="AdwComboRow">
-                                                <property name="title">Format</property>
-                                                <property name="subtitle">Choose a new file system or leave as is.</property>
-                                                <property name="model">
-                                                    <object class="GtkStringList">
-                                                        <items>
-                                                            <item>none</item>
-                                                            <item>btrfs</item>
-                                                            <item>ext4</item>
-                                                            <item>ext3</item>
-                                                            <item>fat32</item>
-                                                            <item>xfs</item>
-                                                            <item>swap</item>
-                                                        </items>
-                                                    </object>
-                                                </property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwComboRow">
-                                                <property name="title">Mount Point</property>
-                                                <property name="subtitle">Choose a mount point for the partition.</property>
-                                                <property name="model">
-                                                    <object class="GtkStringList">
-                                                        <items>
-                                                            <item>none</item>
-                                                            <item>/</item>
-                                                            <item>/boot</item>
-                                                            <item>/boot/efi</item>
-                                                            <item>/home</item>
-                                                            <item>/opt</item>
-                                                            <item>/tmp</item>
-                                                            <item>/usr</item>
-                                                            <item>/var</item>
-                                                        </items>
-                                                    </object>
-                                                </property>
-                                            </object>
-                                        </child>
-                                    </object>
-                                </child>
                             </object>
                         </child>
                     </object>
