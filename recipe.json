@@ -11,18 +11,31 @@
         "sudo apx --sys install -f"
     ],
     "tour": {
-        "almost": {
-             "icon": "security-medium-symbolic",
-             "title": "On-Demand Immutability",
-             "description": "Vanilla OS features On-Demand Immutability, which blind your system against undesired modifications, being still fully accessible by you.",
-             "read_more_link": "https://documentation.vanillaos.org/docs/almost/"
-        },
-        "apx": {
-             "icon": "vanilla-container-terminal-symbolic",
-             "title": "Sub-System Ready To Go",
-             "description": "Vanilla OS comes with Apx, a new package manager which install the software in an integrated container to prevent host compromise.",
-             "read_more_link": "https://documentation.vanillaos.org/docs/apx/"
-        }
+        "welcome": {
+            "resource": "/org/vanilla-installer/vanilla_installer/assets/welcome.svg",
+            "title": "Start the Tour",
+            "description": "Learn about the key features in Vanilla OS."
+       },
+       "overview": {
+           "resource": "/org/vanilla-installer/vanilla_installer/assets/overview.svg",
+           "title": "Get an Overview",
+           "description": "Press the Super key to see open windows and apps."
+       },
+       "search": {
+           "resource": "/org/vanilla-installer/vanilla_installer/assets/search.svg",
+           "title": "Just Type to Search",
+           "description": "Type in the overview to search. Launch apps,find things."
+       },
+       "workspaces": {
+           "resource": "/org/vanilla-installer/vanilla_installer/assets/workspaces.svg",
+           "title": "Keep on Top with Workspaces",
+           "description": "Easily organize windows with the workspace view."
+       },
+       "done": {
+           "resource": "/org/vanilla-installer/vanilla_installer/assets/ready-to-go.svg",
+           "title": "That's it. Have a nice day!",
+           "description": "To get more advice and tips,see the Help app."
+       }
     },
     "steps": {
         "welcome": {
