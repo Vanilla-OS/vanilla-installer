@@ -1,0 +1,170 @@
+import os
+import subprocess
+import sys
+
+
+class Disk:
+    
+    def __init__(self, disk: str):
+        self.__disk = disk
+        self.__partitions = self.__get_partitions()
+        self.__size = self.__get_size()
+
+    def __get_partitions(self):
+        partitions = []
+        for partition in os.listdir(self.block):
+            if partition.startswith(self.__disk):
+                partitions.append(Partition(self.__disk, partition))
+        return partitions
+
+    def __get_size(self):
+        size = 0
+        for partition in self.partitions:
+            size += partition.size
+        return size
+        
+    @property
+    def partitions(self):
+        return self.__partitions
+
+    def get_partition(self, mountpoint: str):
+        for partition in self.partitions:
+            if partition.mountpoint == mountpoint:
+                return partition
+
+    @property
+    def disk(self):
+        return f"/dev/{self.__disk}"
+    
+    @property
+    def block(self):
+        return f"/sys/block/{self.__disk}"
+
+    @property
+    def size(self):
+        return self.__size
+
+
+class Partition:
+
+    def __init__(self, disk: str, partition: str):
+        self.__disk = disk
+        self.__partition = partition
+        self.__mountpoint = self.__get_mountpoint()
+        self.__size = self.__get_size()
+        self.__fs_type = self.__get_fs_type()
+        self.__uuid = self.__get_uuid()
+        self.__label = self.__get_label()
+
+    def __get_mountpoint(self):
+        try:
+            return subprocess.check_output(
+                f"findmnt -n -o TARGET {self.partition}",
+                shell=True
+            ).decode("utf-8").strip()
+        except subprocess.CalledProcessError:
+            return None
+
+    def __get_size(self):
+        return int(open(f"{self.block}/size").read().strip()) * 512
+
+    def __get_fs_type(self):
+        try:
+            return subprocess.check_output(
+                f"findmnt -n -o FSTYPE {self.partition}",
+                shell=True
+            ).decode("utf-8").strip()
+        except subprocess.CalledProcessError:
+            return None
+
+    def __get_uuid(self):
+        try:
+            return subprocess.check_output(
+                f"findmnt -n -o UUID {self.partition}",
+                shell=True
+            ).decode("utf-8").strip()
+        except subprocess.CalledProcessError:
+            return None
+
+    def __get_label(self):
+        try:
+            return subprocess.check_output(
+                f"findmnt -n -o LABEL {self.partition}",
+                shell=True
+            ).decode("utf-8").strip()
+        except subprocess.CalledProcessError:
+            return None
+
+    @property
+    def partition(self):
+        return f"/dev/{self.__partition}"
+
+    @property
+    def block(self):
+        return f"/sys/block/{self.__disk}/{self.__partition}"
+
+    @property
+    def mountpoint(self):
+        return self.__mountpoint
+
+    @property
+    def size(self):
+        return self.__size
+
+    @property
+    def fs_type(self):
+        return self.__fs_type
+
+    @property
+    def uuid(self):
+        return self.__uuid
+
+    @property
+    def label(self):
+        return self.__label
+
+
+class DisksManager:
+
+    def __init__(self):
+        self.__disks = self.__get_disks()
+
+    def __get_disks(self):
+        disks = []
+
+        for disk in os.listdir("/sys/block"):
+            if disk.startswith(("loop", "ram", "sr")):
+                continue
+            
+            disks.append(Disk(disk))
+
+        return disks
+
+    @property
+    def all_disks(self):
+        return self.__disks
+
+    def get_disk(self, disk: str):
+        for disk in self.all_disks:
+            if disk.disk == disk:
+                return disk
+
+
+# testing snippet:
+# if __name__ == "__main__":
+#     disks_manager = DisksManager()
+#     for disk in disks_manager.all_disks:
+#         print(f"Disk: {disk.disk}")
+#         print(f"Size: {disk.size}")
+#         for partition in disk.partitions:
+#             print(f"Partition: {partition.partition}")
+#             print(f"Mountpoint: {partition.mountpoint}")
+#             print(f"Size: {partition.size}")
+#             print(f"FS Type: {partition.fs_type}")
+#             print(f"UUID: {partition.uuid}")
+#             print(f"Label: {partition.label}")
+#             print()
+
+#         print()
+
+#     print("Done!")
