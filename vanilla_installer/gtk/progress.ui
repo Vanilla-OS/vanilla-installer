@@ -5,21 +5,50 @@
     <template class="VanillaProgress" parent="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-            <object class="AdwCarousel" id="carousel_tour">
-                <property name="halign">fill</property>
-                <property name="valign">fill</property>
-                <property name="hexpand">true</property>
-                <property name="vexpand">true</property>
-                <property name="allow_scroll_wheel">False</property>
-                <property name="allow_mouse_drag">False</property>
-                <property name="allow_long_swipes">False</property>
+            <object class="GtkBox">
+                <property name="margin-start">18</property>
+                <property name="margin-end">18</property>
+                <property name="margin-top">18</property>
+                <property name="margin-bottom">18</property>
+                <property name="height-request">550</property>
+                <property name="orientation">vertical</property>
+                <child>
+                    <object class="AdwCarousel" id="carousel_tour">
+                        <property name="halign">fill</property>
+                        <property name="valign">fill</property>
+                        <property name="hexpand">true</property>
+                        <property name="vexpand">true</property>
+                        <property name="allow_scroll_wheel">False</property>
+                        <property name="allow_mouse_drag">False</property>
+                        <property name="allow_long_swipes">False</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="AdwCarouselIndicatorLines">
+                        <property name="carousel">carousel_tour</property>
+                        <property name="orientation">horizontal</property>
+                        <property name="margin-bottom">18</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+        <child>
+            <object class="GtkLabel" id="progressbar_text">
+                <property name="wrap">True</property>
+                <property name="wrap-mode">word-char</property>
+                <property name="halign">start</property>
+                <property name="margin-top">40</property>
+                <property name="margin-start">40</property>
+                <property name="label" translatable="true">Installing...</property>
+                <style>
+                    <class name="title-4"/>
+                </style>
             </object>
         </child>
         <child>
             <object class="GtkProgressBar" id="progressbar">
-              <property name="text" translatable="true">The changes are being applied. Please Wait…</property>
-              <property name="show-text">true</property>
-              <property name="margin-top">40</property>
+              <property name="show-text">false</property>
+              <property name="margin-top">12</property>
               <property name="margin-start">40</property>
               <property name="margin-bottom">40</property>
               <property name="margin-end">40</property>
