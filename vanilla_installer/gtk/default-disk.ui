@@ -16,6 +16,7 @@
                         <property name="icon-name">go-next-symbolic</property>
                         <property name="halign">end</property>
                         <property name="valign">center</property>
+                        <property name="visible">false</property>
                         <property name="tooltip-text" translatable="yes">Next</property>
                         <style>
                             <class name="circular" />

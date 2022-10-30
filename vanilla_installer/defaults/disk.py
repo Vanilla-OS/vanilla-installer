@@ -17,7 +17,7 @@
 import sys
 import time
 import subprocess
-from gi.repository import Gtk, Gio, GLib, Adw
+from gi.repository import Gtk, Gio, GLib, GObject, Adw
 
 from vanilla_installer.core.disks import DisksManager
 
@@ -88,6 +88,9 @@ class VanillaDefaultPartitionEntry(Adw.ExpanderRow):
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk.ui')
 class VanillaDefaultDiskPartModal(Adw.Window):
     __gtype_name__ = 'VanillaDefaultDiskPartModal'
+    __gsignals__ = {
+        "partitioning-set": (GObject.SignalFlags.RUN_FIRST, None, (str,)),
+    }
 
     chk_entire_disk = Gtk.Template.Child()
     chk_manual_part = Gtk.Template.Child()
@@ -125,6 +128,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     def __on_btn_apply_clicked(self, widget):
         self.__parent.set_partition_recipe(self.partition_recipe)
+        self.emit("partitioning-set", self.__disk.name)
         self.destroy()
     
     def __on_launch_gparted(self, widget):
@@ -179,6 +183,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
 
     def __on_btn_apply_clicked(self, widget):
         self.__window.next()
+        self.destroy()
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-disk.ui')
@@ -219,11 +224,15 @@ class VanillaDefaultDisk(Adw.Bin):
         return {}
     
     def __on_configure_clicked(self, button):
+        def on_modal_close_request(*args):
+            self.btn_next.set_visible(self.__partition_recipe is not None)
+
         for entry in self.__registry_disks:
             if not entry.is_active:
                 continue
 
             modal = VanillaDefaultDiskPartModal(self.__window, self, entry.disk)
+            modal.connect('partitioning-set', on_modal_close_request)
             modal.present()
             break
 
