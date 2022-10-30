@@ -41,6 +41,9 @@
         "welcome": {
             "template": "welcome"
         },
+        "language": {
+            "template": "language"
+        },
         "keyboard": {
             "template": "keyboard"
         },
