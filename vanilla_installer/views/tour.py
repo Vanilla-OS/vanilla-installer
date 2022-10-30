@@ -31,7 +31,7 @@ class VanillaTour(Adw.Bin):
         self.__build_ui()
 
     def __build_ui(self):
-        self.assets_svg.set_from_resource(self.__tour["resource"])
+        self.assets_svg.set_resource(self.__tour["resource"])
         self.status_page.set_title(self.__tour["title"])
         self.status_page.set_description(self.__tour["description"])
                 

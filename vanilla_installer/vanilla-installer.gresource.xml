@@ -21,12 +21,12 @@
     <file>gtk/layout-preferences.ui</file>
     <file>gtk/layout-yes-no.ui</file>
   </gresource>
-  <gresource prefix="/org/vanilla-installer/vanilla_installer/assets">
-    <file preprocess="xml-stripblanks">assets/welcome.svg</file>
-    <file preprocess="xml-stripblanks">assets/overview.svg</file>
-    <file preprocess="xml-stripblanks">assets/ready-to-go.svg</file>
-    <file preprocess="xml-stripblanks">assets/search.svg</file>
-    <file preprocess="xml-stripblanks">assets/workspaces.svg</file>
+  <gresource prefix="/org/vanillaos/Installer">
+    <file>assets/welcome.svg</file>
+    <file>assets/overview.svg</file>
+    <file>assets/ready-to-go.svg</file>
+    <file>assets/search.svg</file>
+    <file>assets/workspaces.svg</file>
 </gresource>
   <gresource prefix="/org/vanillaos/Installer/icons/scalable/actions/">
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-package-symbolic.svg</file>

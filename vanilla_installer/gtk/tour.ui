@@ -6,18 +6,17 @@
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <property name="hexpand">true</property>
-        
+        <child>
+            <object class="AdwStatusPage" id="status_page">
+                <property name="halign">fill</property>
+                <property name="valign">fill</property>
+                <property name="hexpand">true</property>
                 <child>
-                    <object class="AdwStatusPage" id="status_page">
-                        <property name="halign">fill</property>
-                        <property name="valign">fill</property>
-                        <property name="hexpand">true</property>
-                        <child>
-                            <object class="GtkImage" id="assets_svg">
-                            </object>
-                        </child>
+                    <object class="GtkPicture" id="assets_svg">
+                        <property name="can-shrink">False</property>
                     </object>
                 </child>
-
+            </object>
+        </child>
     </template>
 </interface>
