@@ -25,6 +25,7 @@ from gi.repository import Gio
 from vanilla_installer.utils.recipe import RecipeLoader
 
 from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
+from vanilla_installer.defaults.language import VanillaDefaultLanguage
 from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
 from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
 from vanilla_installer.defaults.users import VanillaDefaultUsers
@@ -39,6 +40,7 @@ logger = logging.getLogger("Installer::Builder")
 
 templates = {
     "welcome": VanillaDefaultWelcome,
+    "language": VanillaDefaultLanguage,
     "keyboard": VanillaDefaultKeyboard,
     "timezone": VanillaDefaultTimezone,
     "preferences": VanillaLayoutPreferences,

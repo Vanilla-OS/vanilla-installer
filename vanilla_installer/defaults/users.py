@@ -55,7 +55,13 @@ class VanillaDefaultUsers(Adw.Bin):
         self.password_confirmation.connect('changed', self.__on_password_changed)
 
     def get_finals(self):
-        return {}
+        return {
+            "users": {
+                "fullname": self.fullname,
+                "username": self.username,
+                "password": self.password_entry.get_text()
+            }
+        }
 
     def __on_fullname_entry_changed(self, *args):
         _fullname = self.fullname_entry.get_text()

@@ -71,7 +71,22 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.entry_search_keyboard.add_controller(self.search_controller)
 
     def get_finals(self):
-        return {}
+        variant_index = self.combo_variants.get_selected()
+        variant = self.str_list_variants.get_item(variant_index)
+
+        if variant is None:
+            return {"keyboard": "us"}  # fallback
+
+        variant = variant.get_string()
+        layout_index = self.combo_layouts.get_selected()
+        layout = list(self.__keymaps.list_all.keys())[layout_index]
+        layout = self.__keymaps.list_all[layout]
+
+        for key in layout.keys():
+            if layout[key]["display_name"] == variant:
+                return {
+                    "keyboard": layout[key]["xkb_layout"]
+                }
     
     def __get_current_layout(self):
         res = subprocess.run(

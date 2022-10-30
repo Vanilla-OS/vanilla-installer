@@ -66,16 +66,12 @@ class VanillaWindow(Adw.ApplicationWindow):
 
     def __on_page_changed(self, *args):
         def process():
-            # this parses the finals to compatible commands, by replacing the
-            # placeholders with the actual values and generating shell commands
-            commands = Parser.parse(finals)
-
-            # process the commands
+            # process the final data
             return Processor.run(
                 self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
                 self.recipe.get("pre_run", []),
                 self.recipe.get("post_run"),
-                commands
+                finals
             )
 
         def on_done(result, *args):

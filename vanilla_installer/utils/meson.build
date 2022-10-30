@@ -7,7 +7,6 @@ sources = [
   'processor.py',
   'recipe.py',
   'builder.py',
-  'parser.py',
 ]
 
 install_data(sources, install_dir: utilsdir)

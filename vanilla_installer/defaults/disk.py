@@ -53,6 +53,11 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
     @property
     def disk(self):
         return self.__disk
+    
+    @property
+    def disk_block(self):
+        return self.__partition.disk_block
+        
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-partition.ui')
 class VanillaDefaultPartitionEntry(Adw.ExpanderRow):
@@ -79,6 +84,10 @@ class VanillaDefaultPartitionEntry(Adw.ExpanderRow):
     def selected_mountpoint(self):
         index = self.combo_mp.get_selected()
         return self.str_list_mp.get_string(index)
+
+    @property
+    def pretty_size(self):
+        return self.__partition.pretty_size
 
     @property
     def name(self):
@@ -138,12 +147,20 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     def partition_recipe(self):
         recipe = {}
         if self.chk_entire_disk.get_active():
-            return {"auto": self.__disk.name}
+            return {
+                "auto": {
+                    "disk": self.__disk.disk,
+                    "pretty_size": self.__disk.pretty_size,
+                    "size": self.__disk.size,
+                }
+            }
         
         for partition in self.__registry_partitions:
             recipe[partition.name] = {
                 "fs": partition.selected_fs,
-                "mp": partition.selected_mountpoint
+                "mp": partition.selected_mountpoint,
+                "pretty_size": partition.pretty_size,
+                "size": partition.pretty_size,
             }
         return recipe
 
@@ -168,7 +185,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
         for partition in partition_recipe:
             entry = Adw.ActionRow()
             if partition == "auto":
-                entry.set_title(partition_recipe[partition])
+                entry.set_title(partition_recipe[partition]["disk"])
                 entry.set_subtitle(_("Entire disk will be used."))
             else:
                 entry.set_title(partition)
@@ -221,7 +238,7 @@ class VanillaDefaultDisk(Adw.Bin):
         self.btn_configure.connect("clicked", self.__on_configure_clicked)
 
     def get_finals(self):
-        return {}
+        return {"disk": self.__partition_recipe}
     
     def __on_configure_clicked(self, button):
         def on_modal_close_request(*args):
