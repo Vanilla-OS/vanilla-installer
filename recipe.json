@@ -12,27 +12,27 @@
     ],
     "tour": {
         "welcome": {
-            "resource": "/org/vanilla-installer/vanilla_installer/assets/welcome.svg",
+            "resource": "/org/vanillaos/Installer/assets/welcome.svg",
             "title": "Start the Tour",
             "description": "Learn about the key features in Vanilla OS."
        },
        "overview": {
-           "resource": "/org/vanilla-installer/vanilla_installer/assets/overview.svg",
+           "resource": "/org/vanillaos/Installer/assets/overview.svg",
            "title": "Get an Overview",
            "description": "Press the Super key to see open windows and apps."
        },
        "search": {
-           "resource": "/org/vanilla-installer/vanilla_installer/assets/search.svg",
+           "resource": "/org/vanillaos/Installer/assets/search.svg",
            "title": "Just Type to Search",
            "description": "Type in the overview to search. Launch apps,find things."
        },
        "workspaces": {
-           "resource": "/org/vanilla-installer/vanilla_installer/assets/workspaces.svg",
+           "resource": "/org/vanillaos/Installer/assets/workspaces.svg",
            "title": "Keep on Top with Workspaces",
            "description": "Easily organize windows with the workspace view."
        },
        "done": {
-           "resource": "/org/vanilla-installer/vanilla_installer/assets/ready-to-go.svg",
+           "resource": "/org/vanillaos/Installer/assets/ready-to-go.svg",
            "title": "That's it. Have a nice day!",
            "description": "To get more advice and tips,see the Help app."
        }
