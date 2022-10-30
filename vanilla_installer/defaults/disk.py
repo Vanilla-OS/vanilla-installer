@@ -18,7 +18,7 @@ import sys
 import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
-from vanilla_installer.utils.run_async import RunAsync
+from vanilla_installer.core.disks import DisksManager
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk.ui')
@@ -31,12 +31,24 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.set_transient_for(self.__window)
 
 
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-disk.ui')
+class VanillaDefaultDiskEntry(Adw.ActionRow):
+    __gtype_name__ = 'VanillaDefaultDiskEntry'
+
+    def __init__(self, disk, **kwargs):
+        super().__init__(**kwargs)
+        self.__disk = disk
+        self.set_title(disk.name)
+        self.set_subtitle(disk.pretty_size)
+
+
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-disk.ui')
 class VanillaDefaultDisk(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultDisk'
 
     btn_next = Gtk.Template.Child()
     btn_configure = Gtk.Template.Child()
+    group_disks = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -44,6 +56,12 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.__disks = DisksManager()
+
+        # append the disks widgets
+        for disk in self.__disks.all_disks:
+            entry = VanillaDefaultDiskEntry(disk)
+            self.group_disks.add(entry)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)

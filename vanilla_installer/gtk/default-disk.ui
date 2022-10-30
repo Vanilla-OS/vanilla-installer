@@ -30,40 +30,10 @@
                         <child>
                             <object class="AdwPreferencesPage">
                                 <child>
-                                    <object class="AdwPreferencesGroup" id="group_disks">
-                                        <child>
-                                            <object class="AdwActionRow">
-                                                <property name="title">/dev/nvme0n1</property>
-                                                <property name="subtitle">512 GB</property>
-                                                <child type="prefix">
-                                                    <object class="GtkCheckButton">
-                                                        <property name="valign">center</property>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwActionRow">
-                                                <property name="title">/dev/nvme0n1</property>
-                                                <property name="subtitle">512 GB</property>
-                                                <child type="prefix">
-                                                    <object class="GtkCheckButton">
-                                                        <property name="valign">center</property>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwActionRow">
-                                                <property name="title">/dev/nvme0n1</property>
-                                                <property name="subtitle">512 GB</property>
-                                                <child type="prefix">
-                                                    <object class="GtkCheckButton">
-                                                        <property name="valign">center</property>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
+                                    <object class="AdwPreferencesGroup" id="group_disks"></object>
+                                </child>
+                                <child>
+                                    <object class="AdwPreferencesGroup">
                                         <child>
                                             <object class="GtkButton" id="btn_configure">
                                                 <property name="label" translatable="yes">Configure</property>

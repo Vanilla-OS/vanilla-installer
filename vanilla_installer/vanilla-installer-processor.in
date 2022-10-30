@@ -41,7 +41,7 @@ gettext.install('vanilla_installer', localedir)
 
 if __name__ == '__main__':
     from vanilla_installer.utils.configurator import Configurator
-    from vanilla_installer.models.config import Config
+    from vanilla_installer.core.config import Config
 
     parser = argparse.ArgumentParser()
     parser.add_argument(

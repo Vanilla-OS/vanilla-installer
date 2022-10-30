@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0" />
+    <template class="VanillaDefaultDiskEntry" parent="AdwActionRow">
+        <property name="title">/dev/unit</property>
+        <property name="subtitle">-1 GB</property>
+        <child type="prefix">
+            <object class="GtkCheckButton" id="chk_button">
+                <property name="valign">center</property>
+            </object>
+        </child>
+    </template>
+</interface>

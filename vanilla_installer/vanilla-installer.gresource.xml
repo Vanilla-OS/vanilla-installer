@@ -16,6 +16,8 @@
     <file>gtk/default-users.ui</file>
     <file>gtk/default-disk.ui</file>
 
+    <file>gtk/widget-disk.ui</file>
+
     <file>gtk/layout-preferences.ui</file>
     <file>gtk/layout-yes-no.ui</file>
   </gresource>
