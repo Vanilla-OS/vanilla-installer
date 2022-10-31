@@ -25,22 +25,10 @@ install_data(
 
 
 install_data(
-    join_paths(actions_dir, 'vanilla-container-terminal-symbolic.svg'),
+    join_paths(actions_dir, 'vanilla-installer-harddisk-symbolic.svg'),
     install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
 )
 install_data(
-    join_paths(actions_dir, 'vanilla-package-symbolic.svg'),
-    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
-)
-install_data(
-    join_paths(actions_dir, 'vanilla-puzzle-piece-symbolic.svg'),
-    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
-)
-install_data(
-    join_paths(actions_dir, 'harddisk-symbolic.svg'),
-    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
-)
-install_data(
-    join_paths(actions_dir, 'display-with-window-symbolic.svg'),
+    join_paths(actions_dir, 'vanilla-installer-display-with-window-symbolic.svg'),
     install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
 )

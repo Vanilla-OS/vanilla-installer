@@ -20,7 +20,6 @@ import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.utils.builder import Builder
-from vanilla_installer.utils.parser import Parser
 from vanilla_installer.utils.processor import Processor
 from vanilla_installer.utils.run_async import RunAsync
 

@@ -32,7 +32,7 @@
                                         <property name="halign">center</property>
                                         <child>
                                             <object class="GtkImage">
-                                                <property name="icon-name">display-with-window-symbolic</property>
+                                                <property name="icon-name">vanilla-installer-display-with-window-symbolic</property>
                                                 <property name="pixel-size">74</property>
                                             </object>
                                         </child>
@@ -67,7 +67,7 @@
                                         <property name="halign">center</property>
                                         <child>
                                             <object class="GtkImage">
-                                                <property name="icon-name">harddisk-symbolic</property>
+                                                <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
                                                 <property name="pixel-size">74</property>
                                             </object>
                                         </child>

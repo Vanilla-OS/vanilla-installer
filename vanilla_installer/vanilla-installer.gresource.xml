@@ -32,11 +32,8 @@
     <file>assets/workspaces.svg</file>
 </gresource>
   <gresource prefix="/org/vanillaos/Installer/icons/scalable/actions/">
-    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-package-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-container-terminal-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-puzzle-piece-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/harddisk-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/display-with-window-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-installer-harddisk-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-installer-display-with-window-symbolic.svg</file>
   </gresource>
     <gresource prefix="/org/vanillaos/installer/images">
         <file alias="images/welcome.svg">../data/images/welcome.svg</file>

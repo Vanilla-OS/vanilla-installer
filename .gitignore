@@ -2,3 +2,6 @@
 /mesonbuild
 **.pyc
 **__pycache__
+/debian/vanilla-installer
+/debian/vanilla-installer.substvars
+/debian/vanilla-installer.debhelper.log
