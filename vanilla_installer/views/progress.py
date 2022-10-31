@@ -27,13 +27,32 @@ class VanillaProgress(Gtk.Box):
     __gtype_name__ = 'VanillaProgress'
 
     carousel_tour = Gtk.Template.Child()
+    tour_button = Gtk.Template.Child()
+    tour_box = Gtk.Template.Child()
     progressbar = Gtk.Template.Child()
+    console_button = Gtk.Template.Child()
+    console_box = Gtk.Template.Child()
 
     def __init__(self, window, tour: dict, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
         self.__tour = tour
         self.__build_ui()
+
+        self.tour_button.connect("clicked", self.__on_tour_button)
+        self.console_button.connect("clicked", self.__on_console_button)
+
+    def __on_tour_button(self, *args):
+        self.tour_box.set_visible(True)
+        self.console_box.set_visible(False)
+        self.tour_button.set_visible(False)
+        self.console_button.set_visible(True)
+
+    def __on_console_button(self, *args):
+        self.tour_box.set_visible(False)
+        self.console_box.set_visible(True)
+        self.tour_button.set_visible(False)
+        self.console_button.set_visible(True)
 
     def __build_ui(self):
         for _, tour in self.__tour.items():
