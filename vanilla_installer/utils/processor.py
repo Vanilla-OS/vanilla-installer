@@ -98,7 +98,7 @@ class Processor:
             os.chmod(f.name, 0o755)
                 
             proc = subprocess.run(
-                ["pkexec", "sh", f.name],
+                ["sh", f.name],
                 check=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT
