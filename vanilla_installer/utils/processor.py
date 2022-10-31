@@ -44,7 +44,7 @@ class Processor:
         for final in finals:
             for key, value in final.items():
                 if key == "users":
-                    arguments = ["echo", f"'{value['password']}'", ">"] + arguments
+                    arguments = ["echo", f"'{value['password']}'", "|"] + arguments
                     arguments += ["--username", f"'{value['username']}'"]
                     arguments += ["--realname", f"'{value['fullname']}'"]
                     arguments += ["--profile_icon", "'/usr/share/pixmaps/faces/yellow-rose.jpg'"]
