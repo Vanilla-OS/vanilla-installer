@@ -161,7 +161,7 @@ class DisksManager:
         disks = []
 
         for disk in os.listdir("/sys/block"):
-            if disk.startswith(("loop", "ram", "sr")):
+            if disk.startswith(("loop", "ram", "sr", "zram")):
                 continue
             
             disks.append(Disk(disk))
