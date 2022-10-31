@@ -16,9 +16,10 @@
               <class name="flat" />
             </style>
             <property name="title_widget">
-              <object class="AdwCarouselIndicatorDots">
+              <object class="AdwCarouselIndicatorDots" id="carousel_indicator_dots">
                 <property name="carousel">carousel</property>
                 <property name="orientation">horizontal</property>
+                <property name="visible">False</property>
               </object>
             </property>
             

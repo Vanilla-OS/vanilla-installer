@@ -7,9 +7,9 @@
         <child>
             <object class="GtkBox" id="tour_box">
                 <property name="visible">True</property>
-                <property name="margin-start">18</property>
-                <property name="margin-end">18</property>
-                <property name="margin-top">18</property>
+                <property name="margin-start">40</property>
+                <property name="margin-end">40</property>
+                <property name="margin-top">1</property>
                 <property name="margin-bottom">18</property>
                 <property name="height-request">550</property>
                 <property name="orientation">vertical</property>
@@ -25,7 +25,7 @@
                     </object>
                 </child>
                 <child>
-                    <object class="AdwCarouselIndicatorLines">
+                    <object class="AdwCarouselIndicatorDots">
                         <property name="carousel">carousel_tour</property>
                         <property name="orientation">horizontal</property>
                         <property name="margin-bottom">18</property>

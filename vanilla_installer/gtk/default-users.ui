@@ -59,7 +59,7 @@
                                                 </child>
                                                 <child>
                                                     <object class="AdwPasswordEntryRow" id="password_confirmation">
-                                                        <property name="title" translatable="true">Re-enter Password</property>
+                                                        <property name="title" translatable="true">Confirm Password</property>
                                                     </object>
                                                 </child>
                                             </object>

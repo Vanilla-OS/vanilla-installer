@@ -25,17 +25,13 @@
     <file>gtk/layout-yes-no.ui</file>
   </gresource>
   <gresource prefix="/org/vanillaos/Installer">
-    <file>assets/welcome.svg</file>
-    <file>assets/overview.svg</file>
-    <file>assets/ready-to-go.svg</file>
-    <file>assets/search.svg</file>
-    <file>assets/workspaces.svg</file>
+    <file>assets/welcome.png</file>
+    <file>assets/complete.svg</file>
+    <file>assets/control-center.svg</file>
+    <file>assets/containerized.svg</file>
 </gresource>
   <gresource prefix="/org/vanillaos/Installer/icons/scalable/actions/">
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-installer-harddisk-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-installer-display-with-window-symbolic.svg</file>
   </gresource>
-    <gresource prefix="/org/vanillaos/installer/images">
-        <file alias="images/welcome.svg">../data/images/welcome.svg</file>
-    </gresource>
 </gresources>
