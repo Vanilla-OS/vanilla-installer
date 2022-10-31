@@ -12,29 +12,24 @@
     ],
     "tour": {
         "welcome": {
-            "resource": "/org/vanillaos/Installer/assets/welcome.svg",
-            "title": "Start the Tour",
-            "description": "Learn about the key features in Vanilla OS."
+            "resource": "/org/vanillaos/Installer/assets/welcome.png",
+            "title": "Welcome to Vanilla",
+            "description": "Designed to last over time and always be faithful to you"
        },
-       "overview": {
-           "resource": "/org/vanillaos/Installer/assets/overview.svg",
-           "title": "Get an Overview",
-           "description": "Press the Super key to see open windows and apps."
+       "control": {
+           "resource": "/org/vanillaos/Installer/assets/control-center.svg",
+           "title": "You're in Control",
+           "description": "Configure the system to your liking in the Vanilla Control Center."
        },
-       "search": {
-           "resource": "/org/vanillaos/Installer/assets/search.svg",
-           "title": "Just Type to Search",
-           "description": "Type in the overview to search. Launch apps,find things."
+       "containerized": {
+           "resource": "/org/vanillaos/Installer/assets/containerized.svg",
+           "title": "Containerized",
+           "description": "You never have to worry about breakage due to incompatible or conflicting pakages."
        },
-       "workspaces": {
-           "resource": "/org/vanillaos/Installer/assets/workspaces.svg",
-           "title": "Keep on Top with Workspaces",
-           "description": "Easily organize windows with the workspace view."
-       },
-       "done": {
-           "resource": "/org/vanillaos/Installer/assets/ready-to-go.svg",
-           "title": "That's it. Have a nice day!",
-           "description": "To get more advice and tips,see the Help app."
+       "completed": {
+           "resource": "/org/vanillaos/Installer/assets/complete.svg",
+           "title": "Complete and Reliable",
+           "description": "Use your system your way without anything getting in the way."
        }
     },
     "steps": {

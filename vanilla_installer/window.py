@@ -16,6 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
@@ -32,6 +33,7 @@ class VanillaWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'VanillaWindow'
 
     carousel = Gtk.Template.Child()
+    carousel_indicator_dots = Gtk.Template.Child()
     btn_back = Gtk.Template.Child()
     toasts = Gtk.Template.Child()
 
@@ -57,8 +59,9 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.carousel.connect("page-changed", self.__on_page_changed)
 
     def __build_ui(self):
-        for widget in self.__builder.widgets:
-            self.carousel.append(widget)
+        if "VANILLA_FORCE_TOUR" not in os.environ:
+            for widget in self.__builder.widgets:
+                self.carousel.append(widget)
 
         self.carousel.append(self.__view_progress)
         self.carousel.append(self.__view_done)
@@ -82,16 +85,22 @@ class VanillaWindow(Adw.ApplicationWindow):
 
         if page not in [self.__view_progress, self.__view_done]:
             self.btn_back.set_visible(cur_index != 0.0)
+            self.carousel_indicator_dots.set_visible(cur_index != 0.0)
             return
 
         self.btn_back.set_visible(False)
+        self.carousel_indicator_dots.set_visible(False)
 
         # keep the btn_back button locked if this is the last page
         if page == self.__view_done:
             return
 
         # collect all the finals
-        finals = self.__builder.get_finals()
+        if "VANILLA_FORCE_TOUR" not in os.environ:
+            finals = self.__builder.get_finals()
+        else:
+            import json
+            finals = json.loads(os.environ["VANILLA_FORCE_TOUR"])
 
         # run the process in a thread
         RunAsync(process, on_done)
