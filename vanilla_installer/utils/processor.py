@@ -36,42 +36,43 @@ class Processor:
 
         arguments = [
             "sudo", "distinst",
-            "-s", "/cdrom/casper/filesystem.squashfs",
-            "-r", manifest_remove,
-            "-h", "vanilla"
+            "-s", "'/cdrom/casper/filesystem.squashfs'",
+            "-r", f"'{manifest_remove}'",
+            "-h", "'vanilla'",
         ]
 
         for final in finals:
             for key, value in final.items():
                 if key == "users":
-                    arguments = ["echo", value["password"]] + arguments
-                    arguments += ["--username", value["username"]]
-                    arguments += ["--realname", value["fullname"]]
+                    arguments = ["echo", f"'{value['password']}'", ">"] + arguments
+                    arguments += ["--username", f"{value['username']}"]
+                    arguments += ["--realname", f"{value['fullname']}"]
+                    arguments += ["--profile_icon", f"{value['hostname']}"]
                 elif key == "timezone":
-                    arguments += ["-tz", "{}/{}".format(value["region"], value["zone"])]
+                    arguments += ["-tz", "'{}'/'{}'".format(value["region"], value["zone"])]
                 elif key == "language":
-                    arguments += ["-l", value]
+                    arguments += ["-l", f"{value}"]
                 elif key == "keyboard":
-                    arguments += ["-k", value]
+                    arguments += ["-k", f"{value}"]
                 elif key == "disk":
                     if "auto" in value:
-                        arguments += ["-b", value["auto"]["disk"]]
-                        arguments += ["-n", "{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp".format(value["auto"]["disk"])]
+                        arguments += ["-b", f"{value['auto']['disk']}"]
+                        arguments += ["-n", "'{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp'".format(value["auto"]["disk"])]
                         root_size = int(value["auto"]["size"]) - 512 - 4096
-                        arguments += ["-n", "{}:primary:512M:-{}M:btrfs:mount=/".format(value["auto"]["disk"], root_size)]
-                        arguments += ["-n", "{}:primary:-4096M:end:swap".format(value["auto"]["disk"])]
+                        arguments += ["-n", "'{}:primary:512M:-{}M:btrfs:mount=/'".format(value["auto"]["disk"], root_size)]
+                        arguments += ["-n", "'{}:primary:-4096M:end:swap'".format(value["auto"]["disk"])]
                     else:
                         for partition, values in value.items():
                             if partition == "disk_block":
                                 continue
                             if values["mp"] == "/":
-                                arguments += ["-n", "{}:primary:start:-{}M:btrfs:mount=/".format(partition, values["size"])]
+                                arguments += ["-n", "'{}:primary:start:-{}M:btrfs:mount=/'".format(partition, values["size"])]
                             elif values["mp"] == "/boot/efi":
-                                arguments += ["-n", "{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp".format(partition)]
+                                arguments += ["-n", "'{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp'".format(partition)]
                             elif values["mp"] == "swap":
-                                arguments += ["-n", "{}:primary:-{}M:end:swap".format(partition, values["size"])]
+                                arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(partition, values["size"])]
                             else:
-                                arguments += ["-n", "{}:primary:-{}M:end:{}:mount={}".format(partition, values["size"], values["fs"], values["mp"])]
+                                arguments += ["-n", "'{}:primary:-{}M:end:{}:mount={}'".format(partition, values["size"], values["fs"], values["mp"])]
         
         # generating a temporary file to store the distinst command and
         # arguments parsed from the final data
