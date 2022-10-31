@@ -26,7 +26,7 @@ logger = logging.getLogger("Installer::Processor")
 class Processor:
 
     @staticmethod
-    def run(log_path, pre_run, post_run, finals):
+    def gen_install_script(log_path, pre_run, post_run, finals):
         logger.info("processing the following final data: %s", finals)
 
         #manifest_remove = "/cdrom/casper/filesystem.manifest-remove"
@@ -86,6 +86,11 @@ class Processor:
 
             if "VANILLA_FAKE" in os.environ:
                 logger.info("VANILLA_FAKE is set, skipping the installation process.")
+                f.write("echo 'VANILLA_FAKE is set, skipping the installation process.'\n")
+                f.write("echo 'Printing the configuration instead:'\n")
+                f.write("echo '----------------------------------'\n")
+                f.write('echo "{}"\n'.format(finals))
+                f.write("echo '----------------------------------'\n")
                 f.write("sleep 1000\n")
             else:
                 for arg in arguments:
@@ -97,27 +102,4 @@ class Processor:
             # setting the file executable
             os.chmod(f.name, 0o755)
                 
-            proc = subprocess.run(
-                ["sh", f.name],
-                check=True,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT
-            )
-
-            # write the output to the log file so the packager can see what
-            # happened during the installation process
-            try:
-                with open(log_path, 'a') as log:
-                    log.write(proc.stdout.decode('utf-8'))
-                    log.flush()
-            except Exception as e:
-                logger.warning("failed to write to the log file: %s" % e)
-                logger.warning("the output of the commands is: %s" %
-                                 proc.stdout.decode('utf-8'))
-
-            if proc.returncode != 0:
-                logger.critical(
-                    "Error while processing commands, see log for details.")
-                return False
-
-        return True
+            return f.name

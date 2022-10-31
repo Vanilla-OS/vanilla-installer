@@ -62,24 +62,13 @@ class VanillaWindow(Adw.ApplicationWindow):
         if "VANILLA_FORCE_TOUR" not in os.environ:
             for widget in self.__builder.widgets:
                 self.carousel.append(widget)
+        else:
+            self.__on_page_changed()
 
         self.carousel.append(self.__view_progress)
         self.carousel.append(self.__view_done)
 
     def __on_page_changed(self, *args):
-        def process():
-            # process the final data
-            return Processor.run(
-                self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
-                self.recipe.get("pre_run", []),
-                self.recipe.get("post_run"),
-                finals
-            )
-
-        def on_done(result, *args):
-            self.__view_done.set_result(result)
-            self.next()
-
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index)
 
@@ -103,7 +92,13 @@ class VanillaWindow(Adw.ApplicationWindow):
             finals = json.loads(os.environ["VANILLA_FORCE_TOUR"])
 
         # run the process in a thread
-        RunAsync(process, on_done)
+        install_script = Processor.gen_install_script(
+            self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
+            self.recipe.get("pre_run", []),
+            self.recipe.get("post_run"),
+            finals
+        )
+        self.__view_progress.start(install_script)
 
     def next(self, *args):
         cur_index = self.carousel.get_position()
@@ -119,3 +114,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         toast = Adw.Toast.new(message)
         toast.props.timeout = timeout
         self.toasts.add_toast(toast)
+
+    def set_installation_result(self, result):
+        self.__view_done.set_result(result)
+        self.next()

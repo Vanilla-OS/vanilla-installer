@@ -47,7 +47,6 @@ class VanillaDefaultLanguage(Adw.Bin):
         
         # set up current language
         for locale in all_languages.keys():
-            print(current_language)
             if current_language == locale:
                 self.combo_languages.set_selected(list(all_languages.keys()).index(locale))
                 break
