@@ -25,7 +25,7 @@
                 </child>
                 <child>
                     <object class="AdwStatusPage" id="status_page">
-                        <property name="icon-name">drive-vanilla-installer-harddisk-symbolic</property>
+                        <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
                         <property name="title">Select a Disk</property>
                         <property name="description">Select the disk to install Vanilla OS to</property>
                         <child>

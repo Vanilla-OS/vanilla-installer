@@ -55,7 +55,7 @@
                                         </child>
                                         <child>
                                             <object class="AdwActionRow">
-                                                <property name="icon-name">drive-vanilla-installer-harddisk-symbolic</property>
+                                                <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
                                                 <property name="title">Open GParted</property>
                                                 <property name="subtitle">Open GParted to manually partition the disk</property>
                                                 <property name="activatable">true</property>
