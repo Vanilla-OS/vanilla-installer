@@ -28,6 +28,7 @@
             <property name="valign">center</property>
             <child type="overlay">
               <object class="GtkButton" id="btn_back">
+                <property name="visible">False</property>
                 <property name="margin-start">12</property>
                 <property name="margin-end">12</property>
                 <property name="icon-name">go-previous-symbolic</property>
