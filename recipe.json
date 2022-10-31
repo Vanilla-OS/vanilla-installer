@@ -12,9 +12,9 @@
     ],
     "tour": {
         "welcome": {
-            "resource": "/org/vanillaos/Installer/assets/welcome.png",
+            "resource": "/org/vanillaos/Installer/assets/welcome.svg",
             "title": "Welcome to Vanilla",
-            "description": "Designed to last over time and always be faithful to you"
+            "description": "Designed to last over time and always be faithful to you."
        },
        "control": {
            "resource": "/org/vanillaos/Installer/assets/control-center.svg",
@@ -24,7 +24,7 @@
        "containerized": {
            "resource": "/org/vanillaos/Installer/assets/containerized.svg",
            "title": "Containerized",
-           "description": "You never have to worry about breakage due to incompatible or conflicting pakages."
+           "description": "You never have to worry about breakage due to incompatible or conflicting packages."
        },
        "completed": {
            "resource": "/org/vanillaos/Installer/assets/complete.svg",
