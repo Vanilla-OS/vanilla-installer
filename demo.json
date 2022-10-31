@@ -1,0 +1,31 @@
+[
+    {},
+    {
+      "language": "en_US.UTF-8"
+    },
+    {
+      "keyboard": "us"
+    },
+    {
+      "timezone": {
+        "region": "Europe",
+        "zone": "Rome"
+      }
+    },
+    {
+      "disk": {
+        "auto": {
+          "disk": "/dev/nvme0n1",
+          "pretty_size": "476.93 GB",
+          "size": 512103835648
+        }
+      }
+    },
+    {
+      "users": {
+        "fullname": "OEM Vanilla OS",
+        "username": "vanilla",
+        "password": "vanilla"
+      }
+    }
+  ]

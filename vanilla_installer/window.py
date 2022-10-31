@@ -16,6 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
@@ -58,8 +59,9 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.carousel.connect("page-changed", self.__on_page_changed)
 
     def __build_ui(self):
-        for widget in self.__builder.widgets:
-            self.carousel.append(widget)
+        if "VANILLA_FORCE_TOUR" not in os.environ:
+            for widget in self.__builder.widgets:
+                self.carousel.append(widget)
 
         self.carousel.append(self.__view_progress)
         self.carousel.append(self.__view_done)
@@ -94,7 +96,11 @@ class VanillaWindow(Adw.ApplicationWindow):
             return
 
         # collect all the finals
-        finals = self.__builder.get_finals()
+        if "VANILLA_FORCE_TOUR" not in os.environ:
+            finals = self.__builder.get_finals()
+        else:
+            import json
+            finals = json.loads(os.environ["VANILLA_FORCE_TOUR"])
 
         # run the process in a thread
         RunAsync(process, on_done)
