@@ -24,32 +24,44 @@
                     </object>
                 </child>
                 <child>
-                    <object class="AdwStatusPage" id="status_page">
-                        <property name="icon-name">avatar-default-symbolic</property>
-                        <property name="title">Create User</property>
-                        <property name="description">Provide details for your user account</property>
+                    <object class="GtkBox">
+                        <property name="orientation">vertical</property>
                         <child>
-                            <object class="AdwPreferencesPage">
+                            <object class="AdwAvatar">
+                                <property name="valign">center</property>
+                                <property name="size">128</property>
+                                <property name="show-initials">True</property>
+                                <property name="text" bind-source="fullname_entry" bind-property="text" bind-flags="sync-create"/>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwStatusPage" id="status_page">
+                                <property name="title">Create User</property>
+                                <property name="description">Provide details for your user account</property>
                                 <child>
-                                    <object class="AdwPreferencesGroup">
+                                    <object class="AdwPreferencesPage">
                                         <child>
-                                            <object class="AdwEntryRow" id="fullname_entry">
-                                                <property name="title" translatable="true">Name</property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwEntryRow" id="username_entry">
-                                                <property name="title" translatable="true">Username</property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwPasswordEntryRow" id="password_entry">
-                                                <property name="title" translatable="true">Password</property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwPasswordEntryRow" id="password_confirmation">
-                                                <property name="title" translatable="true">Re-enter Password</property>
+                                            <object class="AdwPreferencesGroup">
+                                                <child>
+                                                    <object class="AdwEntryRow" id="fullname_entry">
+                                                        <property name="title" translatable="true">Name</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="AdwEntryRow" id="username_entry">
+                                                        <property name="title" translatable="true">Username</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="AdwPasswordEntryRow" id="password_entry">
+                                                        <property name="title" translatable="true">Password</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="AdwPasswordEntryRow" id="password_confirmation">
+                                                        <property name="title" translatable="true">Re-enter Password</property>
+                                                    </object>
+                                                </child>
                                             </object>
                                         </child>
                                     </object>
