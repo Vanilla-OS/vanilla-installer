@@ -155,6 +155,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
                 }
             }
         
+        recipe["disk"] = self.__disk.disk
         for partition in self.__registry_partitions:
             recipe[partition.name] = {
                 "fs": partition.selected_fs,
