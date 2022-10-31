@@ -12,7 +12,7 @@
     ],
     "tour": {
         "welcome": {
-            "resource": "/org/vanillaos/Installer/assets/welcome.png",
+            "resource": "/org/vanillaos/Installer/assets/welcome.svg",
             "title": "Welcome to Vanilla",
             "description": "Designed to last over time and always be faithful to you."
        },
