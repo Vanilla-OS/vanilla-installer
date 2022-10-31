@@ -48,7 +48,7 @@
                     <object class="GtkScrolledWindow">
                         <property name="margin-start">12</property>
                         <property name="margin-end">12</property>
-                        <property name="min-content-height">540</property>
+                        <property name="min-content-height">550</property>
                         <property name="overflow">hidden</property>
                         <child>
                             <object class="GtkLabel" id="log_text">
