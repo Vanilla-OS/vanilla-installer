@@ -51,8 +51,8 @@ class VanillaProgress(Gtk.Box):
     def __on_console_button(self, *args):
         self.tour_box.set_visible(False)
         self.console_box.set_visible(True)
-        self.tour_button.set_visible(False)
-        self.console_button.set_visible(True)
+        self.tour_button.set_visible(True)
+        self.console_button.set_visible(False)
 
     def __build_ui(self):
         for _, tour in self.__tour.items():
