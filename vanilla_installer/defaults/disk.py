@@ -183,16 +183,18 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
         self.btn_cancel.connect('clicked', self.__on_btn_cancel_clicked)
         self.btn_apply.connect('clicked', self.__on_btn_apply_clicked)
 
-        for partition in partition_recipe:
+        for partition, values in partition_recipe.items():
             entry = Adw.ActionRow()
             if partition == "auto":
                 entry.set_title(partition_recipe[partition]["disk"])
                 entry.set_subtitle(_("Entire disk will be used."))
             else:
+                if partition == "disk":
+                    continue
                 entry.set_title(partition)
                 entry.set_subtitle(_("Will be formatted in {} and mounted in {}").format(
                     partition_recipe[partition]["fs"],
-                    partition_recipe[partition]["mp"]
+                    partition_recipe[partition]["mp"],
                 ))
             self.group_partitions.add(entry)
 
