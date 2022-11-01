@@ -36,7 +36,7 @@
                                                 <property name="valign">center</property>
                                                 <property name="halign">center</property>
                                                 <style>
-                                                    <class name="suggested-action"/>
+                                                    <class name="destructive-action"/>
                                                     <class name="pill"/>
                                                 </style>
                                             </object>
