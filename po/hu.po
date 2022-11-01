@@ -1,37 +1,37 @@
-# Hungarian translations for vanilla-installer package.
-# Copyright (C) 2022 THE vanilla-installer'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# Automatically generated, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-10-28 11:52+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: hu\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Vanilla OS Telepítő"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Módosítsa a Vanilla OS telepítését."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "Nincs leírás"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "Első kiadás"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -41,257 +41,257 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "Következő"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "Válasszon ki egy lemezt"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Válassza ki a lemezt, amelyre telepíteni szeretné a Vanilla OS-t"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr ""
+msgstr "Beállítás"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Billentyűzetkiosztás"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Válassza ki a kívánt billentyűzetkiosztást"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Billentyűzetkiosztás keresése"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr ""
+msgstr "Nyelv"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "Válassza ki a nyelvét"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "Nyelv keresése"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "Sötét"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "Színek"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Válasszon színeket rendszeréhez"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "Dátum és idő"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Válassza ki a kívánt időzónát"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "Időzóna keresése"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "Régió"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "Zóna"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "Felhasználó létrehozása"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "Adja meg felhasználói fiókjának adatait"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr ""
+msgstr "Felhasználónév"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "Jelszó"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr ""
+msgstr "Jelszó megerősítése"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "Üdv"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr ""
+msgstr "Ez a szoftver végigvezeti Önt a telepítési folyamaton."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr ""
+msgstr "A Vanilla OS kipróbálása"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "A Vanilla OS telepítése"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
 msgid "Confirm Installation"
-msgstr ""
+msgstr "Telepítés megerősítése"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "Mégsem"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "A következő változtatások lesznek végrehajtva a rendszerén:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "Változások megerősítése"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
+msgstr "A következő változtatások lesznek végrehajtva a lemezen. Kérjük, tekintse át őket gondosan."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "Lemez konfigurálása"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr ""
+msgstr "Alkalmaz"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Teljes lemez használata"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "Ez törli az összes adatot a lemezről."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr ""
+msgstr "GParted megnyitása"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "GParted megnyitása a lemez kézi particionálásához"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "Partíciók"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "A következő partíciók találhatók a lemezen"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "Információ megjelenítése"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "Készen vagyunk!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "Indítsa újra eszközét, hogy élvezze Vanilla OS élményét"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "Újraindítás most"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "Bezárás"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Igen, engedélyezze"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
-msgstr ""
+msgstr "Telepítés..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr ""
+msgstr "Konzol kimenet megjelenítése"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Diavetítés megjelenítése"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Formázás"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "Válasszon új fájlrendszert, vagy hagyja úgy, ahogy van"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "Csatolási pont"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "Válasszon egy csatolási pontot a partícióhoz"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "Ez az egyetlen elérhető lemez, ki kell jelölnie!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "A teljes lemez felhasználásra kerül."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "Formázva lesz erre: {}, csatolva ide: {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Kérem, válasszon legalább egy lehetőséget."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "Indítsa újra eszközét, hogy élvezze {} élményét."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "Valami hiba történt"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
