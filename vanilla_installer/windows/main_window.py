@@ -27,6 +27,8 @@ from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.views.progress import VanillaProgress
 from vanilla_installer.views.done import VanillaDone
 
+from vanilla_installer.windows.dialog_confirm import VanillaDialogConfirm
+
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/window.ui')
 class VanillaWindow(Adw.ApplicationWindow):
@@ -69,6 +71,18 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.carousel.append(self.__view_done)
 
     def __on_page_changed(self, *args):
+        def on_installation_confirmed(*args):
+            install_script = Processor.gen_install_script(
+                self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
+                self.recipe.get("pre_run", []),
+                self.recipe.get("post_run"),
+                finals
+            )
+            self.__view_progress.start(install_script)
+    
+        def on_installation_cancelled(*args):
+            self.back()
+
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index)
 
@@ -90,15 +104,12 @@ class VanillaWindow(Adw.ApplicationWindow):
         else:
             import json
             finals = json.loads(os.environ["VANILLA_FORCE_TOUR"])
-
-        # run the process in a thread
-        install_script = Processor.gen_install_script(
-            self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
-            self.recipe.get("pre_run", []),
-            self.recipe.get("post_run"),
-            finals
-        )
-        self.__view_progress.start(install_script)
+        
+        # show the confirm dialog
+        dialog = VanillaDialogConfirm(self, finals)
+        dialog.present()
+        dialog.connect("installation-confirmed", on_installation_confirmed)
+        dialog.connect("installation-cancelled", on_installation_cancelled)
 
     def next(self, *args):
         cur_index = self.carousel.get_position()

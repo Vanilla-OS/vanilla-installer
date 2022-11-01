@@ -33,7 +33,7 @@
                                     <object class="AdwPreferencesGroup">
                                         <child>
                                             <object class="GtkButton" id="btn_apply">
-                                                <property name="label" translatable="yes">Apply Changes</property>
+                                                <property name="label" translatable="yes">Confirm Changes</property>
                                                 <property name="valign">center</property>
                                                 <property name="halign">center</property>
                                                 <style>

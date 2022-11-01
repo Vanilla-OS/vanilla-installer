@@ -19,6 +19,8 @@
     <file>gtk/default-users.ui</file>
     <file>gtk/default-disk.ui</file>
 
+    <file>gtk/widget-choice.ui</file>
+    <file>gtk/widget-choice-expander.ui</file>
     <file>gtk/widget-disk.ui</file>
     <file>gtk/widget-partition.ui</file>
 
