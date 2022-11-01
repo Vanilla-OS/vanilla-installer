@@ -30,8 +30,8 @@
                         <child>
                             <object class="AdwStatusPage" id="status_page">
                                 <property name="icon-name">preferences-desktop-locale-symbolic</property>
-                                <property name="title">Language</property>
-                                <property name="description">Select your language</property>
+                                <property name="title" translatable="yes">Language</property>
+                                <property name="description" translatable="yes">Select your language</property>
                                 <child>
                                     <object class="AdwClamp">
                                         <property name="maximum-size">570</property>
@@ -48,7 +48,7 @@
                                                     <object class="AdwPreferencesGroup">
                                                         <child>
                                                             <object class="AdwComboRow" id="combo_languages">
-                                                                <property name="title">Language</property>
+                                                                <property name="title" translatable="yes">Language</property>
                                                                 <property name="model">
                                                                     <object class="GtkStringList" id="str_list_languages"></object>
                                                                 </property>

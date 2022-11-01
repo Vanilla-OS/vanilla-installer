@@ -30,8 +30,8 @@
                         <child>
                             <object class="AdwStatusPage" id="status_page">
                                 <property name="icon-name">preferences-system-time-symbolic</property>
-                                <property name="title">Date &amp; Time</property>
-                                <property name="description">Select your preferred timezone</property>
+                                <property name="title" translatable="yes">Date &amp; Time</property>
+                                <property name="description" translatable="yes">Select your preferred timezone</property>
                                 <child>
                                     <object class="AdwClamp">
                                         <property name="maximum-size">570</property>
@@ -48,7 +48,7 @@
                                                     <object class="AdwPreferencesGroup">
                                                         <child>
                                                             <object class="AdwComboRow" id="combo_region">
-                                                                <property name="title">Region</property>
+                                                                <property name="title" translatable="yes">Region</property>
                                                                 <property name="model">
                                                                     <object class="GtkStringList" id="str_list_region"></object>
                                                                 </property>
@@ -56,7 +56,7 @@
                                                         </child>
                                                         <child>
                                                             <object class="AdwComboRow" id="combo_zone">
-                                                                <property name="title">Zone</property>
+                                                                <property name="title" translatable="yes">Zone</property>
                                                                 <property name="model">
                                                                     <object class="GtkStringList" id="str_list_zone"></object>
                                                                 </property>

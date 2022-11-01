@@ -34,8 +34,8 @@
                             <object class="AdwPreferencesGroup">
                                 <child>
                                     <object class="AdwActionRow">
-                                        <property name="title">Use Entire Disk</property>
-                                        <property name="subtitle">This will erase all data on the disk.</property>
+                                        <property name="title" translatable="yes">Use Entire Disk</property>
+                                        <property name="subtitle" translatable="yes">This will erase all data on the disk.</property>
                                         <child type="prefix">
                                             <object class="GtkCheckButton" id="chk_entire_disk">
                                                 <property name="valign">center</property>
@@ -56,8 +56,8 @@
                                         <child>
                                             <object class="AdwActionRow">
                                                 <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
-                                                <property name="title">Open GParted</property>
-                                                <property name="subtitle">Open GParted to manually partition the disk</property>
+                                                <property name="title" translatable="yes">Open GParted</property>
+                                                <property name="subtitle" translatable="yes">Open GParted to manually partition the disk</property>
                                                 <property name="activatable">true</property>
                                                 <child type="suffix">
                                                     <object class="GtkButton" id="launch_gparted">
@@ -78,8 +78,8 @@
                         <child>
                             <object class="AdwPreferencesGroup" id="group_partitions">
                                 <property name="visible">False</property>
-                                <property name="title">Partitions</property>
-                                <property name="description">The following partitions were found on the disk</property>
+                                <property name="title" translatable="yes">Partitions</property>
+                                <property name="description" translatable="yes">The following partitions were found on the disk</property>
                             </object>
                         </child>
                     </object>

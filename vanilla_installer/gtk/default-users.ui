@@ -37,8 +37,8 @@
                         </child>
                         <child>
                             <object class="AdwStatusPage" id="status_page">
-                                <property name="title">Create User</property>
-                                <property name="description">Provide details for your user account</property>
+                                <property name="title" translatable="yes">Create User</property>
+                                <property name="description" translatable="yes">Provide details for your user account</property>
                                 <child>
                                     <object class="AdwPreferencesPage">
                                         <child>

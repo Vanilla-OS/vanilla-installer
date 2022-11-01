@@ -26,7 +26,7 @@
                         </child>
                         <child>
                             <object class="GtkButton" id="btn_next">
-                                <property name="label">Next</property>
+                                <property name="label" translatable="yes">Next</property>
                                 <property name="halign">center</property>
                                 <style>
                                     <class name="pill" />

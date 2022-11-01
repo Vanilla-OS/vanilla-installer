@@ -30,8 +30,8 @@
                         <child>
                             <object class="AdwStatusPage" id="status_page">
                                 <property name="icon-name">input-keyboard-symbolic</property>
-                                <property name="title">Keyboard Layout</property>
-                                <property name="description">Select your preferred keyboard layout</property>
+                                <property name="title" translatable="yes">Keyboard Layout</property>
+                                <property name="description" translatable="yes">Select your preferred keyboard layout</property>
                                 <child>
                                     <object class="AdwClamp">
                                         <property name="maximum-size">570</property>

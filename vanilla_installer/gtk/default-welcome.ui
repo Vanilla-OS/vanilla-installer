@@ -8,8 +8,8 @@
         <property name="hexpand">true</property>
         <child>
             <object class="AdwStatusPage" id="status_page">
-                <property name="title">Welcome</property>
-                <property name="description">This software will guide you through the installation process.</property>
+                <property name="title" translatable="yes">Welcome</property>
+                <property name="description" translatable="yes">This software will guide you through the installation process.</property>
                 <child>
                     <object class="GtkBox">
                         <property name="spacing">20</property>
