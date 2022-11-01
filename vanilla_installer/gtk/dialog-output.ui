@@ -8,28 +8,10 @@
         <property name="default-width">500</property>
         <property name="default-height">450</property>
         <child>
-            <object class="GtkBox">
+            <object class="GtkBox" id="main_box">
                 <property name="orientation">vertical</property>
                 <child>
                     <object class="AdwHeaderBar"></object>
-                </child>
-                <child>
-                    <object class="GtkScrolledWindow">
-                        <property name="vexpand">true</property>
-                        <child>
-                            <object class="GtkTextView" id="text_view">
-                                <property name="editable">false</property>
-                                <property name="cursor-visible">false</property>
-                                <property name="wrap-mode">word</property>
-                                <property name="monospace">true</property>
-                                <property name="left-margin">5</property>
-                                <property name="right-margin">5</property>
-                                <property name="top-margin">5</property>
-                                <property name="bottom-margin">5</property>
-                                <property name="vexpand">true</property>
-                            </object>
-                        </child>
-                    </object>
                 </child>
             </object>
         </child>

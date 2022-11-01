@@ -86,7 +86,8 @@ class VanillaProgress(Gtk.Box):
         RunAsync(run_async, None)
     
     def on_vte_child_exited(self, terminal, status, *args):
-        self.__window.set_installation_result(status, self.__terminal.get_text())
+        terminal.get_parent().remove(terminal)
+        self.__window.set_installation_result(status, self.__terminal)
 
     def start(self, install_script):
         self.__terminal.spawn_async(

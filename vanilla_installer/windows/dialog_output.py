@@ -21,12 +21,11 @@ from gi.repository import Gtk, GObject, Adw
 class VanillaDialogOutput(Adw.Window):
     __gtype_name__ = 'VanillaDialogOutput'
 
-    text_view = Gtk.Template.Child()
+    main_box = Gtk.Template.Child()
 
-    def __init__(self, window, output, **kwargs):
+    def __init__(self, window, terminal, **kwargs):
         super().__init__(**kwargs)
         self.set_transient_for(window)
 
-        buffer = self.text_view.get_buffer()
-        buffer.set_text(output[0])
+        self.main_box.append(terminal)
         

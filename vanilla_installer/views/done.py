@@ -44,8 +44,8 @@ class VanillaDone(Adw.Bin):
         self.btn_close.connect("clicked", self.__on_close_clicked)
         self.btn_log.connect("clicked", self.__on_log_clicked)
     
-    def set_result(self, result, output):
-        self.__log = output
+    def set_result(self, result, terminal):
+        self.__terminal = terminal
 
         if not result:
             self.status_page.set_icon_name("dialog-error-symbolic")
@@ -61,5 +61,5 @@ class VanillaDone(Adw.Bin):
         self.__window.close()
 
     def __on_log_clicked(self, button):
-        dialog = VanillaDialogOutput(self.__window, self.__log)
+        dialog = VanillaDialogOutput(self.__window, self.__terminal)
         dialog.present()
