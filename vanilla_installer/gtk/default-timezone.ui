@@ -23,6 +23,7 @@
                                 <property name="tooltip-text" translatable="yes">Next</property>
                                 <style>
                                     <class name="circular" />
+                                    <class name="suggested-action" />
                                 </style>
                             </object>
                         </child>
