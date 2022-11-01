@@ -2,24 +2,40 @@ data/org.vanillaos.Installer.desktop.in
 data/org.vanillaos.Installer.appdata.xml.in
 data/org.vanillaos.Installer.gschema.xml
 
+vanilla_installer/gtk/default-disk.ui
+vanilla_installer/gtk/default-keyboard.ui
+vanilla_installer/gtk/default-language.ui
 vanilla_installer/gtk/default-theme.ui
-vanilla_installer/gtk/dialog.ui
-vanilla_installer/gtk/layout-preferences.ui
-vanilla_installer/gtk/progress.ui
-vanilla_installer/gtk/window.ui
+vanilla_installer/gtk/default-timezone.ui
+vanilla_installer/gtk/default-users.ui
 vanilla_installer/gtk/default-welcome.ui
+vanilla_installer/gtk/dialog-confirm.ui
+vanilla_installer/gtk/dialog-disk-confirm.ui
+vanilla_installer/gtk/dialog-disk.ui
+vanilla_installer/gtk/dialog.ui
 vanilla_installer/gtk/done.ui
+vanilla_installer/gtk/layout-preferences.ui
 vanilla_installer/gtk/layout-yes-no.ui
+vanilla_installer/gtk/progress.ui
 vanilla_installer/gtk/tour.ui
+vanilla_installer/gtk/widget-choice-expander.ui
+vanilla_installer/gtk/widget-choice.ui
+vanilla_installer/gtk/widget-disk.ui
+vanilla_installer/gtk/widget-partition.ui
 
+
+vanilla_installer/defaults/disk.py
+vanilla_installer/defaults/keyboard.py
+vanilla_installer/defaults/language.py
 vanilla_installer/defaults/theme.py
+vanilla_installer/defaults/timezone.py
+vanilla_installer/defaults/users.py
 vanilla_installer/defaults/welcome.py
 
 vanilla_installer/layouts/preferences.py
 vanilla_installer/layouts/yes_no.py
 
 vanilla_installer/utils/builder.py
-vanilla_installer/utils/parser.py
 vanilla_installer/utils/processor.py
 vanilla_installer/utils/recipe.py
 vanilla_installer/utils/run_async.py
@@ -28,6 +44,8 @@ vanilla_installer/views/done.py
 vanilla_installer/views/progress.py
 vanilla_installer/views/tour.py
 
-vanilla_installer/dialog.py
+vanilla_installer/windows/dialog.py
+vanilla_installer/windows/dialog_confirm.py
+vanilla_installer/windows/main_window.py
+
 vanilla_installer/main.py
-vanilla_installer/window.py
