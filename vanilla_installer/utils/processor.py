@@ -67,6 +67,7 @@ class Processor:
                             if partition == "disk":
                                 arguments += ["-b", f"'{values}'"]
                                 arguments += ["-t", "'{}:gpt'".format(values)]
+                                continue
                             if values["mp"] == "/":
                                 arguments += ["-n", "'{}:primary:start:-{}M:btrfs:mount=/'".format(partition, values["size"])]
                             elif values["mp"] == "/boot/efi":
