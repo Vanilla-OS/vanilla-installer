@@ -14,7 +14,7 @@ install_data(
 
 install_data(
   join_paths(symbolic_dir, 'apps', ('@0@-symbolic.svg').format(application_id)),
-  install_dir: join_paths(get_option('datadir'), 'icons', symbolic_dir)
+  install_dir: join_paths(get_option('datadir'), 'icons', symbolic_dir, 'apps')
 )
 
 
