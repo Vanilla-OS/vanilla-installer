@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import time
-from gi.repository import Gtk, GLib, Adw
+from gi.repository import Gtk, GLib, Adw, Vte
 
 from vanilla_installer.utils.run_async import RunAsync
 
@@ -36,7 +36,9 @@ class VanillaProgress(Gtk.Box):
     def __init__(self, window, tour: dict, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
-        self.__tour = tour
+        self.__tour = tour    
+        self.__terminal = Vte.Terminal()
+
         self.__build_ui()
 
         self.tour_button.connect("clicked", self.__on_tour_button)
@@ -55,6 +57,11 @@ class VanillaProgress(Gtk.Box):
         self.console_button.set_visible(False)
 
     def __build_ui(self):
+        self.__terminal.set_cursor_blink_mode(Vte.CursorBlinkMode.ON)
+        self.__terminal.set_mouse_autohide(True)
+        self.console_box.append(self.__terminal)
+        self.__terminal.connect("child-exited", self.on_vte_child_exited)
+
         for _, tour in self.__tour.items():
             self.carousel_tour.append(VanillaTour(self.__window, tour))
 
@@ -76,4 +83,23 @@ class VanillaProgress(Gtk.Box):
                 GLib.idle_add(self.__switch_tour)
                 time.sleep(5)
 
-        RunAsync(run_async, "tour_loop")
+        RunAsync(run_async, None)
+    
+    def on_vte_child_exited(self, terminal, status, *args):
+        self.__window.set_installation_result(status)
+
+    def start(self, install_script):
+        print(["bash", install_script])
+        self.__terminal.spawn_async(
+            Vte.PtyFlags.DEFAULT,
+            ".",
+            ["bash", install_script],
+            [],
+            GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+            None,
+            None,
+            -1,
+            None,
+            None
+        )
+
