@@ -126,6 +126,6 @@ class VanillaWindow(Adw.ApplicationWindow):
         toast.props.timeout = timeout
         self.toasts.add_toast(toast)
 
-    def set_installation_result(self, result):
-        self.__view_done.set_result(result)
+    def set_installation_result(self, result, output):
+        self.__view_done.set_result(result, output)
         self.next()

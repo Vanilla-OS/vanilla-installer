@@ -17,6 +17,8 @@
 import subprocess
 from gi.repository import Gtk, Adw
 
+from vanilla_installer.windows.dialog_output import VanillaDialogOutput
+
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/done.ui')
 class VanillaDone(Adw.Bin):
@@ -25,10 +27,12 @@ class VanillaDone(Adw.Bin):
     status_page = Gtk.Template.Child()
     btn_reboot = Gtk.Template.Child()
     btn_close = Gtk.Template.Child()
+    btn_log = Gtk.Template.Child()
 
     def __init__(self, window, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
+        self.__log = None
         
         self.status_page.set_description(
             _("Restart your device to enjoy your {} experience.").format(
@@ -38,8 +42,11 @@ class VanillaDone(Adw.Bin):
 
         self.btn_reboot.connect("clicked", self.__on_reboot_clicked)
         self.btn_close.connect("clicked", self.__on_close_clicked)
+        self.btn_log.connect("clicked", self.__on_log_clicked)
     
-    def set_result(self, result):
+    def set_result(self, result, output):
+        self.__log = output
+
         if not result:
             self.status_page.set_icon_name("dialog-error-symbolic")
             self.status_page.set_title(_("Something went wrong"))
@@ -52,3 +59,7 @@ class VanillaDone(Adw.Bin):
 
     def __on_close_clicked(self, button):
         self.__window.close()
+
+    def __on_log_clicked(self, button):
+        dialog = VanillaDialogOutput(self.__window, self.__log)
+        dialog.present()

@@ -6,6 +6,7 @@ sources = [
   'main_window.py',
   'dialog.py',
   'dialog_confirm.py',
+  'dialog_output.py',
 ]
 
 install_data(sources, install_dir: windowsdir)

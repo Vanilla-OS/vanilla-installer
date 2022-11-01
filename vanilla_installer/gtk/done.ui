@@ -17,6 +17,16 @@
                 <child>
                     <object class="GtkBox">
                         <property name="halign">center</property>
+                        <property name="spacing">10</property>
+                        <child>
+                            <object class="GtkButton" id="btn_log">
+                                <property name="label" translatable="yes">Show Log</property>
+                                <property name="halign">center</property>
+                                <style>
+                                    <class name="pill" />
+                                </style>
+                            </object>
+                        </child>
                         <child>
                             <object class="GtkButton" id="btn_reboot">
                                 <property name="label" translatable="yes">Reboot Now</property>

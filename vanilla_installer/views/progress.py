@@ -86,10 +86,9 @@ class VanillaProgress(Gtk.Box):
         RunAsync(run_async, None)
     
     def on_vte_child_exited(self, terminal, status, *args):
-        self.__window.set_installation_result(status)
+        self.__window.set_installation_result(status, self.__terminal.get_text())
 
     def start(self, install_script):
-        print(["bash", install_script])
         self.__terminal.spawn_async(
             Vte.PtyFlags.DEFAULT,
             ".",
@@ -102,4 +101,3 @@ class VanillaProgress(Gtk.Box):
             None,
             None
         )
-

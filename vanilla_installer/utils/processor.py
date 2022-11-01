@@ -92,7 +92,8 @@ class Processor:
                 f.write("echo '----------------------------------'\n")
                 f.write('echo "{}"\n'.format(finals))
                 f.write("echo '----------------------------------'\n")
-                f.write("sleep 1000\n")
+                f.write("sleep 5\n")
+                f.write("exit 1\n")
             else:
                 for arg in arguments:
                     f.write(arg + " ")
