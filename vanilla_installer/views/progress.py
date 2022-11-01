@@ -32,6 +32,8 @@ class VanillaProgress(Gtk.Box):
     progressbar = Gtk.Template.Child()
     console_button = Gtk.Template.Child()
     console_box = Gtk.Template.Child()
+    console_output = Gtk.Template.Child()
+
 
     def __init__(self, window, tour: dict, **kwargs):
         super().__init__(**kwargs)
@@ -59,7 +61,7 @@ class VanillaProgress(Gtk.Box):
     def __build_ui(self):
         self.__terminal.set_cursor_blink_mode(Vte.CursorBlinkMode.ON)
         self.__terminal.set_mouse_autohide(True)
-        self.console_box.append(self.__terminal)
+        self.console_output.append(self.__terminal)
         self.__terminal.connect("child-exited", self.on_vte_child_exited)
 
         for _, tour in self.__tour.items():

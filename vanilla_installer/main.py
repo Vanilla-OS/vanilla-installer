@@ -53,6 +53,10 @@ class FirstSetupApplication(Adw.Application):
         CSS inspired by: Sonny Piers <https://github.com/sonnyp>
         """
         css = """
+.vte-console {
+    background-color: #000000;
+    border-radius: 12px;
+}
 .theme-selector {
     border-radius: 100px;
     margin: 8px;
