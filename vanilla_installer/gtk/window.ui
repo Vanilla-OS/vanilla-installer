@@ -5,7 +5,7 @@
   <template class="VanillaWindow" parent="AdwApplicationWindow">
     <property name="default-width">900</property>
     <property name="default-height">680</property>
-    <property name="title">First Setup</property>
+    <property name="title">Vanilla OS Installer</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
