@@ -38,12 +38,11 @@ subdir('layouts')
 subdir('core')
 subdir('utils')
 subdir('views')
+subdir('windows')
 
 vanilla_installer_sources = [
   '__init__.py',
   'main.py',
-  'window.py',
-  'dialog.py',
 ]
 
 install_data(vanilla_installer_sources, install_dir: moduledir)

@@ -27,7 +27,7 @@ gi.require_version('GWeather', '4.0')
 gi.require_version('Vte', '3.91')
 
 from gi.repository import Gtk, Gdk, Gio, Adw
-from vanilla_installer.window import VanillaWindow
+from vanilla_installer.windows.main_window import VanillaWindow
 
 
 logging.basicConfig(level=logging.INFO)

@@ -18,7 +18,7 @@ import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.utils.run_async import RunAsync
-from vanilla_installer.dialog import VanillaDialog
+from vanilla_installer.windows.dialog import VanillaDialog
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/layout-preferences.ui')

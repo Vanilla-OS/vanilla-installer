@@ -7,6 +7,7 @@
     <file>gtk/tour.ui</file>
 
     <file>gtk/dialog.ui</file>
+    <file>gtk/dialog-confirm.ui</file>
     <file>gtk/dialog-disk.ui</file>
     <file>gtk/dialog-disk-confirm.ui</file>
 
