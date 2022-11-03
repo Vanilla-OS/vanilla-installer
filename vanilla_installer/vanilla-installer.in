@@ -18,9 +18,11 @@
 
 import os
 import sys
+import time
 import signal
 import locale
 import gettext
+import subprocess
 
 VERSION = '@VERSION@'
 pkgdatadir = '@pkgdatadir@'
@@ -34,10 +36,25 @@ gettext.install('vanilla_installer', localedir)
 
 if __name__ == '__main__':
     import gi
-
+        
     from gi.repository import Gio
     resource = Gio.Resource.load(os.path.join(pkgdatadir, 'vanilla-installer.gresource'))
     resource._register()
 
+    '''
+    Since gtk_window_set_position in GTK4 is deprecated
+    we achieve this by hacking the mutter gschemas at
+    org.gnome.mutter center-new-windows.
+    Ref: https://discourse.gnome.org/t/how-to-center-gtkwindows-in-gtk4/3112/4
+    '''
+    subprocess.run(['gsettings', 'set', 'org.gnome.mutter', 'center-new-windows', 'true'])
+
+    def restore_mutter_settings():
+        time.sleep(3)
+        subprocess.run(['gsettings', 'set', 'org.gnome.mutter', 'center-new-windows', 'false'])
+
     from vanilla_installer import main
+    from vanilla_installer.utils.run_async import RunAsync
+
+    RunAsync(restore_mutter_settings, None)
     sys.exit(main.main(VERSION))
