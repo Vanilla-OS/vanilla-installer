@@ -89,6 +89,12 @@ class VanillaProgress(Gtk.Box):
     
     def on_vte_child_exited(self, terminal, status, *args):
         terminal.get_parent().remove(terminal)
+        '''
+        Since distinst returns 0 on success and 1 on failure (I mean, this
+        is what I've seen so far), we need to invert the status to get the
+        correct result.
+        '''
+        status = not bool(status)
         self.__window.set_installation_result(status, self.__terminal)
 
     def start(self, install_script):
