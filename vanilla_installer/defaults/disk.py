@@ -157,6 +157,8 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         
         recipe["disk"] = self.__disk.disk
         for partition in self.__registry_partitions:
+            if partition.selected_fs == _("Do not touch"):
+                continue
             recipe[partition.name] = {
                 "fs": partition.selected_fs,
                 "mp": partition.selected_mountpoint,
