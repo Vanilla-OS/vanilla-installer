@@ -195,7 +195,7 @@ msgstr "Appliquer"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr "Utiliser le disque en entier
+msgstr "Utiliser le disque en entier"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
