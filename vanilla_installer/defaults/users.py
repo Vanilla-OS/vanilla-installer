@@ -65,12 +65,24 @@ class VanillaDefaultUsers(Adw.Bin):
 
     def __on_fullname_entry_changed(self, *args):
         _fullname = self.fullname_entry.get_text()
+        
+        if len(_fullname) > 32:
+            self.fullname_entry.set_text(_fullname[:32])
+            self.fullname_entry.set_position(-1)
+            _fullname = self.fullname_entry.get_text()
+
         self.fullname_filled = True
         self.__verify_continue()
         self.fullname = _fullname
     
     def __on_username_entry_changed(self, *args):
         _input = self.username_entry.get_text()
+
+        if len(_input) > 32:
+            self.username_entry.set_text(_input[:32])
+            self.username_entry.set_position(-1)
+            _input = self.username_entry.get_text()
+            
         if not re.search("^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$", _input):
             self.username_entry.add_css_class('error')
             self.username_filled = False
