@@ -1,4 +1,4 @@
-vanilla-installer (0.2.4) jammy; urgency=low
+vanilla-installer (0.2.5) jammy; urgency=low
 
   * Rewrite from scratch to support custom recipes and
     to be more modular.
