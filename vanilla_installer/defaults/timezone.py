@@ -76,6 +76,11 @@ class VanillaDefaultTimezone(Adw.Bin):
                 "region": list(all_timezones.keys())[self.combo_region.get_selected()],
                 "zone": all_timezones[list(all_timezones.keys())[self.combo_region.get_selected()]][self.combo_zone.get_selected()]
             }
+        } if self.combo_region.get_selected() != '' and self.combo_zone.get_selected() != '' else {
+            "timezone": {
+                "region": list(all_timezones.keys())["Europe"],
+                "zone": all_timezones[list(all_timezones.keys())["Europe"]]["London"]
+            }
         }
     
     def __on_country_selected(self, combo, param):
