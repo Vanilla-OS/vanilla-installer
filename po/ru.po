@@ -183,8 +183,8 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
-"Следующие изменения будут внесены в ваш диск. Пожалуйста, просмотрите их
-осторожно."
+"Следующие изменения будут внесены в ваш диск. Пожалуйста, просмотрите их"
+"осторожно."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
