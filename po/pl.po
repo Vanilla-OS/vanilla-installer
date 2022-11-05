@@ -254,7 +254,7 @@ msgstr "Pokaż slajdy"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr "Sformatuj"
+msgstr "Format"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
