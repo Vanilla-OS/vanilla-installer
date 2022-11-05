@@ -183,8 +183,8 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
-"Jūsų diske bus atlikti šie pakeitimai. Peržiūrėkite juos
-atsargiai."
+"Jūsų diske bus atlikti šie pakeitimai. Peržiūrėkite juos"
+"atsargiai."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
