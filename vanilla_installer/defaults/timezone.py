@@ -71,17 +71,20 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.entry_search_timezone.add_controller(self.search_controller)
 
     def get_finals(self):
-        return {
-            "timezone": {
-                "region": list(all_timezones.keys())[self.combo_region.get_selected()],
-                "zone": all_timezones[list(all_timezones.keys())[self.combo_region.get_selected()]][self.combo_zone.get_selected()]
+        try:
+            return {
+                "timezone": {
+                    "region": list(all_timezones.keys())[self.combo_region.get_selected()],
+                    "zone": all_timezones[list(all_timezones.keys())[self.combo_region.get_selected()]][self.combo_zone.get_selected()]
+                }
             }
-        } if self.combo_region.get_selected() != '' and self.combo_zone.get_selected() != '' else {
-            "timezone": {
-                "region": list(all_timezones.keys())["Europe"],
-                "zone": all_timezones[list(all_timezones.keys())["Europe"]]["London"]
+        except IndexError:
+            return {
+                "timezone": {
+                    "region": "Europe",
+                    "zone": "London"
+                }
             }
-        }
     
     def __on_country_selected(self, combo, param):
         self.str_list_zone.splice(0, self.str_list_zone.get_n_items())

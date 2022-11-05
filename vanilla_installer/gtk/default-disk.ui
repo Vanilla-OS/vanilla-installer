@@ -28,7 +28,7 @@
                     <object class="AdwStatusPage" id="status_page">
                         <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
                         <property name="title" translatable="yes">Select a Disk</property>
-                        <property name="description" translatable="yes">Select the disk to install Vanilla OS to</property>
+                        <property name="description" translatable="yes">Select the disk where you want to install Vanilla OS</property>
                         <child>
                             <object class="AdwPreferencesPage">
                                 <child>
