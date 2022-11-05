@@ -23,7 +23,7 @@ msgstr "வெண்ணிலா OS நிறுவி"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "உங்கள் வெண்ணிலா OS நிறுவலை மாற்றி அமையுங்கள்."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -65,7 +65,7 @@ msgstr "உங்களுக்கு விருப்பமான விச�
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "ஒரு விசைப்பலகை தளவமைப்பைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -78,7 +78,7 @@ msgstr "உங்கள் மொழியைத் தேர்ந்தெட�
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "ஒரு மொழியைத் தேடவும்"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -98,7 +98,7 @@ msgstr "உங்கள் கணினிக்கான வண்ணத் த
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "தேதி & நேரம்"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
@@ -106,7 +106,7 @@ msgstr "உங்களுக்கு விருப்பமான நேர 
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "ஒரு நேர மண்டலத்தை தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -142,7 +142,7 @@ msgstr "கடவுச்சொல்லை உறுதிப்படுத�
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "வரவேற்கிறோம்"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
@@ -184,6 +184,7 @@ msgid ""
 "carefully."
 msgstr "உங்கள் வட்டில் பின்வரும் மாற்றங்கள் செய்யப்படும். அவற்றை மதிப்பாய்வு செய்யவும்
 கவனமாக."
+கவனமாக."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -195,19 +196,19 @@ msgstr "விண்ணப்பிக்கவும்"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "முழு வட்டையும் பயன்படுத்துங்கள்"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "இது வட்டில் உள்ள அனைத்து தரவையும் அழித்துவிடும்."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr ""
+msgstr "GParted ஐத் திறக்கவும்"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "வட்டை கைமுறையால் பிரிப்பதற்கு GParted ஐத் திறக்கவும்"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
@@ -235,7 +236,7 @@ msgstr "இப்போது மறுமுறை துவக்கு"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "மூடுங்கள்"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
@@ -263,7 +264,7 @@ msgstr "புதிய கோப்பு முறைமையைத் தே
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "ஏற்ற புள்ளி"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
@@ -279,7 +280,7 @@ msgstr "முழு வட்டு பயன்படுத்தப்பட�
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "{} இல் வடிவமைக்கப்படும் மற்றும் {} இல் ஏற்றப்படும்"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -291,7 +292,7 @@ msgstr "உங்கள் {} அனுபவத்தை அனுபவிக�
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "ஏதோ தவறாகிவிட்டது"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
