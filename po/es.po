@@ -1,29 +1,29 @@
-# Spanish translations for vanilla-installer package.
-# Copyright (C) 2022 THE vanilla-installer'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# Automatically generated, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-10-28 11:52+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: es\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Instalador de Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Personalice su instalación de Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -41,7 +41,7 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Seleccione el disco donde quiere instalar Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -57,15 +57,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Distribución de teclado"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Seleccione su distribución de teclado preferida"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Buscar una distribución de teclado"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -74,7 +74,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "Elige tu idioma"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
@@ -82,7 +82,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
@@ -150,12 +150,12 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr ""
+msgstr "Pruebe Vanilla OS"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Instalar Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -182,7 +182,7 @@ msgstr ""
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
+msgstr "Se realizarán los siguientes cambios en su disco. Por favor revíselos con cuidado."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -218,7 +218,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "Mostrando información"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -226,19 +226,19 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "Reinicie su dispositivo para disfrutar la experiencia de Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "Reiniciar ahora"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Sí, habilitar"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
@@ -254,7 +254,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Formatear"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
@@ -270,7 +270,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "¡Este es el único disco disponible y no se puede de-seleccionar!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
@@ -286,7 +286,7 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "Reinicia tu dispositivo para disfrutar tu experiencia con {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
@@ -294,4 +294,4 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "Póngase en contacto con los desarrolladores de la distribución."
