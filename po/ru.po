@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-05 21:09+0000\n"
+"PO-Revision-Date: 2022-11-05 21:24+0000\n"
 "Last-Translator: sherichev <s9erx2@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
@@ -117,7 +117,7 @@ msgstr "Регион"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr "Зона"
+msgstr "Город"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
