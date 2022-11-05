@@ -183,8 +183,8 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
-"உங்கள் வட்டில் பின்வரும் மாற்றங்கள் செய்யப்படும். அவற்றை மதிப்பாய்வு செய்யவும்
-கவனமாக."
+"உங்கள் வட்டில் பின்வரும் மாற்றங்கள் செய்யப்படும். அவற்றை மதிப்பாய்வு செய்யவும்"
+"கவனமாக."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
