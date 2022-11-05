@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-05 21:06+0000\n"
+"PO-Revision-Date: 2022-11-06 00:07+0000\n"
 "Last-Translator: Raphaël Denni <raphoro.d@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
@@ -47,7 +47,7 @@ msgstr "Suivant"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "Choisissez un disque"
+msgstr "Choisir un disque"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
@@ -67,7 +67,7 @@ msgstr "Choisissez votre disposition de clavier préférée"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "Recherchez une disposition de clavier"
+msgstr "Rechercher une disposition de clavier"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -80,11 +80,11 @@ msgstr "Sélectionnez votre langue"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr "Recherchez une langue"
+msgstr "Rechercher une langue"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr "Défaut"
+msgstr "Par défaut"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
@@ -108,7 +108,7 @@ msgstr "Choisissez votre fuseau horaire préféré"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "Recherchez un fuseau horaire"
+msgstr "Rechercher un fuseau horaire"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -120,7 +120,7 @@ msgstr "Zone"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Ajoutez un utilisateur"
+msgstr "Ajouter un utilisateur"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
@@ -172,7 +172,7 @@ msgstr "Annuler"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "Les changements suivant vont être effectués sur votre système :"
+msgstr "Les changements suivant vont être appliqués à votre système :"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -202,7 +202,7 @@ msgstr "Utiliser le disque en entier"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "Cela va effacer toutes les données sur le disque."
+msgstr "Cela effacera toutes les données sur le disque."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
@@ -222,7 +222,7 @@ msgstr "Les partitions suivantes ont été trouvé sur le disque"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Montrer les informations"
+msgstr "Affichage des informations"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -230,7 +230,7 @@ msgstr "Terminé !"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Redémarrez votre appareil et profiter de votre expérience Vanilla OS"
+msgstr "Redémarrez votre appareil pour profiter de votre expérience Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
@@ -250,11 +250,11 @@ msgstr "Installation..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr "Montrer la sortie de la console"
+msgstr "Afficher la console"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr "Montrer le diaporama"
+msgstr "Afficher le diaporama"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
@@ -262,7 +262,7 @@ msgstr "Format"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr "Choisisez un nouveau type de système de fichier ou laisser le comme ça"
+msgstr "Choisissez un nouveau type de système de fichier ou laisser tel quel"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
@@ -274,7 +274,8 @@ msgstr "Choisissez un point de montage pour la partition"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "C'est le seul disque disponible et il ne peut pas être désélectionné !"
+msgstr ""
+"Il s'agit du seul disque disponible et il est impossible à désélectionner !"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
