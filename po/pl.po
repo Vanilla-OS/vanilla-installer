@@ -229,7 +229,7 @@ msgstr "Wszystko gotowe!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Uruchom ponownie komputer, aby zacząć cieszyć się Vanilla OS"
+msgstr "Uruchom ponownie komputer, aby zacząć cieszyć się z Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
@@ -241,7 +241,7 @@ msgstr "Zamknij"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "Tak, włącz"
+msgstr "Tak, włącz to"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
@@ -257,7 +257,7 @@ msgstr "Pokaż slajdy"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr "System pllików"
+msgstr "Format"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
@@ -289,7 +289,7 @@ msgstr "Wybierz co najmniej jedną opcję."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Uruchom ponownie urządzenie, aby cieszyć się {}."
+msgstr "Uruchom ponownie urządzenie, aby cieszyć się z {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
