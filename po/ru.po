@@ -23,15 +23,15 @@ msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Настройте установку Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "нет описания"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "Первый выпуск"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -41,88 +41,88 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "Следующий"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "Выберите диск"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Выберите диск для установки Vanilla OS на"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr ""
+msgstr "Настроить"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Раскладка клавиатуры"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Выберите предпочтительную раскладку клавиатуры"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Поиск раскладки клавиатуры"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "Выберите свой язык"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "Поиск языка"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "Темный"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "Цветовая схема"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Выберите цветовую схему для вашей системы"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и время"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Выберите предпочитаемый часовой пояс"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "Поиск часового пояса"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "Область, край"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "Зона"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "Создать пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "Предоставьте данные для вашей учетной записи пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -130,23 +130,23 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr ""
+msgstr "Подтвердить Пароль"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "Добро пожаловать"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr ""
+msgstr "Это программное обеспечение проведет вас через процесс установки."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
@@ -166,107 +166,108 @@ msgstr "Подтверждение установки"
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "В вашу систему будут внесены следующие изменения:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "Подтвердить изменения"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
+msgstr "Следующие изменения будут внесены в ваш диск. Пожалуйста, просмотрите их
+осторожно."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "Настроить диск"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr ""
+msgstr "Подать заявление"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Использовать весь диск"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "Это удалит все данные на диске."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr ""
+msgstr "Открыть GParted"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "Откройте GParted, чтобы вручную разбить диск"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "Перегородки"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "На диске были обнаружены следующие разделы"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "Отображение информации"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "Все сделано!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "Перезагрузите устройство, чтобы насладиться работой с Vanilla OS."
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "Перезагрузить сейчас"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "Закрывать"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Да, включить"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
-msgstr ""
+msgstr "Установка..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr ""
+msgstr "Показать вывод консоли"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Показать слайд-шоу"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "Выберите новую файловую систему или оставьте как есть"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "Точка монтирования"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "Выберите точку монтирования для раздела"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
@@ -282,7 +283,7 @@ msgstr "Будет отформатирован в {} и смонтирован 
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Выберите хотя бы один вариант."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
