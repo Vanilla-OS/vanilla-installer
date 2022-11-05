@@ -182,7 +182,8 @@ msgstr "Conferma le Modifiche"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "Le seguenti modifiche verranno apportate al tuo disco. Si prega di esaminarli " 
+msgstr ""
+"Le seguenti modifiche verranno apportate al tuo disco. Si prega di esaminarli " 
 "con attenzione."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
