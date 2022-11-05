@@ -182,8 +182,7 @@ msgstr "পরিবর্তন নিশ্চিত করুন"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "নিম্নলিখিত পরিবর্তনগুলি আপনার ডিস্কে করা হবে। তাদের পর্যালোচনা করুন
-সাবধানে"
+msgstr "নিম্নলিখিত পরিবর্তনগুলি আপনার ডিস্কে করা হবে। তাদের পর্যালোচনা করুন সাবধানে"
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
