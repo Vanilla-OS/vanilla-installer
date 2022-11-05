@@ -3,7 +3,9 @@
     <h1>Vanilla OS Installer</h1>
     <p>A frontend in GTK 4 and Libadwaita for distinst.</p>
     <hr />
-    <a href="https://gitlocalize.com/repo/8114/whole_project?utm_source=badge"> <img src="https://gitlocalize.com/repo/8114/whole_project/badge.svg" /> </a>
+    <a href="https://hosted.weblate.org/engage/vanilla-os/">
+<img src="https://hosted.weblate.org/widgets/vanilla-os/-/first-setup/svg-badge.svg" alt="Stato traduzione" />
+</a>
     <br />
     <img src="data/screenshot.png">
 </div>
