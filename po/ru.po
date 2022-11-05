@@ -19,7 +19,7 @@ msgstr ""
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Установщик Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
@@ -126,7 +126,7 @@ msgstr "Предоставьте данные для вашей учетной �
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "Ваше Имя"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
@@ -150,12 +150,12 @@ msgstr "Это программное обеспечение проведет в
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr ""
+msgstr "Попробуйте Vanilla OS"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Установить Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -183,6 +183,7 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr "Следующие изменения будут внесены в ваш диск. Пожалуйста, просмотрите их
+осторожно."
 осторожно."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
