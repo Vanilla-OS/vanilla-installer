@@ -35,6 +35,7 @@ class Processor:
         manifest_remove = "/tmp/filesystem.manifest-remove"
         with open(manifest_remove, "w") as f:
             f.write("vanilla-installer\n")
+            f.write("gparted\n")
 
         arguments = [
             "sudo", "distinst",
