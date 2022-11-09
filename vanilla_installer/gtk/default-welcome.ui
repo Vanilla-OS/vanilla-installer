@@ -21,7 +21,7 @@
                         </child>
                         <child>
                             <object class="GtkBox">
-                                <property name="margin-bottom">96</property>
+                                <property name="margin-bottom">120</property>
                                 <property name="spacing">20</property>
                                 <property name="homogeneous">true</property>
                                 <property name="valign">center</property>
