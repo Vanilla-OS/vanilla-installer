@@ -8,30 +8,32 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-10-28 11:52+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-11-09 04:08+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "바닐라 OS 설치 프로그램"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "사용자의 바닐라 OS 설치를 수정합니다."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "설명 없음"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "첫 번째 릴리스"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -41,257 +43,257 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "디스크 선택하기"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "바닐라 OS를 설치할 디스크 선택하기"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr ""
+msgstr "구성하기"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "자판 배열"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "원하는 자판 배열 선택하기"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "자판 배열 검색하기"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr ""
+msgstr "언어"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "사용자의 언어 선택하기"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "언어 검색하기"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "어두운 테마"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "색 구성표"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "사용자 시스템의 색 구성표 고르기"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "날짜 및 시간"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "원하는 시간대 선택하기"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "시간대 검색하기"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "지역"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "구역"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "사용자 만들기"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "사용자 계정에 대한 세부정보 제공하기"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr ""
+msgstr "사용자이름"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr ""
+msgstr "암호 확인하기"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "환영합니다"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr ""
+msgstr "이 소프트웨어는 설치 과정을 통해 당신을 안내합니다."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr ""
+msgstr "바닐라 OS 사용해보기"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "바닐라 OS 설치하기"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
 msgid "Confirm Installation"
-msgstr ""
+msgstr "설치 확인하기"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "취소하기"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "사용자의 시스템에 다음과 같은 변경사항이 적용됩니다:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "변경사항 확인하기"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
+msgstr "디스크에 다음과 같은 변경사항이 적용됩니다. 주의 깊게 검토하십시오."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "디스크 구성하기"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr ""
+msgstr "적용하기"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "전체 디스크 사용하기"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "디스크의 모든 데이터가 지워집니다."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr ""
+msgstr "GParted 열기"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "디스크를 수동으로 분할하기 위해 GParted 열기"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "파티션"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "디스크에서 다음 파티션이 발견되었습니다"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "정보 표시"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "모두 완료되었습니다!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "사용자의 기기를 다시 시작하여 바닐라 OS 환경을 즐기십시오"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "지금 재부팅"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "예, 활성화합니다"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
-msgstr ""
+msgstr "설치하는 중..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr ""
+msgstr "콘솔 출력 표시하기"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "슬라이드쇼 표시하기"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "포멧"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "새 파일 시스템을 선택하거나 그대로 둡니다"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "마운트 지점"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "파티션의 마운트 지점 고르기"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "이 디스크만 사용할 수 있으며 선택을 취소할 수 없습니다!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "전체 디스크가 사용됩니다."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "{}로 포맷되고 {}에 마운트됩니다"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "옵션을 하나 이상 선택하십시오."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "사용자의 기기를 다시 시작하여 {} 환경을 즐기십시오."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "문제가 발생했습니다"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "배포 개발자에게 문의하십시오."

@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-11-09 04:08+0000\n"
+"Last-Translator: Jehu Marcos Herrera Puentes <jehuherrerap@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -45,11 +47,11 @@ msgstr "Siguiente"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "Seleccione un disco"
+msgstr "Seleccione una unidad de almacenamiento"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "Seleccione el disco donde quiere instalar Vanilla OS"
+msgstr "Seleccione la unidad donde quiere instalar Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -74,7 +76,7 @@ msgstr "Idioma"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "Elige tu idioma"
+msgstr "Elija su idioma"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
@@ -90,11 +92,11 @@ msgstr "Oscuro"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Esquema de colores"
+msgstr "Paleta de colores"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Elija un esquema de color para su sistema"
+msgstr "Elija una paleta de colores para el sistema"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -142,15 +144,15 @@ msgstr "Confirmar contraseña"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr "Bienvenidos"
+msgstr "Bienvenido/a"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr "Este software lo guiará a través del proceso de instalación."
+msgstr "El asistente lo guiará a través del proceso de instalación."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "Pruebe Vanilla OS"
+msgstr "Probar Vanilla OS"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
@@ -182,11 +184,13 @@ msgstr "Confirmar cambios"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "Se realizarán los siguientes cambios en su disco. Por favor revíselos con cuidado."
+msgstr ""
+"Se realizarán los siguientes cambios en su unidad de almacenamiento. Por "
+"favor revíselos cuidadosamente."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr "Configurar disco"
+msgstr "Configurar unidad de almacenamiento"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
@@ -194,11 +198,11 @@ msgstr "Aplicar"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr "Usar todo el disco"
+msgstr "Usar toda la unidad"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "Esto borrará todos los datos del disco."
+msgstr "Esto borrará todos los datos de la unidad."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
@@ -206,7 +210,7 @@ msgstr "Abrir GParted"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr "Abra GParted para particionar manualmente el disco"
+msgstr "Abra GParted para particionar manualmente la unidad"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
@@ -214,7 +218,8 @@ msgstr "Particiones"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr "Se encontraron las siguientes particiones en el disco"
+msgstr ""
+"Se encontraron las siguientes particiones en su unidad del almacenamiento"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -246,7 +251,7 @@ msgstr "Instalando..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr "Mostrar salida de consola"
+msgstr "Mostrar detalles"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
@@ -258,7 +263,7 @@ msgstr "Formatear"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr "Elija un nuevo sistema de archivos o déjelo como está"
+msgstr "Elija un nuevo sistema de archivos, o déjelo como está"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
@@ -270,11 +275,13 @@ msgstr "Elija un punto de montaje para la partición"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "¡Este es el único disco disponible y no se puede de-seleccionar!"
+msgstr ""
+"¡Esta es la única unidad de almacenamiento disponible y no se puede de-"
+"seleccionar!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr "Se utilizará todo el disco."
+msgstr "Se utilizará toda la unidad de almacenamiento."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
@@ -282,11 +289,11 @@ msgstr "Se formateará en {} y se montará en {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr "Seleccione al menos una opción."
+msgstr "Por favor, seleccione al menos una opción."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Reinicia tu dispositivo para disfrutar tu experiencia con {}."
+msgstr "Reinicie su dispositivo para disfrutar su experiencia con {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
@@ -294,4 +301,5 @@ msgstr "Algo salió mal"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr "Póngase en contacto con los desarrolladores de la distribución."
+msgstr ""
+"Por favor, póngase en contacto con los desarrolladores de la distribución."
