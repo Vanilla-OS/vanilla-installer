@@ -27,6 +27,22 @@ logger = logging.getLogger("Installer::Processor")
 class Processor:
 
     @staticmethod
+    def gen_swap_size():
+        """
+        Reference: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace#doc-wrapper
+        """
+        mem = os.sysconf("SC_PAGE_SIZE") * os.sysconf("SC_PHYS_PAGES")
+        mem = mem / (1024.0 ** 3)
+        if mem <= 2:
+            return int(mem * 3 * 1024)
+        elif mem > 2 and mem <= 8:
+            return int(mem * 2 * 1024)
+        elif mem > 8 and mem <= 64:
+            return int(mem * 1.5 * 1024)
+        else:
+            return 4096
+
+    @staticmethod
     def gen_install_script(log_path, pre_run, post_run, finals):
         logger.info("processing the following final data: %s", finals)
 
@@ -65,8 +81,8 @@ class Processor:
                         arguments += ["-t", "'{}:gpt'".format(value["auto"]["disk"])]
                         arguments += ["-n", "'{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp'".format(value["auto"]["disk"])]
                         arguments += ["-n", "'{}:primary:512M:1024M:ext4:mount=/boot'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:1536M:-4096M:btrfs:mount=/'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:-4096M:end:swap'".format(value["auto"]["disk"])]
+                        arguments += ["-n", "'{}:primary:1536M:-{}M:btrfs:mount=/'".format(value["auto"]["disk"], Processor.gen_swap_size())]
+                        arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
                     else:
                         for partition, values in value.items():
                             if partition == "disk":
