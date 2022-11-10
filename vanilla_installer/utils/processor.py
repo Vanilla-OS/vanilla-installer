@@ -74,13 +74,13 @@ class Processor:
                                 arguments += ["-t", "'{}:gpt'".format(values)]
                                 continue
                             if values["mp"] == "/":
-                                arguments += ["-n", "'{}:primary:start:-{}M:btrfs:mount=/'".format(partition, values["size"])]
+                                arguments += ["-n", "'{}:primary:start:{}M:btrfs:mount=/'".format(partition, values["size"])]
                             elif values["mp"] == "/boot/efi":
                                 arguments += ["-n", "'{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp'".format(partition)]
                             elif values["mp"] == "swap":
-                                arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(partition, values["size"])]
+                                arguments += ["-n", "'{}:primary:{}M:end:swap'".format(partition, values["size"])]
                             else:
-                                arguments += ["-n", "'{}:primary:-{}M:end:{}:mount={}'".format(partition, values["size"], values["fs"], values["mp"])]
+                                arguments += ["-n", "'{}:primary:{}M:end:{}:mount={}'".format(partition, values["size"], values["fs"], values["mp"])]
         
         # generating a temporary file to store the distinst command and
         # arguments parsed from the final data
