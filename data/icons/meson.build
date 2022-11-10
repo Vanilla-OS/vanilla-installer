@@ -19,16 +19,14 @@ install_data(
 
 
 install_data(
-  join_paths(symbolic_dir, 'apps', ('vanilla-logo-text-symbolic.svg').format(application_id)),
-  install_dir: join_paths(get_option('datadir'), 'icons', symbolic_dir)
-)
-
-
-install_data(
     join_paths(actions_dir, 'vanilla-installer-harddisk-symbolic.svg'),
     install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
 )
 install_data(
     join_paths(actions_dir, 'vanilla-installer-display-with-window-symbolic.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
+)
+install_data(
+    join_paths(actions_dir, 'vanilla-logo-text-symbolic.svg'),
     install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'actions')
 )
