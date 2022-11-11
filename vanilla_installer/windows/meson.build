@@ -5,7 +5,6 @@ sources = [
   '__init__.py',
   'main_window.py',
   'dialog.py',
-  'dialog_confirm.py',
   'dialog_output.py',
 ]
 

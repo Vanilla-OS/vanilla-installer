@@ -2,12 +2,12 @@
 <gresources>
   <gresource prefix="/org/vanillaos/Installer">
     <file>gtk/window.ui</file>
+    <file>gtk/confirm.ui</file>
     <file>gtk/done.ui</file>
     <file>gtk/progress.ui</file>
     <file>gtk/tour.ui</file>
 
     <file>gtk/dialog.ui</file>
-    <file>gtk/dialog-confirm.ui</file>
     <file>gtk/dialog-output.ui</file>
     <file>gtk/dialog-disk.ui</file>
     <file>gtk/dialog-disk-confirm.ui</file>

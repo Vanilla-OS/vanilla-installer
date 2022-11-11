@@ -3,6 +3,7 @@ viewsdir = join_paths(pkgdatadir, 'vanilla_installer/views')
 
 sources = [
   '__init__.py',
+  'confirm.py',
   'done.py',
   'progress.py',
   'tour.py',
