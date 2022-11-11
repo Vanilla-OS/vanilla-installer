@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: bobarakatx <bahaa.barakat.97@outlook.com>\n"
+"PO-Revision-Date: 2022-11-12 20:50+0000\n"
+"Last-Translator: عثمان محامدي <othmahammedi@proton.me>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "مثبّت فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
@@ -30,11 +30,11 @@ msgstr "قم بإجراء بعض التعديلات على تثبيت Vanilla OS
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "لا يوجد توصيف"
+msgstr "دون وصف"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr "الإصدار الأول"
+msgstr "العرض الأولي"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -48,11 +48,11 @@ msgstr "التالي"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "اختار قرص"
+msgstr "اختر جهاز تخزين"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "اختار القرص الذي سيتم تثبيت Vanilla OS عليه"
+msgstr "اختر القرص الذي سيتم تثبيت فانيلا عليه"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -60,15 +60,15 @@ msgstr "ضبط الإعدادات"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "نمط لوحة المفاتيح"
+msgstr "لوحة المفاتيح"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "اختار نمط لوحة المفاتيح المفضل لديك"
+msgstr "حدد تخطيط لوحة المفاتيح المفضل لديك"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "البحث عن نمط لوحة المفاتيح"
+msgstr "البحث عن تخطيط لوحة مفاتيح"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -77,7 +77,7 @@ msgstr "اللغة"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "اختار اللغة"
+msgstr "اختر لغتك"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
@@ -89,15 +89,15 @@ msgstr "افتراضي"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "غامق"
+msgstr "مظلم"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "نمط اللون"
+msgstr "سمة النظام"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "اختار نمط اللون للنظام"
+msgstr "اختر سمة لون نظامك"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -105,7 +105,7 @@ msgstr "التاريخ والوقت"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "اختار المنطقة الزمنية"
+msgstr "اختر المنطقة الزمنية"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
@@ -117,7 +117,7 @@ msgstr "المنطقة"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "المجال"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -129,7 +129,7 @@ msgstr "إدخال تفاصيل حساب المستخدم"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "اسم"
+msgstr "الاسم"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
@@ -137,11 +137,11 @@ msgstr "اسم المستخدم"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr "كلمة المرور"
+msgstr "كلمة السر"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr "تأكيد كلمة المرور"
+msgstr "تأكيد كلمة السر"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
@@ -149,16 +149,16 @@ msgstr "مرحبًا"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr "سيقوم هذا البرنامج بإرشادك خلال عملية التثبيت."
+msgstr "سيرشدك هذا البرنامج خلال عملية التثبيت."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "تجربة Vanilla OS"
+msgstr "تجربة فانيلا"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr "تثبيت Vanilla OS"
+msgstr "تثبيت فانيلا"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -173,7 +173,7 @@ msgstr "إلغاء"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "سيتم عمل التعديلات التالية على نظامك:"
+msgstr "سيتم إجراء التعديلات التالية على نظامك:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -185,11 +185,11 @@ msgstr "تأكيد التعديلات"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "سيتم عمل التعديلات التالية على القرص. برجاء مراجعتها بعناية."
+msgstr "سيتم عمل التعديلات التالية على القرص. يرجى مراجعتها بعناية."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "إعداد القرص"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
@@ -201,7 +201,7 @@ msgstr "استخدام كامل القرص"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "سيتم محو كافة البيانات الموجودة على القرص."
+msgstr "سيتم محو كل البيانات الموجودة على القرص."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
@@ -213,88 +213,90 @@ msgstr "فتح GParted لتقسيم القرص يدويًّا"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "الأقسام"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "تم العثور على الأقسام التالية على القرص"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "عرض المعلومات"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "تم!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "أعد تشغيل الحاسوب للاستمتاع بتجربة نظام التشغيل فانيلا"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "إعادة التشغيل الآن"
 
 #: vanilla_installer/gtk/done.ui:32
+#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "غلق"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "نعم، فعّلها"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
-msgstr ""
+msgstr "جاري التثبيت ..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
 msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:96
+#, fuzzy
 msgid "Show Slideshow"
-msgstr ""
+msgstr "عرض الشرائح"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "تهيئة"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "اختر نظام ملفات جديد أو اتركه كما هو"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "نقطة الوصل"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "اختر نقطة وصل للقسم"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "هذا القرص الوحيد المتاح ولا يمكن إلغاء تحديده!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "سيتم استخدام كامل القرص."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "سيتم تهيئته في {} ووصله في {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "يرجى تحديد خيار واحد على الأقل."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "أعد تشغيل الحاسوب للاستمتاع بتجربة {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "هناك خطأ ما"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "يرجى التواصل مع مطوري التوزيعة."
