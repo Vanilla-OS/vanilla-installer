@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
 "PO-Revision-Date: 2022-11-14 08:53+0000\n"
-"Last-Translator: Mr.Narsus <ridan777563332@gmail.com>\n"
+"Last-Translator: عثمان محامدي <othmahammedi@proton.me>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -26,7 +26,7 @@ msgstr "مثبّت نِظام فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "قم بإجراء بعض التعديلات على تثبيت Vanilla OS"
+msgstr "قم بإجراء بعض التعديلات على تثبيت نظام التشغيل فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -48,19 +48,19 @@ msgstr "التالي"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "اختر جهاز تخزين"
+msgstr "حدد قرص"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "اختر القرص الذي سيتم تثبيت فانيلا عليه"
+msgstr "حدد القرص الذي سيتم تثبيت نظام التشغيل فانيلا عليه"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr "ضبط الإعدادات"
+msgstr "إعداد"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "لوحة المفاتيح"
+msgstr "تخطيط لوحة المفاتيح"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
