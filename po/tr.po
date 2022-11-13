@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-06 00:07+0000\n"
-"Last-Translator: Deniz Akşimşek <deniz@denizaksimsek.com>\n"
+"PO-Revision-Date: 2022-11-14 08:53+0000\n"
+"Last-Translator: E-Akcaer <gurbetcii_@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
 "Language: tr\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Vanilla OS Yükleyici"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Vanilla OS kurulumunuzu özelleştirin."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -33,7 +33,7 @@ msgstr "Açıklama yok"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "İlk sürüm"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -43,84 +43,88 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "Sonraki"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "Disk seçin"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Vanilla OS yüklenecek diski seçin"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr ""
+msgstr "Yapılandır"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Klavye Yerleşimi"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Tercih ettiğiniz klavye yerleşimini seçin"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
+#, fuzzy
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Klavye Yerleşimi Ara"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr ""
+msgstr "Dil"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "Dilinizi seçin"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "Dil arayın"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "Varsayılan"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "Koyu"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "Renk Şeması"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Sisteminiz için bir renk şeması seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "Tarih & Saat"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Tercih ettiğiniz saat dilimini seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
+#, fuzzy
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "Saat Dilimi arayın"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "Bölge"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
+#, fuzzy
 msgid "Zone"
-msgstr ""
+msgstr "Kuşak"
 
 #: vanilla_installer/gtk/default-users.ui:40
+#, fuzzy
 msgid "Create User"
-msgstr ""
+msgstr "Kullanıcı oluşturun"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
