@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-14 08:53+0000\n"
-"Last-Translator: عثمان محامدي <othmahammedi@proton.me>\n"
+"PO-Revision-Date: 2022-11-16 04:15+0000\n"
+"Last-Translator: Mr.Narsus <ridan777563332@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr "مثبّت نِظام فانيلا"
+msgstr "مُثبِّتُ نِظام فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "قم بإجراء بعض التعديلات على تثبيت نظام التشغيل فانيلا"
+msgstr "طوَّع تثبيتك لنظام فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -48,11 +48,11 @@ msgstr "التالي"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "حدد قرص"
+msgstr "حدد قُرْصًا"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "حدد القرص الذي سيتم تثبيت نظام التشغيل فانيلا عليه"
+msgstr "حدد القرص لتثبيت نظام فانيلا عليه"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -153,12 +153,12 @@ msgstr "سيرشدك هذا البرنامج خلال عملية التثبيت.
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "تجربة فانيلا"
+msgstr "جرِّب نظام فانيلا"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr "تثبيت فانيلا"
+msgstr "ثبِّت نظام فانيلا"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -173,7 +173,7 @@ msgstr "إلغاء"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "سيتم إجراء التعديلات التالية على نظامك:"
+msgstr "ستطبق التعديلات التالية على نظامك:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -185,7 +185,7 @@ msgstr "تأكيد التعديلات"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "سيتم عمل التعديلات التالية على القرص. يرجى مراجعتها بعناية."
+msgstr "ستُطَبَق التعديلات التالية على قرصك، يرجى مراجعتها بعنايةٍ."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -197,11 +197,11 @@ msgstr "تطبيق"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr "استخدام كامل القرص"
+msgstr "استخدم كامل القرص"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "سيتم محو كل البيانات الموجودة على القرص."
+msgstr "هذا سيمحو كل بيانات على القرص."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
@@ -217,7 +217,7 @@ msgstr "الأقسام"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr "تم العثور على الأقسام التالية على القرص"
+msgstr "عُثِرَ على الأقسام التالية على القرص"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -236,9 +236,8 @@ msgid "Reboot Now"
 msgstr "إعادة التشغيل الآن"
 
 #: vanilla_installer/gtk/done.ui:32
-#, fuzzy
 msgid "Close"
-msgstr "غلق"
+msgstr "أَغْلِقْ"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
@@ -246,16 +245,15 @@ msgstr "نعم، فعّلها"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
-msgstr "جاري التثبيت ..."
+msgstr "التثبيت جارٍ..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr ""
+msgstr "أَظْهِرْ مُخرجات الطرفيَّة"
 
 #: vanilla_installer/gtk/progress.ui:96
-#, fuzzy
 msgid "Show Slideshow"
-msgstr "عرض الشرائح"
+msgstr "اِعْرِضْ الشرائح"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
@@ -279,11 +277,11 @@ msgstr "هذا القرص الوحيد المتاح ولا يمكن إلغاء �
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr "سيتم استخدام كامل القرص."
+msgstr "سيُسْتَخدَمُ كامل القرص."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr "سيتم تهيئته في {} ووصله في {}"
+msgstr "سيُهيَّأُ في {} ويُوصَلُ في {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
