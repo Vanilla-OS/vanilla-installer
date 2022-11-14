@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-14 08:53+0000\n"
+"PO-Revision-Date: 2022-11-16 04:15+0000\n"
 "Last-Translator: E-Akcaer <gurbetcii_@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
@@ -66,9 +66,8 @@ msgid "Select your preferred keyboard layout"
 msgstr "Tercih ettiğiniz klavye yerleşimini seçin"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
-#, fuzzy
 msgid "Search for a Keyboard Layout"
-msgstr "Klavye Yerleşimi Ara"
+msgstr "Klavye Yerleşimi arayın"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -119,7 +118,7 @@ msgstr "Bölge"
 #: vanilla_installer/gtk/default-timezone.ui:59
 #, fuzzy
 msgid "Zone"
-msgstr "Kuşak"
+msgstr "Dilim"
 
 #: vanilla_installer/gtk/default-users.ui:40
 #, fuzzy
@@ -127,177 +126,187 @@ msgid "Create User"
 msgstr "Kullanıcı oluşturun"
 
 #: vanilla_installer/gtk/default-users.ui:41
+#, fuzzy
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "Kullanıcı hesabınızın ayrıntılarını sağlayın"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr ""
+msgstr "Kullanıcı Adı"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "Şifre"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr ""
+msgstr "Şifreyi Doğrulayın"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "Hoşgeldiniz"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr ""
+msgstr "Bu yazılım, kurulum süreci boyunca size rehberlik edecek."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
+#, fuzzy
 msgid "Try Vanilla OS"
-msgstr ""
+msgstr "Vanilla OS'u deneyin"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
+#, fuzzy
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Vanilla OS'u yükleyin"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
 msgid "Confirm Installation"
-msgstr ""
+msgstr "Kurulumu Doğrulayın"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "Aşağıdaki değişiklikler sisteminize uygulanacaktır:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "Değişiklikleri Onayla"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"Aşağıdaki değişiklikler diskinize uygulanacaktır. Lütfen onları dikkatlice "
+"gözden geçirin."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "Diski Yapılandır"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr ""
+msgstr "Uygula"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Tüm Diski Kullan"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "Bu işlem, diskteki tüm veriyi silecektir."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr ""
+msgstr "GParted'ı Aç"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "Diski elle bölümlendirmek için GParted'ı aç"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "Bölümler"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "Diskte aşağıdaki bölümler bulundu"
 
 #: vanilla_installer/gtk/dialog.ui:6
+#, fuzzy
 msgid "Showing Information"
-msgstr ""
+msgstr "Bilgi Gösteriliyor"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "Her şey tamam!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
+"Vanilla OS deneyiminizin keyfini çıkarmak için aygıtınızı yeniden başlatın"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "Şimdi Yeniden Başlat"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
+#, fuzzy
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Evet, kabul ediyorum"
 
 #: vanilla_installer/gtk/progress.ui:60
+#, fuzzy
 msgid "Installing..."
-msgstr ""
+msgstr "Yükleniyor..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr ""
+msgstr "Konsol çıktısını göster"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Slayt gösterisini göster"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Biçim"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "Yeni bir dosya sistemi seçin veya olduğu gibi bırakın"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "Bağlama Noktası"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "Bölüm için bir bağlama noktası seçin"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "Bu, uygun olan tek disktir ve seçimi kaldırılamaz!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "Tüm disk kullanılacak."
 
 #: vanilla_installer/defaults/disk.py:195
+#, fuzzy
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "{} şeklinde biçimlendirilsin ve {} noktasına bağlansın mı?"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Lütfen en azından bir seçeneği seçin."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "{} deneyiminizin keyfini çıkarmak için aygıtınızı yeniden başlatın."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "Bazı şeyler yolunda gitmedi"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "Lütfen dağıtım geliştiricileri ile irtibata geçin."
