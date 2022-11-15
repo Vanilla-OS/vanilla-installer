@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: Diogo <diogopessoabr@gmail.com>\n"
+"PO-Revision-Date: 2022-11-16 04:15+0000\n"
+"Last-Translator: Luccas Ferreira <mertubeluiz123@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -59,15 +59,15 @@ msgstr "Configurar"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "Esquema do teclado"
+msgstr "Layout do teclado"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "Selecione seu esquema de teclado preferido"
+msgstr "Selecione seu layout de teclado preferido"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "Pesquisar por um esquema de teclado"
+msgstr "Pesquisar um layout de teclado"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -104,7 +104,7 @@ msgstr "Data e Hora"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "Selecione seu fuso horário preferido"
+msgstr "Selecione seu fuso horário"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
@@ -200,7 +200,7 @@ msgstr "Usar o disco inteiro"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "Isso apagará todos os dados no disco."
+msgstr "Isso apagará todos os dados do disco."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
