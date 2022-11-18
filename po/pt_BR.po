@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-16 04:15+0000\n"
-"Last-Translator: Luccas Ferreira <mertubeluiz123@gmail.com>\n"
+"PO-Revision-Date: 2022-11-19 19:47+0000\n"
+"Last-Translator: Ryuna Uemura Cortez <lunascarlatto@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -51,7 +51,7 @@ msgstr "Selecione um disco"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "Selecione o disco onde será instalado o Vanilla OS"
+msgstr "Selecione o disco em que deseja instalar o Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
