@@ -1,6 +1,7 @@
 # progress.py
 #
 # Copyright 2022 mirkobrombin
+# Copyright 2022 muqtadir
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import time
-from gi.repository import Gtk, GLib, Adw, Vte
+from gi.repository import Gtk, GLib, Adw, Vte, Pango
 
 from vanilla_installer.utils.run_async import RunAsync
 
@@ -40,6 +41,11 @@ class VanillaProgress(Gtk.Box):
         self.__window = window
         self.__tour = tour    
         self.__terminal = Vte.Terminal()
+        self.__font = Pango.FontDescription()
+        self.__font.set_family("Ubuntu Mono")
+        self.__font.set_size(13 * Pango.SCALE)
+        self.__font.set_weight(Pango.Weight.NORMAL)
+        self.__font.set_stretch(Pango.Stretch.NORMAL)
 
         self.__build_ui()
 
@@ -60,6 +66,7 @@ class VanillaProgress(Gtk.Box):
 
     def __build_ui(self):
         self.__terminal.set_cursor_blink_mode(Vte.CursorBlinkMode.ON)
+        self.__terminal.set_font(self.__font)
         self.__terminal.set_mouse_autohide(True)
         self.console_output.append(self.__terminal)
         self.__terminal.connect("child-exited", self.on_vte_child_exited)
