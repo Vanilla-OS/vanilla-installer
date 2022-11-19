@@ -43,52 +43,57 @@ class VanillaChoiceExpanderEntry(Adw.ExpanderRow):
         self.img_choice.set_from_icon_name(icon_name)
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-confirm.ui')
-class VanillaDialogConfirm(Adw.Window):
-    __gtype_name__ = 'VanillaDialogConfirm'
+@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/confirm.ui')
+class VanillaConfirm(Adw.Bin):
+    __gtype_name__ = 'VanillaConfirm'
     __gsignals__ = {
         "installation-confirmed": (GObject.SIGNAL_RUN_FIRST, None, ()),
-        "installation-cancelled": (GObject.SIGNAL_RUN_FIRST, None, ()),
     }
 
     group_changes = Gtk.Template.Child()
-    btn_cancel = Gtk.Template.Child()
     btn_confirm = Gtk.Template.Child()
 
-    def __init__(self, window, finals, **kwargs):
+    def __init__(self, window, **kwargs):
         super().__init__(**kwargs)
-        self.set_transient_for(window)
-        
+    
+    def update(self, finals):
+        try:
+            for widget in self.active_widgets:
+                self.group_changes.remove(widget)
+        except AttributeError:
+            pass
+        self.active_widgets = []
+
         for final in finals:
             for key, value in final.items():
-                
+
                 if key == "language":
-                    self.group_changes.add(VanillaChoiceEntry(
+                    self.active_widgets.append(VanillaChoiceEntry(
                         "Language",
                         value,
                         "preferences-desktop-locale-symbolic"
                     ))
                 elif key == "keyboard":
-                    self.group_changes.add(VanillaChoiceEntry(
+                    self.active_widgets.append(VanillaChoiceEntry(
                         "Keyboard",
                         value,
                         "input-keyboard-symbolic"
                     ))
                 elif key == "timezone":
-                    self.group_changes.add(VanillaChoiceEntry(
+                    self.active_widgets.append(VanillaChoiceEntry(
                         "Timezone",
                         f"{value['region']} {value['zone']}",
                         "preferences-system-time-symbolic"
                     ))
                 elif key == "users":
-                    self.group_changes.add(VanillaChoiceEntry(
+                    self.active_widgets.append(VanillaChoiceEntry(
                         "Users",
                         f"{value['username']} ({value['fullname']})",
                         "system-users-symbolic"
                     ))
                 elif key == "disk":
                     if "auto" in value:
-                        self.group_changes.add(VanillaChoiceEntry(
+                        self.active_widgets.append(VanillaChoiceEntry(
                             "Disk",
                             f"{value['auto']['disk']} ({value['auto']['pretty_size']})",
                             "drive-harddisk-system-symbolic"
@@ -102,7 +107,7 @@ class VanillaDialogConfirm(Adw.Window):
                                     block_info,
                                     "drive-harddisk-system-symbolic"
                                 )
-                                self.group_changes.add(expander)
+                                self.active_widgets.append(expander)
                             else:
                                 expander.add_row(VanillaChoiceEntry(
                                     block,
@@ -111,14 +116,10 @@ class VanillaDialogConfirm(Adw.Window):
                                 ))
                             i += 1
 
-                
-        self.btn_cancel.connect("clicked", self.__on_cancel)
-        self.btn_confirm.connect("clicked", self.__on_confirm)
+        for widget in self.active_widgets:
+            self.group_changes.add(widget)
 
-    def __on_cancel(self, widget):
-        self.emit("installation-cancelled")
-        self.destroy()
+        self.btn_confirm.connect("clicked", self.__on_confirm)
 
     def __on_confirm(self, widget):
         self.emit("installation-confirmed")
-        self.destroy()

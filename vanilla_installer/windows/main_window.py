@@ -24,10 +24,9 @@ from vanilla_installer.utils.builder import Builder
 from vanilla_installer.utils.processor import Processor
 from vanilla_installer.utils.run_async import RunAsync
 
+from vanilla_installer.views.confirm import VanillaConfirm
 from vanilla_installer.views.progress import VanillaProgress
 from vanilla_installer.views.done import VanillaDone
-
-from vanilla_installer.windows.dialog_confirm import VanillaDialogConfirm
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/window.ui')
@@ -47,6 +46,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.recipe = self.__builder.recipe
 
         # system views
+        self.__view_confirm = VanillaConfirm(self)
         self.__view_progress = VanillaProgress(self, self.recipe.get("tour", {}))
         self.__view_done = VanillaDone(self)
 
@@ -59,6 +59,8 @@ class VanillaWindow(Adw.ApplicationWindow):
     def __connect_signals(self):
         self.btn_back.connect("clicked", self.back)
         self.carousel.connect("page-changed", self.__on_page_changed)
+        self.__builder.widgets[-1].btn_next.connect("clicked", self.update_finals)
+        self.__view_confirm.connect("installation-confirmed", self.on_installation_confirmed)
 
     def __build_ui(self):
         if "VANILLA_FORCE_TOUR" not in os.environ:
@@ -67,22 +69,11 @@ class VanillaWindow(Adw.ApplicationWindow):
         else:
             self.__on_page_changed()
 
+        self.carousel.append(self.__view_confirm)
         self.carousel.append(self.__view_progress)
         self.carousel.append(self.__view_done)
 
     def __on_page_changed(self, *args):
-        def on_installation_confirmed(*args):
-            install_script = Processor.gen_install_script(
-                self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
-                self.recipe.get("pre_run", []),
-                self.recipe.get("post_run"),
-                finals
-            )
-            self.__view_progress.start(install_script)
-    
-        def on_installation_cancelled(*args):
-            self.back()
-
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index)
 
@@ -98,18 +89,25 @@ class VanillaWindow(Adw.ApplicationWindow):
         if page == self.__view_done:
             return
 
+    def update_finals(self, *args):
         # collect all the finals
         if "VANILLA_FORCE_TOUR" not in os.environ:
-            finals = self.__builder.get_finals()
+            self.finals = self.__builder.get_finals()
         else:
             import json
-            finals = json.loads(os.environ["VANILLA_FORCE_TOUR"])
-        
-        # show the confirm dialog
-        dialog = VanillaDialogConfirm(self, finals)
-        dialog.present()
-        dialog.connect("installation-confirmed", on_installation_confirmed)
-        dialog.connect("installation-cancelled", on_installation_cancelled)
+            self.finals = json.loads(os.environ["VANILLA_FORCE_TOUR"])
+
+        self.__view_confirm.update(self.finals)
+
+    def on_installation_confirmed(self, *args):
+        install_script = Processor.gen_install_script(
+            self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
+            self.recipe.get("pre_run", []),
+            self.recipe.get("post_run"),
+            self.finals
+        )
+        self.next()
+        self.__view_progress.start(install_script)
 
     def next(self, *args):
         cur_index = self.carousel.get_position()
