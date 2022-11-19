@@ -50,13 +50,15 @@ if __name__ == '__main__':
     Ref: https://discourse.gnome.org/t/how-to-center-gtkwindows-in-gtk4/3112/4
     '''
 
-    if str(subprocess.check_output(['gsettings', 'get', 'org.gnome.mutter', 'center-new-windows'])) == 'b\'false\\n\'':
+    settings = Gio.Settings.new('org.gnome.mutter')
 
-        subprocess.run(['gsettings', 'set', 'org.gnome.mutter', 'center-new-windows', 'true'])
+    if settings.get_boolean('center-new-windows') == False:
+
+        settings.set_boolean('center-new-windows', True)
 
         def restore_mutter_settings():
             time.sleep(3)
-            subprocess.run(['gsettings', 'set', 'org.gnome.mutter', 'center-new-windows', 'false'])
+            settings.set_boolean('center-new-windows', False)
 
         from vanilla_installer.utils.run_async import RunAsync
 

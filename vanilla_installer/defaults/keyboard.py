@@ -153,7 +153,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
     def __set_keyboard_layout(self, layout, variant=None):
         if variant == '':
-            value = '[(\'xkb\', \'' + layout + '\')]'
+            value = layout
         else:
-            value = '[(\'xkb\', \'' + layout + '+' + variant + '\')]'
-        subprocess.run(['gsettings', 'set', 'org.gnome.desktop.input-sources', 'sources', value])
+            value = layout + '+' + variant
+        Gio.Settings.new('org.gnome.desktop.input-sources').set_value('sources', GLib.Variant.new_array(GLib.VariantType('(ss)'), [GLib.Variant.new_tuple(GLib.Variant.new_string("xkb"), GLib.Variant.new_string(value))]))
