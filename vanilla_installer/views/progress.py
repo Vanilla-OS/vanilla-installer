@@ -82,17 +82,14 @@ class VanillaProgress(Gtk.Box):
         self.colors = [Gdk.RGBA() for c in palette]
         [color.parse(s) for (color, s) in zip(self.colors, palette)]
         desktop_schema = Gio.Settings.new('org.gnome.desktop.interface')
-        
         if desktop_schema.get_enum('color-scheme') == 0:
             self.fg.parse(FOREGROUND)
             self.bg.parse(BACKGROUND)
-            self.__terminal.set_colors(self.fg, self.bg, self.colors)
-        
         elif desktop_schema.get_enum('color-scheme') == 1:
             self.fg.parse(FOREGROUND_DARK)
             self.bg.parse(BACKGROUND_DARK)
-            self.__terminal.set_colors(self.fg, self.bg, self.colors)
-
+        self.__terminal.set_colors(self.fg, self.bg, self.colors)
+        
         for _, tour in self.__tour.items():
             self.carousel_tour.append(VanillaTour(self.__window, tour))
 
