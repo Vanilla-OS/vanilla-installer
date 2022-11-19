@@ -137,7 +137,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
                 break
 
         # set the layout
-        self.__set_xkbmap(xkb_layout, xkb_variant)
+        self.__set_keyboard_layout(xkb_layout, xkb_variant)
 
     def __on_search_key_pressed(self, *args):
         keywords = self.entry_search_keyboard.get_text().lower()
@@ -151,8 +151,9 @@ class VanillaDefaultKeyboard(Adw.Bin):
                 self.__on_layout_selected()
                 break
 
-    def __set_xkbmap(self, layout, variant=None):
-        if variant is None:
-            subprocess.run(["setxkbmap", layout])
+    def __set_keyboard_layout(self, layout, variant=None):
+        if variant == '':
+            value = '[(\'xkb\', \'' + layout + '\')]'
         else:
-            subprocess.run(["setxkbmap", layout, "-variant", variant])
+            value = '[(\'xkb\', \'' + layout + '+' + variant + '\')]'
+        subprocess.run(['gsettings', 'set', 'org.gnome.desktop.input-sources', 'sources', value])
