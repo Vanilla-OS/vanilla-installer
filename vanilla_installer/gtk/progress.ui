@@ -46,11 +46,13 @@
                     <object class="GtkBox" id="console_output">
                         <property name="visible">True</property>
                         <property name="margin-top">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
                         <property name="orientation">vertical</property>
                     </object>
                 </child>
                 <style>
-                    <class name="vte-console"/>
+                    <class name="card"/>
                 </style>
             </object>
         </child>
