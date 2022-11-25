@@ -18,10 +18,8 @@ class Disk:
         return partitions
 
     def __get_size(self):
-        size = 0
-        for partition in self.partitions:
-            size += partition.size
-        return size
+        with open(f"{self.block}/size", "r") as f:
+            return int(f.read().strip()) * 512
         
     @property
     def partitions(self):
