@@ -79,10 +79,12 @@ class Processor:
                     if "auto" in value:
                         arguments += ["-b", f"'{value['auto']['disk']}'"]
                         arguments += ["-t", "'{}:gpt'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:512M:1024M:ext4:mount=/boot'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:1536M:-{}M:btrfs:mount=/'".format(value["auto"]["disk"], Processor.gen_swap_size())]
-                        arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
+                        arguments += ["-n", "'{}:primary:start:1024M:fat32:mount=/boot/efi:flags=esp'".format(value["auto"]["disk"])]
+                        arguments += ["-n", "'{}:primary:1024M:2048M:ext4:mount=/boot'".format(value["auto"]["disk"])]
+                        arguments += ["-n", "'{}:primary:2048M:22528M:btrfs:mount=/'".format(value["auto"]["disk"])]
+                        arguments += ["-n", "'{}:primary:22528M:43008M:btrfs:mount=/'".format(value["auto"]["disk"])]
+                        arguments += ["-n", "'{}:primary:43008M:end:btrfs:mount=/home'".format(value["auto"]["disk"])]
+                       #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
                     else:
                         for partition, values in value.items():
                             if partition == "disk":
