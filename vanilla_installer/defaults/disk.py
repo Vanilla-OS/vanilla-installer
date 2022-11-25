@@ -32,18 +32,23 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
         super().__init__(**kwargs)
         self.__disk = disk
         self.set_title(disk.name)
-        self.set_subtitle(disk.pretty_size)
-        self.chk_button.set_group(chk_group)
 
-        if not use_radio:
-            # since there is only one disk and for some reason GtkCheckButton
-            # only works as a GtkRadioButton only when there are more than one
-            # we create a fake GtkRadioButton to check the first one
-            fake_chk_button = Gtk.CheckButton()
-            fake_chk_button.set_group(self.chk_button)
-            self.chk_button.set_active(True)
-            self.chk_button.set_sensitive(False)
-            self.chk_button.set_tooltip_text(_("This is the only disk available and cannot be deselected!"))
+        if disk.size < 50000000000:
+            self.set_sensitive(False)
+            self.set_subtitle(_("Not enough space: {0}/{1}").format(disk.pretty_size, "50 GB"))
+        else:
+            self.set_subtitle(disk.pretty_size)
+            self.chk_button.set_group(chk_group)
+
+            if not use_radio:
+                # since there is only one disk and for some reason GtkCheckButton
+                # only works as a GtkRadioButton only when there are more than one
+                # we create a fake GtkRadioButton to check the first one
+                fake_chk_button = Gtk.CheckButton()
+                fake_chk_button.set_group(self.chk_button)
+                self.chk_button.set_active(True)
+                self.chk_button.set_sensitive(False)
+                self.chk_button.set_tooltip_text(_("This is the only disk available and cannot be deselected!"))
     
     @property
     def is_active(self):
