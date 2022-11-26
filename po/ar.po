@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-16 04:15+0000\n"
+"PO-Revision-Date: 2022-11-26 12:48+0000\n"
 "Last-Translator: Mr.Narsus <ridan777563332@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
@@ -249,7 +249,7 @@ msgstr "التثبيت جارٍ..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console ouput"
-msgstr "أَظْهِرْ مُخرجات الطرفيَّة"
+msgstr "أَظْهِرْ مُخرجات المِعْراض"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"

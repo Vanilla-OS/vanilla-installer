@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-05 21:06+0000\n"
-"Last-Translator: Viktor <viktor@grigel.one>\n"
+"PO-Revision-Date: 2022-11-26 12:48+0000\n"
+"Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sk/>\n"
 "Language: sk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -272,7 +272,7 @@ msgstr "Vyberte bod pripojenia pre diskový oddiel"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "Tento disk musí byť zvolený, lebo je to jediný dostupný disk."
+msgstr "Tento disk musí byť zvolený, lebo je to jediný dostupný disk!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
