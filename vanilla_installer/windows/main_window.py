@@ -125,5 +125,16 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.toasts.add_toast(toast)
 
     def set_installation_result(self, result, terminal):
-        self.__view_done.set_result(result, terminal)
-        self.next()
+        def run_async():
+            try:
+                res = Processor.post_install(self.finals)
+            except Exception as e:
+                res = False
+                print("!!! An error occurred while running post_install script.\n Share the following error with the developers:\n", e)
+            return res
+        
+        def callback(res, *args):
+            self.__view_done.set_result(res, terminal)
+            self.next()
+            
+        RunAsync(run_async, callback)
