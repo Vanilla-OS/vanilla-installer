@@ -180,7 +180,7 @@ class Processor:
     @staticmethod
     def get_uuid(partition):
         logger.info("getting UUID for partition '{}'".format(partition))
-        return subprocess.check_output(["blkid", "-s", "UUID", "-o", "value", partition]).decode("utf-8").strip()
+        return subprocess.check_output(["lsblk", "-no", "UUID", partition]).decode("utf-8").strip()
     
     @staticmethod
     def label_partition(partition, label, fs=None):
@@ -210,7 +210,7 @@ class Processor:
     @staticmethod
     def remove_uuid_from_fstab(root, uuid):
         logger.info("removing UUID '{}' from fstab".format(uuid))
-        subprocess.check_call(["sudo", "sed", "-i", "/{} /d".format(uuid), root + "/etc/fstab"])
+        subprocess.check_call(["sudo", "sed", "-i", "/UUID={}/d".format(uuid), root + "/etc/fstab"])
 
     @staticmethod
     def update_grub(root, block_device):
@@ -235,7 +235,7 @@ class Processor:
         Processor.umount_if(efi_partition)
 
     @staticmethod
-    def generate_grub_file(root_a_uuid, root_b_uuid, kernel):
+    def generate_grub_file(boot_uuid, root_a_uuid, root_b_uuid, kernel):
         boot_content = '''#!/bin/sh
 exec tail -n +3 $0
 
@@ -284,11 +284,13 @@ if [ "${recordfail}" != 1 ]; then
     initrd  /initrd.img-%s
 }
 '''
-        boot_content += boot_entry % ("A", root_a_uuid, kernel, root_a_uuid, kernel)
-        boot_content += boot_entry % ("B", root_b_uuid, kernel, root_b_uuid, kernel)
+        boot_content += boot_entry % ("A", boot_uuid, kernel, root_a_uuid, kernel)
+        boot_content += boot_entry % ("B", boot_uuid, kernel, root_b_uuid, kernel)
         
         with open("/tmp/10_vanilla", "w") as f:
             f.write(boot_content)
+
+        subprocess.check_call(["sudo", "chmod", "777", "/tmp/10_vanilla"])
     
     @staticmethod
     def get_kernel_version(root):
@@ -313,7 +315,12 @@ if [ "${recordfail}" != 1 ]; then
                     else:
                         logger.error("manual partitioning is not supported yet")
                         return False
-
+        
+        # getting boot partition
+        logger.info("getting boot partition")
+        boot_partition = Processor.find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
+        boot_uuid = Processor.get_uuid(boot_partition)
+        
         # getting UUIDs
         logger.info("getting UUIDs for root partitions")
         root_a_uuid = Processor.get_uuid(root_a)
@@ -384,13 +391,14 @@ if [ "${recordfail}" != 1 ]; then
 
         # generating 10_vanilla grub file
         logger.info("generating 10_vanilla grub file")
-        Processor.generate_grub_file(root_a_uuid, root_b_uuid, kernel)
+        Processor.generate_grub_file(boot_uuid, root_a_uuid, root_b_uuid, kernel)
 
         # adapting A grub
         logger.info("adapting A grub")
         subprocess.check_call(["sudo", "sed", "-i", "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=1/g", "/mnt/a/.system/etc/default/grub"])
         subprocess.check_call(["sudo", "cp", "/tmp/10_vanilla", "/mnt/a/.system/etc/grub.d/10_vanilla"])
         subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/10_linux"])
+        subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/20_memtest86+"])
         
         # setting A root immutable
         logger.info("setting root A immutable")
