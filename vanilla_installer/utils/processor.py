@@ -399,10 +399,6 @@ if [ "${recordfail}" != 1 ]; then
         subprocess.check_call(["sudo", "cp", "/tmp/10_vanilla", "/mnt/a/.system/etc/grub.d/10_vanilla"])
         subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/10_linux"])
         subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/20_memtest86+"])
-        
-        # setting A root immutable
-        logger.info("setting root A immutable")
-        subprocess.check_call(["sudo", "chattr", "+i", "/mnt/a/"])
 
         # rsyncing A to B
         logger.info("rsyncing A to B")
@@ -417,10 +413,6 @@ if [ "${recordfail}" != 1 ]; then
         # updating B fstab
         logger.info("updating B fstab")
         subprocess.check_call(["sudo", "sed", "-i", "s/UUID={}/UUID={}/g".format(root_a_uuid, root_b_uuid), "/mnt/b/.system/etc/fstab"])
-
-        # setting B root immutable
-        logger.info("setting root B immutable")
-        subprocess.check_call(["sudo", "chattr", "+i", "/mnt/b/"])
 
         # updating grub for both root partitions
         logger.info("updating grub for both root partitions")
