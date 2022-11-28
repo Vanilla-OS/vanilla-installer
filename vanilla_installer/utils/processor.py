@@ -224,13 +224,24 @@ class Processor:
         subprocess.check_call(["sudo", "mount", boot_partition, root + "/boot"])
         subprocess.check_call(["sudo", "mount", efi_partition, root + "/boot/efi"])
         subprocess.check_call(["sudo", "mount", "--bind", "/dev", root + "/dev"])
+        subprocess.check_call(["sudo", "mount", "--bind", "/dev/pts", root + "/dev/pts"])
         subprocess.check_call(["sudo", "mount", "--bind", "/proc", root + "/proc"])
         subprocess.check_call(["sudo", "mount", "--bind", "/sys", root + "/sys"])
+        subprocess.check_call(["sudo", "mount", "--bind", "/run", root + "/run"])
+
         script = [
             "#!/bin/bash",
             "sudo chroot {} grub-mkconfig -o /boot/grub/grub.cfg".format(root),
         ]
         subprocess.check_call("\n".join(script), shell=True)
+        
+        subprocess.check_call(["sudo", "grub-install", "--boot-directory", root + "/boot", block_device])
+        script = [ # for some reason, grub-install doesn't work if we don't install it from the chroot too
+            "#!/bin/bash",
+            "sudo chroot {} grub-install --boot-directory /boot {}".format(root, block_device),
+        ]
+        subprocess.check_call("\n".join(script), shell=True)
+
         Processor.umount_if(boot_partition)
         Processor.umount_if(efi_partition)
 
@@ -414,15 +425,14 @@ if [ "${recordfail}" != 1 ]; then
         logger.info("updating B fstab")
         subprocess.check_call(["sudo", "sed", "-i", "s/UUID={}/UUID={}/g".format(root_a_uuid, root_b_uuid), "/mnt/b/.system/etc/fstab"])
 
+        # load efi modules
+        logger.info("load efi modules")
+        subprocess.check_call(["sudo", "modprobe", "efivars"])
+
         # updating grub for both root partitions
         logger.info("updating grub for both root partitions")
         Processor.update_grub("/mnt/a", block_device)
         Processor.update_grub("/mnt/b", block_device)
-
-        # unmounting root partitions
-        logger.info("unmounting root partitions")
-        Processor.umount_if("/mnt/a")
-        Processor.umount_if("/mnt/b")
 
         return True
         
