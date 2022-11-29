@@ -51,17 +51,24 @@ class VanillaDefaultTimezone(Adw.Bin):
         
         # set up current timezone
         current_country, current_city = get_current_timezone()
+        country_set, city_set = False, False
         for country, _ in all_timezones.items():
             if country == current_country:
                 self.combo_region.set_selected(list(all_timezones.keys()).index(country))
                 self.__on_country_selected(None, None)
+                country_set = True
 
                 for index, city in enumerate(all_timezones[country]):
                     if city == current_city:
                         self.combo_zone.set_selected(index)
+                        city_set = True
                         break
 
                 break
+        
+        if not country_set or not city_set:
+            self.combo_region.set_selected(0)
+            self.__on_country_selected(None, None)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
