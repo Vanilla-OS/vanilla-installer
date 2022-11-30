@@ -406,7 +406,7 @@ if [ "${recordfail}" != 1 ]; then
 
         # adapting A grub
         logger.info("adapting A grub")
-        subprocess.check_call(["sudo", "sed", "-i", "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=1/g", "/mnt/a/.system/etc/default/grub"])
+        subprocess.check_call(["sudo", "sed", "-i", "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=0/g", "/mnt/a/.system/etc/default/grub"])
         subprocess.check_call(["sudo", "cp", "/tmp/10_vanilla", "/mnt/a/.system/etc/grub.d/10_vanilla"])
         subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/10_linux"])
         subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/20_memtest86+"])
