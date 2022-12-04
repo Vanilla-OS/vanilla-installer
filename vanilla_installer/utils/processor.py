@@ -235,10 +235,10 @@ class Processor:
         ]
         subprocess.check_call("\n".join(script), shell=True)
         
-        subprocess.check_call(["sudo", "grub-install", "--boot-directory", root + "/boot", block_device])
+        subprocess.check_call(["sudo", "grub-install", "--boot-directory", root + "/boot", "--target=x86_64-efi", block_device])
         script = [ # for some reason, grub-install doesn't work if we don't install it from the chroot too
             "#!/bin/bash",
-            "sudo chroot {} grub-install --boot-directory /boot {}".format(root, block_device),
+            "sudo chroot {} grub-install --boot-directory /boot {} --target=x86_64-efi".format(root, block_device),
         ]
         subprocess.check_call("\n".join(script), shell=True)
 
