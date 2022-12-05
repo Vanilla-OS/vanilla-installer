@@ -1,4 +1,4 @@
-vanilla-installer (0.3.4) kinetic; urgency=low
+vanilla-installer (0.3.5) kinetic; urgency=low
 
   * Rewrite from scratch to support custom recipes and
     to be more modular.

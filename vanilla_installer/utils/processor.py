@@ -427,7 +427,7 @@ if [ "${recordfail}" != 1 ]; then
 
         # load efi modules
         logger.info("load efi modules")
-        subprocess.check_call(["sudo", "modprobe", "efivars"])
+        subprocess.run(["sudo", "modprobe", "efivars"], stderr=subprocess.DEVNULL)  # tested, safe to ignore starting from kernel 6.0
 
         # updating grub for both root partitions
         logger.info("updating grub for both root partitions")
