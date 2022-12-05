@@ -129,7 +129,7 @@ class Processor:
             if is_almost_supported:
                 f.write("\nalmost enter ro\n")
 
-            f.write("\necho 'Post installation is running ...'\n")
+            f.write("\necho 'Post installation is running in background. Please wait ...'\n")
 
             f.flush()
             f.close()
