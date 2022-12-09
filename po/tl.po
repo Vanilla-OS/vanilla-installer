@@ -26,7 +26,7 @@ msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "Walang paglalarawan"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -40,15 +40,15 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "Sunod"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "Mamili ng Disk"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Piliin ang disk kung saan pwedeng i-install ang Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Maghanap ng Keyboard Layout"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -73,11 +73,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "Pumili ng lenguahe"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "Maghanap ng wika"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -93,7 +93,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Mamili ng color scheme para sa iyong system"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -101,7 +101,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Mamili na preferred na timezone"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "Ang mga sumusunod na pagbabago ay mangyayari sa iyong system:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -182,6 +182,7 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"Ito ay ang mga mang-yayaring pagbabago sa iyong disk. Pakiunawaan ng maayos."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -221,11 +222,13 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "Tapos na!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
+"I-restart niyo ang iyong device para ma-aliw kayo sa mararanasan niyo sa "
+"Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
@@ -237,7 +240,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Oo, paganahin mo"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing…"
@@ -273,7 +276,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "Ang buong disk ay magagamit."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
@@ -289,8 +292,12 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "May nang-yari na di inaasahan"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
 msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:81
+msgid "Show Console ouput"
+msgstr "Ipakita ang Console output"
