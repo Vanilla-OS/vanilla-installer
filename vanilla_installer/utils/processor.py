@@ -369,8 +369,7 @@ if [ "${recordfail}" != 1 ]; then
 
         # creating relative links
         relative_links = [
-            "usr", "etc",
-            "var", "root",
+            "usr", "etc", "root",
             "usr/bin", "usr/lib",
             "usr/lib32", "usr/lib64",
             "usr/libx32",  "usr/sbin",
