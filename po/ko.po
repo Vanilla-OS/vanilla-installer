@@ -247,7 +247,7 @@ msgid "Installing..."
 msgstr "설치하는 중..."
 
 #: vanilla_installer/gtk/progress.ui:81
-msgid "Show Console ouput"
+msgid "Show Console output"
 msgstr "콘솔 출력 표시하기"
 
 #: vanilla_installer/gtk/progress.ui:96
