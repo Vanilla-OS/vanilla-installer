@@ -247,7 +247,7 @@ msgid "Installing..."
 msgstr "நிறுவுகிறது..."
 
 #: vanilla_installer/gtk/progress.ui:81
-msgid "Show Console ouput"
+msgid "Show Console output"
 msgstr "கன்சோல் வெளியீட்டைக் காட்டு"
 
 #: vanilla_installer/gtk/progress.ui:96

@@ -247,7 +247,7 @@ msgid "Installing..."
 msgstr "A instalar..."
 
 #: vanilla_installer/gtk/progress.ui:81
-msgid "Show Console ouput"
+msgid "Show Console output"
 msgstr "Mostrar Consola"
 
 #: vanilla_installer/gtk/progress.ui:96

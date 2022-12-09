@@ -256,7 +256,7 @@ msgstr "Menginstal..."
 
 #: vanilla_installer/gtk/progress.ui:81
 #, fuzzy
-msgid "Show Console ouput"
+msgid "Show Console output"
 msgstr "Tampilkan output Console"
 
 #: vanilla_installer/gtk/progress.ui:96
