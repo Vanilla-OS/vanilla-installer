@@ -150,13 +150,17 @@ class Processor:
         for partition in glob("/sys/block/{}/{}*".format(block_device, block_device)):
             partition_size = int(open(partition + "/size").read().strip()) * 512
             if partition_size == size:
-                partitions.append("/dev/" + partition.split("/")[-1])
+                _part = "/dev/" + partition.split("/")[-1]
+                _res = subprocess.check_output(["df", _part]).decode("utf-8").split("\n")[1].split()
+                _used = int(_res[2])
+                partitions.append((_part, _perc))
+
         if len(partitions) < expected:
             raise Exception("not enough partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
         elif len(partitions) > expected:
             raise Exception("too many partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
 
-        return partitions
+        return sorted(partitions, key=lambda x: x[1], reverse=True)
     
     @staticmethod
     def find_partitions_by_fs(block_device, mountpoint, fs, expected):
