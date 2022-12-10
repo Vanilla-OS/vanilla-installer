@@ -1,4 +1,4 @@
-vanilla-installer (0.4) kinetic; urgency=low
+vanilla-installer (0.4.1) kinetic; urgency=low
 
   * Adapt to ABRoot 0.2
 
