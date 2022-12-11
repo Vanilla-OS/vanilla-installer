@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-26 12:48+0000\n"
-"Last-Translator: Martín (Martín M. Silva) <mouzosilvam@gmail.com>\n"
+"PO-Revision-Date: 2022-12-10 23:54+0000\n"
+"Last-Translator: Martin Meizoso <martinmeizoso@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/gl/>\n"
 "Language: gl\n"
@@ -71,7 +71,6 @@ msgstr "Busca unha disposición de teclado"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
-#, fuzzy
 msgid "Language"
 msgstr "Idioma"
 
@@ -108,7 +107,6 @@ msgid "Select your preferred timezone"
 msgstr "Seleccione o seu fuso horario"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
-#, fuzzy
 msgid "Search for a Timezone"
 msgstr "Buscar fuso horario"
 
@@ -246,7 +244,7 @@ msgstr "Si, actívao"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
-msgstr ""
+msgstr "Instalando..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
@@ -254,11 +252,11 @@ msgstr "Mostrar a saída da consola"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Amosar Presentación"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
@@ -274,7 +272,7 @@ msgstr "Escolla un punto de montaxe para a partición"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "Este é o único disco dispoñible e non poderá ser non selecionada!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
@@ -290,7 +288,7 @@ msgstr "Seleccione polo menos unha opción."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "Reinicia o teu dispositivo para desfrutar a túa experiencia {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
