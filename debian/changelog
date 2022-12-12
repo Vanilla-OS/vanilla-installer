@@ -1,3 +1,9 @@
+vanilla-installer (0.4.2) kinetic; urgency=low
+
+  * Minor fixes
+
+ -- Mirko Brombin <send@mirko.pm>  Mon, 12 Dec 2022 17:58:00 +0000
+
 vanilla-installer (0.4.1) kinetic; urgency=low
 
   * Adapt to ABRoot 0.2
