@@ -161,7 +161,8 @@ class Processor:
         elif len(partitions) > expected:
             raise Exception("too many partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
 
-        return sorted(partitions, key=lambda x: x[1], reverse=True)
+        _partitions = sorted(partitions, key=lambda x: x[1], reverse=True)
+        return [x[0] for x in _partitions]
     
     @staticmethod
     def find_partitions_by_fs(block_device, mountpoint, fs, expected):
