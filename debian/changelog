@@ -1,4 +1,10 @@
-vanilla-installer (0.4.3) kinetic; urgency=critical
+vanilla-installer (0.4.4) kinetic; urgency=medium
+
+  * Minor fixes
+
+ -- Mirko Brombin <send@mirko.pm>  Sun, 18 Dec 2022 08:25:00 +0000
+
+ vanilla-installer (0.4.3) kinetic; urgency=critical
 
   * Fix find_partitions returning a list of tuples instead of strings
 
