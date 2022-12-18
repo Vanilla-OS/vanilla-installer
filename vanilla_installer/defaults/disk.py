@@ -253,6 +253,7 @@ class VanillaDefaultDisk(Adw.Bin):
     def __on_configure_clicked(self, button):
         def on_modal_close_request(*args):
             self.btn_next.set_visible(self.__partition_recipe is not None)
+            self.btn_next.set_sensitive(self.__partition_recipe is not None)
 
         for entry in self.__registry_disks:
             if not entry.is_active:

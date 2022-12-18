@@ -79,10 +79,12 @@ class VanillaWindow(Adw.ApplicationWindow):
 
         if page not in [self.__view_progress, self.__view_done]:
             self.btn_back.set_visible(cur_index != 0.0)
+            self.btn_back.set_sensitive(cur_index != 0.0)
             self.carousel_indicator_dots.set_visible(cur_index != 0.0)
             return
 
         self.btn_back.set_visible(False)
+        self.btn_back.set_sensitive(False)
         self.carousel_indicator_dots.set_visible(False)
 
         # keep the btn_back button locked if this is the last page
