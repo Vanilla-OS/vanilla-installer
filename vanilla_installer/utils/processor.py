@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import uuid
 import shutil
 import logging
 import tempfile
@@ -152,9 +153,14 @@ class Processor:
 
             if partition_size == size:
                 _part = "/dev/" + partition.split("/")[-1]
-                _res = subprocess.check_output(["df", _part]).decode("utf-8").split("\n")[1].split()
+                _uuid = str(uuid.uuid4())
+                subprocess.check_call(["mkdir", "-p", "/tmp/{}".format(_uuid)])
+                subprocess.check_call(["sudo", "mount", _part, "/tmp/{}".format(_uuid)])
+                _res = subprocess.check_output(["df", "/tmp/{}".format(_uuid)]).decode("utf-8").splitlines()[1].split()
+                subprocess.check_call(["sudo", "umount", "-l", "/tmp/{}".format(_uuid)])
                 _used = int(_res[2])
                 partitions.append((_part, _used))
+                logger.info("Found partition: {} {}".format(_part, _used))
 
         if len(partitions) < expected:
             raise Exception("not enough partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
@@ -334,7 +340,6 @@ if [ "${recordfail}" != 1 ]; then
                     else:
                         logger.error("manual partitioning is not supported yet")
                         return False
-        
         # getting boot partition
         logger.info("getting boot partition")
         boot_partition = Processor.find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
