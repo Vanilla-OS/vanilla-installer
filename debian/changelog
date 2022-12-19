@@ -1,4 +1,10 @@
-vanilla-installer (0.4.4) kinetic; urgency=medium
+vanilla-installer (0.4.5) kinetic; urgency=critical
+
+  * Fix wrong root partitions listing
+
+ -- Mirko Brombin <send@mirko.pm>  Mon, 19 Dec 2022 11:46:00 +0000
+
+ vanilla-installer (0.4.4) kinetic; urgency=medium
 
   * Minor fixes
 
