@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
 "PO-Revision-Date: 2022-12-20 08:48+0000\n"
-"Last-Translator: Shaddam Amru Hasibuan <shaddam.a.h@gmail.com>\n"
+"Last-Translator: A Zainal Abidin <zhainhart@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -302,6 +302,5 @@ msgid "Something went wrong"
 msgstr "Ada sesuatu yang salah"
 
 #: vanilla_installer/views/done.py:46
-#, fuzzy
 msgid "Please contact the distribution developers."
-msgstr "Silakan hubungi pengembang distribusi."
+msgstr "Silakan hubungi pengembang distro."
