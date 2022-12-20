@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: Ophellia <nekopoihentai69@gmail.com>\n"
+"PO-Revision-Date: 2022-12-20 08:48+0000\n"
+"Last-Translator: A Zainal Abidin <zhainhart@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -17,16 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
-#, fuzzy
 msgid "Vanilla OS Installer"
-msgstr "Installasi Vanilla OS"
+msgstr "Instalasi Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Atur instalasi Vanilla OS Anda."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -34,7 +33,7 @@ msgstr "Tidak ada deskripsi"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "Rilis perdana"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -48,11 +47,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "Pilih disk"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Pilih disk untuk menginstal Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -60,15 +59,15 @@ msgstr "Konfigurasi"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tata Letak Keyboard"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Pilih tata letak keyboard pilihan Anda"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Cari Tata Letak Keyboard"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -91,16 +90,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "Gelap"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
 msgstr "Skema Warna"
 
 #: vanilla_installer/gtk/default-theme.ui:43
-#, fuzzy
 msgid "Choose a color scheme for your system"
-msgstr "Pilih skema warna untuk sistem anda"
+msgstr "Pilih skema warna untuk sistem Anda"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -127,9 +125,8 @@ msgid "Create User"
 msgstr "Buat User"
 
 #: vanilla_installer/gtk/default-users.ui:41
-#, fuzzy
 msgid "Provide details for your user account"
-msgstr "Sediakan detail untuk user akun anda"
+msgstr "Sediakan detail untuk user akun Anda"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -305,6 +302,5 @@ msgid "Something went wrong"
 msgstr "Ada sesuatu yang salah"
 
 #: vanilla_installer/views/done.py:46
-#, fuzzy
 msgid "Please contact the distribution developers."
-msgstr "Silakan hubungi pengembang distribusi."
+msgstr "Silakan hubungi pengembang distro."
