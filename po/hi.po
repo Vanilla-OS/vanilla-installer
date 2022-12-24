@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-12-13 11:48+0000\n"
-"Last-Translator: Neeraj55#5 <thakurfazer55@gmail.com>\n"
+"PO-Revision-Date: 2022-12-24 04:47+0000\n"
+"Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/hi/>\n"
 "Language: hi\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "वेनिला OS इंस्टॉलर"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "अपने वेनिला OS इंस्टॉलेशन को ट्वीक करें।"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -33,7 +33,7 @@ msgstr "कोई विवरण नहीं"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "पहली विज्ञप्ति"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -43,11 +43,11 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "अगला"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "एक डिस्क का चयन करें"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
