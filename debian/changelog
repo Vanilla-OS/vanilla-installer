@@ -1,4 +1,4 @@
-vanilla-installer (1.0.0) kinetic; urgency=critical
+vanilla-installer (1.0.1) kinetic; urgency=critical
 
   * Fix wrong root partitions listing
 
