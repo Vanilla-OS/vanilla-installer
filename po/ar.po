@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-12-26 21:50+0000\n"
+"PO-Revision-Date: 2022-12-27 22:48+0000\n"
 "Last-Translator: Mr.Narsus <ridan777563332@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
@@ -26,7 +26,7 @@ msgstr "مُثبِّتُ نِظام فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "طوَّع تثبيتك لنظام فانيلا"
+msgstr "طوَّع تثبيتك لنظام فانيلا."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -117,7 +117,7 @@ msgstr "المنطقة"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr "منطقة"
+msgstr "المنطقة"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -289,7 +289,7 @@ msgstr "يرجى تحديد خيار واحد على الأقل."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "أعد تشغيل الحاسوب للاستمتاع بتجربة {}."
+msgstr "أعد تشغيل الحاسوب للاستمتاع بتجربك لـ{}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
