@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-12-20 08:48+0000\n"
-"Last-Translator: A Zainal Abidin <zhainhart@gmail.com>\n"
+"PO-Revision-Date: 2023-01-01 16:50+0000\n"
+"Last-Translator: Imam Faraz Aditya <imamaditya2211@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -43,7 +43,7 @@ msgstr "Rilis perdana"
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "Selanjutnya"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
@@ -86,7 +86,7 @@ msgstr "Cari bahasa"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "Bawaan"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
@@ -106,7 +106,7 @@ msgstr "Tanggal & Waktu"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Pilih zona waktu pilihan anda"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
