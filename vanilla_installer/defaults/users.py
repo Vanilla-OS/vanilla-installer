@@ -77,13 +77,30 @@ class VanillaDefaultUsers(Adw.Bin):
     
     def __on_username_entry_changed(self, *args):
         _input = self.username_entry.get_text()
+        _status = True
 
+        # cannot be longer than 32 characters
         if len(_input) > 32:
             self.username_entry.set_text(_input[:32])
             self.username_entry.set_position(-1)
             _input = self.username_entry.get_text()
             
-        if not re.search("^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$", _input):
+        # cannot contain special characters
+        if re.search(r'[^a-z0-9]', _input):
+            _status = False
+            self.__window.toast("Username cannot contain special characters or uppercase letters. Please choose another username.")
+
+        # cannot be empty
+        elif not _input:
+            _status = False
+            self.__window.toast("Username cannot be empty. Please type a username.")
+
+        # cannot be root
+        elif _input == "root":
+            _status = False
+            self.__window.toast("root user is reserved. Please choose another username.")
+
+        if not _status:
             self.username_entry.add_css_class('error')
             self.username_filled = False
             self.__verify_continue()
@@ -92,6 +109,7 @@ class VanillaDefaultUsers(Adw.Bin):
             self.username_filled = True
             self.__verify_continue()
             self.username = _input
+
 
     def __on_password_changed(self, *args):
         password = self.password_entry.get_text()
