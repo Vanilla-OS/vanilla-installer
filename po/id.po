@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
 "PO-Revision-Date: 2023-01-02 12:35+0000\n"
-"Last-Translator: Muhammad Ariq Nizar Daffa Kusmana <marnzdfku@gmail.com>\n"
+"Last-Translator: Ahmad Maulanal Fahmi <lanal.fahmi27@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -235,6 +235,7 @@ msgstr "Selesai!"
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
+"Restart perangkat Anda untuk menikmati pengalaman menggunakan Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 #, fuzzy
