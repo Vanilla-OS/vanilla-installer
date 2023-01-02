@@ -221,7 +221,7 @@ msgstr "Partisi"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr "Partisi berikut ditemukan di dalam disk"
+msgstr "Partisi berikut ditemukan di dalam penyimpanan"
 
 #: vanilla_installer/gtk/dialog.ui:6
 #, fuzzy
