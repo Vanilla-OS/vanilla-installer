@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-01 16:50+0000\n"
-"Last-Translator: Imam Faraz Aditya <imamaditya2211@gmail.com>\n"
+"PO-Revision-Date: 2023-01-02 12:37+0000\n"
+"Last-Translator: Ahmad Maulanal Fahmi <lanal.fahmi27@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -106,15 +106,15 @@ msgstr "Tanggal & Waktu"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "Pilih zona waktu pilihan anda"
+msgstr "Pilih zona waktu anda"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "Cari Zona Waktu"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "Wilayah"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
@@ -122,11 +122,11 @@ msgstr "Zona"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Buat User"
+msgstr "Buat Pengguna"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Sediakan detail untuk user akun Anda"
+msgstr "Lengkapi detail untuk akun Anda"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -134,15 +134,15 @@ msgstr "Nama"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr "Username"
+msgstr "Nama Pengguna"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr "Password"
+msgstr "Sandi"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr "Konfirmasi Password"
+msgstr "Konfirmasi Sandi"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
@@ -188,22 +188,24 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"Perubahan berikut ini akan dilakukan pada penyimpananmu. Mohon diperiksa "
+"dengan hati-hati."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "Mengatur Penyimpanan"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr ""
+msgstr "Pasang"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Gunakan Seluruh Penyimpanan"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "Ini akan menghapus seluruh data pada penyimpanan."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
@@ -211,7 +213,7 @@ msgstr "Buka GParted"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "Buka GParted untuk mengatur partisi penyimpanan secara manual"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
@@ -219,7 +221,7 @@ msgstr "Partisi"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "Partisi berikut ditemukan di dalam penyimpanan"
 
 #: vanilla_installer/gtk/dialog.ui:6
 #, fuzzy
@@ -233,11 +235,12 @@ msgstr "Selesai!"
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
+"Mulai kembali perangkat Anda untuk menikmati pengalaman menggunakan Vanilla "
+"OS"
 
 #: vanilla_installer/gtk/done.ui:22
-#, fuzzy
 msgid "Reboot Now"
-msgstr "Reboot Sekarang"
+msgstr "Mulai Kembali Sekarang"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
@@ -245,7 +248,7 @@ msgstr "Tutup"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Ya, hidupkan"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
@@ -258,31 +261,33 @@ msgstr "Tampilkan output Console"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Tunjukkan Slideshow"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "Pilih file system baru atau biarkan seperti ini"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "Titik mount"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "Pilih titik mount untuk partisi"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
 msgstr ""
+"Ini adalah satu-satunya penyimpanan yang tersedia dan tidak dapat untuk "
+"tidak dipilih!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "Seluruh penyimpanan akan digunakan."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
