@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-02 12:35+0000\n"
-"Last-Translator: Ahmad Maulanal Fahmi <lanal.fahmi27@gmail.com>\n"
+"PO-Revision-Date: 2023-01-02 12:37+0000\n"
+"Last-Translator: Muhammad Ariq Nizar Daffa Kusmana <marnzdfku@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -235,12 +235,12 @@ msgstr "Selesai!"
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
-"Restart perangkat Anda untuk menikmati pengalaman menggunakan Vanilla OS"
+"Mulai kembali perangkat Anda untuk menikmati pengalaman menggunakan Vanilla "
+"OS"
 
 #: vanilla_installer/gtk/done.ui:22
-#, fuzzy
 msgid "Reboot Now"
-msgstr "Reboot Sekarang"
+msgstr "Mulai Kembali Sekarang"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
@@ -282,10 +282,12 @@ msgstr ""
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
 msgstr ""
+"Ini adalah satu-satunya penyimpanan yang tersedia dan tidak dapat untuk "
+"tidak dipilih!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "Seluruh penyimpanan akan digunakan."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
