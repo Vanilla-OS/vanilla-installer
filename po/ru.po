@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-01 16:50+0000\n"
-"Last-Translator: Roman Vassilchenko <roman.vassilchenko.work@gmail.com>\n"
+"PO-Revision-Date: 2023-01-03 21:47+0000\n"
+"Last-Translator: Kira Roubin <obodenkokirill@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
 "Language: ru\n"
@@ -291,7 +291,7 @@ msgstr "Пожалуйста, выберите хотя бы один вариа
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Перезагрузите устройство, чтобы насладиться работой {}."
+msgstr "Перезагрузите компьютер, чтобы насладиться работой {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
