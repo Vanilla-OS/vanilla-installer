@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-01 16:50+0000\n"
-"Last-Translator: Emin KÖSE <kansaslicocuk@gmail.com>\n"
+"PO-Revision-Date: 2023-01-06 08:47+0000\n"
+"Last-Translator: Muhammed Bayraktar <mhmmd.bayraktar@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
 "Language: tr\n"
@@ -115,9 +115,8 @@ msgid "Region"
 msgstr "Bölge"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
-#, fuzzy
 msgid "Zone"
-msgstr "Dilim"
+msgstr "Alan"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -283,9 +282,8 @@ msgid "Entire disk will be used."
 msgstr "Tüm disk kullanılacak."
 
 #: vanilla_installer/defaults/disk.py:195
-#, fuzzy
 msgid "Will be formatted in {} and mounted in {}"
-msgstr "{} şeklinde biçimlendirilsin ve {} noktasına bağlansın mı?"
+msgstr "{} şeklinde biçimlendirilecek ve {} noktasına bağlanacaktır"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."

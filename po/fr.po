@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-06 00:07+0000\n"
-"Last-Translator: Raphaël Denni <raphoro.d@gmail.com>\n"
+"PO-Revision-Date: 2023-01-06 08:47+0000\n"
+"Last-Translator: Samuel NAIT <nait.samuel@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -222,7 +222,7 @@ msgstr "Les partitions suivantes ont été trouvé sur le disque"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Affichage des informations"
+msgstr "Afficher les informations"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -291,7 +291,7 @@ msgstr "Veuillez sélectionner au moins une option."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Redémarrez votre appareil pour profiter d'une expérience {}."
+msgstr "Redémarrez votre appareil pour profiter de votre expérience {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
