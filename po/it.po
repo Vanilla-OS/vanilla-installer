@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-09 11:48+0000\n"
+"PO-Revision-Date: 2023-01-12 05:49+0000\n"
 "Last-Translator: EncryptedEasty <c.zullo08@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/it/>\n"
@@ -230,7 +230,7 @@ msgstr "Tutto fatto!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Riavvia il tuo dispositivo per goderti la tua esperienza con il sistema operativo Vanilla"
+msgstr "Riavvia il tuo dispositivo per goderti la tua esperienza con Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
