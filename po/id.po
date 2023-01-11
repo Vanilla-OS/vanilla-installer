@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-03 21:47+0000\n"
-"Last-Translator: Muhammad Ariq Nizar Daffa Kusmana <marnzdfku@gmail.com>\n"
+"PO-Revision-Date: 2023-01-12 05:49+0000\n"
+"Last-Translator: Raka Prasetya Pratama <iputuaryasukanadi8@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -75,12 +75,10 @@ msgid "Language"
 msgstr "Bahasa"
 
 #: vanilla_installer/gtk/default-language.ui:34
-#, fuzzy
 msgid "Select your language"
 msgstr "Pilih bahasa anda"
 
 #: vanilla_installer/gtk/default-language.ui:44
-#, fuzzy
 msgid "Search for a language"
 msgstr "Cari bahasa"
 
