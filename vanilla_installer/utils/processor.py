@@ -137,7 +137,7 @@ class Processor:
 
             # setting the file executable
             os.chmod(f.name, 0o755)
-                
+            
             return f.name
     
     @staticmethod
@@ -328,6 +328,7 @@ if [ "${recordfail}" != 1 ]; then
         logger.info("post-installation process started")
         root_a = ""
         root_b = ""
+        tz_region, tz_zone = "", ""
 
         # getting root partitions
         logger.info("getting root partitions")
@@ -340,6 +341,10 @@ if [ "${recordfail}" != 1 ]; then
                     else:
                         logger.error("manual partitioning is not supported yet")
                         return False
+                elif key == "timezone":
+                    tz_region = value["region"]
+                    tz_zone = value["zone"]
+
         # getting boot partition
         logger.info("getting boot partition")
         boot_partition = Processor.find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
@@ -368,6 +373,14 @@ if [ "${recordfail}" != 1 ]; then
         logger.info("mounting root partitions")
         subprocess.check_call(["sudo", "mount", root_a, "/mnt/a"])
         subprocess.check_call(["sudo", "mount", root_b, "/mnt/b"])
+
+        # set timezone (workaround for distinst generating a broken /etc/timezone)
+            # I am not going to debug this deeper, because it is a distinst bug and
+            # we will switch to another backend soon or write our own
+        subprocess.check_call("sudo rm -f /mnt/a/etc/timezone", shell=True)
+        subprocess.check_call("sudo bash -c 'echo \"%s/%s\" > /mnt/a/etc/timezone'" % (tz_region, tz_zone), shell=True)
+        subprocess.check_call("sudo rm -f /mnt/a/etc/localtime", shell=True)
+        subprocess.check_call("sudo ln -s /usr/share/zoneinfo/%s/%s /mnt/a/etc/localtime" % (tz_region, tz_zone), shell=True)
 
         # adapting A strucutre
         logger.info("adapting A structure")
