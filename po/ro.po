@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-19 19:47+0000\n"
+"PO-Revision-Date: 2023-01-01 16:50+0000\n"
 "Last-Translator: finnmonstar <finnmonstar@pm.me>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ro/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -26,7 +26,7 @@ msgstr "Programul de instalare Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Modifică-ți instalația Vanilla OS."
+msgstr "Modifică-ți instalarea Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -222,7 +222,7 @@ msgstr "Următoarele partiții au fost găsite pe disk"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Informații"
+msgstr "Se arată informații"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"

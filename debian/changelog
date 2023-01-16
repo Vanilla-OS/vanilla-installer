@@ -1,4 +1,16 @@
-vanilla-installer (0.4.5) kinetic; urgency=critical
+vanilla-installer (1.0.4) kinetic; urgency=critical
+
+  * Update translations
+
+ -- Mirko Brombin <send@mirko.pm>  Sun, 01 Jan 2022 14:49:00 +0000
+
+vanilla-installer (1.0.3) kinetic; urgency=critical
+
+  * Prevent from using root as username
+
+ -- Mirko Brombin <send@mirko.pm>  Sun, 01 Jan 2022 14:49:00 +0000
+
+vanilla-installer (1.0.2) kinetic; urgency=critical
 
   * Fix wrong root partitions listing
 

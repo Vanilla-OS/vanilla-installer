@@ -1,39 +1,39 @@
-# Chinese translations for vanilla-installer package.
-# Copyright (C) 2022 THE vanilla-installer'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# Automatically generated, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-12 05:49+0000\n"
-"Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"vanilla-os/installer/zh_Hans/>\n"
-"Language: zh_Hans\n"
+"PO-Revision-Date: 2023-01-01 16:50+0000\n"
+"Last-Translator: Mohammad saliq <darsaliq00@gmail.com>\n"
+"Language-Team: Urdu <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/ur/>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr "Vanilla OS 安装程序"
+msgstr "ونیلا OS انسٹالر"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "定制您的 Vanilla OS 安装副本。"
+msgstr "اپنی ونیلا OS انسٹالیشن کو موافق بنائیں۔"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "没有说明"
+msgstr "کوئی وضاحت نہیں"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr "初版"
+msgstr "پہلی ریلیز"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -43,257 +43,260 @@ msgstr "初版"
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr "继续"
+msgstr "اگلے"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "选择磁盘"
+msgstr "ایک ڈسک منتخب کریں"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "选择要安装 Vanilla OS 的磁盘"
+msgstr "وینیلا OS کو انسٹال کرنے کے لیے ڈسک کو منتخب کریں"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr "配置"
+msgstr "تشکیل"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "键盘布局"
+msgstr "کی بورڈ لے آؤٹ"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "选择您的首选键盘布局"
+msgstr "اپنی پسند کی بورڈ لے آؤٹ کو منتخب کریں"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "搜索键盘布局"
+msgstr "کی بورڈ لے آؤٹ تلاش کریں"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr "语言"
+msgstr "زبان"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "选择您的语言"
+msgstr "اپنی زبان منتخب کریں"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr "搜索语言"
+msgstr "زبان تلاش کریں"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr "默认"
+msgstr "پہلے سے طے شدہ"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "暗色"
+msgstr "ڈارک"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "配色方案"
+msgstr "رنگ سکیم"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "为您的系统选择配色方案"
+msgstr "اپنے سسٹم کے لیے رنگ سکیم کا انتخاب کریں"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr "日期与时间"
+msgstr "تاریخ اور وقت"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "选择您的首选时区"
+msgstr "اپنا پسندیدہ ٹائم زون منتخب کریں"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "搜索时区"
+msgstr "ٹائم زون تلاش کریں"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr "地区"
+msgstr "علاقہ"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr "时区"
+msgstr "خطہ"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "创建用户"
+msgstr "صارف بنائیں"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "提供您用户账户的详细信息"
+msgstr "اپنے صارف اکاؤنٹ کے لئے تفصیلات فراہم کریں"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "名称"
+msgstr "نام"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr "用户名"
+msgstr "یوزر نام"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr "密码"
+msgstr "پاس ورڈ"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr "确认密码"
+msgstr "پاس ورڈ کی تصدیق کریں"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr "欢迎"
+msgstr "خوش آمدید"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr "本软件将指导您完成安装过程。"
+msgstr "یہ سافٹ ویئر تنصیب کے عمل کے ذریعے آپ کی رہنمائی کرے گا."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "试用 Vanilla OS"
+msgstr "وینیلا OS آزمائیں"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr "安装 Vanilla OS"
+msgstr "وینیلا OS انسٹال کریں"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
 msgid "Confirm Installation"
-msgstr "确认安装"
+msgstr "انسٹالیشن کی تصدیق کریں"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr "取消"
+msgstr "منسوخ"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "以下更改将会应用到您的系统："
+msgstr "آپ کے سسٹم میں درج ذیل تبدیلیاں کی جائیں گی:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr "确认更改"
+msgstr "تبدیلیوں کی تصدیق کریں"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "以下更改将会应用到您的磁盘。请仔细检查。"
+msgstr ""
+"آپ کی ڈسک میں درج ذیل تبدیلیاں کی جائیں گی۔ براہ کرم ان کا بغور جائزہ لیں."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr "配置磁盘"
+msgstr "ڈسک کو ترتیب دیں"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr "应用"
+msgstr "لگائیں"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr "使用整个磁盘"
+msgstr "پوری ڈسک استعمال کریں"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "这将擦除磁盘上的所有数据。"
+msgstr "یہ ڈسک پر موجود تمام ڈیٹا کو مٹا دے گا."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr "打开 GParted"
+msgstr "GParted کھولیں"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr "打开 GParted 并手动为磁盘分区"
+msgstr "ڈسک کو دستی طور پر تقسیم کرنے کے لیے GParted کھولیں"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr "分区"
+msgstr "پارٹیشنز"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr "磁盘上找到了以下分区"
+msgstr "مندرجہ ذیل پارٹیشنز ڈسک پر پائے گئے"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "显示信息"
+msgstr "معلومات دکھا رہا ہے"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr "大功告成！"
+msgstr "سب ہو گیا!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "重启设备即可开始您的 Vanilla OS 体验"
+msgstr ""
+"اپنے ونیلا OS کے تجربے سے لطف اندوز ہونے کے لیے اپنے ڈیوائس کو دوبارہ شروع "
+"کریں"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr "立即重启"
+msgstr "اب دوبارہ شروع"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr "关闭"
+msgstr "بند کریں"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "是的，请启用"
+msgstr "ہاں، اسے فعال کریں"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
-msgstr "安装中…"
+msgid "Installing…"
+msgstr "انسٹال ہو رہا ہے…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr "显示控制台输出"
+msgstr "کنسول آؤٹ پٹ دکھائیں"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr "显示幻灯片"
+msgstr "سلائیڈ شو دکھائیں"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr "格式化"
+msgstr "فارمیٹ"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr "选择新的文件系统或保持原样"
+msgstr "نیا فائل سسٹم منتخب کریں یا جیسا ہے چھوڑ دیں"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr "挂载点"
+msgstr "ماؤنٹ پوائنٹ"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr "为分区选择挂载点"
+msgstr "پارٹیشن کے لئے ماؤنٹ پوائنٹ منتخب کریں"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "这是唯一可用的磁盘，无法取消选择！"
+msgstr "یہ واحد ڈسک دستیاب ہے اور اسے غیر منتخب نہیں کیا جا سکتا!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr "将会使用整个磁盘。"
+msgstr "پوری ڈسک استعمال کی جائے گی۔"
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr "将会格式化为 {} 并挂载到 {}"
+msgstr "{} میں فارمیٹ کیا جائے گا اور {} میں نصب کیا جائے گا"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr "请至少选择一个选项。"
+msgstr "براہ کرم کم از کم ایک آپشن منتخب کریں۔"
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "重启设备，开启您的 {} 之旅。"
+msgstr "اپنے تجربے سے لطف اندوز ہونے کے لئے اپنے ڈیوائس کو دوبارہ شروع کریں۔"
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr "出错了"
+msgstr "کچھ غلط ہو گیا"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr "请联系发行版开发者。"
+msgstr "برائے مہربانی ڈسٹری بیوشن ڈویلپرز سے رابطہ کریں۔"

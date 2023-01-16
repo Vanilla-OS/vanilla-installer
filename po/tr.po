@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-16 04:15+0000\n"
-"Last-Translator: E-Akcaer <gurbetcii_@hotmail.com>\n"
+"PO-Revision-Date: 2023-01-06 08:47+0000\n"
+"Last-Translator: Muhammed Bayraktar <mhmmd.bayraktar@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -25,7 +25,7 @@ msgstr "Vanilla OS Yükleyici"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Vanilla OS kurulumunuzu özelleştirin."
+msgstr "Vanilla OS kurulumunuzda ince ayar yapın."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -107,28 +107,24 @@ msgid "Select your preferred timezone"
 msgstr "Tercih ettiğiniz saat dilimini seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
-#, fuzzy
 msgid "Search for a Timezone"
-msgstr "Saat Dilimi arayın"
+msgstr "Bir saat dilimi arayın"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
 msgstr "Bölge"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
-#, fuzzy
 msgid "Zone"
-msgstr "Dilim"
+msgstr "Alan"
 
 #: vanilla_installer/gtk/default-users.ui:40
-#, fuzzy
 msgid "Create User"
 msgstr "Kullanıcı oluşturun"
 
 #: vanilla_installer/gtk/default-users.ui:41
-#, fuzzy
 msgid "Provide details for your user account"
-msgstr "Kullanıcı hesabınızın ayrıntılarını sağlayın"
+msgstr "Kullanıcı hesabınız için bazı detayları girin"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -155,13 +151,11 @@ msgid "This software will guide you through the installation process."
 msgstr "Bu yazılım, kurulum süreci boyunca size rehberlik edecek."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
-#, fuzzy
 msgid "Try Vanilla OS"
-msgstr "Vanilla OS'u deneyin"
+msgstr "Vanilla OS'u deneyimleyin"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
-#, fuzzy
 msgid "Install Vanilla OS"
 msgstr "Vanilla OS'u yükleyin"
 
@@ -227,9 +221,8 @@ msgid "The following partitions were found on the disk"
 msgstr "Diskte aşağıdaki bölümler bulundu"
 
 #: vanilla_installer/gtk/dialog.ui:6
-#, fuzzy
 msgid "Showing Information"
-msgstr "Bilgi Gösteriliyor"
+msgstr "Bilgiler gösteriliyor"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -249,14 +242,12 @@ msgid "Close"
 msgstr "Kapat"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
-#, fuzzy
 msgid "Yes, enable it"
-msgstr "Evet, kabul ediyorum"
+msgstr "Evet, aktif hale getir"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
 msgid "Installing..."
-msgstr "Yükleniyor..."
+msgstr "Kuruluyor..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
@@ -291,9 +282,8 @@ msgid "Entire disk will be used."
 msgstr "Tüm disk kullanılacak."
 
 #: vanilla_installer/defaults/disk.py:195
-#, fuzzy
 msgid "Will be formatted in {} and mounted in {}"
-msgstr "{} şeklinde biçimlendirilsin ve {} noktasına bağlansın mı?"
+msgstr "{} şeklinde biçimlendirilecek ve {} noktasına bağlanacaktır"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -301,7 +291,8 @@ msgstr "Lütfen en azından bir seçeneği seçin."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "{} deneyiminizin keyfini çıkarmak için aygıtınızı yeniden başlatın."
+msgstr ""
+"{} deneyiminizin keyfini çıkarmak için bilgisayarınızı yeniden başlatın."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"

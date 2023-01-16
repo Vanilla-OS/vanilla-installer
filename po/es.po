@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: Jehu Marcos Herrera Puentes <jehuherrerap@hotmail.com>\n"
+"PO-Revision-Date: 2022-12-29 15:50+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -25,7 +25,7 @@ msgstr "Instalador de Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Personalice su instalación de Vanilla OS."
+msgstr "Modifique su instalación de Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -84,7 +84,7 @@ msgstr "Buscar un idioma"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr "Por defecto"
+msgstr "Predeterminado"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
@@ -223,7 +223,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Mostrando información"
+msgstr "Mostrando detalles"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -243,7 +243,7 @@ msgstr "Cerrar"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "Sí, habilitar"
+msgstr "Sí, activar"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
@@ -281,7 +281,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr "Se utilizará toda la unidad de almacenamiento."
+msgstr "Se usará toda la unidad de almacenamiento."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
@@ -293,7 +293,7 @@ msgstr "Por favor, seleccione al menos una opción."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Reinicie su dispositivo para disfrutar su experiencia con {}."
+msgstr "Reinicie su dispositivo para disfrutar su experiencia en {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"

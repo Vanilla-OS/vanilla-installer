@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: Sven <svenj@tutanota.com>\n"
+"PO-Revision-Date: 2023-01-01 16:50+0000\n"
+"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/nl/>\n"
 "Language: nl\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr "Vanilla OS-installatieprogramma"
+msgstr "Installer van Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Tweak uw Vanilla OS-installatie."
+msgstr "Pas uw installatie van Vanilla OS aan."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -100,7 +100,7 @@ msgstr "Kies een kleurenschema voor uw systeem"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr "Datum & Tijd"
+msgstr "Datum en tijd"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
@@ -108,7 +108,7 @@ msgstr "Selecteer uw gewenste tijdzone"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "Zoeken naar een tijdzone"
+msgstr "Zoek naar een tijdzone"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -152,12 +152,12 @@ msgstr "Deze software leidt u door het installatieproces."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "Probeer Vanilla OS"
+msgstr "Vanilla OS uitproberen"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr "Installeer Vanilla OS"
+msgstr "Vanilla OS installeren"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -172,19 +172,21 @@ msgstr "Annuleren"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "De volgende wijzigingen zullen worden aangebracht in uw systeem:"
+msgstr "De volgende wijzigingen zullen worden aangebracht op uw systeem:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr "Veranderingen toepassen"
+msgstr "Veranderingen bevestigen"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "De volgende wijzigingen worden op uw schijf aangebracht. Bekijk ze alstublieft zorgvuldig door."
+msgstr ""
+"De volgende wijzigingen zullen op uw schijf worden aangebracht. Bekijk deze "
+"zorgvuldig."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -220,7 +222,7 @@ msgstr "De volgende partities zijn gevonden op de schijf"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Informatie aan het weergeven"
+msgstr "Informatie wordt weergegeven"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -228,11 +230,12 @@ msgstr "Helemaal klaar!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Start uw apparaat opnieuw op om te genieten van uw Vanilla OS-ervaring"
+msgstr ""
+"Start uw apparaat opnieuw op om te genieten van uw ervaring met Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr "Herstart nu"
+msgstr "Nu opnieuw opstarten"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
@@ -240,7 +243,7 @@ msgstr "Sluiten"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "Ja, schakel het in"
+msgstr "Ja, inschakelen"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
@@ -256,7 +259,7 @@ msgstr "Diavoorstelling weergeven"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr "Bestandssysteem"
+msgstr "Formatteren"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
@@ -280,7 +283,7 @@ msgstr "De hele schijf zal worden gebruikt."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr "Wordt geformatteerd in {} en gemonteerd in {}"
+msgstr "Zal worden geformatteerd als {} en gekoppeld als {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -288,7 +291,7 @@ msgstr "Selecteer ten minste één optie."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Start uw apparaat opnieuw op om van uw {}-ervaring te genieten."
+msgstr "Start uw apparaat opnieuw op om te genieten van uw ervaring met {}."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"

@@ -46,7 +46,7 @@
                                 </child>
                                 <child>
                                     <object class="AdwExpanderRow">
-                                        <property name="sensitive">false</property>
+                                        <property name="visible">false</property>
                                         <property name="title">Manual Partitioning</property>
                                         <property name="subtitle">Choose how to partition the disk</property>
                                         <child type="prefix">
