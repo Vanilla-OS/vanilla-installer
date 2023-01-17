@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-03 21:47+0000\n"
-"Last-Translator: Kira Roubin <obodenkokirill@gmail.com>\n"
+"PO-Revision-Date: 2023-01-17 18:47+0000\n"
+"Last-Translator: Daudix UFO <ddaudix@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
 "Language: ru\n"
@@ -89,7 +89,7 @@ msgstr "По умолчанию"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "Темный"
+msgstr "Тёмный"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"

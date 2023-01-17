@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-01-17 18:47+0000\n"
+"Last-Translator: Istiaque Ahmed <istiaque.ahmed@outlook.sa>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/bn/>\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -23,11 +25,11 @@ msgstr "ভ্যানিলা ওএস ইনস্টলার"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "আপনার ভ্যানিলা ওএস ইনস্টলেশন পরিবর্তন করুন।"
+msgstr "আপনার ভ্যানিলা ওএস ইনস্টলেশনটি টুইক করুন।"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "বর্ণনা নাই"
+msgstr "কোনো বর্ণনা নেই"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -86,11 +88,11 @@ msgstr "ডিফল্ট"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "অন্ধকার"
+msgstr "ডার্ক"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "বর্ণবিন্যাস"
+msgstr "রঙ তালিকা"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
@@ -98,7 +100,7 @@ msgstr "আপনার সিস্টেমের জন্য একটি �
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr "তারিখ সময়"
+msgstr "তারিখ এবং সময়"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
@@ -106,7 +108,7 @@ msgstr "আপনার পছন্দের টাইমজোন নির্
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "একটি টাইমজোন অনুসন্ধান করুন৷"
+msgstr "একটি টাইমজোন খুঁজুন"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -142,11 +144,11 @@ msgstr "পাসওয়ার্ড নিশ্চিত করুন"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr "স্বাগত"
+msgstr "স্বাগতম"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr "এই সফ্টওয়্যারটি আপনাকে ইনস্টলেশন প্রক্রিয়ার মাধ্যমে গাইড করবে।"
+msgstr "এই সফ্টওয়্যারটি আপনাকে ইনস্টলেশন প্রক্রিয়ায় গাইড করবে।"
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
@@ -182,7 +184,8 @@ msgstr "পরিবর্তন নিশ্চিত করুন"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "নিম্নলিখিত পরিবর্তনগুলি আপনার ডিস্কে করা হবে। তাদের পর্যালোচনা করুন সাবধানে"
+msgstr ""
+"নিম্নলিখিত পরিবর্তনগুলি আপনার ডিস্কে করা হবে। সাবধানে তাদের পর্যালোচনা করুন।"
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -238,7 +241,7 @@ msgstr "বন্ধ"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "হ্যাঁ, এটি সক্ষম করুন"
+msgstr "হ্যাঁ, এটি চালু করুন"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing..."
@@ -286,11 +289,11 @@ msgstr "অন্তত একটি বিকল্প নির্বাচন
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "আপনার {} অভিজ্ঞতা উপভোগ করতে আপনার ডিভাইস পুনরায় চালু করুন৷"
+msgstr "ভ্যানিলা ওএস ব্যবহার করতে আপনার ডিভাইসটি রিস্টার্ট করুন।"
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr "কিছু ভুল হয়েছে"
+msgstr "কিছু একটা ভুল হয়েছে"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
