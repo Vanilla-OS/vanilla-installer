@@ -111,7 +111,10 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.next()
         self.__view_progress.start(install_script)
 
-    def next(self, *args):
+    def next(self, widget=None, fn=None, *args):
+        if fn is not None: 
+            fn()
+
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index + 1)
         self.carousel.scroll_to(page, True)
