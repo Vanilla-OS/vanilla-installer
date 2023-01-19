@@ -14,11 +14,12 @@ cleanup_rules = [
 for timezone in GWeather.Location.get_world().get_timezones():
     _timezone = timezone.get_identifier()
 
-    if len(_timezone.split("/")) < 2:
+    _tz_splits = _timezone.split("/")
+    if len(_tz_splits) < 2:
         continue
 
-    _country = _timezone.split('/')[0]
-    _city = _timezone[_country.__len__()+1:]
+    _country = _tz_splits[0]
+    _city = _tz_splits[-1]
 
     if _country.lower() in cleanup_rules:
         continue
@@ -41,10 +42,9 @@ def get_current_timezone():
     city = timezone[country.__len__()+1:]
 
     return country, city
-    
+
 def get_preview_timezone(country, city):
     timezone = pytz.timezone(f"{country}/{city}")
     now = datetime.datetime.now(timezone)
 
     return now.strftime("%H:%M"), now.strftime("%A, %d %B %Y")
-
