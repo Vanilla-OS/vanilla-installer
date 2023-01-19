@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import re
 import sys
 import time
 import subprocess
@@ -34,8 +35,10 @@ class VanillaDefaultKeyboard(Adw.Bin):
     str_list_layouts = Gtk.Template.Child()
     str_list_variants = Gtk.Template.Child()
     entry_search_keyboard = Gtk.Template.Child()
+    entry_test = Gtk.Template.Child()
 
     search_controller = Gtk.EventControllerKey.new()
+    test_focus_controller = Gtk.EventControllerFocus.new()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -63,12 +66,18 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
                 break
 
-        # signals
-        self.btn_next.connect("clicked", self.__window.next)
-        self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
-        self.combo_variants.connect("notify::selected", self.__on_variant_selected)
-        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        # controllers
         self.entry_search_keyboard.add_controller(self.search_controller)
+        self.entry_test.add_controller(self.test_focus_controller)
+
+        # signals
+        self.btn_next.connect("clicked", self.__next)
+        self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
+        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        self.test_focus_controller.connect("enter", self.__apply_layout)
+    
+    def __next(self, *args):
+        self.__window.next(None, self.__apply_layout)
 
     def get_finals(self):
         variant_index = self.combo_variants.get_selected()
@@ -118,7 +127,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         self.combo_variants.set_visible(self.str_list_variants.get_n_items() != 0)
     
-    def __on_variant_selected(self, *args):
+    def __apply_layout(self, *args):
         variant_index = self.combo_variants.get_selected()
         variant = self.str_list_variants.get_item(variant_index)
 
@@ -141,19 +150,31 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
     def __on_search_key_pressed(self, *args):
         keywords = self.entry_search_keyboard.get_text().lower()
+        keywords = re.sub(r'[^a-zA-Z0-9 ]', '', keywords)
 
         if keywords == "" or len(keywords) < 3:
             return
 
         for country in self.__keymaps.list_all.keys():
-            if keywords in country.lower():
+            country = re.sub(r'[^a-zA-Z0-9 ]', '', country)
+            if re.search(keywords, country, re.IGNORECASE):
                 self.combo_layouts.set_selected(list(self.__keymaps.list_all.keys()).index(country))
-                self.__on_layout_selected()
+                # self.__on_layout_selected()
                 break
 
     def __set_keyboard_layout(self, layout, variant=None):
-        if variant == '':
-            value = layout
-        else:
+        value = layout
+
+        if variant != '':
             value = layout + '+' + variant
-        Gio.Settings.new('org.gnome.desktop.input-sources').set_value('sources', GLib.Variant.new_array(GLib.VariantType('(ss)'), [GLib.Variant.new_tuple(GLib.Variant.new_string("xkb"), GLib.Variant.new_string(value))]))
+
+        Gio.Settings.new('org.gnome.desktop.input-sources')\
+            .set_value(
+                'sources', 
+                GLib.Variant.new_array(GLib.VariantType('(ss)'), 
+                [
+                    GLib.Variant.new_tuple(GLib.Variant.new_string("xkb"), 
+                    GLib.Variant.new_string(value))
+                ]
+            )
+        )
