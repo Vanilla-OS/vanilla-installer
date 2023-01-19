@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import re
 import sys
 import time
 import subprocess
@@ -63,11 +64,13 @@ class VanillaDefaultLanguage(Adw.Bin):
 
     def __on_search_key_pressed(self, *args):
         keywords = self.entry_search_language.get_text().lower()
+        keywords = re.sub(r'[^a-zA-Z0-9 ]', '', keywords)
 
         if keywords == "" or len(keywords) < 3:
             return
 
         for locale, lang in all_languages.items():
-            if keywords in lang.lower():
+            lang = re.sub(r'[^a-zA-Z0-9 ]', '', lang)
+            if re.search(keywords, lang, re.IGNORECASE):
                 self.combo_languages.set_selected(list(all_languages.keys()).index(locale))
                 break
