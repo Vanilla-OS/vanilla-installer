@@ -1,2 +1,3 @@
 recipe.json etc/vanilla-installer/
 installer.log etc/vanilla/
+abroot-adapter usr/bin/

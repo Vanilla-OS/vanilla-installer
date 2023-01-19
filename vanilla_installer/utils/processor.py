@@ -64,6 +64,11 @@ class Processor:
 
         is_almost_supported = shutil.which("almost")
 
+        # post install variables
+        device_block = ""
+        tz_region = ""
+        tz_zone = ""
+
         for final in finals:
             for key, value in final.items():
                 if key == "users":
@@ -73,6 +78,8 @@ class Processor:
                     arguments += ["--profile_icon", "'/usr/share/pixmaps/faces/yellow-rose.jpg'"]
                 elif key == "timezone":
                     arguments += ["--tz", "'{}/{}'".format(value["region"], value["zone"])]
+                    tz_region = value["region"]
+                    tz_zone = value["zone"]
                 elif key == "language":
                     arguments += ["-l", f"'{value}'"]
                 elif key == "keyboard":
@@ -86,8 +93,10 @@ class Processor:
                         arguments += ["-n", "'{}:primary:2048M:22528M:btrfs:mount=/'".format(value["auto"]["disk"])]
                         arguments += ["-n", "'{}:primary:22528M:43008M:btrfs:mount=/'".format(value["auto"]["disk"])]
                         arguments += ["-n", "'{}:primary:43008M:end:btrfs:mount=/home'".format(value["auto"]["disk"])]
-                       #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
+                        #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
+                        device_block = value["auto"]["disk"]
                     else:
+                        raise NotImplementedError("Manual partitioning is not yet supported. Yes it will be soon.")
                         for partition, values in value.items():
                             if partition == "disk":
                                 arguments += ["-b", f"'{values}'"]
@@ -126,9 +135,11 @@ class Processor:
             elif "VANILLA_SKIP_INSTALL" not in os.environ:
                 for arg in arguments:
                     f.write(arg + " ")
-
-            if is_almost_supported:
-                f.write("\nalmost enter ro\n")
+            elif "VANILLA_SKIP_POSTINSTALL" not in os.environ:
+                f.write("\n")
+                f.write("echo 'Starting the post-installation process ...'\n")
+                f.write("sudo abroot-adapter {} {} {}"
+                        .format(device_block, tz_region, tz_zone))
 
             f.write("\necho 'Post installation is running in background. Please wait ...'\n")
 
@@ -139,325 +150,3 @@ class Processor:
             os.chmod(f.name, 0o755)
             
             return f.name
-    
-    @staticmethod
-    def find_partitions(block_device, mountpoint, size, expected):
-        logger.info("finding partitions for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
-        partitions = []
-
-        if block_device.startswith("/dev/"):
-            block_device = block_device[5:]
-
-        for partition in glob("/sys/block/{}/{}*".format(block_device, block_device)):
-            partition_size = int(open(partition + "/size").read().strip()) * 512
-
-            if partition_size == size:
-                _part = "/dev/" + partition.split("/")[-1]
-                _uuid = str(uuid.uuid4())
-                subprocess.check_call(["mkdir", "-p", "/tmp/{}".format(_uuid)])
-                subprocess.check_call(["sudo", "mount", _part, "/tmp/{}".format(_uuid)])
-                _res = subprocess.check_output(["df", "/tmp/{}".format(_uuid)]).decode("utf-8").splitlines()[1].split()
-                subprocess.check_call(["sudo", "umount", "-l", "/tmp/{}".format(_uuid)])
-                _used = int(_res[2])
-                partitions.append((_part, _used))
-                logger.info("Found partition: {} {}".format(_part, _used))
-
-        if len(partitions) < expected:
-            raise Exception("not enough partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
-        elif len(partitions) > expected:
-            raise Exception("too many partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(block_device, mountpoint, size))
-
-        _partitions = sorted(partitions, key=lambda x: x[1], reverse=True)
-        return [x[0] for x in _partitions]
-    
-    @staticmethod
-    def find_partitions_by_fs(block_device, mountpoint, fs, expected):
-        logger.info("finding partitions for block device '{}' with mountpoint '{}' and filesystem '{}'".format(block_device, mountpoint, fs))
-        partitions = []
-
-        if block_device.startswith("/dev/"):
-            block_device = block_device[5:]
-
-        for partition in glob("/sys/block/{}/{}*".format(block_device, block_device)):
-            partition_fs = subprocess.check_output(["lsblk", "-no", "FSTYPE", "/dev/" + partition.split("/")[-1]]).decode("utf-8").strip()
-
-            if partition_fs == fs:
-                partitions.append("/dev/" + partition.split("/")[-1])
-
-        if len(partitions) < expected:
-            raise Exception("not enough partitions found for block device '{}' with mountpoint '{}' and filesystem '{}'".format(block_device, mountpoint, fs))
-        elif len(partitions) > expected:
-            raise Exception("too many partitions found for block device '{}' with mountpoint '{}' and filesystem '{}'".format(block_device, mountpoint, fs))
-
-        return partitions
-    
-    @staticmethod
-    def get_uuid(partition):
-        logger.info("getting UUID for partition '{}'".format(partition))
-        return subprocess.check_output(["lsblk", "-no", "UUID", partition]).decode("utf-8").strip()
-    
-    @staticmethod
-    def label_partition(partition, label, fs=None):
-        logger.info("labeling partition '{}' with label '{}'".format(partition, label))
-
-        if fs is None:
-            fs = subprocess.check_output(["lsblk", "-no", "FSTYPE", partition]).decode("utf-8").strip()
-
-        if fs == "btrfs":
-            subprocess.check_call(["sudo", "btrfs", "filesystem", "label", partition, label])
-        elif fs == "ext4":
-            subprocess.check_call(["sudo", "e2label", partition, label])
-        elif fs == "vfat":
-            subprocess.check_call(["sudo", "fatlabel", partition, label])
-        else:
-            raise Exception("unknown filesystem '{}'".format(fs))
-
-        return True
-    
-    @staticmethod
-    def umount_if(mountpoint):
-        logger.info("unmounting '{}' if mounted".format(mountpoint))
-        
-        if os.path.ismount(mountpoint):
-            subprocess.check_call(["sudo", "umount", "-l", mountpoint])
-
-    @staticmethod
-    def remove_uuid_from_fstab(root, uuid):
-        logger.info("removing UUID '{}' from fstab".format(uuid))
-        subprocess.check_call(["sudo", "sed", "-i", "/UUID={}/d".format(uuid), root + "/etc/fstab"])
-
-    @staticmethod
-    def update_grub(root, block_device):
-        logger.info("updating GRUB in '{}'".format(root))
-        boot_partition = Processor.find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
-        efi_partition = Processor.find_partitions_by_fs(block_device, "/boot/efi", "vfat", 1)[0]
-
-        Processor.umount_if(boot_partition)
-        Processor.umount_if(efi_partition)
-
-        subprocess.check_call(["sudo", "mount", boot_partition, root + "/boot"])
-        subprocess.check_call(["sudo", "mount", efi_partition, root + "/boot/efi"])
-        subprocess.check_call(["sudo", "mount", "--bind", "/dev", root + "/dev"])
-        subprocess.check_call(["sudo", "mount", "--bind", "/dev/pts", root + "/dev/pts"])
-        subprocess.check_call(["sudo", "mount", "--bind", "/proc", root + "/proc"])
-        subprocess.check_call(["sudo", "mount", "--bind", "/sys", root + "/sys"])
-        subprocess.check_call(["sudo", "mount", "--bind", "/run", root + "/run"])
-
-        script = [
-            "#!/bin/bash",
-            "sudo chroot {} grub-mkconfig -o /boot/grub/grub.cfg".format(root),
-        ]
-        subprocess.check_call("\n".join(script), shell=True)
-        
-        subprocess.check_call(["sudo", "grub-install", "--boot-directory", root + "/boot", "--target=x86_64-efi", block_device])
-        script = [ # for some reason, grub-install doesn't work if we don't install it from the chroot too
-            "#!/bin/bash",
-            "sudo chroot {} grub-install --boot-directory /boot {} --target=x86_64-efi".format(root, block_device),
-        ]
-        subprocess.check_call("\n".join(script), shell=True)
-
-        Processor.umount_if(boot_partition)
-        Processor.umount_if(efi_partition)
-
-    @staticmethod
-    def generate_grub_file(boot_uuid, root_a_uuid, root_b_uuid, kernel):
-        boot_content = '''#!/bin/sh
-exec tail -n +3 $0
-
-set menu_color_normal=white/black
-set menu_color_highlight=black/light-gray
-
-function gfxmode {
-    set gfxpayload="${1}"
-    if [ "${1}" = "keep" ]; then
-            set vt_handoff=vt.handoff=7
-    else
-            set vt_handoff=
-    fi
-}
-if [ "${recordfail}" != 1 ]; then
-    if [ -e ${prefix}/gfxblacklist.txt ]; then
-        if [ ${grub_platform} != pc ]; then
-        set linux_gfx_mode=keep
-        elif hwmatch ${prefix}/gfxblacklist.txt 3; then
-        if [ ${match} = 0 ]; then
-            set linux_gfx_mode=keep
-        else
-            set linux_gfx_mode=text
-        fi
-        else
-        set linux_gfx_mode=text
-        fi
-    else
-        set linux_gfx_mode=keep
-    fi
-    else
-    set linux_gfx_mode=text
-    fi
-    export linux_gfx_mode
-'''
-        boot_entry = '''menuentry 'State %s' --class gnu-linux --class gnu --class os {
-    recordfail
-    load_video
-    gfxmode $linux_gfx_mode
-    insmod gzio
-    if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
-    insmod part_gpt
-    insmod ext2
-    search --no-floppy --fs-uuid --set=root %s
-    linux	/vmlinuz-%s root=UUID=%s quiet splash bgrt_disable $vt_handoff
-    initrd  /initrd.img-%s
-}
-'''
-        boot_content += boot_entry % ("A", boot_uuid, kernel, root_a_uuid, kernel)
-        boot_content += boot_entry % ("B", boot_uuid, kernel, root_b_uuid, kernel)
-        
-        with open("/tmp/10_vanilla", "w") as f:
-            f.write(boot_content)
-
-        subprocess.check_call(["sudo", "chmod", "777", "/tmp/10_vanilla"])
-    
-    @staticmethod
-    def get_kernel_version(root):
-        return sorted(os.listdir(root + "/usr/lib/modules"))[-1]
-
-    @staticmethod
-    def post_install(finals):
-        # NOTE: manual partitioning not supported yet
-        #       will be implemented in the near future
-        logger.info("post-installation process started")
-        root_a = ""
-        root_b = ""
-        tz_region, tz_zone = "", ""
-
-        # getting root partitions
-        logger.info("getting root partitions")
-        for final in finals:
-            for key, value in final.items():
-                if key == "disk":
-                    if "auto" in value:
-                        block_device = value["auto"]["disk"]
-                        root_a, root_b = Processor.find_partitions(block_device, mountpoint="/", size=39999999*512, expected=2)
-                    else:
-                        logger.error("manual partitioning is not supported yet")
-                        return False
-                elif key == "timezone":
-                    tz_region = value["region"]
-                    tz_zone = value["zone"]
-
-        # getting boot partition
-        logger.info("getting boot partition")
-        boot_partition = Processor.find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
-        boot_uuid = Processor.get_uuid(boot_partition)
-        
-        # getting UUIDs
-        logger.info("getting UUIDs for root partitions")
-        root_a_uuid = Processor.get_uuid(root_a)
-        root_b_uuid = Processor.get_uuid(root_b)
-
-        # preparing mountpoints
-        logger.info("preparing mountpoints")
-        Processor.umount_if("/mnt")
-        Processor.umount_if("/mnt/a")
-        Processor.umount_if("/mnt/b")
-        Processor.umount_if(root_a)
-        Processor.umount_if(root_b)
-        subprocess.check_call(["sudo", "mkdir", "-p", "/mnt/a", "/mnt/b"])
-
-        # labeling root partitions
-        logger.info("labeling root partitions")
-        Processor.label_partition(root_a, "a", "btrfs")
-        Processor.label_partition(root_b, "b", "btrfs")
-            
-        # mounting root partitions
-        logger.info("mounting root partitions")
-        subprocess.check_call(["sudo", "mount", root_a, "/mnt/a"])
-        subprocess.check_call(["sudo", "mount", root_b, "/mnt/b"])
-
-        # set timezone (workaround for distinst generating a broken /etc/timezone)
-            # I am not going to debug this deeper, because it is a distinst bug and
-            # we will switch to another backend soon or write our own
-        subprocess.check_call("sudo rm -f /mnt/a/etc/timezone", shell=True)
-        subprocess.check_call("sudo bash -c 'echo \"%s/%s\" > /mnt/a/etc/timezone'" % (tz_region, tz_zone), shell=True)
-        subprocess.check_call("sudo rm -f /mnt/a/etc/localtime", shell=True)
-        subprocess.check_call("sudo ln -s /usr/share/zoneinfo/%s/%s /mnt/a/etc/localtime" % (tz_region, tz_zone), shell=True)
-
-        # adapting A strucutre
-        logger.info("adapting A structure")
-        subprocess.check_call(["sudo", "mkdir", "-p", "/mnt/a/.system"])
-        subprocess.check_call("sudo mv /mnt/a/* /mnt/a/.system/", shell=True)
-
-        # creating standard folders in A
-        logger.info("creating standard folders in A")
-        standard_folders = ["boot", "dev", "home", "media", "mnt", "partFuture", "proc", "root", "run", "srv", "sys", "tmp"]
-        for item in standard_folders:
-            subprocess.check_call(["sudo", "mkdir", "-p", "/mnt/a/" + item])
-
-        # creating relative links
-        relative_links = [
-            "usr", "etc", "root",
-            "usr/bin", "usr/lib",
-            "usr/lib32", "usr/lib64",
-            "usr/libx32",  "usr/sbin",
-        ]
-        relative_system_links = [
-            "dev", "proc", "run",
-            "srv", "sys", "tmp",
-            "media", "boot",
-        ]
-        logger.info("creating relative links")
-        script_a = ["#!/bin/bash", "cd /mnt/a/"]
-        for link in relative_links:
-            script_a.append("sudo ln -rs .system/{} .".format(link))
-        subprocess.check_call(["sudo", "bash", "-c", "\n".join(script_a)])
-
-        script_a = ["#!/bin/bash", "cd /mnt/a/"]
-        for link in relative_system_links:
-            script_a.append("sudo rm -rf .system/{}".format(link))
-            script_a.append("sudo ln -rs {} .system/".format(link))
-        subprocess.check_call(["sudo", "bash", "-c", "\n".join(script_a)])
-
-        # removing unwanted UUIDs from A fstab
-        logger.info("removing unwanted UUIDs from A fstab")
-        Processor.remove_uuid_from_fstab("/mnt/a", root_b_uuid)
-
-        # getting kernel version
-        logger.info("getting kernel version")
-        kernel = Processor.get_kernel_version("/mnt/a")
-
-        # generating 10_vanilla grub file
-        logger.info("generating 10_vanilla grub file")
-        Processor.generate_grub_file(boot_uuid, root_a_uuid, root_b_uuid, kernel)
-
-        # adapting A grub
-        logger.info("adapting A grub")
-        subprocess.check_call(["sudo", "sed", "-i", "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=1/g", "/mnt/a/.system/etc/default/grub"])
-        subprocess.check_call(["sudo", "cp", "/tmp/10_vanilla", "/mnt/a/.system/etc/grub.d/10_vanilla"])
-        subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/10_linux"])
-        subprocess.check_call(["sudo", "rm", "/mnt/a/.system/etc/grub.d/20_memtest86+"])
-
-        # rsyncing A to B
-        logger.info("rsyncing A to B")
-        subprocess.check_call("sudo rsync -avxHAX --numeric-ids --exclude='/boot' --exclude='/dev' --exclude='/home' --exclude='/media' --exclude='/mnt' --exclude='/partFuture' --exclude='/proc' --exclude='/root' --exclude='/run' --exclude='/srv' --exclude='/sys' --exclude='/tmp' /mnt/a/ /mnt/b/", shell=True)
-
-        # creating standard folders in B
-        logger.info("creating standard folders in B")
-        standard_folders = ["boot", "dev", "home", "media", "mnt", "partFuture", "proc", "root", "run", "srv", "sys", "tmp"]
-        for item in standard_folders:
-            subprocess.check_call(["sudo", "mkdir", "-p", "/mnt/b/" + item])
-        
-        # updating B fstab
-        logger.info("updating B fstab")
-        subprocess.check_call(["sudo", "sed", "-i", "s/UUID={}/UUID={}/g".format(root_a_uuid, root_b_uuid), "/mnt/b/.system/etc/fstab"])
-
-        # load efi modules
-        logger.info("load efi modules")
-        subprocess.run(["sudo", "modprobe", "efivars"], stderr=subprocess.DEVNULL)  # tested, safe to ignore starting from kernel 6.0
-
-        # updating grub for both root partitions
-        logger.info("updating grub for both root partitions")
-        Processor.update_grub("/mnt/a", block_device)
-        Processor.update_grub("/mnt/b", block_device)
-
-        return True
-        
