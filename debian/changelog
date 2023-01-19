@@ -1,3 +1,10 @@
+vanilla-installer (1.0.6) kinetic; urgency=critical
+
+  * Fix window freeze changing keyboard layout
+  * Make all seaarches case insensitive (also special characters)
+
+ -- Mirko Brombin <send@mirko.pm>  Mon, 16 Jan 2023 15:01:00 +0000
+
 vanilla-installer (1.0.5) kinetic; urgency=critical
 
   * Fix timezone not being set
