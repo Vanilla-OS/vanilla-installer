@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import re
 import sys
 import time
 import subprocess
@@ -115,6 +116,7 @@ class VanillaDefaultTimezone(Adw.Bin):
 
     def __on_search_key_pressed(self, *args):
         keywords = self.entry_search_timezone.get_text().lower()
+        keywords = re.sub(r'[^a-zA-Z0-9 ]', '', keywords)
 
         if keywords == "" or len(keywords) < 3:
             return
@@ -122,7 +124,8 @@ class VanillaDefaultTimezone(Adw.Bin):
         for country, cities in all_timezones.items():
             for city in cities:
 
-                if keywords in city.lower():
+                city = re.sub(r'[^a-zA-Z0-9 ]', '', city)
+                if re.search(keywords, city, re.IGNORECASE):
                     self.combo_region.set_selected(list(all_timezones.keys()).index(country))
 
                     for index, _city in enumerate(all_timezones[country]):
@@ -131,4 +134,3 @@ class VanillaDefaultTimezone(Adw.Bin):
                             break
 
                     return
-
