@@ -141,8 +141,6 @@ class Processor:
                 f.write("sudo abroot-adapter {} {} {}"
                         .format(device_block, tz_region, tz_zone))
 
-            f.write("\necho 'Post installation is running in background. Please wait ...'\n")
-
             f.flush()
             f.close()
 
