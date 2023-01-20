@@ -1,3 +1,11 @@
+vanilla-installer (1.1.0) kinetic; urgency=medium
+
+  * Correct timezone codes for Distinst
+  * Update translations
+  * Show post install output in the integrated terminal
+
+ -- Mirko Brombin <send@mirko.pm>  Mon, 16 Jan 2023 15:01:00 +0000
+
 vanilla-installer (1.0.6) kinetic; urgency=critical
 
   * Fix window freeze changing keyboard layout
@@ -16,6 +24,7 @@ vanilla-installer (1.0.4) kinetic; urgency=critical
   * Update translations
 
  -- Mirko Brombin <send@mirko.pm>  Sun, 01 Jan 2022 14:49:00 +0000
+
 vanilla-installer (1.0.3) kinetic; urgency=critical
 
   * Prevent from using root as username
