@@ -1,4 +1,4 @@
-vanilla-installer (1.1.0) kinetic; urgency=medium
+vanilla-installer (1.1.1) kinetic; urgency=medium
 
   * Correct timezone codes for Distinst
   * Update translations
