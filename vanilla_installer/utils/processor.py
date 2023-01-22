@@ -132,7 +132,7 @@ class Processor:
                 f.write("echo '----------------------------------'\n")
                 f.write("sleep 5\n")
                 f.write("exit 1\n")
-                
+
             if "VANILLA_SKIP_INSTALL" not in os.environ:
                 for arg in arguments:
                     f.write(arg + " ")
