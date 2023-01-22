@@ -132,10 +132,12 @@ class Processor:
                 f.write("echo '----------------------------------'\n")
                 f.write("sleep 5\n")
                 f.write("exit 1\n")
-            elif "VANILLA_SKIP_INSTALL" not in os.environ:
+                
+            if "VANILLA_SKIP_INSTALL" not in os.environ:
                 for arg in arguments:
                     f.write(arg + " ")
-            elif "VANILLA_SKIP_POSTINSTALL" not in os.environ:
+
+            if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
                 f.write("\n")
                 f.write("echo 'Starting the post-installation process ...'\n")
                 f.write("sudo abroot-adapter {} {} {}"
