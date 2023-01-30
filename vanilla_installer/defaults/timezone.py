@@ -45,11 +45,11 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
-        
+
         # set up the string list for keyboard layouts
         for country, _ in all_timezones.items():
             self.str_list_region.append(country)
-        
+
         # set up current timezone
         current_country, current_city = get_current_timezone()
         country_set, city_set = False, False
@@ -66,7 +66,7 @@ class VanillaDefaultTimezone(Adw.Bin):
                         break
 
                 break
-        
+
         if not country_set or not city_set:
             self.combo_region.set_selected(0)
             self.__on_country_selected(None, None)
@@ -93,14 +93,15 @@ class VanillaDefaultTimezone(Adw.Bin):
                     "zone": "London"
                 }
             }
-    
+
     def __on_country_selected(self, combo, param):
         self.str_list_zone.splice(0, self.str_list_zone.get_n_items())
 
         country_index = self.combo_region.get_selected()
         country = list(all_timezones.keys())[country_index]
         for timezone in all_timezones[country]:
-            self.str_list_zone.append(timezone)
+            replaced = re.sub(r'_', r' ', timezone)
+            self.str_list_zone.append(replaced)
 
     def __on_city_selected(self, combo, param):
         country_index = self.combo_region.get_selected()
@@ -120,7 +121,7 @@ class VanillaDefaultTimezone(Adw.Bin):
 
         if keywords == "" or len(keywords) < 3:
             return
-        
+
         for country, cities in all_timezones.items():
             for city in cities:
 
