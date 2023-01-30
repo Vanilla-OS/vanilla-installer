@@ -1,4 +1,10 @@
-vanilla-installer (1.1.1) kinetic; urgency=medium
+vanilla-installer (1.1.2) kinetic; urgency=critical
+
+  * Improved timezone syntax
+
+ -- Mirko Brombin <send@mirko.pm>  Mon, 16 Jan 2023 15:01:00 +0000
+
+vanilla-installer (1.1.1) kinetic; urgency=critical
 
   * Correct timezone codes for Distinst
   * Update translations
