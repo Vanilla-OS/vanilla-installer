@@ -380,15 +380,14 @@ def entry_point(block_device, tz_region, tz_zone):
 
     # adapting A grub
     logger.info("adapting A grub")
-    subprocess.check_call(
-        [
-            "sudo",
-            "sed",
-            "-i",
-            "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=1/g",
-            "/mnt/a/.system/etc/default/grub",
-        ]
-    )
+    grub_default = """GRUB_DEFAULT=1
+GRUB_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT=2
+GRUB_TIMEOUT_STYLE=hidden"""
+
+    with open("/mnt/a/.system/etc/default/grub", "w") as f:
+        f.write(grub_default)
+
     subprocess.check_call(
         ["sudo", "cp", "/tmp/10_vanilla", "/mnt/a/.system/etc/grub.d/10_vanilla"]
     )
