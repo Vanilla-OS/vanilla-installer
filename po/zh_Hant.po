@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
 "PO-Revision-Date: 2023-02-03 15:22+0000\n"
-"Last-Translator: Chang-Chia Tseng <pswo10680@gmail.com>\n"
+"Last-Translator: Jen Kung-chih <Kaitul@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -47,11 +47,11 @@ msgstr "下一步"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "選擇磁碟"
+msgstr "選取磁碟"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "選擇要安裝 Vanilla OS 的磁碟"
+msgstr "選取要安裝 Vanilla OS 的磁碟"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -272,7 +272,7 @@ msgstr "為分割區選擇掛載點"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "這是唯一可用的磁碟，無法取消選擇！"
+msgstr "這是唯一可用的磁碟，無法取消選取！"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
@@ -284,11 +284,11 @@ msgstr "將格式化為 {} 並掛載到 {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr "請至少選擇一個選項。"
+msgstr "請至少選取一個選項。"
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "裝置重新開機，開始您的 {} 之旅。"
+msgstr "重新啟動您的裝置，開始您的 {} 之旅。"
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
