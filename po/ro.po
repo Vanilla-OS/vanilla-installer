@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-01-01 16:50+0000\n"
+"PO-Revision-Date: 2023-02-07 10:37+0000\n"
 "Last-Translator: finnmonstar <finnmonstar@pm.me>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ro/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -250,7 +250,7 @@ msgstr "Se instalează..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr "Arată informațiile din consolă"
+msgstr "Arată datele de ieșire ale consolei"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
