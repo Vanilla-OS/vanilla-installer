@@ -1,49 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.0"/>
-    <requires lib="libadwaita" version="1.0" />
-    <template class="VanillaDefaultPartitionEntry" parent="AdwExpanderRow">
-        <property name="title">/dev/nvme0n1p1</property>
-        <property name="subtitle">1 GB</property>
+  <requires lib="gtk" version="4.0"/>
+  <template class="PartitionSelector" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">20</property>
+    <child>
+      <object class="AdwPreferencesGroup" id="boot_part">
+        <property name="title" translatable="true">Boot partition:</property>
+        <property name="description" translatable="true">Which partition to mount at '/boot', where boot information is stored.</property>
         <child>
-            <object class="AdwComboRow" id="combo_fs">
-                <property name="title" translatable="yes">Format</property>
-                <property name="subtitle" translatable="yes">Choose a new file system or leave as is</property>
-                <property name="model">
-                    <object class="GtkStringList" id="str_list_fs">
-                        <items>
-                            <item>Do not touch</item>
-                            <item>btrfs</item>
-                            <item>ext4</item>
-                            <item>ext3</item>
-                            <item>fat32</item>
-                            <item>xfs</item>
-                            <item>swap</item>
-                        </items>
-                    </object>
-                </property>
-            </object>
+          <object class="AdwExpanderRow" id="boot_part_expand"></object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="efi_part">
+        <property name="title" translatable="true">EFI partition:</property>
+        <property name="description" translatable="true">Which partition to mount at '/boot/efi', where EFI information is stored.</property>
+        <child>
+          <object class="AdwExpanderRow" id="efi_part_expand"></object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="roots_part">
+        <property name="title" translatable="true">Root partitions:</property>
+        <property name="description" translatable="true">Which partitions to mount at '/'.</property>
+        <child type="header-suffix">
+          <object class="GtkBox">
+            <child>
+              <object class="GtkButton" id="abroot_info_button">
+                <property name="valign">center</property>
+                <property name="icon-name">info-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkPopover" id="abroot_info_popover">
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="true">Vanilla OS uses an A/B system partition managed by ABroot,\nwhich switches between two root partitions between updates.</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
         </child>
         <child>
-            <object class="AdwComboRow" id="combo_mp">
-                <property name="title" translatable="yes">Mount Point</property>
-                <property name="subtitle" translatable="yes">Choose a mount point for the partition</property>
-                <property name="model">
-                    <object class="GtkStringList" id="str_list_mp">
-                        <items>
-                            <item>Do not mount</item>
-                            <item>/</item>
-                            <item>/boot</item>
-                            <item>/boot/efi</item>
-                            <item>/home</item>
-                            <item>/opt</item>
-                            <item>/tmp</item>
-                            <item>/usr</item>
-                            <item>/var</item>
-                        </items>
-                    </object>
-                </property>
-            </object>
+          <object class="AdwExpanderRow" id="abroot_a_part_expand">
+            <child type="prefix">
+              <object class="GtkLabel">
+                <style>
+                  <class name="heading"/>
+                </style>
+                <property name="label">A</property>
+              </object>
+            </child>
+          </object>
         </child>
-    </template>
+        <child>
+          <object class="AdwExpanderRow" id="abroot_b_part_expand">
+            <child type="prefix">
+              <object class="GtkLabel">
+                <style>
+                  <class name="heading"/>
+                </style>
+                <property name="label">B</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="home_part">
+        <property name="title" translatable="true">Home partition:</property>
+        <property name="description" translatable="true">Which partition to mount at '/home', where your personal data goes to.</property>
+        <child>
+          <object class="AdwExpanderRow" id="home_part_expand"></object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>

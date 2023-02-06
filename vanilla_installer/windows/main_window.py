@@ -103,7 +103,7 @@ class VanillaWindow(Adw.ApplicationWindow):
 
     def on_installation_confirmed(self, *args):
         install_script = Processor.gen_install_script(
-            self.recipe.get("log_file", "/tmp/vanilla_installer.log"), 
+            self.recipe.get("log_file", "/tmp/vanilla_installer.log"),
             self.recipe.get("pre_run", []),
             self.recipe.get("post_run"),
             self.finals
@@ -112,7 +112,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.__view_progress.start(install_script)
 
     def next(self, widget=None, fn=None, *args):
-        if fn is not None: 
+        if fn is not None:
             fn()
 
         cur_index = self.carousel.get_position()
@@ -123,7 +123,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index - 1)
         self.carousel.scroll_to(page, True)
-    
+
     def toast(self, message, timeout=3):
         toast = Adw.Toast.new(message)
         toast.props.timeout = timeout

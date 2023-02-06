@@ -96,7 +96,7 @@ class Processor:
                         #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
                         device_block = value["auto"]["disk"]
                     else:
-                        raise NotImplementedError("Manual partitioning is not yet supported. Yes it will be soon.")
+                        # raise NotImplementedError("Manual partitioning is not yet supported. Yes it will be soon.")
                         for partition, values in value.items():
                             if partition == "disk":
                                 arguments += ["-b", f"'{values}'"]
@@ -110,7 +110,7 @@ class Processor:
                                 arguments += ["-n", "'{}:primary:{}M:end:swap'".format(partition, values["size"])]
                             else:
                                 arguments += ["-n", "'{}:primary:{}M:end:{}:mount={}'".format(partition, values["size"], values["fs"], values["mp"])]
-        
+
         # generating a temporary file to store the distinst command and
         # arguments parsed from the final data
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as f:
@@ -148,5 +148,5 @@ class Processor:
 
             # setting the file executable
             os.chmod(f.name, 0o755)
-            
+
             return f.name

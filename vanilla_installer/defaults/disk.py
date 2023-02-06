@@ -49,7 +49,7 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
                 self.chk_button.set_active(True)
                 self.chk_button.set_sensitive(False)
                 self.chk_button.set_tooltip_text(_("This is the only disk available and cannot be deselected!"))
-    
+
     @property
     def is_active(self):
         if self.chk_button.get_active():
@@ -58,45 +58,49 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
     @property
     def disk(self):
         return self.__disk
-    
+
     @property
     def disk_block(self):
         return self.__partition.disk_block
-        
+
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-partition.ui')
-class VanillaDefaultPartitionEntry(Adw.ExpanderRow):
-    __gtype_name__ = 'VanillaDefaultPartitionEntry'
+class PartitionSelector(Gtk.Box):
+    __gtype_name__ = 'PartitionSelector'
 
-    combo_fs = Gtk.Template.Child()
-    str_list_fs = Gtk.Template.Child()
-    combo_mp = Gtk.Template.Child()
-    str_list_mp = Gtk.Template.Child()
+    boot_part_expand = Gtk.Template.Child()
+    efi_part_expand = Gtk.Template.Child()
+    abroot_a_part_expand = Gtk.Template.Child()
+    abroot_b_part_expand = Gtk.Template.Child()
+    home_part_expand = Gtk.Template.Child()
+    abroot_info_button = Gtk.Template.Child()
+    abroot_info_popover = Gtk.Template.Child()
 
-    def __init__(self, partition, **kwargs):
+    def __init__(self, partitions, **kwargs):
         super().__init__(**kwargs)
-        self.__partition = partition
-        self.__name = partition.partition
-        self.set_title(partition.partition)
-        self.set_subtitle(partition.pretty_size)
-    
-    @property
-    def selected_fs(self):
-        index = self.combo_fs.get_selected()
-        return self.str_list_fs.get_string(index)
+        self.__partitions = partitions
+        self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
 
-    @property
-    def selected_mountpoint(self):
-        index = self.combo_mp.get_selected()
-        return self.str_list_mp.get_string(index)
+    def __on_info_button_clicked(self, widget):
+        self.abroot_info_popover.popup()
 
-    @property
-    def pretty_size(self):
-        return self.__partition.pretty_size
+    # @property
+    # def selected_fs(self):
+    #     index = self.combo_fs.get_selected()
+    #     return self.str_list_fs.get_string(index)
+    #
+    # @property
+    # def selected_mountpoint(self):
+    #     index = self.combo_mp.get_selected()
+    #     return self.str_list_mp.get_string(index)
+    #
+    # @property
+    # def pretty_size(self):
+    #     return self.__partition.pretty_size
 
-    @property
-    def name(self):
-        return self.__name
+    # @property
+    # def name(self):
+    #     return self.__name
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk.ui')
@@ -109,6 +113,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     chk_entire_disk = Gtk.Template.Child()
     chk_manual_part = Gtk.Template.Child()
     group_partitions = Gtk.Template.Child()
+    group_partitions_window = Gtk.Template.Child()
     btn_cancel = Gtk.Template.Child()
     btn_apply = Gtk.Template.Child()
     launch_gparted = Gtk.Template.Child()
@@ -123,19 +128,24 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.chk_entire_disk.set_group(self.chk_manual_part)
         self.__registry_partitions = []
 
+        self.default_width, self.default_height = self.get_default_size()
+
         # signals
         self.chk_manual_part.connect('toggled', self.__on_chk_manual_part_toggled)
+        self.chk_entire_disk.connect('toggled', self.__on_chk_entire_disk_toggled)
         self.btn_cancel.connect('clicked', self.__on_btn_cancel_clicked)
         self.btn_apply.connect('clicked', self.__on_btn_apply_clicked)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
 
-        for partition in self.__disk.partitions:
-            entry = VanillaDefaultPartitionEntry(partition)
-            self.group_partitions.add(entry)
-            self.__registry_partitions.append(entry)
+        entry = PartitionSelector(self.__disk.partitions)
+        self.group_partitions.set_child(entry)
 
     def __on_chk_manual_part_toggled(self, widget):
-        self.group_partitions.set_visible(widget.get_active())
+        self.group_partitions_window.set_visible(widget.get_active())
+        self.set_default_size(self.default_width, 700);
+
+    def __on_chk_entire_disk_toggled(self, widget):
+        self.set_default_size(self.default_width, self.default_height);
 
     def __on_btn_cancel_clicked(self, widget):
         self.destroy()
@@ -144,7 +154,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.__parent.set_partition_recipe(self.partition_recipe)
         self.emit("partitioning-set", self.__disk.name)
         self.destroy()
-    
+
     def __on_launch_gparted(self, widget):
         subprocess.run(['gparted'])
 
@@ -159,7 +169,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
                     "size": self.__disk.size,
                 }
             }
-        
+
         recipe["disk"] = self.__disk.disk
         for partition in self.__registry_partitions:
             if partition.selected_fs == _("Do not touch"):
@@ -249,7 +259,7 @@ class VanillaDefaultDisk(Adw.Bin):
 
     def get_finals(self):
         return {"disk": self.__partition_recipe}
-    
+
     def __on_configure_clicked(self, button):
         def on_modal_close_request(*args):
             self.btn_next.set_visible(self.__partition_recipe is not None)
@@ -270,3 +280,4 @@ class VanillaDefaultDisk(Adw.Bin):
     def __on_btn_next_clicked(self, button):
         modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
         modal.present()
+# disk.py
