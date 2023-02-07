@@ -9,7 +9,10 @@
         <property name="title" translatable="true">Boot partition:</property>
         <property name="description" translatable="true">Which partition to mount at '/boot', where boot information is stored.</property>
         <child>
-          <object class="AdwExpanderRow" id="boot_part_expand"></object>
+          <object class="AdwExpanderRow" id="boot_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
         </child>
       </object>
     </child>
@@ -18,7 +21,10 @@
         <property name="title" translatable="true">EFI partition:</property>
         <property name="description" translatable="true">Which partition to mount at '/boot/efi', where EFI information is stored.</property>
         <child>
-          <object class="AdwExpanderRow" id="efi_part_expand"></object>
+          <object class="AdwExpanderRow" id="efi_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
         </child>
       </object>
     </child>
@@ -38,7 +44,8 @@
               <object class="GtkPopover" id="abroot_info_popover">
                 <child>
                   <object class="GtkLabel">
-                    <property name="label" translatable="true">Vanilla OS uses an A/B system partition managed by ABroot,\nwhich switches between two root partitions between updates.</property>
+                    <property name="label" translatable="true">Vanilla OS uses an A/B system partition managed by ABroot,\
+which switches between two root partitions between updates.</property>
                   </object>
                 </child>
               </object>
@@ -55,6 +62,8 @@
                 <property name="label">A</property>
               </object>
             </child>
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
           </object>
         </child>
         <child>
@@ -67,6 +76,8 @@
                 <property name="label">B</property>
               </object>
             </child>
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
           </object>
         </child>
       </object>
@@ -76,7 +87,10 @@
         <property name="title" translatable="true">Home partition:</property>
         <property name="description" translatable="true">Which partition to mount at '/home', where your personal data goes to.</property>
         <child>
-          <object class="AdwExpanderRow" id="home_part_expand"></object>
+          <object class="AdwExpanderRow" id="home_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
         </child>
       </object>
     </child>

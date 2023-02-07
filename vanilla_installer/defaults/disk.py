@@ -73,34 +73,123 @@ class PartitionSelector(Gtk.Box):
     abroot_a_part_expand = Gtk.Template.Child()
     abroot_b_part_expand = Gtk.Template.Child()
     home_part_expand = Gtk.Template.Child()
+    # TODO: Add swap expander
+
     abroot_info_button = Gtk.Template.Child()
     abroot_info_popover = Gtk.Template.Child()
 
+    # NOTE: Keys must be the same name as template children
+    __selected_partitions = {
+        "boot_part_expand": None,
+        "efi_part_expand": None,
+        "abroot_a_part_expand": None,
+        "abroot_b_part_expand": None,
+        "home_part_expand": None,
+    }
+
+    __partition_fs_types = [ "btrfs", "ext4", "ext3", "fat32", "xfs", "swap" ]
+
     def __init__(self, partitions, **kwargs):
         super().__init__(**kwargs)
-        self.__partitions = partitions
+        self.__partitions = sorted(partitions)
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
+
+        for widget in self.__generate_partition_list_widgets():
+            self.boot_part_expand.add_row(widget)
+
+        for widget in self.__generate_partition_list_widgets():
+            self.efi_part_expand.add_row(widget)
+
+        for widget in self.__generate_partition_list_widgets():
+            self.abroot_a_part_expand.add_row(widget)
+
+        for widget in self.__generate_partition_list_widgets():
+            self.abroot_b_part_expand.add_row(widget)
+
+        for widget in self.__generate_partition_list_widgets():
+            self.home_part_expand.add_row(widget)
+
+    def __generate_partition_list_widgets(self):
+        checkbuttons = []
+        partition_widgets = []
+
+        for i, partition in enumerate(self.__partitions):
+            partition_row = Adw.ActionRow()
+            partition_row.set_title(partition.partition)
+            partition_row.set_subtitle(partition.pretty_size)
+
+            fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
+            fs_dropdown.set_valign(Gtk.Align.CENTER)
+            fs_dropdown.set_sensitive(False)
+            fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
+            partition_row.add_suffix(fs_dropdown)
+
+            select_button = Gtk.CheckButton()
+            if i != 0:
+                select_button.set_group(checkbuttons[0])
+
+            select_button.connect("toggled", self.__on_check_button_toggled)
+            checkbuttons.append(select_button)
+            partition_row.add_prefix(checkbuttons[i])
+
+            partition_widgets.append(partition_row)
+
+        return partition_widgets
 
     def __on_info_button_clicked(self, widget):
         self.abroot_info_popover.popup()
 
-    # @property
-    # def selected_fs(self):
-    #     index = self.combo_fs.get_selected()
-    #     return self.str_list_fs.get_string(index)
-    #
-    # @property
-    # def selected_mountpoint(self):
-    #     index = self.combo_mp.get_selected()
-    #     return self.str_list_mp.get_string(index)
-    #
-    # @property
-    # def pretty_size(self):
-    #     return self.__partition.pretty_size
+    def __update_partition_rows(self):
+        for row in [self.boot_part_expand, self.efi_part_expand, self.abroot_a_part_expand, self.abroot_b_part_expand, self.home_part_expand]:
+            children = row.get_child().observe_children()
+            child_rows = children.get_item(children.get_n_items() - 1).get_child().observe_children()
 
-    # @property
-    # def name(self):
-    #     return self.__name
+            for i in range(child_rows.get_n_items()):
+                child_row = child_rows.get_item(i);
+                row_partition = child_row.get_title()
+                is_used = False
+                for _, val in self.__selected_partitions.items():
+                    if val == row_partition:
+                        is_used = True
+                child_row.set_sensitive(not is_used)
+
+    def __on_check_button_toggled(self, widget):
+        action_row = widget.get_parent().get_parent().get_parent()
+        children = action_row.get_child().observe_children()
+        dropdown = children.get_item(children.get_n_items() - 1).observe_children().get_item(0)
+
+        rows = action_row.get_parent().observe_children()
+        for i in range(rows.get_n_items()):
+            row = rows.get_item(i)
+            row_children = row.get_child().observe_children()
+
+            # Sets all dropdowns as not sensitive
+            row_dropdown = row_children.get_item(row_children.get_n_items() - 1).observe_children().get_item(0)
+            row_dropdown.set_sensitive(False)
+
+        # Only the currently selected partition can be edited
+        dropdown.set_sensitive(True)
+
+        partition = action_row.get_title()
+        size = action_row.get_subtitle()
+        fs_type = self.__partition_fs_types[dropdown.get_selected()]
+
+        expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
+        expander_row.set_title(partition)
+        expander_row.set_subtitle(f"{size} ({fs_type})")
+        self.__selected_partitions[expander_row.get_buildable_id()] = partition
+
+        # Sets already selected partitions as not sensitive
+        self.__update_partition_rows()
+
+    def __on_dropdown_selected(self, widget, _):
+        fs_type = self.__partition_fs_types[widget.get_selected()]
+
+        action_row = widget.get_parent().get_parent().get_parent()
+        expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
+
+        size = action_row.get_subtitle()
+        expander_row.set_subtitle(f"{size} ({fs_type})")
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk.ui')

@@ -4,7 +4,7 @@ import sys
 
 
 class Disk:
-    
+
     def __init__(self, disk: str):
         self.__disk = disk
         self.__partitions = self.__get_partitions()
@@ -20,7 +20,7 @@ class Disk:
     def __get_size(self):
         with open(f"{self.block}/size", "r") as f:
             return int(f.read().strip()) * 512
-        
+
     @property
     def partitions(self):
         return self.__partitions
@@ -37,7 +37,7 @@ class Disk:
     @property
     def name(self):
         return self.__disk
-    
+
     @property
     def block(self):
         return f"/sys/block/{self.__disk}"
@@ -45,7 +45,7 @@ class Disk:
     @property
     def size(self):
         return self.__size
-    
+
     @property
     def pretty_size(self):
         size = self.size
@@ -149,6 +149,9 @@ class Partition:
     def label(self):
         return self.__label
 
+    def __lt__(self, other):
+        return self.partition < other.partition
+
 
 class DisksManager:
 
@@ -161,7 +164,7 @@ class DisksManager:
         for disk in os.listdir("/sys/block"):
             if disk.startswith(("loop", "ram", "sr", "zram")):
                 continue
-            
+
             disks.append(Disk(disk))
 
         return disks
