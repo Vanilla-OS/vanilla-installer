@@ -140,13 +140,26 @@ class PartitionSelector(Gtk.Box):
         self.abroot_info_popover.popup()
 
     def __update_partition_rows(self):
-        for row in [self.boot_part_expand, self.efi_part_expand, self.abroot_a_part_expand, self.abroot_b_part_expand, self.home_part_expand]:
+        for row in [
+            self.boot_part_expand,
+            self.efi_part_expand,
+            self.abroot_a_part_expand,
+            self.abroot_b_part_expand,
+            self.home_part_expand
+        ]:
             children = row.get_child().observe_children()
             child_rows = children.get_item(children.get_n_items() - 1).get_child().observe_children()
 
             for i in range(child_rows.get_n_items()):
                 child_row = child_rows.get_item(i);
                 row_partition = child_row.get_title()
+                row_checkbutton = child_row.observe_children().get_item(0).observe_children().get_item(0).observe_children().get_item(0)
+
+                # The row where partition was selected still has to be sensitive
+                if row_checkbutton.get_active():
+                    child_row.set_sensitive(True)
+                    continue
+
                 is_used = False
                 for _, val in self.__selected_partitions.items():
                     if val == row_partition:
@@ -231,7 +244,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     def __on_chk_manual_part_toggled(self, widget):
         self.group_partitions_window.set_visible(widget.get_active())
-        self.set_default_size(self.default_width, 700);
+        self.set_default_size(self.default_width, 800);
 
     def __on_chk_entire_disk_toggled(self, widget):
         self.set_default_size(self.default_width, self.default_height);
