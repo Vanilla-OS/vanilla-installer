@@ -78,6 +78,7 @@ class PartitionSelector(Adw.PreferencesPage):
     abroot_info_button = Gtk.Template.Child()
     abroot_info_popover = Gtk.Template.Child()
     use_swap_part = Gtk.Template.Child()
+    root_sizes_differ_error = Gtk.Template.Child()
 
     # NOTE: Keys must be the same name as template children
     __selected_partitions = {
@@ -88,11 +89,13 @@ class PartitionSelector(Adw.PreferencesPage):
         "home_part_expand": None,
         "swap_part_expand": None,
     }
+    __valid_root_partitions = False
 
     __partition_fs_types = [ "btrfs", "ext4", "ext3", "fat32", "xfs", "swap" ]
 
-    def __init__(self, partitions, **kwargs):
+    def __init__(self, parent, partitions, **kwargs):
         super().__init__(**kwargs)
+        self.__parent = parent
         self.__partitions = sorted(partitions)
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
@@ -145,6 +148,44 @@ class PartitionSelector(Adw.PreferencesPage):
     def __on_info_button_clicked(self, widget):
         self.abroot_info_popover.popup()
 
+    def __update_apply_button_status(self):
+        # If not manual partitioning, it's always valid
+        if self.__parent.chk_entire_disk.get_active():
+            self.__parent.set_btn_apply_sensitive(True)
+            return
+
+        for k, val in self.__selected_partitions.items():
+            if val == None and (k != "swap_part_expand" or self.use_swap_part.get_active()):
+                self.__parent.set_btn_apply_sensitive(False)
+                return
+
+        if self.__valid_root_partitions:
+            self.__parent.set_btn_apply_sensitive(True)
+
+    def __check_root_partitions_size_equal(self):
+        a_root_part_size = None
+        b_root_part_size = None
+
+        for part in self.__partitions:
+            if part.partition == self.__selected_partitions["abroot_a_part_expand"]:
+                a_root_part_size = part.size
+
+            if part.partition == self.__selected_partitions["abroot_b_part_expand"]:
+                b_root_part_size = part.size
+
+        if a_root_part_size and b_root_part_size and a_root_part_size != b_root_part_size:
+            self.abroot_a_part_expand.get_style_context().add_class("error")
+            self.abroot_b_part_expand.get_style_context().add_class("error")
+            self.root_sizes_differ_error.set_visible(True)
+            self.__valid_root_partitions = False
+        else:
+            if self.abroot_a_part_expand.get_style_context().has_class("error"):
+                self.abroot_a_part_expand.get_style_context().remove_class("error")
+            if self.abroot_b_part_expand.get_style_context().has_class("error"):
+                self.abroot_b_part_expand.get_style_context().remove_class("error")
+            self.root_sizes_differ_error.set_visible(False)
+            self.__valid_root_partitions = True
+
     def __on_use_swap_toggled(self, widget, state):
         if state == False:
             children = self.swap_part_expand.get_child().observe_children()
@@ -159,6 +200,8 @@ class PartitionSelector(Adw.PreferencesPage):
             self.swap_part_expand.set_title(_("No partition selected"))
             self.swap_part_expand.set_subtitle(_("Please select a partition from the options below"))
             self.__update_partition_rows()
+
+        self.__update_apply_button_status()
 
     def __update_partition_rows(self):
         for row in [
@@ -216,6 +259,10 @@ class PartitionSelector(Adw.PreferencesPage):
 
         # Sets already selected partitions as not sensitive
         self.__update_partition_rows()
+        # Checks whether we can proceed with installation
+        self.__update_apply_button_status()
+        # Checks whether root partitions are the same size
+        self.__check_root_partitions_size_equal()
 
     def __on_dropdown_selected(self, widget, _):
         fs_type = self.__partition_fs_types[widget.get_selected()]
@@ -261,13 +308,14 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.btn_apply.connect('clicked', self.__on_btn_apply_clicked)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
 
-        entry = PartitionSelector(self.__disk.partitions)
+        entry = PartitionSelector(self, self.__disk.partitions)
         self.group_partitions.set_child(entry)
 
     def __on_chk_manual_part_toggled(self, widget):
         self.group_partitions.set_visible(widget.get_active())
         self.set_default_size(self.default_width, 800);
         self.manual_part_expand.set_expanded(widget.get_active())
+        self.set_btn_apply_sensitive(False)
 
     def __on_chk_entire_disk_toggled(self, widget):
         self.set_default_size(self.default_width, self.default_height);
@@ -282,6 +330,9 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     def __on_launch_gparted(self, widget):
         subprocess.run(['gparted'])
+
+    def set_btn_apply_sensitive(self, val):
+        self.btn_apply.set_sensitive(val)
 
     @property
     def partition_recipe(self):

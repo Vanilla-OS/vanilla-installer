@@ -81,6 +81,16 @@ which switches between two root partitions between updates.</property>
       </object>
     </child>
     <child>
+      <object class="AdwPreferencesGroup" id="root_sizes_differ_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Root partitions are not the same size.</property>
+        <property name="description" translatable="true">Please make sure your A and B partitions have the same disk space.</property>
+      </object>
+    </child>
+    <child>
       <object class="AdwPreferencesGroup" id="home_part">
         <property name="title" translatable="true">Home partition:</property>
         <property name="description" translatable="true">Which partition to mount at '/home', where your personal data goes to.</property>
