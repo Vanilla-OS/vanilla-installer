@@ -65,7 +65,7 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-partition.ui')
-class PartitionSelector(Gtk.Box):
+class PartitionSelector(Adw.PreferencesPage):
     __gtype_name__ = 'PartitionSelector'
 
     boot_part_expand = Gtk.Template.Child()
@@ -237,10 +237,10 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     chk_entire_disk = Gtk.Template.Child()
     chk_manual_part = Gtk.Template.Child()
     group_partitions = Gtk.Template.Child()
-    group_partitions_window = Gtk.Template.Child()
     btn_cancel = Gtk.Template.Child()
     btn_apply = Gtk.Template.Child()
     launch_gparted = Gtk.Template.Child()
+    manual_part_expand = Gtk.Template.Child()
 
 
     def __init__(self, window, parent, disk, **kwargs):
@@ -265,8 +265,9 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.group_partitions.set_child(entry)
 
     def __on_chk_manual_part_toggled(self, widget):
-        self.group_partitions_window.set_visible(widget.get_active())
+        self.group_partitions.set_visible(widget.get_active())
         self.set_default_size(self.default_width, 800);
+        self.manual_part_expand.set_expanded(widget.get_active())
 
     def __on_chk_entire_disk_toggled(self, widget):
         self.set_default_size(self.default_width, self.default_height);
