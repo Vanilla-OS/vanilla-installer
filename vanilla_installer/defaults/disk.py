@@ -73,10 +73,11 @@ class PartitionSelector(Gtk.Box):
     abroot_a_part_expand = Gtk.Template.Child()
     abroot_b_part_expand = Gtk.Template.Child()
     home_part_expand = Gtk.Template.Child()
-    # TODO: Add swap expander
+    swap_part_expand = Gtk.Template.Child()
 
     abroot_info_button = Gtk.Template.Child()
     abroot_info_popover = Gtk.Template.Child()
+    use_swap_part = Gtk.Template.Child()
 
     # NOTE: Keys must be the same name as template children
     __selected_partitions = {
@@ -85,6 +86,7 @@ class PartitionSelector(Gtk.Box):
         "abroot_a_part_expand": None,
         "abroot_b_part_expand": None,
         "home_part_expand": None,
+        "swap_part_expand": None,
     }
 
     __partition_fs_types = [ "btrfs", "ext4", "ext3", "fat32", "xfs", "swap" ]
@@ -93,6 +95,7 @@ class PartitionSelector(Gtk.Box):
         super().__init__(**kwargs)
         self.__partitions = sorted(partitions)
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
+        self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
 
         for widget in self.__generate_partition_list_widgets():
             self.boot_part_expand.add_row(widget)
@@ -108,6 +111,9 @@ class PartitionSelector(Gtk.Box):
 
         for widget in self.__generate_partition_list_widgets():
             self.home_part_expand.add_row(widget)
+
+        for widget in self.__generate_partition_list_widgets():
+            self.swap_part_expand.add_row(widget)
 
     def __generate_partition_list_widgets(self):
         checkbuttons = []
@@ -139,13 +145,29 @@ class PartitionSelector(Gtk.Box):
     def __on_info_button_clicked(self, widget):
         self.abroot_info_popover.popup()
 
+    def __on_use_swap_toggled(self, widget, state):
+        if state == False:
+            children = self.swap_part_expand.get_child().observe_children()
+            child_rows = children.get_item(children.get_n_items() - 1).get_child().observe_children()
+
+            for i in range(child_rows.get_n_items()):
+                child_row = child_rows.get_item(i);
+                row_checkbutton = child_row.observe_children().get_item(0).observe_children().get_item(0).observe_children().get_item(0)
+                row_checkbutton.set_active(False)
+
+            self.__selected_partitions["swap_part_expand"] = None
+            self.swap_part_expand.set_title(_("No partition selected"))
+            self.swap_part_expand.set_subtitle(_("Please select a partition from the options below"))
+            self.__update_partition_rows()
+
     def __update_partition_rows(self):
         for row in [
             self.boot_part_expand,
             self.efi_part_expand,
             self.abroot_a_part_expand,
             self.abroot_b_part_expand,
-            self.home_part_expand
+            self.home_part_expand,
+            self.swap_part_expand
         ]:
             children = row.get_child().observe_children()
             child_rows = children.get_item(children.get_n_items() - 1).get_child().observe_children()

@@ -94,5 +94,28 @@ which switches between two root partitions between updates.</property>
         </child>
       </object>
     </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="swap_part">
+        <property name="title" translatable="true">Swap partition:</property>
+        <property name="description" translatable="true">Swap acts as a virtual extension of your RAM and enables hibernation. In order for hibernation to be available, your swap partition must be at least the same size as your RAM.</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="true">Use Swap partition</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="use_swap_part">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwExpanderRow" id="swap_part_expand">
+            <property name="visible" bind-source="use_swap_part" bind-property="active" bind-flags="sync-create"/>
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
   </template>
 </interface>
