@@ -18,8 +18,9 @@ import sys
 import time
 import subprocess
 from gi.repository import Gtk, Gio, GLib, GObject, Adw
+from typing import Union
 
-from vanilla_installer.core.disks import DisksManager
+from vanilla_installer.core.disks import DisksManager, Partition
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-disk.ui')
@@ -81,13 +82,37 @@ class PartitionSelector(Adw.PreferencesPage):
     root_sizes_differ_error = Gtk.Template.Child()
 
     # NOTE: Keys must be the same name as template children
-    __selected_partitions = {
-        "boot_part_expand": None,
-        "efi_part_expand": None,
-        "abroot_a_part_expand": None,
-        "abroot_b_part_expand": None,
-        "home_part_expand": None,
-        "swap_part_expand": None,
+    __selected_partitions: dict[str, dict[str, Union[Partition, str, None]]] = {
+        "boot_part_expand": {
+            "mountpoint": "/boot",
+            "partition": None,
+            "fstype": None,
+        },
+        "efi_part_expand": {
+            "mountpoint": "/boot/efi",
+            "partition": None,
+            "fstype": None,
+        },
+        "abroot_a_part_expand": {
+            "mountpoint": "/",
+            "partition": None,
+            "fstype": None,
+        },
+        "abroot_b_part_expand": {
+            "mountpoint": "/",
+            "partition": None,
+            "fstype": None,
+        },
+        "home_part_expand": {
+            "mountpoint": "/home",
+            "partition": None,
+            "fstype": None,
+        },
+        "swap_part_expand": {
+            "mountpoint": "swap",
+            "partition": None,
+            "fstype": None,
+        },
     }
     __valid_root_partitions = False
 
@@ -100,25 +125,31 @@ class PartitionSelector(Adw.PreferencesPage):
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
 
-        for widget in self.__generate_partition_list_widgets():
+        for widget in self.__generate_partition_list_widgets("fat32"):
             self.boot_part_expand.add_row(widget)
+            self.__selected_partitions["boot_part_expand"]["fstype"] = "fat32"
 
-        for widget in self.__generate_partition_list_widgets():
+        for widget in self.__generate_partition_list_widgets("fat32"):
             self.efi_part_expand.add_row(widget)
+            self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
 
         for widget in self.__generate_partition_list_widgets():
             self.abroot_a_part_expand.add_row(widget)
+            self.__selected_partitions["abroot_a_part_expand"]["fstype"] = "btrfs"
 
         for widget in self.__generate_partition_list_widgets():
             self.abroot_b_part_expand.add_row(widget)
+            self.__selected_partitions["abroot_b_part_expand"]["fstype"] = "btrfs"
 
         for widget in self.__generate_partition_list_widgets():
             self.home_part_expand.add_row(widget)
+            self.__selected_partitions["home_part_expand"]["fstype"] = "btrfs"
 
         for widget in self.__generate_partition_list_widgets():
             self.swap_part_expand.add_row(widget)
+            self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
-    def __generate_partition_list_widgets(self):
+    def __generate_partition_list_widgets(self, default_fs = "btrfs"):
         checkbuttons = []
         partition_widgets = []
 
@@ -130,6 +161,7 @@ class PartitionSelector(Adw.PreferencesPage):
             fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
             fs_dropdown.set_valign(Gtk.Align.CENTER)
             fs_dropdown.set_sensitive(False)
+            fs_dropdown.set_selected(self.__partition_fs_types.index(default_fs))
             fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
             partition_row.add_suffix(fs_dropdown)
 
@@ -145,6 +177,11 @@ class PartitionSelector(Adw.PreferencesPage):
 
         return partition_widgets
 
+    def __partition_idx(self, partition):
+        for part in self.__partitions:
+            if part.partition == partition:
+                return part
+
     def __on_info_button_clicked(self, widget):
         self.abroot_info_popover.popup()
 
@@ -155,7 +192,7 @@ class PartitionSelector(Adw.PreferencesPage):
             return
 
         for k, val in self.__selected_partitions.items():
-            if val == None and (k != "swap_part_expand" or self.use_swap_part.get_active()):
+            if val["partition"] == None and (k != "swap_part_expand" or self.use_swap_part.get_active()):
                 self.__parent.set_btn_apply_sensitive(False)
                 return
 
@@ -163,15 +200,15 @@ class PartitionSelector(Adw.PreferencesPage):
             self.__parent.set_btn_apply_sensitive(True)
 
     def __check_root_partitions_size_equal(self):
-        a_root_part_size = None
-        b_root_part_size = None
+        if self.__selected_partitions["abroot_a_part_expand"]["partition"]:
+            a_root_part_size = self.__selected_partitions["abroot_a_part_expand"]["partition"].size
+        else:
+            a_root_part_size = None
 
-        for part in self.__partitions:
-            if part.partition == self.__selected_partitions["abroot_a_part_expand"]:
-                a_root_part_size = part.size
-
-            if part.partition == self.__selected_partitions["abroot_b_part_expand"]:
-                b_root_part_size = part.size
+        if self.__selected_partitions["abroot_b_part_expand"]["partition"]:
+            b_root_part_size = self.__selected_partitions["abroot_b_part_expand"]["partition"].size
+        else:
+            b_root_part_size = None
 
         if a_root_part_size and b_root_part_size and a_root_part_size != b_root_part_size:
             self.abroot_a_part_expand.get_style_context().add_class("error")
@@ -196,7 +233,7 @@ class PartitionSelector(Adw.PreferencesPage):
                 row_checkbutton = child_row.observe_children().get_item(0).observe_children().get_item(0).observe_children().get_item(0)
                 row_checkbutton.set_active(False)
 
-            self.__selected_partitions["swap_part_expand"] = None
+            self.__selected_partitions["swap_part_expand"]["partition"] = None
             self.swap_part_expand.set_title(_("No partition selected"))
             self.swap_part_expand.set_subtitle(_("Please select a partition from the options below"))
             self.__update_partition_rows()
@@ -227,7 +264,7 @@ class PartitionSelector(Adw.PreferencesPage):
 
                 is_used = False
                 for _, val in self.__selected_partitions.items():
-                    if val == row_partition:
+                    if val["partition"] is not None and val["partition"].partition == row_partition:
                         is_used = True
                 child_row.set_sensitive(not is_used)
 
@@ -255,7 +292,7 @@ class PartitionSelector(Adw.PreferencesPage):
         expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
         expander_row.set_title(partition)
         expander_row.set_subtitle(f"{size} ({fs_type})")
-        self.__selected_partitions[expander_row.get_buildable_id()] = partition
+        self.__selected_partitions[expander_row.get_buildable_id()]["partition"] = self.__partition_idx(partition)
 
         # Sets already selected partitions as not sensitive
         self.__update_partition_rows()
@@ -269,9 +306,14 @@ class PartitionSelector(Adw.PreferencesPage):
 
         action_row = widget.get_parent().get_parent().get_parent()
         expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
+        self.__selected_partitions[expander_row.get_buildable_id()]["fstype"] = fs_type
 
         size = action_row.get_subtitle()
         expander_row.set_subtitle(f"{size} ({fs_type})")
+
+    @property
+    def selected_partitions(self):
+        return self.__selected_partitions
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-disk.ui')
@@ -297,7 +339,6 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.__disk = disk
         self.set_transient_for(self.__window)
         self.chk_entire_disk.set_group(self.chk_manual_part)
-        self.__registry_partitions = []
 
         self.default_width, self.default_height = self.get_default_size()
 
@@ -308,8 +349,8 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.btn_apply.connect('clicked', self.__on_btn_apply_clicked)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
 
-        entry = PartitionSelector(self, self.__disk.partitions)
-        self.group_partitions.set_child(entry)
+        self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
+        self.group_partitions.set_child(self.__partition_selector)
 
     def __on_chk_manual_part_toggled(self, widget):
         self.group_partitions.set_visible(widget.get_active())
@@ -347,14 +388,14 @@ class VanillaDefaultDiskPartModal(Adw.Window):
             }
 
         recipe["disk"] = self.__disk.disk
-        for partition in self.__registry_partitions:
-            if partition.selected_fs == _("Do not touch"):
+        for mountpoint, info in self.__partition_selector.selected_partitions.items():
+            if not isinstance(info["partition"], Partition):  # Partition can be None if user didn't configure swap
                 continue
-            recipe[partition.name] = {
-                "fs": partition.selected_fs,
-                "mp": partition.selected_mountpoint,
-                "pretty_size": partition.pretty_size,
-                "size": partition.pretty_size,
+            recipe[info["partition"].partition] = {
+                "fs": info["fstype"],
+                "mp": info["mountpoint"],
+                "pretty_size": info["partition"].pretty_size,
+                "size": info["partition"].pretty_size,
             }
         return recipe
 
