@@ -142,6 +142,11 @@ def remove_uuid_from_fstab(root, uuid):
         ["sudo", "sed", "-i", "/UUID={}/d".format(uuid), root + "/etc/fstab"]
     )
 
+def add_bind_mount_to_fstab(src, dest, root):
+    fstab_path = root + "/etc/fstab"
+    bind_mount = "{} {} none bind 0 0\n".format(src, dest)
+    with open(fstab_path, "a") as f:
+        f.write(bind_mount)
 
 def update_grub(root, block_device):
     logger.info("updating GRUB in '{}'".format(root))
@@ -369,6 +374,11 @@ def entry_point(block_device, tz_region, tz_zone):
     # removing unwanted UUIDs from A fstab
     logger.info("removing unwanted UUIDs from A fstab")
     remove_uuid_from_fstab("/mnt/a", root_b_uuid)
+
+    # adding bind mounts from A fstab
+    logger.info("adding bind mounts from A fstab")
+    add_bind_mount_to_fstab("/.system/var", "/var", "/mnt/a")
+    add_bind_mount_to_fstab("/.system/opt", "/opt", "/mnt/a")
 
     # getting kernel version
     logger.info("getting kernel version")
