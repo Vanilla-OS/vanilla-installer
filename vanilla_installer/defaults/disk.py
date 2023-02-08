@@ -388,14 +388,14 @@ class VanillaDefaultDiskPartModal(Adw.Window):
             }
 
         recipe["disk"] = self.__disk.disk
-        for mountpoint, info in self.__partition_selector.selected_partitions.items():
+        for _, info in self.__partition_selector.selected_partitions.items():
             if not isinstance(info["partition"], Partition):  # Partition can be None if user didn't configure swap
                 continue
             recipe[info["partition"].partition] = {
                 "fs": info["fstype"],
                 "mp": info["mountpoint"],
                 "pretty_size": info["partition"].pretty_size,
-                "size": info["partition"].pretty_size,
+                "size": info["partition"].size,
             }
         return recipe
 

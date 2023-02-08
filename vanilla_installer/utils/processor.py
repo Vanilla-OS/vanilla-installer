@@ -21,6 +21,7 @@ import logging
 import tempfile
 import subprocess
 from glob import glob
+import re
 
 
 logger = logging.getLogger("Installer::Processor")
@@ -96,20 +97,20 @@ class Processor:
                         #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
                         device_block = value["auto"]["disk"]
                     else:
-                        # raise NotImplementedError("Manual partitioning is not yet supported. Yes it will be soon.")
+                        disk = value["disk"]
                         for partition, values in value.items():
                             if partition == "disk":
                                 arguments += ["-b", f"'{values}'"]
-                                arguments += ["-t", "'{}:gpt'".format(values)]
                                 continue
-                            if values["mp"] == "/":
-                                arguments += ["-n", "'{}:primary:start:{}M:btrfs:mount=/'".format(partition, values["size"])]
-                            elif values["mp"] == "/boot/efi":
-                                arguments += ["-n", "'{}:primary:start:512M:fat32:mount=/boot/efi:flags=esp'".format(partition)]
+                            if values["mp"] == "/boot/efi":
+                                partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
+                                arguments += ["-u", "'{}:{}:{}:mount=/boot/efi:flags=esp'".format(disk, partition_number, values["fs"])]
                             elif values["mp"] == "swap":
-                                arguments += ["-n", "'{}:primary:{}M:end:swap'".format(partition, values["size"])]
+                                partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
+                                arguments += ["-u", "'{}:{}:swap'".format(disk, partition_number)]
                             else:
-                                arguments += ["-n", "'{}:primary:{}M:end:{}:mount={}'".format(partition, values["size"], values["fs"], values["mp"])]
+                                partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
+                                arguments += ["-u", "'{}:{}:{}:mount={}'".format(disk, partition_number, values["fs"], values["mp"])]
 
         # generating a temporary file to store the distinst command and
         # arguments parsed from the final data
