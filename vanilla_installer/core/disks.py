@@ -30,6 +30,9 @@ class Disk:
             if partition.mountpoint == mountpoint:
                 return partition
 
+    def update_partitions(self):
+        self.__partitions = self.__get_partitions()
+
     @property
     def disk(self):
         return f"/dev/{self.__disk}"

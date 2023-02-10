@@ -87,30 +87,30 @@ class Processor:
                     arguments += ["-k", f"'{value}'"]
                 elif key == "disk":
                     if "auto" in value:
-                        arguments += ["-b", f"'{value['auto']['disk']}'"]
-                        arguments += ["-t", "'{}:gpt'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:start:1024M:fat32:mount=/boot/efi:flags=esp'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:1024M:2048M:ext4:mount=/boot'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:2048M:22528M:btrfs:mount=/'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:22528M:43008M:btrfs:mount=/'".format(value["auto"]["disk"])]
-                        arguments += ["-n", "'{}:primary:43008M:end:btrfs:mount=/home'".format(value["auto"]["disk"])]
-                        #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
                         device_block = value["auto"]["disk"]
+                        arguments += ["-b", f"'{device_block}'"]
+                        arguments += ["-t", "'{}:gpt'".format(device_block)]
+                        arguments += ["-n", "'{}:primary:start:1024M:fat32:mount=/boot/efi:flags=esp'".format(device_block)]
+                        arguments += ["-n", "'{}:primary:1024M:2048M:ext4:mount=/boot'".format(device_block)]
+                        arguments += ["-n", "'{}:primary:2048M:22528M:btrfs:mount=/'".format(device_block)]
+                        arguments += ["-n", "'{}:primary:22528M:43008M:btrfs:mount=/'".format(device_block)]
+                        arguments += ["-n", "'{}:primary:43008M:end:btrfs:mount=/home'".format(device_block)]
+                        #  arguments += ["-n", "'{}:primary:-{}M:end:swap'".format(value["auto"]["disk"], Processor.gen_swap_size())]
                     else:
-                        disk = value["disk"]
+                        device_block = value["disk"]
                         for partition, values in value.items():
                             if partition == "disk":
                                 arguments += ["-b", f"'{values}'"]
                                 continue
                             if values["mp"] == "/boot/efi":
                                 partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
-                                arguments += ["-u", "'{}:{}:{}:mount=/boot/efi:flags=esp'".format(disk, partition_number, values["fs"])]
+                                arguments += ["-u", "'{}:{}:{}:mount=/boot/efi:flags=esp'".format(device_block, partition_number, values["fs"])]
                             elif values["mp"] == "swap":
                                 partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
-                                arguments += ["-u", "'{}:{}:swap'".format(disk, partition_number)]
+                                arguments += ["-u", "'{}:{}:swap'".format(device_block, partition_number)]
                             else:
                                 partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
-                                arguments += ["-u", "'{}:{}:{}:mount={}'".format(disk, partition_number, values["fs"], values["mp"])]
+                                arguments += ["-u", "'{}:{}:{}:mount={}'".format(device_block, partition_number, values["fs"], values["mp"])]
 
         # generating a temporary file to store the distinst command and
         # arguments parsed from the final data

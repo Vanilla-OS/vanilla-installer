@@ -116,7 +116,7 @@ class PartitionSelector(Adw.PreferencesPage):
     }
     __valid_root_partitions = False
 
-    __partition_fs_types = [ "btrfs", "ext4", "ext3", "fat32", "xfs", "swap" ]
+    __partition_fs_types = [ "btrfs", "ext4", "ext3", "fat32", "xfs" ]
 
     def __init__(self, parent, partitions, **kwargs):
         super().__init__(**kwargs)
@@ -145,7 +145,7 @@ class PartitionSelector(Adw.PreferencesPage):
             self.home_part_expand.add_row(widget)
             self.__selected_partitions["home_part_expand"]["fstype"] = "btrfs"
 
-        for widget in self.__generate_partition_list_widgets():
+        for widget in self.__generate_partition_list_widgets("swap"):
             self.swap_part_expand.add_row(widget)
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
@@ -158,12 +158,14 @@ class PartitionSelector(Adw.PreferencesPage):
             partition_row.set_title(partition.partition)
             partition_row.set_subtitle(partition.pretty_size)
 
-            fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
-            fs_dropdown.set_valign(Gtk.Align.CENTER)
-            fs_dropdown.set_sensitive(False)
-            fs_dropdown.set_selected(self.__partition_fs_types.index(default_fs))
-            fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
-            partition_row.add_suffix(fs_dropdown)
+            # Swap is always swap
+            if default_fs != "swap":
+                fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
+                fs_dropdown.set_valign(Gtk.Align.CENTER)
+                fs_dropdown.set_sensitive(False)
+                fs_dropdown.set_selected(self.__partition_fs_types.index(default_fs))
+                fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
+                partition_row.add_suffix(fs_dropdown)
 
             select_button = Gtk.CheckButton()
             if i != 0:
@@ -280,18 +282,23 @@ class PartitionSelector(Adw.PreferencesPage):
 
             # Sets all dropdowns as not sensitive
             row_dropdown = row_children.get_item(row_children.get_n_items() - 1).observe_children().get_item(0)
-            row_dropdown.set_sensitive(False)
+            if row_dropdown:
+                row_dropdown.set_sensitive(False)
 
         # Only the currently selected partition can be edited
-        dropdown.set_sensitive(True)
-
         partition = action_row.get_title()
         size = action_row.get_subtitle()
-        fs_type = self.__partition_fs_types[dropdown.get_selected()]
-
         expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
+
         expander_row.set_title(partition)
-        expander_row.set_subtitle(f"{size} ({fs_type})")
+
+        if dropdown:
+            dropdown.set_sensitive(True)
+            fs_type = self.__partition_fs_types[dropdown.get_selected()]
+            expander_row.set_subtitle(f"{size} ({fs_type})")
+        else:
+            expander_row.set_subtitle(f"{size}")
+
         self.__selected_partitions[expander_row.get_buildable_id()]["partition"] = self.__partition_idx(partition)
 
         # Sets already selected partitions as not sensitive
@@ -359,6 +366,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.set_btn_apply_sensitive(False)
 
     def __on_chk_entire_disk_toggled(self, widget):
+        self.set_btn_apply_sensitive(True)
         self.set_default_size(self.default_width, self.default_height);
 
     def __on_btn_cancel_clicked(self, widget):
@@ -370,7 +378,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.destroy()
 
     def __on_launch_gparted(self, widget):
-        subprocess.run(['gparted'])
+        subprocess.Popen(['gparted'])
 
     def set_btn_apply_sensitive(self, val):
         self.btn_apply.set_sensitive(val)
@@ -412,6 +420,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
         super().__init__(**kwargs)
         self.__window = window
         self.set_transient_for(self.__window)
+        self.default_width, self.default_height = self.get_default_size()
 
         # signals
         self.btn_cancel.connect('clicked', self.__on_btn_cancel_clicked)
@@ -423,6 +432,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                 entry.set_title(partition_recipe[partition]["disk"])
                 entry.set_subtitle(_("Entire disk will be used."))
             else:
+                self.set_default_size(self.default_width, 650)
                 if partition == "disk":
                     continue
                 entry.set_title(partition)
@@ -485,6 +495,8 @@ class VanillaDefaultDisk(Adw.Bin):
         for entry in self.__registry_disks:
             if not entry.is_active:
                 continue
+
+            entry.disk.update_partitions()
 
             modal = VanillaDefaultDiskPartModal(self.__window, self, entry.disk)
             modal.connect('partitioning-set', on_modal_close_request)
