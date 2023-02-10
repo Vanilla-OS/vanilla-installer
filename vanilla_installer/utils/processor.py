@@ -142,8 +142,8 @@ class Processor:
             if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
                 f.write("\n")
                 f.write("echo 'Starting the post-installation process ...'\n")
-                f.write("sudo abroot-adapter '{}'"
-                        .format(json.dumps(finals)))
+                f.write("sudo abroot-adapter '{}' '{}'"
+                        .format(json.dumps(finals["disk"]), json.dumps(finals["timezone"])))
 
             f.flush()
             f.close()
