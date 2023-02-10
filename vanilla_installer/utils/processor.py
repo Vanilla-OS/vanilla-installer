@@ -22,6 +22,7 @@ import tempfile
 import subprocess
 from glob import glob
 import re
+import json
 
 
 logger = logging.getLogger("Installer::Processor")
@@ -141,8 +142,8 @@ class Processor:
             if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
                 f.write("\n")
                 f.write("echo 'Starting the post-installation process ...'\n")
-                f.write("sudo abroot-adapter {} {} {}"
-                        .format(device_block, tz_region, tz_zone))
+                f.write("sudo abroot-adapter '{}'"
+                        .format(json.dumps(finals)))
 
             f.flush()
             f.close()

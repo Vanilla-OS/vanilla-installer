@@ -8,92 +8,24 @@ import logging
 import shutil
 import time
 import argparse
+import json
 
 
-def find_partitions(block_device, mountpoint, size, expected):
-    logger.info(
-        "finding partitions for block device '{}' with mountpoint '{}' and size '{}'".format(
-            block_device, mountpoint, size
-        )
+def find_partition_used_space(partition: str) -> int:
+    _part = "/dev/" + partition.split("/")[-1]
+    _uuid = str(uuid.uuid4())
+    subprocess.check_call(["mkdir", "-p", "/tmp/{}".format(_uuid)])
+    subprocess.check_call(["sudo", "mount", _part, "/tmp/{}".format(_uuid)])
+    _res = (
+        subprocess.check_output(["df", "/tmp/{}".format(_uuid)])
+        .decode("utf-8")
+        .splitlines()[1]
+        .split()
     )
-    partitions = []
+    subprocess.check_call(["sudo", "umount", "-l", "/tmp/{}".format(_uuid)])
+    _used = int(_res[2])
 
-    if block_device.startswith("/dev/"):
-        block_device = block_device[5:]
-
-    for partition in glob("/sys/block/{}/{}*".format(block_device, block_device)):
-        partition_size = int(open(partition + "/size").read().strip()) * 512
-
-        if partition_size == size:
-            _part = "/dev/" + partition.split("/")[-1]
-            _uuid = str(uuid.uuid4())
-            subprocess.check_call(["mkdir", "-p", "/tmp/{}".format(_uuid)])
-            subprocess.check_call(["sudo", "mount", _part, "/tmp/{}".format(_uuid)])
-            _res = (
-                subprocess.check_output(["df", "/tmp/{}".format(_uuid)])
-                .decode("utf-8")
-                .splitlines()[1]
-                .split()
-            )
-            subprocess.check_call(["sudo", "umount", "-l", "/tmp/{}".format(_uuid)])
-            _used = int(_res[2])
-            partitions.append((_part, _used))
-            logger.info("Found partition: {} {}".format(_part, _used))
-
-    if len(partitions) < expected:
-        raise Exception(
-            "not enough partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(
-                block_device, mountpoint, size
-            )
-        )
-    elif len(partitions) > expected:
-        raise Exception(
-            "too many partitions found for block device '{}' with mountpoint '{}' and size '{}'".format(
-                block_device, mountpoint, size
-            )
-        )
-
-    _partitions = sorted(partitions, key=lambda x: x[1], reverse=True)
-    return [x[0] for x in _partitions]
-
-
-def find_partitions_by_fs(block_device, mountpoint, fs, expected):
-    logger.info(
-        "finding partitions for block device '{}' with mountpoint '{}' and filesystem '{}'".format(
-            block_device, mountpoint, fs
-        )
-    )
-    partitions = []
-
-    if block_device.startswith("/dev/"):
-        block_device = block_device[5:]
-
-    for partition in glob("/sys/block/{}/{}*".format(block_device, block_device)):
-        partition_fs = (
-            subprocess.check_output(
-                ["lsblk", "-no", "FSTYPE", "/dev/" + partition.split("/")[-1]]
-            )
-            .decode("utf-8")
-            .strip()
-        )
-
-        if partition_fs == fs:
-            partitions.append("/dev/" + partition.split("/")[-1])
-
-    if len(partitions) < expected:
-        raise Exception(
-            "not enough partitions found for block device '{}' with mountpoint '{}' and filesystem '{}'".format(
-                block_device, mountpoint, fs
-            )
-        )
-    elif len(partitions) > expected:
-        raise Exception(
-            "too many partitions found for block device '{}' with mountpoint '{}' and filesystem '{}'".format(
-                block_device, mountpoint, fs
-            )
-        )
-
-    return partitions
+    return _used
 
 
 def get_uuid(partition):
@@ -124,7 +56,7 @@ def label_partition(partition, label, fs=None):
     elif fs == "vfat":
         subprocess.check_call(["sudo", "fatlabel", partition, label])
     else:
-        raise Exception("unknown filesystem '{}'".format(fs))
+        raise Exception("Unsupported filesystem '{}'".format(fs))
 
     return True
 
@@ -143,10 +75,8 @@ def remove_uuid_from_fstab(root, uuid):
     )
 
 
-def update_grub(root, block_device):
+def update_grub(root, block_device, boot_partition, efi_partition):
     logger.info("updating GRUB in '{}'".format(root))
-    boot_partition = find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
-    efi_partition = find_partitions_by_fs(block_device, "/boot/efi", "vfat", 1)[0]
 
     umount_if(boot_partition)
     umount_if(efi_partition)
@@ -249,24 +179,43 @@ def get_kernel_version(root):
     return sorted(os.listdir(root + "/usr/lib/modules"))[-1]
 
 
-def entry_point(block_device, tz_region, tz_zone):
+def entry_point(finals: dict):
     logger.info("starting post_install script")
+
+    block_device = finals["disk"]["disk"]
+    tz_region = finals["timezone"]["region"]
+    tz_zone = finals["timezone"]["zone"]
 
     root_a = ""
     root_b = ""
-    tz_region, tz_zone = "", ""
-    boot_partition = ""
+
     boot_uuid = ""
 
-    # getting root partitions
-    logger.info("getting root partitions")
-    root_a, root_b = find_partitions(
-        block_device, mountpoint="/", size=39999999 * 512, expected=2
-    )
+    root_partitions = []
+    boot_partition = ""
+    efi_partition = ""
+    for partition, info in finals["disk"].items():
+        if partition != "disk":
+            if info["mp"] == "/":
+                root_partitions.append(partition)
+            elif info["mp"] == "/boot":
+                boot_partition = partition
+            elif info["mp"] == "/boot/efi":
+                efi_partition = partition
 
-    # getting boot partition
-    logger.info("getting boot partition")
-    boot_partition = find_partitions_by_fs(block_device, "/boot", "ext4", 1)[0]
+    # Root A is the one filled by the installer
+    assert (
+        len(root_partitions) == 2
+    ), "Wrong number of root partitions provided. Expected 2"
+    partition_sizes = [find_partition_used_space(part) for part in root_partitions]
+    if partition_sizes[0] > partition_sizes[1]:
+        root_a = root_partitions[0]
+        root_b = root_partitions[1]
+    else:
+        root_a = root_partitions[1]
+        root_b = root_partitions[0]
+
+    # getting boot partition id
     boot_uuid = get_uuid(boot_partition)
 
     # getting UUIDs
@@ -285,8 +234,8 @@ def entry_point(block_device, tz_region, tz_zone):
 
     # labeling root partitions
     logger.info("labeling root partitions")
-    label_partition(root_a, "a", "btrfs")
-    label_partition(root_b, "b", "btrfs")
+    label_partition(root_a, "a")
+    label_partition(root_b, "b")
 
     # mounting root partitions
     logger.info("mounting root partitions")
@@ -440,8 +389,8 @@ GRUB_TIMEOUT_STYLE=hidden"""
 
     # updating grub for both root partitions
     logger.info("updating grub for both root partitions")
-    update_grub("/mnt/a", block_device)
-    update_grub("/mnt/b", block_device)
+    update_grub("/mnt/a", block_device, boot_partition, efi_partition)
+    update_grub("/mnt/b", block_device, boot_partition, efi_partition)
 
     sys.exit(0)
 
@@ -451,13 +400,13 @@ if __name__ == "__main__":
     logger.setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("block_device", help="block device to install to")
-    parser.add_argument("tz_region", help="timezone region")
-    parser.add_argument("tz_zone", help="timezone zone")
+    parser.add_argument("finals", help="finals generated by installer")
     args = parser.parse_args()
 
+    finals = json.loads(args.finals)
+
     try:
-        entry_point(args.block_device, args.tz_region, args.tz_zone)
+        entry_point(finals)
     except Exception as e:
         logger.error("Exception: {}".format(e))
         sys.exit(1)
