@@ -179,9 +179,9 @@ def get_kernel_version(root):
 def entry_point(disk: dict, timezone: dict):
     logger.info("starting post_install script")
 
-    block_device = disk["disk"]
-    tz_region = timezone["region"]
-    tz_zone = timezone["zone"]
+    block_device = disk["disk"]["disk"]
+    tz_region = timezone["timezone"]["region"]
+    tz_zone = timezone["timezone"]["zone"]
 
     root_a = ""
     root_b = ""
@@ -191,7 +191,7 @@ def entry_point(disk: dict, timezone: dict):
     root_partitions = []
     boot_partition = ""
     efi_partition = ""
-    for partition, info in disk.items():
+    for partition, info in disk["disk"].items():
         if partition != "disk":
             if info["mp"] == "/":
                 root_partitions.append(partition)
@@ -403,7 +403,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    disk_json = json.loads(args.finals)
+    disk_json = json.loads(args.disk)
     timezone_json = json.loads(args.timezone)
 
     try:
