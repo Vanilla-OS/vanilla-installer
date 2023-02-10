@@ -68,8 +68,8 @@ class Processor:
 
         # post install variables
         device_block = ""
-        tz_region = ""
-        tz_zone = ""
+        finals_disk = {}
+        finals_timezone = {}
 
         for final in finals:
             for key, value in final.items():
@@ -80,13 +80,13 @@ class Processor:
                     arguments += ["--profile_icon", "'/usr/share/pixmaps/faces/yellow-rose.jpg'"]
                 elif key == "timezone":
                     arguments += ["--tz", "'{}/{}'".format(value["region"], value["zone"])]
-                    tz_region = value["region"]
-                    tz_zone = value["zone"]
+                    finals_timezone = final
                 elif key == "language":
                     arguments += ["-l", f"'{value}'"]
                 elif key == "keyboard":
                     arguments += ["-k", f"'{value}'"]
                 elif key == "disk":
+                    finals_disk = final
                     if "auto" in value:
                         device_block = value["auto"]["disk"]
                         arguments += ["-b", f"'{device_block}'"]
@@ -143,7 +143,7 @@ class Processor:
                 f.write("\n")
                 f.write("echo 'Starting the post-installation process ...'\n")
                 f.write("sudo abroot-adapter '{}' '{}'"
-                        .format(json.dumps(finals["disk"]), json.dumps(finals["timezone"])))
+                        .format(json.dumps(finals_disk), json.dumps(finals_timezone)))
 
             f.flush()
             f.close()
