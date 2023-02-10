@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-12-22 13:49+0000\n"
-"Last-Translator: Michal Maděra <misamadera1@gmail.com>\n"
+"PO-Revision-Date: 2023-02-10 15:37+0000\n"
+"Last-Translator: \"Vojtěch V.\" <xonax658@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/cs/>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -25,7 +25,7 @@ msgstr "Instalátor Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Upravte svou instalaci Vanilla OS."
+msgstr "Vylaďte si instalaci Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -219,6 +219,7 @@ msgid "The following partitions were found on the disk"
 msgstr "Na disku byly nalezeny následující oddíly"
 
 #: vanilla_installer/gtk/dialog.ui:6
+#, fuzzy
 msgid "Showing Information"
 msgstr "Zobrazení informací"
 
@@ -249,7 +250,7 @@ msgstr "Instaluji..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr "Zobrazit výstup konzoly"
+msgstr "Ukázat výstup z konzole"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
@@ -288,8 +289,9 @@ msgid "Please select at least one option."
 msgstr "Vyberte prosím alespoň jednu možnost."
 
 #: vanilla_installer/views/done.py:34
+#, fuzzy
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Restartujte zařízení, abyste si mohli vychutnat své {} zážitky."
+msgstr "Restartujte počítač a vychutnejte si {} zážitek."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"

@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-03 15:22+0000\n"
-"Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
+"PO-Revision-Date: 2023-02-10 15:37+0000\n"
+"Last-Translator: Khaled Mahmoud <Khaled.q6@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -26,7 +26,7 @@ msgstr "مُثبِّتُ نِظام فانيلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "طوَّع تثبيتك لنظام فانيلا."
+msgstr "طوِّع تثبيتك لنظام فانيلا."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -249,11 +249,11 @@ msgstr "التثبيت جارٍ..."
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr "أَظْهِرْ مُخرجات المِعْراض"
+msgstr "اعرض مخرجات وحدة التحكم"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr "اِعْرِضْ الشرائح"
+msgstr "اعرض الشريط الجانبي"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
