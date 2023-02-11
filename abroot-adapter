@@ -190,11 +190,6 @@ def entry_point(disk: dict, timezone: dict):
     tz_region = timezone["timezone"]["region"]
     tz_zone = timezone["timezone"]["zone"]
 
-    root_a = ""
-    root_b = ""
-
-    boot_uuid = ""
-
     root_partitions = []
     boot_partition = ""
     efi_partition = ""
@@ -207,11 +202,14 @@ def entry_point(disk: dict, timezone: dict):
             elif info["mp"] == "/boot/efi":
                 efi_partition = partition
 
-    # Root A is the one filled by the installer
     assert (
         len(root_partitions) == 2
     ), "Wrong number of root partitions provided. Expected 2"
     partition_sizes = [find_partition_used_space(part) for part in root_partitions]
+
+    # Root A is the one filled by the installer, thus the root with more used disk space
+    root_a = ""
+    root_b = ""
     if partition_sizes[0] > partition_sizes[1]:
         root_a = root_partitions[0]
         root_b = root_partitions[1]
@@ -219,11 +217,9 @@ def entry_point(disk: dict, timezone: dict):
         root_a = root_partitions[1]
         root_b = root_partitions[0]
 
-    # getting boot partition id
-    boot_uuid = get_uuid(boot_partition)
-
     # getting UUIDs
-    logger.info("getting UUIDs for root partitions")
+    logger.info("getting UUIDs for boot and root partitions")
+    boot_uuid = get_uuid(boot_partition)
     root_a_uuid = get_uuid(root_a)
     root_b_uuid = get_uuid(root_b)
 
