@@ -129,7 +129,7 @@ class PartitionSelector(Adw.PreferencesPage):
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
 
-        for widget in self.__generate_partition_list_widgets("fat32"):
+        for widget in self.__generate_partition_list_widgets("ext4", False):
             self.boot_part_expand.add_row(widget)
             self.__selected_partitions["boot_part_expand"]["fstype"] = "fat32"
 
@@ -149,11 +149,11 @@ class PartitionSelector(Adw.PreferencesPage):
             self.home_part_expand.add_row(widget)
             self.__selected_partitions["home_part_expand"]["fstype"] = "btrfs"
 
-        for widget in self.__generate_partition_list_widgets("swap"):
+        for widget in self.__generate_partition_list_widgets("swap", False):
             self.swap_part_expand.add_row(widget)
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
-    def __generate_partition_list_widgets(self, default_fs="btrfs"):
+    def __generate_partition_list_widgets(self, default_fs="btrfs", add_dropdowns=True):
         checkbuttons = []
         partition_widgets = []
 
@@ -163,7 +163,7 @@ class PartitionSelector(Adw.PreferencesPage):
             partition_row.set_subtitle(partition.pretty_size)
 
             # Swap is always swap
-            if default_fs != "swap":
+            if add_dropdowns:
                 fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
                 fs_dropdown.set_valign(Gtk.Align.CENTER)
                 fs_dropdown.set_sensitive(False)
