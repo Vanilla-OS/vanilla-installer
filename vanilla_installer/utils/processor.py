@@ -120,6 +120,32 @@ class Processor:
                             "-n",
                             f"'{device_block}:primary:43008M:end:btrfs:mount=/home'",
                         ]
+                        # Add generated partitions to finals so abroot-adapter can find them
+                        finals_disk["disk"]["disk"] = device_block
+                        if not re.match(r"[0-9]", device_block[-1]):
+                            partition_name = f"{device_block}"
+                        else:
+                            partition_name = f"{device_block}p"
+                        finals_disk["disk"][f"{partition_name}1"] = {
+                            "fs": "fat32",
+                            "mp": "/boot/efi",
+                        }
+                        finals_disk["disk"][f"{partition_name}2"] = {
+                            "fs": "ext4",
+                            "mp": "/boot",
+                        }
+                        finals_disk["disk"][f"{partition_name}3"] = {
+                            "fs": "btrfs",
+                            "mp": "/",
+                        }
+                        finals_disk["disk"][f"{partition_name}4"] = {
+                            "fs": "btrfs",
+                            "mp": "/",
+                        }
+                        finals_disk["disk"][f"{partition_name}5"] = {
+                            "fs": "btrfs",
+                            "mp": "/home",
+                        }
                     else:
                         device_block = value["disk"]
                         for partition, values in value.items():
