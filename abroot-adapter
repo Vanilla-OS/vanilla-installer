@@ -193,8 +193,9 @@ def entry_point(disk: dict, timezone: dict):
     root_partitions = []
     boot_partition = ""
     efi_partition = ""
+    ignore_keys = ["disk", "auto"]
     for partition, info in disk["disk"].items():
-        if partition != "disk":
+        if partition not in ignore_keys:
             if info["mp"] == "/":
                 root_partitions.append(partition)
             elif info["mp"] == "/boot":
