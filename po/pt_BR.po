@@ -184,7 +184,9 @@ msgstr "Confirmar alterações"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "As seguintes alterações serão feitas em seu disco. Por favor, revise-as com atenção."
+msgstr ""
+"As seguintes alterações serão feitas em seu disco. Por favor, revise-as com "
+"atenção."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -228,7 +230,8 @@ msgstr "Tudo pronto!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Reinicie seu dispositivo para aproveitar sua experiência com o Vanilla OS"
+msgstr ""
+"Reinicie seu dispositivo para aproveitar sua experiência com o Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
@@ -243,7 +246,9 @@ msgid "Yes, enable it"
 msgstr "Sim, habilite"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Instalando..."
 
 #: vanilla_installer/gtk/progress.ui:81

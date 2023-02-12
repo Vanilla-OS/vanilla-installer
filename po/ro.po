@@ -245,7 +245,9 @@ msgid "Yes, enable it"
 msgstr "Da, activează opțiunea"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Se instalează..."
 
 #: vanilla_installer/gtk/progress.ui:81

@@ -244,7 +244,9 @@ msgid "Yes, enable it"
 msgstr "Sí, habilita-ho"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Instal·lant..."
 
 #: vanilla_installer/gtk/progress.ui:81

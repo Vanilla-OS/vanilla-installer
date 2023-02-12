@@ -243,7 +243,9 @@ msgid "Yes, enable it"
 msgstr "예, 활성화합니다"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "설치하는 중..."
 
 #: vanilla_installer/gtk/progress.ui:81

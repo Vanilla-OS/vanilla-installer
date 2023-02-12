@@ -184,8 +184,7 @@ msgstr "পরিবর্তন নিশ্চিত করুন"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
-"নিম্নলিখিত পরিবর্তনগুলি আপনার ডিস্কে করা হবে। সাবধানে তাদের পর্যালোচনা করুন।"
+msgstr "নিম্নলিখিত পরিবর্তনগুলি আপনার ডিস্কে করা হবে। সাবধানে তাদের পর্যালোচনা করুন।"
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -244,7 +243,9 @@ msgid "Yes, enable it"
 msgstr "হ্যাঁ, এটি চালু করুন"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "ইনস্টল করা হচ্ছে..."
 
 #: vanilla_installer/gtk/progress.ui:81

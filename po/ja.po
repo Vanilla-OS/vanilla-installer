@@ -243,7 +243,9 @@ msgid "Yes, enable it"
 msgstr "はい、有効にします"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "インストールしています…"
 
 #: vanilla_installer/gtk/progress.ui:81
