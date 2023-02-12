@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# lakejason0 <sunliyuan200402@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-07 10:37+0000\n"
-"Last-Translator: Jen Kung-chih <Kaitul@outlook.com>\n"
+"PO-Revision-Date: 2023-02-12 12:03+0000\n"
+"Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -128,7 +129,7 @@ msgstr "提供您使用者帳戶的詳細資訊"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "名字"
+msgstr "名稱"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
@@ -243,8 +244,6 @@ msgid "Yes, enable it"
 msgstr "是的，請啟用"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
-#| msgid "Installing..."
 msgid "Installing…"
 msgstr "正在安裝…"
 
