@@ -1,40 +1,36 @@
-# Chinese translations for vanilla-installer package.
-# Copyright (C) 2022 THE vanilla-installer'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# Automatically generated, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# lakejason0 <sunliyuan200402@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-12 12:03+0000\n"
-"Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"vanilla-os/installer/zh_Hant/>\n"
-"Language: zh_Hant\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: xh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr "Vanilla OS 安裝程式"
+msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "自訂您的 Vanilla OS。"
+msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "無描述"
+msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr "初版"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -44,257 +40,257 @@ msgstr "初版"
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr "下一步"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "選取磁碟"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "選取要安裝 Vanilla OS 的磁碟"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr "調配組態"
+msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "鍵盤配置"
+msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "選取您偏好的鍵盤配置"
+msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "搜尋鍵盤配置"
+msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr "語言"
+msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "選取您的語言"
+msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr "搜尋語言"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr "預設"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "暗色"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "配色"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "為您的系統選擇配色"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr "日期和時間"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "選取您偏好的時區"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "搜尋時區"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr "地區"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr "時區"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "建立使用者"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "提供您使用者帳戶的詳細資訊"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "名稱"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr "使用者名稱"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr "密碼"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr "確認密碼"
+msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr "歡迎"
+msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr "本軟體將引導您完成安裝過程。"
+msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "試用 Vanilla OS"
+msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr "安裝 Vanilla OS"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
 msgid "Confirm Installation"
-msgstr "確認安裝"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-confirm.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "將對系統進行以下變更："
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr "確認變更"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "將對磁碟進行以下變更。請仔細檢查。"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr "調配磁碟"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr "套用"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr "使用整個磁碟"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr "這將清除磁碟上的所有資料。"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr "開啟 GParted"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr "開啟 GParted 手動進行磁碟分割"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr "分割區"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr "在磁碟上找到以下分割區"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "顯示資訊"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr "大功告成！"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "裝置重新開機，開始您的 Vanilla OS 之旅"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr "立即重新開機"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr "關閉"
+msgstr ""
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "是的，請啟用"
+msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing…"
-msgstr "正在安裝…"
+msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr "顯示主控台輸出"
+msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr "顯示投影片"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr "格式化"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr "選擇新的檔案系統或保持原樣"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr "掛載點"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr "為分割區選擇掛載點"
+msgstr ""
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "這是唯一可用的磁碟，無法取消選取！"
+msgstr ""
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr "將使用整個磁碟。"
+msgstr ""
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr "將格式化為 {} 並掛載到 {}"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr "請至少選取一個選項。"
+msgstr ""
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "重新啟動您的裝置，開始您的 {} 之旅。"
+msgstr ""
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr "出了點問題"
+msgstr ""
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr "請聯絡散布版開發人員。"
+msgstr ""
