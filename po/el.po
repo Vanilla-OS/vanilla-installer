@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Andrew Geo <andrewgeo@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2022-12-16 13:49+0000\n"
-"Last-Translator: stathious <stathious@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2023-02-15 15:38+0000\n"
+"Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/el/>\n"
 "Language: el\n"
@@ -17,23 +18,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
-msgstr "Πρόγραμμα Εγκατάστασης Vanilla OS"
+msgstr "Πρόγραμμα Εγκατάστασης του Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Τροποποιήστε την εγκατάσταση του Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "Καμία περιγραφή"
+msgstr "Δεν υπάρχει περιγραφή"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "Πρώτη έκδοση"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -51,7 +52,7 @@ msgstr "Επιλογή Δίσκου"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr ""
+msgstr "Επιλέξτε τον δίσκο όπου θα εγκατασταθεί το Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -63,11 +64,11 @@ msgstr "Διάταξη Πληκτρολογίου"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Επιλέξτε τη προτιμώμενη διάταξη πληκτρολογίου σας"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "Αναζήτηση διάταξης πληκτρολογίου"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -76,7 +77,7 @@ msgstr "Γλώσσα"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "Επιλογή γλώσσας"
+msgstr "Επιλέξτε τη γλώσσα σας"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
@@ -92,11 +93,11 @@ msgstr "Σκοτεινό"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "Συνδυασμός χρωμάτων"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Επιλέξτε έναν συνδυασμό χρωμάτων για το σύστημά σας"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -104,11 +105,11 @@ msgstr "Ημερομηνία & Ώρα"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Επιλέξτε την επιθυμητή ζώνη ώρας σας"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "Αναζήτηση ζώνης ώρας"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -124,7 +125,7 @@ msgstr "Δημιουργία Χρήστη"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "Παραθέστε πληροφορίες για τον λογαριασμό χρήστη"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -148,16 +149,16 @@ msgstr "Καλωσορίσατε"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
-msgstr ""
+msgstr "Αυτό το λογισμικό θα σας καθοδηγεί στην διαδικασία εγκατάστασης."
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr "Δοκιμή Vanilla OS"
+msgstr "Δοκιμή του Vanilla OS"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr "Εγκατάσταση Vanilla OS"
+msgstr "Εγκατάσταση του Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -172,7 +173,7 @@ msgstr "Ακύρωση"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
-msgstr "Θα γίνουν οι παρακάτω αλλαγές στο σύστημά σας:"
+msgstr "Οι παρακάτω αλλαγές θα γίνουν στο σύστημά σας:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -185,6 +186,8 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"Οι παρακάτω αλλαγές θα εγγραφούν στον δίσκο σας. Παρακαλώ, ελέγξτε τες "
+"προσεκτικά."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -196,39 +199,40 @@ msgstr "Εφαρμογή"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Χρήση του δίσκου εξ' ολοκλήρου"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "Αυτό θα διαγράψει όλα τα δεδομένα στον δίσκο."
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr "Άνοιγμα GParted"
+msgstr "Άνοιγμα του GParted"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "Άνοιγμα του GParted για χειροκίνητο διαμερισμό του δίσκου"
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "Διαμερίσματα"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
-msgstr ""
+msgstr "Τα παρκάτω διαμερίσματα βρέθηκαν στον δίσκο"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Εμφάνιση Πληροφοριών"
+msgstr "Προβολή πληροφοριών"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "Όλα έτοιμα!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
+"Επανεκκινήστε τη συσκευή σας για να απολαύσετε την εμπειρία του Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
@@ -240,60 +244,60 @@ msgstr "Κλείσιμο"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Ναι, να ενεργοποιηθεί"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing…"
-msgstr ""
+msgstr "Εγκατάσταση…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr ""
+msgstr "Προβολή εξόδου κονσόλας"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Προβολή Παρουσίασης"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "Διαμόρφωση"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
-msgstr ""
+msgstr "Επιλογή ενός νέου συστήματος αρχείων ή διατήρηση ως έχει"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "Σημείο ανάρτησης"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
-msgstr ""
+msgstr "Επιλέξτε ένα σημείο ανάρτησης για το διαμέρισμα του δίσκου"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "Αυτός είναι ο μόνος διαθέσιμος δίσκος και δεν δύναται να αποεπιλεχθεί!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "Θα χρησιμοποιηθεί ολόκληρος ο δίσκος."
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "Θα μορφοποιηθεί σε {} και θα αναρτηθεί στο {}"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε τουλάχιστον ένα στοιχείο."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "Επανεκκινήστε τη συσκεύη σας για να απολαύσετε την {} εμπειρία."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr "Παρουσιάστηκε σφάλμα"
+msgstr "Κάτι πήγε στραβά"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "Παρακαλώ επικοινωνήστε με τους δημιουργούς της διανομής."
