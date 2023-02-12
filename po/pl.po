@@ -185,7 +185,8 @@ msgstr "Zatwierdź zmiany"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "Na dysku zostaną wprowadzone poniższe zmiany. Zapoznaj się z nimi dokładnie."
+msgstr ""
+"Na dysku zostaną wprowadzone poniższe zmiany. Zapoznaj się z nimi dokładnie."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -244,7 +245,9 @@ msgid "Yes, enable it"
 msgstr "Tak, włącz to"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Instalowanie..."
 
 #: vanilla_installer/gtk/progress.ui:81

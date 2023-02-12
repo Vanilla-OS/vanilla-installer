@@ -243,7 +243,9 @@ msgid "Yes, enable it"
 msgstr "是的，請啟用"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "正在安裝…"
 
 #: vanilla_installer/gtk/progress.ui:81

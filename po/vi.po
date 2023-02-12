@@ -246,7 +246,9 @@ msgid "Yes, enable it"
 msgstr "Được, hãy kích hoạt nó"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Đang cài đặt..."
 
 #: vanilla_installer/gtk/progress.ui:81

@@ -184,7 +184,9 @@ msgstr "Potvrdiť zmeny"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "Na vašom disku sa vykonajú nasledujúce zmeny. Prosím, pozorne ich skontrolujte."
+msgstr ""
+"Na vašom disku sa vykonajú nasledujúce zmeny. Prosím, pozorne ich "
+"skontrolujte."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -243,7 +245,9 @@ msgid "Yes, enable it"
 msgstr "Áno, povoľte to"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Inštalácia..."
 
 #: vanilla_installer/gtk/progress.ui:81

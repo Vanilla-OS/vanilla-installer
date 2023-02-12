@@ -51,7 +51,8 @@ msgstr "Wählen Sie eine Festplatte aus"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
-msgstr "Wählen Sie die Festplatte aus, auf der Vanilla OS installiert werden soll"
+msgstr ""
+"Wählen Sie die Festplatte aus, auf der Vanilla OS installiert werden soll"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -184,7 +185,9 @@ msgstr "Änderungen bestätigen"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "Die folgenden Änderungen werden an Ihrer Festplatte vorgenommen. Bitte überprüfen Sie sie sorgfältig."
+msgstr ""
+"Die folgenden Änderungen werden an Ihrer Festplatte vorgenommen. Bitte "
+"überprüfen Sie sie sorgfältig."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -243,7 +246,9 @@ msgid "Yes, enable it"
 msgstr "Ja, aktivieren"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Installiere..."
 
 #: vanilla_installer/gtk/progress.ui:81
@@ -272,7 +277,8 @@ msgstr "Wählen Sie einen Einhängepunkt für die Partition"
 
 #: vanilla_installer/defaults/disk.py:46
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "Dies ist die einzige verfügbare Festplatte und kann nicht abgewählt werden!"
+msgstr ""
+"Dies ist die einzige verfügbare Festplatte und kann nicht abgewählt werden!"
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."

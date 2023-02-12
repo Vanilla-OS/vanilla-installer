@@ -240,7 +240,7 @@ msgid "Yes, enable it"
 msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+msgid "Installing…"
 msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:81

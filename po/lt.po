@@ -182,9 +182,7 @@ msgstr "Patvirtinti pakeitimus"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
-"Jūsų diske bus atlikti šie pakeitimai. Peržiūrėkite juos"
-"atsargiai."
+msgstr "Jūsų diske bus atlikti šie pakeitimai. Peržiūrėkite juosatsargiai."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -243,7 +241,9 @@ msgid "Yes, enable it"
 msgstr "Taip, įgalinti"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Įdiegiama..."
 
 #: vanilla_installer/gtk/progress.ui:81

@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.15.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
@@ -185,7 +185,9 @@ msgstr "Підтвердити зміни"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "На ваш диск будуть внесені наступні зміни. Будь ласка, перегляньте їх ретельно."
+msgstr ""
+"На ваш диск будуть внесені наступні зміни. Будь ласка, перегляньте їх "
+"ретельно."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -244,7 +246,9 @@ msgid "Yes, enable it"
 msgstr "Так, увімкнути"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Встановлення..."
 
 #: vanilla_installer/gtk/progress.ui:81

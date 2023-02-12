@@ -302,6 +302,5 @@ msgstr "May nang-yari na di inaasahan"
 msgid "Please contact the distribution developers."
 msgstr "Pakiusap na ipag-alam sa mga developers na namahagi ng system."
 
-#: vanilla_installer/gtk/progress.ui:81
-msgid "Show Console ouput"
-msgstr "Ipakita ang Console output"
+#~ msgid "Show Console ouput"
+#~ msgstr "Ipakita ang Console output"

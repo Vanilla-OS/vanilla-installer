@@ -228,7 +228,8 @@ msgstr "Todo feito!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Reinicia o teu dispositivo para gozar da túa experiencia con Vanilla OS"
+msgstr ""
+"Reinicia o teu dispositivo para gozar da túa experiencia con Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
@@ -243,7 +244,9 @@ msgid "Yes, enable it"
 msgstr "Si, actívao"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Instalando..."
 
 #: vanilla_installer/gtk/progress.ui:81

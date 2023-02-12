@@ -184,7 +184,9 @@ msgstr "Bekräfta ändringar"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "Följande ändringar kommer att göras på din disk. Vänligen granska dem försiktigt."
+msgstr ""
+"Följande ändringar kommer att göras på din disk. Vänligen granska dem "
+"försiktigt."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -243,7 +245,9 @@ msgid "Yes, enable it"
 msgstr "Ja, aktivera det"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Installerar..."
 
 #: vanilla_installer/gtk/progress.ui:81

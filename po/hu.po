@@ -184,7 +184,9 @@ msgstr "Változások megerősítése"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "A következő változtatások lesznek végrehajtva a lemezen. Kérjük, tekintse át őket gondosan."
+msgstr ""
+"A következő változtatások lesznek végrehajtva a lemezen. Kérjük, tekintse át "
+"őket gondosan."
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
@@ -243,7 +245,9 @@ msgid "Yes, enable it"
 msgstr "Igen, engedélyezze"
 
 #: vanilla_installer/gtk/progress.ui:60
-msgid "Installing..."
+#, fuzzy
+#| msgid "Installing..."
+msgid "Installing…"
 msgstr "Telepítés..."
 
 #: vanilla_installer/gtk/progress.ui:81
