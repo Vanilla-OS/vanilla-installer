@@ -1,14 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# EncryptedEasty <c.zullo08@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-01 07:00+0000\n"
+"PO-Revision-Date: 2023-02-12 12:03+0000\n"
 "Last-Translator: EncryptedEasty <c.zullo08@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/it/>\n"
@@ -246,8 +245,6 @@ msgid "Yes, enable it"
 msgstr "Sì, abilitalo"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
-#| msgid "Installing..."
 msgid "Installing…"
 msgstr "Installazione…"
 
