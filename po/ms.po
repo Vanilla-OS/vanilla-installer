@@ -72,15 +72,15 @@ msgstr ""
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "Pilih bahasa"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "Carian bahasa"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -92,15 +92,15 @@ msgstr "Gelap"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Skema Warna"
+msgstr "Tona Warna"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Pilih tona warna untuk kegunaan sistem"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "Tarikh & Waktu"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
@@ -116,11 +116,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "Zon"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "Cipta pengguna"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "Kata laluan"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
@@ -144,7 +144,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "Selamat Datang"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
@@ -152,12 +152,12 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:41
 msgid "Try Vanilla OS"
-msgstr ""
+msgstr "Cuba Vanilla OS"
 
 #: vanilla_installer/gtk/default-welcome.ui:76
 #: vanilla_installer/gtk/dialog-confirm.ui:35
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Pasang Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
@@ -276,7 +276,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:190
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "Semua storan akan digunakan"
 
 #: vanilla_installer/defaults/disk.py:195
 msgid "Will be formatted in {} and mounted in {}"
@@ -296,4 +296,4 @@ msgstr "Sesuatu yang tidak kena telah berlaku"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
-msgstr "Sila hubungi pembangun pengedaran."
+msgstr "Sila hubungi pihak pembangun."
