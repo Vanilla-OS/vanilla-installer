@@ -403,9 +403,16 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.btn_cancel.connect("clicked", self.__on_btn_cancel_clicked)
         self.btn_apply.connect("clicked", self.__on_btn_apply_clicked)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
+        self.connect("notify::is-active", self.__on_window_active)
 
         self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
         self.group_partitions.set_child(self.__partition_selector)
+
+    def __on_window_active(self, widget, value):
+        if value:
+            self.__disk.update_partitions()
+            self.__partition_selector.unrealize()
+            self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
 
     def __on_chk_manual_part_toggled(self, widget):
         self.group_partitions.set_visible(widget.get_active())
