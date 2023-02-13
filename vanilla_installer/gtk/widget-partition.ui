@@ -3,6 +3,52 @@
   <requires lib="gtk" version="4.0"/>
   <template class="PartitionSelector" parent="AdwPreferencesPage">
     <child>
+      <object class="AdwPreferencesGroup">
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="true">Use Entire Disk</property>
+            <property name="subtitle" translatable="true">This will erase all data on the disk.</property>
+            <child type="prefix">
+              <object class="GtkCheckButton" id="chk_entire_disk">
+                <property name="valign">center</property>
+                <property name="active">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwExpanderRow" id="manual_part_expand">
+            <property name="title">Manual Partitioning</property>
+            <property name="subtitle">Choose how to partition the disk</property>
+            <child type="prefix">
+              <object class="GtkCheckButton" id="chk_manual_part">
+                <property name="valign">center</property>
+                <property name="tooltip-text" translatable="true">This feature is currently not supported</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
+                <property name="title" translatable="true">Open GParted</property>
+                <property name="subtitle" translatable="true">Open GParted to manually partition the disk</property>
+                <property name="activatable">true</property>
+                <child type="suffix">
+                  <object class="GtkButton" id="launch_gparted">
+                    <property name="icon-name">adw-external-link-symbolic</property>
+                    <property name="valign">center</property>
+                    <property name="halign">center</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
       <object class="AdwPreferencesGroup" id="boot_part">
         <property name="title" translatable="true">Boot Partition</property>
         <property name="description" translatable="true">The partition to mount under “/boot”. This directory stores files for booting in Vanilla OS.</property>

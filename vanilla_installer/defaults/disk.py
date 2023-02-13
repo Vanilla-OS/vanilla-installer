@@ -73,6 +73,17 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
 class PartitionSelector(Adw.PreferencesPage):
     __gtype_name__ = "PartitionSelector"
 
+    chk_entire_disk = Gtk.Template.Child()
+    chk_manual_part = Gtk.Template.Child()
+    launch_gparted = Gtk.Template.Child()
+    manual_part_expand = Gtk.Template.Child()
+
+    boot_part = Gtk.Template.Child()
+    efi_part = Gtk.Template.Child()
+    roots_part = Gtk.Template.Child()
+    home_part = Gtk.Template.Child()
+    swap_part = Gtk.Template.Child()
+
     boot_part_expand = Gtk.Template.Child()
     efi_part_expand = Gtk.Template.Child()
     abroot_a_part_expand = Gtk.Template.Child()
@@ -126,6 +137,10 @@ class PartitionSelector(Adw.PreferencesPage):
         super().__init__(**kwargs)
         self.__parent = parent
         self.__partitions = sorted(partitions)
+        self.chk_entire_disk.set_group(self.chk_manual_part)
+
+        self.chk_manual_part.connect("toggled", self.__on_chk_manual_part_toggled)
+        self.launch_gparted.connect("clicked", self.__on_launch_gparted)
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
 
@@ -152,6 +167,22 @@ class PartitionSelector(Adw.PreferencesPage):
         for widget in self.__generate_partition_list_widgets("swap", False):
             self.swap_part_expand.add_row(widget)
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
+
+        # Refresh partition UI to make it insensitive
+        self.__on_chk_manual_part_toggled(self.chk_manual_part)
+
+    def __on_chk_manual_part_toggled(self, widget):
+        self.boot_part.set_sensitive(widget.get_active())
+        self.efi_part.set_sensitive(widget.get_active())
+        self.roots_part.set_sensitive(widget.get_active())
+        self.home_part.set_sensitive(widget.get_active())
+        self.swap_part.set_sensitive(widget.get_active())
+
+        self.manual_part_expand.set_expanded(widget.get_active())
+        self.__update_apply_button_status()
+
+    def __on_launch_gparted(self, widget):
+        subprocess.Popen(["gparted"])
 
     def __generate_partition_list_widgets(self, default_fs="btrfs", add_dropdowns=True):
         checkbuttons = []
@@ -193,7 +224,7 @@ class PartitionSelector(Adw.PreferencesPage):
 
     def __update_apply_button_status(self):
         # If not manual partitioning, it's always valid
-        if self.__parent.chk_entire_disk.get_active():
+        if self.chk_entire_disk.get_active():
             self.__parent.set_btn_apply_sensitive(True)
             return
 
@@ -379,13 +410,9 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         "partitioning-set": (GObject.SignalFlags.RUN_FIRST, None, (str,)),
     }
 
-    chk_entire_disk = Gtk.Template.Child()
-    chk_manual_part = Gtk.Template.Child()
     group_partitions = Gtk.Template.Child()
     btn_cancel = Gtk.Template.Child()
     btn_apply = Gtk.Template.Child()
-    launch_gparted = Gtk.Template.Child()
-    manual_part_expand = Gtk.Template.Child()
 
     def __init__(self, window, parent, disk, **kwargs):
         super().__init__(**kwargs)
@@ -393,36 +420,13 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.__parent = parent
         self.__disk = disk
         self.set_transient_for(self.__window)
-        self.chk_entire_disk.set_group(self.chk_manual_part)
-
-        self.default_width, self.default_height = self.get_default_size()
 
         # signals
-        self.chk_manual_part.connect("toggled", self.__on_chk_manual_part_toggled)
-        self.chk_entire_disk.connect("toggled", self.__on_chk_entire_disk_toggled)
         self.btn_cancel.connect("clicked", self.__on_btn_cancel_clicked)
         self.btn_apply.connect("clicked", self.__on_btn_apply_clicked)
-        self.launch_gparted.connect("clicked", self.__on_launch_gparted)
-        self.connect("notify::is-active", self.__on_window_active)
 
         self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
         self.group_partitions.set_child(self.__partition_selector)
-
-    def __on_window_active(self, widget, value):
-        if value:
-            self.__disk.update_partitions()
-            self.__partition_selector.unrealize()
-            self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
-
-    def __on_chk_manual_part_toggled(self, widget):
-        self.group_partitions.set_visible(widget.get_active())
-        self.set_default_size(self.default_width, 800)
-        self.manual_part_expand.set_expanded(widget.get_active())
-        self.set_btn_apply_sensitive(False)
-
-    def __on_chk_entire_disk_toggled(self, widget):
-        self.set_btn_apply_sensitive(True)
-        self.set_default_size(self.default_width, self.default_height)
 
     def __on_btn_cancel_clicked(self, widget):
         self.destroy()
@@ -432,16 +436,13 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.emit("partitioning-set", self.__disk.name)
         self.destroy()
 
-    def __on_launch_gparted(self, widget):
-        subprocess.Popen(["gparted"])
-
     def set_btn_apply_sensitive(self, val):
         self.btn_apply.set_sensitive(val)
 
     @property
     def partition_recipe(self):
         recipe = {}
-        if self.chk_entire_disk.get_active():
+        if self.__partition_selector.chk_entire_disk.get_active():
             return {
                 "auto": {
                     "disk": self.__disk.disk,
