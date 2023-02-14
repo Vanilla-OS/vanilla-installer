@@ -100,7 +100,10 @@ class PartitionRow(Adw.ActionRow):
         fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
         fs_dropdown.set_valign(Gtk.Align.CENTER)
         fs_dropdown.set_sensitive(False)
-        fs_dropdown.set_selected(self.__partition_fs_types.index(self.__default_fs))
+        if self.__partition.fs_type in self.__partition_fs_types:
+            fs_dropdown.set_selected(self.__partition_fs_types.index(self.__partition.fs_type))
+        else:
+            fs_dropdown.set_selected(self.__partition_fs_types.index(self.__default_fs))
         fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
         self.suffix_bin.set_child(fs_dropdown)
 

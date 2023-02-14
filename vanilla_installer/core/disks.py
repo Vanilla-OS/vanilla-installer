@@ -88,7 +88,7 @@ class Partition:
     def __get_fs_type(self):
         try:
             return subprocess.check_output(
-                f"findmnt -n -o FSTYPE {self.partition}",
+                f"lsblk -n -o FSTYPE {self.partition}",
                 shell=True
             ).decode("utf-8").strip()
         except subprocess.CalledProcessError:
