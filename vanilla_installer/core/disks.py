@@ -166,6 +166,9 @@ class Partition:
     def __lt__(self, other):
         return self.partition < other.partition
 
+    def __eq__(self, other):
+        return self.uuid == other.uuid and self.fs_type == other.fs_type
+
 
 class DisksManager:
 

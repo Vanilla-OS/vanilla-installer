@@ -465,9 +465,20 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         # signals
         self.btn_cancel.connect("clicked", self.__on_btn_cancel_clicked)
         self.btn_apply.connect("clicked", self.__on_btn_apply_clicked)
+        self.connect("notify::is-active", self.__on_window_active)
 
         self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
         self.group_partitions.set_child(self.__partition_selector)
+
+    def __on_window_active(self, widget, value):
+        # Only update partitions when window has gained focus
+        if self.is_active():
+            current_partitions = self.__disk.partitions.copy()
+            self.__disk.update_partitions()
+            if current_partitions != self.__disk.partitions:
+                self.__partition_selector.unrealize()
+                self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
+                self.group_partitions.set_child(self.__partition_selector)
 
     def __on_btn_cancel_clicked(self, widget):
         self.__partition_selector.cleanup()
