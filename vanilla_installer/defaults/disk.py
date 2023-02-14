@@ -215,7 +215,7 @@ class PartitionSelector(Adw.PreferencesPage):
         self.chk_entire_disk.set_group(self.chk_manual_part)
 
         self.chk_manual_part.connect("toggled", self.__on_chk_manual_part_toggled)
-        self.chk_manual_part.connect("toggled", self.__on_chk_entire_disk_toggled)
+        self.chk_entire_disk.connect("toggled", self.__on_chk_entire_disk_toggled)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
