@@ -69,6 +69,80 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
         return self.__partition.disk_block
 
 
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-partition-row.ui")
+class PartitionRow(Adw.ActionRow):
+    __gtype_name__ = "PartitionRow"
+
+    select_button = Gtk.Template.Child()
+    suffix_bin = Gtk.Template.Child()
+
+    __siblings: list
+
+    __partition_fs_types = ["btrfs", "ext4", "ext3", "fat32", "xfs"]
+
+    def __init__(self, page, parent, partition, modifiable, default_fs, **kwargs):
+        super().__init__(**kwargs)
+        self.__page = page
+        self.__parent = parent
+        self.__partition = partition
+        self.__modifiable = modifiable
+        self.__default_fs = default_fs
+
+        self.set_title(partition.partition)
+        self.set_subtitle(partition.pretty_size)
+
+        self.select_button.connect("toggled", self.__on_check_button_toggled)
+
+        if self.__modifiable:
+            self.__add_dropdown()
+
+    def __add_dropdown(self):
+        fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
+        fs_dropdown.set_valign(Gtk.Align.CENTER)
+        fs_dropdown.set_sensitive(False)
+        fs_dropdown.set_selected(self.__partition_fs_types.index(self.__default_fs))
+        fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
+        self.suffix_bin.set_child(fs_dropdown)
+
+    def add_siblings(self, siblings):
+        self.__siblings = siblings
+
+    def __on_check_button_toggled(self, widget):
+        dropdown = self.suffix_bin.get_child()
+
+        # Sets all sibling dropdowns as not sensitive
+        for sibling in self.__siblings:
+            sibling_dropdown = sibling.suffix_bin.get_child()
+            if sibling_dropdown:
+                sibling_dropdown.set_sensitive(False)
+
+        # Only the currently selected partition can be edited
+        if dropdown:
+            dropdown.set_sensitive(True)
+            fs_type = self.__partition_fs_types[dropdown.get_selected()]
+            self.__parent.set_subtitle(f"{self.__partition.pretty_size} ({fs_type})")
+        else:
+            self.__parent.set_subtitle(f"{self.__partition.pretty_size}")
+
+        self.__parent.set_title(self.__partition.partition)
+        self.__page.selected_partitions[self.__parent.get_buildable_id()][
+            "partition"
+        ] = self.__partition
+
+        # Sets already selected partitions as not sensitive
+        self.__page.update_partition_rows()
+        # Checks whether we can proceed with installation
+        self.__page.update_apply_button_status()
+        # Checks whether root partitions are the same size
+        self.__page.check_root_partitions_size_equal()
+
+    def __on_dropdown_selected(self, widget, _):
+        fs_type = self.__partition_fs_types[widget.get_selected()]
+        size = self.__parent.get_subtitle()
+        self.__page.selected_partitions[self.__parent.get_buildable_id()]["fstype"] = fs_type
+        self.__parent.set_subtitle(f"{size} ({fs_type})")
+
+
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-partition.ui")
 class PartitionSelector(Adw.PreferencesPage):
     __gtype_name__ = "PartitionSelector"
@@ -131,8 +205,6 @@ class PartitionSelector(Adw.PreferencesPage):
     }
     __valid_root_partitions = False
 
-    __partition_fs_types = ["btrfs", "ext4", "ext3", "fat32", "xfs"]
-
     def __init__(self, parent, partitions, **kwargs):
         super().__init__(**kwargs)
         self.__parent = parent
@@ -144,28 +216,40 @@ class PartitionSelector(Adw.PreferencesPage):
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
 
-        for widget in self.__generate_partition_list_widgets("ext4", False):
+        self.__boot_part_rows = self.__generate_partition_list_widgets(self.boot_part_expand, "ext4", False)
+        for i, widget in enumerate(self.__boot_part_rows):
             self.boot_part_expand.add_row(widget)
+            widget.add_siblings(self.__boot_part_rows[:i] + self.__boot_part_rows[i+1:])
             self.__selected_partitions["boot_part_expand"]["fstype"] = "fat32"
 
-        for widget in self.__generate_partition_list_widgets("fat32"):
+        self.__efi_part_rows = self.__generate_partition_list_widgets(self.efi_part_expand, "fat32")
+        for i, widget in enumerate(self.__efi_part_rows):
             self.efi_part_expand.add_row(widget)
+            widget.add_siblings(self.__efi_part_rows[:i] + self.__efi_part_rows[i+1:])
             self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
 
-        for widget in self.__generate_partition_list_widgets():
+        self.__abroot_a_part_rows = self.__generate_partition_list_widgets(self.abroot_a_part_expand, "btrfs", False)
+        for i, widget in enumerate(self.__abroot_a_part_rows):
             self.abroot_a_part_expand.add_row(widget)
+            widget.add_siblings(self.__abroot_a_part_rows[:i] + self.__abroot_a_part_rows[i+1:])
             self.__selected_partitions["abroot_a_part_expand"]["fstype"] = "btrfs"
 
-        for widget in self.__generate_partition_list_widgets():
+        self.__abroot_b_part_rows = self.__generate_partition_list_widgets(self.abroot_b_part_expand, "btrfs", False)
+        for i, widget in enumerate(self.__abroot_b_part_rows):
             self.abroot_b_part_expand.add_row(widget)
+            widget.add_siblings(self.__abroot_b_part_rows[:i] + self.__abroot_b_part_rows[i+1:])
             self.__selected_partitions["abroot_b_part_expand"]["fstype"] = "btrfs"
 
-        for widget in self.__generate_partition_list_widgets():
+        self.__home_part_rows = self.__generate_partition_list_widgets(self.home_part_expand)
+        for i, widget in enumerate(self.__home_part_rows):
             self.home_part_expand.add_row(widget)
+            widget.add_siblings(self.__home_part_rows[:i] + self.__home_part_rows[i+1:])
             self.__selected_partitions["home_part_expand"]["fstype"] = "btrfs"
 
-        for widget in self.__generate_partition_list_widgets("swap", False):
+        self.__swap_part_rows = self.__generate_partition_list_widgets(self.swap_part_expand, "swap", False)
+        for i, widget in enumerate(self.__swap_part_rows):
             self.swap_part_expand.add_row(widget)
+            widget.add_siblings(self.__swap_part_rows[:i] + self.__swap_part_rows[i+1:])
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
         # Refresh partition UI to make it insensitive
@@ -179,50 +263,26 @@ class PartitionSelector(Adw.PreferencesPage):
         self.swap_part.set_sensitive(widget.get_active())
 
         self.manual_part_expand.set_expanded(widget.get_active())
-        self.__update_apply_button_status()
+        self.update_apply_button_status()
 
     def __on_launch_gparted(self, widget):
         subprocess.Popen(["gparted"])
 
-    def __generate_partition_list_widgets(self, default_fs="btrfs", add_dropdowns=True):
-        checkbuttons = []
+    def __generate_partition_list_widgets(self, parent_widget, default_fs="btrfs", add_dropdowns=True):
         partition_widgets = []
 
         for i, partition in enumerate(self.__partitions):
-            partition_row = Adw.ActionRow()
-            partition_row.set_title(partition.partition)
-            partition_row.set_subtitle(partition.pretty_size)
-
-            # Swap is always swap
-            if add_dropdowns:
-                fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
-                fs_dropdown.set_valign(Gtk.Align.CENTER)
-                fs_dropdown.set_sensitive(False)
-                fs_dropdown.set_selected(self.__partition_fs_types.index(default_fs))
-                fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
-                partition_row.add_suffix(fs_dropdown)
-
-            select_button = Gtk.CheckButton()
+            partition_row = PartitionRow(self, parent_widget, partition, add_dropdowns, default_fs)
             if i != 0:
-                select_button.set_group(checkbuttons[0])
-
-            select_button.connect("toggled", self.__on_check_button_toggled)
-            checkbuttons.append(select_button)
-            partition_row.add_prefix(checkbuttons[i])
-
+                partition_row.select_button.set_group(partition_widgets[0].select_button)
             partition_widgets.append(partition_row)
 
         return partition_widgets
 
-    def __partition_idx(self, partition):
-        for part in self.__partitions:
-            if part.partition == partition:
-                return part
-
     def __on_info_button_clicked(self, widget):
         self.abroot_info_popover.popup()
 
-    def __update_apply_button_status(self):
+    def update_apply_button_status(self):
         # If not manual partitioning, it's always valid
         if self.chk_entire_disk.get_active():
             self.__parent.set_btn_apply_sensitive(True)
@@ -238,7 +298,7 @@ class PartitionSelector(Adw.PreferencesPage):
         if self.__valid_root_partitions:
             self.__parent.set_btn_apply_sensitive(True)
 
-    def __check_root_partitions_size_equal(self):
+    def check_root_partitions_size_equal(self):
         if self.__selected_partitions["abroot_a_part_expand"]["partition"]:
             a_root_part_size = self.__selected_partitions["abroot_a_part_expand"][
                 "partition"
@@ -272,64 +332,32 @@ class PartitionSelector(Adw.PreferencesPage):
 
     def __on_use_swap_toggled(self, widget, state):
         if state == False:
-            children = self.swap_part_expand.get_child().observe_children()
-            child_rows = (
-                children.get_item(children.get_n_items() - 1)
-                .get_child()
-                .observe_children()
-            )
-
-            for i in range(child_rows.get_n_items()):
-                child_row = child_rows.get_item(i)
-                row_checkbutton = (
-                    child_row.observe_children()
-                    .get_item(0)
-                    .observe_children()
-                    .get_item(0)
-                    .observe_children()
-                    .get_item(0)
-                )
-                row_checkbutton.set_active(False)
+            for child_row in self.__swap_part_rows:
+                child_row.select_button.set_active(False)
 
             self.__selected_partitions["swap_part_expand"]["partition"] = None
             self.swap_part_expand.set_title(_("No partition selected"))
             self.swap_part_expand.set_subtitle(
                 _("Please select a partition from the options below")
             )
-            self.__update_partition_rows()
+            self.update_partition_rows()
 
-        self.__update_apply_button_status()
+        self.update_apply_button_status()
 
-    def __update_partition_rows(self):
+    def update_partition_rows(self):
         for row in [
-            self.boot_part_expand,
-            self.efi_part_expand,
-            self.abroot_a_part_expand,
-            self.abroot_b_part_expand,
-            self.home_part_expand,
-            self.swap_part_expand,
+            self.__boot_part_rows,
+            self.__efi_part_rows,
+            self.__abroot_a_part_rows,
+            self.__abroot_b_part_rows,
+            self.__home_part_rows,
+            self.__swap_part_rows,
         ]:
-            children = row.get_child().observe_children()
-            child_rows = (
-                children.get_item(children.get_n_items() - 1)
-                .get_child()
-                .observe_children()
-            )
-
-            for i in range(child_rows.get_n_items()):
-                child_row = child_rows.get_item(i)
+            for child_row in row:
                 row_partition = child_row.get_title()
-                row_checkbutton = (
-                    child_row.observe_children()
-                    .get_item(0)
-                    .observe_children()
-                    .get_item(0)
-                    .observe_children()
-                    .get_item(0)
-                )
 
                 # The row where partition was selected still has to be sensitive
-                if row_checkbutton.get_active():
+                if child_row.select_button.get_active():
                     child_row.set_sensitive(True)
                     continue
 
@@ -342,61 +370,11 @@ class PartitionSelector(Adw.PreferencesPage):
                         is_used = True
                 child_row.set_sensitive(not is_used)
 
-    def __on_check_button_toggled(self, widget):
-        action_row = widget.get_parent().get_parent().get_parent()
-        children = action_row.get_child().observe_children()
-        dropdown = (
-            children.get_item(children.get_n_items() - 1).observe_children().get_item(0)
-        )
-
-        rows = action_row.get_parent().observe_children()
-        for i in range(rows.get_n_items()):
-            row = rows.get_item(i)
-            row_children = row.get_child().observe_children()
-
-            # Sets all dropdowns as not sensitive
-            row_dropdown = (
-                row_children.get_item(row_children.get_n_items() - 1)
-                .observe_children()
-                .get_item(0)
-            )
-            if row_dropdown:
-                row_dropdown.set_sensitive(False)
-
-        # Only the currently selected partition can be edited
-        partition = action_row.get_title()
-        size = action_row.get_subtitle()
-        expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
-
-        expander_row.set_title(partition)
-
-        if dropdown:
-            dropdown.set_sensitive(True)
-            fs_type = self.__partition_fs_types[dropdown.get_selected()]
-            expander_row.set_subtitle(f"{size} ({fs_type})")
-        else:
-            expander_row.set_subtitle(f"{size}")
-
-        self.__selected_partitions[expander_row.get_buildable_id()][
-            "partition"
-        ] = self.__partition_idx(partition)
-
-        # Sets already selected partitions as not sensitive
-        self.__update_partition_rows()
-        # Checks whether we can proceed with installation
-        self.__update_apply_button_status()
-        # Checks whether root partitions are the same size
-        self.__check_root_partitions_size_equal()
-
-    def __on_dropdown_selected(self, widget, _):
-        fs_type = self.__partition_fs_types[widget.get_selected()]
-
-        action_row = widget.get_parent().get_parent().get_parent()
-        expander_row = action_row.get_parent().get_parent().get_parent().get_parent()
-        self.__selected_partitions[expander_row.get_buildable_id()]["fstype"] = fs_type
-
-        size = action_row.get_subtitle()
-        expander_row.set_subtitle(f"{size} ({fs_type})")
+    def cleanup(self):
+        for partition, info in self.__selected_partitions.items():
+            for k, v in info.items():
+                if k is not "mountpoint":
+                    self.__selected_partitions[partition][k] = None
 
     @property
     def selected_partitions(self):
@@ -429,6 +407,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.group_partitions.set_child(self.__partition_selector)
 
     def __on_btn_cancel_clicked(self, widget):
+        self.__partition_selector.cleanup()
         self.destroy()
 
     def __on_btn_apply_clicked(self, widget):
