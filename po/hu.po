@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Benjamin Kőhidi <benstone326@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-07 10:37+0000\n"
-"Last-Translator: Tamás Ecsedi <ecseditamas22@gmail.com>\n"
+"PO-Revision-Date: 2023-02-15 15:38+0000\n"
+"Last-Translator: Benjamin Kőhidi <benstone326@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/hu/>\n"
 "Language: hu\n"
@@ -55,19 +54,19 @@ msgstr "Válassza ki a lemezt, amelyre telepíteni szeretné a Vanilla OS-t"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr "Beállítás"
+msgstr "Konfigurálás"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "Billentyűzetkiosztás"
+msgstr "Billentyűkiosztás"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "Válassza ki a kívánt billentyűzetkiosztást"
+msgstr "Válassza ki a kívánt billentyűkiosztást"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "Billentyűzetkiosztás keresése"
+msgstr "Billentyűkiosztás keresése"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -92,11 +91,11 @@ msgstr "Sötét"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Színek"
+msgstr "Színséma"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Válasszon színeket rendszeréhez"
+msgstr "Válasszon színsémát a rendszeréhez"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -168,7 +167,7 @@ msgstr "Telepítés megerősítése"
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr "Mégsem"
+msgstr "Mégse"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
@@ -245,10 +244,8 @@ msgid "Yes, enable it"
 msgstr "Igen, engedélyezze"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
-#| msgid "Installing..."
 msgid "Installing…"
-msgstr "Telepítés..."
+msgstr "Telepítés…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
@@ -292,7 +289,7 @@ msgstr "Kérjük, válasszon legalább egy lehetőséget."
 
 #: vanilla_installer/views/done.py:34
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Indítsa újra eszközét, hogy élvezze {} élményét."
+msgstr "Indítsa újra eszközét, hogy kiélvezze {} élményét."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
