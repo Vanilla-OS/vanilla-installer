@@ -382,7 +382,7 @@ class PartitionSelector(Adw.PreferencesPage):
     def cleanup(self):
         for partition, info in self.__selected_partitions.items():
             for k, v in info.items():
-                if k is not "mountpoint":
+                if k != "mountpoint":
                     self.__selected_partitions[partition][k] = None
 
     @property
