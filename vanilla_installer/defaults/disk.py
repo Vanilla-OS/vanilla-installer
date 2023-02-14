@@ -284,6 +284,8 @@ class PartitionSelector(Adw.PreferencesPage):
                 partition_row.select_button.set_group(partition_widgets[0].select_button)
             partition_widgets.append(partition_row)
 
+        parent_widget.set_sensitive(len(partition_widgets) > 0)
+
         return partition_widgets
 
     def __on_info_button_clicked(self, widget):
