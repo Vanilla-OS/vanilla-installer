@@ -61,6 +61,15 @@
       </object>
     </child>
     <child>
+      <object class="AdwPreferencesGroup" id="boot_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Boot partition is too small.</property>
+      </object>
+    </child>
+    <child>
       <object class="AdwPreferencesGroup" id="efi_part">
         <property name="title" translatable="true">EFI Partition</property>
         <property name="description" translatable="true">The partition to mount under “/boot/efi”. This directory stores files for booting in the bootloader.</property>
@@ -70,6 +79,15 @@
             <property name="subtitle" translatable="true">Please select a partition from the options below</property>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="efi_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">EFI partition is too small.</property>
       </object>
     </child>
     <child>
@@ -137,6 +155,15 @@ which switches between two root partitions between updates.</property>
       </object>
     </child>
     <child>
+      <object class="AdwPreferencesGroup" id="roots_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Root partitions are too small.</property>
+      </object>
+    </child>
+    <child>
       <object class="AdwPreferencesGroup" id="home_part">
         <property name="title" translatable="true">Home Partition</property>
         <property name="description" translatable="true">The partition to mount under “/home”. This directory stores all user data.</property>
@@ -146,6 +173,15 @@ which switches between two root partitions between updates.</property>
             <property name="subtitle" translatable="true">Please select a partition from the options below</property>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="home_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Home partition is too small.</property>
       </object>
     </child>
     <child>

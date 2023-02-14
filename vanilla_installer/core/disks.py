@@ -2,6 +2,17 @@ import os
 import subprocess
 import sys
 
+class Diskutils:
+    @staticmethod
+    def pretty_size(size: int) -> str:
+        if size > 1024 ** 3:
+            return f"{round(size / 1024 ** 3, 2)} GB"
+        elif size > 1024 ** 2:
+            return f"{round(size / 1024 ** 2, 2)} MB"
+        elif size > 1024:
+            return f"{round(size / 1024, 2)} KB"
+        else:
+            return f"{size} B"
 
 class Disk:
 

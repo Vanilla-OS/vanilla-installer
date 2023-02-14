@@ -20,7 +20,7 @@ import subprocess
 from gi.repository import Gtk, Gio, GLib, GObject, Adw
 from typing import Union
 
-from vanilla_installer.core.disks import DisksManager, Partition
+from vanilla_installer.core.disks import DisksManager, Partition, Diskutils
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-disk.ui")
@@ -34,7 +34,7 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
         self.__disk = disk
         self.set_title(disk.name)
 
-        if disk.size < 50000000000:
+        if disk.size < 50_000_000_000:
             self.set_sensitive(False)
             self.set_subtitle(
                 _("Not enough space: {0}/{1}").format(disk.pretty_size, "50 GB")
@@ -138,6 +138,8 @@ class PartitionRow(Adw.ActionRow):
         self.__page.update_apply_button_status()
         # Checks whether root partitions are the same size
         self.__page.check_root_partitions_size_equal()
+        # Checks whether selected partitions are big enough
+        self.__page.check_selected_partitions_sizes()
 
     def __on_dropdown_selected(self, widget, _):
         fs_type = self.__partition_fs_types[widget.get_selected()]
@@ -171,32 +173,42 @@ class PartitionSelector(Adw.PreferencesPage):
     abroot_info_button = Gtk.Template.Child()
     abroot_info_popover = Gtk.Template.Child()
     use_swap_part = Gtk.Template.Child()
+
+    boot_small_error = Gtk.Template.Child()
+    efi_small_error = Gtk.Template.Child()
+    roots_small_error = Gtk.Template.Child()
+    home_small_error = Gtk.Template.Child()
     root_sizes_differ_error = Gtk.Template.Child()
 
     # NOTE: Keys must be the same name as template children
     __selected_partitions: dict[str, dict[str, Union[Partition, str, None]]] = {
         "boot_part_expand": {
             "mountpoint": "/boot",
+            "min_size": 943_718_400,  # 900 MB
             "partition": None,
             "fstype": None,
         },
         "efi_part_expand": {
             "mountpoint": "/boot/efi",
+            "min_size": 536_870_912,  # 512 MB
             "partition": None,
             "fstype": None,
         },
         "abroot_a_part_expand": {
             "mountpoint": "/",
+            "min_size": 10_737_418_240,  # 10 GB
             "partition": None,
             "fstype": None,
         },
         "abroot_b_part_expand": {
             "mountpoint": "/",
+            "min_size": 10_737_418_240,  # 10 GB
             "partition": None,
             "fstype": None,
         },
         "home_part_expand": {
             "mountpoint": "/home",
+            "min_size": 5_368_709_120,  # 5 GB
             "partition": None,
             "fstype": None,
         },
@@ -207,6 +219,7 @@ class PartitionSelector(Adw.PreferencesPage):
         },
     }
     __valid_root_partitions = False
+    __valid_partition_sizes = False
 
     def __init__(self, parent, partitions, **kwargs):
         super().__init__(**kwargs)
@@ -304,7 +317,7 @@ class PartitionSelector(Adw.PreferencesPage):
                 self.__parent.set_btn_apply_sensitive(False)
                 return
 
-        if self.__valid_root_partitions:
+        if self.__valid_root_partitions and self.__valid_partition_sizes:
             self.__parent.set_btn_apply_sensitive(True)
 
     def check_root_partitions_size_equal(self):
@@ -338,6 +351,47 @@ class PartitionSelector(Adw.PreferencesPage):
                 self.abroot_b_part_expand.get_style_context().remove_class("error")
             self.root_sizes_differ_error.set_visible(False)
             self.__valid_root_partitions = True
+
+    def check_selected_partitions_sizes(self):
+        # Clear any existing errors
+        self.__valid_partition_sizes = True
+        self.boot_small_error.set_visible(False)
+        self.efi_small_error.set_visible(False)
+        self.roots_small_error.set_visible(False)
+        self.home_small_error.set_visible(False)
+        if self.boot_part_expand.get_style_context().has_class("error"):
+            self.boot_part_expand.get_style_context().remove_class("error")
+        if self.efi_part_expand.get_style_context().has_class("error"):
+            self.efi_part_expand.get_style_context().remove_class("error")
+        if self.abroot_a_part_expand.get_style_context().has_class("error"):
+            self.abroot_a_part_expand.get_style_context().remove_class("error")
+        if self.abroot_b_part_expand.get_style_context().has_class("error"):
+            self.abroot_b_part_expand.get_style_context().remove_class("error")
+        if self.home_part_expand.get_style_context().has_class("error"):
+            self.home_part_expand.get_style_context().remove_class("error")
+
+        for partition, info in self.__selected_partitions.items():
+            if "min_size" in info and info["partition"] is not None:
+                if info["min_size"] > info["partition"].size:
+                    self.__valid_partition_sizes = False
+                    error_description = _("Partition must be at least {}").format(Diskutils.pretty_size(info["min_size"]))
+                    if partition == "boot_part_expand":
+                        self.boot_part_expand.get_style_context().add_class("error")
+                        self.boot_small_error.set_description(error_description)
+                        self.boot_small_error.set_visible(True)
+                    elif partition == "efi_part_expand":
+                        self.efi_part_expand.get_style_context().add_class("error")
+                        self.efi_small_error.set_description(error_description)
+                        self.efi_small_error.set_visible(True)
+                    elif partition == "abroot_a_part_expand" or partition == "abroot_b_part_expand":
+                        self.abroot_a_part_expand.get_style_context().add_class("error")
+                        self.abroot_b_part_expand.get_style_context().add_class("error")
+                        self.roots_small_error.set_description(error_description)
+                        self.roots_small_error.set_visible(True)
+                    elif partition == "home_part_expand":
+                        self.home_part_expand.get_style_context().add_class("error")
+                        self.home_small_error.set_description(error_description)
+                        self.home_small_error.set_visible(True)
 
     def __on_use_swap_toggled(self, widget, state):
         if state == False:
