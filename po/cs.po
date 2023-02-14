@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Vojtěch Perník <translations@pervoj.cz>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-10 15:37+0000\n"
-"Last-Translator: \"Vojtěch V.\" <xonax658@gmail.com>\n"
+"PO-Revision-Date: 2023-02-15 15:38+0000\n"
+"Last-Translator: Vojtěch Perník <translations@pervoj.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/cs/>\n"
 "Language: cs\n"
@@ -29,7 +30,7 @@ msgstr "Vylaďte si instalaci Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "Bez popisu"
+msgstr "Žádný popis"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -219,7 +220,6 @@ msgid "The following partitions were found on the disk"
 msgstr "Na disku byly nalezeny následující oddíly"
 
 #: vanilla_installer/gtk/dialog.ui:6
-#, fuzzy
 msgid "Showing Information"
 msgstr "Zobrazení informací"
 
@@ -245,16 +245,15 @@ msgid "Yes, enable it"
 msgstr "Ano, povolit to"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
-#| msgid "Installing..."
 msgid "Installing…"
-msgstr "Instaluji..."
+msgstr "Instaluji…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
 msgstr "Ukázat výstup z konzole"
 
 #: vanilla_installer/gtk/progress.ui:96
+#, fuzzy
 msgid "Show Slideshow"
 msgstr "Zobrazit prezentaci"
 
@@ -291,9 +290,8 @@ msgid "Please select at least one option."
 msgstr "Vyberte prosím alespoň jednu možnost."
 
 #: vanilla_installer/views/done.py:34
-#, fuzzy
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Restartujte počítač a vychutnejte si {} zážitek."
+msgstr "Restartujte zařízení, abyste si mohli vychutnat své {} zážitky."
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
