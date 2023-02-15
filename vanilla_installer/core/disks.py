@@ -167,6 +167,8 @@ class Partition:
         return self.partition < other.partition
 
     def __eq__(self, other):
+        if not other:
+            return False
         return self.uuid == other.uuid and self.fs_type == other.fs_type
 
 
