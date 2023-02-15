@@ -435,8 +435,8 @@ class PartitionSelector(Adw.PreferencesPage):
 
     def cleanup(self):
         for partition, info in self.__selected_partitions.items():
-            for k, v in info.items():
-                if k != "mountpoint":
+            for k, _ in info.items():
+                if k not in ["mountpoint", "min_size"]:
                     self.__selected_partitions[partition][k] = None
 
     @property
@@ -476,6 +476,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
             current_partitions = self.__disk.partitions.copy()
             self.__disk.update_partitions()
             if current_partitions != self.__disk.partitions:
+                self.__partition_selector.cleanup()
                 self.__partition_selector.unrealize()
                 self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
                 self.group_partitions.set_child(self.__partition_selector)
