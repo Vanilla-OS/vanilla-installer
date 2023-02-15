@@ -108,7 +108,7 @@ class Partition:
     def __get_uuid(self):
         try:
             return subprocess.check_output(
-                f"findmnt -n -o UUID {self.partition}",
+                f"lsblk -n -o UUID {self.partition}",
                 shell=True
             ).decode("utf-8").strip()
         except subprocess.CalledProcessError:
