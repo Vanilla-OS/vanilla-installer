@@ -118,7 +118,7 @@
     <child>
       <object class="AdwPreferencesGroup" id="roots_part">
         <property name="title" translatable="true">Root Partitions</property>
-        <property name="description" translatable="true">The partition to mount under at “/”. Both partitions must be the same size.</property>
+        <property name="description" translatable="true">The partitions to mount under “/”. Both partitions must be the same size.</property>
         <child type="header-suffix">
           <object class="GtkBox">
             <child>
@@ -131,7 +131,7 @@
               <object class="GtkPopover" id="abroot_info_popover">
                 <child>
                   <object class="GtkLabel">
-                    <property name="label" translatable="true">Vanilla OS uses an A/B system partition managed by ABRoot,
+                    <property name="label" translatable="true">Vanilla OS uses an A/B partition system managed by ABRoot,
 which switches between two root partitions between updates.</property>
                   </object>
                 </child>
