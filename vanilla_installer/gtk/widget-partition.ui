@@ -4,9 +4,11 @@
   <template class="PartitionSelector" parent="AdwPreferencesPage">
     <child>
       <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Drive Allocation</property>
+        <property name="description" translatable="true">Choose how to install Vanilla OS on your drive.</property>
         <child>
           <object class="AdwActionRow">
-            <property name="title" translatable="true">Use Entire Disk</property>
+            <property name="title" translatable="true">Entire Drive</property>
             <property name="subtitle" translatable="true">This will erase all data on the disk.</property>
             <child type="prefix">
               <object class="GtkCheckButton" id="chk_entire_disk">
@@ -18,12 +20,11 @@
         </child>
         <child>
           <object class="AdwActionRow" id="manual_part_expand">
-            <property name="title">Manual Partitioning</property>
-            <property name="subtitle">Choose how to partition the disk</property>
+            <property name="title" translatable="true">Manual Partitioning</property>
+            <property name="subtitle" translatable="true">Select which partitions to use for installation. Incorrect configuration can lead to data loss, corruption, and/or an unbootable system.</property>
             <child type="prefix">
               <object class="GtkCheckButton" id="chk_manual_part">
                 <property name="valign">center</property>
-                <property name="tooltip-text" translatable="true">This feature is currently not supported</property>
               </object>
             </child>
           </object>
