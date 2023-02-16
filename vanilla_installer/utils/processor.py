@@ -167,15 +167,13 @@ class Processor:
                                     "-u",
                                     f"'{device_block}:{partition_number}:swap'",
                                 ]
-                            elif values["mp"] == "/boot":
+                            elif values["mp"] == "":
                                 arguments += [
                                     "-u",
-                                    "'{}:{}:{}:mount={}{}'".format(
+                                    "'{}:{}:{}:flags=bios_grub'".format(
                                         device_block,
                                         partition_number,
                                         values["fs"],
-                                        values["mp"],
-                                        ":flags=bios_grub" if not Systeminfo.is_uefi() else ""
                                     ),
                                 ]
                             else:

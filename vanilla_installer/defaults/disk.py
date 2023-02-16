@@ -160,12 +160,14 @@ class PartitionSelector(Adw.PreferencesPage):
 
     boot_part = Gtk.Template.Child()
     efi_part = Gtk.Template.Child()
+    bios_part = Gtk.Template.Child()
     roots_part = Gtk.Template.Child()
     home_part = Gtk.Template.Child()
     swap_part = Gtk.Template.Child()
 
     boot_part_expand = Gtk.Template.Child()
     efi_part_expand = Gtk.Template.Child()
+    bios_part_expand = Gtk.Template.Child()
     abroot_a_part_expand = Gtk.Template.Child()
     abroot_b_part_expand = Gtk.Template.Child()
     home_part_expand = Gtk.Template.Child()
@@ -177,6 +179,7 @@ class PartitionSelector(Adw.PreferencesPage):
 
     boot_small_error = Gtk.Template.Child()
     efi_small_error = Gtk.Template.Child()
+    bios_small_error = Gtk.Template.Child()
     roots_small_error = Gtk.Template.Child()
     home_small_error = Gtk.Template.Child()
     root_sizes_differ_error = Gtk.Template.Child()
@@ -192,6 +195,12 @@ class PartitionSelector(Adw.PreferencesPage):
         "efi_part_expand": {
             "mountpoint": "/boot/efi",
             "min_size": 536_870_912,  # 512 MB
+            "partition": None,
+            "fstype": None,
+        },
+        "bios_part_expand": {
+            "mountpoint": "",
+            "min_size": 1_048_576,  # 512 MB
             "partition": None,
             "fstype": None,
         },
@@ -241,12 +250,26 @@ class PartitionSelector(Adw.PreferencesPage):
             self.__selected_partitions["boot_part_expand"]["fstype"] = "ext4"
 
         if Systeminfo.is_uefi():
-            self.__efi_part_rows = self.__generate_partition_list_widgets(self.efi_part_expand, "fat32")
+            # Configure EFI rows
+            self.__efi_part_rows = self.__generate_partition_list_widgets(self.efi_part_expand, "fat32", False)
             for i, widget in enumerate(self.__efi_part_rows):
                 self.efi_part_expand.add_row(widget)
                 widget.add_siblings(self.__efi_part_rows[:i] + self.__efi_part_rows[i+1:])
                 self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
+
+            # Remove BIOS rows
+            self.bios_part.set_visible(False)
+            if "bios_part_expand" in self.__selected_partitions:
+                del self.__selected_partitions["bios_part_expand"]
         else:
+            # Configure BIOS rows
+            self.__bios_part_rows = self.__generate_partition_list_widgets(self.bios_part_expand, "ext4", False)
+            for i, widget in enumerate(self.__bios_part_rows):
+                self.bios_part_expand.add_row(widget)
+                widget.add_siblings(self.__bios_part_rows[:i] + self.__bios_part_rows[i+1:])
+                self.__selected_partitions["bios_part_expand"]["fstype"] = "ext4"
+
+            # Remove EFI rows
             self.efi_part.set_visible(False)
             if "efi_part_expand" in self.__selected_partitions:
                 del self.__selected_partitions["efi_part_expand"]
@@ -282,6 +305,8 @@ class PartitionSelector(Adw.PreferencesPage):
         self.boot_part.set_sensitive(widget.get_active())
         if Systeminfo.is_uefi():
             self.efi_part.set_sensitive(widget.get_active())
+        else:
+            self.bios_part.set_sensitive(widget.get_active())
         self.roots_part.set_sensitive(widget.get_active())
         self.home_part.set_sensitive(widget.get_active())
         self.swap_part.set_sensitive(widget.get_active())
@@ -365,6 +390,8 @@ class PartitionSelector(Adw.PreferencesPage):
         self.boot_small_error.set_visible(False)
         if Systeminfo.is_uefi():
             self.efi_small_error.set_visible(False)
+        else:
+            self.bios_small_error.set_visible(False)
         self.roots_small_error.set_visible(False)
         self.home_small_error.set_visible(False)
         if self.boot_part_expand.get_style_context().has_class("error"):
@@ -372,6 +399,9 @@ class PartitionSelector(Adw.PreferencesPage):
         if Systeminfo.is_uefi():
             if self.efi_part_expand.get_style_context().has_class("error"):
                 self.efi_part_expand.get_style_context().remove_class("error")
+        else:
+            if self.bios_part_expand.get_style_context().has_class("error"):
+                self.bios_part_expand.get_style_context().remove_class("error")
         if self.abroot_a_part_expand.get_style_context().has_class("error"):
             self.abroot_a_part_expand.get_style_context().remove_class("error")
         if self.abroot_b_part_expand.get_style_context().has_class("error"):
@@ -402,6 +432,17 @@ class PartitionSelector(Adw.PreferencesPage):
                         self.home_small_error.set_description(error_description)
                         self.home_small_error.set_visible(True)
 
+        # Special case for BIOS, where the partitions needs to be EXACTLY 1 MiB
+        if not Systeminfo.is_uefi():
+            size = self.__selected_partitions["bios_part_expand"]["min_size"]
+            partition = self.__selected_partitions["bios_part_expand"]["partition"]
+            error_description = _("Partition must EXACTLY {}").format(Diskutils.pretty_size(info["min_size"]))
+            if partition is not None:
+                if size != partition.size:
+                    self.bios_part_expand.get_style_context().add_class("error")
+                    self.bios_small_error.set_description(error_description)
+                    self.bios_small_error.set_visible(True)
+
     def __on_use_swap_toggled(self, widget, state):
         if state == False:
             for child_row in self.__swap_part_rows:
@@ -427,6 +468,8 @@ class PartitionSelector(Adw.PreferencesPage):
 
         if Systeminfo.is_uefi():
             rows.append(self.__efi_part_rows)
+        else:
+            rows.append(self.__bios_part_rows)
 
         for row in rows:
             for child_row in row:

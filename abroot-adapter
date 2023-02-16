@@ -196,6 +196,7 @@ def entry_point(disk: dict, timezone: dict):
     root_partitions = []
     boot_partition = ""
     efi_partition = None
+    bios_partition = None
     ignore_keys = ["disk", "auto"]
     for partition, info in disk["disk"].items():
         if partition not in ignore_keys:
@@ -205,6 +206,8 @@ def entry_point(disk: dict, timezone: dict):
                 boot_partition = partition
             elif info["mp"] == "/boot/efi":
                 efi_partition = partition
+            elif info["mp"] == "":
+                bios_partition = partition
 
     assert (
         len(root_partitions) == 2

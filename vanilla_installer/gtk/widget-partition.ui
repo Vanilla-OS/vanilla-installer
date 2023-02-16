@@ -91,6 +91,27 @@
       </object>
     </child>
     <child>
+      <object class="AdwPreferencesGroup" id="bios_part">
+        <property name="title" translatable="true">BIOS Boot Partition</property>
+        <property name="description" translatable="true">A partition required for all BIOS systems running in GPT-formatted disks. This partition must be located in the first 2 TB of the disk and must be exactly 1 Mebibyte (1 MiB).</property>
+        <child>
+          <object class="AdwExpanderRow" id="bios_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="bios_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">BIOS partition must be exactly 1 MiB.</property>
+      </object>
+    </child>
+    <child>
       <object class="AdwPreferencesGroup" id="roots_part">
         <property name="title" translatable="true">Root Partitions</property>
         <property name="description" translatable="true">The partition to mount under at “/”. Both partitions must be the same size.</property>
