@@ -153,8 +153,11 @@ class PartitionRow(Adw.ActionRow):
 class PartitionSelector(Adw.PreferencesPage):
     __gtype_name__ = "PartitionSelector"
 
+    entire_disk_row = Gtk.Template.Child()
     chk_entire_disk = Gtk.Template.Child()
     chk_manual_part = Gtk.Template.Child()
+    manual_part_row = Gtk.Template.Child()
+    open_gparted_group = Gtk.Template.Child()
     open_gparted_row = Gtk.Template.Child()
     launch_gparted = Gtk.Template.Child()
 
@@ -237,6 +240,10 @@ class PartitionSelector(Adw.PreferencesPage):
         self.__partitions = sorted(partitions)
         self.chk_entire_disk.set_group(self.chk_manual_part)
 
+        self.entire_disk_row.set_activatable_widget(self.chk_entire_disk)
+        self.manual_part_row.set_activatable_widget(self.chk_manual_part)
+        self.open_gparted_row.set_activatable_widget(self.launch_gparted)
+
         self.chk_manual_part.connect("toggled", self.__on_chk_manual_part_toggled)
         self.chk_entire_disk.connect("toggled", self.__on_chk_entire_disk_toggled)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
@@ -303,7 +310,7 @@ class PartitionSelector(Adw.PreferencesPage):
 
     def __on_chk_manual_part_toggled(self, widget):
         self.boot_part.set_sensitive(widget.get_active())
-        self.open_gparted_row.set_sensitive(widget.get_active())
+        self.open_gparted_group.set_sensitive(widget.get_active())
         if Systeminfo.is_uefi():
             self.efi_part.set_sensitive(widget.get_active())
         else:
