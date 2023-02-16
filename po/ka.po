@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-02-16 17:29+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3
 msgid "Vanilla OS Installer"
@@ -26,11 +28,11 @@ msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "აღწერის გარეშე"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "პირველი რელიზი"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -40,11 +42,11 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "შემდეგი"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "აირჩიეთ დისკი"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk to install Vanilla OS to"
@@ -52,11 +54,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr ""
+msgstr "მორგება"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "კლავიატურის განლაგება"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
@@ -69,27 +71,27 @@ msgstr ""
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 msgid "Language"
-msgstr ""
+msgstr "ენა"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "აირჩიეთ ენა"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "ენის მოძებნა"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმები"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "ბნელი"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "ფერის სქემა"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
@@ -97,7 +99,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "დრო და თარიღი"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
@@ -109,15 +111,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "რეგიონი"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "ზონა"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "მომხმარებლის შექმნა"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
@@ -125,23 +127,23 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: vanilla_installer/gtk/default-users.ui:53
 msgid "Username"
-msgstr ""
+msgstr "მომხმარებლის სახელი"
 
 #: vanilla_installer/gtk/default-users.ui:58
 msgid "Password"
-msgstr ""
+msgstr "პაროლი"
 
 #: vanilla_installer/gtk/default-users.ui:63
 msgid "Confirm Password"
-msgstr ""
+msgstr "პაროლის გადამოწმება"
 
 #: vanilla_installer/gtk/default-welcome.ui:11
 msgid "Welcome"
-msgstr ""
+msgstr "მოგესალმებით"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 msgid "This software will guide you through the installation process."
@@ -159,13 +161,13 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-confirm.ui:6
 #: vanilla_installer/gtk/dialog-confirm.ui:24
 msgid "Confirm Installation"
-msgstr ""
+msgstr "დაყენების დადასტურება"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
@@ -175,7 +177,7 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "ცვლილებების დადასტურება"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
@@ -185,15 +187,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:6
 msgid "Configure Disk"
-msgstr ""
+msgstr "დისკის მორგება"
 
 #: vanilla_installer/gtk/dialog-disk.ui:23
 msgid "Apply"
-msgstr ""
+msgstr "გადატარება"
 
 #: vanilla_installer/gtk/dialog-disk.ui:37
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "მთელი დისკის გამოყენება"
 
 #: vanilla_installer/gtk/dialog-disk.ui:38
 msgid "This will erase all data on the disk."
@@ -201,7 +203,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:59
 msgid "Open GParted"
-msgstr ""
+msgstr "GParted-ის გახსნა"
 
 #: vanilla_installer/gtk/dialog-disk.ui:60
 msgid "Open GParted to manually partition the disk"
@@ -209,7 +211,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:81
 msgid "Partitions"
-msgstr ""
+msgstr "დანაყოფები"
 
 #: vanilla_installer/gtk/dialog-disk.ui:82
 msgid "The following partitions were found on the disk"
@@ -217,11 +219,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "ინფორმაციის ჩვენება"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "ყველაფერი მზადაა!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -229,31 +231,31 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:22
 msgid "Reboot Now"
-msgstr ""
+msgstr "ახლა გადატვირთვა"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "დიახ, ჩართე"
 
 #: vanilla_installer/gtk/progress.ui:60
 msgid "Installing…"
-msgstr ""
+msgstr "დაყენება…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
-msgstr ""
+msgstr "კონსოლის გამოტანის ჩვენება"
 
 #: vanilla_installer/gtk/progress.ui:96
 msgid "Show Slideshow"
-msgstr ""
+msgstr "სლაიდშოუს ჩვენება"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Format"
-msgstr ""
+msgstr "ფორმატი"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Choose a new file system or leave as is"
@@ -261,7 +263,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Mount Point"
-msgstr ""
+msgstr "მიმაგრების წერტილი"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid "Choose a mount point for the partition"
@@ -289,7 +291,7 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:45
 msgid "Something went wrong"
-msgstr ""
+msgstr "რაღაც არასწორია"
 
 #: vanilla_installer/views/done.py:46
 msgid "Please contact the distribution developers."
