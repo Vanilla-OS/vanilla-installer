@@ -325,7 +325,14 @@ class PartitionSelector(Adw.PreferencesPage):
         self.__parent.set_btn_apply_sensitive(True)
 
     def __on_launch_gparted(self, widget):
-        subprocess.Popen(["gparted"])
+        proc = subprocess.Popen(["ps", "-C", "gparted"])
+        proc.wait()
+        if proc.returncode == 0:
+            partitions_changed_toast = Adw.Toast.new(_("GParted is already running. Only one instance of GParted is permitted."))
+            partitions_changed_toast.set_timeout(5)
+            self.__parent.group_partitions.add_toast(partitions_changed_toast)
+        else:
+            subprocess.Popen(["gparted"])
 
     def __generate_partition_list_widgets(self, parent_widget, default_fs="btrfs", add_dropdowns=True):
         partition_widgets = []
