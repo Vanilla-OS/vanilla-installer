@@ -436,7 +436,7 @@ class PartitionSelector(Adw.PreferencesPage):
         if not Systeminfo.is_uefi():
             size = self.__selected_partitions["bios_part_expand"]["min_size"]
             partition = self.__selected_partitions["bios_part_expand"]["partition"]
-            error_description = _("Partition must EXACTLY {}").format(Diskutils.pretty_size(info["min_size"]))
+            error_description = _("Partition must EXACTLY {}").format(Diskutils.pretty_size(size))
             if partition is not None:
                 if size != partition.size:
                     self.bios_part_expand.get_style_context().add_class("error")
