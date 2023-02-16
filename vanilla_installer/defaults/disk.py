@@ -538,6 +538,9 @@ class VanillaDefaultDiskPartModal(Adw.Window):
                 self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
                 self.__partition_selector.chk_manual_part.set_active(current_state)
                 self.group_partitions.set_child(self.__partition_selector)
+                partitions_changed_toast = Adw.Toast.new(_("Partitions have changed. Current selections have been cleared."))
+                partitions_changed_toast.set_timeout(5)
+                self.group_partitions.add_toast(partitions_changed_toast)
 
     def __on_btn_cancel_clicked(self, widget):
         self.__partition_selector.cleanup()
