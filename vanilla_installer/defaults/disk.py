@@ -532,9 +532,11 @@ class VanillaDefaultDiskPartModal(Adw.Window):
             current_partitions = self.__disk.partitions.copy()
             self.__disk.update_partitions()
             if current_partitions != self.__disk.partitions:
+                current_state = self.__partition_selector.chk_manual_part.get_active()
                 self.__partition_selector.cleanup()
                 self.__partition_selector.unrealize()
                 self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
+                self.__partition_selector.chk_manual_part.set_active(current_state)
                 self.group_partitions.set_child(self.__partition_selector)
 
     def __on_btn_cancel_clicked(self, widget):
