@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-16 17:29+0000\n"
+"PO-Revision-Date: 2023-02-17 15:51+0000\n"
 "Last-Translator: Matt C <matei.gurzu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ro/>\n"
@@ -246,10 +246,8 @@ msgid "Yes, enable it"
 msgstr "Da, activează opțiunea"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
-#| msgid "Installing..."
 msgid "Installing…"
-msgstr "Se instalează..."
+msgstr "Se instalează…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"
