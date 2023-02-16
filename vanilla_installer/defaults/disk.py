@@ -21,6 +21,7 @@ from gi.repository import Gtk, Gio, GLib, GObject, Adw
 from typing import Union
 
 from vanilla_installer.core.disks import DisksManager, Partition, Diskutils
+from vanilla_installer.core.system import Systeminfo
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-disk.ui")
@@ -237,13 +238,18 @@ class PartitionSelector(Adw.PreferencesPage):
         for i, widget in enumerate(self.__boot_part_rows):
             self.boot_part_expand.add_row(widget)
             widget.add_siblings(self.__boot_part_rows[:i] + self.__boot_part_rows[i+1:])
-            self.__selected_partitions["boot_part_expand"]["fstype"] = "fat32"
+            self.__selected_partitions["boot_part_expand"]["fstype"] = "ext4"
 
-        self.__efi_part_rows = self.__generate_partition_list_widgets(self.efi_part_expand, "fat32")
-        for i, widget in enumerate(self.__efi_part_rows):
-            self.efi_part_expand.add_row(widget)
-            widget.add_siblings(self.__efi_part_rows[:i] + self.__efi_part_rows[i+1:])
-            self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
+        if Systeminfo.is_uefi():
+            self.__efi_part_rows = self.__generate_partition_list_widgets(self.efi_part_expand, "fat32")
+            for i, widget in enumerate(self.__efi_part_rows):
+                self.efi_part_expand.add_row(widget)
+                widget.add_siblings(self.__efi_part_rows[:i] + self.__efi_part_rows[i+1:])
+                self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
+        else:
+            self.efi_part.set_visible(False)
+            if "efi_part_expand" in self.__selected_partitions:
+                del self.__selected_partitions["efi_part_expand"]
 
         self.__abroot_a_part_rows = self.__generate_partition_list_widgets(self.abroot_a_part_expand, "btrfs", False)
         for i, widget in enumerate(self.__abroot_a_part_rows):
@@ -274,7 +280,8 @@ class PartitionSelector(Adw.PreferencesPage):
 
     def __on_chk_manual_part_toggled(self, widget):
         self.boot_part.set_sensitive(widget.get_active())
-        self.efi_part.set_sensitive(widget.get_active())
+        if Systeminfo.is_uefi():
+            self.efi_part.set_sensitive(widget.get_active())
         self.roots_part.set_sensitive(widget.get_active())
         self.home_part.set_sensitive(widget.get_active())
         self.swap_part.set_sensitive(widget.get_active())
@@ -356,13 +363,15 @@ class PartitionSelector(Adw.PreferencesPage):
         # Clear any existing errors
         self.__valid_partition_sizes = True
         self.boot_small_error.set_visible(False)
-        self.efi_small_error.set_visible(False)
+        if Systeminfo.is_uefi():
+            self.efi_small_error.set_visible(False)
         self.roots_small_error.set_visible(False)
         self.home_small_error.set_visible(False)
         if self.boot_part_expand.get_style_context().has_class("error"):
             self.boot_part_expand.get_style_context().remove_class("error")
-        if self.efi_part_expand.get_style_context().has_class("error"):
-            self.efi_part_expand.get_style_context().remove_class("error")
+        if Systeminfo.is_uefi():
+            if self.efi_part_expand.get_style_context().has_class("error"):
+                self.efi_part_expand.get_style_context().remove_class("error")
         if self.abroot_a_part_expand.get_style_context().has_class("error"):
             self.abroot_a_part_expand.get_style_context().remove_class("error")
         if self.abroot_b_part_expand.get_style_context().has_class("error"):
@@ -408,14 +417,18 @@ class PartitionSelector(Adw.PreferencesPage):
         self.update_apply_button_status()
 
     def update_partition_rows(self):
-        for row in [
+        rows = [
             self.__boot_part_rows,
-            self.__efi_part_rows,
             self.__abroot_a_part_rows,
             self.__abroot_b_part_rows,
             self.__home_part_rows,
             self.__swap_part_rows,
-        ]:
+        ]
+
+        if Systeminfo.is_uefi():
+            rows.append(self.__efi_part_rows)
+
+        for row in rows:
             for child_row in row:
                 row_partition = child_row.get_title()
 

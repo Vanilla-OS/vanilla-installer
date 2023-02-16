@@ -24,6 +24,7 @@ from glob import glob
 import re
 import json
 
+from vanilla_installer.core.system import Systeminfo
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -165,6 +166,17 @@ class Processor:
                                 arguments += [
                                     "-u",
                                     f"'{device_block}:{partition_number}:swap'",
+                                ]
+                            elif values["mp"] == "/boot":
+                                arguments += [
+                                    "-u",
+                                    "'{}:{}:{}:mount={}{}'".format(
+                                        device_block,
+                                        partition_number,
+                                        values["fs"],
+                                        values["mp"],
+                                        ":flags=bios_grub" if not Systeminfo.is_uefi() else ""
+                                    ),
                                 ]
                             else:
                                 arguments += [

@@ -79,14 +79,16 @@ def add_bind_mount_to_fstab(src, dest, root):
         f.write(bind_mount)
 
 
-def update_grub(root, block_device, boot_partition, efi_partition):
+def update_grub(root, block_device, boot_partition, efi_partition=None):
     logger.info("updating GRUB in '{}'".format(root))
 
     umount_if(boot_partition)
-    umount_if(efi_partition)
+    if efi_partition:
+        umount_if(efi_partition)
 
     subprocess.check_call(["sudo", "mount", boot_partition, root + "/boot"])
-    subprocess.check_call(["sudo", "mount", efi_partition, root + "/boot/efi"])
+    if efi_partition:
+        subprocess.check_call(["sudo", "mount", efi_partition, root + "/boot/efi"])
     subprocess.check_call(["sudo", "mount", "--bind", "/dev", root + "/dev"])
     subprocess.check_call(["sudo", "mount", "--bind", "/dev/pts", root + "/dev/pts"])
     subprocess.check_call(["sudo", "mount", "--bind", "/proc", root + "/proc"])
@@ -105,20 +107,21 @@ def update_grub(root, block_device, boot_partition, efi_partition):
             "grub-install",
             "--boot-directory",
             root + "/boot",
-            "--target=x86_64-efi",
+            "--target={}".format("x86_64-efi" if efi_partition else "i386-pc"),
             block_device,
         ]
     )
     script = [  # for some reason, grub-install doesn't work if we don't install it from the chroot too
         "#!/bin/bash",
-        "sudo chroot {} grub-install --boot-directory /boot {} --target=x86_64-efi".format(
-            root, block_device
+        "sudo chroot {} grub-install --boot-directory /boot {} --target={}".format(
+            root, block_device, "x86_64-efi" if efi_partition else "i386-pc"
         ),
     ]
     subprocess.check_call("\n".join(script), shell=True)
 
     umount_if(boot_partition)
-    umount_if(efi_partition)
+    if efi_partition:
+        umount_if(efi_partition)
 
 
 def generate_grub_file(boot_uuid, root_a_uuid, root_b_uuid, kernel):
@@ -192,7 +195,7 @@ def entry_point(disk: dict, timezone: dict):
 
     root_partitions = []
     boot_partition = ""
-    efi_partition = ""
+    efi_partition = None
     ignore_keys = ["disk", "auto"]
     for partition, info in disk["disk"].items():
         if partition not in ignore_keys:
@@ -207,6 +210,10 @@ def entry_point(disk: dict, timezone: dict):
         len(root_partitions) == 2
     ), "Wrong number of root partitions provided. Expected 2"
     partition_sizes = [find_partition_used_space(part) for part in root_partitions]
+
+    # Replace EFI grub with BIOS one because we need it for grub-install later
+    if not efi_partition:
+        subprocess.check_call(["sudo", "apt", "install", "-y", "grub-pc"])
 
     # Root A is the one filled by the installer, thus the root with more used disk space
     root_a = ""
@@ -388,10 +395,11 @@ GRUB_TIMEOUT_STYLE=hidden"""
     )
 
     # load efi modules
-    logger.info("load efi modules")
-    subprocess.run(
-        ["sudo", "modprobe", "efivars"], stderr=subprocess.DEVNULL
-    )  # tested, safe to ignore starting from kernel 6.0
+    if efi_partition:
+        logger.info("load efi modules")
+        subprocess.run(
+            ["sudo", "modprobe", "efivars"], stderr=subprocess.DEVNULL
+        )  # tested, safe to ignore starting from kernel 6.0
 
     # updating grub for both root partitions
     logger.info("updating grub for both root partitions")
