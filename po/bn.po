@@ -1,14 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Abu Huraira <abuhuraira@tutamail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-03 15:22+0000\n"
+"PO-Revision-Date: 2023-02-16 17:29+0000\n"
 "Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/bn/>\n"
@@ -29,7 +28,7 @@ msgstr "আপনার ভ্যানিলা ওএস ইনস্টলে
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "কোনো বর্ণনা নেই"
+msgstr "কোন বর্ণনা নেই"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -243,10 +242,8 @@ msgid "Yes, enable it"
 msgstr "হ্যাঁ, এটি চালু করুন"
 
 #: vanilla_installer/gtk/progress.ui:60
-#, fuzzy
-#| msgid "Installing..."
 msgid "Installing…"
-msgstr "ইনস্টল করা হচ্ছে..."
+msgstr "ইনস্টল করা হচ্ছে…"
 
 #: vanilla_installer/gtk/progress.ui:81
 msgid "Show Console output"

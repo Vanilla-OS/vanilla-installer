@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Matt C <matei.gurzu@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 10:59+0100\n"
-"PO-Revision-Date: 2023-02-07 10:37+0000\n"
-"Last-Translator: finnmonstar <finnmonstar@pm.me>\n"
+"PO-Revision-Date: 2023-02-16 17:29+0000\n"
+"Last-Translator: Matt C <matei.gurzu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ro/>\n"
 "Language: ro\n"
@@ -30,7 +31,7 @@ msgstr "Modifică-ți instalarea Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "Fără descriere"
+msgstr "Nicio descripție"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -169,7 +170,7 @@ msgstr "Confirmă instalarea"
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:18
 msgid "Cancel"
-msgstr "Renunță"
+msgstr "Anulare"
 
 #: vanilla_installer/gtk/dialog-confirm.ui:25
 msgid "The following changes will be made to your system:"
