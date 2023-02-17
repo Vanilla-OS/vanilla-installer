@@ -19,6 +19,7 @@ import time
 import subprocess
 from gi.repository import Gtk, Gio, GLib, GObject, Adw
 from typing import Union
+import re
 
 from vanilla_installer.core.disks import DisksManager, Partition, Diskutils
 from vanilla_installer.core.system import Systeminfo
@@ -144,7 +145,7 @@ class PartitionRow(Adw.ActionRow):
 
     def __on_dropdown_selected(self, widget, _):
         fs_type = self.__partition_fs_types[widget.get_selected()]
-        size = self.__parent.get_subtitle()
+        size = self.__partition.pretty_size
         self.__page.selected_partitions[self.__parent.get_buildable_id()]["fstype"] = fs_type
         self.__parent.set_subtitle(f"{size} ({fs_type})")
 
