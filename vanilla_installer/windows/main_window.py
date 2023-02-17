@@ -19,6 +19,7 @@
 import os
 import time
 from gi.repository import Gtk, Gio, GLib, Adw
+from gettext import gettext as _
 
 from vanilla_installer.utils.builder import Builder
 from vanilla_installer.utils.processor import Processor
@@ -57,10 +58,10 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.__connect_signals()
 
     def __connect_signals(self):
-        self.btn_back.connect("clicked", self.back)
-        self.carousel.connect("page-changed", self.__on_page_changed)
+        self.btn_back.connect(_("clicked"), self.back)
+        self.carousel.connect(_("page-changed"), self.__on_page_changed)
         self.__builder.widgets[-1].btn_next.connect("clicked", self.update_finals)
-        self.__view_confirm.connect("installation-confirmed", self.on_installation_confirmed)
+        self.__view_confirm.connect(_("installation-confirmed"), self.on_installation_confirmed)
 
     def __build_ui(self):
         if "VANILLA_FORCE_TOUR" not in os.environ:

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-01 10:59+0100\n"
+"POT-Creation-Date: 2023-02-17 21:41+0530\n"
 "PO-Revision-Date: 2023-02-12 09:34+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.16-dev\n"
 
-#: data/org.vanillaos.Installer.desktop.in:3
+#: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
 msgstr "வெண்ணிலா OS நிறுவி"
 
@@ -33,6 +33,19 @@ msgstr "விளக்கம் இல்லை"
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
 msgstr "முதல் வெளியீடு"
+
+#: vanilla_installer/gtk/confirm.ui:10
+msgid "Confirm Installation"
+msgstr "நிறுவலை உறுதிப்படுத்தவும்"
+
+#: vanilla_installer/gtk/confirm.ui:11
+msgid "The following changes will be made to your system:"
+msgstr "உங்கள் கணினியில் பின்வரும் மாற்றங்கள் செய்யப்படும்:"
+
+#: vanilla_installer/gtk/confirm.ui:28
+#: vanilla_installer/gtk/default-welcome.ui:86
+msgid "Install Vanilla OS"
+msgstr "வெண்ணிலா OS ஐ நிறுவவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -49,7 +62,8 @@ msgid "Select a Disk"
 msgstr "ஒரு வட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-msgid "Select the disk to install Vanilla OS to"
+#, fuzzy
+msgid "Select the disk where you want to install Vanilla OS"
 msgstr "வெண்ணிலா OS ஐ நிறுவ வட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:41
@@ -70,6 +84,7 @@ msgstr "ஒரு விசைப்பலகை தளவமைப்பைத�
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
+#: vanilla_installer/views/confirm.py:72
 msgid "Language"
 msgstr "மொழி"
 
@@ -129,49 +144,21 @@ msgstr "உங்கள் பயனர் கணக்கிற்கான வ
 msgid "Name"
 msgstr "பெயர்"
 
-#: vanilla_installer/gtk/default-users.ui:53
+#: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
 msgstr "பயனர் பெயர்"
 
-#: vanilla_installer/gtk/default-users.ui:58
+#: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
 msgstr "கடவுச்சொல்"
 
-#: vanilla_installer/gtk/default-users.ui:63
+#: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
 msgstr "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
 
-#: vanilla_installer/gtk/default-welcome.ui:11
-msgid "Welcome"
-msgstr "வரவேற்கிறோம்"
-
-#: vanilla_installer/gtk/default-welcome.ui:12
-msgid "This software will guide you through the installation process."
-msgstr "இந்த மென்பொருள் நிறுவல் செயல்முறையின் மூலம் உங்களுக்கு வழிகாட்டும்."
-
-#: vanilla_installer/gtk/default-welcome.ui:41
+#: vanilla_installer/gtk/default-welcome.ui:51
 msgid "Try Vanilla OS"
 msgstr "வெண்ணிலா OS ஐ முயற்சிக்கவும்"
-
-#: vanilla_installer/gtk/default-welcome.ui:76
-#: vanilla_installer/gtk/dialog-confirm.ui:35
-msgid "Install Vanilla OS"
-msgstr "வெண்ணிலா OS ஐ நிறுவவும்"
-
-#: vanilla_installer/gtk/dialog-confirm.ui:6
-#: vanilla_installer/gtk/dialog-confirm.ui:24
-msgid "Confirm Installation"
-msgstr "நிறுவலை உறுதிப்படுத்தவும்"
-
-#: vanilla_installer/gtk/dialog-confirm.ui:17
-#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
-#: vanilla_installer/gtk/dialog-disk.ui:18
-msgid "Cancel"
-msgstr "ரத்து செய்"
-
-#: vanilla_installer/gtk/dialog-confirm.ui:25
-msgid "The following changes will be made to your system:"
-msgstr "உங்கள் கணினியில் பின்வரும் மாற்றங்கள் செய்யப்படும்:"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -179,47 +166,32 @@ msgstr "உங்கள் கணினியில் பின்வரும�
 msgid "Confirm Changes"
 msgstr "மாற்றங்களை உறுதிப்படுத்தவும்"
 
+#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
+#: vanilla_installer/gtk/dialog-disk.ui:17
+msgid "Cancel"
+msgstr "ரத்து செய்"
+
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr "உங்கள் வட்டில் பின்வரும் மாற்றங்கள் செய்யப்படும். அவற்றை மதிப்பாய்வு செய்யவும்கவனமாக."
 
-#: vanilla_installer/gtk/dialog-disk.ui:6
+#: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
 msgstr "வட்டை உள்ளமைக்கவும்"
 
-#: vanilla_installer/gtk/dialog-disk.ui:23
+#: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
 msgstr "விண்ணப்பிக்கவும்"
-
-#: vanilla_installer/gtk/dialog-disk.ui:37
-msgid "Use Entire Disk"
-msgstr "முழு வட்டையும் பயன்படுத்துங்கள்"
-
-#: vanilla_installer/gtk/dialog-disk.ui:38
-msgid "This will erase all data on the disk."
-msgstr "இது வட்டில் உள்ள அனைத்து தரவையும் அழித்துவிடும்."
-
-#: vanilla_installer/gtk/dialog-disk.ui:59
-msgid "Open GParted"
-msgstr "GParted ஐத் திறக்கவும்"
-
-#: vanilla_installer/gtk/dialog-disk.ui:60
-msgid "Open GParted to manually partition the disk"
-msgstr "வட்டை கைமுறையால் பிரிப்பதற்கு GParted ஐத் திறக்கவும்"
-
-#: vanilla_installer/gtk/dialog-disk.ui:81
-msgid "Partitions"
-msgstr "பகிர்வுகள்"
-
-#: vanilla_installer/gtk/dialog-disk.ui:82
-msgid "The following partitions were found on the disk"
-msgstr "வட்டில் பின்வரும் பகிர்வுகள் காணப்பட்டன"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
 msgstr "தகவலைக் காட்டுகிறது"
+
+#: vanilla_installer/gtk/dialog-output.ui:6
+msgid "Log"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -229,11 +201,15 @@ msgstr "அனைத்தும் முடிந்தது!"
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr "உங்கள் வெண்ணிலா OS அனுபவத்தை அனுபவிக்க உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்"
 
-#: vanilla_installer/gtk/done.ui:22
+#: vanilla_installer/gtk/done.ui:23
+msgid "Show Log"
+msgstr ""
+
+#: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
 msgstr "இப்போது மறுமுறை துவக்கு"
 
-#: vanilla_installer/gtk/done.ui:32
+#: vanilla_installer/gtk/done.ui:42
 msgid "Close"
 msgstr "மூடுங்கள்"
 
@@ -241,58 +217,336 @@ msgstr "மூடுங்கள்"
 msgid "Yes, enable it"
 msgstr "ஆம், அதை இயக்கு"
 
-#: vanilla_installer/gtk/progress.ui:60
-msgid "Installing…"
+#: vanilla_installer/gtk/progress.ui:70
+#, fuzzy
+msgid "Installing..."
 msgstr "நிறுவுகிறது…"
 
-#: vanilla_installer/gtk/progress.ui:81
+#: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
 msgstr "கன்சோல் வெளியீட்டைக் காட்டு"
 
-#: vanilla_installer/gtk/progress.ui:96
+#: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
 msgstr "ஸ்லைடுஷோவைக் காட்டு"
 
-#: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Format"
-msgstr "வடிவம்"
+#: vanilla_installer/gtk/widget-partition.ui:7
+msgid "Disk Allocation"
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:8
+#, fuzzy
+msgid "Choose how to install Vanilla OS on your drive."
+msgstr "வெண்ணிலா OS ஐ நிறுவ வட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-msgid "Choose a new file system or leave as is"
-msgstr "புதிய கோப்பு முறைமையைத் தேர்வு செய்யவும் அல்லது அப்படியே விடவும்"
+#, fuzzy
+msgid "Entire Disk"
+msgstr "முழு வட்டையும் பயன்படுத்துங்கள்"
 
-#: vanilla_installer/gtk/widget-partition.ui:29
-msgid "Mount Point"
-msgstr "ஏற்ற புள்ளி"
+#: vanilla_installer/gtk/widget-partition.ui:12
+msgid "This will erase all data on the disk."
+msgstr "இது வட்டில் உள்ள அனைத்து தரவையும் அழித்துவிடும்."
 
-#: vanilla_installer/gtk/widget-partition.ui:30
-msgid "Choose a mount point for the partition"
-msgstr "பகிர்வுக்கு ஏற்ற புள்ளியைத் தேர்ந்தெடுக்கவும்"
+#: vanilla_installer/gtk/widget-partition.ui:23
+#, fuzzy
+msgid "Manual Partitioning"
+msgstr "பகிர்வுகள்"
 
-#: vanilla_installer/defaults/disk.py:46
+#: vanilla_installer/gtk/widget-partition.ui:24
+msgid ""
+"Select which partitions to use for installation. Incorrect configuration can "
+"lead to data loss, corruption, and/or an unbootable system."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:39
+msgid "Open GParted"
+msgstr "GParted ஐத் திறக்கவும்"
+
+#: vanilla_installer/gtk/widget-partition.ui:40
+msgid "Open GParted to manually partition the disk"
+msgstr "வட்டை கைமுறையால் பிரிப்பதற்கு GParted ஐத் திறக்கவும்"
+
+#: vanilla_installer/gtk/widget-partition.ui:57
+#, fuzzy
+msgid "Boot Partition"
+msgstr "பகிர்வுகள்"
+
+#: vanilla_installer/gtk/widget-partition.ui:58
+msgid ""
+"The partition to mount under “/boot”. This directory stores files for "
+"booting in Vanilla OS."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:61
+#: vanilla_installer/gtk/widget-partition.ui:82
+#: vanilla_installer/gtk/widget-partition.ui:103
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:166
+#: vanilla_installer/gtk/widget-partition.ui:197
+#: vanilla_installer/gtk/widget-partition.ui:230
+#: vanilla_installer/defaults/disk.py:467
+msgid "No partition selected"
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:62
+#: vanilla_installer/gtk/widget-partition.ui:83
+#: vanilla_installer/gtk/widget-partition.ui:104
+#: vanilla_installer/gtk/widget-partition.ui:153
+#: vanilla_installer/gtk/widget-partition.ui:167
+#: vanilla_installer/gtk/widget-partition.ui:198
+#: vanilla_installer/gtk/widget-partition.ui:231
+#: vanilla_installer/defaults/disk.py:469
+#, fuzzy
+msgid "Please select a partition from the options below"
+msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
+
+#: vanilla_installer/gtk/widget-partition.ui:73
+msgid "Boot partition is too small."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:78
+#, fuzzy
+msgid "EFI Partition"
+msgstr "பகிர்வுகள்"
+
+#: vanilla_installer/gtk/widget-partition.ui:79
+msgid ""
+"The partition to mount under “/boot/efi”. This directory stores files for "
+"booting in the bootloader."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:94
+msgid "EFI partition is too small."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:99
+#, fuzzy
+msgid "BIOS Boot Partition"
+msgstr "பகிர்வுகள்"
+
+#: vanilla_installer/gtk/widget-partition.ui:100
+msgid ""
+"The partition required by GPT-formatted disks to support booting from BIOS "
+"systems. It must be located in the first 2 TB of the disk and must be "
+"exactly 1 Mebibyte (1 MiB)."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:115
+msgid "BIOS partition must be exactly 1 MiB."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:120
+#, fuzzy
+msgid "Root Partitions"
+msgstr "பகிர்வுகள்"
+
+#: vanilla_installer/gtk/widget-partition.ui:121
+msgid ""
+"The partitions to mount under “/”. Both partitions must be the same size."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:134
+msgid ""
+"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
+"which switches between two root partitions between updates."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:178
+msgid "Root partitions are not the same size."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:179
+msgid "Please make sure your A and B partitions have the same disk space."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:188
+msgid "Root partitions are too small."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:193
+#, fuzzy
+msgid "Home Partition"
+msgstr "பகிர்வுகள்"
+
+#: vanilla_installer/gtk/widget-partition.ui:194
+msgid ""
+"The partition to mount under “/home”. This directory stores all user data."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:209
+msgid "Home partition is too small."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:214
+#: vanilla_installer/gtk/widget-partition.ui:218
+#, fuzzy
+msgid "Swap partition"
+msgstr "பகிர்வுகள்"
+
+#: vanilla_installer/gtk/widget-partition.ui:215
+msgid ""
+"Swap acts as a virtual extension of your RAM and enables hibernation. "
+"Vanilla OS already uses zram to provide swapping at no storage cost."
+msgstr ""
+
+#: vanilla_installer/gtk/widget-partition.ui:219
+msgid ""
+"Choose a partition to use for swap alongside zram. This is not required for "
+"hibernation."
+msgstr ""
+
+#: vanilla_installer/gtk/window.ui:39
+msgid "Back"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:42
+#, python-brace-format
+msgid "Not enough space: {0}/{1}"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
 msgstr "இந்த வட்டு மட்டுமே உள்ளது மற்றும் தேர்வுநீக்க முடியாது!"
 
-#: vanilla_installer/defaults/disk.py:190
+#: vanilla_installer/defaults/disk.py:332
+msgid "GParted is already running. Only one instance of GParted is permitted."
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:431
+msgid "Partition must be at least {}"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:454
+msgid "Partition must EXACTLY {}"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:556
+msgid "Partitions have changed. Current selections have been cleared."
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:621
 msgid "Entire disk will be used."
 msgstr "முழு வட்டு பயன்படுத்தப்படும்."
 
-#: vanilla_installer/defaults/disk.py:195
+#: vanilla_installer/defaults/disk.py:628
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} இல் வடிவமைக்கப்படும் மற்றும் {} இல் ஏற்றப்படும்"
+
+#. signals
+#: vanilla_installer/layouts/preferences.py:42
+#: vanilla_installer/views/confirm.py:122
+#: vanilla_installer/views/progress.py:51
+#: vanilla_installer/views/progress.py:52
+#: vanilla_installer/windows/main_window.py:61
+msgid "clicked"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
 
-#: vanilla_installer/views/done.py:34
+#: vanilla_installer/utils/builder.py:67
+msgid "Missing 'log_file' in the recipe."
+msgstr ""
+
+#: vanilla_installer/utils/builder.py:76
+#, python-format
+msgid "failed to create log file: %s"
+msgstr ""
+
+#: vanilla_installer/utils/builder.py:77
+msgid "No log will be stored."
+msgstr ""
+
+#: vanilla_installer/utils/builder.py:84
+#, python-format
+msgid "Performing display-condition: %s"
+msgstr ""
+
+#: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
+#, python-format
+msgid "Step %s skipped due to display-conditions"
+msgstr ""
+
+#: vanilla_installer/utils/recipe.py:46
+msgid "Invalid recipe file"
+msgstr ""
+
+#: vanilla_installer/utils/recipe.py:55
+msgid "Recipe is not a dictionary"
+msgstr ""
+
+#: vanilla_installer/utils/recipe.py:60
+#, python-brace-format
+msgid "Recipe is missing the '{key}' key"
+msgstr ""
+
+#: vanilla_installer/utils/recipe.py:64
+msgid "Recipe steps is not a list"
+msgstr ""
+
+#: vanilla_installer/utils/recipe.py:69
+#, python-brace-format
+msgid "Step {step} is not a dictionary"
+msgstr ""
+
+#: vanilla_installer/views/confirm.py:78
+#, fuzzy
+msgid "Keyboard"
+msgstr "விசைப்பலகை தளவமைப்பு"
+
+#: vanilla_installer/views/confirm.py:84
+msgid "Timezone"
+msgstr ""
+
+#: vanilla_installer/views/confirm.py:90
+#, fuzzy
+msgid "Users"
+msgstr "பயனர் பெயர்"
+
+#: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
+msgid "Disk"
+msgstr ""
+
+#: vanilla_installer/views/confirm.py:125
+#: vanilla_installer/windows/main_window.py:64
+msgid "installation-confirmed"
+msgstr ""
+
+#: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
 msgstr "உங்கள் {} அனுபவத்தை அனுபவிக்க உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்."
 
-#: vanilla_installer/views/done.py:45
+#: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
 msgstr "ஏதோ தவறாகிவிட்டது"
 
-#: vanilla_installer/views/done.py:46
+#: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
 msgstr "விநியோக டெவலப்பர்களைத் தொடர்பு கொள்ளவும்."
+
+#: vanilla_installer/windows/main_window.py:62
+msgid "page-changed"
+msgstr ""
+
+#~ msgid "Welcome"
+#~ msgstr "வரவேற்கிறோம்"
+
+#~ msgid "This software will guide you through the installation process."
+#~ msgstr "இந்த மென்பொருள் நிறுவல் செயல்முறையின் மூலம் உங்களுக்கு வழிகாட்டும்."
+
+#~ msgid "The following partitions were found on the disk"
+#~ msgstr "வட்டில் பின்வரும் பகிர்வுகள் காணப்பட்டன"
+
+#~ msgid "Format"
+#~ msgstr "வடிவம்"
+
+#~ msgid "Choose a new file system or leave as is"
+#~ msgstr "புதிய கோப்பு முறைமையைத் தேர்வு செய்யவும் அல்லது அப்படியே விடவும்"
+
+#~ msgid "Mount Point"
+#~ msgstr "ஏற்ற புள்ளி"
+
+#~ msgid "Choose a mount point for the partition"
+#~ msgstr "பகிர்வுக்கு ஏற்ற புள்ளியைத் தேர்ந்தெடுக்கவும்"

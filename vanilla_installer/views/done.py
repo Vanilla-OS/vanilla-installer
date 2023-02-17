@@ -18,7 +18,7 @@ import subprocess
 from gi.repository import Gtk, Adw
 
 from vanilla_installer.windows.dialog_output import VanillaDialogOutput
-
+from gettext import gettext as _
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/done.ui')
 class VanillaDone(Adw.Bin):

@@ -19,7 +19,7 @@ from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.windows.dialog import VanillaDialog
-
+from gettext import gettext as _
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/layout-preferences.ui')
 class VanillaLayoutPreferences(Adw.Bin):
@@ -39,7 +39,7 @@ class VanillaLayoutPreferences(Adw.Bin):
         self.__build_ui()
 
         # signals
-        self.btn_next.connect("clicked", self.__next_step)
+        self.btn_next.connect(_("clicked"), self.__next_step)
 
     def __build_ui(self):
         self.status_page.set_icon_name(self.__step["icon"])

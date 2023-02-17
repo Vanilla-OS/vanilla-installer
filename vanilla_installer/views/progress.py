@@ -16,6 +16,7 @@
 
 import time
 from gi.repository import Gtk, Gdk, Gio, GLib, Adw, Vte, Pango
+from gettext import gettext as _
 
 from vanilla_installer.utils.run_async import RunAsync
 
@@ -47,8 +48,8 @@ class VanillaProgress(Gtk.Box):
 
         self.__build_ui()
 
-        self.tour_button.connect("clicked", self.__on_tour_button)
-        self.console_button.connect("clicked", self.__on_console_button)
+        self.tour_button.connect(_("clicked"), self.__on_tour_button)
+        self.console_button.connect(_("clicked"), self.__on_console_button)
 
     def __on_tour_button(self, *args):
         self.tour_box.set_visible(True)

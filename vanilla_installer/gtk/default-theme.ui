@@ -14,7 +14,7 @@
             <property name="halign">center</property>
             <child>
                 <object class="GtkCheckButton" id="btn_default">
-                <property name="tooltip-text" translatable="true">Default</property>
+                <property name="tooltip-text" translatable="yes">Default</property>
                 <property name="halign">center</property>
                 <property name="active">True</property>
                 <style>
@@ -26,7 +26,7 @@
             </child>
             <child>
                 <object class="GtkCheckButton" id="btn_dark">
-                <property name="tooltip-text" translatable="true">Dark</property>
+                <property name="tooltip-text" translatable="yes">Dark</property>
                 <property name="halign">center</property>
                 <style>
                     <class name="theme-selector" />
@@ -39,14 +39,14 @@
         </child>
         <child>
             <object class="AdwStatusPage">
-                <property name="title" translatable="true">Color Scheme</property>
-                <property name="description" translatable="true">Choose a color scheme for your system</property>
+                <property name="title" translatable="yes">Color Scheme</property>
+                <property name="description" translatable="yes">Choose a color scheme for your system</property>
                 <property name="halign">fill</property>
                 <property name="valign">fill</property>
                 <property name="hexpand">true</property>
                 <child>
                     <object class="GtkButton" id="btn_next">
-                    <property name="label" translatable="true">Next</property>
+                    <property name="label" translatable="yes">Next</property>
                     <property name="halign">center</property>
                     <style>
                         <class name="pill" />
