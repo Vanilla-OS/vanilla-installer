@@ -212,10 +212,11 @@ which switches between two root partitions between updates.</property>
     <child>
       <object class="AdwPreferencesGroup" id="swap_part">
         <property name="title" translatable="true">Swap partition:</property>
-        <property name="description" translatable="true">Swap acts as a virtual extension of your RAM and enables hibernation. In order for hibernation to be available, your swap partition must be at least the same size as your RAM.</property>
+        <property name="description" translatable="true">Swap acts as a virtual extension of your RAM and enables hibernation. Vanilla OS already uses Zram to provide swapping at no storage cost.</property>
         <child>
           <object class="AdwActionRow">
             <property name="title" translatable="true">Use Swap partition</property>
+            <property name="subtitle" translatable="true">Choose a partition to use for swap alongside Zram. This is not required for hibernation.</property>
             <child type="suffix">
               <object class="GtkSwitch" id="use_swap_part">
                 <property name="valign">center</property>
