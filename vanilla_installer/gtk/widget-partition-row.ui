@@ -5,6 +5,7 @@
     <child type="prefix">
       <object class="GtkCheckButton" id="select_button"></object>
     </child>
+    <property name="activatable-widget">select_button</property>
     <child type="suffix">
       <object class="AdwBin" id="suffix_bin"></object>
     </child>
