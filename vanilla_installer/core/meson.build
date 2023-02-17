@@ -10,6 +10,7 @@ sources = [
   'keymaps.py',
   'timezones.py',
   'disks.py',
+  'system.py'
 ]
 
 install_data(sources, install_dir: coredir)

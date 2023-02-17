@@ -2,9 +2,20 @@ import os
 import subprocess
 import sys
 
+class Diskutils:
+    @staticmethod
+    def pretty_size(size: int) -> str:
+        if size > 1024 ** 3:
+            return f"{round(size / 1024 ** 3, 2)} GB"
+        elif size > 1024 ** 2:
+            return f"{round(size / 1024 ** 2, 2)} MB"
+        elif size > 1024:
+            return f"{round(size / 1024, 2)} KB"
+        else:
+            return f"{size} B"
 
 class Disk:
-    
+
     def __init__(self, disk: str):
         self.__disk = disk
         self.__partitions = self.__get_partitions()
@@ -20,7 +31,7 @@ class Disk:
     def __get_size(self):
         with open(f"{self.block}/size", "r") as f:
             return int(f.read().strip()) * 512
-        
+
     @property
     def partitions(self):
         return self.__partitions
@@ -30,6 +41,9 @@ class Disk:
             if partition.mountpoint == mountpoint:
                 return partition
 
+    def update_partitions(self):
+        self.__partitions = self.__get_partitions()
+
     @property
     def disk(self):
         return f"/dev/{self.__disk}"
@@ -37,7 +51,7 @@ class Disk:
     @property
     def name(self):
         return self.__disk
-    
+
     @property
     def block(self):
         return f"/sys/block/{self.__disk}"
@@ -45,7 +59,7 @@ class Disk:
     @property
     def size(self):
         return self.__size
-    
+
     @property
     def pretty_size(self):
         size = self.size
@@ -85,7 +99,7 @@ class Partition:
     def __get_fs_type(self):
         try:
             return subprocess.check_output(
-                f"findmnt -n -o FSTYPE {self.partition}",
+                f"lsblk -n -o FSTYPE {self.partition}",
                 shell=True
             ).decode("utf-8").strip()
         except subprocess.CalledProcessError:
@@ -94,7 +108,7 @@ class Partition:
     def __get_uuid(self):
         try:
             return subprocess.check_output(
-                f"findmnt -n -o UUID {self.partition}",
+                f"lsblk -n -o UUID {self.partition}",
                 shell=True
             ).decode("utf-8").strip()
         except subprocess.CalledProcessError:
@@ -149,6 +163,14 @@ class Partition:
     def label(self):
         return self.__label
 
+    def __lt__(self, other):
+        return self.partition < other.partition
+
+    def __eq__(self, other):
+        if not other:
+            return False
+        return self.uuid == other.uuid and self.fs_type == other.fs_type
+
 
 class DisksManager:
 
@@ -161,7 +183,7 @@ class DisksManager:
         for disk in os.listdir("/sys/block"):
             if disk.startswith(("loop", "ram", "sr", "zram")):
                 continue
-            
+
             disks.append(Disk(disk))
 
         return disks

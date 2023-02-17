@@ -1,49 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.0"/>
-    <requires lib="libadwaita" version="1.0" />
-    <template class="VanillaDefaultPartitionEntry" parent="AdwExpanderRow">
-        <property name="title">/dev/nvme0n1p1</property>
-        <property name="subtitle">1 GB</property>
+  <requires lib="gtk" version="4.0"/>
+  <template class="PartitionSelector" parent="AdwPreferencesPage">
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Disk Allocation</property>
+        <property name="description" translatable="true">Choose how to install Vanilla OS on your drive.</property>
         <child>
-            <object class="AdwComboRow" id="combo_fs">
-                <property name="title" translatable="yes">Format</property>
-                <property name="subtitle" translatable="yes">Choose a new file system or leave as is</property>
-                <property name="model">
-                    <object class="GtkStringList" id="str_list_fs">
-                        <items>
-                            <item>Do not touch</item>
-                            <item>btrfs</item>
-                            <item>ext4</item>
-                            <item>ext3</item>
-                            <item>fat32</item>
-                            <item>xfs</item>
-                            <item>swap</item>
-                        </items>
-                    </object>
-                </property>
-            </object>
+          <object class="AdwActionRow" id="entire_disk_row">
+            <property name="title" translatable="true">Entire Disk</property>
+            <property name="subtitle" translatable="true">This will erase all data on the disk.</property>
+            <child type="prefix">
+              <object class="GtkCheckButton" id="chk_entire_disk">
+                <property name="valign">center</property>
+                <property name="active">true</property>
+              </object>
+            </child>
+          </object>
         </child>
         <child>
-            <object class="AdwComboRow" id="combo_mp">
-                <property name="title" translatable="yes">Mount Point</property>
-                <property name="subtitle" translatable="yes">Choose a mount point for the partition</property>
-                <property name="model">
-                    <object class="GtkStringList" id="str_list_mp">
-                        <items>
-                            <item>Do not mount</item>
-                            <item>/</item>
-                            <item>/boot</item>
-                            <item>/boot/efi</item>
-                            <item>/home</item>
-                            <item>/opt</item>
-                            <item>/tmp</item>
-                            <item>/usr</item>
-                            <item>/var</item>
-                        </items>
-                    </object>
-                </property>
-            </object>
+          <object class="AdwActionRow" id="manual_part_row">
+            <property name="title" translatable="true">Manual Partitioning</property>
+            <property name="subtitle" translatable="true">Select which partitions to use for installation. Incorrect configuration can lead to data loss, corruption, and/or an unbootable system.</property>
+            <child type="prefix">
+              <object class="GtkCheckButton" id="chk_manual_part">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
         </child>
-    </template>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="open_gparted_group">
+        <child>
+          <object class="AdwActionRow" id="open_gparted_row">
+            <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
+            <property name="title" translatable="true">Open GParted</property>
+            <property name="subtitle" translatable="true">Open GParted to manually partition the disk</property>
+            <child type="suffix">
+              <object class="GtkButton" id="launch_gparted">
+                <property name="icon-name">adw-external-link-symbolic</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <style>
+                  <class name="circular"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="boot_part">
+        <property name="title" translatable="true">Boot Partition</property>
+        <property name="description" translatable="true">The partition to mount under “/boot”. This directory stores files for booting in Vanilla OS.</property>
+        <child>
+          <object class="AdwExpanderRow" id="boot_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="boot_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Boot partition is too small.</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="efi_part">
+        <property name="title" translatable="true">EFI Partition</property>
+        <property name="description" translatable="true">The partition to mount under “/boot/efi”. This directory stores files for booting in the bootloader.</property>
+        <child>
+          <object class="AdwExpanderRow" id="efi_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="efi_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">EFI partition is too small.</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="bios_part">
+        <property name="title" translatable="true">BIOS Boot Partition</property>
+        <property name="description" translatable="true">The partition required by GPT-formatted disks to support booting from BIOS systems. It must be located in the first 2 TB of the disk and must be exactly 1 Mebibyte (1 MiB).</property>
+        <child>
+          <object class="AdwExpanderRow" id="bios_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="bios_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">BIOS partition must be exactly 1 MiB.</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="roots_part">
+        <property name="title" translatable="true">Root Partitions</property>
+        <property name="description" translatable="true">The partitions to mount under “/”. Both partitions must be the same size.</property>
+        <child type="header-suffix">
+          <object class="GtkBox">
+            <child>
+              <object class="GtkButton" id="abroot_info_button">
+                <property name="valign">center</property>
+                <property name="icon-name">info-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkPopover" id="abroot_info_popover">
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="true">Vanilla OS uses an A/B partition system managed by ABRoot,
+which switches between two root partitions between updates.</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwExpanderRow" id="abroot_a_part_expand">
+            <child type="prefix">
+              <object class="GtkLabel">
+                <style>
+                  <class name="heading"/>
+                </style>
+                <property name="label">A</property>
+              </object>
+            </child>
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwExpanderRow" id="abroot_b_part_expand">
+            <child type="prefix">
+              <object class="GtkLabel">
+                <style>
+                  <class name="heading"/>
+                </style>
+                <property name="label">B</property>
+              </object>
+            </child>
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="root_sizes_differ_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Root partitions are not the same size.</property>
+        <property name="description" translatable="true">Please make sure your A and B partitions have the same disk space.</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="roots_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Root partitions are too small.</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="home_part">
+        <property name="title" translatable="true">Home Partition</property>
+        <property name="description" translatable="true">The partition to mount under “/home”. This directory stores all user data.</property>
+        <child>
+          <object class="AdwExpanderRow" id="home_part_expand">
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="home_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+        <property name="title" translatable="true">Home partition is too small.</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="swap_part">
+        <property name="title" translatable="true">Swap partition</property>
+        <property name="description" translatable="true">Swap acts as a virtual extension of your RAM and enables hibernation. Vanilla OS already uses zram to provide swapping at no storage cost.</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="true">Swap partition</property>
+            <property name="subtitle" translatable="true">Choose a partition to use for swap alongside zram. This is not required for hibernation.</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="use_swap_part">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwExpanderRow" id="swap_part_expand">
+            <property name="visible" bind-source="use_swap_part" bind-property="active" bind-flags="sync-create"/>
+            <property name="title" translatable="true">No partition selected</property>
+            <property name="subtitle" translatable="true">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>

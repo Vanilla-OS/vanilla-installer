@@ -33,11 +33,11 @@ class VanillaProgress(Gtk.Box):
     console_button = Gtk.Template.Child()
     console_box = Gtk.Template.Child()
     console_output = Gtk.Template.Child()
-    
+
     def __init__(self, window, tour: dict, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
-        self.__tour = tour    
+        self.__tour = tour
         self.__terminal = Vte.Terminal()
         self.__font = Pango.FontDescription()
         self.__font.set_family("Ubuntu Mono")
@@ -68,14 +68,14 @@ class VanillaProgress(Gtk.Box):
         self.__terminal.set_mouse_autohide(True)
         self.console_output.append(self.__terminal)
         self.__terminal.connect("child-exited", self.on_vte_child_exited)
-        
+
         palette = ["#353535", "#c01c28", "#26a269", "#a2734c", "#12488b", "#a347ba", "#2aa1b3", "#cfcfcf", "#5d5d5d", "#f66151", "#33d17a", "#e9ad0c", "#2a7bde", "#c061cb", "#33c7de", "#ffffff"]
-        
+
         FOREGROUND = palette[0]
         BACKGROUND = palette[15]
         FOREGROUND_DARK = palette[15]
         BACKGROUND_DARK = palette[0]
-        
+
         self.fg = Gdk.RGBA()
         self.bg = Gdk.RGBA()
 
@@ -89,7 +89,7 @@ class VanillaProgress(Gtk.Box):
             self.fg.parse(FOREGROUND_DARK)
             self.bg.parse(BACKGROUND_DARK)
         self.__terminal.set_colors(self.fg, self.bg, self.colors)
-        
+
         for _, tour in self.__tour.items():
             self.carousel_tour.append(VanillaTour(self.__window, tour))
 
@@ -112,7 +112,7 @@ class VanillaProgress(Gtk.Box):
                 time.sleep(5)
 
         RunAsync(run_async, None)
-    
+
     def on_vte_child_exited(self, terminal, status, *args):
         terminal.get_parent().remove(terminal)
         '''
