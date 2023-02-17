@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-16 17:29+0000\n"
+"PO-Revision-Date: 2023-02-17 22:27+0000\n"
 "Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/bn/>\n"
@@ -62,9 +62,8 @@ msgid "Select a Disk"
 msgstr "একটি ডিস্ক নির্বাচন করুন"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "ভ্যানিলা ওএস ইনস্টল করতে ডিস্ক নির্বাচন করুন"
+msgstr "যেখানে ভ্যানিলা ওএস ইনস্টল করতে চান ঐ ডিস্ক নির্বাচন করুন"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -191,7 +190,7 @@ msgstr "তথ্য দেখাচ্ছে"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "লগ"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -203,7 +202,7 @@ msgstr "আপনার ভ্যানিলা ওএস অভিজ্ঞত
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "লগ দেখান"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -218,7 +217,6 @@ msgid "Yes, enable it"
 msgstr "হ্যাঁ, এটি চালু করুন"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "ইনস্টল করা হচ্ছে…"
 
@@ -232,15 +230,13 @@ msgstr "স্লাইডশো দেখান"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "ডিস্ক বরাদ্দ"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "ভ্যানিলা ওএস ইনস্টল করতে ডিস্ক নির্বাচন করুন"
+msgstr "আপনার ড্রাইভে ভ্যানিলা ওএস কিভাবে ইনস্টল করবেন তা নির্বাচন করুন।"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
 msgstr "সম্পূর্ণ ডিস্ক ব্যবহার করুন"
 
@@ -249,15 +245,17 @@ msgid "This will erase all data on the disk."
 msgstr "এটি ডিস্কের সমস্ত ডেটা মুছে ফেলবে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "পার্টিশন"
+msgstr "নিজ হাতে করা বিভাজন"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"ইনস্টলেশনের জন্য কোন পার্টিশন (বিভাজন) ব্যবহার করতে হবে তা নির্বাচন করুন। ভু"
+"ল কনফিগারেশনের কারণে ডেটার ক্ষতি, দূষণ এবং/অথবা একটি বুটের অযোগ্য সিস্টেমের "
+"মুখোমুখি হওয়া লাগতে পারে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -268,15 +266,16 @@ msgid "Open GParted to manually partition the disk"
 msgstr "ম্যানুয়ালি ডিস্ক পার্টিশন করতে GParted খুলুন"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "পার্টিশন"
+msgstr "বুট পার্টিশন (বিভাজন)"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"পার্টিশন (বিভাজন) টি \"/boot\" এর অধীনে মাউন্ট (বাঁধাই করা) হবে। এই "
+"ডিরেক্টরিটি ভ্যানিলা ওএসে বুট করার জন্য ফাইলগুলি সঞ্চয় করে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -287,7 +286,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "কোনো পার্টিশন (বিভাজন) নির্বাচন করা হয়নি"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -297,33 +296,32 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:198
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "অন্তত একটি বিকল্প নির্বাচন করুন."
+msgstr "অনুগ্রহ করে নীচের বিকল্পগুলি থেকে একটি পার্টিশন (বিভাজন) নির্বাচন করুন"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "বুট পার্টিশন (বিভাজন) টি খুবই ছোট।"
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "পার্টিশন"
+msgstr "EFI পার্টিশন"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"পার্টিশনটি \"/boot/efi\" এর অধীনে মাউন্ট হবে। এই ডিরেক্টরিটি বুটলোডারে বুট "
+"করার জন্য ফাইলগুলি সঞ্চয় করে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI পার্টিশনটি খুবই ছোট।"
 
 #: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "পার্টিশন"
+msgstr "BIOS বুট পার্টিশন"
 
 #: vanilla_installer/gtk/widget-partition.ui:100
 msgid ""
@@ -331,79 +329,92 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"GPT-ফরম্যাটেড ডিস্ক BIOS সিস্টেম থেকে বুট করা সমর্থন করার জন্য প্রয়োজনীয় "
+"পার্টিশন। এই পার্টিশনটি অবশ্যই ডিস্কের প্রথম 2 টিবিতে অবস্থিত হতে হবে এবং "
+"অবশ্যই 1 মেবিবাইট (1 MiB) হতে হবে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:115
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS পার্টিশন অবশ্যই 1 MiB হতে হবে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
 msgid "Root Partitions"
-msgstr "পার্টিশন"
+msgstr "রুট পার্টিশন"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"পার্টিশনগুলি \"/\" এর অধীনে মাউন্ট করা হবে। উভয় পার্টিশনই অবশ্যই একই আকারের "
+"হতে হবে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"ভ্যানিলা ওএস ABRoot দ্বারা পরিচালিত একটি A/B পার্টিশন সিস্টেম ব্যবহার করে,\n"
+"যা আপডেটের মধ্যবর্তী সময়ে দুটি রুট পার্টিশনের মধ্যে অদলবদল করে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:178
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "রুট পার্টিশনগুলি একই আকারের নয়।"
 
 #: vanilla_installer/gtk/widget-partition.ui:179
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
+"অনুগ্রহ করে নিশ্চিত করুন যে আপনার A এবং B পার্টিশনগুলিতে একই ডিস্ক স্পেস "
+"রয়েছে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:188
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "রুট পার্টিশনগুলি খুবই ছোট।"
 
 #: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
 msgid "Home Partition"
-msgstr "পার্টিশন"
+msgstr "হোম পার্টিশন"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"পার্টিশনটি \"/home\" এর অধীনে মাউন্ট করা হবে। এই ডিরেক্টরি ব্যবহারকারীর সমস্"
+"ত ডেটা সঞ্চয় করে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
-msgstr ""
+msgstr "হোম পার্টিশন খুবই ছোট।"
 
 #: vanilla_installer/gtk/widget-partition.ui:214
 #: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
 msgid "Swap partition"
-msgstr "পার্টিশন"
+msgstr "Swap পার্টিশন"
 
 #: vanilla_installer/gtk/widget-partition.ui:215
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"সোয়াপ আপনার RAM এর ভার্চুয়াল এক্সটেনশন হিসাবে কাজ করে এবং হাইবারনেশনের "
+"সক্ষমতা প্রদান করে। ভ্যানিলা ওএস ইতিমধ্যেই কোন স্টোরেজ খরচ ছাড়াই সোয়াপিং "
+"ক্ষমতা প্রদান করতে zram ব্যবহার করে।"
 
 #: vanilla_installer/gtk/widget-partition.ui:219
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Zram এর পাশাপাশি সোয়াপ হিসেবে ব্যবহার করার জন্য একটি পার্টিশন চয়ন করুন। "
+"হাইবারনেশনের জন্য এটির প্রয়োজন হয় না।"
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "পেছনে"
 
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "পর্যাপ্ত জায়গা নেই: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
@@ -412,18 +423,19 @@ msgstr "এটি একমাত্র ডিস্ক উপলব্ধ এ�
 #: vanilla_installer/defaults/disk.py:332
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
+"GParted ইতিমধ্যে চলছে। GParted এর একই সময়ে শুধুমাত্র একটি সংঘটনই অনুমোদিত।"
 
 #: vanilla_installer/defaults/disk.py:431
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "পার্টিশন (বিভাজন) কমপক্ষে {} হতে হবে"
 
 #: vanilla_installer/defaults/disk.py:454
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "পার্টিশন অবশ্যই ঠিক {} হতে হবে"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "পার্টিশন পরিবর্তিত হয়েছে। বর্তমান নির্বাচনগুলি সাফ করা হয়েছে।"
 
 #: vanilla_installer/defaults/disk.py:621
 msgid "Entire disk will be used."
@@ -440,7 +452,7 @@ msgstr "{} এ ফরম্যাট করা হবে এবং {} এ মা
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "ক্লিক করা হয়েছে"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -448,71 +460,69 @@ msgstr "অন্তত একটি বিকল্প নির্বাচন
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "রেসিপিতে 'log_file' অনুপস্থিত।"
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "লগ ফাইল তৈরি করতে ব্যর্থ হয়েছে: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "কোনও লগ সংরক্ষণ করা হবে না।"
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "প্রদর্শন-শর্ত সম্পাদন হচ্ছে: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "প্রদর্শন-শর্তাবলীর কারণে %s ধাপটি বাদ দেওয়া হয়েছে"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "অনুপযোগী রেসিপি ফাইল"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "রেসিপি কোনও অভিধান নয়"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "রেসিপিতে '{key}' কী নেই"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "রেসিপি পদক্ষেপগুলি কোনও তালিকা নয়"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "{step} ধাপটি কোনও অভিধান নয়"
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "কিবোর্ডের ভিত্তি ধরণ"
+msgstr "কীবোর্ড"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "সময় অঞ্চল"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
 msgid "Users"
-msgstr "ব্যবহারকারীর নাম"
+msgstr "ব্যবহারকারী"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "ডিস্ক"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "ইনস্টলেশন-নিশ্চিত"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
@@ -528,7 +538,7 @@ msgstr "ডিস্ট্রিবিউশন ডেভেলপারদে�
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "পৃষ্ঠা-পরিবর্তিত"
 
 #~ msgid "Welcome"
 #~ msgstr "স্বাগতম"
