@@ -45,25 +45,25 @@
                                             <object class="AdwPreferencesGroup">
                                                 <child>
                                                     <object class="AdwEntryRow" id="fullname_entry">
-                                                        <property name="title" translatable="true">Name</property>
+                                                        <property name="title" translatable="yes">Name</property>
                                                         <property name="input-purpose">name</property>
                                                     </object>
                                                 </child>
                                                 <child>
                                                     <object class="AdwEntryRow" id="username_entry">
-                                                        <property name="title" translatable="true">Username</property>
+                                                        <property name="title" translatable="yes">Username</property>
                                                         <property name="input-purpose">name</property>
                                                     </object>
                                                 </child>
                                                 <child>
                                                     <object class="AdwPasswordEntryRow" id="password_entry">
-                                                        <property name="title" translatable="true">Password</property>
+                                                        <property name="title" translatable="yes">Password</property>
                                                         <property name="input-purpose">password</property>
                                                     </object>
                                                 </child>
                                                 <child>
                                                     <object class="AdwPasswordEntryRow" id="password_confirmation">
-                                                        <property name="title" translatable="true">Confirm Password</property>
+                                                        <property name="title" translatable="yes">Confirm Password</property>
                                                         <property name="input-purpose">password</property>
                                                     </object>
                                                 </child>

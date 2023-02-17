@@ -24,6 +24,7 @@ from glob import glob
 import re
 import json
 
+from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
 
 logger = logging.getLogger("Installer::Processor")

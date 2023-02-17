@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="VanillaDefaultDiskPartModal" parent="AdwWindow">
-    <property name="title" translatable="true">Configure Disk</property>
+    <property name="title" translatable="yes">Configure Disk</property>
     <property name="modal">true</property>
     <property name="deletable">false</property>
     <property name="default-width">650</property>
@@ -14,12 +14,12 @@
           <object class="AdwHeaderBar">
             <child type="start">
               <object class="GtkButton" id="btn_cancel">
-                <property name="label" translatable="true">Cancel</property>
+                <property name="label" translatable="yes">Cancel</property>
               </object>
             </child>
             <child type="end">
               <object class="GtkButton" id="btn_apply">
-                <property name="label" translatable="true">Apply</property>
+                <property name="label" translatable="yes">Apply</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>

@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from gi.repository import Gtk, Adw
+from gettext import gettext as _
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog.ui')

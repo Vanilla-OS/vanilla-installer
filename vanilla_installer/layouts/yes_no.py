@@ -19,7 +19,7 @@ from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.windows.dialog import VanillaDialog
-
+from gettext import gettext as _
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/layout-yes-no.ui')
 class VanillaLayoutYesNo(Adw.Bin):

@@ -20,7 +20,7 @@ import logging
 import json
 
 from gi.repository import Gio
-
+from gettext import gettext as _
 
 logger = logging.getLogger("Installer::RecipeLoader")
 
@@ -43,7 +43,7 @@ class RecipeLoader:
                 return
 
         if not self.__validate():
-            logger.error("Invalid recipe file")
+            logger.error(_("Invalid recipe file"))
             sys.exit(1)
 
         logger.error(f"Recipe not found at {self.recipe_path}")
@@ -52,21 +52,21 @@ class RecipeLoader:
     def __validate(self):
         essential_keys = ["log_file", "distro_name", "distro_logo", "steps"]
         if not isinstance(self.__recipe, dict):
-            logger.error("Recipe is not a dictionary")
+            logger.error(_("Recipe is not a dictionary"))
             return False
 
         for key in essential_keys:
             if key not in self.__recipe:
-                logger.error(f"Recipe is missing the '{key}' key")
+                logger.error(_(f"Recipe is missing the '{key}' key"))
                 return False
 
         if not isinstance(self.__recipe["steps"], list):
-            logger.error("Recipe steps is not a list")
+            logger.error(_("Recipe steps is not a list"))
             return False
 
         for step in self.__recipe["steps"]:
             if not isinstance(step, dict):
-                logger.error(f"Step {step} is not a dictionary")
+                logger.error(_(f"Step {step} is not a dictionary"))
                 return False
 
     @property

@@ -20,6 +20,7 @@ import logging
 import subprocess
 import json
 
+from gettext import gettext as _
 from gi.repository import Gio
 
 from vanilla_installer.utils.recipe import RecipeLoader
@@ -63,7 +64,7 @@ class Builder:
         # here we create a temporary file to store the output of the commands
         # the log path is defined in the recipe
         if "log_file" not in self.__recipe.raw:
-            logger.critical("Missing 'log_file' in the recipe.")
+            logger.critical(_("Missing 'log_file' in the recipe."))
             sys.exit(1)
 
         log_path = self.__recipe.raw["log_file"]
@@ -72,21 +73,21 @@ class Builder:
             try:
                 open(log_path, 'a').close()
             except OSError:
-                logger.warning("failed to create log file: %s" % log_path)
-                logging.warning("No log will be stored.")
+                logger.warning(_("failed to create log file: %s") % log_path)
+                logging.warning(_("No log will be stored."))
 
         for key, step in self.__recipe.raw["steps"].items():
             if step.get("display-conditions"):
                 _condition_met = False
                 for command in step["display-conditions"]:
                     try:
-                        logger.info("Performing display-condition: %s" % command)
+                        logger.info(_("Performing display-condition: %s") % command)
                         output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
                         if output.decode("utf-8") == "" or output.decode("utf-8") == "1":
-                            logger.info("Step %s skipped due to display-conditions" % key)
+                            logger.info(_("Step %s skipped due to display-conditions") % key)
                             break
                     except subprocess.CalledProcessError as e:
-                        logger.info("Step %s skipped due to display-conditions" % key)
+                        logger.info(_("Step %s skipped due to display-conditions") % key)
                         break
                 else:
                     _condition_met = True

@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from gi.repository import Gtk, GObject, Adw
-
+from gettext import gettext as _
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-choice.ui')
 class VanillaChoiceEntry(Adw.ActionRow):
@@ -69,32 +69,32 @@ class VanillaConfirm(Adw.Bin):
 
                 if key == "language":
                     self.active_widgets.append(VanillaChoiceEntry(
-                        "Language",
+                        _("Language"),
                         value,
                         "preferences-desktop-locale-symbolic"
                     ))
                 elif key == "keyboard":
                     self.active_widgets.append(VanillaChoiceEntry(
-                        "Keyboard",
+                        _("Keyboard"),
                         value,
                         "input-keyboard-symbolic"
                     ))
                 elif key == "timezone":
                     self.active_widgets.append(VanillaChoiceEntry(
-                        "Timezone",
+                        _("Timezone"),
                         f"{value['region']} {value['zone']}",
                         "preferences-system-time-symbolic"
                     ))
                 elif key == "users":
                     self.active_widgets.append(VanillaChoiceEntry(
-                        "Users",
+                        _("Users"),
                         f"{value['username']} ({value['fullname']})",
                         "system-users-symbolic"
                     ))
                 elif key == "disk":
                     if "auto" in value:
                         self.active_widgets.append(VanillaChoiceEntry(
-                            "Disk",
+                            _("Disk"),
                             f"{value['auto']['disk']} ({value['auto']['pretty_size']})",
                             "drive-harddisk-system-symbolic"
                         ))
@@ -103,7 +103,7 @@ class VanillaConfirm(Adw.Bin):
                         for block, block_info in value.items():
                             if i == 0:
                                 expander = VanillaChoiceExpanderEntry(
-                                    "Disk",
+                                    _("Disk"),
                                     block_info,
                                     "drive-harddisk-system-symbolic"
                                 )
@@ -119,7 +119,7 @@ class VanillaConfirm(Adw.Bin):
         for widget in self.active_widgets:
             self.group_changes.add(widget)
 
-        self.btn_confirm.connect("clicked", self.__on_confirm)
+        self.btn_confirm.connect(_("clicked"), self.__on_confirm)
 
     def __on_confirm(self, widget):
-        self.emit("installation-confirmed")
+        self.emit(_("installation-confirmed"))
