@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-15 15:38+0000\n"
+"PO-Revision-Date: 2023-02-18 09:58+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/nl/>\n"
@@ -62,7 +62,6 @@ msgid "Select a Disk"
 msgstr "Selecteer een schijf"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
 msgstr "Selecteer de schijf waarop u Vanilla OS wilt installeren"
 
@@ -193,7 +192,7 @@ msgstr "Informatie wordt weergegeven"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Logboek"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -206,7 +205,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Logboek tonen"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -221,7 +220,6 @@ msgid "Yes, enable it"
 msgstr "Ja, inschakelen"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "Installeren…"
 
@@ -235,32 +233,32 @@ msgstr "Diavoorstelling tonen"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "Schijfallocatie"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Selecteer de schijf waarop u Vanilla OS wilt installeren"
+msgstr "Kies hoe Vanilla OS op uw schijf geïnstalleerd moet worden."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
-msgstr "Volledige schijf gebruiken"
+msgstr "Volledige schijf"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
 msgstr "Hiermee worden alle gegevens op de schijf gewist."
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "Partities"
+msgstr "Handmatig partitioneren"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"Selecteer welke partities voor de installatie gebruikt moeten worden. "
+"Onjuiste configuratie kan leiden tot gegevensverlies, corruptie en/of een "
+"niet-opstartbaar systeem."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -271,15 +269,16 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Open GParted om de schijf handmatig te partitioneren"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Partities"
+msgstr "Opstartpartitie"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"De partitie welke aan ‘/boot’ dient te worden gekoppeld. Deze bevat "
+"bestanden voor het opstarten van Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -290,7 +289,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "Geen partitie geselecteerd"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -306,12 +305,11 @@ msgstr "Selecteer ten minste één optie."
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "Opstartpartitie is te klein"
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "Partities"
+msgstr "EFI-partitie"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
@@ -321,12 +319,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI-partitie is te klein"
 
 #: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "Partities"
+msgstr "BIOS-opstartpartitie"
 
 #: vanilla_installer/gtk/widget-partition.ui:100
 msgid ""
@@ -340,9 +337,8 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
 msgid "Root Partitions"
-msgstr "Partities"
+msgstr "Root-partities"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
@@ -365,12 +361,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:188
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Root-partities zijn te klein"
 
 #: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
 msgid "Home Partition"
-msgstr "Partities"
+msgstr "Gebruikerspartitie"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
@@ -379,13 +374,12 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
-msgstr ""
+msgstr "Gebruikerspartitie is te klein"
 
 #: vanilla_installer/gtk/widget-partition.ui:214
 #: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
 msgid "Swap partition"
-msgstr "Partities"
+msgstr "Swap-partitie"
 
 #: vanilla_installer/gtk/widget-partition.ui:215
 msgid ""
@@ -401,12 +395,12 @@ msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Terug"
 
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "Niet genoeg ruimte: {0} / {1}"
 
 #: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
@@ -422,7 +416,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:454
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partitie moet EXACT {}"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
@@ -443,7 +437,7 @@ msgstr "Zal worden geformatteerd als {} en gekoppeld als {}"
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "gedrukt"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -495,27 +489,25 @@ msgid "Step {step} is not a dictionary"
 msgstr ""
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "Toetsenbordindeling"
+msgstr "Toetsenbord"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "Tijdzone"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
 msgid "Users"
-msgstr "Gebruikersnaam"
+msgstr "Gebruikers"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "Schijf"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "installatie-bevestigd"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
@@ -531,7 +523,7 @@ msgstr "Neem contact op met de distributieontwikkelaars."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "pagina-veranderd"
 
 #~ msgid "Welcome"
 #~ msgstr "Welkom"
