@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-17 15:51+0000\n"
+"PO-Revision-Date: 2023-02-17 22:27+0000\n"
 "Last-Translator: Matt C <matei.gurzu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ro/>\n"
@@ -65,9 +65,8 @@ msgid "Select a Disk"
 msgstr "Selectează un disk"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Selectează diskul unde vrei să instalezi Vanilla OS"
+msgstr "Selectați discul pe care doriți să instalați Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -195,7 +194,7 @@ msgstr "Se arată informații"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Jurnal"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -207,7 +206,7 @@ msgstr "Repornește-ți dispozitivul pentru a te bucura de experiența Vanilla O
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Arată jurnalul"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -222,9 +221,8 @@ msgid "Yes, enable it"
 msgstr "Da, activează opțiunea"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "Se instalează…"
+msgstr "Se instalează..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -236,32 +234,32 @@ msgstr "Arată prezentarea"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "Alocarea discurilor"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Selectează diskul unde vrei să instalezi Vanilla OS"
+msgstr "Alegeți cum să instalați Vanilla OS pe discul dvs."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
-msgstr "Folosește tot disk-ul"
+msgstr "Întregul disc"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
 msgstr "Acest proces va șterge toate datele de pe disk."
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "Partiții"
+msgstr "Partiționare manuală"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"Selectați ce partiții să utilizați pentru instalare. O configurație "
+"incorectă poate duce la pierderea de date, la corupție și/sau la un sistem "
+"care nu poate fi pornit."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -272,15 +270,16 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Deschide GParted pentru a modifica partițiile de disk manual"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Partiții"
+msgstr "Partiție de pornire"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"Partiția care trebuie montată sub \"/boot\". Acest director stochează "
+"fișierele pentru pornirea Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -291,7 +290,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "Nu este selectată nicio partiție"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -301,33 +300,32 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:198
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "Alege te rog cel puțin o opțiune."
+msgstr "Vă rugăm să selectați o partiție din opțiunile de mai jos"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "Partiția de pornire este prea mică."
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "Partiții"
+msgstr "Partiția EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"Partiția care trebuie montată sub \"/boot/efi\". Acest director stochează "
+"fișierele pentru pornirea în bootloader."
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "Partiția EFI este prea mică."
 
 #: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "Partiții"
+msgstr "Partiția de pornire a BIOS"
 
 #: vanilla_installer/gtk/widget-partition.ui:100
 msgid ""
@@ -335,79 +333,89 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"Partiția necesară pentru discurile formatate GPT pentru a permite pornirea "
+"în sistemele BIOS. Aceasta trebuie să fie situată în primii 2 TB ai discului "
+"și trebuie să aibă exact 1 Mebibyte (1 MiB)."
 
 #: vanilla_installer/gtk/widget-partition.ui:115
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "Partiția BIOS trebuie să fie de exact 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
 msgid "Root Partitions"
-msgstr "Partiții"
+msgstr "Partiții rădăcină"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"Partițiile de montat sub \"/\". Ambele partiții trebuie să aibă aceeași "
+"dimensiune."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"Vanilla OS folosește un sistem de partiții A/B gestionat de ABRoot,\n"
+"care comută între două partiții rădăcină între actualizări."
 
 #: vanilla_installer/gtk/widget-partition.ui:178
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "Partițiile rădăcină nu au aceeași dimensiune."
 
 #: vanilla_installer/gtk/widget-partition.ui:179
 msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
+msgstr "Asigurați-vă că partițiile A și B au același spațiu pe disc."
 
 #: vanilla_installer/gtk/widget-partition.ui:188
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Partițiile rădăcină sunt prea mici."
 
 #: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
 msgid "Home Partition"
-msgstr "Partiții"
+msgstr "Partiție de acasă"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"Partiția de montat sub \"/home\". Acest director stochează toate datele "
+"utilizatorului."
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
-msgstr ""
+msgstr "Partiția de acasă este prea mică."
 
 #: vanilla_installer/gtk/widget-partition.ui:214
 #: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
 msgid "Swap partition"
-msgstr "Partiții"
+msgstr "Partiție swap"
 
 #: vanilla_installer/gtk/widget-partition.ui:215
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"Swap acționează ca o extensie virtuală a memoriei RAM și permite hibernarea. "
+"Vanilla OS folosește deja zram pentru a oferi swap fără costuri de stocare."
 
 #: vanilla_installer/gtk/widget-partition.ui:219
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Alegeți o partiție care să fie folosită pentru swap alături de zram. Acest "
+"lucru nu este necesar pentru hibernare."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Înapoi"
 
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "Spațiu insuficient: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
@@ -415,19 +423,19 @@ msgstr "Acesta este singurul disk disponibil și nu poate fi deselectat!"
 
 #: vanilla_installer/defaults/disk.py:332
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr ""
+msgstr "GParted rulează deja. Este permisă o singură instanță de GParted."
 
 #: vanilla_installer/defaults/disk.py:431
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "Partiția trebuie să fie de cel puțin {}"
 
 #: vanilla_installer/defaults/disk.py:454
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partiția trebuie EXACT {}"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Partițiile s-au schimbat. Selecțiile curente au fost șterse."
 
 #: vanilla_installer/defaults/disk.py:621
 msgid "Entire disk will be used."
@@ -444,7 +452,7 @@ msgstr "Va fi formatat în {} și montat în {}"
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "apăsat"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -452,71 +460,69 @@ msgstr "Alege te rog cel puțin o opțiune."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Lipsește \"log_file\" în rețetă."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "nu s-a putut crea fișierul jurnal: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "Nu va fi stocat niciun jurnal."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Efectuarea condiției de afișare: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Pasul %s sărit din cauza condițiilor de afișare"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Fișier de rețetă invalid"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Rețeta nu este un dicționar"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "În rețetă lipsește cheia \"{key}\""
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Etapele rețetei nu sunt o listă"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "Pasul {step} nu este un dicționar"
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "Layout-ul tastaturii"
+msgstr "Tastatură"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "Fus orar"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
 msgid "Users"
-msgstr "Nume de utilizator"
+msgstr "Utilizatori"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "Disc"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "instalare-confirmată"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
@@ -532,7 +538,7 @@ msgstr "Te rog contactează dezvoltatorii distribuției."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "pagină-schimbată"
 
 #~ msgid "Welcome"
 #~ msgstr "Bine ai venit"
