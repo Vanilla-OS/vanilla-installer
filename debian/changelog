@@ -1,3 +1,11 @@
+vanilla-installer (1.2.0) kinetic; urgency=medium
+
+  * Support for manual partitioning
+  * Add default GRUB config for Vanilla OS during installation
+  * Update translations
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 18 Feb 2023 11:11:00 -0300
+
 vanilla-installer (1.1.2-1) kinetic; urgency=critical
 
   * Improved timezone syntax
