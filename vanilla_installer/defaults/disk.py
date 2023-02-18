@@ -19,7 +19,6 @@ import time
 import subprocess
 from gi.repository import Gtk, Gio, GLib, GObject, Adw
 from typing import Union
-import re
 
 from vanilla_installer.core.disks import DisksManager, Partition, Diskutils
 from vanilla_installer.core.system import Systeminfo
@@ -240,10 +239,6 @@ class PartitionSelector(Adw.PreferencesPage):
         self.__parent = parent
         self.__partitions = sorted(partitions)
         self.chk_entire_disk.set_group(self.chk_manual_part)
-
-        self.entire_disk_row.set_activatable_widget(self.chk_entire_disk)
-        self.manual_part_row.set_activatable_widget(self.chk_manual_part)
-        self.open_gparted_row.set_activatable_widget(self.launch_gparted)
 
         self.chk_manual_part.connect("toggled", self.__on_chk_manual_part_toggled)
         self.chk_entire_disk.connect("toggled", self.__on_chk_entire_disk_toggled)
