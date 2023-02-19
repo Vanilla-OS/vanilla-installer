@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# NotTheCoder _ <gaemsnahni3@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-10 15:37+0000\n"
-"Last-Translator: Rodrigo Mantoan <rodrigomantoan@gmail.com>\n"
+"PO-Revision-Date: 2023-02-20 18:20+0000\n"
+"Last-Translator: NotTheCoder _ <gaemsnahni3@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -194,7 +193,7 @@ msgstr "Mostrando informações"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -207,7 +206,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Mostrar Log"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -236,7 +235,7 @@ msgstr "Mostrar Slides"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "Alocação de Disco"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 #, fuzzy
