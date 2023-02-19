@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
 "PO-Revision-Date: 2023-02-20 18:20+0000\n"
-"Last-Translator: Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>\n"
+"Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/bn/>\n"
 "Language: bn\n"
@@ -29,7 +29,7 @@ msgstr "আপনার ভ্যানিলা ওএস ইনস্টলে
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "কোন বর্ণনা নেই"
+msgstr "কোন বর্ণনা পাওয়া যায়নি"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
