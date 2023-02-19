@@ -155,7 +155,7 @@ class Processor:
                                 arguments += ["-b", f"'{values}'"]
                                 continue
 
-                            partition_number = re.sub(r".*([0-9]+)", r"\1", partition)
+                            partition_number = re.sub(r".*[a-z]([0-9]+)", r"\1", partition)
                             if values["mp"] == "/boot/efi":
                                 arguments += [
                                     "-u",
