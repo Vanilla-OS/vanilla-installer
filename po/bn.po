@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # Abu Huraira <abuhuraira@tutamail.com>, 2023.
+# Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-17 22:27+0000\n"
-"Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
+"PO-Revision-Date: 2023-02-20 18:20+0000\n"
+"Last-Translator: Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/bn/>\n"
 "Language: bn\n"
@@ -218,7 +219,7 @@ msgstr "হ্যাঁ, এটি চালু করুন"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr "ইনস্টল করা হচ্ছে…"
+msgstr "ইনস্টল করা হচ্ছে..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
