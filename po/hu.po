@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-15 15:38+0000\n"
+"PO-Revision-Date: 2023-02-20 18:20+0000\n"
 "Last-Translator: Benjamin Kőhidi <benstone326@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/hu/>\n"
@@ -220,7 +220,6 @@ msgid "Yes, enable it"
 msgstr "Igen, engedélyezze"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "Telepítés…"
 
@@ -237,9 +236,8 @@ msgid "Disk Allocation"
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Válassza ki a lemezt, amelyre telepíteni szeretné a Vanilla OS-t"
+msgstr "Válassza ki a lemezt, amelyre telepíteni szeretné a Vanilla OS-t."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 #, fuzzy
@@ -299,9 +297,8 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:198
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "Kérjük, válasszon legalább egy lehetőséget."
+msgstr "Kérjük, válasszon legalább egy lehetőséget"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
