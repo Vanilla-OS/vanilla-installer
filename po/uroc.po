@@ -1,42 +1,40 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2023.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-20 18:21+0000\n"
-"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/vanilla-os/"
-"installer/oc/>\n"
-"Language: oc\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: uroc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
-msgstr "Installador de Vanilla OS"
+msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Personalizatz vòstra installacion de Vanilla OS."
+msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "Cap de descripcion"
+msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr "Primièr lançament"
+msgstr ""
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"
-msgstr "Confirmar l’installacion"
+msgstr ""
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
@@ -45,7 +43,7 @@ msgstr ""
 #: vanilla_installer/gtk/confirm.ui:28
 #: vanilla_installer/gtk/default-welcome.ui:86
 msgid "Install Vanilla OS"
-msgstr "Installar Vanilla OS"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -55,120 +53,120 @@ msgstr "Installar Vanilla OS"
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr "Seguent"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "Causir un disc"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Seleccionatz lo disc ont volètz installar Vanilla OS"
+msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr "Configurar"
+msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "Agençament del clavièr"
+msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "Seleccionatz vòstra disposicion del clavièr preferida"
+msgstr ""
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "Cercar una disposicion de clavièr"
+msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 #: vanilla_installer/views/confirm.py:72
 msgid "Language"
-msgstr "Lenga"
+msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "Seleccionatz vòstra lenga"
+msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr "Recercar una lenga"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr "Per defaut"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "Escur"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Esquèma de colors"
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Causissètz un esquèma de colors pel sistèma"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr "Data e ora"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "Causissètz lo fus orari preferit"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "Cercar una zòna orària"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr "Region"
+msgstr ""
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr "Zòna"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Crear un utilizaire"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Picatz los detalhs del compte utilizaire"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
-msgstr "Nom d’utilizaire"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
-msgstr "Senhal"
+msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Confirmar lo senhal"
+msgstr ""
 
 #: vanilla_installer/gtk/default-welcome.ui:51
 msgid "Try Vanilla OS"
-msgstr "Ensajatz Vanilla OS"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr "Confirmar las modificacions"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:17
 msgid "Cancel"
-msgstr "Anullar"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
@@ -178,15 +176,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
-msgstr "Configurar los disques"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
-msgstr "Aplicar"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Afichatge de las informacions"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
@@ -194,7 +192,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr "Acabat !"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -210,23 +208,23 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
-msgstr "Tampar"
+msgstr ""
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "Òc, activar"
+msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr "Installacion…"
+msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
-msgstr "Mostrar la consòla"
+msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr "Veire lo diaporama"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
@@ -256,7 +254,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
-msgstr "Dobrir GParted"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:40
 msgid "Open GParted to manually partition the disk"
@@ -264,7 +262,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:57
 msgid "Boot Partition"
-msgstr "Particion d’aviada"
+msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
@@ -432,7 +430,7 @@ msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr "Volgatz seleccionar almens una opcion."
+msgstr ""
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
@@ -502,15 +500,15 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Reaviatz vòstre aparelh per aprofiechar de vòstra experiéncia {}."
+msgstr ""
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
-msgstr "I a quicòm que truca"
+msgstr ""
 
 #: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
-msgstr "Mercés de contactar los desvolopaires de la distribucion."
+msgstr ""
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-18 09:58+0000\n"
+"PO-Revision-Date: 2023-02-20 18:21+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hans/>\n"
@@ -220,7 +220,7 @@ msgstr "是的，请启用"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr "安装中…"
+msgstr "正在安装..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"

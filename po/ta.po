@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-12 09:34+0000\n"
+"PO-Revision-Date: 2023-02-20 18:21+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -62,9 +62,8 @@ msgid "Select a Disk"
 msgstr "ஒரு வட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "வெண்ணிலா OS ஐ நிறுவ வட்டைத் தேர்ந்தெடுக்கவும்"
+msgstr "நீங்கள் வெண்ணிலா OS ஐ நிறுவ விரும்பும் வட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -169,7 +168,7 @@ msgstr "மாற்றங்களை உறுதிப்படுத்த�
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:17
 msgid "Cancel"
-msgstr "ரத்து செய்"
+msgstr "ரத்துசெய்"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
@@ -191,7 +190,7 @@ msgstr "தகவலைக் காட்டுகிறது"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "பதிவு"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -203,7 +202,7 @@ msgstr "உங்கள் வெண்ணிலா OS அனுபவத்த�
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "பதிவை காட்டு"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -218,7 +217,6 @@ msgid "Yes, enable it"
 msgstr "ஆம், அதை இயக்கு"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "நிறுவுகிறது…"
 
@@ -232,32 +230,33 @@ msgstr "ஸ்லைடுஷோவைக் காட்டு"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "வட்டு ஒதுக்கீடு"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "வெண்ணிலா OS ஐ நிறுவ வட்டைத் தேர்ந்தெடுக்கவும்"
+msgstr ""
+"உங்கள் ஓட்டில் வெண்ணிலா OS ஐ எவ்வாறு நிறுவுவது என்பதைத் தேர்வுசெய்யவும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
-msgstr "முழு வட்டையும் பயன்படுத்துங்கள்"
+msgstr "முழு வட்டு"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
 msgstr "இது வட்டில் உள்ள அனைத்து தரவையும் அழித்துவிடும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "பகிர்வுகள்"
+msgstr "கைமுறை பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"நிறுவலுக்குப் பயன்படுத்த வேண்டிய பகிர்வுகளைத் தேர்ந்தெடுக்கவும். தவறான "
+"உள்ளமைவு தரவு இழப்பு, ஊழல் மற்றும்/அல்லது துவக்க முடியாத அமைப்புக்கு "
+"வழிவகுக்கும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -268,15 +267,16 @@ msgid "Open GParted to manually partition the disk"
 msgstr "வட்டை கைமுறையால் பிரிப்பதற்கு GParted ஐத் திறக்கவும்"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "பகிர்வுகள்"
+msgstr "துவக்க பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"\"/boot\" இன் கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த அடைவு வெண்ணிலா OS இல் "
+"துவக்க கோப்புகளை சேமிக்கிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -287,7 +287,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "பகிர்வு எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -297,33 +297,32 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:198
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
+msgstr "கீழே உள்ள விருப்பங்களிலிருந்து ஒரு பகிர்வைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "துவக்க பகிர்வு மிகவும் சிறியது."
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "பகிர்வுகள்"
+msgstr "EFI பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"\"/boot/efi\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த கோப்பகம் பூட்லோடரில் "
+"துவக்க கோப்புகளை சேமிக்கிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI பகிர்வு மிகவும் சிறியது."
 
 #: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "பகிர்வுகள்"
+msgstr "BIOS துவக்க பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:100
 msgid ""
@@ -331,79 +330,92 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"BIOS கணினிகளில் இருந்து பூட் செய்வதை ஆதரிக்க GPT-வடிவமைக்கப்பட்ட வட்டுகளுக்கு"
+" தேவைப்படும் பகிர்வு. இது வட்டின் முதல் 2 TB இல் இருக்க வேண்டும் மற்றும் "
+"சரியாக 1 Mebibyte (1 MiB) ஆக இருக்க வேண்டும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:115
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS பகிர்வு சரியாக 1 MiB ஆக இருக்க வேண்டும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
 msgid "Root Partitions"
-msgstr "பகிர்வுகள்"
+msgstr "வேர் பகிர்வுகள்"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"பகிர்வுகளை \"/\" கீழ் ஏற்ற வேண்டும். இரண்டு பகிர்வுகளும் ஒரே அளவில் இருக்க "
+"வேண்டும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"வெண்ணிலா OS ஆனது ABRoot ஆல் நிர்வகிக்கப்படும் A/B பகிர்வு அமைப்பைப் "
+"பயன்படுத்துகிறது,\n"
+"புதுப்பிப்புகளுக்கு இடையில் இரண்டு வேர் பகிர்வுகளுக்கு இடையில் மாறுகிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:178
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "வேர் பகிர்வுகள் ஒரே அளவு இல்லை."
 
 #: vanilla_installer/gtk/widget-partition.ui:179
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
+"உங்கள் A மற்றும் B பகிர்வுகளில் ஒரே வட்டு இடம் இருப்பதை உறுதிப்படுத்தவும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:188
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "வேர் பகிர்வுகள் மிகவும் சிறியவை."
 
 #: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
 msgid "Home Partition"
-msgstr "பகிர்வுகள்"
+msgstr "வீட்டுப் பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"\"/home\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த அடைவு அனைத்து பயனர் "
+"தரவையும் சேமிக்கிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
-msgstr ""
+msgstr "வீட்டுப் பகிர்வு மிகவும் சிறியது."
 
 #: vanilla_installer/gtk/widget-partition.ui:214
 #: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
 msgid "Swap partition"
-msgstr "பகிர்வுகள்"
+msgstr "ஸ்வாப் பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:215
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"ஸ்வாப் உங்கள் RAMமின் மெய்நிகர் நீட்டிப்பாக செயல்படுகிறது மற்றும் உறக்கநிலையை"
+" செயல்படுத்துகிறது. வெண்ணிலா OS ஏற்கனவே zram ஐப் பயன்படுத்தி, சேமிப்பகச் "
+"செலவில் இடமாற்றம் செய்யவில்லை."
 
 #: vanilla_installer/gtk/widget-partition.ui:219
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"zram உடன் ஸ்வாப் பயன்படுத்த ஒரு பகிர்வை தேர்வு செய்யவும். உறக்கநிலைக்கு இது "
+"தேவையில்லை."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "திரும்பவும்"
 
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "போதுமான இடம் இல்லை: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
@@ -412,18 +424,20 @@ msgstr "இந்த வட்டு மட்டுமே உள்ளது �
 #: vanilla_installer/defaults/disk.py:332
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
+"GParted ஏற்கனவே இயங்குகிறது. GParted இன் ஒரு நிகழ்வு மட்டுமே "
+"அனுமதிக்கப்படுகிறது."
 
 #: vanilla_installer/defaults/disk.py:431
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "பகிர்வு குறைந்தது {} ஆக இருக்க வேண்டும்"
 
 #: vanilla_installer/defaults/disk.py:454
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "பகிர்வு கண்டிப்பாக {}"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "பகிர்வுகள் மாறிவிட்டன. தற்போதைய தேர்வுகள் அழிக்கப்பட்டன."
 
 #: vanilla_installer/defaults/disk.py:621
 msgid "Entire disk will be used."
@@ -440,7 +454,7 @@ msgstr "{} இல் வடிவமைக்கப்படும் மற்�
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "சொடுக்கப்பட்டது"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -448,71 +462,69 @@ msgstr "குறைந்தபட்சம் ஒரு விருப்ப�
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "செய்முறையில் 'log_file' இல்லை."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "பதிவு கோப்பை உருவாக்க முடியவில்லை: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "பதிவு எதுவும் சேமிக்கப்படாது."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "காட்சி-நிலையை செயல்படுத்துகிறது: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "காட்சி-நிபந்தனைகள் காரணமாக படி %s தவிர்க்கப்பட்டது"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "தவறான செய்முறை கோப்பு"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "செய்முறை அகராதி அல்ல"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "செய்முறையில் '{key}' விசை இல்லை"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "செய்முறை படிகள் பட்டியல் அல்ல"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "படி {step} என்பது அகராதி அல்ல"
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "விசைப்பலகை தளவமைப்பு"
+msgstr "விசைப்பலகை"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "நேர மண்டலம்"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
 msgid "Users"
-msgstr "பயனர் பெயர்"
+msgstr "பயனர்கள்"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "வட்டு"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "நிறுவல்-உறுதிப்படுத்தப்பட்டது"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
@@ -528,7 +540,7 @@ msgstr "விநியோக டெவலப்பர்களைத் தொ�
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "பக்கம் மாற்றப்பட்டது"
 
 #~ msgid "Welcome"
 #~ msgstr "வரவேற்கிறோம்"
