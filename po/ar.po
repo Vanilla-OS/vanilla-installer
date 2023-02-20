@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-10 15:37+0000\n"
-"Last-Translator: Khaled Mahmoud <Khaled.q6@gmail.com>\n"
+"PO-Revision-Date: 2023-02-21 05:05+0000\n"
+"Last-Translator: Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -64,7 +65,6 @@ msgid "Select a Disk"
 msgstr "حدد قُرْصًا"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
 msgstr "حدد القرص لتثبيت نظام فانيلا عليه"
 
@@ -193,7 +193,7 @@ msgstr "عرض المعلومات"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "سجل"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -205,7 +205,7 @@ msgstr "أعد تشغيل الحاسوب للاستمتاع بتجربة نظا�
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "عرض السجل"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -220,9 +220,8 @@ msgid "Yes, enable it"
 msgstr "نعم، فعّلها"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "التثبيت جارٍ..."
+msgstr "جارٍ التثبيت ..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -237,12 +236,10 @@ msgid "Disk Allocation"
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "حدد القرص لتثبيت نظام فانيلا عليه"
+msgstr "اختر كيفية تثبيت نظام فانيلا على محرك الأقراص الخاص بك."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
 msgstr "استخدم كامل القرص"
 
@@ -253,7 +250,7 @@ msgstr "هذا سيمحو كل بيانات على القرص."
 #: vanilla_installer/gtk/widget-partition.ui:23
 #, fuzzy
 msgid "Manual Partitioning"
-msgstr "الأقسام"
+msgstr "التقسيم اليدوي"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
@@ -272,7 +269,7 @@ msgstr "فتح GParted لتقسيم القرص يدويًّا"
 #: vanilla_installer/gtk/widget-partition.ui:57
 #, fuzzy
 msgid "Boot Partition"
-msgstr "الأقسام"
+msgstr "تقسيم التمهيد"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
@@ -289,7 +286,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "لم يتم تحديد أي تقسيم"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -305,12 +302,11 @@ msgstr "يرجى تحديد خيار واحد على الأقل."
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "تقسيم التمهيد صغير جدا."
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "الأقسام"
+msgstr "تقسيم EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
@@ -320,12 +316,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "تقسيم EFI صغير جدا."
 
 #: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "الأقسام"
+msgstr "تقسيم تمهيد BIOS"
 
 #: vanilla_installer/gtk/widget-partition.ui:100
 msgid ""
@@ -341,7 +336,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:120
 #, fuzzy
 msgid "Root Partitions"
-msgstr "الأقسام"
+msgstr "تقسيمات الروت"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
@@ -363,13 +358,14 @@ msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:188
+#, fuzzy
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "تقسيمات الروت صغيرة جدا."
 
 #: vanilla_installer/gtk/widget-partition.ui:193
 #, fuzzy
 msgid "Home Partition"
-msgstr "الأقسام"
+msgstr "تقسيم المنزل"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
@@ -377,14 +373,14 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:209
+#, fuzzy
 msgid "Home partition is too small."
-msgstr ""
+msgstr "تقسيم المنزل صغير جدا."
 
 #: vanilla_installer/gtk/widget-partition.ui:214
 #: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
 msgid "Swap partition"
-msgstr "الأقسام"
+msgstr "تقسيم Swap"
 
 #: vanilla_installer/gtk/widget-partition.ui:215
 msgid ""
@@ -399,13 +395,14 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
+#, fuzzy
 msgid "Back"
-msgstr ""
+msgstr "تراجع"
 
 #: vanilla_installer/defaults/disk.py:42
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "لا توجد مساحة كافية: {0} / {1}"
 
 #: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
@@ -421,7 +418,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:454
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "يجب أن يكون التقسيم بالضبط {}"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
@@ -494,22 +491,23 @@ msgid "Step {step} is not a dictionary"
 msgstr ""
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "تخطيط لوحة المفاتيح"
+msgstr "لوحة المفاتيح"
 
 #: vanilla_installer/views/confirm.py:84
+#, fuzzy
 msgid "Timezone"
-msgstr ""
+msgstr "المنطقة الزمنية"
 
 #: vanilla_installer/views/confirm.py:90
 #, fuzzy
 msgid "Users"
-msgstr "اسم المستخدم"
+msgstr "المستخدمون"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
+#, fuzzy
 msgid "Disk"
-msgstr ""
+msgstr "القرص"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
@@ -529,8 +527,9 @@ msgid "Please contact the distribution developers."
 msgstr "يرجى التواصل مع مطوري التوزيعة."
 
 #: vanilla_installer/windows/main_window.py:62
+#, fuzzy
 msgid "page-changed"
-msgstr ""
+msgstr "الصفحة تغيرت"
 
 #~ msgid "Welcome"
 #~ msgstr "مرحبًا"
