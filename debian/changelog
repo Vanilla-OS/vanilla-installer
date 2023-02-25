@@ -1,3 +1,9 @@
+vanilla-installer (1.2.1) kinetic; urgency=critical
+
+  * Updated translations
+
+ -- Mirko Brombin <send@mirko.pm>  Sat, 25 Feb 2023 23:06:00 +0000
+
 vanilla-installer (1.2.0-1) kinetic; urgency=critical
 
   * Fix manual partitioning with partition numbers greater or equal to 10
