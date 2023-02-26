@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Adtora Slonic <adtoraslonic@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-10 15:37+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2023-02-26 02:42+0000\n"
+"Last-Translator: Adtora Slonic <adtoraslonic@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/pt/>\n"
 "Language: pt\n"
@@ -238,9 +237,8 @@ msgid "Disk Allocation"
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Selecione o disco onde será instalado o Vanilla OS"
+msgstr "Escolha como instalar o Vanilla OS em seu disco."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 #, fuzzy
@@ -300,9 +298,8 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:198
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "Selecione pelo menos uma opção."
+msgstr "Por favor selecione a partição dentre as opções abaixo"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
