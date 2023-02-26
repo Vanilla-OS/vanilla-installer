@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-20 18:21+0000\n"
+"PO-Revision-Date: 2023-02-27 20:39+0000\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sv/>\n"
@@ -220,7 +220,7 @@ msgstr "Ja, aktivera det"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr "Installerar…"
+msgstr "Installerar..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
