@@ -94,7 +94,7 @@ class FirstSetupApplication(Adw.Application):
 }
 """
         provider = Gtk.CssProvider()
-        provider.load_from_data(css.encode())
+        provider.load_from_data(css, -1)
         Gtk.StyleContext.add_provider_for_display(
             display=Gdk.Display.get_default(),
             provider=provider,
