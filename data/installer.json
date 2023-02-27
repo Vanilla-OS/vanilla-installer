@@ -1,0 +1,9 @@
+{
+    "parentMode": "user",
+    "hasOverview": false,
+    "showWelcomeDialog": false,
+    "panel": { "left": [],
+               "center": ["dateMenu"],
+               "right": ["a11y", "keyboard", "quickSettings"]
+             }
+}

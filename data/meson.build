@@ -1,3 +1,23 @@
+install_data(
+    'installer.desktop',
+    install_dir: join_paths(get_option('datadir'), 'xsessions')
+)
+
+install_data(
+    'installer.json',
+    install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'modes')
+)
+
+install_data(
+    'installer.session',
+    install_dir: join_paths(get_option('datadir'), 'gnome-session', 'sessions')
+)
+
+install_data(
+    'org.vanillaos.Installer.policy',
+    install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions')
+)
+
 desktop_file = i18n.merge_file(
   input: 'org.vanillaos.Installer.desktop.in',
   output: 'org.vanillaos.Installer.desktop',
