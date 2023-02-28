@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-27 20:38+0000\n"
+"PO-Revision-Date: 2023-02-28 19:26+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -63,9 +63,8 @@ msgid "Select a Disk"
 msgstr "Selecione um disco"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Selecione o disco onde será instalado o Vanilla OS"
+msgstr "Seleccione o disco onde pretende instalar o Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -193,7 +192,7 @@ msgstr "A mostrar informação"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Registo"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -206,7 +205,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Mostrar registo"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -241,18 +240,16 @@ msgid "Choose how to install Vanilla OS on your drive."
 msgstr "Escolha como instalar o Vanilla OS em seu disco."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
-msgstr "Usar o disco inteiro"
+msgstr "Disco inteiro"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
 msgstr "Isto irá apagar todos os dados no disco."
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "Partições"
+msgstr "Particionamento manual"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
@@ -269,15 +266,16 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Abra o GParted para particionar manualmente o disco"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Partições"
+msgstr "Partição boot"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"A partição a montar sob \"/boot\". Este directório armazena ficheiros para "
+"arrancar no Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -288,7 +286,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "Nenhuma partição seleccionada"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
