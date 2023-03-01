@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-23 00:29+0000\n"
+"PO-Revision-Date: 2023-02-28 19:26+0000\n"
 "Last-Translator: Jen Kung-chih <Kaitul@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -31,7 +31,7 @@ msgstr "自訂您的 Vanilla OS。"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "無描述"
+msgstr "沒有描述"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -104,15 +104,15 @@ msgstr "預設"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "暗色"
+msgstr "深色"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "配色"
+msgstr "色彩配置"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "為您的系統選擇配色"
+msgstr "為您的系統選擇色彩配置"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -358,9 +358,8 @@ msgid "Root partitions are too small."
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
 msgid "Home Partition"
-msgstr "分割區"
+msgstr "主分割區"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
