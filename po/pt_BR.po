@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-26 02:42+0000\n"
+"PO-Revision-Date: 2023-03-04 14:39+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -276,6 +276,8 @@ msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"A partição para montar sob \"/boot\". Este diretório armazena arquivos para "
+"inicialização do Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -308,10 +310,13 @@ msgid "EFI Partition"
 msgstr "Partição EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
+#, fuzzy
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"The partition to mount under “/boot/efi”. This directory stores files for "
+"booting in the bootloader."
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
@@ -354,6 +359,8 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:179
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
+"Por favor, tenha certeza que suas partições A e B estão no mesmo espaço em "
+"disco."
 
 #: vanilla_installer/gtk/widget-partition.ui:188
 msgid "Root partitions are too small."
@@ -396,7 +403,7 @@ msgstr "Voltar"
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "Espaço insuficiente: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:57
 msgid "This is the only disk available and cannot be deselected!"
@@ -405,14 +412,16 @@ msgstr "Este é o único disco disponível e não pode ser desmarcado!"
 #: vanilla_installer/defaults/disk.py:332
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
+"GParted já está em execução. Apenas uma instância do GParted é permitida."
 
 #: vanilla_installer/defaults/disk.py:431
 msgid "Partition must be at least {}"
 msgstr ""
 
 #: vanilla_installer/defaults/disk.py:454
+#, fuzzy
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partition must EXACTLY {}"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
@@ -446,11 +455,11 @@ msgstr ""
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "falha ao criar arquivo de log: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "Nenhum registro será salvo."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
@@ -464,11 +473,11 @@ msgstr ""
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Arquivo de receita inválido"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Receita não é um dicionário"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
@@ -485,13 +494,12 @@ msgid "Step {step} is not a dictionary"
 msgstr ""
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "Layout do teclado"
+msgstr "Teclado"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "Fuso horário"
 
 #: vanilla_installer/views/confirm.py:90
 #, fuzzy
@@ -500,7 +508,7 @@ msgstr "Nome de usuário"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "Disco"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
