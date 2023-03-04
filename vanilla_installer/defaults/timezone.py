@@ -47,8 +47,7 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__step = step
 
         # set up the string list for keyboard layouts
-        for country, _ in all_timezones.items():
-            self.str_list_region.append(country)
+        self.str_list_region.splice(0, 0, list(all_timezones.keys()))
 
         # set up current timezone
         current_country, current_city = get_current_timezone()
@@ -95,13 +94,10 @@ class VanillaDefaultTimezone(Adw.Bin):
             }
 
     def __on_country_selected(self, combo, param):
-        self.str_list_zone.splice(0, self.str_list_zone.get_n_items())
-
         country_index = self.combo_region.get_selected()
         country = list(all_timezones.keys())[country_index]
-        for timezone in all_timezones[country]:
-            replaced = re.sub(r'_', r' ', timezone)
-            self.str_list_zone.append(replaced)
+        timezone = list(map(lambda tz: tz.replace('_', ' '), all_timezones[country]))
+        self.str_list_zone.splice(0, self.str_list_zone.get_n_items(), timezone)
 
     def __on_city_selected(self, combo, param):
         country_index = self.combo_region.get_selected()
