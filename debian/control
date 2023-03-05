@@ -12,7 +12,8 @@ Build-Depends:
             libgweather-4-dev,
             gettext,
             desktop-file-utils,
-            make
+            make,
+            libjpeg-dev
 Homepage: https://github.com/mirkobrombin/vanilla-installer/
 Vcs-Browser: hhttps://github.com/mirkobrombin/vanilla-installer
 Vcs-Git: https://github.com/mirkobrombin/vanilla-installer.git

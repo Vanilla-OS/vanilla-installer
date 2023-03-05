@@ -1,4 +1,4 @@
-vanilla-installer (1.3.0) lunar; urgency=critical
+vanilla-installer (1.3.0) unstable; urgency=critical
 
   * custom gnome-shell session
 
