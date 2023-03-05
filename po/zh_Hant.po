@@ -5,13 +5,14 @@
 #
 # lakejason0 <sunliyuan200402@outlook.com>, 2023.
 # Jen Kung-chih <Kaitul@outlook.com>, 2023.
+# 菘菘 <rrt467778@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-28 19:26+0000\n"
-"Last-Translator: Jen Kung-chih <Kaitul@outlook.com>\n"
+"PO-Revision-Date: 2023-03-04 14:39+0000\n"
+"Last-Translator: 菘菘 <rrt467778@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-rc\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -324,11 +325,12 @@ msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
-msgstr ""
+msgstr "GPT 格式的硬碟支援從 BIOS 系統引導所需的分割區。該分割區必須位於硬碟的前 2 "
+"TB 中且正好為 1 兆位元組 （1 MiB）。"
 
 #: vanilla_installer/gtk/widget-partition.ui:115
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS 分割區必須恰好為 1 MiB。"
 
 #: vanilla_installer/gtk/widget-partition.ui:120
 msgid "Root Partitions"
@@ -344,6 +346,8 @@ msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"Vanilla OS 使用由 ABRoot 管理的 A/B 分割區系統， \n"
+"它在更新之間的兩個根分割區之間切換。"
 
 #: vanilla_installer/gtk/widget-partition.ui:178
 msgid "Root partitions are not the same size."
