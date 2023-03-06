@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-23 00:29+0000\n"
+"PO-Revision-Date: 2023-03-07 08:36+0000\n"
 "Last-Translator: Juan <benitesjn@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -461,7 +461,7 @@ msgstr "Por favor, seleccione al menos una opción."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Falta 'log_file' en la entrada."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
@@ -478,34 +478,34 @@ msgid "Performing display-condition: %s"
 msgstr "Ejecutando condición de visualización: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
-#, fuzzy, python-format
+#, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Paso %s omitido debido a condiciones-de-pantalla"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Archivo de configuración no inválido"
 
 #: vanilla_installer/utils/recipe.py:55
+#, fuzzy
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Configuración no es un diccionario"
 
 #: vanilla_installer/utils/recipe.py:60
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "A la configuración le falta la tecla '{key}'"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Los pasos de la configuración no son una lista"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "El paso {step} no es un diccionario"
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
 msgstr "Distribución de teclado"
 
@@ -514,9 +514,8 @@ msgid "Timezone"
 msgstr "Zona horaria"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
 msgid "Users"
-msgstr "Nombre de usuario"
+msgstr "Usuarios"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
