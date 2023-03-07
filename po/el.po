@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-07 08:36+0000\n"
+"PO-Revision-Date: 2023-03-09 23:43+0000\n"
 "Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/el/>\n"
@@ -108,7 +108,7 @@ msgstr "Σκοτεινό"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Συνδυασμός χρωμάτων"
+msgstr "Συνδυασμός Χρωμάτων"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
@@ -195,7 +195,7 @@ msgstr "Προβολή πληροφοριών"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Καταγραφή"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Προβολή καταγραφών"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -223,9 +223,8 @@ msgid "Yes, enable it"
 msgstr "Ναι, να ενεργοποιηθεί"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "Εγκατάσταση…"
+msgstr "Γίνεται εγκατάσταση..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -237,7 +236,7 @@ msgstr "Προβολή Παρουσίασης"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "Καταμερισμός Δίσκου"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 #, fuzzy
@@ -521,7 +520,7 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Επανεκκινήστε τη συσκεύη σας για να απολαύσετε την {} εμπειρία."
+msgstr "Επανεκκινήστε τη συσκεύη σας για να απολαύσετε την εμπειρία {}."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
