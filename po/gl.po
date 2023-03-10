@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Rafa <rafita.fernandez@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-01-09 11:48+0000\n"
-"Last-Translator: Saky do galo <sakydogalo@gmail.com>\n"
+"PO-Revision-Date: 2023-03-09 23:43+0000\n"
+"Last-Translator: Rafa <rafita.fernandez@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/gl/>\n"
 "Language: gl\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -192,7 +193,7 @@ msgstr "Amosando Información"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -205,7 +206,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Amosar o Log"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -220,26 +221,24 @@ msgid "Yes, enable it"
 msgstr "Si, actívao"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "Instalando..."
+msgstr "Instalando…"
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
-msgstr "Mostrar a saída da consola"
+msgstr "Amosa a saída da consola"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr "Amosar Presentación"
+msgstr "Amosa as diapositivas"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Seleccione o disco no que instalar Vanilla OS"
+msgstr "Seleccione o disco no que instalar Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 #, fuzzy
@@ -251,15 +250,17 @@ msgid "This will erase all data on the disk."
 msgstr "Isto borrará todos os datos da unidade."
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "Particións"
+msgstr "Partición manual"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"Seleccione as particións a ser usadas polo instalador. Un erro na "
+"configuración pode conducir a perda de datos, corrupción, e/ou non poder "
+"iniciar o sistema."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -270,9 +271,8 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Abre GParted para particionar manualmente o disco"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Particións"
+msgstr "Partición de arranque"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
@@ -289,7 +289,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "Ningunha partición seleccionada"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -299,33 +299,32 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:198
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "Seleccione polo menos unha opción."
+msgstr "Seleccione polo menos unha opción"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "A partición de arranque é demasiado pequeña."
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "Particións"
+msgstr "Partición EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"A partición para ser montada baixo “/boot/efi”. Este directorio almacena os "
+"arquivos para iniciar o cargador de arranque."
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "A partición EFI é demasiado pequena."
 
 #: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "Particións"
+msgstr "Partición de arranque da BIOS"
 
 #: vanilla_installer/gtk/widget-partition.ui:100
 msgid ""
@@ -339,9 +338,8 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
 msgid "Root Partitions"
-msgstr "Particións"
+msgstr "Partición raíz"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
@@ -367,24 +365,24 @@ msgid "Root partitions are too small."
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
 msgid "Home Partition"
-msgstr "Particións"
+msgstr "Partición Home"
 
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"A partición para ser montada baixo “/home”. Este directorio almacena todos "
+"os datos do usuario."
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
-msgstr ""
+msgstr "A partición Home é demasiado pequena."
 
 #: vanilla_installer/gtk/widget-partition.ui:214
 #: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
 msgid "Swap partition"
-msgstr "Particións"
+msgstr "Partición de intercambio"
 
 #: vanilla_installer/gtk/widget-partition.ui:215
 msgid ""
@@ -400,7 +398,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
