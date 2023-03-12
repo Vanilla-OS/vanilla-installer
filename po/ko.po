@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Namhoon Kim <namhoon80.kim@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"PO-Revision-Date: 2023-03-12 16:03+0000\n"
+"Last-Translator: Namhoon Kim <namhoon80.kim@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ko/>\n"
 "Language: ko\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -192,7 +193,7 @@ msgstr "정보 표시"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "로그"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -204,7 +205,7 @@ msgstr "사용자의 기기를 다시 시작하여 바닐라 OS 환경을 즐기
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "로그 표시"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -233,7 +234,7 @@ msgstr "슬라이드쇼 표시하기"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "디스크 할당"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 #, fuzzy
@@ -259,6 +260,8 @@ msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"설치를 위하여 사용할 파티션을 선택하십시요. 잘못된 구성은 데이터 유실, 오염, "
+"또는 시동할 수 없는 시스템을 만들 수 있습니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -277,7 +280,7 @@ msgstr "파티션"
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
-msgstr ""
+msgstr "\"/boot\" 파티션. 바닐라 OS 부팅 파일들을 위한 디렉토리 입니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 #: vanilla_installer/gtk/widget-partition.ui:82
@@ -288,7 +291,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "파티션이 선택되지 않았습니다"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
@@ -304,22 +307,21 @@ msgstr "옵션을 하나 이상 선택하십시오."
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "부트 파티션이 너무 작습니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
 msgid "EFI Partition"
-msgstr "파티션"
+msgstr "EFI 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
-msgstr ""
+msgstr "\"/boot/efi\" 파티션. 부트로더를 위한 파일들이 저장됩니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI 파티션이 너무 작습니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:99
 #, fuzzy
@@ -332,15 +334,16 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"BIOS 부팅을 지원하기 위해서 GPT-형식의 디스크에서 요구하는 파티션. 반드시 "
+"디스크의 처음 2TB에 위치하여야 하며 정확히 1 MiB 크기가 필요합니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:115
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS 파티션은 정확히 1MiB 이어야 합니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
 msgid "Root Partitions"
-msgstr "파티션"
+msgstr "루트 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
