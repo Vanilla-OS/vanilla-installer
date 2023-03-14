@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-07 08:36+0000\n"
-"Last-Translator: Juan <benitesjn@gmail.com>\n"
+"PO-Revision-Date: 2023-03-14 16:38+0000\n"
+"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/es/>\n"
 "Language: es\n"
@@ -487,14 +487,13 @@ msgid "Invalid recipe file"
 msgstr "Archivo de configuración no inválido"
 
 #: vanilla_installer/utils/recipe.py:55
-#, fuzzy
 msgid "Recipe is not a dictionary"
-msgstr "Configuración no es un diccionario"
+msgstr "Una receta no es un diccionario"
 
 #: vanilla_installer/utils/recipe.py:60
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr "A la configuración le falta la tecla '{key}'"
+msgstr "La receta no contiene la clave '{key}'"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
