@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # M00nD3v <matteo.duchs@outlook.com>, 2023.
 # Matt C <matei.gurzu@gmail.com>, 2023.
+# Grischa <groggledfrog@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-15 17:38+0000\n"
-"Last-Translator: Matt C <matei.gurzu@gmail.com>\n"
+"PO-Revision-Date: 2023-03-17 09:37+0000\n"
+"Last-Translator: Grischa <groggledfrog@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -63,9 +64,8 @@ msgid "Select a Disk"
 msgstr "Festplatte auswählen"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Wählen die Festplatte aus, auf der Vanilla OS installiert werden soll"
+msgstr "Wähle die Festplatte aus, auf der Vanilla OS installiert werden soll"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -237,9 +237,8 @@ msgid "Disk Allocation"
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Wählen die Festplatte aus, auf der Vanilla OS installiert werden soll"
+msgstr "Wähle die Festplatte aus, auf der Vanilla OS installiert werden soll."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 #, fuzzy
@@ -251,9 +250,8 @@ msgid "This will erase all data on the disk."
 msgstr "Dadurch werden alle Daten auf der Festplatte gelöscht."
 
 #: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "Partitionen"
+msgstr "Manuelle Partitionierung"
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid ""
@@ -289,7 +287,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:230
 #: vanilla_installer/defaults/disk.py:467
 msgid "No partition selected"
-msgstr ""
+msgstr "Keine Partition ausgewählt"
 
 #: vanilla_installer/gtk/widget-partition.ui:62
 #: vanilla_installer/gtk/widget-partition.ui:83
