@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # M00nD3v <matteo.duchs@outlook.com>, 2023.
+# Matt C <matei.gurzu@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-16 17:29+0000\n"
-"Last-Translator: M00nD3v <matteo.duchs@outlook.com>\n"
+"PO-Revision-Date: 2023-03-15 17:38+0000\n"
+"Last-Translator: Matt C <matei.gurzu@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -220,9 +221,8 @@ msgid "Yes, enable it"
 msgstr "Ja, aktivieren"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "Installiert…"
+msgstr "Installieren..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
