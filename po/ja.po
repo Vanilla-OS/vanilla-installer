@@ -4,13 +4,14 @@
 # Automatically generated, 2022.
 #
 # azuki <ipadgoogcloud@gmail.com>, 2023.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-20 18:20+0000\n"
-"Last-Translator: azuki <ipadgoogcloud@gmail.com>\n"
+"PO-Revision-Date: 2023-03-19 23:41+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -220,7 +221,6 @@ msgid "Yes, enable it"
 msgstr "はい、有効にします"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "インストールしています…"
 
