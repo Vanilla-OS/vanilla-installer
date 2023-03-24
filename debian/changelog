@@ -1,3 +1,11 @@
+vanilla-installer (1.3.1) unstable; urgency=critical
+
+  * updated translations
+  * remove the unnecssary CSS provider part
+  * fix a bug in provider.load_from_data
+
+ -- Mateus Melchiades <matbme@duck.com>  Fri, 24 Mar 2023 11:53:00 -0300
+
 vanilla-installer (1.3.0) unstable; urgency=critical
 
   * custom gnome-shell session
