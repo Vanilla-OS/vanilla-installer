@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-24 07:03+0000\n"
+"PO-Revision-Date: 2023-03-24 18:25+0000\n"
 "Last-Translator: Murattut <tutmurattut@outlook.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -123,7 +123,7 @@ msgstr "Tercih ettiğiniz saat dilimini seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "Bir saat dilimi arayın"
+msgstr "Bir saat dilimini ara"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -301,7 +301,7 @@ msgstr "Bölüm seçilmedi"
 #: vanilla_installer/gtk/widget-partition.ui:231
 #: vanilla_installer/defaults/disk.py:469
 msgid "Please select a partition from the options below"
-msgstr "Lütfen aşağıdaki seçeneklerden bir bölüm seçin."
+msgstr "Lütfen aşağıdaki seçeneklerden bir bölüm seçin"
 
 #: vanilla_installer/gtk/widget-partition.ui:73
 msgid "Boot partition is too small."
