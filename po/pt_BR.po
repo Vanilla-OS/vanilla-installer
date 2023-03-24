@@ -4,13 +4,15 @@
 # NotTheCoder _ <gaemsnahni3@gmail.com>, 2023.
 # TheAndreLuiz <andreluizgaspar1@gmail.com>, 2023.
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
+# Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-11 10:37+0000\n"
-"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
+"PO-Revision-Date: 2023-03-23 01:36+0000\n"
+"Last-Translator: Fernando Lopes <118869201+plasmus777@users.noreply.github."
+"com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -38,7 +40,7 @@ msgstr "Primeira versão"
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"
-msgstr "Confirmar instalação"
+msgstr "Confirmar Instalação"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
@@ -61,7 +63,7 @@ msgstr "Próximo"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr "Selecione um disco"
+msgstr "Selecione um Disco"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk where you want to install Vanilla OS"
@@ -107,7 +109,7 @@ msgstr "Escuro"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Esquema de cores"
+msgstr "Esquema de Cores"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
@@ -135,7 +137,7 @@ msgstr "Zona"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Criar usuário"
+msgstr "Criar Usuário"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
@@ -165,7 +167,7 @@ msgstr "Experimentar o Vanilla OS"
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr "Confirmar alterações"
+msgstr "Confirmar Alterações"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:17
@@ -182,7 +184,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
-msgstr "Configurar disco"
+msgstr "Configurar Disco"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
@@ -190,11 +192,11 @@ msgstr "Aplicar"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Mostrando informações"
+msgstr "Exibindo Informações"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr "Log"
+msgstr "Registro"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -207,11 +209,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr "Mostrar Log"
+msgstr "Mostrar Registro"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
-msgstr "Reiniciar agora"
+msgstr "Reiniciar Agora"
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
@@ -258,6 +260,8 @@ msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"Selecione quais partições usar para a instalação. Configurações incorretas "
+"podem causar perda de dados, corrupção e/ou um sistema não inicializável."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -310,13 +314,12 @@ msgid "EFI Partition"
 msgstr "Partição EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:79
-#, fuzzy
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
-"The partition to mount under “/boot/efi”. This directory stores files for "
-"booting in the bootloader."
+"A partição a ser montada em “/boot/efi”. Este diretório armazena arquivos "
+"para a inicialização do sistema no carregador de inicialização (bootloader)."
 
 #: vanilla_installer/gtk/widget-partition.ui:94
 msgid "EFI partition is too small."
@@ -332,6 +335,9 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"A partição exigida por discos formatados em GPT para suportar a "
+"inicialização a partir de sistemas BIOS. Ela deve estar presente dentro dos "
+"primeiros 2 TB do disco e deve ser exatamente 1 Mebibyte (1 MiB)."
 
 #: vanilla_installer/gtk/widget-partition.ui:115
 msgid "BIOS partition must be exactly 1 MiB."
@@ -345,12 +351,17 @@ msgstr "Partição raíz"
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"As partições a serem montadas em “/”. Ambas as partições devem ter o mesmo "
+"tamanho."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"O Vanilla OS utiliza um sistema de partição A/B gerenciado pelo utilitário "
+"ABRoot,\n"
+"que alterna entre duas partiçoẽs raiz entre as atualizações."
 
 #: vanilla_installer/gtk/widget-partition.ui:178
 msgid "Root partitions are not the same size."
@@ -374,6 +385,8 @@ msgstr "Partição Home"
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"A partição a ser montada em “/home”. Este diretório armazena todos os dados "
+"do usuário."
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
@@ -389,12 +402,17 @@ msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"O swap (memória virtual) atua como uma extensão virtual de sua memória RAM e "
+"permite a hibernação. O Vanilla OS já utiliza o módulo zram para fornecer "
+"troca sem custo de armazenamento."
 
 #: vanilla_installer/gtk/widget-partition.ui:219
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Escolha uma partição para utilizar como área de troca em conjunto com o "
+"zram. Isto não é necessário para a hibernação."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
@@ -416,16 +434,15 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:431
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "A partição deve ter pelo menos {}"
 
 #: vanilla_installer/defaults/disk.py:454
-#, fuzzy
 msgid "Partition must EXACTLY {}"
-msgstr "Partition must EXACTLY {}"
+msgstr "A partição deve ter EXATAMENTE {}"
 
 #: vanilla_installer/defaults/disk.py:556
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "As partições foram alteradas. As seleções atuais foram apagadas."
 
 #: vanilla_installer/defaults/disk.py:621
 msgid "Entire disk will be used."
@@ -442,7 +459,7 @@ msgstr "Será formatado em {} e montado em {}"
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "clicked"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -450,7 +467,7 @@ msgstr "Selecione pelo menos uma opção."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Arquivo 'log_file' está faltando na receita."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
@@ -464,12 +481,12 @@ msgstr "Nenhum registro será salvo."
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Executando a condição de exibição: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Etapa %s ignorada devido a condições de exibição"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
@@ -482,16 +499,16 @@ msgstr "Receita não é um dicionário"
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "A chave '{key}' está faltando na receita"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Os passos da receita não são uma lista"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "Etapa {step} não é um dicionário"
 
 #: vanilla_installer/views/confirm.py:78
 msgid "Keyboard"
@@ -512,7 +529,7 @@ msgstr "Disco"
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "installation-confirmed"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
@@ -528,7 +545,7 @@ msgstr "Por favor, contate os desenvolvedores da distribuição."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "page-changed"
 
 #~ msgid "Welcome"
 #~ msgstr "Bem-vindo"

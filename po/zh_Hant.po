@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-04 14:39+0000\n"
-"Last-Translator: 菘菘 <rrt467778@gmail.com>\n"
+"PO-Revision-Date: 2023-03-23 01:36+0000\n"
+"Last-Translator: Jen Kung-chih <Kaitul@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -351,15 +351,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:178
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "Root 分割區的大小不完全相同。"
 
 #: vanilla_installer/gtk/widget-partition.ui:179
 msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
+msgstr "請確保 A、B 分割區具有相同的磁碟空間。"
 
 #: vanilla_installer/gtk/widget-partition.ui:188
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Root 分割區過小。"
 
 #: vanilla_installer/gtk/widget-partition.ui:193
 msgid "Home Partition"
@@ -368,7 +368,7 @@ msgstr "主分割區"
 #: vanilla_installer/gtk/widget-partition.ui:194
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
-msgstr ""
+msgstr "要掛接到「/home」的分割區。此目錄儲存所有使用者資料。"
 
 #: vanilla_installer/gtk/widget-partition.ui:209
 msgid "Home partition is too small."
@@ -482,9 +482,9 @@ msgid "Recipe steps is not a list"
 msgstr ""
 
 #: vanilla_installer/utils/recipe.py:69
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "步驟 {step} 不是字典"
 
 #: vanilla_installer/views/confirm.py:78
 msgid "Keyboard"
