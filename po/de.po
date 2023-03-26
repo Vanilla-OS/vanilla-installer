@@ -7,13 +7,14 @@
 # nautilusx <translate@disroot.org>, 2023.
 # "Martin P." <edisso999@gmail.com>, 2023.
 # Fabian Kaindl <weblate@fabiankaindl.de>, 2023.
+# George <georgeaufmschloss@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
 "PO-Revision-Date: 2023-03-26 04:30+0000\n"
-"Last-Translator: Fabian Kaindl <weblate@fabiankaindl.de>\n"
+"Last-Translator: George <georgeaufmschloss@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -494,16 +495,16 @@ msgstr "Schritt %s übersprungen aufgrund von Anzeigebedingungen"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Ungültige Rezeptdatei"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Rezept ist kein Wörterbuch"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "Rezept vermisst den '{key}'-Schlüssel"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
