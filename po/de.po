@@ -6,13 +6,14 @@
 # Grischa <groggledfrog@gmail.com>, 2023.
 # nautilusx <translate@disroot.org>, 2023.
 # "Martin P." <edisso999@gmail.com>, 2023.
+# Fabian Kaindl <weblate@fabiankaindl.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-22 00:26+0000\n"
-"Last-Translator: \"Martin P.\" <edisso999@gmail.com>\n"
+"PO-Revision-Date: 2023-03-26 04:30+0000\n"
+"Last-Translator: Fabian Kaindl <weblate@fabiankaindl.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -470,7 +471,7 @@ msgstr "Bitte wählen Sie mindestens eine Option aus."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Es fehlt die Angabe der 'log_file' in dem Rezept."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
@@ -484,12 +485,12 @@ msgstr "Es wird kein Protokoll gespeichert."
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Durchführen der Anzeigebedingung: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Schritt %s übersprungen aufgrund von Anzeigebedingungen"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
@@ -506,12 +507,12 @@ msgstr ""
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Rezept Schritte sind keine Liste"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "Schritt {step} ist kein Wörterbuch"
 
 #: vanilla_installer/views/confirm.py:78
 msgid "Keyboard"
