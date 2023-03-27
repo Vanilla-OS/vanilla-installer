@@ -23,11 +23,26 @@ import subprocess
 from glob import glob
 import re
 import json
+from typing import Union, any
 
 from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
 
 logger = logging.getLogger("Installer::Processor")
+
+
+AlbiusSetupStep = dict[str, Union[str, list[any]]]
+AlbiusMountpoint = dict[str, str]
+AlbiusInstallation = dict[str, str]
+AlbiusPostInstallStep = dict[str, Union[bool, str, list[any]]]
+
+
+class AlbiusRecipe:
+    def __init__():
+        self.setup: list[AlbiusSetupStep] = []
+        self.mountpoints: list[AlbiusMountpoint] = []
+        self.installation: AlbiusInstallation = {}
+        self.postInstallation: list[AlbiusPostInstallStep] = []
 
 
 class Processor:
@@ -46,6 +61,32 @@ class Processor:
             return int(mem * 1.5 * 1024)
         else:
             return 4096
+
+    @staticmethod
+    def gen_install_recipe(log_path, setup, post_install, finals):
+        logger.info("processing the following final data: %s", finals)
+
+        recipe = AlbiusRecipe()
+
+        # Setup disks and mountpoints
+        for final in finals:
+            if "disk" in final.keys():
+                disk_setup_step = {
+                }
+
+        # Installation
+        # TODO: Add unsquashfs step with filesystem path
+
+        # Post-installation
+        # TODO: Add packageremove step (will point to .package_remove from /live)
+        # TODO: Add hostname step (will always be "vanilla")
+        # TODO: Read "timezone" key from finals
+        # TODO: Read "language" key from finals
+        # TODO: Read "keyboard" key from finals
+        # TODO: Read "users" key from finals
+
+        # Call installer
+        # TODO: Spawn Albius
 
     @staticmethod
     def gen_install_script(log_path, pre_run, post_run, finals):
