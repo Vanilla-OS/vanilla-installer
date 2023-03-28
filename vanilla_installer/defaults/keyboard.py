@@ -20,6 +20,7 @@ import time
 import subprocess
 import contextlib
 from gi.repository import Gtk, Gio, GLib, Adw
+import os
 
 from vanilla_installer.core.keymaps import KeyMaps
 
@@ -77,7 +78,10 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.test_focus_controller.connect("enter", self.__apply_layout)
     
     def __next(self, *args):
-        self.__window.next(None, self.__apply_layout)
+        if "VANILLA_NO_APPLY_XKB" in os.environ:
+            self.__window.next()
+        else:
+            self.__window.next(None, self.__apply_layout)
 
     def get_finals(self):
         variant_index = self.combo_variants.get_selected()
