@@ -11,6 +11,7 @@
     <file>gtk/dialog-output.ui</file>
     <file>gtk/dialog-disk.ui</file>
     <file>gtk/dialog-disk-confirm.ui</file>
+    <file>gtk/dialog-recovery.ui</file>
 
     <file>gtk/default-theme.ui</file>
     <file>gtk/default-welcome.ui</file>
