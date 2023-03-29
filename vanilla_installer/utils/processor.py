@@ -178,17 +178,21 @@ class Processor:
         # Installation
         recipe.installation = {
             "method": "unsquashfs",
-            "source": "/live/filesystem.squashfs"
+            "source": "/run/live/medium/live/filesystem.squashfs"
         }
 
         # Post-installation
         # Remove unnecessary packages
+        manifest_remove = "/tmp/filesystem.manifest-remove"
+        with open(manifest_remove, "w") as f:
+            f.write("vanilla-installer\n")
+            f.write("gparted\n")
         recipe.postInstallation.append({
             "chroot": True,
 			"operation": "pkgremove",
 			"params": [
-				"/live/filesystem.packages-remove",
-				"apt remove"
+			    manifest_remove,
+				"apt remove -y"
 			]
         })
         # Set hostname
