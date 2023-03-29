@@ -23,7 +23,7 @@ import subprocess
 from glob import glob
 import re
 import json
-from typing import Union, any
+from typing import Union, Any
 
 from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
@@ -31,14 +31,14 @@ from vanilla_installer.core.system import Systeminfo
 logger = logging.getLogger("Installer::Processor")
 
 
-AlbiusSetupStep = dict[str, Union[str, list[any]]]
+AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
 AlbiusInstallation = dict[str, str]
-AlbiusPostInstallStep = dict[str, Union[bool, str, list[any]]]
+AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
 
 
 class AlbiusRecipe:
-    def __init__():
+    def __init__(self):
         self.setup: list[AlbiusSetupStep] = []
         self.mountpoints: list[AlbiusMountpoint] = []
         self.installation: AlbiusInstallation = {}
@@ -63,7 +63,101 @@ class Processor:
             return 4096
 
     @staticmethod
-    def gen_install_recipe(log_path, setup, post_install, finals):
+    def __gen_auto_partition_steps(disk):
+        info = {
+            "steps": [],
+            "mountpoints": []
+        }
+
+        info["steps"].append({
+            "disk": disk,
+            "operation": "label",
+            "params": ["gpt"]
+        })
+
+        # Boot
+        info["steps"].append({
+            "disk": disk,
+            "operation": "mkpart",
+            "params": ["boot", "ext4", 1, 1025]
+        })
+
+        if Systeminfo.is_uefi():
+            info["steps"].append({
+                "disk": disk,
+                "operation": "mkpart",
+                "params": ["EFI", "fat32", 1025, 1537]
+            })
+            part_offset = 1537
+        else:
+            info["steps"].append({
+                "disk": disk,
+                "operation": "mkpart",
+                "params": ["EFI", "fat32", 1025, 1026]
+            })
+            info["steps"].append({
+                "disk": disk,
+                "operation": "setflag",
+                "params": ["2", "bios_grub", True]
+            })
+            part_offset = 1026
+
+        # Roots
+        info["steps"].append({
+            "disk": disk,
+            "operation": "mkpart",
+            "params": ["btrfs", "a", part_offset, part_offset + 12288]
+        })
+        part_offset += 12288
+        info["steps"].append({
+            "disk": disk,
+            "operation": "mkpart",
+            "params": ["btrfs", "b", part_offset, part_offset + 12288]
+        })
+        part_offset += 12288
+
+        # Home
+        info["steps"].append({
+            "disk": disk,
+            "operation": "mkpart",
+            "params": ["btrfs", "home", part_offset, -1]
+        })
+
+        # Mountpoints
+        if not re.match(r"[0-9]", disk[-1]):
+            part_prefix = f"{disk}"
+        else:
+            part_prefix = f"{disk}p"
+
+        info["mountpoints"].append({
+            "partition": part_prefix + "1",
+            "target": "/boot"
+        })
+
+        if Systeminfo.is_uefi():
+            info["mountpoints"].append({
+                "partition": part_prefix + "2",
+                "target": "/boot/efi"
+            })
+
+        info["mountpoints"].append({
+            "partition": part_prefix + "3",
+            "target": "/"
+        })
+        info["mountpoints"].append({
+            "partition": part_prefix + "4",
+            "target": "/"
+        })
+
+        info["mountpoints"].append({
+            "partition": part_prefix + "5",
+            "target": "/home"
+        })
+
+        return info
+
+    @staticmethod
+    def gen_install_recipe(log_path, finals):
         logger.info("processing the following final data: %s", finals)
 
         recipe = AlbiusRecipe()
@@ -71,22 +165,80 @@ class Processor:
         # Setup disks and mountpoints
         for final in finals:
             if "disk" in final.keys():
-                disk_setup_step = {
-                }
+                if "auto" in final["disk"].keys():
+                    info = Processor.__gen_auto_partition_steps(final["disk"]["auto"]["disk"])
+                    for step in info["steps"]:
+                        recipe.setup.append(step)
+                    for mount in info["mountpoints"]:
+                        recipe.mountpoints.append(mount)
+                else:
+                    # TODO: Handle manual partitioning
+                    pass
 
         # Installation
-        # TODO: Add unsquashfs step with filesystem path
+        recipe.installation = {
+            "method": "unsquashfs",
+            "source": "/live/filesystem.squashfs"
+        }
 
         # Post-installation
-        # TODO: Add packageremove step (will point to .package_remove from /live)
-        # TODO: Add hostname step (will always be "vanilla")
-        # TODO: Read "timezone" key from finals
-        # TODO: Read "language" key from finals
-        # TODO: Read "keyboard" key from finals
-        # TODO: Read "users" key from finals
+        # Remove unnecessary packages
+        recipe.postInstallation.append({
+            "chroot": True,
+			"operation": "pkgremove",
+			"params": [
+				"/live/filesystem.packages-remove",
+				"apt remove"
+			]
+        })
+        # Set hostname
+        recipe.postInstallation.append({
+            "chroot": True,
+			"operation": "hostname",
+			"params": ["vanilla"]
+        })
+        for final in finals:
+            for key, value in final.items():
+                # Set timezone
+                if key == "timezone":
+                    recipe.postInstallation.append({
+                        "chroot": True,
+			            "operation": "timezone",
+			            "params": [value]
+                    })
+                # Set locale
+                if key == "language":
+                    recipe.postInstallation.append({
+                        "chroot": True,
+			            "operation": "locale",
+			            "params": [value]
+                    })
+                # Add user
+                if key == "users":
+                    recipe.postInstallation.append({
+                        "chroot": True,
+			            "operation": "adduser",
+			            "params": [
+			                value["username"],
+			                value["fullname"],
+			                ["sudo", "lpadmin"],
+			                value["password"]
+			            ]
+                    })
 
-        # Call installer
-        # TODO: Spawn Albius
+        # TODO: Read "keyboard" key from finals
+
+        print(json.dumps(recipe, default=vars))
+        with tempfile.NamedTemporaryFile(mode="w", delete=False) as f:
+            f.write(json.dumps(recipe, default=vars))
+
+            f.flush()
+            f.close()
+
+            # setting the file executable
+            os.chmod(f.name, 0o755)
+
+            return f.name
 
     @staticmethod
     def gen_install_script(log_path, pre_run, post_run, finals):
@@ -273,3 +425,4 @@ class Processor:
             os.chmod(f.name, 0o755)
 
             return f.name
+

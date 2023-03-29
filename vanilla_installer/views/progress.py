@@ -41,7 +41,7 @@ class VanillaProgress(Gtk.Box):
         self.__tour = tour
         self.__terminal = Vte.Terminal()
         self.__font = Pango.FontDescription()
-        self.__font.set_family("Ubuntu Mono")
+        self.__font.set_family("Monospace")
         self.__font.set_size(13 * Pango.SCALE)
         self.__font.set_weight(Pango.Weight.NORMAL)
         self.__font.set_stretch(Pango.Stretch.NORMAL)
@@ -124,11 +124,11 @@ class VanillaProgress(Gtk.Box):
         status = not bool(status)
         self.__window.set_installation_result(status, self.__terminal)
 
-    def start(self, install_script):
+    def start(self, recipe):
         self.__terminal.spawn_async(
             Vte.PtyFlags.DEFAULT,
             ".",
-            ["bash", install_script],
+            ["bash", "albius", recipe],
             [],
             GLib.SpawnFlags.DO_NOT_REAP_CHILD,
             None,
