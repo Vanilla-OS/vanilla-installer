@@ -93,7 +93,7 @@ class Processor:
             info["steps"].append({
                 "disk": disk,
                 "operation": "mkpart",
-                "params": ["EFI", "fat32", 1025, 1026]
+                "params": ["BIOS", "fat32", 1025, 1026]
             })
             info["steps"].append({
                 "disk": disk,
@@ -106,13 +106,13 @@ class Processor:
         info["steps"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["btrfs", "a", part_offset, part_offset + 12288]
+            "params": ["a", "btrfs", part_offset, part_offset + 12288]
         })
         part_offset += 12288
         info["steps"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["btrfs", "b", part_offset, part_offset + 12288]
+            "params": ["b", "btrfs", part_offset, part_offset + 12288]
         })
         part_offset += 12288
 
@@ -120,7 +120,7 @@ class Processor:
         info["steps"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["btrfs", "home", part_offset, -1]
+            "params": ["home", "btrfs", part_offset, -1]
         })
 
         # Mountpoints
