@@ -75,7 +75,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.btn_next.connect("clicked", self.__next)
         self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
-        self.test_focus_controller.connect("enter", self.__apply_layout)
+        if "VANILLA_NO_APPLY_XKB" not in os.environ:
+            self.test_focus_controller.connect("enter", self.__apply_layout)
     
     def __next(self, *args):
         if "VANILLA_NO_APPLY_XKB" in os.environ:
