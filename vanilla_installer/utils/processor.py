@@ -208,7 +208,7 @@ class Processor:
                     recipe.postInstallation.append({
                         "chroot": True,
 			            "operation": "timezone",
-			            "params": [value]
+			            "params": [f"{value['region']}/{value['zone']}"]
                     })
                 # Set locale
                 if key == "language":
