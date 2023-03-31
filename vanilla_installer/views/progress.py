@@ -128,7 +128,7 @@ class VanillaProgress(Gtk.Box):
         self.__terminal.spawn_async(
             Vte.PtyFlags.DEFAULT,
             ".",
-            ["bash", "albius", recipe],
+            ["sh", "-c", f"sudo albius {recipe}"],
             [],
             GLib.SpawnFlags.DO_NOT_REAP_CHILD,
             None,
