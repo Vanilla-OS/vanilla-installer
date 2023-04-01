@@ -61,7 +61,7 @@ set linux_gfx_mode=text
 fi
 export linux_gfx_mode
 ' > /tmp/10_vanilla
-echo -e "menuentry 'State A' --class gnu-linux --class gnu --class os {
+echo "menuentry 'State A' --class gnu-linux --class gnu --class os {
 recordfail
 load_video
 gfxmode \$linux_gfx_mode
@@ -74,7 +74,7 @@ linux	/vmlinuz-%s root=UUID=%s quiet splash bgrt_disable \$vt_handoff
 initrd  /initrd.img-$KERNEL_VER
 }
 " >> /tmp/10_vanilla
-echo -e "menuentry 'State B' --class gnu-linux --class gnu --class os {
+echo "menuentry 'State B' --class gnu-linux --class gnu --class os {
 recordfail
 load_video
 gfxmode \$linux_gfx_mode
@@ -88,11 +88,11 @@ initrd  /initrd.img-$KERNEL_VER
 }
 " >> /tmp/10_vanilla
 
-echo -e "Organize grub scripts directory\n"
+echo "Organize grub scripts directory\n"
 cp /tmp/10_vanilla /mnt/a/etc/grub.d/10_vanilla
 rm /mnt/a/etc/grub.d/20_memtest86+
 
-echo -e "Syncing changes\n"
+echo "Syncing changes\n"
 rsync -avxHAX --numeric-ids --exclude='/boot' --exclude='/dev' --exclude='/home' --exclude='/media' --exclude='/mnt' --exclude='/proc' --exclude='/root' --exclude='/run' --exclude='/srv' --exclude='/sys' --exclude='/tmp' /mnt/a/ /mnt/b/
 mkdir -p /mnt/b/boot
 mkdir -p /mnt/b/dev
@@ -106,7 +106,7 @@ mkdir -p /mnt/b/srv
 mkdir -p /mnt/b/sys
 mkdir -p /mnt/b/tmp
 
-echo -e "Updating grub entries\n"
+echo "Updating grub entries\n"
 # A
 mount $BOOT_PART /mnt/a/boot
 mount $EFI_PART /mnt/a/boot/efi
@@ -135,9 +135,9 @@ chroot /mnt/b grub-install --boot-directory /boot --target=x86_64-efi
 umount -l $EFI_PART
 umount -l $BOOT_PART
 
-echo -e "Cleaning up\n"
+echo "Cleaning up\n"
 umount -l $ROOTB_PART
 umount -l $ROOTA_PART
 btrfs filesystem label $ROOTA_PART a
 btrfs filesystem label $ROOTB_PART b
-echo -e "Finished\n"
+echo "Finished\n"
