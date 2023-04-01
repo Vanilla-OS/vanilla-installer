@@ -243,7 +243,7 @@ class Processor:
             elif mnt["target"] == "/":
                 if not oci_cmd_args[3]:
                     oci_cmd_args[3] = mnt["partition"]
-                else
+                else:
                     oci_cmd_args[4] = mnt["partition"]
         recipe.postInstallation.append({
             "chroot": False,
