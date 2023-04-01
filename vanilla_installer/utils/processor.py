@@ -235,8 +235,8 @@ class Processor:
         oci_cmd_args = [None] * 5
         for mnt in recipe.mountpoints:
             if mnt["target"] == "/boot":
-                boot_disk = re.findall("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"])[0]
-                oci_cmd_args[0] = boot_disk
+                boot_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)
+                oci_cmd_args[0] = boot_disk[0]
                 oci_cmd_args[1] = mnt["partition"]
             elif mnt["target"] == "/boot/efi":
                 oci_cmd_args[2] = mnt["partition"]

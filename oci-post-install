@@ -13,22 +13,22 @@ KERNEL_VER=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d')
 ROOTA_UUID=$(lsblk -n -o UUID $ROOTA_PART)
 ROOTB_UUID=$(lsblk -n -o UUID $ROOTB_PART)
 
-echo -e "Copying /etc to persist directory\n"
-mkdir /mnt/a/persist
+echo "Copying /etc to persist directory\n"
+mkdir -p /mnt/a/persist
 mv /mnt/a/etc /mnt/a/persist/etc
-
-echo -e "Removing root B from A's fstab\n"
 ln -rs /mnt/a/persist/etc /mnt/a/etc
+
+echo "Removing root B from A's fstab\n"
 sed -i /UUID=$ROOTB_UUID/d /mnt/a/etc/fstab
 
-echo -e "Adapting grub\n"
+echo "Adapting grub\n"
 echo "GRUB_DEFAULT=1
 GRUB_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT=2
 GRUB_TIMEOUT_STYLE=hidden" > /mnt/a/etc/default/grub
 
-echo -e "Generating 10_vanilla grub file\n"
-echo -e '#!/bin/sh
+echo "Generating 10_vanilla grub file\n"
+echo '#!/bin/sh
 exec tail -n +3 $0
 set menu_color_normal=white/black
 set menu_color_highlight=black/light-gray
@@ -115,6 +115,7 @@ mount --bind /dev/pts /mnt/a/dev/pts
 mount --bind /proc /mnt/a/proc
 mount --bind /sys /mnt/a/sys
 mount --bind /run /mnt/a/run
+chroot /mnt/a mkdir -p /boot/grub
 chroot /mnt/a grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --boot-directory /mnt/a/boot --target=x86_64-efi $DISK_PATH
 chroot /mnt/a grub-install --boot-directory /boot --target=x86_64-efi
