@@ -20,6 +20,7 @@
 - libgnome-desktop-4-dev
 - libgweather-4-dev
 - python3-tz
+- python3-requests
 
 ### Build
 ```bash
