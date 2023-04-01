@@ -7,29 +7,28 @@ BOOT_PART=$2
 EFI_PART=$3
 ROOTA_PART=$4
 ROOTB_PART=$5
-HOME_PART=$6
 
-KERNEL_VER=$(ls -1 /mnt/a/usr/lib/modules | cut -d $'\n' -f 1)
+KERNEL_VER=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d')
 
 ROOTA_UUID=$(lsblk -n -o UUID $ROOTA_PART)
 ROOTB_UUID=$(lsblk -n -o UUID $ROOTB_PART)
 
-# Copy /etc to persist directory
+echo -e "Copying /etc to persist directory\n"
 mkdir /mnt/a/persist
 mv /mnt/a/etc /mnt/a/persist/etc
 
-# Remove root B from A's fstab
+echo -e "Removing root B from A's fstab\n"
 ln -rs /mnt/a/persist/etc /mnt/a/etc
 sed -i /UUID=$ROOTB_UUID/d /mnt/a/etc/fstab
 
-# Adapt grub
+echo -e "Adapting grub\n"
 echo "GRUB_DEFAULT=1
 GRUB_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT=2
 GRUB_TIMEOUT_STYLE=hidden" > /mnt/a/etc/default/grub
 
-# Generate 10_vanilla grub file
-echo '#!/bin/sh
+echo -e "Generating 10_vanilla grub file\n"
+echo -e '#!/bin/sh
 exec tail -n +3 $0
 set menu_color_normal=white/black
 set menu_color_highlight=black/light-gray
@@ -62,7 +61,7 @@ set linux_gfx_mode=text
 fi
 export linux_gfx_mode
 ' > /tmp/10_vanilla
-echo "menuentry 'State A' --class gnu-linux --class gnu --class os {
+echo -e "menuentry 'State A' --class gnu-linux --class gnu --class os {
 recordfail
 load_video
 gfxmode \$linux_gfx_mode
@@ -75,7 +74,7 @@ linux	/vmlinuz-%s root=UUID=%s quiet splash bgrt_disable \$vt_handoff
 initrd  /initrd.img-$KERNEL_VER
 }
 " >> /tmp/10_vanilla
-echo "menuentry 'State B' --class gnu-linux --class gnu --class os {
+echo -e "menuentry 'State B' --class gnu-linux --class gnu --class os {
 recordfail
 load_video
 gfxmode \$linux_gfx_mode
@@ -89,11 +88,11 @@ initrd  /initrd.img-$KERNEL_VER
 }
 " >> /tmp/10_vanilla
 
-# Organize grub scripts directory
+echo -e "Organize grub scripts directory\n"
 cp /tmp/10_vanilla /mnt/a/etc/grub.d/10_vanilla
 rm /mnt/a/etc/grub.d/20_memtest86+
 
-# Sync changes with rsync (probably change this to an OCI solution later)
+echo -e "Syncing changes\n"
 rsync -avxHAX --numeric-ids --exclude='/boot' --exclude='/dev' --exclude='/home' --exclude='/media' --exclude='/mnt' --exclude='/proc' --exclude='/root' --exclude='/run' --exclude='/srv' --exclude='/sys' --exclude='/tmp' /mnt/a/ /mnt/b/
 mkdir -p /mnt/b/boot
 mkdir -p /mnt/b/dev
@@ -107,7 +106,7 @@ mkdir -p /mnt/b/srv
 mkdir -p /mnt/b/sys
 mkdir -p /mnt/b/tmp
 
-# Update grub entries
+echo -e "Updating grub entries\n"
 # A
 mount $BOOT_PART /mnt/a/boot
 mount $EFI_PART /mnt/a/boot/efi
@@ -135,9 +134,9 @@ chroot /mnt/b grub-install --boot-directory /boot --target=x86_64-efi
 umount -l $EFI_PART
 umount -l $BOOT_PART
 
-# Unmount the rest and label partitions
-umount -l $HOME_PART
+echo -e "Cleaning up\n"
 umount -l $ROOTB_PART
 umount -l $ROOTA_PART
 btrfs filesystem label $ROOTA_PART a
 btrfs filesystem label $ROOTB_PART b
+echo -e "Finished\n"

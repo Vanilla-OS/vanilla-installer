@@ -231,11 +231,25 @@ class Processor:
                     })
 
         # OCI post-installation script
+        # Arguments: disk boot efi rootA rootB
+        oci_cmd_args = [None] * 5
+        for mnt in recipe.mountpoints:
+            if mnt["target"] == "/boot":
+                boot_disk = re.findall("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"])[0]
+                oci_cmd_args[0] = boot_disk
+                oci_cmd_args[1] = mnt["partition"]
+            elif mnt["target"] == "/boot/efi":
+                oci_cmd_args[2] = mnt["partition"]
+            elif mnt["target"] == "/":
+                if not oci_cmd_args[3]:
+                    oci_cmd_args[3] = mnt["partition"]
+                else
+                    oci_cmd_args[4] = mnt["partition"]
         recipe.postInstallation.append({
             "chroot": False,
             "operation": "shell",
             "params": [
-                "oci-post-install"
+                f"oci-post-install {' '.join(oci_cmd_args)}"
             ]
         })
 
