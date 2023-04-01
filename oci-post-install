@@ -1,0 +1,143 @@
+#!/bin/sh
+
+set -e
+
+DISK_PATH=$1
+BOOT_PART=$2
+EFI_PART=$3
+ROOTA_PART=$4
+ROOTB_PART=$5
+HOME_PART=$6
+
+KERNEL_VER=$(ls -1 /mnt/a/usr/lib/modules | cut -d $'\n' -f 1)
+
+ROOTA_UUID=$(lsblk -n -o UUID $ROOTA_PART)
+ROOTB_UUID=$(lsblk -n -o UUID $ROOTB_PART)
+
+# Copy /etc to persist directory
+mkdir /mnt/a/persist
+mv /mnt/a/etc /mnt/a/persist/etc
+
+# Remove root B from A's fstab
+ln -rs /mnt/a/persist/etc /mnt/a/etc
+sed -i /UUID=$ROOTB_UUID/d /mnt/a/etc/fstab
+
+# Adapt grub
+echo "GRUB_DEFAULT=1
+GRUB_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT=2
+GRUB_TIMEOUT_STYLE=hidden" > /mnt/a/etc/default/grub
+
+# Generate 10_vanilla grub file
+echo '#!/bin/sh
+exec tail -n +3 $0
+set menu_color_normal=white/black
+set menu_color_highlight=black/light-gray
+function gfxmode {
+set gfxpayload="${1}"
+if [ "${1}" = "keep" ]; then
+        set vt_handoff=vt.handoff=7
+else
+        set vt_handoff=
+fi
+}
+if [ "${recordfail}" != 1 ]; then
+if [ -e ${prefix}/gfxblacklist.txt ]; then
+    if [ ${grub_platform} != pc ]; then
+    set linux_gfx_mode=keep
+    elif hwmatch ${prefix}/gfxblacklist.txt 3; then
+    if [ ${match} = 0 ]; then
+        set linux_gfx_mode=keep
+    else
+        set linux_gfx_mode=text
+    fi
+    else
+    set linux_gfx_mode=text
+    fi
+else
+    set linux_gfx_mode=keep
+fi
+else
+set linux_gfx_mode=text
+fi
+export linux_gfx_mode
+' > /tmp/10_vanilla
+echo "menuentry 'State A' --class gnu-linux --class gnu --class os {
+recordfail
+load_video
+gfxmode \$linux_gfx_mode
+insmod gzio
+if [ x\$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+insmod part_gpt
+insmod ext2
+search --no-floppy --fs-uuid --set=root $ROOTA_UUID
+linux	/vmlinuz-%s root=UUID=%s quiet splash bgrt_disable \$vt_handoff
+initrd  /initrd.img-$KERNEL_VER
+}
+" >> /tmp/10_vanilla
+echo "menuentry 'State B' --class gnu-linux --class gnu --class os {
+recordfail
+load_video
+gfxmode \$linux_gfx_mode
+insmod gzio
+if [ x\$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+insmod part_gpt
+insmod ext2
+search --no-floppy --fs-uuid --set=root $ROOTB_UUID
+linux	/vmlinuz-%s root=UUID=%s quiet splash bgrt_disable \$vt_handoff
+initrd  /initrd.img-$KERNEL_VER
+}
+" >> /tmp/10_vanilla
+
+# Organize grub scripts directory
+cp /tmp/10_vanilla /mnt/a/etc/grub.d/10_vanilla
+rm /mnt/a/etc/grub.d/20_memtest86+
+
+# Sync changes with rsync (probably change this to an OCI solution later)
+rsync -avxHAX --numeric-ids --exclude='/boot' --exclude='/dev' --exclude='/home' --exclude='/media' --exclude='/mnt' --exclude='/proc' --exclude='/root' --exclude='/run' --exclude='/srv' --exclude='/sys' --exclude='/tmp' /mnt/a/ /mnt/b/
+mkdir -p /mnt/b/boot
+mkdir -p /mnt/b/dev
+mkdir -p /mnt/b/home
+mkdir -p /mnt/b/media
+mkdir -p /mnt/b/mnt
+mkdir -p /mnt/b/proc
+mkdir -p /mnt/b/root
+mkdir -p /mnt/b/run
+mkdir -p /mnt/b/srv
+mkdir -p /mnt/b/sys
+mkdir -p /mnt/b/tmp
+
+# Update grub entries
+# A
+mount $BOOT_PART /mnt/a/boot
+mount $EFI_PART /mnt/a/boot/efi
+mount --bind /dev /mnt/a/dev
+mount --bind /dev/pts /mnt/a/dev/pts
+mount --bind /proc /mnt/a/proc
+mount --bind /sys /mnt/a/sys
+mount --bind /run /mnt/a/run
+chroot /mnt/a grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --boot-directory /mnt/a/boot --target=x86_64-efi $DISK_PATH
+chroot /mnt/a grub-install --boot-directory /boot --target=x86_64-efi
+umount -l $EFI_PART
+umount -l $BOOT_PART
+# B
+mount $BOOT_PART /mnt/b/boot
+mount $EFI_PART /mnt/b/boot/efi
+mount --bind /dev /mnt/b/dev
+mount --bind /dev/pts /mnt/b/dev/pts
+mount --bind /proc /mnt/b/proc
+mount --bind /sys /mnt/b/sys
+mount --bind /run /mnt/b/run
+chroot /mnt/b grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --boot-directory /mnt/b/boot --target=x86_64-efi $DISK_PATH
+chroot /mnt/b grub-install --boot-directory /boot --target=x86_64-efi
+umount -l $EFI_PART
+umount -l $BOOT_PART
+
+# Unmount the rest and label partitions
+umount -l $HOME_PART
+umount -l $ROOTB_PART
+umount -l $ROOTA_PART
+btrfs filesystem label $ROOTA_PART a
+btrfs filesystem label $ROOTB_PART b

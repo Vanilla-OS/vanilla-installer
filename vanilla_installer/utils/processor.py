@@ -177,8 +177,8 @@ class Processor:
 
         # Installation
         recipe.installation = {
-            "method": "unsquashfs",
-            "source": "/run/live/medium/live/filesystem.squashfs"
+            "method": "oci",
+            "source": "ghcr.io/matbme/vanilla-os:latest"
         }
 
         # Post-installation
@@ -229,6 +229,15 @@ class Processor:
 			                value["password"]
 			            ]
                     })
+
+        # OCI post-installation script
+        recipe.postInstallation.append({
+            "chroot": False,
+            "operation": "shell",
+            "params": [
+                "oci-post-install"
+            ]
+        })
 
         # TODO: Read "keyboard" key from finals
 
