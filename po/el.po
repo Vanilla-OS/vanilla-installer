@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-24 18:25+0000\n"
+"PO-Revision-Date: 2023-03-30 16:15+0000\n"
 "Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/el/>\n"
@@ -344,7 +344,7 @@ msgstr "Το διαμέρισμα του BIOS πρέπει να ισούται �
 
 #: vanilla_installer/gtk/widget-partition.ui:120
 msgid "Root Partitions"
-msgstr "Διαμέρισμα Ρίζας"
+msgstr "Διαμερίσματα Ρίζας"
 
 #: vanilla_installer/gtk/widget-partition.ui:121
 msgid ""
@@ -436,7 +436,6 @@ msgid "Partition must be at least {}"
 msgstr "Το διαμέρισμα πρέπει να είναι τουλάχιστον {}"
 
 #: vanilla_installer/defaults/disk.py:454
-#, fuzzy
 msgid "Partition must EXACTLY {}"
 msgstr "Το διαμέρισμα πρέπει να είναι ΑΚΡΙΒΩΣ {}"
 
@@ -459,7 +458,6 @@ msgstr "Θα μορφοποιηθεί σε {} και θα αναρτηθεί σ�
 #: vanilla_installer/views/progress.py:51
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
-#, fuzzy
 msgid "clicked"
 msgstr "Επιλεγμένο"
 
@@ -481,12 +479,12 @@ msgid "No log will be stored."
 msgstr "Καμία καταγραφή δεν θα αποθηκευτεί."
 
 #: vanilla_installer/utils/builder.py:84
-#, fuzzy, python-format
+#, python-format
 msgid "Performing display-condition: %s"
 msgstr "Εφαρμογή φίλτρων: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
-#, fuzzy, python-format
+#, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Το βήμα %s παρακάμφθηκε λόγω φίλτρων προβολής"
 
