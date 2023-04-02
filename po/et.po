@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:41+0530\n"
+"POT-Creation-Date: 2023-04-02 14:10+0530\n"
 "PO-Revision-Date: 2023-03-24 18:25+0000\n"
 "Last-Translator: dogyx <aaronloit@zohomail.eu>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -46,7 +46,7 @@ msgid "The following changes will be made to your system:"
 msgstr "Sinu süsteemis tehakse järgmised muudatused:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:86
+#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Paigalda Vanilla OS"
 
@@ -158,9 +158,9 @@ msgstr "Parool"
 msgid "Confirm Password"
 msgstr "Kinnita parool"
 
-#: vanilla_installer/gtk/default-welcome.ui:51
-msgid "Try Vanilla OS"
-msgstr "Proovi Vanilla OS-i"
+#: vanilla_installer/gtk/default-welcome.ui:30
+msgid "Recovery"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -196,6 +196,44 @@ msgstr "Informatsiooni näitamine"
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Logi"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+#, fuzzy
+msgid "Vanilla OS Recovery"
+msgstr "Vanilla OS paigaldaja"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:26
+msgid "Console"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:33
+#, fuzzy
+msgid "Gparted"
+msgstr "Ava GParted"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:40
+msgid "Handbook"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:47
+msgid "Web Browser"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -249,11 +287,11 @@ msgstr "Kogu ketas"
 msgid "This will erase all data on the disk."
 msgstr "See kustutab kõik kettal olevad andmed."
 
-#: vanilla_installer/gtk/widget-partition.ui:23
+#: vanilla_installer/gtk/widget-partition.ui:24
 msgid "Manual Partitioning"
 msgstr "Käsitsi jaotamine"
 
-#: vanilla_installer/gtk/widget-partition.ui:24
+#: vanilla_installer/gtk/widget-partition.ui:25
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
@@ -262,19 +300,19 @@ msgstr ""
 "põhjustada andmete kadumist, kahjustumist ja/või süsteemi käivitamatuks "
 "muutumist."
 
-#: vanilla_installer/gtk/widget-partition.ui:39
+#: vanilla_installer/gtk/widget-partition.ui:41
 msgid "Open GParted"
 msgstr "Ava GParted"
 
-#: vanilla_installer/gtk/widget-partition.ui:40
+#: vanilla_installer/gtk/widget-partition.ui:42
 msgid "Open GParted to manually partition the disk"
 msgstr "Ava GParted, et ketas käsitsi partitsioneerida"
 
-#: vanilla_installer/gtk/widget-partition.ui:57
+#: vanilla_installer/gtk/widget-partition.ui:60
 msgid "Boot Partition"
 msgstr "Käivituspartitsioon"
 
-#: vanilla_installer/gtk/widget-partition.ui:58
+#: vanilla_installer/gtk/widget-partition.ui:61
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
@@ -282,37 +320,37 @@ msgstr ""
 "Partitsioon, mis paigaldatakse \"/boot\" alla. Selles kaustas hoitakse "
 "Vanilla OS-i käivitamiseks vajalikke faile."
 
-#: vanilla_installer/gtk/widget-partition.ui:61
-#: vanilla_installer/gtk/widget-partition.ui:82
-#: vanilla_installer/gtk/widget-partition.ui:103
-#: vanilla_installer/gtk/widget-partition.ui:152
-#: vanilla_installer/gtk/widget-partition.ui:166
-#: vanilla_installer/gtk/widget-partition.ui:197
-#: vanilla_installer/gtk/widget-partition.ui:230
-#: vanilla_installer/defaults/disk.py:467
+#: vanilla_installer/gtk/widget-partition.ui:64
+#: vanilla_installer/gtk/widget-partition.ui:85
+#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:155
+#: vanilla_installer/gtk/widget-partition.ui:169
+#: vanilla_installer/gtk/widget-partition.ui:200
+#: vanilla_installer/gtk/widget-partition.ui:234
+#: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
 msgstr "Partitsiooni pole valitud"
 
-#: vanilla_installer/gtk/widget-partition.ui:62
-#: vanilla_installer/gtk/widget-partition.ui:83
-#: vanilla_installer/gtk/widget-partition.ui:104
-#: vanilla_installer/gtk/widget-partition.ui:153
-#: vanilla_installer/gtk/widget-partition.ui:167
-#: vanilla_installer/gtk/widget-partition.ui:198
-#: vanilla_installer/gtk/widget-partition.ui:231
-#: vanilla_installer/defaults/disk.py:469
+#: vanilla_installer/gtk/widget-partition.ui:65
+#: vanilla_installer/gtk/widget-partition.ui:86
+#: vanilla_installer/gtk/widget-partition.ui:107
+#: vanilla_installer/gtk/widget-partition.ui:156
+#: vanilla_installer/gtk/widget-partition.ui:170
+#: vanilla_installer/gtk/widget-partition.ui:201
+#: vanilla_installer/gtk/widget-partition.ui:235
+#: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
 msgstr "Palun vali partitsioon allolevatest valikutest"
 
-#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
 msgstr "Käivituspartitsioon on liiga väike."
 
-#: vanilla_installer/gtk/widget-partition.ui:78
+#: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
 msgstr "EFI partitsioon"
 
-#: vanilla_installer/gtk/widget-partition.ui:79
+#: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -320,15 +358,15 @@ msgstr ""
 "Partitsioon, mis paigaldatakse \"/boot/efi\" alla. Selles kaustas hoitakse "
 "faile, mis on mõeldud alglaaduris käivitamiseks."
 
-#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
 msgstr "EFI partitsioon on liiga väike."
 
-#: vanilla_installer/gtk/widget-partition.ui:99
+#: vanilla_installer/gtk/widget-partition.ui:102
 msgid "BIOS Boot Partition"
 msgstr "BIOSi alglaadimispartitsioon"
 
-#: vanilla_installer/gtk/widget-partition.ui:100
+#: vanilla_installer/gtk/widget-partition.ui:103
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -338,22 +376,22 @@ msgstr ""
 "süsteemidest käivitamist. See peab asuma ketta esimeses 2 TB-s ja olema "
 "täpselt 1 mebibait (1 MiB)."
 
-#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOSi partitsioon peab olema täpselt 1 MiB."
 
-#: vanilla_installer/gtk/widget-partition.ui:120
+#: vanilla_installer/gtk/widget-partition.ui:123
 msgid "Root Partitions"
 msgstr "Juurpartitsioonid"
 
-#: vanilla_installer/gtk/widget-partition.ui:121
+#: vanilla_installer/gtk/widget-partition.ui:124
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
 "Partitsioonid, mis paigaldatakse \"/\" alla. Mõlemad partitsioonid peavad "
 "olema sama suured."
 
-#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:137
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
@@ -361,39 +399,39 @@ msgstr ""
 "Vanilla OS kasutab A/B partitsioonisüsteemi, mida haldab ABRoot,\n"
 "mis lülitub värskenduste vahel kahe juurpartitsiooni vahel."
 
-#: vanilla_installer/gtk/widget-partition.ui:178
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
 msgstr "Juurpartitsioonid ei ole sama suured."
 
-#: vanilla_installer/gtk/widget-partition.ui:179
+#: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr "Veendu, et A- ja B-partitsioonidel on sama kettaruum."
 
-#: vanilla_installer/gtk/widget-partition.ui:188
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
 msgstr "Juurpartitsioonid on liiga väikesed."
 
-#: vanilla_installer/gtk/widget-partition.ui:193
+#: vanilla_installer/gtk/widget-partition.ui:196
 msgid "Home Partition"
 msgstr "Kodu partitsioon"
 
-#: vanilla_installer/gtk/widget-partition.ui:194
+#: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
 "Partitsioon, mis paigaldatakse \"/home\" alla. Selles kaustas hoitakse kõiki "
 "kasutajaandmeid."
 
-#: vanilla_installer/gtk/widget-partition.ui:209
+#: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
 msgstr "Kodu partitsioon on liiga väike."
 
-#: vanilla_installer/gtk/widget-partition.ui:214
-#: vanilla_installer/gtk/widget-partition.ui:218
+#: vanilla_installer/gtk/widget-partition.ui:217
+#: vanilla_installer/gtk/widget-partition.ui:221
 msgid "Swap partition"
 msgstr "Swap partitsioon"
 
-#: vanilla_installer/gtk/widget-partition.ui:215
+#: vanilla_installer/gtk/widget-partition.ui:218
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -402,7 +440,7 @@ msgstr ""
 "Vanilla OS kasutab juba praegu zram'i, et pakkuda swap'i ilma salvestusruumi "
 "kuluta."
 
-#: vanilla_installer/gtk/widget-partition.ui:219
+#: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -414,36 +452,36 @@ msgstr ""
 msgid "Back"
 msgstr "Tagasi"
 
-#: vanilla_installer/defaults/disk.py:42
+#: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
 msgstr "Ruumi pole piisavalt: {0}/{1}"
 
-#: vanilla_installer/defaults/disk.py:57
+#: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
 msgstr "See on ainus saadaolev ketas ja seda ei saa valikust välja jätta!"
 
-#: vanilla_installer/defaults/disk.py:332
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted on juba käivitatud. Lubatud on ainult üks GParted'i instants."
 
-#: vanilla_installer/defaults/disk.py:431
+#: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
 msgstr "Partitsioon peab olema vähemalt {}"
 
-#: vanilla_installer/defaults/disk.py:454
+#: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
 msgstr "Partitsioon peab olema TÄPSELT {}"
 
-#: vanilla_installer/defaults/disk.py:556
+#: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Partitsioonid on muutunud. Praegused valikud on tühistatud."
 
-#: vanilla_installer/defaults/disk.py:621
+#: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
 msgstr "Kasutatakse kogu ketast."
 
-#: vanilla_installer/defaults/disk.py:628
+#: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Vormindatakse {} ja paigaldatakse {}"
 
@@ -541,3 +579,6 @@ msgstr "Palun võta ühendust distributsiooni arendajatega."
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "leht-muudetud"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Proovi Vanilla OS-i"
