@@ -4,13 +4,14 @@
 # Automatically generated, 2022.
 #
 # Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>, 2023.
+# Ibrahim Kaikaa <ibrahimkaikaa@protonmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-21 05:05+0000\n"
-"Last-Translator: Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>\n"
+"PO-Revision-Date: 2023-03-29 21:33+0000\n"
+"Last-Translator: Ibrahim Kaikaa <ibrahimkaikaa@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -257,6 +258,8 @@ msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"اختر الأقسام التي سيتم استعمالها من أجل التثبيت. الإعدادات الخاطئة قد تؤدي "
+"إلى فقدان البيانات و/أو عدم القدرة على الإقلاع إلى النظام."
 
 #: vanilla_installer/gtk/widget-partition.ui:39
 msgid "Open GParted"
@@ -267,9 +270,8 @@ msgid "Open GParted to manually partition the disk"
 msgstr "فتح GParted لتقسيم القرص يدويًّا"
 
 #: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
 msgid "Boot Partition"
-msgstr "تقسيم التمهيد"
+msgstr "قسم الإقلاع"
 
 #: vanilla_installer/gtk/widget-partition.ui:58
 msgid ""
@@ -395,9 +397,8 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
-#, fuzzy
 msgid "Back"
-msgstr "تراجع"
+msgstr "إلى الخلف"
 
 #: vanilla_installer/defaults/disk.py:42
 #, fuzzy, python-brace-format

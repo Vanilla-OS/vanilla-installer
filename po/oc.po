@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-20 18:21+0000\n"
+"PO-Revision-Date: 2023-04-01 17:32+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/oc/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -105,7 +105,7 @@ msgstr "Escur"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Esquèma de colors"
+msgstr "Paleta de colors"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
@@ -214,11 +214,11 @@ msgstr "Tampar"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "Òc, activar"
+msgstr "Òc, l’activar"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr "Installacion…"
+msgstr "Installacion..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -386,7 +386,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Retorn"
 
 #: vanilla_installer/defaults/disk.py:42
 #, python-brace-format
