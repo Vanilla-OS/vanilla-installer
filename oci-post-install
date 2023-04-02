@@ -106,10 +106,24 @@ mkdir -p /mnt/b/srv
 mkdir -p /mnt/b/sys
 mkdir -p /mnt/b/tmp
 
+if [ "$EFI_PART" != "BIOS" ]; then
+    umount -l $EFI_PART
+fi
+umount -l $BOOT_PART
+
 echo "Updating grub entries\n"
+if [ "$EFI_PART" = "BIOS" ]; then
+    apt install -y grub-pc
+    GRUB_TARGET="i386-pc"
+else
+    GRUB_TARGET="x86_64-efi"
+fi
+
 # A
 mount $BOOT_PART /mnt/a/boot
-mount $EFI_PART /mnt/a/boot/efi
+if [ "$EFI_PART" != "BIOS" ]; then
+    mount $EFI_PART /mnt/a/boot/efi
+fi
 mount --bind /dev /mnt/a/dev
 mount --bind /dev/pts /mnt/a/dev/pts
 mount --bind /proc /mnt/a/proc
@@ -117,22 +131,28 @@ mount --bind /sys /mnt/a/sys
 mount --bind /run /mnt/a/run
 chroot /mnt/a mkdir -p /boot/grub
 chroot /mnt/a grub-mkconfig -o /boot/grub/grub.cfg
-grub-install --boot-directory /mnt/a/boot --target=x86_64-efi $DISK_PATH
-chroot /mnt/a grub-install --boot-directory /boot --target=x86_64-efi
-umount -l $EFI_PART
+grub-install --boot-directory /mnt/a/boot --target=$GRUB_TARGET $DISK_PATH
+chroot /mnt/a grub-install --boot-directory /boot --target=$GRUB_TARGET
+if [ "$EFI_PART" != "BIOS" ]; then
+    umount -l $EFI_PART
+fi
 umount -l $BOOT_PART
 # B
 mount $BOOT_PART /mnt/b/boot
-mount $EFI_PART /mnt/b/boot/efi
+if [ "$EFI_PART" != "BIOS" ]; then
+    mount $EFI_PART /mnt/b/boot/efi
+fi
 mount --bind /dev /mnt/b/dev
 mount --bind /dev/pts /mnt/b/dev/pts
 mount --bind /proc /mnt/b/proc
 mount --bind /sys /mnt/b/sys
 mount --bind /run /mnt/b/run
 chroot /mnt/b grub-mkconfig -o /boot/grub/grub.cfg
-grub-install --boot-directory /mnt/b/boot --target=x86_64-efi $DISK_PATH
-chroot /mnt/b grub-install --boot-directory /boot --target=x86_64-efi
-umount -l $EFI_PART
+grub-install --boot-directory /mnt/b/boot --target=$GRUB_TARGET $DISK_PATH
+chroot /mnt/b grub-install --boot-directory /boot --target=$GRUB_TARGET
+if [ "$EFI_PART" != "BIOS" ]; then
+    umount -l $EFI_PART
+fi
 umount -l $BOOT_PART
 
 echo "Cleaning up\n"

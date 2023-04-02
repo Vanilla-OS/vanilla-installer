@@ -245,6 +245,11 @@ class Processor:
                     oci_cmd_args[3] = mnt["partition"]
                 else:
                     oci_cmd_args[4] = mnt["partition"]
+
+        # Handle BIOS installation option
+        if not oci_cmd_args[2]:
+            oci_cmd_args[2] = "BIOS"
+
         recipe.postInstallation.append({
             "chroot": False,
             "operation": "shell",
@@ -452,4 +457,5 @@ class Processor:
             os.chmod(f.name, 0o755)
 
             return f.name
+
 
