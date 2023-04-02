@@ -5,13 +5,14 @@
 #
 # Thual LABART--BARNAGAUD <tlabartbarnagaud@protonmail.com>, 2023.
 # "Alexandre BOYER (Alex)" <alexandre.boyer29@gmail.com>, 2023.
+# strafe <lucas-strafe@pm.me>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-02 08:27+0000\n"
-"Last-Translator: \"Alexandre BOYER (Alex)\" <alexandre.boyer29@gmail.com>\n"
+"PO-Revision-Date: 2023-04-02 00:31+0000\n"
+"Last-Translator: strafe <lucas-strafe@pm.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
 "Language: fr\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -488,25 +489,25 @@ msgstr "Étape %s ignorée en raison des conditions d'affichage"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Fichier de recette invalide"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "La recette n’est pas un dictionnaire"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "La touche '{key}' est manque à la recette"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Les étapes de la recette ne sont pas une liste"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "L’étape {step} n’est pas un dictionnaire"
 
 #: vanilla_installer/views/confirm.py:78
 msgid "Keyboard"
