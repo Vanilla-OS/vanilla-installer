@@ -129,10 +129,12 @@ mount --bind /dev/pts /mnt/a/dev/pts
 mount --bind /proc /mnt/a/proc
 mount --bind /sys /mnt/a/sys
 mount --bind /run /mnt/a/run
+if [ "$EFI_PART" = "BIOS" ]; then
+    chroot /mnt/a apt install -y grub-pc
+fi
 chroot /mnt/a mkdir -p /boot/grub
 chroot /mnt/a grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --boot-directory /mnt/a/boot --target=$GRUB_TARGET $DISK_PATH
-chroot /mnt/a grub-install --boot-directory /boot --target=$GRUB_TARGET
 if [ "$EFI_PART" != "BIOS" ]; then
     umount -l $EFI_PART
 fi
@@ -148,8 +150,10 @@ mount --bind /proc /mnt/b/proc
 mount --bind /sys /mnt/b/sys
 mount --bind /run /mnt/b/run
 chroot /mnt/b grub-mkconfig -o /boot/grub/grub.cfg
+if [ "$EFI_PART" = "BIOS" ]; then
+    chroot /mnt/b apt install -y grub-pc
+fi
 grub-install --boot-directory /mnt/b/boot --target=$GRUB_TARGET $DISK_PATH
-chroot /mnt/b grub-install --boot-directory /boot --target=$GRUB_TARGET
 if [ "$EFI_PART" != "BIOS" ]; then
     umount -l $EFI_PART
 fi
