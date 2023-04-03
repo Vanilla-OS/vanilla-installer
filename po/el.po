@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-30 16:15+0000\n"
+"PO-Revision-Date: 2023-04-02 13:31+0000\n"
 "Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/el/>\n"
@@ -159,7 +159,7 @@ msgstr "Επιβεβαίωση Κωδικού"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "Επανόρθωση"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -197,42 +197,40 @@ msgid "Log"
 msgstr "Καταγραφή"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Πρόγραμμα Εγκατάστασης του Vanilla OS"
+msgstr "Επανόρθωση του Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Κονσόλα"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "Άνοιγμα ενός τερματικού."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "Άνοιγμα του GParted"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "Διαχείριση δίσκων και διαμερισμάτων."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "Εγχειρίδιο"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "Διαβάστε το Εγχειρίδιο του Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "Φυλλομετρητής"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "Αναζήτηση βοήθειας στο διαδίκτυο."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
