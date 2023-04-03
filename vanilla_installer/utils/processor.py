@@ -178,7 +178,7 @@ class Processor:
         # Installation
         recipe.installation = {
             "method": "oci",
-            "source": "ghcr.io/matbme/vanilla-os:latest"
+            "source": "registry.vanillaos.org/vanillaos/desktop:main"
         }
 
         # Post-installation
