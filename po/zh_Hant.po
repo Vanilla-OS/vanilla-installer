@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-23 01:36+0000\n"
-"Last-Translator: Jen Kung-chih <Kaitul@outlook.com>\n"
+"PO-Revision-Date: 2023-04-02 16:48+0000\n"
+"Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -161,7 +161,7 @@ msgstr "確認密碼"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "修復"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -197,42 +197,40 @@ msgid "Log"
 msgstr "記錄"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS 安裝程式"
+msgstr "Vanilla OS 修復程式"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "終端機"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "開啟終端機。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "開啟 GParted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "管理磁碟和分割區。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "手冊"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "閱讀 Vanilla OS 的手冊。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "網頁瀏覽器"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "尋求線上幫助。"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -424,13 +422,14 @@ msgstr "交換分割區"
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
-msgstr ""
+msgstr "交換區是您 RAM 的虛擬擴充，並且可以啟用休眠。Vanilla OS 預設使用 zram "
+"以提供交換功能，無需消耗存儲空間。"
 
 #: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
-msgstr ""
+msgstr "選取要和 zram 一起用作交換區的分割區。這並非為休眠功能所需要。"
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
@@ -484,7 +483,7 @@ msgstr "請至少選取一個選項。"
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "配方中缺失 'log_file'。"
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
@@ -507,25 +506,25 @@ msgstr "由於 display-condition 而跳過步驟 %s"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "無效的配方檔"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "配方的資料型別不是字典"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "配方缺少 '{key}' 鍵"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "配方步驟的資料型別不是串列"
 
 #: vanilla_installer/utils/recipe.py:69
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr "步驟 {step} 不是字典"
+msgstr "步驟 {step} 的資料型別不是字典"
 
 #: vanilla_installer/views/confirm.py:78
 msgid "Keyboard"
