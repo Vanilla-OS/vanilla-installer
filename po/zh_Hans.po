@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-02-20 18:21+0000\n"
+"PO-Revision-Date: 2023-04-02 16:48+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hans/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -159,7 +159,7 @@ msgstr "确认密码"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "恢复"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -195,42 +195,40 @@ msgid "Log"
 msgstr "日志"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS 安装程序"
+msgstr "Vanilla OS 恢复程序"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "打开终端。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "打开 GParted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "管理磁盘和分区。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "手册"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "阅读 Vanilla OS 的手册。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "网页浏览器"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "寻求在线帮助。"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
