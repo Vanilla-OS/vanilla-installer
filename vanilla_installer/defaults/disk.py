@@ -30,31 +30,14 @@ class VanillaDefaultDiskEntry(Adw.ActionRow):
 
     chk_button = Gtk.Template.Child()
 
-    def __init__(self, disk, chk_group, use_radio, **kwargs):
+    def __init__(self, parent, disk, **kwargs):
         super().__init__(**kwargs)
+        self.__parent = parent
         self.__disk = disk
         self.set_title(disk.name)
+        self.set_subtitle(disk.pretty_size)
 
-        if disk.size < 50_000_000_000:
-            self.set_sensitive(False)
-            self.set_subtitle(
-                _("Not enough space: {0}/{1}").format(disk.pretty_size, "50 GB")
-            )
-        else:
-            self.set_subtitle(disk.pretty_size)
-            self.chk_button.set_group(chk_group)
-
-            if not use_radio:
-                # since there is only one disk and for some reason GtkCheckButton
-                # only works as a GtkRadioButton only when there are more than one
-                # we create a fake GtkRadioButton to check the first one
-                fake_chk_button = Gtk.CheckButton()
-                fake_chk_button.set_group(self.chk_button)
-                self.chk_button.set_active(True)
-                self.chk_button.set_sensitive(False)
-                self.chk_button.set_tooltip_text(
-                    _("This is the only disk available and cannot be deselected!")
-                )
+        self.chk_button.connect("toggled", self.__parent.on_disk_entry_toggled, self.disk)
 
     @property
     def is_active(self):
@@ -153,10 +136,6 @@ class PartitionRow(Adw.ActionRow):
 class PartitionSelector(Adw.PreferencesPage):
     __gtype_name__ = "PartitionSelector"
 
-    entire_disk_row = Gtk.Template.Child()
-    chk_entire_disk = Gtk.Template.Child()
-    chk_manual_part = Gtk.Template.Child()
-    manual_part_row = Gtk.Template.Child()
     open_gparted_group = Gtk.Template.Child()
     open_gparted_row = Gtk.Template.Child()
     launch_gparted = Gtk.Template.Child()
@@ -238,10 +217,7 @@ class PartitionSelector(Adw.PreferencesPage):
         super().__init__(**kwargs)
         self.__parent = parent
         self.__partitions = sorted(partitions)
-        self.chk_entire_disk.set_group(self.chk_manual_part)
 
-        self.chk_manual_part.connect("toggled", self.__on_chk_manual_part_toggled)
-        self.chk_entire_disk.connect("toggled", self.__on_chk_entire_disk_toggled)
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
         self.abroot_info_button.connect("clicked", self.__on_info_button_clicked)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
@@ -301,24 +277,7 @@ class PartitionSelector(Adw.PreferencesPage):
             widget.add_siblings(self.__swap_part_rows[:i] + self.__swap_part_rows[i+1:])
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
-        # Refresh partition UI to make it insensitive
-        self.__on_chk_manual_part_toggled(self.chk_manual_part)
-
-    def __on_chk_manual_part_toggled(self, widget):
-        self.boot_part.set_sensitive(widget.get_active())
-        self.open_gparted_group.set_sensitive(widget.get_active())
-        if Systeminfo.is_uefi():
-            self.efi_part.set_sensitive(widget.get_active())
-        else:
-            self.bios_part.set_sensitive(widget.get_active())
-        self.roots_part.set_sensitive(widget.get_active())
-        self.home_part.set_sensitive(widget.get_active())
-        self.swap_part.set_sensitive(widget.get_active())
-
         self.update_apply_button_status()
-
-    def __on_chk_entire_disk_toggled(self, widget):
-        self.__parent.set_btn_apply_sensitive(True)
 
     def __on_launch_gparted(self, widget):
         proc = subprocess.Popen(["ps", "-C", "gparted"])
@@ -347,11 +306,6 @@ class PartitionSelector(Adw.PreferencesPage):
         self.abroot_info_popover.popup()
 
     def update_apply_button_status(self):
-        # If not manual partitioning, it's always valid
-        if self.chk_entire_disk.get_active():
-            self.__parent.set_btn_apply_sensitive(True)
-            return
-
         for k, val in self.__selected_partitions.items():
             if val["partition"] == None and (
                 k != "swap_part_expand" or self.use_swap_part.get_active()
@@ -521,32 +475,41 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     btn_cancel = Gtk.Template.Child()
     btn_apply = Gtk.Template.Child()
 
-    def __init__(self, window, parent, disk, **kwargs):
+    def __init__(self, window, parent, disks, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
         self.__parent = parent
-        self.__disk = disk
+        self.__disks = disks
         self.set_transient_for(self.__window)
+
+        self.__partitions = []
+        for disk in self.__disks:
+            for part in disk.partitions:
+                self.__partitions.append(part)
 
         # signals
         self.btn_cancel.connect("clicked", self.__on_btn_cancel_clicked)
         self.btn_apply.connect("clicked", self.__on_btn_apply_clicked)
         self.connect("notify::is-active", self.__on_window_active)
 
-        self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
+        self.__partition_selector = PartitionSelector(self, self.__partitions)
         self.group_partitions.set_child(self.__partition_selector)
 
     def __on_window_active(self, widget, value):
         # Only update partitions when window has gained focus
         if self.is_active():
-            current_partitions = self.__disk.partitions.copy()
-            self.__disk.update_partitions()
-            if current_partitions != self.__disk.partitions:
-                current_state = self.__partition_selector.chk_manual_part.get_active()
+            current_partitions = self.__partitions.copy()
+
+            self.__partitions = []
+            for disk in self.__disks:
+                disk.update_partitions()
+                for part in disk.partitions:
+                    self.__partitions.append(part)
+
+            if current_partitions != self.__partitions:
                 self.__partition_selector.cleanup()
                 self.__partition_selector.unrealize()
-                self.__partition_selector = PartitionSelector(self, self.__disk.partitions)
-                self.__partition_selector.chk_manual_part.set_active(current_state)
+                self.__partition_selector = PartitionSelector(self, self.__partitions)
                 self.group_partitions.set_child(self.__partition_selector)
                 partitions_changed_toast = Adw.Toast.new(_("Partitions have changed. Current selections have been cleared."))
                 partitions_changed_toast.set_timeout(5)
@@ -558,7 +521,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     def __on_btn_apply_clicked(self, widget):
         self.__parent.set_partition_recipe(self.partition_recipe)
-        self.emit("partitioning-set", self.__disk.name)
+        self.emit("partitioning-set", "")
         self.destroy()
 
     def set_btn_apply_sensitive(self, val):
@@ -567,16 +530,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     @property
     def partition_recipe(self):
         recipe = {}
-        if self.__partition_selector.chk_entire_disk.get_active():
-            return {
-                "auto": {
-                    "disk": self.__disk.disk,
-                    "pretty_size": self.__disk.pretty_size,
-                    "size": self.__disk.size,
-                }
-            }
 
-        recipe["disk"] = self.__disk.disk
         for _, info in self.__partition_selector.selected_partitions.items():
             if not isinstance(
                 info["partition"], Partition
@@ -588,6 +542,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
                 "pretty_size": info["partition"].pretty_size,
                 "size": info["partition"].size,
             }
+
         return recipe
 
 
@@ -640,7 +595,8 @@ class VanillaDefaultDisk(Adw.Bin):
     __gtype_name__ = "VanillaDefaultDisk"
 
     btn_next = Gtk.Template.Child()
-    btn_configure = Gtk.Template.Child()
+    btn_auto = Gtk.Template.Child()
+    btn_manual = Gtk.Template.Child()
     group_disks = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
@@ -650,43 +606,54 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__registry_disks = []
+        self.__selected_disks = []
         self.__disks = DisksManager()
         self.__partition_recipe = None
 
         # append the disks widgets
-        chk_group = None
         count_disks = len(self.__disks.all_disks)
         for index, disk in enumerate(self.__disks.all_disks):
-            entry = VanillaDefaultDiskEntry(disk, chk_group, use_radio=count_disks > 1)
+            entry = VanillaDefaultDiskEntry(self, disk)
             self.group_disks.add(entry)
-
-            if index == 0:
-                chk_group = entry.chk_button
 
             self.__registry_disks.append(entry)
 
         # signals
         self.btn_next.connect("clicked", self.__on_btn_next_clicked)
-        self.btn_configure.connect("clicked", self.__on_configure_clicked)
+        self.btn_auto.connect("clicked", self.__on_auto_clicked)
+        self.btn_manual.connect("clicked", self.__on_manual_clicked)
 
     def get_finals(self):
         return {"disk": self.__partition_recipe}
 
-    def __on_configure_clicked(self, button):
-        def on_modal_close_request(*args):
-            self.btn_next.set_visible(self.__partition_recipe is not None)
-            self.btn_next.set_sensitive(self.__partition_recipe is not None)
+    def __on_modal_close_request(self, *args):
+        self.btn_next.set_visible(self.__partition_recipe is not None)
+        self.btn_next.set_sensitive(self.__partition_recipe is not None)
 
-        for entry in self.__registry_disks:
-            if not entry.is_active:
-                continue
+    def __on_auto_clicked(self, button):
+        self.__partition_recipe =  {
+            "auto": {
+                "disk": self.__selected_disks[0].disk,
+                "pretty_size": self.__selected_disks[0].pretty_size,
+                "size": self.__selected_disks[0].size,
+            }
+        }
+        modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
+        modal.present()
 
-            entry.disk.update_partitions()
+    def __on_manual_clicked(self, button):
+        modal = VanillaDefaultDiskPartModal(self.__window, self, self.__selected_disks)
+        modal.connect("partitioning-set", self.__on_modal_close_request)
+        modal.present()
 
-            modal = VanillaDefaultDiskPartModal(self.__window, self, entry.disk)
-            modal.connect("partitioning-set", on_modal_close_request)
-            modal.present()
-            break
+    def on_disk_entry_toggled(self, widget, disk):
+        if widget.get_active():
+            self.__selected_disks.append(disk)
+        else:
+            self.__selected_disks.remove(disk)
+
+        self.btn_auto.set_sensitive(len(self.__selected_disks) == 1)
+        self.btn_manual.set_sensitive(len(self.__selected_disks) > 0)
 
     def set_partition_recipe(self, recipe):
         self.__partition_recipe = recipe
