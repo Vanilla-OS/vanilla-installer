@@ -318,16 +318,12 @@ class PartitionSelector(Adw.PreferencesPage):
 
     def check_root_partitions_size_equal(self):
         if self.__selected_partitions["abroot_a_part_expand"]["partition"]:
-            a_root_part_size = self.__selected_partitions["abroot_a_part_expand"][
-                "partition"
-            ].size
+            a_root_part_size = self.__selected_partitions["abroot_a_part_expand"]["partition"].size
         else:
             a_root_part_size = None
 
         if self.__selected_partitions["abroot_b_part_expand"]["partition"]:
-            b_root_part_size = self.__selected_partitions["abroot_b_part_expand"][
-                "partition"
-            ].size
+            b_root_part_size = self.__selected_partitions["abroot_b_part_expand"]["partition"].size
         else:
             b_root_part_size = None
 
@@ -532,10 +528,10 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         recipe = {}
 
         for _, info in self.__partition_selector.selected_partitions.items():
-            if not isinstance(
-                info["partition"], Partition
-            ):  # Partition can be None if user didn't configure swap
+            # Partition can be None if user didn't configure swap
+            if not isinstance(info["partition"], Partition):
                 continue
+
             recipe[info["partition"].partition] = {
                 "fs": info["fstype"],
                 "mp": info["mountpoint"],
