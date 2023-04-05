@@ -65,37 +65,38 @@ class Processor:
     @staticmethod
     def __gen_auto_partition_steps(disk):
         info = {
-            "steps": [],
-            "mountpoints": []
+            "setup": [],
+            "mountpoints": [],
+            "postInstall": []
         }
 
-        info["steps"].append({
+        info["setup"].append({
             "disk": disk,
             "operation": "label",
             "params": ["gpt"]
         })
 
         # Boot
-        info["steps"].append({
+        info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
             "params": ["boot", "ext4", 1, 1025]
         })
 
         if Systeminfo.is_uefi():
-            info["steps"].append({
+            info["setup"].append({
                 "disk": disk,
                 "operation": "mkpart",
                 "params": ["EFI", "fat32", 1025, 1537]
             })
             part_offset = 1537
         else:
-            info["steps"].append({
+            info["setup"].append({
                 "disk": disk,
                 "operation": "mkpart",
                 "params": ["BIOS", "fat32", 1025, 1026]
             })
-            info["steps"].append({
+            info["setup"].append({
                 "disk": disk,
                 "operation": "setflag",
                 "params": ["2", "bios_grub", True]
@@ -103,13 +104,13 @@ class Processor:
             part_offset = 1026
 
         # Roots
-        info["steps"].append({
+        info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
             "params": ["a", "btrfs", part_offset, part_offset + 12288]
         })
         part_offset += 12288
-        info["steps"].append({
+        info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
             "params": ["b", "btrfs", part_offset, part_offset + 12288]
@@ -117,7 +118,7 @@ class Processor:
         part_offset += 12288
 
         # Home
-        info["steps"].append({
+        info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
             "params": ["home", "btrfs", part_offset, -1]
@@ -157,6 +158,45 @@ class Processor:
         return info
 
     @staticmethod
+    def __gen_manual_partition_steps(disk_final):
+        info = {
+            "setup": [],
+            "mountpoints": [],
+            "postInstall": []
+        }
+
+        # Since manual partitioning uses GParted to handle partitions (for now),
+        # we don't need to create any partitions or label disks (for now).
+        # But we still need to format partitions.
+        for part, values in disk_final:
+            part_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)
+            part_number = re.match("[0-9]+$", part, re.MULTILINE)
+            info["setup"].append({
+                "disk": part_disk,
+                "operation": "format",
+                "params": [part_number, values["fs"]]
+            })
+
+            if not Systeminfo.is_uefi() and values["mp"] == "":
+                info["setup"].append({
+                    "disk": part_disk,
+                    "operation": "setflag",
+                    "params": [part_number, "bios_grub", True]
+                })
+
+            if values["mp"] == "swap":
+                info["postInstall"].append({
+                    "chroot": True,
+		            "operation": "swapon",
+		            "params": [part]
+                })
+            else:
+                info["mountpoints"].append({
+                    "partition": part,
+                    "target": values["mp"]
+                })
+
+    @staticmethod
     def gen_install_recipe(log_path, finals):
         logger.info("processing the following final data: %s", finals)
 
@@ -167,13 +207,15 @@ class Processor:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
                     info = Processor.__gen_auto_partition_steps(final["disk"]["auto"]["disk"])
-                    for step in info["steps"]:
-                        recipe.setup.append(step)
-                    for mount in info["mountpoints"]:
-                        recipe.mountpoints.append(mount)
                 else:
-                    # TODO: Handle manual partitioning
-                    pass
+                    info = Processor.__gen_manual_partition_steps(final["disk"])
+
+                for step in info["setup"]:
+                    recipe.setup.append(step)
+                for mount in info["mountpoints"]:
+                    recipe.mountpoints.append(mount)
+                for step in info["postInstall"]:
+                    recipe.postInstallation.append(step)
 
         # Installation
         recipe.installation = {
@@ -457,5 +499,6 @@ class Processor:
             os.chmod(f.name, 0o755)
 
             return f.name
+
 
 
