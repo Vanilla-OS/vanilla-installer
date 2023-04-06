@@ -76,7 +76,7 @@ class VanillaConfirm(Adw.Bin):
                 elif key == "keyboard":
                     self.active_widgets.append(VanillaChoiceEntry(
                         _("Keyboard"),
-                        value,
+                        value["layout"],
                         "input-keyboard-symbolic"
                     ))
                 elif key == "timezone":
