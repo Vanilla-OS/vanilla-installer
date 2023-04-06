@@ -79,7 +79,6 @@ class VanillaDefaultKeyboard(Adw.Bin):
             self.test_focus_controller.connect("enter", self.__apply_layout)
 
     def __next(self, *args):
-        print(self.get_finals())
         if "VANILLA_NO_APPLY_XKB" in os.environ:
             self.__window.next()
         else:
