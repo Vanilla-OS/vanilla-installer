@@ -152,9 +152,9 @@ class Processor:
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
         # But we still need to format partitions.
-        for part, values in disk_final:
-            part_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)
-            part_number = re.match("[0-9]+$", part, re.MULTILINE)
+        for part, values in disk_final.items():
+            part_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)[0]
+            part_number = re.sub(r".*[a-z]([0-9]+)", r"\1", part)
             info["setup"].append({
                 "disk": part_disk,
                 "operation": "format",
@@ -179,6 +179,8 @@ class Processor:
                     "partition": part,
                     "target": values["mp"]
                 })
+
+        return info
 
     @staticmethod
     def gen_install_recipe(log_path, finals, oci_image):
@@ -273,7 +275,7 @@ class Processor:
             oci_cmd_args = [None] * 5
             for mnt in recipe.mountpoints:
                 if mnt["target"] == "/boot":
-                    boot_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)
+                    boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)
                     oci_cmd_args[0] = boot_disk[0]
                     oci_cmd_args[1] = mnt["partition"]
                 elif mnt["target"] == "/boot/efi":
