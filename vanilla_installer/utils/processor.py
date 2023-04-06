@@ -181,7 +181,7 @@ class Processor:
                 })
 
     @staticmethod
-    def gen_install_recipe(log_path, finals):
+    def gen_install_recipe(log_path, finals, oci_image):
         logger.info("processing the following final data: %s", finals)
 
         recipe = AlbiusRecipe()
@@ -204,7 +204,7 @@ class Processor:
         # Installation
         recipe.installation = {
             "method": "oci",
-            "source": "registry.vanillaos.org/vanillaos/desktop:main"
+            "source": oci_image
         }
 
         # Post-installation

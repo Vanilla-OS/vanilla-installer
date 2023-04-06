@@ -105,7 +105,8 @@ class VanillaWindow(Adw.ApplicationWindow):
     def on_installation_confirmed(self, *args):
         recipe = Processor.gen_install_recipe(
             self.recipe.get("log_file", "/tmp/vanilla_installer.log"),
-            self.finals
+            self.finals,
+            self.recipe.get("oci_image"),
         )
         self.next()
         self.__view_progress.start(recipe)

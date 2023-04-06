@@ -2,6 +2,7 @@
     "log_file": "/etc/vanilla/installer.log",
     "distro_name": "Vanilla OS",
     "distro_logo": "org.vanillaos.Installer", 
+    "oci_image": "registry.vanillaos.org/vanillaos/desktop:main",
     "pre_run": [
         "sudo apx --sys update", 
         "sudo apx --sys install -f"
