@@ -47,22 +47,6 @@ class AlbiusRecipe:
 
 class Processor:
     @staticmethod
-    def gen_swap_size():
-        """
-        Reference: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace#doc-wrapper
-        """
-        mem = os.sysconf("SC_PAGE_SIZE") * os.sysconf("SC_PHYS_PAGES")
-        mem = mem / (1024.0**3)
-        if mem <= 2:
-            return int(mem * 3 * 1024)
-        elif mem > 2 and mem <= 8:
-            return int(mem * 2 * 1024)
-        elif mem > 8 and mem <= 64:
-            return int(mem * 1.5 * 1024)
-        else:
-            return 4096
-
-    @staticmethod
     def __gen_auto_partition_steps(disk):
         info = {
             "setup": [],
@@ -187,8 +171,8 @@ class Processor:
             if values["mp"] == "swap":
                 info["postInstall"].append({
                     "chroot": True,
-		            "operation": "swapon",
-		            "params": [part]
+                    "operation": "swapon",
+                    "params": [part]
                 })
             else:
                 info["mountpoints"].append({
@@ -231,17 +215,17 @@ class Processor:
             f.write("gparted\n")
         recipe.postInstallation.append({
             "chroot": True,
-			"operation": "pkgremove",
-			"params": [
-			    manifest_remove,
-				"apt remove -y"
-			]
+            "operation": "pkgremove",
+            "params": [
+                manifest_remove,
+                "apt remove -y"
+            ]
         })
         # Set hostname
         recipe.postInstallation.append({
             "chroot": True,
-			"operation": "hostname",
-			"params": ["vanilla"]
+            "operation": "hostname",
+            "params": ["vanilla"]
         })
         for final in finals:
             for key, value in final.items():
@@ -249,60 +233,74 @@ class Processor:
                 if key == "timezone":
                     recipe.postInstallation.append({
                         "chroot": True,
-			            "operation": "timezone",
-			            "params": [f"{value['region']}/{value['zone']}"]
+                        "operation": "timezone",
+                        "params": [f"{value['region']}/{value['zone']}"]
                     })
                 # Set locale
                 if key == "language":
                     recipe.postInstallation.append({
                         "chroot": True,
-			            "operation": "locale",
-			            "params": [value]
+                        "operation": "locale",
+                        "params": [value]
                     })
                 # Add user
                 if key == "users":
                     recipe.postInstallation.append({
                         "chroot": True,
-			            "operation": "adduser",
-			            "params": [
-			                value["username"],
-			                value["fullname"],
-			                ["sudo", "lpadmin"],
-			                value["password"]
-			            ]
+                        "operation": "adduser",
+                        "params": [
+                            value["username"],
+                            value["fullname"],
+                            ["sudo", "lpadmin"],
+                            value["password"]
+                        ]
+                    })
+                # Set keyboard
+                if key == "keyboard":
+                    recipe.postInstallation.append({
+                        "chroot": True,
+                        "operation": "keyboard",
+                        "params": [
+                            value["layout"],
+                            value["model"],
+                            value["variant"],
+                        ]
                     })
 
-        # OCI post-installation script
-        # Arguments: disk boot efi rootA rootB
-        oci_cmd_args = [None] * 5
-        for mnt in recipe.mountpoints:
-            if mnt["target"] == "/boot":
-                boot_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)
-                oci_cmd_args[0] = boot_disk[0]
-                oci_cmd_args[1] = mnt["partition"]
-            elif mnt["target"] == "/boot/efi":
-                oci_cmd_args[2] = mnt["partition"]
-            elif mnt["target"] == "/":
-                if not oci_cmd_args[3]:
-                    oci_cmd_args[3] = mnt["partition"]
-                else:
-                    oci_cmd_args[4] = mnt["partition"]
+        if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
+            # OCI post-installation script
+            # Arguments: disk boot efi rootA rootB
+            oci_cmd_args = [None] * 5
+            for mnt in recipe.mountpoints:
+                if mnt["target"] == "/boot":
+                    boot_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)
+                    oci_cmd_args[0] = boot_disk[0]
+                    oci_cmd_args[1] = mnt["partition"]
+                elif mnt["target"] == "/boot/efi":
+                    oci_cmd_args[2] = mnt["partition"]
+                elif mnt["target"] == "/":
+                    if not oci_cmd_args[3]:
+                        oci_cmd_args[3] = mnt["partition"]
+                    else:
+                        oci_cmd_args[4] = mnt["partition"]
 
-        # Handle BIOS installation option
-        if not oci_cmd_args[2]:
-            oci_cmd_args[2] = "BIOS"
+            # Handle BIOS installation option
+            if not oci_cmd_args[2]:
+                oci_cmd_args[2] = "BIOS"
 
-        recipe.postInstallation.append({
-            "chroot": False,
-            "operation": "shell",
-            "params": [
-                f"oci-post-install {' '.join(oci_cmd_args)}"
-            ]
-        })
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    f"oci-post-install {' '.join(oci_cmd_args)}"
+                ]
+            })
 
-        # TODO: Read "keyboard" key from finals
+        if "VANILLA_FAKE" in os.environ:
+            logger.info("VANILLA_FAKE is set, skipping the installation process.")
+            logger.info(json.dumps(recipe, default=vars))
+            return None
 
-        print(json.dumps(recipe, default=vars))
         with tempfile.NamedTemporaryFile(mode="w", delete=False) as f:
             f.write(json.dumps(recipe, default=vars))
 
@@ -313,192 +311,3 @@ class Processor:
             os.chmod(f.name, 0o755)
 
             return f.name
-
-    @staticmethod
-    def gen_install_script(log_path, pre_run, post_run, finals):
-        logger.info("processing the following final data: %s", finals)
-
-        # manifest_remove = "/cdrom/casper/filesystem.manifest-remove"
-        # if not os.path.exists(manifest_remove):
-        manifest_remove = "/tmp/filesystem.manifest-remove"
-        with open(manifest_remove, "w") as f:
-            f.write("vanilla-installer\n")
-            f.write("gparted\n")
-
-        arguments = [
-            "sudo",
-            "distinst",
-            "-s",
-            "'/cdrom/casper/filesystem.squashfs'",
-            "-r",
-            f"'{manifest_remove}'",
-            "-h",
-            "'vanilla'",
-        ]
-
-        is_almost_supported = shutil.which("almost")
-
-        # post install variables
-        device_block = ""
-        finals_disk = {}
-        finals_timezone = {}
-
-        for final in finals:
-            for key, value in final.items():
-                if key == "users":
-                    arguments = ["echo", f"'{value['password']}'", "|"] + arguments
-                    arguments += ["--username", f"'{value['username']}'"]
-                    arguments += ["--realname", f"'{value['fullname']}'"]
-                    arguments += [
-                        "--profile_icon",
-                        "'/usr/share/pixmaps/faces/yellow-rose.jpg'",
-                    ]
-                elif key == "timezone":
-                    arguments += [
-                        "--tz",
-                        "'{}/{}'".format(value["region"], value["zone"]),
-                    ]
-                    finals_timezone = final
-                elif key == "language":
-                    arguments += ["-l", f"'{value}'"]
-                elif key == "keyboard":
-                    arguments += ["-k", f"'{value}'"]
-                elif key == "disk":
-                    finals_disk = final
-                    if "auto" in value:
-                        device_block = value["auto"]["disk"]
-                        arguments += ["-b", f"'{device_block}'"]
-                        arguments += ["-t", f"'{device_block}:gpt'"]
-                        arguments += [
-                            "-n",
-                            f"'{device_block}:primary:start:1024M:fat32:mount=/boot/efi:flags=esp'",
-                        ]
-                        arguments += [
-                            "-n",
-                            f"'{device_block}:primary:1024M:2048M:ext4:mount=/boot'",
-                        ]
-                        arguments += [
-                            "-n",
-                            f"'{device_block}:primary:2048M:22528M:btrfs:mount=/'",
-                        ]
-                        arguments += [
-                            "-n",
-                            f"'{device_block}:primary:22528M:43008M:btrfs:mount=/'",
-                        ]
-                        arguments += [
-                            "-n",
-                            f"'{device_block}:primary:43008M:end:btrfs:mount=/home'",
-                        ]
-                        # Add generated partitions to finals so abroot-adapter can find them
-                        finals_disk["disk"]["disk"] = device_block
-                        if not re.match(r"[0-9]", device_block[-1]):
-                            partition_name = f"{device_block}"
-                        else:
-                            partition_name = f"{device_block}p"
-                        finals_disk["disk"][f"{partition_name}1"] = {
-                            "fs": "fat32",
-                            "mp": "/boot/efi",
-                        }
-                        finals_disk["disk"][f"{partition_name}2"] = {
-                            "fs": "ext4",
-                            "mp": "/boot",
-                        }
-                        finals_disk["disk"][f"{partition_name}3"] = {
-                            "fs": "btrfs",
-                            "mp": "/",
-                        }
-                        finals_disk["disk"][f"{partition_name}4"] = {
-                            "fs": "btrfs",
-                            "mp": "/",
-                        }
-                        finals_disk["disk"][f"{partition_name}5"] = {
-                            "fs": "btrfs",
-                            "mp": "/home",
-                        }
-                    else:
-                        device_block = value["disk"]
-                        for partition, values in value.items():
-                            if partition == "disk":
-                                arguments += ["-b", f"'{values}'"]
-                                continue
-
-                            partition_number = re.sub(r".*[a-z]([0-9]+)", r"\1", partition)
-                            if values["mp"] == "/boot/efi":
-                                arguments += [
-                                    "-u",
-                                    "'{}:{}:{}:mount=/boot/efi:flags=esp'".format(
-                                        device_block, partition_number, values["fs"]
-                                    ),
-                                ]
-                            elif values["mp"] == "swap":
-                                arguments += [
-                                    "-u",
-                                    f"'{device_block}:{partition_number}:swap'",
-                                ]
-                            elif values["mp"] == "":
-                                arguments += [
-                                    "-u",
-                                    "'{}:{}:{}:flags=bios_grub'".format(
-                                        device_block,
-                                        partition_number,
-                                        values["fs"],
-                                    ),
-                                ]
-                            else:
-                                arguments += [
-                                    "-u",
-                                    "'{}:{}:{}:mount={}'".format(
-                                        device_block,
-                                        partition_number,
-                                        values["fs"],
-                                        values["mp"],
-                                    ),
-                                ]
-
-        # generating a temporary file to store the distinst command and
-        # arguments parsed from the final data
-        with tempfile.NamedTemporaryFile(mode="w", delete=False) as f:
-            f.write("#!/bin/sh\n")
-            f.write("# This file was created by the Vanilla Installer.\n")
-            f.write("# Do not edit this file manually!\n\n")
-
-            if is_almost_supported:
-                f.write("almost enter rw\n")
-
-            f.write("set -e -x\n\n")
-
-            if "VANILLA_FAKE" in os.environ:
-                logger.info("VANILLA_FAKE is set, skipping the installation process.")
-                f.write(
-                    "echo 'VANILLA_FAKE is set, skipping the installation process.'\n"
-                )
-                f.write("echo 'Printing the configuration instead:'\n")
-                f.write("echo '----------------------------------'\n")
-                f.write(f'echo "{finals}"\n')
-                f.write("echo '----------------------------------'\n")
-                f.write("sleep 5\n")
-                f.write("exit 1\n")
-
-            if "VANILLA_SKIP_INSTALL" not in os.environ:
-                for arg in arguments:
-                    f.write(arg + " ")
-
-            if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
-                f.write("\n")
-                f.write("echo 'Starting the post-installation process ...'\n")
-                f.write(
-                    "sudo abroot-adapter '{}' '{}'".format(
-                        json.dumps(finals_disk), json.dumps(finals_timezone)
-                    )
-                )
-
-            f.flush()
-            f.close()
-
-            # setting the file executable
-            os.chmod(f.name, 0o755)
-
-            return f.name
-
-
-

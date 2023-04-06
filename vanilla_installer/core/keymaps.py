@@ -4,7 +4,7 @@ from gi.repository.GnomeDesktop import XkbInfo
 class KeyMaps:
     def __init__(self):
         self.__all_keymaps = self.__get_all_keymaps()
-        
+
     def __get_all_keymaps(self):
         xkb_info = XkbInfo()
         all_layouts = xkb_info.get_all_layouts()
@@ -24,7 +24,7 @@ class KeyMaps:
 
         for layout in _all_keymaps:
             country = _all_keymaps[layout]['display_name'].split(' ')[0]
-            
+
             if country in cleanup_rules:
                 continue
 
