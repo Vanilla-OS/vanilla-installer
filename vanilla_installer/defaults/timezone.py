@@ -71,6 +71,10 @@ class VanillaDefaultTimezone(Adw.Bin):
             self.combo_region.set_selected(0)
             self.__on_country_selected(None, None)
 
+        _time, _date = get_preview_timezone(current_country, current_city)
+        self.row_preview.set_title(_time)
+        self.row_preview.set_subtitle(_date)
+
         # signals
         self.btn_next.connect("clicked", self.__window.next)
         self.combo_region.connect("notify::selected", self.__on_country_selected)
