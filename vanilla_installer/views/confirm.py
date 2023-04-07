@@ -14,8 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import re
 from gi.repository import Gtk, GObject, Adw
 from gettext import gettext as _
+
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-choice.ui')
 class VanillaChoiceEntry(Adw.ActionRow):
@@ -23,7 +25,7 @@ class VanillaChoiceEntry(Adw.ActionRow):
 
     img_choice = Gtk.Template.Child()
 
-    def __init__(self, title, subtitle,icon_name, **kwargs):
+    def __init__(self, title, subtitle, icon_name, **kwargs):
         super().__init__(**kwargs)
         self.set_title(title)
         self.set_subtitle(subtitle)
@@ -36,7 +38,7 @@ class VanillaChoiceExpanderEntry(Adw.ExpanderRow):
 
     img_choice = Gtk.Template.Child()
 
-    def __init__(self, title, subtitle,icon_name, **kwargs):
+    def __init__(self, title, subtitle, icon_name, **kwargs):
         super().__init__(**kwargs)
         self.set_title(title)
         self.set_subtitle(subtitle)
@@ -55,7 +57,7 @@ class VanillaConfirm(Adw.Bin):
 
     def __init__(self, window, **kwargs):
         super().__init__(**kwargs)
-    
+
     def update(self, finals):
         try:
             for widget in self.active_widgets:
@@ -66,7 +68,6 @@ class VanillaConfirm(Adw.Bin):
 
         for final in finals:
             for key, value in final.items():
-
                 if key == "language":
                     self.active_widgets.append(VanillaChoiceEntry(
                         _("Language"),
@@ -99,22 +100,23 @@ class VanillaConfirm(Adw.Bin):
                             "drive-harddisk-system-symbolic"
                         ))
                     else:
-                        i = 0
-                        for block, block_info in value.items():
-                            if i == 0:
-                                expander = VanillaChoiceExpanderEntry(
+                        disks = {}
+                        # block, device_block
+                        for part, info in value.items():
+                            part_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)[0]
+                            if part_disk not in disks:
+                                disks[part_disk] = VanillaChoiceExpanderEntry(
                                     _("Disk"),
-                                    block_info,
+                                    part_disk,
                                     "drive-harddisk-system-symbolic"
                                 )
-                                self.active_widgets.append(expander)
-                            else:
-                                expander.add_row(VanillaChoiceEntry(
-                                    block,
-                                    f"{block_info['fs']} {block_info['mp']} ({block_info['pretty_size']})",
-                                    "drive-harddisk-system-symbolic"
-                                ))
-                            i += 1
+                                self.active_widgets.append(disks[part_disk])
+
+                            disks[part_disk].add_row(VanillaChoiceEntry(
+                                part,
+                                f"{info['fs']} {info['mp']} ({info['pretty_size']})",
+                                "drive-harddisk-system-symbolic"
+                            ))
 
         for widget in self.active_widgets:
             self.group_changes.add(widget)
@@ -123,3 +125,4 @@ class VanillaConfirm(Adw.Bin):
 
     def __on_confirm(self, widget):
         self.emit(_("installation-confirmed"))
+
