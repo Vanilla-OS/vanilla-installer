@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # Luna Jernberg <droidbittin@gmail.com>, 2023.
+# bittin1ddc447d824349b2 <bittin@reimu.nl>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-02-27 20:39+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
+"PO-Revision-Date: 2023-04-12 09:33+0000\n"
+"Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sv/>\n"
 "Language: sv\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -157,7 +158,7 @@ msgstr "Bekräfta lösenord"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "Återställning"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -195,42 +196,40 @@ msgid "Log"
 msgstr "Logg"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS Installationsprogram"
+msgstr "Återställning av Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "Öppna en terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "Öppna GParted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "Hantera diskar och partitioner."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "Handbok"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "Läs VanillaOS Handbok."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "Webbläsare"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "Sök efter hjälp på nätet."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
