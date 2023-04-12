@@ -95,8 +95,8 @@ class VanillaDefaultUsers(Adw.Bin):
             _status = False
             self.__window.toast("Username cannot be empty. Please type a username.")
 
-        # cannot be root, ubuntu, vanillaos or vanilla-os
-        elif _input == "root" or _input == "vanillaos" or _input == "vanilla-os":
+        # cannot be root, debian, vanillaos or vanilla-os
+        elif _input == "root" or _input == "vanillaos" or _input == "vanilla-os" or _input == 'debian':
             _status = False
             self.__window.toast("Username is reserved. Please choose another username.")
 
