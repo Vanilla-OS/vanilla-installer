@@ -10,9 +10,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-23 01:36+0000\n"
-"Last-Translator: Fernando Lopes <118869201+plasmus777@users.noreply.github."
-"com>\n"
+"PO-Revision-Date: 2023-04-09 13:23+0000\n"
+"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -161,7 +160,7 @@ msgstr "Confirme a Senha"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "Recuperação"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -199,42 +198,40 @@ msgid "Log"
 msgstr "Registro"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Instalador do Vanilla OS"
+msgstr "Recuperação do Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "Abrir um Terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "Abrir o GParted"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "Gerencie discos e partições."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "Manual"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "Leia o Manual do Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "Navegador web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "Procure ajuda on-line."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
