@@ -7,13 +7,14 @@
 # "Alexandre BOYER (Alex)" <alexandre.boyer29@gmail.com>, 2023.
 # strafe <lucas-strafe@pm.me>, 2023.
 # Lucas_Strafe <Lucas-Strafe@protonmail.com>, 2023.
+# Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-02 13:31+0000\n"
-"Last-Translator: Lucas_Strafe <Lucas-Strafe@protonmail.com>\n"
+"PO-Revision-Date: 2023-04-11 17:07+0000\n"
+"Last-Translator: Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
 "Language: fr\n"
@@ -277,7 +278,7 @@ msgstr "Allocation du disque"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Choisissez le disque sur lequel installer Vanilla OS"
+msgstr "Choisissez le disque sur lequel installer Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Entire Disk"
@@ -340,7 +341,7 @@ msgstr "Aucune partition sélectionnée"
 #: vanilla_installer/gtk/widget-partition.ui:235
 #: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
-msgstr "Veuillez sélectionner une partition pour les options ci-dessous."
+msgstr "Veuillez sélectionner une partition pour les options ci-dessous"
 
 #: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
@@ -356,7 +357,7 @@ msgid ""
 "booting in the bootloader."
 msgstr ""
 "La partition à monter dans « /boot/efi ». Ce répertoire stocke les fichiers "
-"pour démarrer le bootloader."
+"pour démarrer dans le bootloader."
 
 #: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
