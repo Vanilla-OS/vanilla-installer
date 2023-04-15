@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-03 22:51+0000\n"
+"PO-Revision-Date: 2023-04-13 12:45+0000\n"
 "Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/bn/>\n"
@@ -207,11 +207,11 @@ msgstr "একটি টার্মিনাল খুলুন।"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
-msgstr "Gparted"
+msgstr "জিপার্টেড"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr "ডিস্ক এবং পার্টিশনগুলি পরিচালনা করুন।"
+msgstr "ডিস্ক এবং পার্টিশনগুলি নিয়ন্ত্রণ করুন।"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
