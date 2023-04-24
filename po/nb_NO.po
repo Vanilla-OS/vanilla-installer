@@ -5,25 +5,26 @@
 #
 # Trond Kjetil Bremnes <tk@bremnes.email>, 2023.
 # Infinity <a.sjur91@gmail.com>, 2023.
+# Odyssey346 <alej0hio2007@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-20 15:01+0000\n"
-"Last-Translator: Trond Kjetil Bremnes <tk@bremnes.email>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/vanilla-"
-"os/installer/nb_NO/>\n"
+"PO-Revision-Date: 2023-04-23 01:42+0000\n"
+"Last-Translator: Odyssey346 <alej0hio2007@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"vanilla-os/installer/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Vanilla OS installasjonsprogram"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
@@ -66,7 +67,7 @@ msgstr "Velg en disk"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr ""
+msgstr "Velg disken du vil installere Vanilla OS til"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -112,7 +113,7 @@ msgstr "Fargevalg"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Velg et fargepalett for systemet ditt"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -160,7 +161,7 @@ msgstr "Bekreft passord"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "Gjenoppretting"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -177,7 +178,7 @@ msgstr "Avbryt"
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr ""
+msgstr "Følgende endringer vil bli gjort på disken din. Gjennomgå dem nøye."
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
@@ -185,7 +186,7 @@ msgstr "Konfigurer disk"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
-msgstr ""
+msgstr "Velg"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -196,26 +197,24 @@ msgid "Log"
 msgstr "Logg"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Prøv Vanilla OS"
+msgstr "Vanilla OS Gjenoppretting"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Konsoll"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "Åpne en terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "Åpne GParted"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "Administrer disker og partisjoner."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
