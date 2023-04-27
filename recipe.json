@@ -49,6 +49,9 @@
         "disk": {
             "template": "disk"
         },
+        "encryption": {
+            "template": "encryption"
+        },
         "users": {
             "template": "users"
         }

@@ -65,7 +65,7 @@ class VanillaDefaultUsers(Adw.Bin):
 
     def __on_fullname_entry_changed(self, *args):
         _fullname = self.fullname_entry.get_text()
-        
+
         if len(_fullname) > 32:
             self.fullname_entry.set_text(_fullname[:32])
             self.fullname_entry.set_position(-1)
@@ -74,7 +74,7 @@ class VanillaDefaultUsers(Adw.Bin):
         self.fullname_filled = True
         self.__verify_continue()
         self.fullname = _fullname
-    
+
     def __on_username_entry_changed(self, *args):
         _input = self.username_entry.get_text()
         _status = True
@@ -84,7 +84,7 @@ class VanillaDefaultUsers(Adw.Bin):
             self.username_entry.set_text(_input[:32])
             self.username_entry.set_position(-1)
             _input = self.username_entry.get_text()
-            
+
         # cannot contain special characters
         if re.search(r'[^a-z0-9]', _input):
             _status = False
@@ -134,4 +134,4 @@ class VanillaDefaultUsers(Adw.Bin):
         )
         password_encrypted = command.stdout.decode('utf-8').strip('\n')
         return password_encrypted
-        
+

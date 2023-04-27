@@ -9,6 +9,7 @@ sources = [
   'timezone.py',
   'users.py',
   'disk.py',
+  'encryption.py',
 ]
 
 install_data(sources, install_dir: defaultsdir)

@@ -19,6 +19,7 @@
     <file>gtk/default-timezone.ui</file>
     <file>gtk/default-users.ui</file>
     <file>gtk/default-disk.ui</file>
+    <file>gtk/default-encryption.ui</file>
 
     <file>gtk/widget-choice.ui</file>
     <file>gtk/widget-choice-expander.ui</file>
@@ -41,3 +42,4 @@
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-logo-text-symbolic.svg</file>
   </gresource>
 </gresources>
+
