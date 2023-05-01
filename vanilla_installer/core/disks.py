@@ -99,7 +99,7 @@ class Partition:
     def __get_fs_type(self):
         try:
             return subprocess.check_output(
-                f"lsblk -n -o FSTYPE {self.partition}",
+                f"lsblk -d -n -o FSTYPE {self.partition}",
                 shell=True
             ).decode("utf-8").strip()
         except subprocess.CalledProcessError:
@@ -108,7 +108,7 @@ class Partition:
     def __get_uuid(self):
         try:
             return subprocess.check_output(
-                f"lsblk -n -o UUID {self.partition}",
+                f"lsblk -d -n -o UUID {self.partition}",
                 shell=True
             ).decode("utf-8").strip()
         except subprocess.CalledProcessError:

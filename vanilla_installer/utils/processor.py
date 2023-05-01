@@ -27,6 +27,7 @@ from typing import Union, Any
 
 from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
+from vanilla_installer.core.disks import Partition
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -36,6 +37,53 @@ AlbiusMountpoint = dict[str, str]
 AlbiusInstallation = dict[str, str]
 AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
 
+_GRUB_SCRIPT_BASE = """#!/bin/sh
+exec tail -n +3 $0
+set menu_color_normal=white/black
+set menu_color_highlight=black/light-gray
+function gfxmode {
+set gfxpayload="${1}"
+if [ "${1}" = "keep" ]; then
+        set vt_handoff=vt.handoff=7
+else
+        set vt_handoff=
+fi
+}
+if [ "${recordfail}" != 1 ]; then
+if [ -e ${prefix}/gfxblacklist.txt ]; then
+    if [ ${grub_platform} != pc ]; then
+    set linux_gfx_mode=keep
+    elif hwmatch ${prefix}/gfxblacklist.txt 3; then
+    if [ ${match} = 0 ]; then
+        set linux_gfx_mode=keep
+    else
+        set linux_gfx_mode=text
+    fi
+    else
+    set linux_gfx_mode=text
+    fi
+else
+    set linux_gfx_mode=keep
+fi
+else
+set linux_gfx_mode=text
+fi
+export linux_gfx_mode
+"""
+
+_GRUB_SCRIPT_MENU_ENTRY = """menuentry 'State %s' --class gnu-linux --class gnu --class os {
+recordfail
+load_video
+gfxmode \$linux_gfx_mode
+insmod gzio
+if [ x\$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+insmod part_gpt
+insmod ext2
+search --no-floppy --fs-uuid --set=root %s
+linux	/vmlinuz-$KERNEL_VER root=%s quiet splash bgrt_disable \$vt_handoff
+initrd  /initrd.img-%s
+}
+"""
 
 class AlbiusRecipe:
     def __init__(self):
@@ -47,7 +95,7 @@ class AlbiusRecipe:
 
 class Processor:
     @staticmethod
-    def __gen_auto_partition_steps(disk):
+    def __gen_auto_partition_steps(disk: str, encrypt: bool, password: str | None = None):
         info = {
             "setup": [],
             "mountpoints": [],
@@ -87,17 +135,26 @@ class Processor:
             })
             part_offset = 1026
 
+        # Should we encrypt?
+        fs = "luks-btrfs" if encrypt else "btrfs"
+        def _params(*args):
+            base_params = [*args]
+            if encrypt:
+                assert isinstance(password, str)
+                base_params.append(password)
+            return base_params
+
         # Roots
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["a", "btrfs", part_offset, part_offset + 12288]
+            "params": _params("a", fs, part_offset, part_offset + 12288)
         })
         part_offset += 12288
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["b", "btrfs", part_offset, part_offset + 12288]
+            "params": _params("b", fs, part_offset, part_offset + 12288)
         })
         part_offset += 12288
 
@@ -105,7 +162,7 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["home", "btrfs", part_offset, -1]
+            "params": _params("home", fs, part_offset, -1)
         })
 
         # Mountpoints
@@ -142,7 +199,7 @@ class Processor:
         return info
 
     @staticmethod
-    def __gen_manual_partition_steps(disk_final):
+    def __gen_manual_partition_steps(disk_final: dict, encrypt: bool, password: str | None = None):
         info = {
             "setup": [],
             "mountpoints": [],
@@ -155,10 +212,20 @@ class Processor:
         for part, values in disk_final.items():
             part_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)[0]
             part_number = re.sub(r".*[a-z]([0-9]+)", r"\1", part)
+
+            # Should we encrypt?
+            operation = "luks-format" if encrypt and values["mp"] in ["/", "/home"] else "format"
+            def _params(*args):
+                base_params = [*args]
+                if encrypt and values["mp"] in ["/", "/home"]:
+                    assert isinstance(password, str)
+                    base_params.append(password)
+                return base_params
+
             info["setup"].append({
                 "disk": part_disk,
-                "operation": "format",
-                "params": [part_number, values["fs"]]
+                "operation": operation,
+                "params": _params(part_number, values["fs"])
             })
 
             if not Systeminfo.is_uefi() and values["mp"] == "":
@@ -188,13 +255,29 @@ class Processor:
 
         recipe = AlbiusRecipe()
 
+        # Setup encryption if user selected it
+        encrypt = False
+        password = None
+        for final in finals:
+            if "encryption" in final.keys():
+                encrypt = final["encryption"]["use_encryption"]
+                password = final["encryption"]["encryption_key"] if encrypt else None
+
         # Setup disks and mountpoints
         for final in finals:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
-                    info = Processor.__gen_auto_partition_steps(final["disk"]["auto"]["disk"])
+                    info = Processor.__gen_auto_partition_steps(
+                        final["disk"]["auto"]["disk"],
+                        encrypt,
+                        password
+                    )
                 else:
-                    info = Processor.__gen_manual_partition_steps(final["disk"])
+                    info = Processor.__gen_manual_partition_steps(
+                        final["disk"],
+                        encrypt,
+                        password
+                    )
 
                 for step in info["setup"]:
                     recipe.setup.append(step)
@@ -270,31 +353,113 @@ class Processor:
                     })
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
-            # OCI post-installation script
-            # Arguments: disk boot efi rootA rootB
-            oci_cmd_args = [None] * 5
+            root_a_partition = None
             for mnt in recipe.mountpoints:
                 if mnt["target"] == "/boot":
-                    boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)
-                    oci_cmd_args[0] = boot_disk[0]
-                    oci_cmd_args[1] = mnt["partition"]
-                elif mnt["target"] == "/boot/efi":
-                    oci_cmd_args[2] = mnt["partition"]
+                    boot_partition = mnt["partition"]
+                    boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)[0]
                 elif mnt["target"] == "/":
-                    if not oci_cmd_args[3]:
-                        oci_cmd_args[3] = mnt["partition"]
+                    if not root_a_partition:
+                        root_a_partition = mnt["partition"]
                     else:
-                        oci_cmd_args[4] = mnt["partition"]
+                        root_b_partition = mnt["partition"]
 
-            # Handle BIOS installation option
-            if not oci_cmd_args[2]:
-                oci_cmd_args[2] = "BIOS"
+            # Add custom GRUB script
+            with open("/tmp/10_vanilla_tmp", "w") as file:
+                base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
+
+                root_a_entry = _GRUB_SCRIPT_MENU_ENTRY % ("A", "$BOOT_UUID", "$ROOTA_UUID", "$KERNEL_VERSION")
+                root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % ("B", "$BOOT_UUID", "$ROOTB_UUID", "$KERNEL_VERSION")
+
+                file.write(_GRUB_SCRIPT_BASE + root_a_entry + root_b_entry)
 
             recipe.postInstallation.append({
                 "chroot": False,
                 "operation": "shell",
                 "params": [
-                    f"oci-post-install {' '.join(oci_cmd_args)}"
+                    f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
+                      ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
+                      ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
+                      KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
+                      envsubst < /tmp/10_vanilla_tmp > /tmp/10_vanilla"
+                ]
+            })
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "grub-add-script",
+                "params": [ "/tmp/10_vanilla" ]
+            })
+
+            # Remove default GRUB scripts
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "grub-remove-script",
+                "params": [
+                    "10_linux",
+                    "20_memtest86"
+                ]
+            })
+
+            # Remove B's fstab entry from A
+            if encrypt:
+                root_b_fstab_entry = "\\\/dev\\\/mapper\\\/luks-$ROOTB_UUID"
+            else:
+                root_b_fstab_entry = "UUID=$ROOTB_UUID"
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab"
+                ]
+            })
+
+            # Install GRUB inside and outside of chroot (necessary for... reasons)
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "grub-install",
+                "params": [
+                    "/mnt/a/boot",
+                    boot_disk,
+                    "efi" if Systeminfo.is_uefi() else "bios"
+                ]
+            })
+            recipe.postInstallation.append({
+                "chroot": True,
+                "operation": "grub-install",
+                "params": [
+                    "/boot",
+                    boot_disk,
+                    "efi" if Systeminfo.is_uefi() else "bios"
+                ]
+            })
+
+            # Set GRUB default config
+            recipe.postInstallation.append({
+                "chroot": True,
+                "operation": "grub-default-config",
+                "params": [
+                    "GRUB_DEFAULT=0",
+                    "GRUB_TIMEOUT=0",
+                    "GRUB_HIDDEN_TIMEOUT=2",
+                    "GRUB_TIMEOUT_STYLE=hidden"
+                ]
+            })
+
+            # Run grub-mkconfig
+            recipe.postInstallation.append({
+                "chroot": True,
+                "operation": "grub-mkconfig",
+                "params": [
+                    "/boot/grub/grub.cfg"
+                ]
+            })
+
+            # Update initramfs
+            recipe.postInstallation.append({
+                "chroot": True,
+                "operation": "shell",
+                "params": [
+                    "update-initramfs -u"
                 ]
             })
 
