@@ -383,7 +383,7 @@ class Processor:
                 "operation": "grub-remove-script",
                 "params": [
                     "10_linux",
-                    "20_memtest86"
+                    "20_memtest86+"
                 ]
             })
 
