@@ -409,7 +409,7 @@ class Processor:
                 "chroot": False,
                 "operation": "shell",
                 "params": [
-                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab"
+                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab"
                 ]
             })
 
