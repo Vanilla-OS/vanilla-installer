@@ -80,7 +80,7 @@ if [ x\$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
 insmod part_gpt
 insmod ext2
 search --no-floppy --fs-uuid --set=root %s
-linux	/vmlinuz-$KERNEL_VER root=%s quiet splash bgrt_disable \$vt_handoff
+linux   /vmlinuz-%s root=%s quiet splash bgrt_disable \$vt_handoff
 initrd  /initrd.img-%s
 }
 """
@@ -359,12 +359,14 @@ class Processor:
                     "A",
                     "$BOOT_UUID",
                     f"{base_script_root}$ROOTA_UUID",
+                    "$KERNEL_VERSION",
                     "$KERNEL_VERSION"
                     )
                 root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % (
                     "B",
                     "$BOOT_UUID",
                     f"{base_script_root}$ROOTB_UUID",
+                    "$KERNEL_VERSION",
                     "$KERNEL_VERSION"
                 )
 
@@ -378,7 +380,8 @@ class Processor:
                       ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
                       ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
                       KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
-                      envsubst < /tmp/10_vanilla_tmp > /tmp/10_vanilla"
+                      envsubst < /tmp/10_vanilla_tmp > /tmp/10_vanilla \
+                      '$BOOT_UUID $ROOTA_UUID $ROOTB_UUID $KERNEL_VERSION'"
                 ]
             })
             recipe.postInstallation.append({
