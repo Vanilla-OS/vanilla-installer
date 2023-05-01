@@ -358,15 +358,15 @@ class Processor:
                 root_a_entry = _GRUB_SCRIPT_MENU_ENTRY % (
                     "A",
                     "$BOOT_UUID",
-                    f"{base_script_root}$ROOTA_UUID",
                     "$KERNEL_VERSION",
+                    f"{base_script_root}$ROOTA_UUID",
                     "$KERNEL_VERSION"
                     )
                 root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % (
                     "B",
                     "$BOOT_UUID",
-                    f"{base_script_root}$ROOTB_UUID",
                     "$KERNEL_VERSION",
+                    f"{base_script_root}$ROOTB_UUID",
                     "$KERNEL_VERSION"
                 )
 
