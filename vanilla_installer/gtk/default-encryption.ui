@@ -47,13 +47,13 @@
                     <child>
                       <object class="AdwPasswordEntryRow" id="encryption_pass_entry">
                         <property name="title" translatable="true">Password</property>
-                        <property name="visible" bind-source="use_encryption_switch" bind-property="active" bind-flags="sync-create"/>
+                        <property name="sensitive" bind-source="use_encryption_switch" bind-property="active" bind-flags="sync-create"/>
                       </object>
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="encryption_pass_entry_confirm">
                         <property name="title" translatable="true">Confirm Password</property>
-                        <property name="visible" bind-source="use_encryption_switch" bind-property="active" bind-flags="sync-create"/>
+                        <property name="sensitive" bind-source="use_encryption_switch" bind-property="active" bind-flags="sync-create"/>
                       </object>
                     </child>
                   </object>
