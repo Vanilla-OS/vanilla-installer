@@ -355,8 +355,20 @@ class Processor:
             with open("/tmp/10_vanilla_tmp", "w") as file:
                 base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
 
-                root_a_entry = _GRUB_SCRIPT_MENU_ENTRY % ("A", "$BOOT_UUID", "$ROOTA_UUID", "$KERNEL_VERSION")
-                root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % ("B", "$BOOT_UUID", "$ROOTB_UUID", "$KERNEL_VERSION")
+                root_a_entry = _GRUB_SCRIPT_MENU_ENTRY % (
+                    "A",
+                    "$BOOT_UUID",
+                    f"{base_script_root}$ROOTA_UUID",
+                    "$KERNEL_VERSION"
+                    )
+                root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % (
+                    "B",
+                    "$BOOT_UUID",
+                    f"{base_script_root}$ROOTB_UUID",
+                    "$KERNEL_VERSION"
+                )
+
+                file_contents = _GRUB_SCRIPT_BASE + root_a_entry + root_b_entry)
 
                 file.write(_GRUB_SCRIPT_BASE + root_a_entry + root_b_entry)
 
@@ -372,14 +384,14 @@ class Processor:
                 ]
             })
             recipe.postInstallation.append({
-                "chroot": False,
+                "chroot": True,
                 "operation": "grub-add-script",
                 "params": [ "/tmp/10_vanilla" ]
             })
 
             # Remove default GRUB scripts
             recipe.postInstallation.append({
-                "chroot": False,
+                "chroot": True,
                 "operation": "grub-remove-script",
                 "params": [
                     "10_linux",
