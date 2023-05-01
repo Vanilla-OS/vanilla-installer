@@ -293,19 +293,6 @@ class Processor:
         }
 
         # Post-installation
-        # Remove unnecessary packages
-        manifest_remove = "/tmp/filesystem.manifest-remove"
-        with open(manifest_remove, "w") as f:
-            f.write("vanilla-installer\n")
-            f.write("gparted\n")
-        recipe.postInstallation.append({
-            "chroot": True,
-            "operation": "pkgremove",
-            "params": [
-                manifest_remove,
-                "apt remove -y"
-            ]
-        })
         # Set hostname
         recipe.postInstallation.append({
             "chroot": True,
