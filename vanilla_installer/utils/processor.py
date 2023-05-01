@@ -368,8 +368,6 @@ class Processor:
                     "$KERNEL_VERSION"
                 )
 
-                file_contents = _GRUB_SCRIPT_BASE + root_a_entry + root_b_entry)
-
                 file.write(_GRUB_SCRIPT_BASE + root_a_entry + root_b_entry)
 
             recipe.postInstallation.append({
