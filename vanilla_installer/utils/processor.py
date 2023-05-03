@@ -15,19 +15,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import uuid
-import shutil
 import logging
 import tempfile
-import subprocess
-from glob import glob
 import re
 import json
 from typing import Union, Any
 
 from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
-from vanilla_installer.core.disks import Partition
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -36,6 +31,13 @@ AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
 AlbiusInstallation = dict[str, str]
 AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
+
+_BASE_DIRS = ["boot", "dev", "home", "media", "mnt",
+              "part-future", "proc", "root", "run", "srv", "sys", "tmp"]
+_REL_LINKS = ["usr", "etc", "root", "usr/bin", "usr/lib",
+              "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
+_REL_SYSTEM_LINKS = ["dev", "proc", "run",
+                     "srv", "sys", "tmp", "media", "boot"]
 
 _GRUB_SCRIPT_BASE = """#!/bin/sh
 exec tail -n +3 $0
@@ -71,19 +73,16 @@ fi
 export linux_gfx_mode
 """
 
-_GRUB_SCRIPT_MENU_ENTRY = """menuentry 'State %s' --class gnu-linux --class gnu --class os {
-recordfail
-load_video
-gfxmode \$linux_gfx_mode
+_GRUB_SCRIPT_MENU_ENTRY = """menuentry 'State %s' --class abroot-%s {
 insmod gzio
-if [ x\$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
 insmod part_gpt
 insmod ext2
 search --no-floppy --fs-uuid --set=root %s
-linux   /vmlinuz-%s root=%s quiet splash bgrt_disable \$vt_handoff
-initrd  /initrd.img-%s
+linux   /.system/boot/vmlinuz-%s root=%s quiet splash bgrt_disable \$vt_handoff
+initrd  /.system/boot/initrd.img-%s
 }
 """
+
 
 class AlbiusRecipe:
     def __init__(self):
@@ -357,13 +356,15 @@ class Processor:
 
                 root_a_entry = _GRUB_SCRIPT_MENU_ENTRY % (
                     "A",
+                    "a",
                     "$BOOT_UUID",
                     "$KERNEL_VERSION",
                     f"{base_script_root}$ROOTA_UUID",
                     "$KERNEL_VERSION"
-                    )
+                )
                 root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % (
                     "B",
+                    "b",
                     "$BOOT_UUID",
                     "$KERNEL_VERSION",
                     f"{base_script_root}$ROOTB_UUID",
@@ -376,18 +377,20 @@ class Processor:
                 "chroot": False,
                 "operation": "shell",
                 "params": [
-                    f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
-                      ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
-                      ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
-                      KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
-                      envsubst < /tmp/10_vanilla_tmp > /tmp/10_vanilla \
-                      '$BOOT_UUID $ROOTA_UUID $ROOTB_UUID $KERNEL_VERSION'"
+                    " ".join(
+                        f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
+                        ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
+                        ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
+                        KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
+                        envsubst < /tmp/10_vanilla_tmp > /tmp/10_vanilla \
+                        '$BOOT_UUID $ROOTA_UUID $ROOTB_UUID $KERNEL_VERSION'".split()
+                    )
                 ]
             })
             recipe.postInstallation.append({
                 "chroot": True,
                 "operation": "grub-add-script",
-                "params": [ "/tmp/10_vanilla" ]
+                "params": ["/tmp/10_vanilla"]
             })
 
             # Remove default GRUB scripts
@@ -410,6 +413,20 @@ class Processor:
                 "operation": "shell",
                 "params": [
                     f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab"
+                ]
+            })
+
+            # Adapt root A filesystem structure
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    "mkdir -p /mnt/a/.system",
+                    "mv /mnt/a/* /mnt/a/.system/",
+                    *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
+                    *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
+                    *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
+                    *[f"ln -rs /mnt/a/{path} /mnt/a/.system/" for path in _REL_SYSTEM_LINKS],
                 ]
             })
 
