@@ -340,15 +340,20 @@ class Processor:
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             root_a_partition = None
+            efi_partition = None
             for mnt in recipe.mountpoints:
                 if mnt["target"] == "/boot":
                     boot_partition = mnt["partition"]
                     boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)[0]
+                elif mnt["target"] == "/boot/efi":
+                    efi_partition = mnt["partition"]
                 elif mnt["target"] == "/":
                     if not root_a_partition:
                         root_a_partition = mnt["partition"]
                     else:
                         root_b_partition = mnt["partition"]
+                elif mnt["target"] == "/home":
+                    home_partition = mnt["partition"]
 
             # Add custom GRUB script
             with open("/tmp/10_vanilla_tmp", "w") as file:
@@ -421,12 +426,16 @@ class Processor:
                 "chroot": False,
                 "operation": "shell",
                 "params": [
+                    f"umount {home_partition}",
+                    f"umount -l {boot_partition}",
                     "mkdir -p /mnt/a/.system",
                     "mv /mnt/a/* /mnt/a/.system/",
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
                     *[f"ln -rs /mnt/a/{path} /mnt/a/.system/" for path in _REL_SYSTEM_LINKS],
+                    f"mount {home_partition} /mnt/a/home",
+                    f"mount {boot_partition} /mnt/a/boot{f' && mount {efi_partition} /mnt/a/boot/efi' if efi_partition else ''}",
                 ]
             })
 
