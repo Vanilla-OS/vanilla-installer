@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-05 22:49+0000\n"
+"PO-Revision-Date: 2023-05-02 16:51+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/eo/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -227,7 +227,7 @@ msgstr "Legi la manlibron de Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "TTT-legilo"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
@@ -271,12 +271,11 @@ msgstr "Montri bildaron"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "Diska asignado"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Elektu tiun diskon, sur kiun Vanilla OS estas instalota"
+msgstr "Elektu la manieron, kiel Vanilla OS estas instalota sur vian diskon."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Entire Disk"
@@ -287,9 +286,8 @@ msgid "This will erase all data on the disk."
 msgstr "Ĉi tio forviŝos ĉiom da datenoj sur la disko."
 
 #: vanilla_installer/gtk/widget-partition.ui:24
-#, fuzzy
 msgid "Manual Partitioning"
-msgstr "Subdiskoj"
+msgstr "Neaŭtomata dispartigo"
 
 #: vanilla_installer/gtk/widget-partition.ui:25
 msgid ""
@@ -306,9 +304,8 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Malfermi GParted por mane dividi la diskon"
 
 #: vanilla_installer/gtk/widget-partition.ui:60
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Subdiskoj"
+msgstr "Praŝarga subdisko"
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 msgid ""
@@ -325,7 +322,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:234
 #: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
-msgstr ""
+msgstr "Neniu subdisko elektita"
 
 #: vanilla_installer/gtk/widget-partition.ui:65
 #: vanilla_installer/gtk/widget-partition.ui:86
@@ -341,7 +338,7 @@ msgstr "Bonvolu elekti almenaŭ unu opcion."
 
 #: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "Praŝarga subdisko estas tro malgranda."
 
 #: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
