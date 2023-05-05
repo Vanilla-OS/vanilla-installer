@@ -32,9 +32,9 @@ AlbiusMountpoint = dict[str, str]
 AlbiusInstallation = dict[str, str]
 AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
 
-_BASE_DIRS = ["boot", "dev", "home", "media", "mnt",
+_BASE_DIRS = ["boot", "dev", "home", "media", "mnt", "var", "opt",
               "part-future", "proc", "root", "run", "srv", "sys", "tmp"]
-_REL_LINKS = ["usr", "etc", "root", "usr/bin", "usr/lib",
+_REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
               "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
 _REL_SYSTEM_LINKS = ["dev", "proc", "run",
                      "srv", "sys", "tmp", "media", "boot"]
@@ -78,8 +78,8 @@ insmod gzio
 insmod part_gpt
 insmod ext2
 search --no-floppy --fs-uuid --set=root %s
-linux   /.system/boot/vmlinuz-%s root=%s quiet splash bgrt_disable \$vt_handoff
-initrd  /.system/boot/initrd.img-%s
+linux   /vmlinuz-%s root=%s quiet splash bgrt_disable \$vt_handoff
+initrd  /initrd.img-%s
 }
 """
 
@@ -417,16 +417,22 @@ class Processor:
                 "chroot": False,
                 "operation": "shell",
                 "params": [
-                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab"
+                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab",
+                    "echo '/.system/var /var none bind 0 0' >> /mnt/a/etc/fstab",
+                    "echo '/.system/opt /opt none bind 0 0' >> /mnt/a/etc/fstab",
                 ]
             })
 
             # Adapt root A filesystem structure
+            if encrypt:
+                home_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {home_partition})"
+            else:
+                home_label = home_partition
             recipe.postInstallation.append({
                 "chroot": False,
                 "operation": "shell",
                 "params": [
-                    f"umount {home_partition}",
+                    "umount /mnt/a/home",
                     f"umount -l {boot_partition}",
                     "mkdir -p /mnt/a/.system",
                     "mv /mnt/a/* /mnt/a/.system/",
@@ -434,8 +440,10 @@ class Processor:
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
                     *[f"ln -rs /mnt/a/{path} /mnt/a/.system/" for path in _REL_SYSTEM_LINKS],
-                    f"mount {home_partition} /mnt/a/home",
+                    f"mount {home_label} /mnt/a/home",
                     f"mount {boot_partition} /mnt/a/boot{f' && mount {efi_partition} /mnt/a/boot/efi' if efi_partition else ''}",
+                    "mount --bind /mnt/a/.system/var /mnt/a/var",
+                    "mount --bind /mnt/a/.system/opt /mnt/a/opt",
                 ]
             })
 
