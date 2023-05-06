@@ -491,7 +491,7 @@ class Processor:
                 "params": [
                     "umount -l /usr",
                     "pkg-unlock",
-                    "update-initramfs -u"
+                    "update-initramfs -u",
                     "pkg-lock",
                 ]
             })
