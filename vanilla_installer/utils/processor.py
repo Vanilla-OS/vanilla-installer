@@ -39,50 +39,27 @@ _REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
 _REL_SYSTEM_LINKS = ["dev", "proc", "run",
                      "srv", "sys", "tmp", "media", "boot"]
 
-_GRUB_SCRIPT_BASE = """#!/bin/sh
-exec tail -n +3 $0
-set menu_color_normal=white/black
-set menu_color_highlight=black/light-gray
-function gfxmode {
-set gfxpayload="${1}"
-if [ "${1}" = "keep" ]; then
-        set vt_handoff=vt.handoff=7
-else
-        set vt_handoff=
-fi
-}
-if [ "${recordfail}" != 1 ]; then
-if [ -e ${prefix}/gfxblacklist.txt ]; then
-    if [ ${grub_platform} != pc ]; then
-    set linux_gfx_mode=keep
-    elif hwmatch ${prefix}/gfxblacklist.txt 3; then
-    if [ ${match} = 0 ]; then
-        set linux_gfx_mode=keep
-    else
-        set linux_gfx_mode=text
-    fi
-    else
-    set linux_gfx_mode=text
-    fi
-else
-    set linux_gfx_mode=keep
-fi
-else
-set linux_gfx_mode=text
-fi
-export linux_gfx_mode
-"""
-
-_GRUB_SCRIPT_MENU_ENTRY = """menuentry 'State %s' --class abroot-%s {
-insmod gzio
+_ROOT_GRUB_CFG = """insmod gzio
 insmod part_gpt
 insmod ext2
 search --no-floppy --fs-uuid --set=root %s
-linux   /vmlinuz-%s root=%s quiet splash bgrt_disable \$vt_handoff
-initrd  /initrd.img-%s
-}
+linux   /.system/boot/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff
+initrd  /.system/boot/initrd.img-%s
 """
 
+_BOOT_GRUB_CFG = """set default=0
+set timeout=5
+
+menuentry "ABRoot A (current)" --class abroot-a {
+    set root=%s
+    configfile "/.system/boot/grub/abroot.cfg"
+}
+
+menuentry "ABRoot B (previous)" --class abroot-b {
+    set root=%s
+    configfile "/.system/boot/grub/abroot.cfg"
+}
+"""
 
 class AlbiusRecipe:
     def __init__(self):
@@ -161,7 +138,7 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("home", fs, part_offset, -1)
+            "params": _params("var", fs, part_offset, -1)
         })
 
         # Mountpoints
@@ -192,7 +169,7 @@ class Processor:
 
         info["mountpoints"].append({
             "partition": part_prefix + "5",
-            "target": "/home"
+            "target": "/var"
         })
 
         return info
@@ -213,10 +190,10 @@ class Processor:
             part_number = re.sub(r".*[a-z]([0-9]+)", r"\1", part)
 
             # Should we encrypt?
-            operation = "luks-format" if encrypt and values["mp"] in ["/", "/home"] else "format"
+            operation = "luks-format" if encrypt and values["mp"] in ["/", "/var"] else "format"
             def _params(*args):
                 base_params = [*args]
-                if encrypt and values["mp"] in ["/", "/home"]:
+                if encrypt and values["mp"] in ["/", "/var"]:
                     assert isinstance(password, str)
                     base_params.append(password)
                 return base_params
@@ -352,87 +329,19 @@ class Processor:
                         root_a_partition = mnt["partition"]
                     else:
                         root_b_partition = mnt["partition"]
-                elif mnt["target"] == "/home":
-                    home_partition = mnt["partition"]
-
-            # Add custom GRUB script
-            with open("/tmp/10_vanilla_tmp", "w") as file:
-                base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
-
-                root_a_entry = _GRUB_SCRIPT_MENU_ENTRY % (
-                    "A",
-                    "a",
-                    "$BOOT_UUID",
-                    "$KERNEL_VERSION",
-                    f"{base_script_root}$ROOTA_UUID",
-                    "$KERNEL_VERSION"
-                )
-                root_b_entry = _GRUB_SCRIPT_MENU_ENTRY % (
-                    "B",
-                    "b",
-                    "$BOOT_UUID",
-                    "$KERNEL_VERSION",
-                    f"{base_script_root}$ROOTB_UUID",
-                    "$KERNEL_VERSION"
-                )
-
-                file.write(_GRUB_SCRIPT_BASE + root_a_entry + root_b_entry)
-
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
-                    " ".join(
-                        f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
-                        ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
-                        ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
-                        KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
-                        envsubst < /tmp/10_vanilla_tmp > /tmp/10_vanilla \
-                        '$BOOT_UUID $ROOTA_UUID $ROOTB_UUID $KERNEL_VERSION'".split()
-                    )
-                ]
-            })
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "grub-add-script",
-                "params": ["/tmp/10_vanilla"]
-            })
-
-            # Remove default GRUB scripts
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "grub-remove-script",
-                "params": [
-                    "10_linux",
-                    "20_memtest86+"
-                ]
-            })
-
-            # Remove B's fstab entry from A
-            if encrypt:
-                root_b_fstab_entry = "\\\/dev\\\/mapper\\\/luks-$ROOTB_UUID"
-            else:
-                root_b_fstab_entry = "UUID=$ROOTB_UUID"
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
-                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab",
-                    "echo '/.system/var /var none bind 0 0' >> /mnt/a/etc/fstab",
-                    "echo '/.system/opt /opt none bind 0 0' >> /mnt/a/etc/fstab",
-                ]
-            })
+                elif mnt["target"] == "/var":
+                    var_partition = mnt["partition"]
 
             # Adapt root A filesystem structure
             if encrypt:
-                home_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {home_partition})"
+                var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_partition})"
             else:
-                home_label = home_partition
+                var_label = var_partition
             recipe.postInstallation.append({
                 "chroot": False,
                 "operation": "shell",
                 "params": [
-                    "umount /mnt/a/home",
+                    "umount /mnt/a/var",
                     f"umount -l {boot_partition}",
                     "mkdir -p /mnt/a/.system",
                     "mv /mnt/a/* /mnt/a/.system/",
@@ -440,14 +349,12 @@ class Processor:
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
                     *[f"ln -rs /mnt/a/{path} /mnt/a/.system/" for path in _REL_SYSTEM_LINKS],
-                    f"mount {home_label} /mnt/a/home",
+                    f"mount {var_label} /mnt/a/var",
                     f"mount {boot_partition} /mnt/a/boot{f' && mount {efi_partition} /mnt/a/boot/efi' if efi_partition else ''}",
-                    "mount --bind /mnt/a/.system/var /mnt/a/var",
-                    "mount --bind /mnt/a/.system/opt /mnt/a/opt",
                 ]
             })
 
-            # Install GRUB inside and outside of chroot (necessary for... reasons)
+            # Run `grub-install` with the boot partition as target
             recipe.postInstallation.append({
                 "chroot": False,
                 "operation": "grub-install",
@@ -467,19 +374,7 @@ class Processor:
                 ]
             })
 
-            # Set GRUB default config
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "grub-default-config",
-                "params": [
-                    "GRUB_DEFAULT=0",
-                    "GRUB_TIMEOUT=0",
-                    "GRUB_HIDDEN_TIMEOUT=2",
-                    "GRUB_TIMEOUT_STYLE=hidden"
-                ]
-            })
-
-            # Run grub-mkconfig
+            # Run `grub-mkconfig` to generate files for the boot partition
             recipe.postInstallation.append({
                 "chroot": True,
                 "operation": "grub-mkconfig",
@@ -488,12 +383,116 @@ class Processor:
                 ]
             })
 
+            # Replace main GRUB entry in the boot partition
+            with open("/tmp/boot-grub.cfg", "w") as file:
+                base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
+                boot_entry = _BOOT_GRUB_CFG % (
+                    f"{base_script_root}$ROOTA_UUID",
+                    f"{base_script_root}$ROOTB_UUID"
+                )
+                file.write(boot_entry)
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    " ".join(
+                        f"ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
+                        ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
+                        envsubst < /tmp/boot-grub.cfg > /mnt/a/boot/grub/grub.cfg \
+                        '$ROOTA_UUID $ROOTB_UUID'".split()
+                    )
+                ]
+            })
+
+            # Unmount boot partition so we can modify the root GRUB config
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    "umount -l /mnt/a/boot",
+                    "mkdir -p /mnt/a/boot/grub"
+                ]
+            })
+
+            # Run `grub-mkconfig` inside the root partition
+            recipe.postInstallation.append({
+                "chroot": True,
+                "operation": "grub-mkconfig",
+                "params": [
+                    "/boot/grub/grub.cfg"
+                ]
+            })
+
+            # Add `/boot/grub/abroot.cfg` to the root partition
+            with open("/tmp/abroot.cfg", "w") as file:
+                base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
+                root_entry = _ROOT_GRUB_CFG % (
+                    "$BOOT_UUID",
+                    "$KERNEL_VERSION",
+                    f"{base_script_root}$ROOTA_UUID",
+                    "$KERNEL_VERSION"
+                )
+                file.write(root_entry)
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    " ".join(
+                        f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
+                        ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
+                        KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
+                        envsubst < /tmp/abroot.cfg > /mnt/a/boot/grub/abroot.cfg \
+                        '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
+                    )
+                ]
+            })
+
+            # Keep only root A entry in fstab
+            if encrypt:
+                root_b_fstab_entry = "\\\/dev\\\/mapper\\\/luks-$ROOTB_UUID"
+            else:
+                root_b_fstab_entry = "UUID=$ROOTB_UUID"
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab",
+                    "sed -i -r '/^[^#]\S+\s+\/\S+\s+.+$/d' /mnt/a/etc/fstab"
+                ]
+            })
+
+            # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
+            recipe.postInstallation.append({
+                "chroot": True,
+                "operation": "shell",
+                "params": [
+                    "mv /.system/home /var",
+                    "mv /.system/opt /var",
+                    "mkdir -p /var/lib/abroot/etc/a /var/lib/abroot/etc/b /var/lib/abroot/etc/a-work /var/lib/abroot/etc/b-work",
+                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc",
+                    "mount -o bind /var/home /home",
+                    "mount -o bind /var/opt /opt",
+                    "mount -o bind,ro /.system/usr /usr"
+                ]
+            })
+            # Exec the systemd thing
+            # recipe.postInstallation.append({
+            #     "chroot": True,
+            #     "operation": "shell",
+            #     "params": [
+            #         "exec /lib/systemd/systemd",
+            #     ]
+            # })
+
             # Update initramfs
             recipe.postInstallation.append({
                 "chroot": True,
                 "operation": "shell",
                 "params": [
+                    "umount -l /usr",
+                    "pkg-unlock",
                     "update-initramfs -u"
+                    "pkg-lock",
                 ]
             })
 
