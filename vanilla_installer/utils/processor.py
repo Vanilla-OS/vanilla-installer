@@ -88,14 +88,14 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["boot", "ext4", 1, 1025]
+            "params": ["vanillaos-boot", "ext4", 1, 1025]
         })
 
         if Systeminfo.is_uefi():
             info["setup"].append({
                 "disk": disk,
                 "operation": "mkpart",
-                "params": ["EFI", "fat32", 1025, 1537]
+                "params": ["vanillaos-efi", "fat32", 1025, 1537]
             })
             part_offset = 1537
         else:
@@ -124,13 +124,13 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("a", fs, part_offset, part_offset + 12288)
+            "params": _params("vanillaos-a", fs, part_offset, part_offset + 12288)
         })
         part_offset += 12288
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("b", fs, part_offset, part_offset + 12288)
+            "params": _params("vanillaos-b", fs, part_offset, part_offset + 12288)
         })
         part_offset += 12288
 
@@ -138,7 +138,7 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("var", fs, part_offset, -1)
+            "params": _params("vanillaos-var", fs, part_offset, -1)
         })
 
         # Mountpoints
@@ -181,6 +181,8 @@ class Processor:
             "mountpoints": [],
             "postInstall": []
         }
+
+        # TODO: Partitions need to be labeled according to ABRoot
 
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
