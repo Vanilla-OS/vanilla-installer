@@ -36,8 +36,7 @@ _BASE_DIRS = ["boot", "dev", "home", "media", "mnt", "var", "opt",
               "part-future", "proc", "root", "run", "srv", "sys", "tmp"]
 _REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
               "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
-_REL_SYSTEM_LINKS = ["dev", "proc", "run",
-                     "srv", "sys", "tmp", "media", "boot"]
+_REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
 
 _ROOT_GRUB_CFG = """insmod gzio
 insmod part_gpt
@@ -51,14 +50,34 @@ _BOOT_GRUB_CFG = """set default=0
 set timeout=5
 
 menuentry "ABRoot A (current)" --class abroot-a {
-    set root=%s
+    search --no-floppy --fs-uuid --set=root %s
     configfile "/.system/boot/grub/abroot.cfg"
 }
 
 menuentry "ABRoot B (previous)" --class abroot-b {
-    set root=%s
+    search --no-floppy --fs-uuid --set=root %s
     configfile "/.system/boot/grub/abroot.cfg"
 }
+"""
+
+_SYSTEM_INIT_FILE = """#!/usr/bin/bash
+echo "ABRoot: Initializing mount points..."
+
+# /var mount
+mount %s /var
+
+# /etc overlay
+mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc
+
+# /var binds
+mount -o bind /var/home /home
+mount -o bind /var/opt /opt
+mount -o bind,ro /.system/usr /usr
+
+echo "ABRoot: Starting systemd..."
+
+# Start systemd
+exec /lib/systemd/systemd
 """
 
 class AlbiusRecipe:
@@ -88,14 +107,14 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": ["vanillaos-boot", "ext4", 1, 1025]
+            "params": ["vos-boot", "ext4", 1, 1025]
         })
 
         if Systeminfo.is_uefi():
             info["setup"].append({
                 "disk": disk,
                 "operation": "mkpart",
-                "params": ["vanillaos-efi", "fat32", 1025, 1537]
+                "params": ["vos-efi", "fat32", 1025, 1537]
             })
             part_offset = 1537
         else:
@@ -124,13 +143,13 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("vanillaos-a", fs, part_offset, part_offset + 12288)
+            "params": _params("vos-a", fs, part_offset, part_offset + 12288)
         })
         part_offset += 12288
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("vanillaos-b", fs, part_offset, part_offset + 12288)
+            "params": _params("vos-b", fs, part_offset, part_offset + 12288)
         })
         part_offset += 12288
 
@@ -138,7 +157,7 @@ class Processor:
         info["setup"].append({
             "disk": disk,
             "operation": "mkpart",
-            "params": _params("vanillaos-var", fs, part_offset, -1)
+            "params": _params("vos-var", fs, part_offset, -1)
         })
 
         # Mountpoints
@@ -271,6 +290,41 @@ class Processor:
         }
 
         # Post-installation
+        root_a_partition = None
+        efi_partition = None
+        for mnt in recipe.mountpoints:
+            if mnt["target"] == "/boot":
+                boot_partition = mnt["partition"]
+                boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)[0]
+            elif mnt["target"] == "/boot/efi":
+                efi_partition = mnt["partition"]
+            elif mnt["target"] == "/":
+                if not root_a_partition:
+                    root_a_partition = mnt["partition"]
+                else:
+                    root_b_partition = mnt["partition"]
+            elif mnt["target"] == "/var":
+                var_partition = mnt["partition"]
+
+        # Create init file
+        with open("/tmp/system-init", "w") as file:
+            base_script_root = "/dev/mapper/luks-" if encrypt else "-U "
+            init_file = _SYSTEM_INIT_FILE % f"{base_script_root}$VAR_UUID"
+            file.write(init_file)
+        recipe.postInstallation.append({
+            "chroot": False,
+            "operation": "shell",
+            "params": [
+                "rm /mnt/a/usr/sbin/init",
+                " ".join(
+                    f"VAR_UUID=$(lsblk -d -n -o UUID {var_partition}) \
+                    envsubst < /tmp/system-init > /mnt/a/usr/sbin/init \
+                    '$VAR_UUID'".split()
+                ),
+                "chmod +x /mnt/a/usr/sbin/init"
+            ]
+        })
+
         # Set hostname
         recipe.postInstallation.append({
             "chroot": True,
@@ -318,22 +372,6 @@ class Processor:
                     })
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
-            root_a_partition = None
-            efi_partition = None
-            for mnt in recipe.mountpoints:
-                if mnt["target"] == "/boot":
-                    boot_partition = mnt["partition"]
-                    boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)[0]
-                elif mnt["target"] == "/boot/efi":
-                    efi_partition = mnt["partition"]
-                elif mnt["target"] == "/":
-                    if not root_a_partition:
-                        root_a_partition = mnt["partition"]
-                    else:
-                        root_b_partition = mnt["partition"]
-                elif mnt["target"] == "/var":
-                    var_partition = mnt["partition"]
-
             # Adapt root A filesystem structure
             if encrypt:
                 var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_partition})"
@@ -344,9 +382,13 @@ class Processor:
                 "operation": "shell",
                 "params": [
                     "umount /mnt/a/var",
+                    "mkdir /mnt/a/tmp-boot",
+                    "cp -r /mnt/a/boot /mnt/a/tmp-boot",
                     f"umount -l {boot_partition}",
                     "mkdir -p /mnt/a/.system",
                     "mv /mnt/a/* /mnt/a/.system/",
+                    "mv /mnt/a/.system/tmp-boot/boot/* /mnt/a/.system/boot",
+                    "rm -rf /mnt/a/.system/tmp-boot",
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
@@ -387,7 +429,7 @@ class Processor:
 
             # Replace main GRUB entry in the boot partition
             with open("/tmp/boot-grub.cfg", "w") as file:
-                base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
+                base_script_root = "/dev/mapper/luks-" if encrypt else ""
                 boot_entry = _BOOT_GRUB_CFG % (
                     f"{base_script_root}$ROOTA_UUID",
                     f"{base_script_root}$ROOTB_UUID"
@@ -429,7 +471,7 @@ class Processor:
             with open("/tmp/abroot.cfg", "w") as file:
                 base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
                 root_entry = _ROOT_GRUB_CFG % (
-                    "$BOOT_UUID",
+                    f"{base_script_root}$ROOTA_UUID",
                     "$KERNEL_VERSION",
                     f"{base_script_root}$ROOTA_UUID",
                     "$KERNEL_VERSION"
@@ -443,7 +485,7 @@ class Processor:
                         f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
                         ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
                         KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
-                        envsubst < /tmp/abroot.cfg > /mnt/a/boot/grub/abroot.cfg \
+                        envsubst < /tmp/abroot.cfg > /mnt/a/.system/boot/grub/abroot.cfg \
                         '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
                     )
                 ]
@@ -470,6 +512,7 @@ class Processor:
                 "params": [
                     "mv /.system/home /var",
                     "mv /.system/opt /var",
+                    "mv /.system/tmp /var",
                     "mkdir -p /var/lib/abroot/etc/a /var/lib/abroot/etc/b /var/lib/abroot/etc/a-work /var/lib/abroot/etc/b-work",
                     "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc",
                     "mount -o bind /var/home /home",
@@ -477,14 +520,6 @@ class Processor:
                     "mount -o bind,ro /.system/usr /usr"
                 ]
             })
-            # Exec the systemd thing
-            # recipe.postInstallation.append({
-            #     "chroot": True,
-            #     "operation": "shell",
-            #     "params": [
-            #         "exec /lib/systemd/systemd",
-            #     ]
-            # })
 
             # Update initramfs
             recipe.postInstallation.append({
