@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from datetime import datetime
 import os
 import logging
 import tempfile
@@ -57,6 +58,13 @@ menuentry "ABRoot A (current)" --class abroot-a {
 menuentry "ABRoot B (previous)" --class abroot-b {
     search --no-floppy --fs-uuid --set=root %s
     configfile "/.system/boot/grub/abroot.cfg"
+}
+"""
+
+_ABIMAGE_FILE = """{
+    "digest":"%s",
+    "timestamp":"%s",
+    "image":"%s"
 }
 """
 
@@ -521,12 +529,34 @@ class Processor:
                 ]
             })
 
+            # Create /abimage.abr
+            with open("/tmp/abimage.abr", "w") as file:
+                abimage = _ABIMAGE_FILE % (
+                    "$IMAGE_DIGEST",
+                    datetime.now().astimezone().isoformat(),
+                    oci_image
+                )
+                file.write(abimage)
+
+            recipe.postInstallation.append({
+                "chroot": False,
+                "operation": "shell",
+                "params": [
+                    " ".join(
+                        "IMAGE_DIGEST=$(cat /mnt/a/.oci_digest) \
+                        envsubst < /tmp/abimage.abr > /mnt/a/abimage.abr \
+                        '$IMAGE_DIGEST'".split()
+                    )
+                ]
+            })
+
             # Update initramfs
             recipe.postInstallation.append({
                 "chroot": True,
                 "operation": "shell",
                 "params": [
                     "umount -l /usr",
+                    # "mount -o bind /.system/boot /boot",
                     "pkg-unlock",
                     "update-initramfs -u",
                     "pkg-lock",
