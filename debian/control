@@ -14,9 +14,9 @@ Build-Depends:
             desktop-file-utils,
             make,
             libjpeg-dev
-Homepage: https://github.com/mirkobrombin/vanilla-installer/
-Vcs-Browser: hhttps://github.com/mirkobrombin/vanilla-installer
-Vcs-Git: https://github.com/mirkobrombin/vanilla-installer.git
+Homepage: https://github.com/Vanilla-OS/vanilla-installer/
+Vcs-Browser: hhttps://github.com/Vanilla-OS/vanilla-installer
+Vcs-Git: https://github.com/Vanilla-OS/vanilla-installer.git
 Rules-Requires-Root: no
 
 Package: vanilla-installer
@@ -35,4 +35,4 @@ Depends: python3,
          gparted,
          openssl,
          albius
-Description: This utility is meant to be used in Ubuntu Vanilla GNOME as a first-setup wizard.
+Description: A frontend in GTK 4 and Libadwaita for Albius.
