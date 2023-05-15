@@ -25,19 +25,16 @@ from typing import Union, Any
 from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
 
+
 logger = logging.getLogger("Installer::Processor")
 
-
-AlbiusSetupStep = dict[str, Union[str, list[Any]]]
-AlbiusMountpoint = dict[str, str]
-AlbiusInstallation = dict[str, str]
-AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
-
+# fmt: off
 _BASE_DIRS = ["boot", "dev", "home", "media", "mnt", "var", "opt",
               "part-future", "proc", "root", "run", "srv", "sys", "tmp"]
 _REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
               "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
 _REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
+# fmt: on
 
 _ROOT_GRUB_CFG = """insmod gzio
 insmod part_gpt
@@ -88,58 +85,75 @@ echo "ABRoot: Starting systemd..."
 exec /lib/systemd/systemd
 """
 
+AlbiusSetupStep = dict[str, Union[str, list[Any]]]
+AlbiusMountpoint = dict[str, str]
+AlbiusInstallation = dict[str, str]
+AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
+
+
 class AlbiusRecipe:
-    def __init__(self):
+    def __init__(self) -> None:
         self.setup: list[AlbiusSetupStep] = []
         self.mountpoints: list[AlbiusMountpoint] = []
         self.installation: AlbiusInstallation = {}
         self.postInstallation: list[AlbiusPostInstallStep] = []
 
+    def add_setup_step(self, disk: str, operation: str, params: list[Any]) -> None:
+        self.setup.append(
+            {
+                "disk": disk,
+                "operation": operation,
+                "params": params,
+            }
+        )
+
+    def add_mountpoint(self, partition: str, target: str) -> None:
+        self.mountpoints.append(
+            {
+                "partition": partition,
+                "target": target,
+            }
+        )
+
+    def set_installation(self, method: str, source: str) -> None:
+        self.installation = {"method": method, "source": source}
+
+    def add_postinstall_step(
+        self, operation: str, params: list[Any], chroot: bool = False
+    ):
+        self.postInstallation.append(
+            {
+                "chroot": chroot,
+                "operation": operation,
+                "params": params,
+            }
+        )
+
 
 class Processor:
     @staticmethod
-    def __gen_auto_partition_steps(disk: str, encrypt: bool, password: str | None = None):
-        info = {
-            "setup": [],
-            "mountpoints": [],
-            "postInstall": []
-        }
+    def __gen_auto_partition_steps(
+        disk: str, encrypt: bool, password: str | None = None
+    ):
+        setup_steps = []
+        mountpoints = []
+        post_install_steps = []
 
-        info["setup"].append({
-            "disk": disk,
-            "operation": "label",
-            "params": ["gpt"]
-        })
+        setup_steps.append([disk, "label", ["gpt"]])
 
         # Boot
-        info["setup"].append({
-            "disk": disk,
-            "operation": "mkpart",
-            "params": ["vos-boot", "ext4", 1, 1025]
-        })
-
+        setup_steps.append([disk, "mkpart", ["vos-boot", "ext4", 1, 1025]])
         if Systeminfo.is_uefi():
-            info["setup"].append({
-                "disk": disk,
-                "operation": "mkpart",
-                "params": ["vos-efi", "fat32", 1025, 1537]
-            })
+            setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
             part_offset = 1537
         else:
-            info["setup"].append({
-                "disk": disk,
-                "operation": "mkpart",
-                "params": ["BIOS", "fat32", 1025, 1026]
-            })
-            info["setup"].append({
-                "disk": disk,
-                "operation": "setflag",
-                "params": ["2", "bios_grub", True]
-            })
+            setup_steps.append([disk, "mkpart", ["BIOS", "fat32", 1025, 1026]])
+            setup_steps.append([disk, "setflag", ["2", "bios_grub", True]])
             part_offset = 1026
 
         # Should we encrypt?
         fs = "luks-btrfs" if encrypt else "btrfs"
+
         def _params(*args):
             base_params = [*args]
             if encrypt:
@@ -148,25 +162,17 @@ class Processor:
             return base_params
 
         # Roots
-        info["setup"].append({
-            "disk": disk,
-            "operation": "mkpart",
-            "params": _params("vos-a", fs, part_offset, part_offset + 12288)
-        })
+        setup_steps.append(
+            [disk, "mkpart", _params("vos-a", fs, part_offset, part_offset + 12288)]
+        )
         part_offset += 12288
-        info["setup"].append({
-            "disk": disk,
-            "operation": "mkpart",
-            "params": _params("vos-b", fs, part_offset, part_offset + 12288)
-        })
+        setup_steps.append(
+            [disk, "mkpart", _params("vos-b", fs, part_offset, part_offset + 12288)]
+        )
         part_offset += 12288
 
         # Home
-        info["setup"].append({
-            "disk": disk,
-            "operation": "mkpart",
-            "params": _params("vos-var", fs, part_offset, -1)
-        })
+        setup_steps.append([disk, "mkpart", _params("vos-var", fs, part_offset, -1)])
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
@@ -174,40 +180,24 @@ class Processor:
         else:
             part_prefix = f"{disk}p"
 
-        info["mountpoints"].append({
-            "partition": part_prefix + "1",
-            "target": "/boot"
-        })
+        mountpoints.append([part_prefix + "1", "/boot"])
 
         if Systeminfo.is_uefi():
-            info["mountpoints"].append({
-                "partition": part_prefix + "2",
-                "target": "/boot/efi"
-            })
+            mountpoints.append([part_prefix + "2", "/boot/efi"])
 
-        info["mountpoints"].append({
-            "partition": part_prefix + "3",
-            "target": "/"
-        })
-        info["mountpoints"].append({
-            "partition": part_prefix + "4",
-            "target": "/"
-        })
+        mountpoints.append([part_prefix + "3", "/"])
+        mountpoints.append([part_prefix + "4", "/"])
+        mountpoints.append([part_prefix + "5", "/var"])
 
-        info["mountpoints"].append({
-            "partition": part_prefix + "5",
-            "target": "/var"
-        })
-
-        return info
+        return setup_steps, mountpoints, post_install_steps
 
     @staticmethod
-    def __gen_manual_partition_steps(disk_final: dict, encrypt: bool, password: str | None = None):
-        info = {
-            "setup": [],
-            "mountpoints": [],
-            "postInstall": []
-        }
+    def __gen_manual_partition_steps(
+        disk_final: dict, encrypt: bool, password: str | None = None
+    ):
+        setup_steps = []
+        mountpoints = []
+        post_install_steps = []
 
         # TODO: Partitions need to be labeled according to ABRoot
 
@@ -215,11 +205,16 @@ class Processor:
         # we don't need to create any partitions or label disks (for now).
         # But we still need to format partitions.
         for part, values in disk_final.items():
-            part_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)[0]
+            part_disk = re.match(
+                r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE
+            )[0]
             part_number = re.sub(r".*[a-z]([0-9]+)", r"\1", part)
 
             # Should we encrypt?
-            operation = "luks-format" if encrypt and values["mp"] in ["/", "/var"] else "format"
+            operation = (
+                "luks-format" if encrypt and values["mp"] in ["/", "/var"] else "format"
+            )
+
             def _params(*args):
                 base_params = [*args]
                 if encrypt and values["mp"] in ["/", "/var"]:
@@ -227,32 +222,50 @@ class Processor:
                     base_params.append(password)
                 return base_params
 
-            info["setup"].append({
-                "disk": part_disk,
-                "operation": operation,
-                "params": _params(part_number, values["fs"])
-            })
+            setup_steps.append(
+                [part_disk, operation, _params(part_number, values["fs"])]
+            )
 
             if not Systeminfo.is_uefi() and values["mp"] == "":
-                info["setup"].append({
-                    "disk": part_disk,
-                    "operation": "setflag",
-                    "params": [part_number, "bios_grub", True]
-                })
+                setup_steps.append(
+                    [part_disk, "setflag", [part_number, "bios_grub", True]]
+                )
 
             if values["mp"] == "swap":
-                info["postInstall"].append({
-                    "chroot": True,
-                    "operation": "swapon",
-                    "params": [part]
-                })
+                post_install_steps.append(["swapon", [part], True])
             else:
-                info["mountpoints"].append({
-                    "partition": part,
-                    "target": values["mp"]
-                })
+                mountpoints.append([part, values["mp"]])
 
-        return info
+        return setup_steps, mountpoints, post_install_steps
+
+    @staticmethod
+    def __find_partitions(recipe):
+        boot_partition = None
+        efi_partition = None
+        root_a_partition = None
+        root_b_partition = None
+        var_partition = None
+
+        for mnt in recipe.mountpoints:
+            if mnt["target"] == "/boot":
+                boot_partition = mnt["partition"]
+            elif mnt["target"] == "/boot/efi":
+                efi_partition = mnt["partition"]
+            elif mnt["target"] == "/":
+                if not root_a_partition:
+                    root_a_partition = mnt["partition"]
+                else:
+                    root_b_partition = mnt["partition"]
+            elif mnt["target"] == "/var":
+                var_partition = mnt["partition"]
+
+        return (
+            boot_partition,
+            efi_partition,
+            root_a_partition,
+            root_b_partition,
+            var_partition,
+        )
 
     @staticmethod
     def gen_install_recipe(log_path, finals, oci_image):
@@ -272,127 +285,104 @@ class Processor:
         for final in finals:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
-                    info = Processor.__gen_auto_partition_steps(
-                        final["disk"]["auto"]["disk"],
-                        encrypt,
-                        password
+                    part_info = Processor.__gen_auto_partition_steps(
+                        final["disk"]["auto"]["disk"], encrypt, password
                     )
                 else:
-                    info = Processor.__gen_manual_partition_steps(
-                        final["disk"],
-                        encrypt,
-                        password
+                    part_info = Processor.__gen_manual_partition_steps(
+                        final["disk"], encrypt, password
                     )
 
-                for step in info["setup"]:
-                    recipe.setup.append(step)
-                for mount in info["mountpoints"]:
-                    recipe.mountpoints.append(mount)
-                for step in info["postInstall"]:
-                    recipe.postInstallation.append(step)
+                setup_steps, mountpoints, post_install_steps = part_info
+                for step in setup_steps:
+                    recipe.add_setup_step(*step)
+                for mount in mountpoints:
+                    recipe.add_mountpoint(*mount)
+                for step in post_install_steps:
+                    recipe.add_postinstall_step(*step)
 
         # Installation
-        recipe.installation = {
-            "method": "oci",
-            "source": oci_image
-        }
+        recipe.set_installation("oci", oci_image)
 
         # Post-installation
-        root_a_partition = None
-        efi_partition = None
-        for mnt in recipe.mountpoints:
-            if mnt["target"] == "/boot":
-                boot_partition = mnt["partition"]
-                boot_disk = re.match(r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", mnt["partition"], re.MULTILINE)[0]
-            elif mnt["target"] == "/boot/efi":
-                efi_partition = mnt["partition"]
-            elif mnt["target"] == "/":
-                if not root_a_partition:
-                    root_a_partition = mnt["partition"]
-                else:
-                    root_b_partition = mnt["partition"]
-            elif mnt["target"] == "/var":
-                var_partition = mnt["partition"]
+        (
+            boot_part,
+            efi_part,
+            root_a_part,
+            root_b_part,
+            var_part,
+        ) = Processor.__find_partitions(recipe)
+        boot_disk = re.match(
+            r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", boot_part, re.MULTILINE
+        )[0]
 
         # Create init file
         with open("/tmp/system-init", "w") as file:
             base_script_root = "/dev/mapper/luks-" if encrypt else "-U "
             init_file = _SYSTEM_INIT_FILE % f"{base_script_root}$VAR_UUID"
             file.write(init_file)
-        recipe.postInstallation.append({
-            "chroot": False,
-            "operation": "shell",
-            "params": [
+        recipe.add_postinstall_step(
+            "shell",
+            [
                 "rm /mnt/a/usr/sbin/init",
                 " ".join(
-                    f"VAR_UUID=$(lsblk -d -n -o UUID {var_partition}) \
+                    f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
                     envsubst < /tmp/system-init > /mnt/a/usr/sbin/init \
                     '$VAR_UUID'".split()
                 ),
-                "chmod +x /mnt/a/usr/sbin/init"
-            ]
-        })
+                "chmod +x /mnt/a/usr/sbin/init",
+            ],
+        )
 
         # Set hostname
-        recipe.postInstallation.append({
-            "chroot": True,
-            "operation": "hostname",
-            "params": ["vanilla"]
-        })
+        recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
         for final in finals:
             for key, value in final.items():
                 # Set timezone
                 if key == "timezone":
-                    recipe.postInstallation.append({
-                        "chroot": True,
-                        "operation": "timezone",
-                        "params": [f"{value['region']}/{value['zone']}"]
-                    })
+                    recipe.add_postinstall_step(
+                        "timezone", [f"{value['region']}/{value['zone']}"], chroot=True
+                    )
                 # Set locale
                 if key == "language":
-                    recipe.postInstallation.append({
-                        "chroot": True,
-                        "operation": "locale",
-                        "params": [value]
-                    })
+                    recipe.add_postinstall_step("locale", [value], chroot=True)
                 # Add user
                 if key == "users":
-                    recipe.postInstallation.append({
-                        "chroot": True,
-                        "operation": "adduser",
-                        "params": [
+                    recipe.add_postinstall_step(
+                        "adduser",
+                        [
                             value["username"],
                             value["fullname"],
                             ["sudo", "lpadmin"],
-                            value["password"]
-                        ]
-                    })
+                            value["password"],
+                        ],
+                        chroot=True,
+                    )
                 # Set keyboard
                 if key == "keyboard":
-                    recipe.postInstallation.append({
-                        "chroot": True,
-                        "operation": "keyboard",
-                        "params": [
+                    recipe.add_postinstall_step(
+                        "keyboard",
+                        [
                             value["layout"],
                             value["model"],
                             value["variant"],
-                        ]
-                    })
+                        ],
+                        chroot=True,
+                    )
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
             if encrypt:
-                var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_partition})"
+                var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_part})"
             else:
-                var_label = var_partition
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
+                var_label = var_part
+            recipe.add_postinstall_step(
+                "shell",
+                [
                     "umount /mnt/a/var",
                     "mkdir /mnt/a/tmp-boot",
                     "cp -r /mnt/a/boot /mnt/a/tmp-boot",
-                    f"umount -l {boot_partition}",
+                    f"umount -l {boot_part}",
                     "mkdir -p /mnt/a/.system",
                     "mv /mnt/a/* /mnt/a/.system/",
                     "mv /mnt/a/.system/tmp-boot/boot/* /mnt/a/.system/boot",
@@ -400,80 +390,58 @@ class Processor:
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
-                    *[f"ln -rs /mnt/a/{path} /mnt/a/.system/" for path in _REL_SYSTEM_LINKS],
+                    *[
+                        f"ln -rs /mnt/a/{path} /mnt/a/.system/"
+                        for path in _REL_SYSTEM_LINKS
+                    ],
                     f"mount {var_label} /mnt/a/var",
-                    f"mount {boot_partition} /mnt/a/boot{f' && mount {efi_partition} /mnt/a/boot/efi' if efi_partition else ''}",
-                ]
-            })
+                    f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
+                ],
+            )
 
             # Run `grub-install` with the boot partition as target
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "grub-install",
-                "params": [
-                    "/mnt/a/boot",
-                    boot_disk,
-                    "efi" if Systeminfo.is_uefi() else "bios"
-                ]
-            })
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "grub-install",
-                "params": [
-                    "/boot",
-                    boot_disk,
-                    "efi" if Systeminfo.is_uefi() else "bios"
-                ]
-            })
+            grub_type = "efi" if Systeminfo.is_uefi() else "bios"
+            recipe.add_postinstall_step(
+                "grub-install", ["/mnt/a/boot", boot_disk, grub_type]
+            )
+            recipe.add_postinstall_step(
+                "grub-install", ["/boot", boot_disk, grub_type], chroot=True
+            )
 
             # Run `grub-mkconfig` to generate files for the boot partition
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "grub-mkconfig",
-                "params": [
-                    "/boot/grub/grub.cfg"
-                ]
-            })
+            recipe.add_postinstall_step(
+                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+            )
 
             # Replace main GRUB entry in the boot partition
             with open("/tmp/boot-grub.cfg", "w") as file:
                 base_script_root = "/dev/mapper/luks-" if encrypt else ""
                 boot_entry = _BOOT_GRUB_CFG % (
                     f"{base_script_root}$ROOTA_UUID",
-                    f"{base_script_root}$ROOTB_UUID"
+                    f"{base_script_root}$ROOTB_UUID",
                 )
                 file.write(boot_entry)
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
+            recipe.add_postinstall_step(
+                "shell",
+                [
                     " ".join(
-                        f"ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
-                        ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_partition}) \
+                        f"ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_part}) \
+                        ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_part}) \
                         envsubst < /tmp/boot-grub.cfg > /mnt/a/boot/grub/grub.cfg \
                         '$ROOTA_UUID $ROOTB_UUID'".split()
                     )
-                ]
-            })
+                ],
+            )
 
             # Unmount boot partition so we can modify the root GRUB config
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
-                    "umount -l /mnt/a/boot",
-                    "mkdir -p /mnt/a/boot/grub"
-                ]
-            })
+            recipe.add_postinstall_step(
+                "shell", ["umount -l /mnt/a/boot", "mkdir -p /mnt/a/boot/grub"]
+            )
 
             # Run `grub-mkconfig` inside the root partition
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "grub-mkconfig",
-                "params": [
-                    "/boot/grub/grub.cfg"
-                ]
-            })
+            recipe.add_postinstall_step(
+                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+            )
 
             # Add `/boot/grub/abroot.cfg` to the root partition
             with open("/tmp/abroot.cfg", "w") as file:
@@ -482,42 +450,50 @@ class Processor:
                     f"{base_script_root}$ROOTA_UUID",
                     "$KERNEL_VERSION",
                     f"{base_script_root}$ROOTA_UUID",
-                    "$KERNEL_VERSION"
+                    "$KERNEL_VERSION",
                 )
                 file.write(root_entry)
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
+            recipe.add_postinstall_step(
+                "shell",
+                [
                     " ".join(
-                        f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_partition}) \
-                        ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_partition}) \
+                        f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_part}) \
+                        ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_part}) \
                         KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
                         envsubst < /tmp/abroot.cfg > /mnt/a/.system/boot/grub/abroot.cfg \
                         '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
                     )
-                ]
-            })
+                ],
+            )
+
+            # Copy abroot.cfg to boot partition so it can be read in encrypted filesystems
+            # recipe.postInstallation.append({
+            #     "chroot": False,
+            #     "operation": "shell",
+            #     "params": [
+            #         f"mount {boot_partition} /mnt/a/boot",
+            #         "cp /mnt/a/.system/boot/grub/abroot.cfg /mnt/a/boot/grub/abroot_a.cfg",
+            #         "umount -l /mnt/a/boot",
+            #     ]
+            # })
 
             # Keep only root A entry in fstab
             if encrypt:
                 root_b_fstab_entry = "\\\/dev\\\/mapper\\\/luks-$ROOTB_UUID"
             else:
                 root_b_fstab_entry = "UUID=$ROOTB_UUID"
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
-                    f"ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_partition}) && sed -i \"/{root_b_fstab_entry}/d\" /mnt/a/etc/fstab",
-                    "sed -i -r '/^[^#]\S+\s+\/\S+\s+.+$/d' /mnt/a/etc/fstab"
-                ]
-            })
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/{root_b_fstab_entry}/d" /mnt/a/etc/fstab',
+                    "sed -i -r '/^[^#]\S+\s+\/\S+\s+.+$/d' /mnt/a/etc/fstab",
+                ],
+            )
 
             # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "shell",
-                "params": [
+            recipe.add_postinstall_step(
+                "shell",
+                [
                     "mv /.system/home /var",
                     "mv /.system/opt /var",
                     "mv /.system/tmp /var",
@@ -525,43 +501,43 @@ class Processor:
                     "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc",
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
-                    "mount -o bind,ro /.system/usr /usr"
-                ]
-            })
+                    "mount -o bind,ro /.system/usr /usr",
+                ],
+                chroot=True,
+            )
 
             # Create /abimage.abr
             with open("/tmp/abimage.abr", "w") as file:
                 abimage = _ABIMAGE_FILE % (
                     "$IMAGE_DIGEST",
                     datetime.now().astimezone().isoformat(),
-                    oci_image
+                    oci_image,
                 )
                 file.write(abimage)
 
-            recipe.postInstallation.append({
-                "chroot": False,
-                "operation": "shell",
-                "params": [
+            recipe.add_postinstall_step(
+                "shell",
+                [
                     " ".join(
                         "IMAGE_DIGEST=$(cat /mnt/a/.oci_digest) \
                         envsubst < /tmp/abimage.abr > /mnt/a/abimage.abr \
                         '$IMAGE_DIGEST'".split()
                     )
-                ]
-            })
+                ],
+            )
 
             # Update initramfs
-            recipe.postInstallation.append({
-                "chroot": True,
-                "operation": "shell",
-                "params": [
+            recipe.add_postinstall_step(
+                "shell",
+                [
                     "umount -l /usr",
                     # "mount -o bind /.system/boot /boot",
                     "pkg-unlock",
                     "update-initramfs -u",
                     "pkg-lock",
-                ]
-            })
+                ],
+                chroot=True,
+            )
 
         if "VANILLA_FAKE" in os.environ:
             logger.info("VANILLA_FAKE is set, skipping the installation process.")
@@ -570,7 +546,6 @@ class Processor:
 
         with tempfile.NamedTemporaryFile(mode="w", delete=False) as f:
             f.write(json.dumps(recipe, default=vars))
-
             f.flush()
             f.close()
 
