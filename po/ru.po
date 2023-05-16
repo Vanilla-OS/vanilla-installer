@@ -4,22 +4,23 @@
 # inal <inaltarba89@gmail.com>, 2023.
 # Sergey Ivanov <ivanov.sergey.ekb@gmail.com>, 2023.
 # Anatoly <pandorinpan@gmail.com>, 2023.
+# Максим <mrxzzet@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-02-27 20:38+0000\n"
-"Last-Translator: Anatoly <pandorinpan@gmail.com>\n"
+"PO-Revision-Date: 2023-05-07 09:49+0000\n"
+"Last-Translator: Максим <mrxzzet@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -160,7 +161,7 @@ msgstr "Подтвердите пароль"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "Восстановление"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -198,42 +199,40 @@ msgid "Log"
 msgstr "Журнал"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Установщик Vanilla OS"
+msgstr "Восстановление Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Консоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "Откройте Терминал."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
-#, fuzzy
 msgid "Gparted"
-msgstr "Открыть GParted"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "Управление дисками и разделами."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "Справочник"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "Прочитайте Руководство по Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "Веб-браузер"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "Ищите помощь в Интернете."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -355,6 +354,8 @@ msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"Раздел для монтирования \"/boot/efi\". В этом каталоге хранятся файлы для "
+"запуска загрузчика."
 
 #: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
@@ -370,6 +371,8 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"Раздел, требуемый дисками в формате GPT для поддержки загрузки из систем "
+"BIOS. Он должен располагаться в первых 2 ТБ диска и иметь размер ровно 1 МБ."
 
 #: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
@@ -391,6 +394,8 @@ msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"Vanilla OS использует систему разделов A/B, управляемую посредством ABRoot,\n"
+"которая переключается между двумя корневыми разделами после обновлений."
 
 #: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
@@ -398,7 +403,7 @@ msgstr "Корневые разделы имеют разный размер."
 
 #: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
+msgstr "Убедитесь, что разделы A и B имеют одинаковое дисковое пространство."
 
 #: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
@@ -412,6 +417,8 @@ msgstr "Домашний Раздел"
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"Раздел для монтирования под \"/home\". В этом каталоге хранятся все данные "
+"пользователя."
 
 #: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
@@ -427,12 +434,17 @@ msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"Swap действует как виртуальное расширение вашей оперативной памяти и "
+"позволяет переходить в спящий режим. Vanilla OS уже использует zram для "
+"обеспечения свопинга без затрат на хранение."
 
 #: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Выберите раздел, который будет использоваться для подкачки наряду с zram. "
+"Для гибернации это не требуется."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
@@ -450,18 +462,19 @@ msgstr "Это единственный доступный диск, выбор 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
+"GParted уже запущен. Разрешается использовать только один экземпляр GParted."
 
 #: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "Раздел должен быть не менее {}"
 
 #: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Раздел должен быть ТОЧНО {}"
 
 #: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Разделы изменились. Текущие выборки удалены."
 
 #: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
@@ -486,43 +499,43 @@ msgstr "Пожалуйста, выберите хотя бы один вариа
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Отсутствует 'log_file' в средстве."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "не удалось создать файл журнала: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "Журнал не будет сохранен."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Выполнение условия отображения: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Шаг %s пропущен из-за условий отображения"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Неверный файл рецепта"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Рецепт - это не словарь"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "В рецепте отсутствует ключ '{key}'"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Шаги рецепта - это не список"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
@@ -564,7 +577,7 @@ msgstr "Пожалуйста, обратитесь к разработчикам
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "page-changed"
 
 #~ msgid "Try Vanilla OS"
 #~ msgstr "Попробовать Vanilla OS"
