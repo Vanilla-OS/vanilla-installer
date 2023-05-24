@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-29 08:51+0000\n"
+"PO-Revision-Date: 2023-05-24 21:50+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/en_GB/>\n"
@@ -117,11 +117,11 @@ msgstr "Date & Time"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "Select your preferred time zone"
+msgstr "Select your preferred timezone"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr "Search for a time zone"
+msgstr "Search for a Timezone"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
