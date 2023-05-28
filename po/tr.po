@@ -4,13 +4,14 @@
 # Automatically generated, 2022.
 #
 # Murattut <tutmurattut@outlook.com>, 2023.
+# Fellow Turkish <f3ll0wm4il3r_12@protonmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-24 18:25+0000\n"
-"Last-Translator: Murattut <tutmurattut@outlook.com>\n"
+"PO-Revision-Date: 2023-05-20 05:50+0000\n"
+"Last-Translator: Fellow Turkish <f3ll0wm4il3r_12@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
 "Language: tr\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -159,7 +160,7 @@ msgstr "Şifreyi Doğrulayın"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "Kurtarma"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -197,17 +198,16 @@ msgid "Log"
 msgstr "Günlük"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS Yükleyici"
+msgstr "Vanilla OS Kurtarma"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "Bir Uçbirim açın."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 #, fuzzy
@@ -216,23 +216,23 @@ msgstr "GParted'ı Aç"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "Diskleri ve bölümleri yönetin."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "El Kitabı"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "Vanilla OS El Kitabını okuyun."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "Web Tarayıcıları"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "Yardım için internette arama yapın."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"

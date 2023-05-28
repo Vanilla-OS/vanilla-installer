@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # gallegonovato <fran-carro@hotmail.es>, 2023.
 # Juan <benitesjn@gmail.com>, 2023.
+# Juan Benites <benitesjn@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-18 06:52+0000\n"
-"Last-Translator: Juan <benitesjn@gmail.com>\n"
+"PO-Revision-Date: 2023-05-23 01:49+0000\n"
+"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/es/>\n"
 "Language: es\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -29,7 +30,7 @@ msgstr "Modifique su instalación de Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "No description"
+msgstr "Sin descripción"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
