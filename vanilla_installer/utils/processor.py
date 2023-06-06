@@ -199,11 +199,10 @@ class Processor:
         mountpoints = []
         post_install_steps = []
 
-        # TODO: Partitions need to be labeled according to ABRoot
-
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
         # But we still need to format partitions.
+        root_a_set = False
         for part, values in disk_final.items():
             part_disk = re.match(
                 r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE
@@ -230,6 +229,25 @@ class Processor:
                 setup_steps.append(
                     [part_disk, "setflag", [part_number, "bios_grub", True]]
                 )
+
+            # Set partition labels for ABRoot
+            part_name = ""
+            if values["mp"] == "/":
+                if not root_a_set:
+                    part_name = "vos-a"
+                    root_a_set = True
+                else:
+                    part_name = "vos-b"
+            elif values["mp"] == "/boot":
+                part_name = "vos-boot"
+            elif values["mp"] == "/boot/efi":
+                part_name = "vos-efi"
+            elif values["mp"] == "/var":
+                part_name = "vos-var"
+
+            setup_steps.append(
+                [part_disk, "namepart", [part_number, part_name]]
+            )
 
             if values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
@@ -399,6 +417,7 @@ class Processor:
                 ],
             )
 
+            # TODO: Install grub-pc if target is BIOS
             # Run `grub-install` with the boot partition as target
             grub_type = "efi" if Systeminfo.is_uefi() else "bios"
             recipe.add_postinstall_step(
