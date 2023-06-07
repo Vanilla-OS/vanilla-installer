@@ -287,7 +287,7 @@ class PartitionSelector(Adw.PreferencesPage):
             partitions_changed_toast.set_timeout(5)
             self.__parent.group_partitions.add_toast(partitions_changed_toast)
         else:
-            subprocess.Popen(["gparted"])
+            subprocess.Popen(["/usr/sbin/gparted"])
 
     def __generate_partition_list_widgets(self, parent_widget, default_fs="btrfs", add_dropdowns=True):
         partition_widgets = []
