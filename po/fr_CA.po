@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # Gabriel Girouard <ggirouard@bungeetaco.com>, 2023.
+# Jumpy Game <jumpy634@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-06-01 08:52+0000\n"
-"Last-Translator: Gabriel Girouard <ggirouard@bungeetaco.com>\n"
+"PO-Revision-Date: 2023-06-10 20:50+0000\n"
+"Last-Translator: Jumpy Game <jumpy634@gmail.com>\n"
 "Language-Team: French (Canada) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -24,7 +25,7 @@ msgstr "Installateur Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Personnalisez votre installation Vanilla OS"
+msgstr "Personnalisez votre installation de Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -142,7 +143,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
@@ -187,7 +188,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "Montrer l'information"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
@@ -231,7 +232,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "Tout est fait !"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -251,19 +252,19 @@ msgstr ""
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Oui, l'activer"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr ""
+msgstr "Installer..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
-msgstr ""
+msgstr "Afficher la sortie de la console"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Afficher le diaporama"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
@@ -423,7 +424,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
@@ -469,7 +470,7 @@ msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Veuillez sélectionner au moins une option."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
@@ -539,15 +540,15 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "Redémarrez votre appareil pour profiter de votre expérience {}."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
-msgstr ""
+msgstr "Quelque chose n'a pas fonctionné"
 
 #: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "Veuillez contacter les développeurs de la distribution."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
