@@ -5,13 +5,14 @@
 # TheAndreLuiz <andreluizgaspar1@gmail.com>, 2023.
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
 # Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2023.
+# Leonardo Gonzalez <leog110@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-09 13:23+0000\n"
-"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
+"PO-Revision-Date: 2023-06-17 17:48+0000\n"
+"Last-Translator: Leonardo Gonzalez <leog110@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -227,7 +228,7 @@ msgstr "Leia o Manual do Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr "Navegador web"
+msgstr "Navegador Web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
