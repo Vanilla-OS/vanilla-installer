@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# jolupa <jolupameister@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2022-11-11 09:49+0000\n"
-"Last-Translator: Olawenah <adriabrucortes@gmail.com>\n"
+"PO-Revision-Date: 2023-06-13 03:57+0000\n"
+"Last-Translator: jolupa <jolupameister@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ca/>\n"
 "Language: ca\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -25,7 +26,7 @@ msgstr "Instal·lador de Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Modifica la teva instal·lació de Vanilla OS."
+msgstr "Ajusta la teva instal·lació del sistema operatiu Vanilla."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -189,7 +190,7 @@ msgstr "Aplicar"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Mostrant informació"
+msgstr "Mostrant Informació"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
@@ -258,7 +259,6 @@ msgid "Yes, enable it"
 msgstr "Sí, habilita-ho"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "Instal·lant..."
 
@@ -268,7 +268,7 @@ msgstr "Mostra la sortida de Consola"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr "Mostra la presentació"
+msgstr "Mostra la Presentació"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
@@ -556,7 +556,7 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Reinicia el teu dispositiu per gaudir de la teva experiència {}."
+msgstr "Reinicia el teu ordinador per gaudir la teva experiència {}."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
