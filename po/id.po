@@ -5,13 +5,14 @@
 #
 # Alim Satria <alimsatria2017@mail.ugm.ac.id>, 2023.
 # Zee <efzeee@pm.me>, 2023.
+# Sultan Iskandar Maulana <nattadasu@nattadasu.my.id>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-06-01 08:52+0000\n"
-"Last-Translator: Zee <efzeee@pm.me>\n"
+"PO-Revision-Date: 2023-06-13 03:57+0000\n"
+"Last-Translator: Sultan Iskandar Maulana <nattadasu@nattadasu.my.id>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -280,9 +281,8 @@ msgid "Choose how to install Vanilla OS on your drive."
 msgstr "Pilih cara menginstal Vanilla OS pada drive Anda."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
 msgid "Entire Disk"
-msgstr "Gunakan Seluruh Penyimpanan"
+msgstr "Seluruh Disk"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
@@ -340,9 +340,8 @@ msgstr "Tidak ada partisi yang dipilih"
 #: vanilla_installer/gtk/widget-partition.ui:201
 #: vanilla_installer/gtk/widget-partition.ui:235
 #: vanilla_installer/defaults/disk.py:464
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "Tolong setidaknya pilih satu opsi."
+msgstr "Pilihlah partisi dari pilihan di bawah ini"
 
 #: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
@@ -397,59 +396,66 @@ msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"Vanilla OS menggunakan sistem partisi A/B yang dikelola oleh ABRoot,\n"
+"yang beralih di antara dua partisi root di antara pembaruan."
 
 #: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "Partisi root tidak memiliki ukuran yang sama."
 
 #: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
+msgstr "Pastikan partisi A dan B memiliki ruang disk yang sama."
 
 #: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Partisi root terlalu kecil."
 
 #: vanilla_installer/gtk/widget-partition.ui:196
-#, fuzzy
 msgid "Home Partition"
-msgstr "Partisi"
+msgstr "Partisi Rumah"
 
 #: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"Partisi yang akan dipasang di bawah \"/home\". Direktori ini menyimpan semua "
+"data pengguna."
 
 #: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
-msgstr ""
+msgstr "Partisi rumah terlalu kecil."
 
 #: vanilla_installer/gtk/widget-partition.ui:217
 #: vanilla_installer/gtk/widget-partition.ui:221
-#, fuzzy
 msgid "Swap partition"
-msgstr "Partisi"
+msgstr "Partisi Swap"
 
 #: vanilla_installer/gtk/widget-partition.ui:218
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"Swap bertindak sebagai tambahan virtual untuk RAM Anda dan memungkinkan "
+"hibernasi. Vanilla OS sudah menggunakan zram untuk menyediakan swap tanpa "
+"biaya penyimpanan."
 
 #: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Pilih partisi yang akan digunakan untuk swap bersama zram. Hal ini tidak "
+"diperlukan untuk hibernasi."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Kembali"
 
 #: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "Tidak cukup ruang: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
@@ -459,7 +465,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr ""
+msgstr "GParted sudah berjalan. Hanya satu instansi dari GParted dibolehkan."
 
 #: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
@@ -467,11 +473,11 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partisi harus PERSIS {}"
 
 #: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Partisi telah berubah. Pilihan saat ini telah dihapus."
 
 #: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
@@ -488,7 +494,7 @@ msgstr "Akan diformat dalam {} dan dimount dalam {}"
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "diklik"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -496,71 +502,69 @@ msgstr "Tolong setidaknya pilih satu opsi."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "'log_file' tidak ditemukan dalam resep."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "gagal membuat berkas log: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "Tidak ada log yang akan disimpan."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Melakukan kondisi tampilan: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Langkah %s dilewati karena kondisi tampilan"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Berkas resep tidak sah"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Resep bukanlah kamus"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "Resep tidak memiliki kunci '{key}'"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Instruksi resep bukanlah sebuah daftar"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "Langkah {step} bukanlah sebuah kamus"
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
 msgid "Keyboard"
-msgstr "Tata Letak Keyboard"
+msgstr "Keyboard"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "Zona waktu"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
 msgid "Users"
-msgstr "Nama Pengguna"
+msgstr "Pengguna"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "instalasi terkonfirmasikan"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
@@ -576,7 +580,7 @@ msgstr "Silakan hubungi pengembang distro."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "halaman berubah"
 
 #~ msgid "Try Vanilla OS"
 #~ msgstr "Coba Vanilla OS"

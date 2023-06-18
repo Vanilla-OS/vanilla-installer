@@ -5,13 +5,14 @@
 #
 # azuki <ipadgoogcloud@gmail.com>, 2023.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2023.
+# Alex Marín <kysgeneral.nrgua@slmail.me>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-19 23:41+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2023-06-16 09:52+0000\n"
+"Last-Translator: Alex Marín <kysgeneral.nrgua@slmail.me>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ja/>\n"
 "Language: ja\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -65,9 +66,8 @@ msgid "Select a Disk"
 msgstr "ディスクを選択"
 
 #: vanilla_installer/gtk/default-disk.ui:31
-#, fuzzy
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Vanilla OS のインストール先ディスクを選択してください"
+msgstr "Vanilla OSをインストールするディスクを選択してください"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
