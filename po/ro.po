@@ -82,7 +82,7 @@ msgstr "Selectează aspectul preferat pentru tastatura dvs."
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "Caută aspect tastatură"
+msgstr "Caută un aspect pentru tastatură"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
