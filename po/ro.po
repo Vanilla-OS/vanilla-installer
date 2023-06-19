@@ -27,11 +27,11 @@ msgstr "Programul de instalare Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Modifică-ți instalarea Vanilla OS."
+msgstr "Personalizează instalarea Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "Nicio descripție"
+msgstr "Fără descriere"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -43,7 +43,7 @@ msgstr "Confirmă instalarea"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
-msgstr "Următoarele schimbări vor fi făcute sistemului tău:"
+msgstr "Următoarele schimbări se vor aplica în sistemului dvs:"
 
 #: vanilla_installer/gtk/confirm.ui:28
 #: vanilla_installer/gtk/default-welcome.ui:38
@@ -74,15 +74,15 @@ msgstr "Configurează"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr "Layout-ul tastaturii"
+msgstr "Aspectul tastaturii"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr "Selectează-ți tastatura preferată"
+msgstr "Selectează aspectul preferat de tastatură"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr "Caută o tastatură"
+msgstr "Caută aspect tastatură"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -92,7 +92,7 @@ msgstr "Limbă"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "Selectează-ți limba"
+msgstr "Selectează limba"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
@@ -108,19 +108,19 @@ msgstr "Întunecat"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "Schema de culoare"
+msgstr "Schema de culori"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Selectează o scheme de culoare pentru sistemul tău"
+msgstr "Selectează schema de culori pentru sistemul tău"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr "Data & Ora"
+msgstr "Dată & Oră"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "Selectează-ți fusul orar preferat"
+msgstr "Selectează fusul orar preferat"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
@@ -136,7 +136,7 @@ msgstr "Zonă"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Crează un utilizator"
+msgstr "Crează utilizator"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
@@ -178,11 +178,11 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
-"Următoarele schimbări vor fi făcute la disk-ul tău. Revizuiește-le atent(ă)."
+"Următoarele schimbări se vor aplica la disk-ul dvs. Revizuiți-le atent(ă)."
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
-msgstr "Configurează disk-ul"
+msgstr "Configurează disc"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
@@ -190,7 +190,7 @@ msgstr "Aplică"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Se arată informații"
+msgstr "Afișare informații"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
@@ -206,7 +206,7 @@ msgstr "Consolă"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr "Deschideți un terminal."
+msgstr "Deschide un terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
@@ -214,7 +214,7 @@ msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr "Gestionați discuri și partiții."
+msgstr "Gestionează discuri și partiții."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
@@ -230,7 +230,7 @@ msgstr "Browser web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr "Căutați ajutor online."
+msgstr "Căută ajutor online."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -238,7 +238,7 @@ msgstr "Totul este gata!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr "Repornește-ți dispozitivul pentru a te bucura de experiența Vanilla OS"
+msgstr "Reporniți dispozitivul pentru a vă bucura de experiența Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
@@ -282,7 +282,7 @@ msgstr "Întregul disc"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
-msgstr "Acest proces va șterge toate datele de pe disk."
+msgstr "Acest proces va șterge toate datele de pe disc."
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid "Manual Partitioning"
@@ -294,8 +294,8 @@ msgid ""
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
 "Selectați ce partiții să utilizați pentru instalare. O configurație "
-"incorectă poate duce la pierderea de date, la corupție și/sau la un sistem "
-"care nu poate fi pornit."
+"incorectă poate duce la pierderea de date, distrugere fișiere și/sau la un sistem "
+"care nu poate porni."
 
 #: vanilla_installer/gtk/widget-partition.ui:41
 msgid "Open GParted"
@@ -303,7 +303,7 @@ msgstr "Deschide GParted"
 
 #: vanilla_installer/gtk/widget-partition.ui:42
 msgid "Open GParted to manually partition the disk"
-msgstr "Deschide GParted pentru a modifica partițiile de disk manual"
+msgstr "Deschide GParted pentru a modifica manual partițiile de pe disc"
 
 #: vanilla_installer/gtk/widget-partition.ui:60
 msgid "Boot Partition"
@@ -314,7 +314,7 @@ msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
-"Partiția care trebuie montată sub \"/boot\". Acest director stochează "
+"Partiția care trebuie montată sub “/boot”. Acest director stochează "
 "fișierele pentru pornirea Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:64
@@ -326,7 +326,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:234
 #: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
-msgstr "Nu este selectată nicio partiție"
+msgstr "Nicio partiție selectată"
 
 #: vanilla_installer/gtk/widget-partition.ui:65
 #: vanilla_installer/gtk/widget-partition.ui:86
@@ -345,14 +345,14 @@ msgstr "Partiția de pornire este prea mică."
 
 #: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
-msgstr "Partiția EFI"
+msgstr "Partiție EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
-"Partiția care trebuie montată sub \"/boot/efi\". Acest director stochează "
+"Partiția care trebuie montată sub “/boot/efi”. Acest director stochează "
 "fișierele pentru pornirea în bootloader."
 
 #: vanilla_installer/gtk/widget-partition.ui:97
@@ -385,7 +385,7 @@ msgstr "Partiții rădăcină"
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
-"Partițiile de montat sub \"/\". Ambele partiții trebuie să aibă aceeași "
+"Partițiile de montat sub “/”. Ambele partiții trebuie să aibă aceeași "
 "dimensiune."
 
 #: vanilla_installer/gtk/widget-partition.ui:137
@@ -416,7 +416,7 @@ msgstr "Partiție de acasă"
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
-"Partiția de montat sub \"/home\". Acest director stochează toate datele "
+"Partiția de montat sub “/home”. Acest director stochează toate datele "
 "utilizatorului."
 
 #: vanilla_installer/gtk/widget-partition.ui:212
@@ -441,8 +441,8 @@ msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
-"Alegeți o partiție care să fie folosită pentru swap alături de zram. Acest "
-"lucru nu este necesar pentru hibernare."
+"Alegeți o partiție care să fie folosită pentru swap alături de zram. Această "
+"partiție nu este necesară pentru hibernare."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
@@ -455,7 +455,7 @@ msgstr "Spațiu insuficient: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
-msgstr "Acesta este singurul disk disponibil și nu poate fi deselectat!"
+msgstr "Acesta este singurul disc disponibil și nu poate fi deselectat!"
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -475,7 +475,7 @@ msgstr "Partițiile s-au schimbat. Selecțiile curente au fost șterse."
 
 #: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
-msgstr "Tot disk-ul va fi folosit."
+msgstr "Se va folosi întregul disc."
 
 #: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
@@ -496,7 +496,7 @@ msgstr "Alege te rog cel puțin o opțiune."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr "Lipsește \"log_file\" în rețetă."
+msgstr "Lipsește 'log_file' în rețetă."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
@@ -510,7 +510,7 @@ msgstr "Nu va fi stocat niciun jurnal."
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr "Efectuarea condiției de afișare: %s"
+msgstr "Se efectuază condiția de afișare: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
@@ -528,7 +528,7 @@ msgstr "Rețeta nu este un dicționar"
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr "În rețetă lipsește cheia \"{key}\""
+msgstr "În rețetă lipsește cheia '{key}'"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
@@ -562,7 +562,7 @@ msgstr "instalare-confirmată"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Repornește-ți dispozitivul pentru a te bucura de experiența {}."
+msgstr "Reporniți dispozitivul pentru a vă bucura de experiența {}."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
@@ -570,7 +570,7 @@ msgstr "Ceva a dat greș"
 
 #: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
-msgstr "Te rog contactează dezvoltatorii distribuției."
+msgstr "Vă rog să contactați dezvoltatorii distribuției."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
@@ -580,13 +580,13 @@ msgstr "pagină-schimbată"
 #~ msgstr "Încearcă Vanilla OS"
 
 #~ msgid "Welcome"
-#~ msgstr "Bine ai venit"
+#~ msgstr "Bun venit"
 
 #~ msgid "This software will guide you through the installation process."
-#~ msgstr "Acest program te va ajuta să treci prin procesul de instalare."
+#~ msgstr "Acest program vă va ajuta în procesul de instalare."
 
 #~ msgid "The following partitions were found on the disk"
-#~ msgstr "Următoarele partiții au fost găsite pe disk"
+#~ msgstr "Următoarele partiții au fost găsite pe disc"
 
 #~ msgid "Format"
 #~ msgstr "Formatează"
