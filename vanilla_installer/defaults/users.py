@@ -86,7 +86,7 @@ class VanillaDefaultUsers(Adw.Bin):
             _input = self.username_entry.get_text()
             
         # cannot contain special characters
-        if re.search(r'[^a-z0-9]', _input):
+        if not re.fullmatch(r'[a-z_][a-z0-9_-]*[$]?', _input):
             _status = False
             self.__window.toast("Username cannot contain special characters or uppercase letters. Please choose another username.")
 
