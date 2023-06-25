@@ -21,6 +21,7 @@
 - libgweather-4-dev
 - python3-tz
 - python3-requests
+- gir1.2-vte-3.91
 
 ### Build
 ```bash
