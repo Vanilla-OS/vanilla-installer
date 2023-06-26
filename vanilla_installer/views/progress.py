@@ -41,7 +41,7 @@ class VanillaProgress(Gtk.Box):
         self.__tour = tour
         self.__terminal = Vte.Terminal()
         self.__font = Pango.FontDescription()
-        self.__font.set_family("Ubuntu Mono")
+        self.__font.set_family("Cantarell")
         self.__font.set_size(13 * Pango.SCALE)
         self.__font.set_weight(Pango.Weight.NORMAL)
         self.__font.set_stretch(Pango.Stretch.NORMAL)
