@@ -5,13 +5,14 @@
 #
 # Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>, 2023.
 # Ibrahim Kaikaa <ibrahimkaikaa@protonmail.com>, 2023.
+# Muhammad Bahaa <muhammad.bahaa1@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-29 21:33+0000\n"
-"Last-Translator: Ibrahim Kaikaa <ibrahimkaikaa@protonmail.com>\n"
+"PO-Revision-Date: 2023-06-23 22:52+0000\n"
+"Last-Translator: Muhammad Bahaa <muhammad.bahaa1@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -32,7 +33,7 @@ msgstr "طوِّع تثبيتك لنظام فانيلا."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "دون وصف"
+msgstr "بدون وصف"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -161,7 +162,7 @@ msgstr "تأكيد كلمة السر"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "إسترداد"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -203,11 +204,11 @@ msgstr "مُثبِّتُ نِظام فانيلا"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "المتحكم"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "فتح الوحدة الطرفية"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 #, fuzzy
@@ -216,23 +217,23 @@ msgstr "فتح GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "إدارة الأقراص والأقسام."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "كتيب"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "اقرأ كتيب نظام فانيلا"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "متصفح الإنترنت"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "ابحث على الإنترنت للمساعدة."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -272,7 +273,7 @@ msgstr "اعرض الشريط الجانبي"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "تخصيص القرص"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 msgid "Choose how to install Vanilla OS on your drive."

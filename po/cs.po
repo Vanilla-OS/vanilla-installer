@@ -4,13 +4,14 @@
 # Automatically generated, 2022.
 #
 # Vojtěch Perník <translations@pervoj.cz>, 2023.
+# Fjuro <ifjuro@proton.me>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-02-15 15:38+0000\n"
-"Last-Translator: Vojtěch Perník <translations@pervoj.cz>\n"
+"PO-Revision-Date: 2023-07-01 11:52+0000\n"
+"Last-Translator: Fjuro <ifjuro@proton.me>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/cs/>\n"
 "Language: cs\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -144,7 +145,7 @@ msgstr "Zadejte údaje ke svému uživatelskému účtu"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "Jméno"
+msgstr "Název"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
@@ -259,16 +260,14 @@ msgid "Yes, enable it"
 msgstr "Ano, povolit to"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "Instaluji…"
+msgstr "Instalace..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
 msgstr "Ukázat výstup z konzole"
 
 #: vanilla_installer/gtk/progress.ui:106
-#, fuzzy
 msgid "Show Slideshow"
 msgstr "Zobrazit prezentaci"
 

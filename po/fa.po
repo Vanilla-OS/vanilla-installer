@@ -4,13 +4,14 @@
 # Automatically generated, 2022.
 #
 # Nima Fanniasl <smartnimaco@gmail.com>, 2023.
+# MohammadSaleh Kamyab <mskf1383@envs.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-09 23:43+0000\n"
-"Last-Translator: Nima Fanniasl <smartnimaco@gmail.com>\n"
+"PO-Revision-Date: 2023-06-28 11:52+0000\n"
+"Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fa/>\n"
 "Language: fa\n"
@@ -18,36 +19,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
-msgstr "نصب کننده Vanilla OS"
+msgstr "نصاب سیستم‌عامل وانیلا"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "نصب سیستم‌عامل وانیلای خود را سیخونک بزنید."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "بدون توضیح"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "اولین انتشار"
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"
-msgstr ""
+msgstr "تأیید نصب"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "تغییرات زیر در سامانهٔ شما ایجاد خواهند شد:"
 
 #: vanilla_installer/gtk/confirm.ui:28
 #: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "نصب سیستم‌عامل وانیلا"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -57,259 +58,265 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "بعدی"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid "Select a Disk"
-msgstr ""
+msgstr "یک دیسک را برگزینید"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr ""
+msgstr "دیسکی که می خواهید سیستم‌عامل وانیلا در آن نصب شود را برگزینید"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
-msgstr ""
+msgstr "پیکربندی کنید"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "چیدمان صفحه‌کلید"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "چیدمان ترجیحی خود برای صفحه کلید را برگزینید"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "جست‌وجو برای یک چیدمان صفحه‌کلید"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 #: vanilla_installer/views/confirm.py:72
 msgid "Language"
-msgstr ""
+msgstr "زبان"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr ""
+msgstr "زبان خود را برگزینید"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
-msgstr ""
+msgstr "جست‌وجو برای یک زبان"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "پیش‌گزیده"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "تاریک"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "طرح رنگی"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "یک طرح رنگی برای سامانهٔ خود انتخاب کنید"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
-msgstr ""
+msgstr "تاریخ و زمان"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "منطقهٔ زمانی ترجیحی خود را برگزینید"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "جست‌جو برای یک منطقهٔ زمانی"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
-msgstr ""
+msgstr "ناحیه"
 
 #: vanilla_installer/gtk/default-timezone.ui:59
 msgid "Zone"
-msgstr ""
+msgstr "منطقه"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "ایجاد کاربر"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "جزئیات حساب کاربری خود را ارائه دهید"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
-msgstr ""
+msgstr "نام کاربری"
 
 #: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
-msgstr ""
+msgstr "گذرواژه"
 
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr ""
+msgstr "تأیید گذرواژه"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
-msgstr ""
+msgstr "بازیابی"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "تأیید تغییرات"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:17
 msgid "Cancel"
-msgstr ""
+msgstr "لغو"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"تغییرات زیر در دیسک شما ایجاد خواهند شد. لطفاً آن‌ها را با دقت بازبینی کنید."
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
-msgstr ""
+msgstr "پیکربندی دیسک"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
-msgstr ""
+msgstr "اعمال"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "نمایش اطلاعات"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "گزارش"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
 msgid "Vanilla OS Recovery"
-msgstr "نصب کننده Vanilla OS"
+msgstr "بازیابی سیستم‌عامل وانیلا"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "کنسول"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr ""
+msgstr "یک پایانه باز می‌کند."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
-msgstr ""
+msgstr "جی‌پارتد"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
-msgstr ""
+msgstr "مدیریت دیسک‌ها و افرازها."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "دفترچهٔ راهنما"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "دفترچهٔ راهنمای سیستم‌عامل وانیلا را بخوانید."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "مرورگر وب"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "جست‌وجوی برخط برای راهنمایی."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "تمام شد!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
 msgstr ""
+"افزارهٔ خود را دوباره راه‌اندازی کنید و از تجربهٔ سیستم‌عامل وانیلای خود لذت "
+"ببرید"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "نمایش گزارش"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
-msgstr ""
+msgstr "هم‌اکنون دوباره راه‌اندازی شود"
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "بله، به کار بیفتد"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr ""
+msgstr "در حال نصب…"
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
-msgstr ""
+msgstr "نمایش خروجی کنسول"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr ""
+msgstr "نمایش نمابرگ"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "تخصیص دیسک"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr ""
+msgstr "چگونگی نصب سیستم‌عامل وانیلا روی گردانندهٔ خود را انخاب کنید."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Entire Disk"
-msgstr ""
+msgstr "کل دیسک"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
-msgstr ""
+msgstr "تمام داده‌های روی دیسک را پاک می‌کند."
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid "Manual Partitioning"
-msgstr ""
+msgstr "افرازش دستی"
 
 #: vanilla_installer/gtk/widget-partition.ui:25
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"افرازهایی که می‌خواهید برای نصب استفاده شوند را برگزینید. پیکربندی نادرست می‌"
+"تواند باعث از دست داده داده‌ها، خرابی و/یا سامانه‌ای غیرقابل راه‌اندازی شود."
 
 #: vanilla_installer/gtk/widget-partition.ui:41
 msgid "Open GParted"
-msgstr ""
+msgstr "گشودن جی‌پارتد"
 
 #: vanilla_installer/gtk/widget-partition.ui:42
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "گشودن جی‌پارتد برای افرازش دستی دیسک"
 
 #: vanilla_installer/gtk/widget-partition.ui:60
 msgid "Boot Partition"
-msgstr ""
+msgstr "افراز راه‌اندازی"
 
 #: vanilla_installer/gtk/widget-partition.ui:61
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"افرازی که در «‎/boot» سوار می‌شود. این شاخه پرونده‌هایی را برای راه‌اندازی "
+"در سیستم‌عامل وانیلا نگه می‌دارد."
 
 #: vanilla_installer/gtk/widget-partition.ui:64
 #: vanilla_installer/gtk/widget-partition.ui:85
@@ -320,7 +327,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:234
 #: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
-msgstr ""
+msgstr "افرازی گزیده نشده است"
 
 #: vanilla_installer/gtk/widget-partition.ui:65
 #: vanilla_installer/gtk/widget-partition.ui:86
@@ -331,29 +338,31 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:235
 #: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
-msgstr ""
+msgstr "لطفاً از گزینه‌های زیر، یک افراز را برگزینید"
 
 #: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "افراز راه‌اندازی بسیار کوچک است."
 
 #: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
-msgstr ""
+msgstr "افراز EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"افرازی که در «‎/boot/efi‏» سوار می‌شود. این شاخه پرونده‌هایی را برای راه‌"
+"اندازی در بارکنندهٔ راه‌اندازی ذخیره می‌کند."
 
 #: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "افراز EFI بسیار کوچک است."
 
 #: vanilla_installer/gtk/widget-partition.ui:102
 msgid "BIOS Boot Partition"
-msgstr ""
+msgstr "افراز راه‌اندازی بایوس"
 
 #: vanilla_installer/gtk/widget-partition.ui:103
 msgid ""
@@ -364,58 +373,65 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "افراز بایوس باید دقیقاً ۱ مبی‌بایت باشد."
 
 #: vanilla_installer/gtk/widget-partition.ui:123
 msgid "Root Partitions"
-msgstr ""
+msgstr "افرازهای ریشه"
 
 #: vanilla_installer/gtk/widget-partition.ui:124
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
-msgstr ""
+msgstr "افرازهایی که در «/» سوار می‌شوند. هر دو افراز باید یک‌اندازه باشند."
 
 #: vanilla_installer/gtk/widget-partition.ui:137
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"سیستم‌عامل وانیلا از یک سامانهٔ افراز آ/ب مدیریت شده توسط ABRoot\n"
+"استفاده می‌کند که هنگام به‌روزرسانی‌ها میان دو افراز ریشه جابه‌جا می‌شود."
 
 #: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "افرازهای ریشه یک‌اندازه نیستند."
 
 #: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
+msgstr "لطفاً مطمئن شوید که افرازهای آ و ب فضای دیسک یکسانی دارند."
 
 #: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "افرازهای ریشه بسیار کوچکند."
 
 #: vanilla_installer/gtk/widget-partition.ui:196
 msgid "Home Partition"
-msgstr ""
+msgstr "افراز خانه"
 
 #: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"افرازی که در «‎/home» سوار می‌شود. این شاخه تمام داده‌های کاربر را نگه "
+"می‌دارد."
 
 #: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
-msgstr ""
+msgstr "افراز خانه بسیار کوچک است."
 
 #: vanilla_installer/gtk/widget-partition.ui:217
 #: vanilla_installer/gtk/widget-partition.ui:221
 msgid "Swap partition"
-msgstr ""
+msgstr "افراز مبادله"
 
 #: vanilla_installer/gtk/widget-partition.ui:218
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"مبادله به عنوان افزونه‌ای مجازی برای حافظه عمل می‌کند و خواب زمستانی را به "
+"کار می‌اندازد. سیستم‌عامل وانیلا در حال حاظر از zram برای ارائهٔ مبادله بدون "
+"هزینهٔ ذخیره‌گاه استفاده می‌کند."
 
 #: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
@@ -425,40 +441,40 @@ msgstr ""
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "بازگشت"
 
 #: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "فضا کافی نیست: ‎{0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "این تنها دیسک موجود است و نمی‌تواند ناگزیده شود!"
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr ""
+msgstr "جی‌پارتد هم‌اکنون در حال اجراست. فقط یک نمونه از جی‌پارتد مجاز است."
 
 #: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "افراز باید حداقل {} باشد"
 
 #: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "افراز باید دقیقاً {} باشد"
 
 #: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "افرازها تغییر کرده‌اند. گزینش‌های کنونی پاک شدند."
 
 #: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "کل دیسک استفاده خواهد شد."
 
 #: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "به صورت {} قالب‌بندی و در {} سوار خواهد شد"
 
 #. signals
 #: vanilla_installer/layouts/preferences.py:42
@@ -467,11 +483,11 @@ msgstr ""
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "کلیک شده"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "لطفاً حداقل یک گزینه را برگزینید."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
@@ -480,11 +496,11 @@ msgstr ""
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "ایجاد پروندهٔ گزارش شکست خورد: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "گزارشی ذخیره نخواهد شد."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
@@ -520,37 +536,37 @@ msgstr ""
 
 #: vanilla_installer/views/confirm.py:78
 msgid "Keyboard"
-msgstr ""
+msgstr "صفحه‌کلید"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "منطقهٔ زمانی"
 
 #: vanilla_installer/views/confirm.py:90
 msgid "Users"
-msgstr ""
+msgstr "کاربران"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "دیسک"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "نصب تأیید شد"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "افزارهٔ خود را شروع دوباره کنید تا از تجربهٔ {} خود لذت ببرید."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
-msgstr ""
+msgstr "اشتباهی پیش آمد"
 
 #: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "لطفاً با توسعه‌دهندگان توزیع تماس بگیرید."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "صفحه تغییر کرد"
