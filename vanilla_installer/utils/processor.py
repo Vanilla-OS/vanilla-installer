@@ -352,6 +352,13 @@ class Processor:
             ],
         )
 
+        # Mount /etc for EtcBuilder
+        recipe.add_postinstall_step(
+            "shell",
+            ["mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc"],
+            chroot=True
+        )
+
         # Set hostname
         recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
         for final in finals:
