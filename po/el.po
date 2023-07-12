@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-02 13:31+0000\n"
+"PO-Revision-Date: 2023-07-10 19:51+0000\n"
 "Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/el/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -143,7 +143,7 @@ msgstr "Παραθέστε πληροφορίες για τον λογαριασ
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "Όνομα"
+msgstr "Τίτλος"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"

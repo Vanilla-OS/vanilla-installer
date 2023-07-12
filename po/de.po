@@ -8,13 +8,14 @@
 # "Martin P." <edisso999@gmail.com>, 2023.
 # Fabian Kaindl <weblate@fabiankaindl.de>, 2023.
 # George <georgeaufmschloss@gmail.com>, 2023.
+# juzac001 <julian.zachmann001@stud.fh-dortmund.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-03 02:54+0000\n"
-"Last-Translator: nautilusx <translate@disroot.org>\n"
+"PO-Revision-Date: 2023-07-09 06:49+0000\n"
+"Last-Translator: juzac001 <julian.zachmann001@stud.fh-dortmund.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -38,7 +39,7 @@ msgstr "Keine Beschreibung"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr "Erste Version"
+msgstr "Erste Veröffentlichung"
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"

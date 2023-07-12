@@ -4,13 +4,14 @@
 # Automatically generated, 2022.
 #
 # Namhoon Kim <namhoon80.kim@gmail.com>, 2023.
+# MJKim <kmj10727@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-03-12 16:03+0000\n"
-"Last-Translator: Namhoon Kim <namhoon80.kim@gmail.com>\n"
+"PO-Revision-Date: 2023-07-09 06:49+0000\n"
+"Last-Translator: MJKim <kmj10727@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ko/>\n"
 "Language: ko\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -171,7 +172,7 @@ msgstr "변경사항 확인하기"
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:17
 msgid "Cancel"
-msgstr "취소하기"
+msgstr "취소"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-03 06:30+0000\n"
+"PO-Revision-Date: 2023-07-12 17:58+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -246,7 +246,7 @@ msgstr "இப்போது மறுமுறை துவக்கு"
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
-msgstr "மூடுங்கள்"
+msgstr "மூடு"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"

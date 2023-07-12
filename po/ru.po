@@ -5,13 +5,14 @@
 # Sergey Ivanov <ivanov.sergey.ekb@gmail.com>, 2023.
 # Anatoly <pandorinpan@gmail.com>, 2023.
 # Максим <mrxzzet@gmail.com>, 2023.
+# Alexei <aleksejfedorov963@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-05-07 09:49+0000\n"
-"Last-Translator: Максим <mrxzzet@gmail.com>\n"
+"PO-Revision-Date: 2023-07-09 06:49+0000\n"
+"Last-Translator: Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
 "Language: ru\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -212,7 +213,7 @@ msgstr "Откройте Терминал."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
-msgstr "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
@@ -577,7 +578,7 @@ msgstr "Пожалуйста, обратитесь к разработчикам
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr "page-changed"
+msgstr "страница-изменена"
 
 #~ msgid "Try Vanilla OS"
 #~ msgstr "Попробовать Vanilla OS"

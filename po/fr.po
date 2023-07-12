@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-11 17:07+0000\n"
+"PO-Revision-Date: 2023-07-05 15:52+0000\n"
 "Last-Translator: Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -214,7 +214,7 @@ msgstr "Ouvrez un terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
-msgstr "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
@@ -250,7 +250,7 @@ msgstr "Afficher les logs"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
-msgstr "Redémarrer maintenant"
+msgstr "Redémarrer tout de suite"
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
