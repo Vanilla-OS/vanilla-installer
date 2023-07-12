@@ -6,13 +6,14 @@
 # Manjur Muammar Rashidi <mhasanmuammar2@gmail.com>, 2023.
 # Ibrahim Kaikaa <ibrahimkaikaa@protonmail.com>, 2023.
 # Muhammad Bahaa <muhammad.bahaa1@gmail.com>, 2023.
+# Moumn Almunawy <moumnalmunawy2006@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-06-23 22:52+0000\n"
-"Last-Translator: Muhammad Bahaa <muhammad.bahaa1@gmail.com>\n"
+"PO-Revision-Date: 2023-07-05 15:52+0000\n"
+"Last-Translator: Moumn Almunawy <moumnalmunawy2006@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -33,7 +34,7 @@ msgstr "طوِّع تثبيتك لنظام فانيلا."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr "بدون وصف"
+msgstr "لا يوجد وصف"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
@@ -253,7 +254,7 @@ msgstr "إعادة التشغيل الآن"
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
-msgstr "أغلق"
+msgstr "إغلاق"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
