@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-14 06:58+0000\n"
+"PO-Revision-Date: 2023-07-05 15:52+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ka/>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Vanilla OS-ის დაყენების პროგრამა"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
@@ -40,12 +40,12 @@ msgstr "დაყენების დადასტურება"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "თქვენს სისტემაში განხორციელდება შემდეგი ცვლილებები:"
 
 #: vanilla_installer/gtk/confirm.ui:28
 #: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Vanilla OS-ის დაყენება"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -63,7 +63,7 @@ msgstr "აირჩიეთ დისკი"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr ""
+msgstr "აირჩიეთ დისკი, სადაც გნებავთ, Vanilla OS-ი დააყენოთ"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -79,7 +79,7 @@ msgstr "აირჩიეთ თქვენთვის სასურვე�
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "კლავიატურის განლაგების მოძებნა"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -168,13 +168,15 @@ msgstr "ცვლილებების დადასტურება"
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 #: vanilla_installer/gtk/dialog-disk.ui:17
 msgid "Cancel"
-msgstr "გაუქმება"
+msgstr "გაუქმენა"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"თქვენს დისკზე განხორციელდება შემდეგი ცვლილებები. გთხოვთ, ყურადღებით "
+"გადახედოთ მათ."
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
@@ -226,7 +228,7 @@ msgstr "ვებ-ბრაუზერი"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "დახმარების ონლაინ ძებნა."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -538,7 +540,7 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "{}-სთან მუშაობის დასაწყებად გადატვირთეთ თქვენი მოწყობილობა."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
@@ -546,7 +548,7 @@ msgstr "რაღაც არასწორია"
 
 #: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "დაუკავშირდით დისტრიბუტივის პროგრამისტებს."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
