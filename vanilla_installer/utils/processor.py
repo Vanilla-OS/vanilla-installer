@@ -79,6 +79,11 @@ mount -o bind /var/home /home
 mount -o bind /var/opt /opt
 mount -o bind,ro /.system/usr /usr
 
+echo "ABRoot: Running FsGuard..."
+
+# Use FsGuard to verify root integrity
+FsGuard verify /FsGuard/filelist
+
 echo "ABRoot: Starting systemd..."
 
 # Start systemd
@@ -352,13 +357,6 @@ class Processor:
             ],
         )
 
-        # Mount /etc for EtcBuilder
-        recipe.add_postinstall_step(
-            "shell",
-            ["mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc"],
-            chroot=True
-        )
-
         # Set hostname
         recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
         for final in finals:
@@ -421,6 +419,7 @@ class Processor:
                     ],
                     f"mount {var_label} /mnt/a/var",
                     f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
+                    "mount -t overlay overlay -o lowerdir=/mnt/a/.system/etc,upperdir=/mnt/a/var/lib/abroot/etc/a,workdir=/mnt/a/var/lib/abroot/etc/a-work /mnt/a/etc",
                 ],
             )
 
