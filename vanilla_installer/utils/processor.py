@@ -102,6 +102,7 @@ class AlbiusRecipe:
         self.mountpoints: list[AlbiusMountpoint] = []
         self.installation: AlbiusInstallation = {}
         self.postInstallation: list[AlbiusPostInstallStep] = []
+        self.latePostInstallation: list[AlbiusPostInstallStep] = []
 
     def add_setup_step(self, disk: str, operation: str, params: list[Any]) -> None:
         self.setup.append(
@@ -124,15 +125,28 @@ class AlbiusRecipe:
         self.installation = {"method": method, "source": source}
 
     def add_postinstall_step(
-        self, operation: str, params: list[Any], chroot: bool = False
+        self, operation: str, params: list[Any], chroot: bool = False, late = False
     ):
-        self.postInstallation.append(
-            {
-                "chroot": chroot,
-                "operation": operation,
-                "params": params,
-            }
-        )
+        if not late:
+            self.postInstallation.append(
+                {
+                    "chroot": chroot,
+                    "operation": operation,
+                    "params": params,
+                }
+            )
+        else:
+            self.latePostInstallation.append(
+                {
+                    "chroot": chroot,
+                    "operation": operation,
+                    "params": params,
+                }
+            )
+
+    def merge_postinstall_steps(self):
+        self.postInstallation.append(self.latePostInstallation)
+        del self.latePostInstallation
 
 
 class Processor:
@@ -380,6 +394,7 @@ class Processor:
                             value["password"],
                         ],
                         chroot=True,
+                        late=True,  # User creation needs to be done after mounting /etc overlay
                     )
                 # Set keyboard
                 if key == "keyboard":
@@ -419,7 +434,6 @@ class Processor:
                     ],
                     f"mount {var_label} /mnt/a/var",
                     f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
-                    "mount -t overlay overlay -o lowerdir=/mnt/a/.system/etc,upperdir=/mnt/a/var/lib/abroot/etc/a,workdir=/mnt/a/var/lib/abroot/etc/a-work /mnt/a/etc",
                 ],
             )
 
@@ -563,6 +577,8 @@ class Processor:
                 ],
                 chroot=True,
             )
+
+        recipe.merge_postinstall_steps()
 
         if "VANILLA_FAKE" in os.environ:
             logger.info("VANILLA_FAKE is set, skipping the installation process.")
