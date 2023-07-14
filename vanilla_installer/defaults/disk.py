@@ -83,7 +83,7 @@ class PartitionRow(Adw.ActionRow):
     def __add_dropdown(self):
         fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
         fs_dropdown.set_valign(Gtk.Align.CENTER)
-        fs_dropdown.set_sensitive(False)
+        fs_dropdown.set_visible(False)
         if self.__partition.fs_type in self.__partition_fs_types:
             fs_dropdown.set_selected(self.__partition_fs_types.index(self.__partition.fs_type))
         else:
@@ -97,15 +97,15 @@ class PartitionRow(Adw.ActionRow):
     def __on_check_button_toggled(self, widget):
         dropdown = self.suffix_bin.get_child()
 
-        # Sets all sibling dropdowns as not sensitive
+        # Sets all sibling dropdowns as not visible
         for sibling in self.__siblings:
             sibling_dropdown = sibling.suffix_bin.get_child()
             if sibling_dropdown:
-                sibling_dropdown.set_sensitive(False)
+                sibling_dropdown.set_visible(False)
 
         # Only the currently selected partition can be edited
         if dropdown:
-            dropdown.set_sensitive(True)
+            dropdown.set_visible(True)
             fs_type = self.__partition_fs_types[dropdown.get_selected()]
             self.__parent.set_subtitle(f"{self.__partition.pretty_size} ({fs_type})")
         else:
