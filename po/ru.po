@@ -6,13 +6,14 @@
 # Anatoly <pandorinpan@gmail.com>, 2023.
 # Максим <mrxzzet@gmail.com>, 2023.
 # Alexei <aleksejfedorov963@gmail.com>, 2023.
+# Fedorov Alexei <aleksejfedorov963@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-07-09 06:49+0000\n"
-"Last-Translator: Alexei <aleksejfedorov963@gmail.com>\n"
+"PO-Revision-Date: 2023-07-14 11:48+0000\n"
+"Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
 "Language: ru\n"
@@ -209,7 +210,7 @@ msgstr "Консоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr "Откройте Терминал."
+msgstr "Открыть Терминал."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
@@ -237,7 +238,7 @@ msgstr "Ищите помощь в Интернете."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr "Все сделано!"
+msgstr "Всё готово!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
