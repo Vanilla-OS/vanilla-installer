@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-02 14:10+0530\n"
-"PO-Revision-Date: 2023-04-23 01:42+0000\n"
-"Last-Translator: Odyssey346 <alej0hio2007@gmail.com>\n"
+"PO-Revision-Date: 2023-07-20 17:01+0000\n"
+"Last-Translator: Trond Kjetil Bremnes <tk@bremnes.email>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -218,19 +218,19 @@ msgstr "Administrer disker og partisjoner."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
-msgstr ""
+msgstr "Håndbok"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:41
 msgid "Read the Vanilla OS Handbook."
-msgstr ""
+msgstr "Les Vanilla OS-håndboka."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
-msgstr ""
+msgstr "Nettleser"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:48
 msgid "Search online for help."
-msgstr ""
+msgstr "Søk etter hjelp på nettet."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -282,7 +282,7 @@ msgstr "Hele disken"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
-msgstr "Dette vil slette alle data på disken."
+msgstr "Dette vil slette all data på disken."
 
 #: vanilla_installer/gtk/widget-partition.ui:24
 msgid "Manual Partitioning"
@@ -337,29 +337,31 @@ msgstr "Ingen partisjon valgt"
 #: vanilla_installer/gtk/widget-partition.ui:235
 #: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
-msgstr ""
+msgstr "Vennligst velg en partisjon fra alternativene nedenfor"
 
 #: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "Oppstartspartisjonen er for liten."
 
 #: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
-msgstr ""
+msgstr "EFI-partisjon"
 
 #: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"Partisjonen som skal monteres under \"/boot/efi\". Denne katalogen lagrer "
+"filer for oppstart i oppstartslasteren."
 
 #: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI-partisjonen er for liten."
 
 #: vanilla_installer/gtk/widget-partition.ui:102
 msgid "BIOS Boot Partition"
-msgstr ""
+msgstr "BIOS-oppstartspartisjon"
 
 #: vanilla_installer/gtk/widget-partition.ui:103
 msgid ""
@@ -370,16 +372,18 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS-partisjonen må være nøyaktig 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:123
 msgid "Root Partitions"
-msgstr ""
+msgstr "Rotpartisjoner"
 
 #: vanilla_installer/gtk/widget-partition.ui:124
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"Partisjoner som skal monteres under «/». Begge partisjoner må være av samme "
+"størrelse."
 
 #: vanilla_installer/gtk/widget-partition.ui:137
 msgid ""
@@ -389,7 +393,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "Rotpartisjonene er ikke samme av samme størrelse."
 
 #: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
@@ -397,11 +401,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Rotpartisjonene er for små."
 
 #: vanilla_installer/gtk/widget-partition.ui:196
 msgid "Home Partition"
-msgstr ""
+msgstr "Hjempartisjon"
 
 #: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
@@ -410,7 +414,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
-msgstr ""
+msgstr "Hjempartisjon er for liten."
 
 #: vanilla_installer/gtk/widget-partition.ui:217
 #: vanilla_installer/gtk/widget-partition.ui:221
@@ -436,7 +440,7 @@ msgstr "Tilbake"
 #: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "Ikke nok plass: {0}/{1}"
 
 #: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
@@ -448,11 +452,11 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "Partisjon må være minst {}"
 
 #: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partisjon må være NØYAKTIG {}"
 
 #: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
@@ -464,7 +468,7 @@ msgstr ""
 
 #: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "Vil bli formattert med {} og montert på {}"
 
 #. signals
 #: vanilla_installer/layouts/preferences.py:42
@@ -486,16 +490,16 @@ msgstr ""
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "kunne ikke opprette loggfil: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "Ingen logg vil bli lagret."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Utfører visningsvilkår: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
