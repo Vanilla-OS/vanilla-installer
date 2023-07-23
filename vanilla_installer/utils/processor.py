@@ -145,7 +145,8 @@ class AlbiusRecipe:
             )
 
     def merge_postinstall_steps(self):
-        self.postInstallation.append(self.latePostInstallation)
+        for step in self.latePostInstallation:
+            self.postInstallation.append(step)
         del self.latePostInstallation
 
 
