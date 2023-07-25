@@ -90,6 +90,12 @@ echo "ABRoot: Starting systemd..."
 exec /lib/systemd/systemd
 """
 
+_GDM_AUTOLOGIN_FILE = """
+[daemon]
+AutomaticLogin=vanilla
+AutomaticLoginEnable=True
+"""
+
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
 AlbiusInstallation = dict[str, str]
@@ -384,19 +390,6 @@ class Processor:
                 # Set locale
                 if key == "language":
                     recipe.add_postinstall_step("locale", [value], chroot=True)
-                # Add user
-                if key == "users":
-                    recipe.add_postinstall_step(
-                        "adduser",
-                        [
-                            value["username"],
-                            value["fullname"],
-                            ["sudo", "lpadmin"],
-                            value["password"],
-                        ],
-                        chroot=True,
-                        late=True,  # User creation needs to be done after mounting /etc overlay
-                    )
                 # Set keyboard
                 if key == "keyboard":
                     recipe.add_postinstall_step(
@@ -436,6 +429,32 @@ class Processor:
                     f"mount {var_label} /mnt/a/var",
                     f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
                 ],
+            )
+
+            # Create default user
+            # This needs to be done after mounting `/etc` overlay, so set it as
+            # late post-install
+            recipe.add_postinstall_step(
+                "adduser",
+                [
+                    "vanilla",
+                    "vanilla",
+                    ["sudo", "lpadmin"],
+                    "vanilla",
+                ],
+                chroot=True,
+                late=True,
+            )
+
+            # Set vanilla user to autologin
+            with open("/mnt/a/etc/gdm/custom.conf", "w") as file:
+                file.write(_GDM_AUTOLOGIN_FILE)
+
+            # Add autostart script to vanilla-first-setup
+            recipe.add_postinstall_step(
+                "shell",
+                ["cp /usr/share/applications/org.vanillaos.FirstSetup.desktop /etc/xdg/autostart"],
+                chroot=True,
             )
 
             # TODO: Install grub-pc if target is BIOS
