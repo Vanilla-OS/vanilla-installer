@@ -125,7 +125,7 @@ class AlbiusRecipe:
         self.installation = {"method": method, "source": source}
 
     def add_postinstall_step(
-        self, operation: str, params: list[Any], chroot: bool = False, late = False
+        self, operation: str, params: list[Any], chroot: bool = False, late=False
     ):
         if not late:
             self.postInstallation.append(
@@ -183,11 +183,11 @@ class Processor:
 
         # Roots
         setup_steps.append(
-            [disk, "mkpart", _params("vos-a", fs, part_offset, part_offset + 12288)]
+            [disk, "mkpart", "vos-a", "btrfs", part_offset, part_offset + 12288]
         )
         part_offset += 12288
         setup_steps.append(
-            [disk, "mkpart", _params("vos-b", fs, part_offset, part_offset + 12288)]
+            [disk, "mkpart", "vos-b", "btrfs", part_offset, part_offset + 12288]
         )
         part_offset += 12288
 
@@ -231,12 +231,12 @@ class Processor:
 
             # Should we encrypt?
             operation = (
-                "luks-format" if encrypt and values["mp"] in ["/", "/var"] else "format"
+                "luks-format" if encrypt and values["mp"] in ["/var"] else "format"
             )
 
             def _params(*args):
                 base_params = [*args]
-                if encrypt and values["mp"] in ["/", "/var"]:
+                if encrypt and values["mp"] in ["/var"]:
                     assert isinstance(password, str)
                     base_params.append(password)
                 return base_params
@@ -455,10 +455,9 @@ class Processor:
 
             # Replace main GRUB entry in the boot partition
             with open("/tmp/boot-grub.cfg", "w") as file:
-                base_script_root = "/dev/mapper/luks-" if encrypt else ""
                 boot_entry = _BOOT_GRUB_CFG % (
-                    f"{base_script_root}$ROOTA_UUID",
-                    f"{base_script_root}$ROOTB_UUID",
+                    "$ROOTA_UUID",
+                    "$ROOTB_UUID",
                 )
                 file.write(boot_entry)
             recipe.add_postinstall_step(
@@ -485,11 +484,10 @@ class Processor:
 
             # Add `/boot/grub/abroot.cfg` to the root partition
             with open("/tmp/abroot.cfg", "w") as file:
-                base_script_root = "/dev/mapper/luks-" if encrypt else "UUID="
                 root_entry = _ROOT_GRUB_CFG % (
-                    f"{base_script_root}$ROOTA_UUID",
+                    "UUID=$ROOTA_UUID",
                     "$KERNEL_VERSION",
-                    f"{base_script_root}$ROOTA_UUID",
+                    "UUID=$ROOTA_UUID",
                     "$KERNEL_VERSION",
                 )
                 file.write(root_entry)
@@ -506,26 +504,11 @@ class Processor:
                 ],
             )
 
-            # Copy abroot.cfg to boot partition so it can be read in encrypted filesystems
-            # recipe.postInstallation.append({
-            #     "chroot": False,
-            #     "operation": "shell",
-            #     "params": [
-            #         f"mount {boot_partition} /mnt/a/boot",
-            #         "cp /mnt/a/.system/boot/grub/abroot.cfg /mnt/a/boot/grub/abroot_a.cfg",
-            #         "umount -l /mnt/a/boot",
-            #     ]
-            # })
-
             # Keep only root A entry in fstab
-            if encrypt:
-                root_b_fstab_entry = "\\\/dev\\\/mapper\\\/luks-$ROOTB_UUID"
-            else:
-                root_b_fstab_entry = "UUID=$ROOTB_UUID"
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/{root_b_fstab_entry}/d" /mnt/a/etc/fstab',
+                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
                     "sed -i -r '/^[^#]\S+\s+\/\S+\s+.+$/d' /mnt/a/etc/fstab",
                 ],
             )

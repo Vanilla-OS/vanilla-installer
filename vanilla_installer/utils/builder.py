@@ -29,7 +29,6 @@ from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
 from vanilla_installer.defaults.language import VanillaDefaultLanguage
 from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
 from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
-from vanilla_installer.defaults.users import VanillaDefaultUsers
 from vanilla_installer.defaults.disk import VanillaDefaultDisk
 from vanilla_installer.defaults.encryption import VanillaDefaultEncryption
 
@@ -46,7 +45,6 @@ templates = {
     "keyboard": VanillaDefaultKeyboard,
     "timezone": VanillaDefaultTimezone,
     "preferences": VanillaLayoutPreferences,
-    "users": VanillaDefaultUsers,
     "disk": VanillaDefaultDisk,
     "encryption": VanillaDefaultEncryption,
     "yes-no": VanillaLayoutYesNo
