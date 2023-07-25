@@ -51,9 +51,6 @@
         },
         "encryption": {
             "template": "encryption"
-        },
-        "users": {
-            "template": "users"
         }
     }
 }
