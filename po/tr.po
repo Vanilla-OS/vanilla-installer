@@ -4,12 +4,13 @@
 # Automatically generated, 2022.
 #
 # Murattut <tutmurattut@outlook.com>, 2023.
+# Fellow Turkish <f3ll0wm4il3r_12@protonmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-24 18:25+0000\n"
+"POT-Creation-Date: 2023-04-02 14:10+0530\n"
+"PO-Revision-Date: 2023-06-27 10:57+0000\n"
 "Last-Translator: Murattut <tutmurattut@outlook.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -45,7 +46,7 @@ msgid "The following changes will be made to your system:"
 msgstr "Aşağıdaki değişiklikler sisteminize uygulanacaktır:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:86
+#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Vanilla OS'u yükleyin"
 
@@ -157,9 +158,9 @@ msgstr "Şifre"
 msgid "Confirm Password"
 msgstr "Şifreyi Doğrulayın"
 
-#: vanilla_installer/gtk/default-welcome.ui:51
-msgid "Try Vanilla OS"
-msgstr "Vanilla OS'u deneyimleyin"
+#: vanilla_installer/gtk/default-welcome.ui:30
+msgid "Recovery"
+msgstr "Kurtarma"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -195,6 +196,42 @@ msgstr "Bilgiler gösteriliyor"
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Günlük"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Vanilla OS Kurtarma"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:26
+msgid "Console"
+msgstr "Konsol"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Bir Terminal açın."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:33
+msgid "Gparted"
+msgstr "GParted"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Diskleri ve bölümleri yönetin."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:40
+msgid "Handbook"
+msgstr "El Kitabı"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Vanilla OS El Kitabını okuyun."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:47
+msgid "Web Browser"
+msgstr "Web Tarayıcıları"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Yardım için internette arama yapın."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -249,11 +286,11 @@ msgstr "Tüm Diski Kullan"
 msgid "This will erase all data on the disk."
 msgstr "Bu işlem, diskteki tüm veriyi silecektir."
 
-#: vanilla_installer/gtk/widget-partition.ui:23
+#: vanilla_installer/gtk/widget-partition.ui:24
 msgid "Manual Partitioning"
 msgstr "Manuel Bölümleniyor"
 
-#: vanilla_installer/gtk/widget-partition.ui:24
+#: vanilla_installer/gtk/widget-partition.ui:25
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
@@ -261,19 +298,19 @@ msgstr ""
 "Kurulum için hangi bölümlerin kullanılacağını seçin. Yanlış bir ayar veri "
 "kaybına, bozulmaya, ve/veya açılamayan bir sisteme sebep olabilir."
 
-#: vanilla_installer/gtk/widget-partition.ui:39
+#: vanilla_installer/gtk/widget-partition.ui:41
 msgid "Open GParted"
 msgstr "GParted'ı Aç"
 
-#: vanilla_installer/gtk/widget-partition.ui:40
+#: vanilla_installer/gtk/widget-partition.ui:42
 msgid "Open GParted to manually partition the disk"
 msgstr "Diski elle bölümlendirmek için GParted'ı aç"
 
-#: vanilla_installer/gtk/widget-partition.ui:57
+#: vanilla_installer/gtk/widget-partition.ui:60
 msgid "Boot Partition"
 msgstr "Önyükleme Bölümleniyor"
 
-#: vanilla_installer/gtk/widget-partition.ui:58
+#: vanilla_installer/gtk/widget-partition.ui:61
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
@@ -281,37 +318,37 @@ msgstr ""
 "Bu Bölüm \"/boot\". olarak bağlanacak. Bu dizin Vanilla OS'un önyüklenebilir "
 "dosyalarını depolar."
 
-#: vanilla_installer/gtk/widget-partition.ui:61
-#: vanilla_installer/gtk/widget-partition.ui:82
-#: vanilla_installer/gtk/widget-partition.ui:103
-#: vanilla_installer/gtk/widget-partition.ui:152
-#: vanilla_installer/gtk/widget-partition.ui:166
-#: vanilla_installer/gtk/widget-partition.ui:197
-#: vanilla_installer/gtk/widget-partition.ui:230
-#: vanilla_installer/defaults/disk.py:467
+#: vanilla_installer/gtk/widget-partition.ui:64
+#: vanilla_installer/gtk/widget-partition.ui:85
+#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:155
+#: vanilla_installer/gtk/widget-partition.ui:169
+#: vanilla_installer/gtk/widget-partition.ui:200
+#: vanilla_installer/gtk/widget-partition.ui:234
+#: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
 msgstr "Bölüm seçilmedi"
 
-#: vanilla_installer/gtk/widget-partition.ui:62
-#: vanilla_installer/gtk/widget-partition.ui:83
-#: vanilla_installer/gtk/widget-partition.ui:104
-#: vanilla_installer/gtk/widget-partition.ui:153
-#: vanilla_installer/gtk/widget-partition.ui:167
-#: vanilla_installer/gtk/widget-partition.ui:198
-#: vanilla_installer/gtk/widget-partition.ui:231
-#: vanilla_installer/defaults/disk.py:469
+#: vanilla_installer/gtk/widget-partition.ui:65
+#: vanilla_installer/gtk/widget-partition.ui:86
+#: vanilla_installer/gtk/widget-partition.ui:107
+#: vanilla_installer/gtk/widget-partition.ui:156
+#: vanilla_installer/gtk/widget-partition.ui:170
+#: vanilla_installer/gtk/widget-partition.ui:201
+#: vanilla_installer/gtk/widget-partition.ui:235
+#: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
 msgstr "Lütfen aşağıdaki seçeneklerden bir bölüm seçin"
 
-#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
 msgstr "Önyükleme bölümü çok küçük."
 
-#: vanilla_installer/gtk/widget-partition.ui:78
+#: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
 msgstr "EFI Bölümü"
 
-#: vanilla_installer/gtk/widget-partition.ui:79
+#: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -319,15 +356,15 @@ msgstr ""
 "Bu Bölüm \"/boot/efi\". olarak bağlanacak. Bu dizin Vanilla OS'un "
 "önyükleyiçinin önyükleme dosyalarını depolar."
 
-#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
 msgstr "EFI bölümü çok küçük."
 
-#: vanilla_installer/gtk/widget-partition.ui:99
+#: vanilla_installer/gtk/widget-partition.ui:102
 msgid "BIOS Boot Partition"
 msgstr "BIOS Önyükleme Bölümü"
 
-#: vanilla_installer/gtk/widget-partition.ui:100
+#: vanilla_installer/gtk/widget-partition.ui:103
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -337,22 +374,22 @@ msgstr ""
 "Bölüm diskin ilk 2 TB alanında bulunmalı ve tam olarak 1 Mebibyte (1 MiB) "
 "olmalıdır."
 
-#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS bölümü tam olarak 1 MİB(1 Mebibyte) olmalıdır."
 
-#: vanilla_installer/gtk/widget-partition.ui:120
+#: vanilla_installer/gtk/widget-partition.ui:123
 msgid "Root Partitions"
 msgstr "Kök bölümleri"
 
-#: vanilla_installer/gtk/widget-partition.ui:121
+#: vanilla_installer/gtk/widget-partition.ui:124
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
 "Bu Bölüm \"/\". altında bağlanacaktır, Her iki bölümde aynı boyutta "
 "olmalıdır."
 
-#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:137
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
@@ -360,40 +397,40 @@ msgstr ""
 "Vanilla OS ABROOT tarafından yönetilen A/B sistem bölümü kullanır\n"
 "Güncelleme sırasında iki kök bölümü kendi arasında değişir."
 
-#: vanilla_installer/gtk/widget-partition.ui:178
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
 msgstr "Kök bölümleri aynı boyutta değil."
 
-#: vanilla_installer/gtk/widget-partition.ui:179
+#: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
 "Lütfen A ve B bölümlerinin aynı disk boyutuna sahip olduğundan emin olun."
 
-#: vanilla_installer/gtk/widget-partition.ui:188
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
 msgstr "Kök bölümleri çok küçük."
 
-#: vanilla_installer/gtk/widget-partition.ui:193
+#: vanilla_installer/gtk/widget-partition.ui:196
 msgid "Home Partition"
 msgstr "Ev Bölümü"
 
-#: vanilla_installer/gtk/widget-partition.ui:194
+#: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
 "Bu Bölüm \"/home\" altında bağlanacak. Bu dizin tum kullanıcı dosyalarını "
 "depolar."
 
-#: vanilla_installer/gtk/widget-partition.ui:209
+#: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
 msgstr "Ev bölümü çok küçük."
 
-#: vanilla_installer/gtk/widget-partition.ui:214
-#: vanilla_installer/gtk/widget-partition.ui:218
+#: vanilla_installer/gtk/widget-partition.ui:217
+#: vanilla_installer/gtk/widget-partition.ui:221
 msgid "Swap partition"
 msgstr "Swap bölümü"
 
-#: vanilla_installer/gtk/widget-partition.ui:215
+#: vanilla_installer/gtk/widget-partition.ui:218
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -402,7 +439,7 @@ msgstr ""
 "aktifleştirir. Vanilla OS zaten depolama kaybı olmadan (swap) depolamayı "
 "zram kullanarak karşılar."
 
-#: vanilla_installer/gtk/widget-partition.ui:219
+#: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -414,36 +451,36 @@ msgstr ""
 msgid "Back"
 msgstr "Geri"
 
-#: vanilla_installer/defaults/disk.py:42
+#: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
 msgstr "Yeterli alan yok: {0}/{1}"
 
-#: vanilla_installer/defaults/disk.py:57
+#: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
 msgstr "Bu, uygun olan tek disktir ve seçimi kaldırılamaz!"
 
-#: vanilla_installer/defaults/disk.py:332
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted zaten çalışıyor. Sadece bir tane GParted yetkilendirildi."
 
-#: vanilla_installer/defaults/disk.py:431
+#: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
 msgstr "Bölüm en az {} olmalıdır"
 
-#: vanilla_installer/defaults/disk.py:454
+#: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
 msgstr "Bölüm AYNI {} ŞEKLİNDE olmalıdır"
 
-#: vanilla_installer/defaults/disk.py:556
+#: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Bölümler Değişti. Şuan seçilenler temizlendi."
 
-#: vanilla_installer/defaults/disk.py:621
+#: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
 msgstr "Tüm disk kullanılacak."
 
-#: vanilla_installer/defaults/disk.py:628
+#: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} şeklinde biçimlendirilecek ve {} noktasına bağlanacaktır"
 
@@ -542,6 +579,9 @@ msgstr "Lütfen dağıtım geliştiricileri ile irtibata geçin."
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "Sayfa-değişti"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Vanilla OS'u deneyimleyin"
 
 #~ msgid "Welcome"
 #~ msgstr "Hoşgeldiniz"

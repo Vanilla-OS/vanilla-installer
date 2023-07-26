@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-03-24 18:25+0000\n"
+"POT-Creation-Date: 2023-04-02 14:10+0530\n"
+"PO-Revision-Date: 2023-07-10 19:51+0000\n"
 "Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/el/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -45,7 +45,7 @@ msgid "The following changes will be made to your system:"
 msgstr "Οι παρακάτω αλλαγές θα γίνουν στο σύστημά σας:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:86
+#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Εγκατάσταση του Vanilla OS"
 
@@ -143,7 +143,7 @@ msgstr "Παραθέστε πληροφορίες για τον λογαριασ
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr "Όνομα"
+msgstr "Τίτλος"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
@@ -157,9 +157,9 @@ msgstr "Κωδικός"
 msgid "Confirm Password"
 msgstr "Επιβεβαίωση Κωδικού"
 
-#: vanilla_installer/gtk/default-welcome.ui:51
-msgid "Try Vanilla OS"
-msgstr "Δοκιμή του Vanilla OS"
+#: vanilla_installer/gtk/default-welcome.ui:30
+msgid "Recovery"
+msgstr "Επανόρθωση"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -195,6 +195,42 @@ msgstr "Προβολή πληροφοριών"
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Καταγραφή"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Επανόρθωση του Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:26
+msgid "Console"
+msgstr "Κονσόλα"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Άνοιγμα ενός τερματικού."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:33
+msgid "Gparted"
+msgstr "Gparted"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Διαχείριση δίσκων και διαμερισμάτων."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:40
+msgid "Handbook"
+msgstr "Εγχειρίδιο"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Διαβάστε το Εγχειρίδιο του Vanilla OS."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:47
+msgid "Web Browser"
+msgstr "Φυλλομετρητής"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Αναζήτηση βοήθειας στο διαδίκτυο."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -249,32 +285,32 @@ msgstr "Ολόκληρος ο δίσκος"
 msgid "This will erase all data on the disk."
 msgstr "Αυτό θα διαγράψει όλα τα δεδομένα στον δίσκο."
 
-#: vanilla_installer/gtk/widget-partition.ui:23
+#: vanilla_installer/gtk/widget-partition.ui:24
 msgid "Manual Partitioning"
 msgstr "Χειροκίνητος Διαμερισμός"
 
-#: vanilla_installer/gtk/widget-partition.ui:24
+#: vanilla_installer/gtk/widget-partition.ui:25
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
 "Επιλέξτε τα διαμερίσματα που θα χρησιμοποιηθούν για την εγκατάσταση. Οι "
-"λανθασμένες ρυθμίσεις μπορεί να οδηγήσουν σε απώλεια ή αλλοίωση δεδομένων, ή/"
-" και σε ένα σύστημα που δεν μπορεί να εκκινηθεί."
+"λανθασμένες ρυθμίσεις μπορεί να οδηγήσουν σε απώλεια ή αλλοίωση δεδομένων, "
+"ή/ και σε ένα σύστημα που δεν μπορεί να εκκινηθεί."
 
-#: vanilla_installer/gtk/widget-partition.ui:39
+#: vanilla_installer/gtk/widget-partition.ui:41
 msgid "Open GParted"
 msgstr "Άνοιγμα του GParted"
 
-#: vanilla_installer/gtk/widget-partition.ui:40
+#: vanilla_installer/gtk/widget-partition.ui:42
 msgid "Open GParted to manually partition the disk"
 msgstr "Άνοιγμα του GParted για χειροκίνητο διαμερισμό του δίσκου"
 
-#: vanilla_installer/gtk/widget-partition.ui:57
+#: vanilla_installer/gtk/widget-partition.ui:60
 msgid "Boot Partition"
 msgstr "Διαμέρισμα Εκκίνησης"
 
-#: vanilla_installer/gtk/widget-partition.ui:58
+#: vanilla_installer/gtk/widget-partition.ui:61
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
@@ -282,37 +318,37 @@ msgstr ""
 "Το διαμέρισμα που θα αναρτηθεί στο \"/boot\". Αυτός ο κατάλογος θα κρατάει "
 "αρχεία για την εκκίνηση του Vanilla OS."
 
-#: vanilla_installer/gtk/widget-partition.ui:61
-#: vanilla_installer/gtk/widget-partition.ui:82
-#: vanilla_installer/gtk/widget-partition.ui:103
-#: vanilla_installer/gtk/widget-partition.ui:152
-#: vanilla_installer/gtk/widget-partition.ui:166
-#: vanilla_installer/gtk/widget-partition.ui:197
-#: vanilla_installer/gtk/widget-partition.ui:230
-#: vanilla_installer/defaults/disk.py:467
+#: vanilla_installer/gtk/widget-partition.ui:64
+#: vanilla_installer/gtk/widget-partition.ui:85
+#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:155
+#: vanilla_installer/gtk/widget-partition.ui:169
+#: vanilla_installer/gtk/widget-partition.ui:200
+#: vanilla_installer/gtk/widget-partition.ui:234
+#: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
 msgstr "Δεν επιλέχθηκε διαμέρισμα"
 
-#: vanilla_installer/gtk/widget-partition.ui:62
-#: vanilla_installer/gtk/widget-partition.ui:83
-#: vanilla_installer/gtk/widget-partition.ui:104
-#: vanilla_installer/gtk/widget-partition.ui:153
-#: vanilla_installer/gtk/widget-partition.ui:167
-#: vanilla_installer/gtk/widget-partition.ui:198
-#: vanilla_installer/gtk/widget-partition.ui:231
-#: vanilla_installer/defaults/disk.py:469
+#: vanilla_installer/gtk/widget-partition.ui:65
+#: vanilla_installer/gtk/widget-partition.ui:86
+#: vanilla_installer/gtk/widget-partition.ui:107
+#: vanilla_installer/gtk/widget-partition.ui:156
+#: vanilla_installer/gtk/widget-partition.ui:170
+#: vanilla_installer/gtk/widget-partition.ui:201
+#: vanilla_installer/gtk/widget-partition.ui:235
+#: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
 msgstr "Παρακαλώ διαλέξτε ένα διαμέρισμα απο τις παρακάτω επιλογές"
 
-#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
 msgstr "Το διαμέρισμα εκκίνησης είναι πολύ μικρό."
 
-#: vanilla_installer/gtk/widget-partition.ui:78
+#: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
 msgstr "Διαμέρισμα EFI"
 
-#: vanilla_installer/gtk/widget-partition.ui:79
+#: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -320,15 +356,15 @@ msgstr ""
 "Το διαμέρισμα που θα αναρτηθεί στο \"/boot/efi\". Αυτός ο κατάλογος θα "
 "κρατάει αρχεία για την εκκίνηση στον φορτωτή εκκινητήρα."
 
-#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
 msgstr "Το διαμέρισμα EFI είναι πολύ μικρό."
 
-#: vanilla_installer/gtk/widget-partition.ui:99
+#: vanilla_installer/gtk/widget-partition.ui:102
 msgid "BIOS Boot Partition"
 msgstr "Διαμέρισμα Εκκίνησης BIOS"
 
-#: vanilla_installer/gtk/widget-partition.ui:100
+#: vanilla_installer/gtk/widget-partition.ui:103
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -338,22 +374,22 @@ msgstr ""
 "υποστηρίζεται η εκκίνηση από τα συστήματα BIOS. Πρέπει να βρίσκεται στα "
 "πρώτα 2 TB του δίσκου και να ισούται ακριβώς με 1 Mebibyte (1 MiB)."
 
-#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "Το διαμέρισμα του BIOS πρέπει να ισούται ακριβώς με 1 MiB."
 
-#: vanilla_installer/gtk/widget-partition.ui:120
+#: vanilla_installer/gtk/widget-partition.ui:123
 msgid "Root Partitions"
-msgstr "Διαμέρισμα Ρίζας"
+msgstr "Διαμερίσματα Ρίζας"
 
-#: vanilla_installer/gtk/widget-partition.ui:121
+#: vanilla_installer/gtk/widget-partition.ui:124
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
 "Τα διαμερίσματα που θα αναρτηθούν στο \"/\". Πρέπει και τα δύο να έχουν το "
 "ίδιο μέγεθος."
 
-#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:137
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
@@ -362,41 +398,41 @@ msgstr ""
 "το ABRoot,\n"
 "το οποίο εναλάσσει τα δύο διαμερίσματα ρίζας μεταξύ ενημερώσεων."
 
-#: vanilla_installer/gtk/widget-partition.ui:178
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
 msgstr "Τα διαμερίσματα ρίζας δεν έχουν το ίδιο μέγεθος."
 
-#: vanilla_installer/gtk/widget-partition.ui:179
+#: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
 "Παρακαλώ, σιγουρευτείτε πως τα διαμερίσματα Α και Β έχουν τον ίδιο χώρο στον "
 "δίσκο."
 
-#: vanilla_installer/gtk/widget-partition.ui:188
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
 msgstr "Τα διαμερίσματα ρίζας είναι πολύ μικρά."
 
-#: vanilla_installer/gtk/widget-partition.ui:193
+#: vanilla_installer/gtk/widget-partition.ui:196
 msgid "Home Partition"
 msgstr "Πάτριο Διαμέρισμα"
 
-#: vanilla_installer/gtk/widget-partition.ui:194
+#: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
 "Το διαμέρισμα που θα αναρτηθεί στο \"/home\". Αυτός ο κατάλογος κρατάει όλα "
 "τα δεδομένα του χρήστη."
 
-#: vanilla_installer/gtk/widget-partition.ui:209
+#: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
 msgstr "Ο πάτριος κατάλογος είναι πολύ μικρός."
 
-#: vanilla_installer/gtk/widget-partition.ui:214
-#: vanilla_installer/gtk/widget-partition.ui:218
+#: vanilla_installer/gtk/widget-partition.ui:217
+#: vanilla_installer/gtk/widget-partition.ui:221
 msgid "Swap partition"
 msgstr "Διαμέρισμα Σελιδοποίησης"
 
-#: vanilla_installer/gtk/widget-partition.ui:215
+#: vanilla_installer/gtk/widget-partition.ui:218
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -405,7 +441,7 @@ msgstr ""
 "λειτουργίας. Το Vanilla OS ήδη χρησιμοποιεί το δομοστοιχείο zram ώστε να "
 "παρέχει σελιδοποίηση χωρίς κόστος αποθήκευσης."
 
-#: vanilla_installer/gtk/widget-partition.ui:219
+#: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -417,39 +453,38 @@ msgstr ""
 msgid "Back"
 msgstr "Πίσω"
 
-#: vanilla_installer/defaults/disk.py:42
+#: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
 msgstr "Ανεπαρκής διαθέσιμος χώρος: {0}/{1}"
 
-#: vanilla_installer/defaults/disk.py:57
+#: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
 msgstr "Αυτός είναι ο μόνος διαθέσιμος δίσκος και δεν δύναται να αποεπιλεχθεί!"
 
-#: vanilla_installer/defaults/disk.py:332
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "Το GParted εκτελείται ήδη. Μόνο μια υπόσταση του GParted είναι επιτρεπτή."
 
-#: vanilla_installer/defaults/disk.py:431
+#: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
 msgstr "Το διαμέρισμα πρέπει να είναι τουλάχιστον {}"
 
-#: vanilla_installer/defaults/disk.py:454
-#, fuzzy
+#: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
 msgstr "Το διαμέρισμα πρέπει να είναι ΑΚΡΙΒΩΣ {}"
 
-#: vanilla_installer/defaults/disk.py:556
+#: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr ""
 "Τα διαμερίσματα έχουν τροποποιηθεί. Οι τρέχουσες επιλογές έχουν διαγραφεί."
 
-#: vanilla_installer/defaults/disk.py:621
+#: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
 msgstr "Θα χρησιμοποιηθεί ολόκληρος ο δίσκος."
 
-#: vanilla_installer/defaults/disk.py:628
+#: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Θα μορφοποιηθεί σε {} και θα αναρτηθεί στο {}"
 
@@ -459,7 +494,6 @@ msgstr "Θα μορφοποιηθεί σε {} και θα αναρτηθεί σ�
 #: vanilla_installer/views/progress.py:51
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
-#, fuzzy
 msgid "clicked"
 msgstr "Επιλεγμένο"
 
@@ -481,12 +515,12 @@ msgid "No log will be stored."
 msgstr "Καμία καταγραφή δεν θα αποθηκευτεί."
 
 #: vanilla_installer/utils/builder.py:84
-#, fuzzy, python-format
+#, python-format
 msgid "Performing display-condition: %s"
 msgstr "Εφαρμογή φίλτρων: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
-#, fuzzy, python-format
+#, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Το βήμα %s παρακάμφθηκε λόγω φίλτρων προβολής"
 
@@ -548,6 +582,9 @@ msgstr "Παρακαλώ επικοινωνήστε με τους δημιουρ
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "Η σελίδα άλλαξε"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Δοκιμή του Vanilla OS"
 
 #~ msgid "Welcome"
 #~ msgstr "Καλωσορίσατε"

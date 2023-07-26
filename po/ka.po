@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-16 17:29+0000\n"
+"POT-Creation-Date: 2023-04-02 14:10+0530\n"
+"PO-Revision-Date: 2023-07-16 04:26+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ka/>\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Vanilla OS-ის დაყენების პროგრამა"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "მოირგეთ თქვენი Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -40,12 +40,12 @@ msgstr "დაყენების დადასტურება"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
-msgstr ""
+msgstr "თქვენს სისტემაში განხორციელდება შემდეგი ცვლილებები:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:86
+#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Vanilla OS-ის დაყენება"
 
 #: vanilla_installer/gtk/default-disk.ui:20
 #: vanilla_installer/gtk/default-keyboard.ui:23
@@ -63,7 +63,7 @@ msgstr "აირჩიეთ დისკი"
 
 #: vanilla_installer/gtk/default-disk.ui:31
 msgid "Select the disk where you want to install Vanilla OS"
-msgstr ""
+msgstr "აირჩიეთ დისკი, სადაც გნებავთ, Vanilla OS-ი დააყენოთ"
 
 #: vanilla_installer/gtk/default-disk.ui:41
 msgid "Configure"
@@ -75,11 +75,11 @@ msgstr "კლავიატურის განლაგება"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "აირჩიეთ თქვენთვის სასურველი კლავიატურის განლაგება"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
 msgid "Search for a Keyboard Layout"
-msgstr ""
+msgstr "კლავიატურის განლაგების მოძებნა"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
@@ -89,7 +89,7 @@ msgstr "ენა"
 
 #: vanilla_installer/gtk/default-language.ui:34
 msgid "Select your language"
-msgstr "აირჩიეთ ენა"
+msgstr "აირჩიეთ თქვენი ენა"
 
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
@@ -105,11 +105,11 @@ msgstr "ბნელი"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr "ფერის სქემა"
+msgstr "ფერების სქემა"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "აირჩიეთ ფერის სქემა თქვენი სისტემისთვის"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -117,11 +117,11 @@ msgstr "დრო და თარიღი"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "აირჩიეთ თქვენთვის სასურველი დროის სარტყელი"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
-msgstr ""
+msgstr "დროის სარტყელის მოძებნა"
 
 #: vanilla_installer/gtk/default-timezone.ui:51
 msgid "Region"
@@ -137,7 +137,7 @@ msgstr "მომხმარებლის შექმნა"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "მიუთითეთ დეტალები თქვენი მომხმარებლის ანგარიშისთვის"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -153,11 +153,11 @@ msgstr "პაროლი"
 
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "პაროლის გადამოწმება"
+msgstr "პაროლის დადასტურება"
 
-#: vanilla_installer/gtk/default-welcome.ui:51
-msgid "Try Vanilla OS"
-msgstr ""
+#: vanilla_installer/gtk/default-welcome.ui:30
+msgid "Recovery"
+msgstr "აღდგენა"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -175,6 +175,8 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"თქვენს დისკზე განხორციელდება შემდეგი ცვლილებები. გთხოვთ, ყურადღებით "
+"გადახედოთ მათ."
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
@@ -190,7 +192,43 @@ msgstr "ინფორმაციის ჩვენება"
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "ჟურნალი"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Vanilla OS-ის აღდგენა"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:26
+msgid "Console"
+msgstr "კონსოლი"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "ტერმინალის გახსნა."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:33
+msgid "Gparted"
+msgstr "Gparted"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "მართეთ დისკები და დანაყოფები."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:40
+msgid "Handbook"
+msgstr "სახელმძღვანელო"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "წაიკითხეთ Vanilla OS-ის სახელმძღვანელო."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:47
+msgid "Web Browser"
+msgstr "ვებ-ბრაუზერი"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "დახმარების ონლაინ ძებნა."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -198,11 +236,11 @@ msgstr "ყველაფერი მზადაა!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "Vanilla OS-თან მუშაობის დასაწყებად გადატვირთეთ მოწყობილობა"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "ჟურნალის ჩვენება"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -214,13 +252,11 @@ msgstr "დახურვა"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr "დიახ, ჩართე"
+msgstr "დიახ, ჩართეთ"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
-#| msgid "Installing…"
 msgid "Installing..."
-msgstr "დაყენება…"
+msgstr "დაყენება..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -232,212 +268,216 @@ msgstr "სლაიდშოუს ჩვენება"
 
 #: vanilla_installer/gtk/widget-partition.ui:7
 msgid "Disk Allocation"
-msgstr ""
+msgstr "დისკის განაწილება"
 
 #: vanilla_installer/gtk/widget-partition.ui:8
 msgid "Choose how to install Vanilla OS on your drive."
-msgstr ""
+msgstr "აირჩიეთ, როგორ დავაყენოთ Vanilla OS-ი თქვენს დისკზე."
 
 #: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
-#| msgid "Use Entire Disk"
 msgid "Entire Disk"
-msgstr "მთელი დისკის გამოყენება"
+msgstr "მთელი დისკი"
 
 #: vanilla_installer/gtk/widget-partition.ui:12
 msgid "This will erase all data on the disk."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
-#| msgid "Partitions"
-msgid "Manual Partitioning"
-msgstr "დანაყოფები"
+msgstr "ეს დისკზე ყველა მონაცემს წაშლის."
 
 #: vanilla_installer/gtk/widget-partition.ui:24
+msgid "Manual Partitioning"
+msgstr "ხელით დაყოფა"
+
+#: vanilla_installer/gtk/widget-partition.ui:25
 msgid ""
 "Select which partitions to use for installation. Incorrect configuration can "
 "lead to data loss, corruption, and/or an unbootable system."
 msgstr ""
+"აირჩიეთ დასაყენებელი დანაყოფები. არასწორად მითითებამ შეიძლება მონაცემების "
+"კარგვამდე ან დაზიანებამდე ან/და არაჩატვირთვად სისტემამდე მიგიყვანოთ."
 
-#: vanilla_installer/gtk/widget-partition.ui:39
+#: vanilla_installer/gtk/widget-partition.ui:41
 msgid "Open GParted"
 msgstr "GParted-ის გახსნა"
 
-#: vanilla_installer/gtk/widget-partition.ui:40
+#: vanilla_installer/gtk/widget-partition.ui:42
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "გახსენით GParted დისკის ხელით დაყოფისთვის"
 
-#: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
-#| msgid "Partitions"
+#: vanilla_installer/gtk/widget-partition.ui:60
 msgid "Boot Partition"
-msgstr "დანაყოფები"
+msgstr "ჩამტვირთავი დანაყოფები"
 
-#: vanilla_installer/gtk/widget-partition.ui:58
+#: vanilla_installer/gtk/widget-partition.ui:61
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"\"/boot\"-ზე მიმაგრებული დანაყოფი. ეს საქაღალდე Vanilla OS-ის ჩატვირთვისთვის "
+"საჭირო ფაილებს შეიცავს."
 
-#: vanilla_installer/gtk/widget-partition.ui:61
-#: vanilla_installer/gtk/widget-partition.ui:82
-#: vanilla_installer/gtk/widget-partition.ui:103
-#: vanilla_installer/gtk/widget-partition.ui:152
-#: vanilla_installer/gtk/widget-partition.ui:166
-#: vanilla_installer/gtk/widget-partition.ui:197
-#: vanilla_installer/gtk/widget-partition.ui:230
-#: vanilla_installer/defaults/disk.py:467
+#: vanilla_installer/gtk/widget-partition.ui:64
+#: vanilla_installer/gtk/widget-partition.ui:85
+#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:155
+#: vanilla_installer/gtk/widget-partition.ui:169
+#: vanilla_installer/gtk/widget-partition.ui:200
+#: vanilla_installer/gtk/widget-partition.ui:234
+#: vanilla_installer/defaults/disk.py:462
 msgid "No partition selected"
-msgstr ""
+msgstr "დანაყოფი არჩეული არაა"
 
-#: vanilla_installer/gtk/widget-partition.ui:62
-#: vanilla_installer/gtk/widget-partition.ui:83
-#: vanilla_installer/gtk/widget-partition.ui:104
-#: vanilla_installer/gtk/widget-partition.ui:153
-#: vanilla_installer/gtk/widget-partition.ui:167
-#: vanilla_installer/gtk/widget-partition.ui:198
-#: vanilla_installer/gtk/widget-partition.ui:231
-#: vanilla_installer/defaults/disk.py:469
+#: vanilla_installer/gtk/widget-partition.ui:65
+#: vanilla_installer/gtk/widget-partition.ui:86
+#: vanilla_installer/gtk/widget-partition.ui:107
+#: vanilla_installer/gtk/widget-partition.ui:156
+#: vanilla_installer/gtk/widget-partition.ui:170
+#: vanilla_installer/gtk/widget-partition.ui:201
+#: vanilla_installer/gtk/widget-partition.ui:235
+#: vanilla_installer/defaults/disk.py:464
 msgid "Please select a partition from the options below"
-msgstr ""
+msgstr "გთხოვთ, აირჩიოთ დანაყოფი ქვემოთ მოცემული ვარიანტებიდან"
 
-#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:76
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "ჩატვირთვის დანაყოფი ძალიან მცირეა."
 
-#: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
-#| msgid "Partitions"
+#: vanilla_installer/gtk/widget-partition.ui:81
 msgid "EFI Partition"
-msgstr "დანაყოფები"
+msgstr "EFI დანაყოფი"
 
-#: vanilla_installer/gtk/widget-partition.ui:79
+#: vanilla_installer/gtk/widget-partition.ui:82
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"\"/boot/efi\"-ის ქვეშ მისამაგრებელი დანაყოფი. ეს საქაღალდე ჩამტვირთავის "
+"ფაილებს შეიცავს."
 
-#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:97
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI დანაყოფი ძალიან პატარაა."
 
-#: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
-#| msgid "Partitions"
+#: vanilla_installer/gtk/widget-partition.ui:102
 msgid "BIOS Boot Partition"
-msgstr "დანაყოფები"
+msgstr "BIOS-ის ჩამტვირთავი დანაყოფი"
 
-#: vanilla_installer/gtk/widget-partition.ui:100
+#: vanilla_installer/gtk/widget-partition.ui:103
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"BIOS სისტემებიდან GPT-ით დაფორმატებული დისკებით ჩატვირთვისთვის საჭირო "
+"დანაყოფი. ის დისკის პირველ 2 ტბ-ზე უნდა მდებარეობდეს და ზუსტად 1 მებიბაიტი ("
+"1 მიბ) ზომა უნდა ჰქონდეს."
 
-#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:118
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS-ის დანაყოფი ზუსტად 1 მიბ ზომის უნდა იყოს."
 
-#: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
-#| msgid "Partitions"
+#: vanilla_installer/gtk/widget-partition.ui:123
 msgid "Root Partitions"
-msgstr "დანაყოფები"
+msgstr "Root დანაყოფები"
 
-#: vanilla_installer/gtk/widget-partition.ui:121
+#: vanilla_installer/gtk/widget-partition.ui:124
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"\"/\"-ის ქვეშ მისამაგრებელი დანაყოფები. დანაყოფების ზომა ტოლი უნდა იყოს."
 
-#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:137
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"Vanilla OS-ი ABRoot-ის მიერ მართულ A/B დანაყოფების სისტემას იყენებს,\n"
+"რომელიც განახლებებს შორის 2 root დანაყოფს შორის გადართვას უზრუნველყოფს."
 
-#: vanilla_installer/gtk/widget-partition.ui:178
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "Root დანაყოფების ზომა ტოლი არაა."
 
-#: vanilla_installer/gtk/widget-partition.ui:179
+#: vanilla_installer/gtk/widget-partition.ui:182
 msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
+msgstr "დარწმუნდით, რომ A და B დანაყოფების ზომა ერთმანეთის ტოლია."
 
-#: vanilla_installer/gtk/widget-partition.ui:188
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Root დანაყოფები ძალიან მცირეა."
 
-#: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
-#| msgid "Partitions"
+#: vanilla_installer/gtk/widget-partition.ui:196
 msgid "Home Partition"
-msgstr "დანაყოფები"
+msgstr "Home დანაყოფი"
 
-#: vanilla_installer/gtk/widget-partition.ui:194
+#: vanilla_installer/gtk/widget-partition.ui:197
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"\"/home\"-ის ქვეშ მიმაგრებული დანაყოფი. ეს საქაღალდე ყველა მომხმარებლის "
+"მონაცემებს შეიცავს."
 
-#: vanilla_installer/gtk/widget-partition.ui:209
+#: vanilla_installer/gtk/widget-partition.ui:212
 msgid "Home partition is too small."
-msgstr ""
+msgstr "დანაყოფი Home ძალიან პატარაა."
 
-#: vanilla_installer/gtk/widget-partition.ui:214
-#: vanilla_installer/gtk/widget-partition.ui:218
-#, fuzzy
-#| msgid "Partitions"
+#: vanilla_installer/gtk/widget-partition.ui:217
+#: vanilla_installer/gtk/widget-partition.ui:221
 msgid "Swap partition"
-msgstr "დანაყოფები"
+msgstr "სვოპის დანაყოფი"
 
-#: vanilla_installer/gtk/widget-partition.ui:215
+#: vanilla_installer/gtk/widget-partition.ui:218
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"სვოპი თქვენი RAM-ის ვირტუალური გაფართოებასავით იქცევა და პროგრამული ძილის "
+"საშუალებას გაძლევთ. Vanilla OS, სვოპის საცავის გარეშე გამოსაყენებლად, ZRAM-ს "
+"იყენებს."
 
-#: vanilla_installer/gtk/widget-partition.ui:219
+#: vanilla_installer/gtk/widget-partition.ui:222
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"აირჩიეთ ZRAM-თან ერთად გამოყენებული სვოპის დანაყოფი. ეს პროგრამული ძილისთვის "
+"საჭირო არაა."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "უკან"
 
-#: vanilla_installer/defaults/disk.py:42
+#: vanilla_installer/defaults/disk.py:41
 #, python-brace-format
 msgid "Not enough space: {0}/{1}"
-msgstr ""
+msgstr "არ არის საკმარისი სივრცე: {0}/{1}"
 
-#: vanilla_installer/defaults/disk.py:57
+#: vanilla_installer/defaults/disk.py:56
 msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
+msgstr "ეს ერთად-ერთი ხელმისაწვდომი დისკია და მონიშვნას ვერ მოხსნით!"
 
-#: vanilla_installer/defaults/disk.py:332
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
+"GParted-ი უკვე გაშვებულია. დაშვებულია GParted-ის მხოლოდ ერთი გაშვებული ასლი."
 
-#: vanilla_installer/defaults/disk.py:431
+#: vanilla_installer/defaults/disk.py:426
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "დანაყოფი უნდა იყოს მინიმუმ {}"
 
-#: vanilla_installer/defaults/disk.py:454
+#: vanilla_installer/defaults/disk.py:449
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "დანაყოფი უნდა იყოს ზუსტად {}"
 
-#: vanilla_installer/defaults/disk.py:556
+#: vanilla_installer/defaults/disk.py:551
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "დანაყოფები შეიცვალა. მიმდინარე არჩევანი გასუფთავებულია."
 
-#: vanilla_installer/defaults/disk.py:621
+#: vanilla_installer/defaults/disk.py:616
 msgid "Entire disk will be used."
-msgstr ""
+msgstr "გამოყენებული იქნება მთელი დისკი."
 
-#: vanilla_installer/defaults/disk.py:628
+#: vanilla_installer/defaults/disk.py:623
 msgid "Will be formatted in {} and mounted in {}"
-msgstr ""
+msgstr "ფორმატი იქნება {}, მიმაგრების წერტილი კი {}"
 
 #. signals
 #: vanilla_installer/layouts/preferences.py:42
@@ -446,85 +486,81 @@ msgstr ""
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "დააწკაპუნა"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr ""
+msgstr "არჩიეთ ერთი პარამეტრი მაინც."
 
 #: vanilla_installer/utils/builder.py:67
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "რეცეპტში გამოტოვებულია 'log_file'."
 
 #: vanilla_installer/utils/builder.py:76
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "ჟურნალის ფაილის შექმნა ვერ მოხერხდა: %s"
 
 #: vanilla_installer/utils/builder.py:77
 msgid "No log will be stored."
-msgstr ""
+msgstr "ჟურნალი არ შეინახება."
 
 #: vanilla_installer/utils/builder.py:84
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "ჩვენების პირობის შესრულება: %s"
 
 #: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "ნაბიჯი %s გამოტოვებულია ჩვენების პირობების გამო"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "რეცეპტის ფაილი არასწორია"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "რეცეპტი არ არის ლექსიკონი"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "რეცეპტს აკლია '{key}' გასაღები"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "რეცეპტის ნაბიჯები არ არის სია"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "ნაბიჯი {step} არ არის ლექსიკონი"
 
 #: vanilla_installer/views/confirm.py:78
-#, fuzzy
-#| msgid "Keyboard Layout"
 msgid "Keyboard"
-msgstr "კლავიატურის განლაგება"
+msgstr "კლავიატურა"
 
 #: vanilla_installer/views/confirm.py:84
 msgid "Timezone"
-msgstr ""
+msgstr "დროის სარტყელი"
 
 #: vanilla_installer/views/confirm.py:90
-#, fuzzy
-#| msgid "Username"
 msgid "Users"
-msgstr "მომხმარებლის სახელი"
+msgstr "მომხმარებლები"
 
 #: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
 msgid "Disk"
-msgstr ""
+msgstr "დისკი"
 
 #: vanilla_installer/views/confirm.py:125
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "დაყენება დასასტურებულია"
 
 #: vanilla_installer/views/done.py:38
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "{}-სთან მუშაობის დასაწყებად გადატვირთეთ თქვენი მოწყობილობა."
 
 #: vanilla_installer/views/done.py:52
 msgid "Something went wrong"
@@ -532,11 +568,11 @@ msgstr "რაღაც არასწორია"
 
 #: vanilla_installer/views/done.py:53
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "დაუკავშირდით დისტრიბუტივის პროგრამისტებს."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "გვერდი-შეიცვალა"
 
 #~ msgid "Welcome"
 #~ msgstr "მოგესალმებით"

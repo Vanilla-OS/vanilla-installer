@@ -14,6 +14,7 @@ vanilla_installer/gtk/dialog-disk-confirm.ui
 vanilla_installer/gtk/dialog-disk.ui
 vanilla_installer/gtk/dialog.ui
 vanilla_installer/gtk/dialog-output.ui
+vanilla_installer/gtk/dialog-recovery.ui
 vanilla_installer/gtk/done.ui
 vanilla_installer/gtk/layout-preferences.ui
 vanilla_installer/gtk/layout-yes-no.ui
@@ -49,6 +50,7 @@ vanilla_installer/views/tour.py
 
 vanilla_installer/windows/dialog.py
 vanilla_installer/windows/dialog_output.py
+vanilla_installer/windows/dialog_recovery.py
 vanilla_installer/windows/main_window.py
 
 vanilla_installer/main.py
