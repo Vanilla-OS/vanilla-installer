@@ -445,7 +445,7 @@ class Processor:
                 "shell",
                 [
                     "mkdir -p /etc/gdm3",
-                    "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/custom.conf"
+                    "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/daemon.conf"
                 ],
                 chroot=True,
             )
@@ -453,8 +453,12 @@ class Processor:
             # Add autostart script to vanilla-first-setup
             recipe.add_postinstall_step(
                 "shell",
-                ["cp /usr/share/applications/org.vanillaos.FirstSetup.desktop /etc/xdg/autostart"],
+                [
+                    "mkdir -p /home/vanilla/.config/autostart",
+                    "cp /usr/share/applications/org.vanillaos.FirstSetup.desktop /home/vanilla/.config/autostart",
+                ],
                 chroot=True,
+                late=True,
             )
 
             # TODO: Install grub-pc if target is BIOS
