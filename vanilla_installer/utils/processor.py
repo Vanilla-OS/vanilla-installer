@@ -90,12 +90,6 @@ echo "ABRoot: Starting systemd..."
 exec /lib/systemd/systemd
 """
 
-_GDM_AUTOLOGIN_FILE = """
-[daemon]
-AutomaticLogin=vanilla
-AutomaticLoginEnable=True
-"""
-
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
 AlbiusInstallation = dict[str, str]
@@ -189,11 +183,11 @@ class Processor:
 
         # Roots
         setup_steps.append(
-            [disk, "mkpart", "vos-a", "btrfs", part_offset, part_offset + 12288]
+            [disk, "mkpart", ["vos-a", "btrfs", part_offset, part_offset + 12288]]
         )
         part_offset += 12288
         setup_steps.append(
-            [disk, "mkpart", "vos-b", "btrfs", part_offset, part_offset + 12288]
+            [disk, "mkpart", ["vos-b", "btrfs", part_offset, part_offset + 12288]]
         )
         part_offset += 12288
 
@@ -447,8 +441,14 @@ class Processor:
             )
 
             # Set vanilla user to autologin
-            with open("/mnt/a/etc/gdm/custom.conf", "w") as file:
-                file.write(_GDM_AUTOLOGIN_FILE)
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    "mkdir -p /etc/gdm3",
+                    "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/custom.conf"
+                ],
+                chroot=True,
+            )
 
             # Add autostart script to vanilla-first-setup
             recipe.add_postinstall_step(
