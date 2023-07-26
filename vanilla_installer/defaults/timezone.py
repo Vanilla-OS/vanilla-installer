@@ -54,6 +54,10 @@ class VanillaDefaultTimezone(Adw.Bin):
         # set up current timezone
         self.__get_current_timezone()
 
+        _time, _date = get_preview_timezone(current_country, current_city)
+        self.row_preview.set_title(_time)
+        self.row_preview.set_subtitle(_date)
+
         # signals
         self.btn_next.connect("clicked", self.__window.next)
         self.search_controller.connect("key-released", self.__on_search_key_pressed)

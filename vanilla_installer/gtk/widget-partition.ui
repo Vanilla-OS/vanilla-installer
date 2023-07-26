@@ -3,37 +3,6 @@
   <requires lib="gtk" version="4.0"/>
   <template class="PartitionSelector" parent="AdwPreferencesPage">
     <child>
-      <object class="AdwPreferencesGroup">
-        <property name="title" translatable="true">Disk Allocation</property>
-        <property name="description" translatable="true">Choose how to install Vanilla OS on your disk.</property>
-        <child>
-          <object class="AdwActionRow" id="entire_disk_row">
-            <property name="title" translatable="true">Entire Disk</property>
-            <property name="subtitle" translatable="true">This will erase all data on the disk.</property>
-            <child type="prefix">
-              <object class="GtkCheckButton" id="chk_entire_disk">
-                <property name="valign">center</property>
-                <property name="active">true</property>
-              </object>
-            </child>
-            <property name="activatable-widget">chk_entire_disk</property>
-          </object>
-        </child>
-        <child>
-          <object class="AdwActionRow" id="manual_part_row">
-            <property name="title" translatable="true">Manual Partitioning</property>
-            <property name="subtitle" translatable="true">Select which partitions to use for installation. Incorrect configuration can lead to data loss, corruption, and/or an unbootable system.</property>
-            <child type="prefix">
-              <object class="GtkCheckButton" id="chk_manual_part">
-                <property name="valign">center</property>
-              </object>
-            </child>
-            <property name="activatable-widget">chk_manual_part</property>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
       <object class="AdwPreferencesGroup" id="open_gparted_group">
         <child>
           <object class="AdwActionRow" id="open_gparted_row">

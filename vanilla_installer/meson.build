@@ -22,7 +22,8 @@ configure_file(
   output: 'vanilla-installer',
   configuration: conf,
   install: true,
-  install_dir: get_option('bindir')
+  install_dir: get_option('bindir'),
+  install_mode: 'rwxr-xr-x'
 )
 
 configure_file(
@@ -30,7 +31,8 @@ configure_file(
   output: 'vanilla-installer-processor',
   configuration: conf,
   install: true,
-  install_dir: get_option('bindir')
+  install_dir: get_option('bindir'),
+  install_mode: 'rwxr-xr-x'
 )
 
 subdir('defaults')

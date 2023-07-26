@@ -103,14 +103,13 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.__view_confirm.update(self.finals)
 
     def on_installation_confirmed(self, *args):
-        install_script = Processor.gen_install_script(
+        recipe = Processor.gen_install_recipe(
             self.recipe.get("log_file", "/tmp/vanilla_installer.log"),
-            self.recipe.get("pre_run", []),
-            self.recipe.get("post_run"),
-            self.finals
+            self.finals,
+            self.recipe.get("oci_image"),
         )
         self.next()
-        self.__view_progress.start(install_script)
+        self.__view_progress.start(recipe)
 
     def next(self, widget=None, fn=None, *args):
         if fn is not None:

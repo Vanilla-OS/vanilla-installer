@@ -20,6 +20,7 @@ from gi.repository import Gtk, Adw
 from vanilla_installer.windows.dialog_output import VanillaDialogOutput
 from gettext import gettext as _
 
+
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/done.ui')
 class VanillaDone(Adw.Bin):
     __gtype_name__ = 'VanillaDone'
@@ -33,7 +34,7 @@ class VanillaDone(Adw.Bin):
         super().__init__(**kwargs)
         self.__window = window
         self.__log = None
-        
+
         self.status_page.set_description(
             _("Restart your device to enjoy your {} experience.").format(
                 self.__window.recipe["distro_name"]
@@ -43,7 +44,7 @@ class VanillaDone(Adw.Bin):
         self.btn_reboot.connect("clicked", self.__on_reboot_clicked)
         self.btn_close.connect("clicked", self.__on_close_clicked)
         self.btn_log.connect("clicked", self.__on_log_clicked)
-    
+
     def set_result(self, result, terminal):
         self.__terminal = terminal
 
@@ -61,5 +62,6 @@ class VanillaDone(Adw.Bin):
         self.__window.close()
 
     def __on_log_clicked(self, button):
-        dialog = VanillaDialogOutput(self.__window, self.__terminal)
-        dialog.present()
+        if self.__terminal:
+            dialog = VanillaDialogOutput(self.__window, self.__terminal)
+            dialog.present()
