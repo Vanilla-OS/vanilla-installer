@@ -54,6 +54,7 @@ class VanillaDefaultTimezone(Adw.Bin):
         # set up current timezone
         self.__get_current_timezone()
 
+        current_country, current_city = get_current_timezone()
         _time, _date = get_preview_timezone(current_country, current_city)
         self.row_preview.set_title(_time)
         self.row_preview.set_subtitle(_date)
@@ -109,7 +110,6 @@ class VanillaDefaultTimezone(Adw.Bin):
 
         for country, cities in all_timezones.items():
             for city in cities:
-
                 city = re.sub(r'[^a-zA-Z0-9 ]', '', city)
                 if re.search(keywords, city, re.IGNORECASE):
                     self.combo_region.set_selected(list(all_timezones.keys()).index(country))
@@ -120,7 +120,7 @@ class VanillaDefaultTimezone(Adw.Bin):
                             break
 
                     return
-    
+
     def __get_current_timezone(self):
         def set_current_timezone():
             current_country, current_city = get_current_timezone()
@@ -144,4 +144,5 @@ class VanillaDefaultTimezone(Adw.Bin):
                 self.__on_country_selected(None, None)
             self.combo_region.connect("notify::selected", self.__on_country_selected)
             self.combo_zone.connect("notify::selected", self.__on_city_selected)
+
         RunAsync(set_current_timezone, None)
