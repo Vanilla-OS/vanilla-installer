@@ -2,18 +2,17 @@ Source: vanilla-installer
 Section: utils
 Priority: optional
 Maintainer: Mirko Brombin <send@mirko.pm>
-Build-Depends: 
-            build-essential,
-            debhelper,
-            python3,
-            meson,
-            libadwaita-1-dev,
-            libgnome-desktop-4-dev,
-            libgweather-4-dev,
-            gettext,
-            desktop-file-utils,
-            make,
-            libjpeg-dev
+Build-Depends: build-essential,
+               debhelper,
+               python3,
+               meson,
+               libadwaita-1-dev,
+               libgnome-desktop-4-dev,
+               libgweather-4-dev,
+               gettext,
+               desktop-file-utils,
+               make,
+               libjpeg-dev
 Homepage: https://github.com/Vanilla-OS/vanilla-installer/
 Vcs-Browser: hhttps://github.com/Vanilla-OS/vanilla-installer
 Vcs-Git: https://github.com/Vanilla-OS/vanilla-installer.git

@@ -2,7 +2,10 @@
     "log_file": "/etc/vanilla/installer.log",
     "distro_name": "Vanilla OS",
     "distro_logo": "org.vanillaos.Installer", 
-    "oci_image": "registry.vanillaos.org/vanillaos/desktop:main",
+    "images": {
+    		"default": "registry.vanillaos.org/vanillaos/desktop:main",
+    		"nvidia": "registry.vanillaos.org/vanillaos/nvidia-image:main"
+    },
     "pre_run": [
         "sudo apx --sys update", 
         "sudo apx --sys install -f"
@@ -45,6 +48,12 @@
         },
         "timezone": {
             "template": "timezone"
+        },
+        "nvidia": {
+            "template": "nvidia",
+        		"display-conditions": [
+            		"lspci | grep -i '.* nvidia .*'"
+            ]
         },
         "disk": {
             "template": "disk"

@@ -306,10 +306,12 @@ class Processor:
         )
 
     @staticmethod
-    def gen_install_recipe(log_path, finals, oci_image):
+    def gen_install_recipe(log_path, finals, images):
         logger.info("processing the following final data: %s", finals)
 
         recipe = AlbiusRecipe()
+
+        oci_image = images["default"]
 
         # Setup encryption if user selected it
         encrypt = False
@@ -338,6 +340,9 @@ class Processor:
                     recipe.add_mountpoint(*mount)
                 for step in post_install_steps:
                     recipe.add_postinstall_step(*step)
+            elif "nvidia" in final.keys():
+                if final["nvidia"]["use-proprietary"]:
+                    oci_image = images["nvidia"]
 
         # Installation
         recipe.set_installation("oci", oci_image)

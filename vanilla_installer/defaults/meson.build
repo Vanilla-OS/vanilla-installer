@@ -9,6 +9,7 @@ sources = [
   'timezone.py',
   'disk.py',
   'encryption.py',
+  'nvidia.py',
 ]
 
 install_data(sources, install_dir: defaultsdir)
