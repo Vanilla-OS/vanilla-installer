@@ -3,8 +3,8 @@
     "distro_name": "Vanilla OS",
     "distro_logo": "org.vanillaos.Installer", 
     "images": {
-    		"default": "registry.vanillaos.org/vanillaos/desktop:main",
-    		"nvidia": "registry.vanillaos.org/vanillaos/nvidia-image:main"
+    		"default": "ghcr.io/vanilla-os/desktop:main",
+    		"nvidia": "ghcr.io/vanilla-os/nvidia:main"
     },
     "pre_run": [
         "sudo apx --sys update", 
