@@ -15,7 +15,7 @@
             <property name="icon-name">go-next-symbolic</property>
             <property name="halign">2</property>
             <property name="valign">3</property>
-            <property name="tooltip-text" translatable="true">Next</property>
+            <property name="tooltip-text" translatable="yes">Next</property>
             <style>
               <class name="circular"/>
               <class name="suggested-action"/>
@@ -25,16 +25,16 @@
         <child>
           <object class="AdwStatusPage" id="status_page">
             <property name="icon-name">channel-secure-symbolic</property>
-            <property name="title" translatable="true">Device Encryption</property>
-            <property name="description" translatable="true">Vanilla OS provides full-disk encryption through LUKS2 to protect your personal information in case your device gets stolen.</property>
+            <property name="title" translatable="yes">Device Encryption</property>
+            <property name="description" translatable="yes">Vanilla OS provides full-disk encryption through LUKS2 to protect your personal information in case your device gets stolen.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="AdwActionRow">
-                        <property name="title" translatable="true">Encrypt device</property>
-                        <property name="subtitle" translatable="true">Use a memorable password to encrypt your data</property>
+                        <property name="title" translatable="yes">Encrypt device</property>
+                        <property name="subtitle" translatable="yes">Use a memorable password to encrypt your data</property>
                         <child type="suffix">
                           <object class="GtkSwitch" id="use_encryption_switch">
                             <property name="valign">3</property>
@@ -46,13 +46,13 @@
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="encryption_pass_entry">
-                        <property name="title" translatable="true">Password</property>
+                        <property name="title" translatable="yes">Password</property>
                         <property name="sensitive" bind-source="use_encryption_switch" bind-property="active" bind-flags="sync-create"/>
                       </object>
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="encryption_pass_entry_confirm">
-                        <property name="title" translatable="true">Confirm Password</property>
+                        <property name="title" translatable="yes">Confirm Password</property>
                         <property name="sensitive" bind-source="use_encryption_switch" bind-property="active" bind-flags="sync-create"/>
                       </object>
                     </child>

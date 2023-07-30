@@ -11,8 +11,8 @@
         <property name="valign">0</property>
         <property name="hexpand">true</property>
         <property name="icon-name">video-display-symbolic</property>
-        <property name="title" translatable="true">NVIDIA® Drivers</property>
-        <property name="description" translatable="true">Choose whether to install proprietary NVIDIA drivers for better compatibility and performance.</property>
+        <property name="title" translatable="yes">NVIDIA® Drivers</property>
+        <property name="description" translatable="yes">Choose whether to install proprietary NVIDIA drivers for better compatibility and performance.</property>
         <child>
           <object class="GtkBox">
             <property name="orientation">1</property>
@@ -26,7 +26,7 @@
                 <property name="halign">3</property>
                 <child>
                   <object class="GtkButton" id="btn_no">
-                    <property name="label" translatable="true">Don't install</property>
+                    <property name="label" translatable="yes">Don't install</property>
                     <property name="halign">3</property>
                     <style>
                       <class name="pill"/>
@@ -35,7 +35,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_yes">
-                    <property name="label" translatable="true">Install  (recommended)</property>
+                    <property name="label" translatable="yes">Install  (recommended)</property>
                     <property name="halign">3</property>
                     <style>
                       <class name="pill"/>
@@ -67,7 +67,7 @@
                             <property name="margin-end">10</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="true">About Proprietary Drivers</property>
+                                <property name="label" translatable="yes">About Proprietary Drivers</property>
                                 <style>
                                   <class name="title-4"/>
                                 </style>
@@ -75,7 +75,7 @@
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="true">A proprietary driver has private code that neither Vanilla OS nor Debian developers can review.
+                                <property name="label" translatable="yes">A proprietary driver has private code that neither Vanilla OS nor Debian developers can review.
 
 Security and other updates are dependent on the driver vendor.</property>
                                 <property name="wrap">true</property>
