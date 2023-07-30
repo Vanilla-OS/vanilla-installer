@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-02 14:10+0530\n"
+"POT-Creation-Date: 2023-07-30 19:14+0530\n"
 "PO-Revision-Date: 2023-07-12 17:58+0000\n"
 "Last-Translator: Maksim <maxklezovich@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
@@ -48,7 +48,8 @@ msgstr "У вашу сістэму будуць унесены наступны�
 msgid "Install Vanilla OS"
 msgstr "Усталюйце Vanilla OS"
 
-#: vanilla_installer/gtk/default-disk.ui:20
+#: vanilla_installer/gtk/default-disk.ui:19
+#: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
 #: vanilla_installer/gtk/default-language.ui:23
 #: vanilla_installer/gtk/default-theme.ui:49
@@ -58,17 +59,55 @@ msgstr "Усталюйце Vanilla OS"
 msgid "Next"
 msgstr "Далей"
 
+#: vanilla_installer/gtk/default-disk.ui:29
+#, fuzzy
+#| msgid "Confirm Installation"
+msgid "Install Location"
+msgstr "Пацвердзіце ўстаноўку"
+
 #: vanilla_installer/gtk/default-disk.ui:30
-msgid "Select a Disk"
-msgstr "Выберыце дыск"
+msgid ""
+"Select the disk where you want to install Vanilla OS. Alternatively, you can "
+"select one or more disks to configure manually."
+msgstr ""
 
-#: vanilla_installer/gtk/default-disk.ui:31
-msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Выберыце дыск, на які вы хочаце ўсталяваць Vanilla OS"
+#: vanilla_installer/gtk/default-disk.ui:44
+#, fuzzy
+#| msgid "Entire Disk"
+msgid "Use entire disk"
+msgstr "Увесь дыск"
 
-#: vanilla_installer/gtk/default-disk.ui:41
-msgid "Configure"
-msgstr "Наладзіць"
+#: vanilla_installer/gtk/default-disk.ui:56
+msgid "Manual"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:28
+msgid "Device Encryption"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:29
+msgid ""
+"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+"personal information in case your device gets stolen."
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:36
+msgid "Encrypt device"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:37
+msgid "Use a memorable password to encrypt your data"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:49
+#: vanilla_installer/gtk/default-users.ui:60
+msgid "Password"
+msgstr "Пароль"
+
+#: vanilla_installer/gtk/default-encryption.ui:55
+#: vanilla_installer/gtk/default-users.ui:66
+msgid "Confirm Password"
+msgstr "Пацвердзіце пароль"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
@@ -84,7 +123,7 @@ msgstr "Пошук раскладкі клавіятуры"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:72
+#: vanilla_installer/views/confirm.py:73
 msgid "Language"
 msgstr "Мовы"
 
@@ -95,6 +134,36 @@ msgstr "Выберыце сваю мову"
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
 msgstr "Пошук мовы"
+
+#: vanilla_installer/gtk/default-nvidia.ui:14
+msgid "NVIDIA® Drivers"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:15
+msgid ""
+"Choose whether to install proprietary NVIDIA drivers for better "
+"compatibility and performance."
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:29
+msgid "Don't install"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:38
+msgid "Install  (recommended)"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:70
+msgid "About Proprietary Drivers"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:78
+msgid ""
+"A proprietary driver has private code that neither Vanilla OS nor Debian "
+"developers can review.\n"
+"\n"
+"Security and other updates are dependent on the driver vendor."
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -148,17 +217,26 @@ msgstr "Імя"
 msgid "Username"
 msgstr "Імя карыстальніка"
 
-#: vanilla_installer/gtk/default-users.ui:60
-msgid "Password"
-msgstr "Пароль"
-
-#: vanilla_installer/gtk/default-users.ui:66
-msgid "Confirm Password"
-msgstr "Пацвердзіце пароль"
-
 #: vanilla_installer/gtk/default-welcome.ui:30
 msgid "Recovery"
 msgstr "Аднаўленне"
+
+#: vanilla_installer/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Паказ інфармацыі"
+
+#: vanilla_installer/gtk/dialog-disk.ui:5
+msgid "Configure Disk"
+msgstr "Наладзіць дыск"
+
+#: vanilla_installer/gtk/dialog-disk.ui:17
+#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
+msgid "Cancel"
+msgstr "Скасаваць"
+
+#: vanilla_installer/gtk/dialog-disk.ui:22
+msgid "Apply"
+msgstr "Ужыць"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -166,28 +244,12 @@ msgstr "Аднаўленне"
 msgid "Confirm Changes"
 msgstr "Пацвердзіце змены"
 
-#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
-#: vanilla_installer/gtk/dialog-disk.ui:17
-msgid "Cancel"
-msgstr "Скасаваць"
-
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
-msgstr "На вашым дыску будуць унесены наступныя змены. Уважліва праглядзіце іх."
-
-#: vanilla_installer/gtk/dialog-disk.ui:5
-msgid "Configure Disk"
-msgstr "Наладзіць дыск"
-
-#: vanilla_installer/gtk/dialog-disk.ui:22
-msgid "Apply"
-msgstr "Ужыць"
-
-#: vanilla_installer/gtk/dialog.ui:6
-msgid "Showing Information"
-msgstr "Паказ інфармацыі"
+msgstr ""
+"На вашым дыску будуць унесены наступныя змены. Уважліва праглядзіце іх."
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
@@ -265,48 +327,19 @@ msgstr "Паказаць выхад кансолі"
 msgid "Show Slideshow"
 msgstr "Паказаць слайд-шоў"
 
-#: vanilla_installer/gtk/widget-partition.ui:7
-msgid "Disk Allocation"
-msgstr "Размеркаванне дыска"
-
-#: vanilla_installer/gtk/widget-partition.ui:8
-msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Выберыце спосаб усталявання Vanilla OS на ваш дыск."
-
-#: vanilla_installer/gtk/widget-partition.ui:11
-msgid "Entire Disk"
-msgstr "Увесь дыск"
-
-#: vanilla_installer/gtk/widget-partition.ui:12
-msgid "This will erase all data on the disk."
-msgstr "Гэта прывядзе да выдалення ўсіх даных на дыску."
-
-#: vanilla_installer/gtk/widget-partition.ui:24
-msgid "Manual Partitioning"
-msgstr "Ручное раздзяленне"
-
-#: vanilla_installer/gtk/widget-partition.ui:25
-msgid ""
-"Select which partitions to use for installation. Incorrect configuration can "
-"lead to data loss, corruption, and/or an unbootable system."
-msgstr ""
-"Выберыце, якія раздзелы выкарыстоўваць для ўстаноўкі. Няправільная "
-"канфігурацыя можа прывесці да страты даных, пашкоджання і/або немагчымасці "
-"загрузкі сістэмы."
-
-#: vanilla_installer/gtk/widget-partition.ui:41
+#: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Open GParted"
 msgstr "Адкрыйце GParted"
 
-#: vanilla_installer/gtk/widget-partition.ui:42
+#: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
 msgstr "Адкрыйце GParted, каб разбіць дыск уручную"
 
-#: vanilla_installer/gtk/widget-partition.ui:60
+#: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Boot Partition"
 msgstr "Загрузны раздзел"
 
-#: vanilla_installer/gtk/widget-partition.ui:61
+#: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
@@ -314,37 +347,37 @@ msgstr ""
 "Падзел для мантавання ў «/boot». У гэтым каталогу захоўваюцца файлы для "
 "загрузкі ў Vanilla OS."
 
-#: vanilla_installer/gtk/widget-partition.ui:64
-#: vanilla_installer/gtk/widget-partition.ui:85
-#: vanilla_installer/gtk/widget-partition.ui:106
-#: vanilla_installer/gtk/widget-partition.ui:155
+#: vanilla_installer/gtk/widget-partition.ui:33
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:75
+#: vanilla_installer/gtk/widget-partition.ui:124
+#: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:200
-#: vanilla_installer/gtk/widget-partition.ui:234
-#: vanilla_installer/defaults/disk.py:462
+#: vanilla_installer/gtk/widget-partition.ui:203
+#: vanilla_installer/defaults/disk.py:412
 msgid "No partition selected"
 msgstr "Падзел не выбраны"
 
-#: vanilla_installer/gtk/widget-partition.ui:65
-#: vanilla_installer/gtk/widget-partition.ui:86
-#: vanilla_installer/gtk/widget-partition.ui:107
-#: vanilla_installer/gtk/widget-partition.ui:156
+#: vanilla_installer/gtk/widget-partition.ui:34
+#: vanilla_installer/gtk/widget-partition.ui:55
+#: vanilla_installer/gtk/widget-partition.ui:76
+#: vanilla_installer/gtk/widget-partition.ui:125
+#: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:201
-#: vanilla_installer/gtk/widget-partition.ui:235
-#: vanilla_installer/defaults/disk.py:464
+#: vanilla_installer/gtk/widget-partition.ui:204
+#: vanilla_installer/defaults/disk.py:414
 msgid "Please select a partition from the options below"
 msgstr "Калі ласка, абярыце падзел з варыянтаў ніжэй"
 
-#: vanilla_installer/gtk/widget-partition.ui:76
+#: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
 msgstr "Загрузны раздзел занадта малы."
 
-#: vanilla_installer/gtk/widget-partition.ui:81
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid "EFI Partition"
 msgstr "Падзел EFI"
 
-#: vanilla_installer/gtk/widget-partition.ui:82
+#: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -352,15 +385,15 @@ msgstr ""
 "Падзел для мантавання ў «/boot/efi». У гэтым каталогу захоўваюцца файлы для "
 "загрузкі ў загрузніку."
 
-#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
 msgstr "Падзел EFI занадта малы."
 
-#: vanilla_installer/gtk/widget-partition.ui:102
+#: vanilla_installer/gtk/widget-partition.ui:71
 msgid "BIOS Boot Partition"
 msgstr "Загрузны раздзел BIOS"
 
-#: vanilla_installer/gtk/widget-partition.ui:103
+#: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -370,22 +403,22 @@ msgstr ""
 "Ён павінен быць размешчаны ў першых 2 ТБ дыска і павінен мець роўна 1 "
 "Мебібайт (1 МіБ)."
 
-#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "Раздзел BIOS павінен быць роўна 1 MiB."
 
-#: vanilla_installer/gtk/widget-partition.ui:123
+#: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partitions"
 msgstr "Каранёвыя раздзелы"
 
-#: vanilla_installer/gtk/widget-partition.ui:124
+#: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
 "Падзелы для мантавання ў «/». Абедзве перагародкі павінны быць аднолькавага "
 "памеру."
 
-#: vanilla_installer/gtk/widget-partition.ui:137
+#: vanilla_installer/gtk/widget-partition.ui:106
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
@@ -393,41 +426,43 @@ msgstr ""
 "Vanilla OS выкарыстоўвае сістэму падзелаў A/B, кіраваную ABRoot,\n"
 "які пераключаецца паміж двума каранёвымі раздзеламі паміж абнаўленнямі."
 
-#: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:150
 msgid "Root partitions are not the same size."
 msgstr "Каранёвыя перагародкі не аднолькавага памеру."
 
-#: vanilla_installer/gtk/widget-partition.ui:182
+#: vanilla_installer/gtk/widget-partition.ui:151
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
 "Калі ласка, пераканайцеся, што на вашых раздзелах A і B аднолькавае месца на "
 "дыску."
 
-#: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:160
 msgid "Root partitions are too small."
 msgstr "Каранёвыя перагародкі занадта малыя."
 
-#: vanilla_installer/gtk/widget-partition.ui:196
+#: vanilla_installer/gtk/widget-partition.ui:165
 msgid "Home Partition"
 msgstr "Хатняя перагародка"
 
-#: vanilla_installer/gtk/widget-partition.ui:197
+#: vanilla_installer/gtk/widget-partition.ui:166
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
 "Падзел для мантавання ў «/home». У гэтым каталогу захоўваюцца ўсе дадзеныя "
 "карыстальніка."
 
-#: vanilla_installer/gtk/widget-partition.ui:212
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Home partition is too small."
 msgstr "Хатняя перагародка занадта малая."
 
-#: vanilla_installer/gtk/widget-partition.ui:217
-#: vanilla_installer/gtk/widget-partition.ui:221
-msgid "Swap partition"
+#: vanilla_installer/gtk/widget-partition.ui:186
+#: vanilla_installer/gtk/widget-partition.ui:190
+#, fuzzy
+#| msgid "Swap partition"
+msgid "Swap Partition"
 msgstr "Своп падзел"
 
-#: vanilla_installer/gtk/widget-partition.ui:218
+#: vanilla_installer/gtk/widget-partition.ui:187
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -436,7 +471,7 @@ msgstr ""
 "рэжым. Vanilla OS ужо выкарыстоўвае zram для забеспячэння абмену без "
 "выдаткаў на захоўванне."
 
-#: vanilla_installer/gtk/widget-partition.ui:222
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -448,42 +483,33 @@ msgstr ""
 msgid "Back"
 msgstr "Назад"
 
-#: vanilla_installer/defaults/disk.py:41
-#, python-brace-format
-msgid "Not enough space: {0}/{1}"
-msgstr "Не хапае месца: {0}/{1}"
-
-#: vanilla_installer/defaults/disk.py:56
-msgid "This is the only disk available and cannot be deselected!"
-msgstr "Гэта адзіны даступны дыск, і яго нельга адмяніць!"
-
-#: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/defaults/disk.py:286
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted ужо працуе. Дазваляецца толькі адзін асобнік GParted."
 
-#: vanilla_installer/defaults/disk.py:426
+#: vanilla_installer/defaults/disk.py:376
 msgid "Partition must be at least {}"
 msgstr "Падзел павінен быць не менш за {}"
 
-#: vanilla_installer/defaults/disk.py:449
+#: vanilla_installer/defaults/disk.py:399
 msgid "Partition must EXACTLY {}"
 msgstr "Раздзел павінен ТОЛЬКІ {}"
 
-#: vanilla_installer/defaults/disk.py:551
+#: vanilla_installer/defaults/disk.py:510
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Перагародкі змяніліся. Бягучыя выбары ачышчаны."
 
-#: vanilla_installer/defaults/disk.py:616
+#: vanilla_installer/defaults/disk.py:567
 msgid "Entire disk will be used."
 msgstr "Будзе выкарыстаны ўвесь дыск."
 
-#: vanilla_installer/defaults/disk.py:623
+#: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Будзе адфарматаваны ў {} і змантаваны ў {}"
 
 #. signals
 #: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:122
+#: vanilla_installer/views/confirm.py:124
 #: vanilla_installer/views/progress.py:51
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
@@ -494,25 +520,25 @@ msgstr "пстрыкнуў"
 msgid "Please select at least one option."
 msgstr "Выберыце хаця б адзін варыянт."
 
-#: vanilla_installer/utils/builder.py:67
+#: vanilla_installer/utils/builder.py:69
 msgid "Missing 'log_file' in the recipe."
 msgstr "У рэцэпце адсутнічае 'log_file'."
 
-#: vanilla_installer/utils/builder.py:76
+#: vanilla_installer/utils/builder.py:78
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "не атрымалася стварыць файл часопіса: %s"
 
-#: vanilla_installer/utils/builder.py:77
+#: vanilla_installer/utils/builder.py:79
 msgid "No log will be stored."
 msgstr "Журнал захоўвацца не будзе."
 
-#: vanilla_installer/utils/builder.py:84
+#: vanilla_installer/utils/builder.py:86
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Выкананне стану адлюстравання: %s"
 
-#: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
+#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Крок %s прапушчаны з-за ўмоў адлюстравання"
@@ -539,39 +565,75 @@ msgstr "Крокі рэцэпту - гэта не спіс"
 msgid "Step {step} is not a dictionary"
 msgstr "Крок {step} не з'яўляецца слоўнікам"
 
-#: vanilla_installer/views/confirm.py:78
+#: vanilla_installer/views/confirm.py:79
 msgid "Keyboard"
 msgstr "Клавіятура"
 
-#: vanilla_installer/views/confirm.py:84
+#: vanilla_installer/views/confirm.py:85
 msgid "Timezone"
 msgstr "Часавы пояс"
 
-#: vanilla_installer/views/confirm.py:90
+#: vanilla_installer/views/confirm.py:91
 msgid "Users"
 msgstr "Карыстальнікі"
 
-#: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
+#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
 msgid "Disk"
 msgstr "Дыск"
 
-#: vanilla_installer/views/confirm.py:125
+#: vanilla_installer/views/confirm.py:127
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
 msgstr "ўстаноўка пацверджана"
 
-#: vanilla_installer/views/done.py:38
+#: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Перазагрузіце прыладу, каб атрымаць асалоду ад {}."
 
-#: vanilla_installer/views/done.py:52
+#: vanilla_installer/views/done.py:53
 msgid "Something went wrong"
 msgstr "Нешта пайшло не так"
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
 msgstr "Калі ласка, звяжыцеся з распрацоўшчыкамі дыстрыбутыва."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "старонка зменена"
+
+#~ msgid "Select a Disk"
+#~ msgstr "Выберыце дыск"
+
+#~ msgid "Select the disk where you want to install Vanilla OS"
+#~ msgstr "Выберыце дыск, на які вы хочаце ўсталяваць Vanilla OS"
+
+#~ msgid "Configure"
+#~ msgstr "Наладзіць"
+
+#~ msgid "Disk Allocation"
+#~ msgstr "Размеркаванне дыска"
+
+#~ msgid "Choose how to install Vanilla OS on your drive."
+#~ msgstr "Выберыце спосаб усталявання Vanilla OS на ваш дыск."
+
+#~ msgid "This will erase all data on the disk."
+#~ msgstr "Гэта прывядзе да выдалення ўсіх даных на дыску."
+
+#~ msgid "Manual Partitioning"
+#~ msgstr "Ручное раздзяленне"
+
+#~ msgid ""
+#~ "Select which partitions to use for installation. Incorrect configuration "
+#~ "can lead to data loss, corruption, and/or an unbootable system."
+#~ msgstr ""
+#~ "Выберыце, якія раздзелы выкарыстоўваць для ўстаноўкі. Няправільная "
+#~ "канфігурацыя можа прывесці да страты даных, пашкоджання і/або "
+#~ "немагчымасці загрузкі сістэмы."
+
+#, python-brace-format
+#~ msgid "Not enough space: {0}/{1}"
+#~ msgstr "Не хапае месца: {0}/{1}"
+
+#~ msgid "This is the only disk available and cannot be deselected!"
+#~ msgstr "Гэта адзіны даступны дыск, і яго нельга адмяніць!"
