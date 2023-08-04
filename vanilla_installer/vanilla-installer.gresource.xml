@@ -11,6 +11,7 @@
     <file>gtk/dialog-output.ui</file>
     <file>gtk/dialog-disk.ui</file>
     <file>gtk/dialog-disk-confirm.ui</file>
+    <file>gtk/dialog-recovery.ui</file>
 
     <file>gtk/default-theme.ui</file>
     <file>gtk/default-welcome.ui</file>
@@ -19,6 +20,8 @@
     <file>gtk/default-timezone.ui</file>
     <file>gtk/default-users.ui</file>
     <file>gtk/default-disk.ui</file>
+    <file>gtk/default-encryption.ui</file>
+    <file>gtk/default-nvidia.ui</file>
 
     <file>gtk/widget-choice.ui</file>
     <file>gtk/widget-choice-expander.ui</file>
@@ -41,3 +44,4 @@
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-logo-text-symbolic.svg</file>
   </gresource>
 </gresources>
+

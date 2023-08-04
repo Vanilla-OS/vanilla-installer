@@ -16,83 +16,29 @@
                         <child>
                             <object class="GtkImage">
                                 <property name="icon-name">vanilla-logo-text</property>
-                                <property name="pixel-size">192</property>
+                                <property name="pixel-size">200</property>
                             </object>
                         </child>
                         <child>
                             <object class="GtkBox">
-                                <property name="margin-bottom">120</property>
-                                <property name="spacing">20</property>
-                                <property name="homogeneous">true</property>
+                                <property name="spacing">10</property>
                                 <property name="valign">center</property>
                                 <property name="halign">center</property>
+                                <property name="margin-bottom">60</property>
                                 <child>
-                                    <object class="GtkButton" id="btn_live">
-                                        <property name="width-request">220</property>
-                                        <property name="height-request">200</property>
-                                        <child>
-                                            <object class="GtkBox">
-                                                <property name="orientation">vertical</property>
-                                                <property name="margin-top">25</property>
-                                                <property name="margin-start">25</property>
-                                                <property name="margin-bottom">25</property>
-                                                <property name="margin-end">25</property>
-                                                <property name="spacing">25</property>
-                                                <property name="valign">center</property>
-                                                <property name="halign">center</property>
-                                                <child>
-                                                    <object class="GtkImage">
-                                                        <property name="icon-name">vanilla-installer-display-with-window-symbolic</property>
-                                                        <property name="pixel-size">74</property>
-                                                    </object>
-                                                </child>
-                                                <child>
-                                                    <object class="GtkLabel">
-                                                        <property name="label" translatable="yes">Try Vanilla OS</property>
-                                                        <style>
-                                                            <class name="title-4"/>
-                                                        </style>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
+                                    <object class="GtkButton" id="btn_recovery">
+                                        <property name="label" translatable="yes">Recovery</property>
                                         <style>
-                                            <class name="card" />
+                                            <class name="pill" />
                                         </style>
                                     </object>
                                 </child>
                                 <child>
                                     <object class="GtkButton" id="btn_install">
-                                        <property name="width-request">200</property>
-                                        <property name="height-request">200</property>
-                                        <child>
-                                            <object class="GtkBox">
-                                                <property name="orientation">vertical</property>
-                                                <property name="margin-top">25</property>
-                                                <property name="margin-start">25</property>
-                                                <property name="margin-bottom">25</property>
-                                                <property name="margin-end">25</property>
-                                                <property name="spacing">25</property>
-                                                <property name="valign">center</property>
-                                                <property name="halign">center</property>
-                                                <child>
-                                                    <object class="GtkImage">
-                                                        <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
-                                                        <property name="pixel-size">74</property>
-                                                    </object>
-                                                </child>
-                                                <child>
-                                                    <object class="GtkLabel">
-                                                        <property name="label" translatable="yes">Install Vanilla OS</property>
-                                                        <style>
-                                                            <class name="title-4"/>
-                                                        </style>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
+                                        <property name="label" translatable="yes">Install Vanilla OS</property>
                                         <style>
-                                            <class name="card" />
+                                            <class name="pill" />
+                                            <class name="suggested-action" />
                                         </style>
                                     </object>
                                 </child>

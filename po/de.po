@@ -2,13 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # M00nD3v <matteo.duchs@outlook.com>, 2023.
+# Matt C <matei.gurzu@gmail.com>, 2023.
+# Grischa <groggledfrog@gmail.com>, 2023.
+# nautilusx <translate@disroot.org>, 2023.
+# "Martin P." <edisso999@gmail.com>, 2023.
+# Fabian Kaindl <weblate@fabiankaindl.de>, 2023.
+# George <georgeaufmschloss@gmail.com>, 2023.
+# juzac001 <julian.zachmann001@stud.fh-dortmund.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-16 17:29+0000\n"
-"Last-Translator: M00nD3v <matteo.duchs@outlook.com>\n"
+"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"PO-Revision-Date: 2023-07-09 06:49+0000\n"
+"Last-Translator: juzac001 <julian.zachmann001@stud.fh-dortmund.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -16,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -32,22 +39,23 @@ msgstr "Keine Beschreibung"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr "Erste Version"
+msgstr "Erste Veröffentlichung"
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"
-msgstr "Bestätige die Installation"
+msgstr "Installation bestätigen"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
 msgstr "Die folgenden Änderungen werden am System vorgenommen:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:86
+#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Vanilla OS installieren"
 
-#: vanilla_installer/gtk/default-disk.ui:20
+#: vanilla_installer/gtk/default-disk.ui:19
+#: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
 #: vanilla_installer/gtk/default-language.ui:23
 #: vanilla_installer/gtk/default-theme.ui:49
@@ -57,18 +65,55 @@ msgstr "Vanilla OS installieren"
 msgid "Next"
 msgstr "Weiter"
 
-#: vanilla_installer/gtk/default-disk.ui:30
-msgid "Select a Disk"
-msgstr "Festplatte auswählen"
-
-#: vanilla_installer/gtk/default-disk.ui:31
+#: vanilla_installer/gtk/default-disk.ui:29
 #, fuzzy
-msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Wählen die Festplatte aus, auf der Vanilla OS installiert werden soll"
+#| msgid "Confirm Installation"
+msgid "Install Location"
+msgstr "Installation bestätigen"
 
-#: vanilla_installer/gtk/default-disk.ui:41
-msgid "Configure"
-msgstr "Konfigurieren"
+#: vanilla_installer/gtk/default-disk.ui:30
+msgid ""
+"Select the disk where you want to install Vanilla OS. Alternatively, you can "
+"select one or more disks to configure manually."
+msgstr ""
+
+#: vanilla_installer/gtk/default-disk.ui:44
+#, fuzzy
+#| msgid "Entire Disk"
+msgid "Use entire disk"
+msgstr "Gesamte Festplatte"
+
+#: vanilla_installer/gtk/default-disk.ui:56
+msgid "Manual"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:28
+msgid "Device Encryption"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:29
+msgid ""
+"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+"personal information in case your device gets stolen."
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:36
+msgid "Encrypt device"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:37
+msgid "Use a memorable password to encrypt your data"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:49
+#: vanilla_installer/gtk/default-users.ui:60
+msgid "Password"
+msgstr "Passwort"
+
+#: vanilla_installer/gtk/default-encryption.ui:55
+#: vanilla_installer/gtk/default-users.ui:66
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
@@ -84,7 +129,7 @@ msgstr "Suche nach einem Tastaturlayout"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:72
+#: vanilla_installer/views/confirm.py:73
 msgid "Language"
 msgstr "Sprache"
 
@@ -95,6 +140,36 @@ msgstr "Wählen Sie eine Sprache"
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
 msgstr "Suche nach einer Sprache"
+
+#: vanilla_installer/gtk/default-nvidia.ui:14
+msgid "NVIDIA® Drivers"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:15
+msgid ""
+"Choose whether to install proprietary NVIDIA drivers for better "
+"compatibility and performance."
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:29
+msgid "Don't install"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:38
+msgid "Install  (recommended)"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:70
+msgid "About Proprietary Drivers"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:78
+msgid ""
+"A proprietary driver has private code that neither Vanilla OS nor Debian "
+"developers can review.\n"
+"\n"
+"Security and other updates are dependent on the driver vendor."
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -110,7 +185,7 @@ msgstr "Farbschema"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Wähle ein Farbschema für dieses System"
+msgstr "Wählen Sie ein Farbschema für Ihr System"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
 msgid "Date & Time"
@@ -118,7 +193,7 @@ msgstr "Datum und Zeit"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
 msgid "Select your preferred timezone"
-msgstr "Wählen die bevorzugte Zeitzone aus"
+msgstr "Wählen Sie Ihre bevorzugte Zeitzone"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
 msgid "Search for a Timezone"
@@ -138,7 +213,7 @@ msgstr "Benutzer erstellen"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Details für das Benutzerkonto angeben"
+msgstr "Geben Sie Details für Ihr Benutzerkonto an"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -148,17 +223,26 @@ msgstr "Name"
 msgid "Username"
 msgstr "Nutzername"
 
-#: vanilla_installer/gtk/default-users.ui:60
-msgid "Password"
-msgstr "Passwort"
+#: vanilla_installer/gtk/default-welcome.ui:30
+msgid "Recovery"
+msgstr "Wiederherstellung"
 
-#: vanilla_installer/gtk/default-users.ui:66
-msgid "Confirm Password"
-msgstr "Passwort bestätigen"
+#: vanilla_installer/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Informationen anzeigen"
 
-#: vanilla_installer/gtk/default-welcome.ui:51
-msgid "Try Vanilla OS"
-msgstr "Vanilla OS ausprobieren"
+#: vanilla_installer/gtk/dialog-disk.ui:5
+msgid "Configure Disk"
+msgstr "Datenträger konfigurieren"
+
+#: vanilla_installer/gtk/dialog-disk.ui:17
+#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: vanilla_installer/gtk/dialog-disk.ui:22
+msgid "Apply"
+msgstr "Anwenden"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
@@ -166,34 +250,53 @@ msgstr "Vanilla OS ausprobieren"
 msgid "Confirm Changes"
 msgstr "Änderungen bestätigen"
 
-#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
-#: vanilla_installer/gtk/dialog-disk.ui:17
-msgid "Cancel"
-msgstr "Abbrechen"
-
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
-"Die folgenden Änderungen werden an der Festplatte vorgenommen. Bitte "
-"überprüfe sie sorgfältig."
-
-#: vanilla_installer/gtk/dialog-disk.ui:5
-msgid "Configure Disk"
-msgstr "Datenträger konfigurieren"
-
-#: vanilla_installer/gtk/dialog-disk.ui:22
-msgid "Apply"
-msgstr "Anwenden"
-
-#: vanilla_installer/gtk/dialog.ui:6
-msgid "Showing Information"
-msgstr "Informationen anzeigen"
+"Die folgenden Änderungen werden an Ihrer Festplatte vorgenommen. Bitte "
+"überprüfen Sie diese sorgfältig."
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Protokoll"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Vanilla OS Wiederherstellung"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:26
+msgid "Console"
+msgstr "Konsole"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Öffnen Sie ein Terminal."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:33
+msgid "Gparted"
+msgstr "Gparted"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Verwalten Sie Festplatten und Partitionen."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:40
+msgid "Handbook"
+msgstr "Handbuch"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Lesen Sie das Vanilla OS-Handbuch."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:47
+msgid "Web Browser"
+msgstr "Internet-Browser"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Suchen Sie online nach Hilfe."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -205,7 +308,7 @@ msgstr "Starte das Gerät neu, um das Vanilla OS-Erlebnis zu genießen"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Protokoll anzeigen"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -220,9 +323,8 @@ msgid "Yes, enable it"
 msgstr "Ja, aktivieren"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "Installiert…"
+msgstr "Installiere..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -232,306 +334,326 @@ msgstr "Konsolenausgabe anzeigen"
 msgid "Show Slideshow"
 msgstr "Diashow anzeigen"
 
-#: vanilla_installer/gtk/widget-partition.ui:7
-msgid "Disk Allocation"
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:8
-#, fuzzy
-msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Wählen die Festplatte aus, auf der Vanilla OS installiert werden soll"
-
-#: vanilla_installer/gtk/widget-partition.ui:11
-#, fuzzy
-msgid "Entire Disk"
-msgstr "Gesamte Festplatte verwenden"
-
-#: vanilla_installer/gtk/widget-partition.ui:12
-msgid "This will erase all data on the disk."
-msgstr "Dadurch werden alle Daten auf der Festplatte gelöscht."
-
-#: vanilla_installer/gtk/widget-partition.ui:23
-#, fuzzy
-msgid "Manual Partitioning"
-msgstr "Partitionen"
-
-#: vanilla_installer/gtk/widget-partition.ui:24
-msgid ""
-"Select which partitions to use for installation. Incorrect configuration can "
-"lead to data loss, corruption, and/or an unbootable system."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:39
+#: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Open GParted"
 msgstr "GParted öffnen"
 
-#: vanilla_installer/gtk/widget-partition.ui:40
+#: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
 msgstr "Öffnen Sie GParted, um die Festplatte manuell zu partitionieren"
 
-#: vanilla_installer/gtk/widget-partition.ui:57
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Boot Partition"
-msgstr "Partitionen"
+msgstr "Boot-Partition"
 
-#: vanilla_installer/gtk/widget-partition.ui:58
+#: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
 msgstr ""
+"Die Partition, die unter \"/boot\" eingebunden werden soll. In diesem "
+"Verzeichnis werden Dateien für das Booten in Vanilla OS gespeichert."
 
-#: vanilla_installer/gtk/widget-partition.ui:61
-#: vanilla_installer/gtk/widget-partition.ui:82
-#: vanilla_installer/gtk/widget-partition.ui:103
-#: vanilla_installer/gtk/widget-partition.ui:152
-#: vanilla_installer/gtk/widget-partition.ui:166
-#: vanilla_installer/gtk/widget-partition.ui:197
-#: vanilla_installer/gtk/widget-partition.ui:230
-#: vanilla_installer/defaults/disk.py:467
+#: vanilla_installer/gtk/widget-partition.ui:33
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:75
+#: vanilla_installer/gtk/widget-partition.ui:124
+#: vanilla_installer/gtk/widget-partition.ui:138
+#: vanilla_installer/gtk/widget-partition.ui:169
+#: vanilla_installer/gtk/widget-partition.ui:203
+#: vanilla_installer/defaults/disk.py:412
 msgid "No partition selected"
-msgstr ""
+msgstr "Keine Partition ausgewählt"
 
-#: vanilla_installer/gtk/widget-partition.ui:62
-#: vanilla_installer/gtk/widget-partition.ui:83
-#: vanilla_installer/gtk/widget-partition.ui:104
-#: vanilla_installer/gtk/widget-partition.ui:153
-#: vanilla_installer/gtk/widget-partition.ui:167
-#: vanilla_installer/gtk/widget-partition.ui:198
-#: vanilla_installer/gtk/widget-partition.ui:231
-#: vanilla_installer/defaults/disk.py:469
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:34
+#: vanilla_installer/gtk/widget-partition.ui:55
+#: vanilla_installer/gtk/widget-partition.ui:76
+#: vanilla_installer/gtk/widget-partition.ui:125
+#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:170
+#: vanilla_installer/gtk/widget-partition.ui:204
+#: vanilla_installer/defaults/disk.py:414
 msgid "Please select a partition from the options below"
-msgstr "Bitte wähle mindestens eine Option aus."
+msgstr "Bitte wählen Sie eine Partition aus den folgenden Optionen"
 
-#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "Boot-Partition ist zu klein."
 
-#: vanilla_installer/gtk/widget-partition.ui:78
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid "EFI Partition"
-msgstr "Partitionen"
+msgstr "EFI-Partition"
 
-#: vanilla_installer/gtk/widget-partition.ui:79
+#: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"Die Partition, die unter \"/boot/efi\" eingebunden werden soll. In diesem "
+"Verzeichnis werden Dateien für das Booten in den Bootloader gespeichert."
 
-#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI-Partition ist zu klein."
 
-#: vanilla_installer/gtk/widget-partition.ui:99
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:71
 msgid "BIOS Boot Partition"
-msgstr "Partitionen"
+msgstr "BIOS-Boot-Partition"
 
-#: vanilla_installer/gtk/widget-partition.ui:100
+#: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"Die Partition, die von GPT-formatierten Festplatten benötigt wird, um das "
+"Booten von BIOS-Systemen zu unterstützen. Sie muss sich in den ersten 2 TB "
+"der Festplatte befinden und genau 1 Mebibyte (1 MiB) groß sein."
 
-#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS-Partition muss genau 1 MiB groß sein."
 
-#: vanilla_installer/gtk/widget-partition.ui:120
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partitions"
-msgstr "Partitionen"
+msgstr "Root-Partitionen"
 
-#: vanilla_installer/gtk/widget-partition.ui:121
+#: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
+"Die Partitionen, die unter \"/\" eingebunden werden sollen. Beide "
+"Partitionen müssen die gleiche Größe haben."
 
-#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:106
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
 msgstr ""
+"Vanilla OS verwendet ein A/B-Partitionssystem, das von ABRoot verwaltet "
+"wird,\n"
+"das bei Aktualisierungen zwischen zwei Root-Partitionen umschaltet."
 
-#: vanilla_installer/gtk/widget-partition.ui:178
+#: vanilla_installer/gtk/widget-partition.ui:150
 msgid "Root partitions are not the same size."
-msgstr ""
+msgstr "Root-Partitionen haben nicht die gleiche Größe."
 
-#: vanilla_installer/gtk/widget-partition.ui:179
+#: vanilla_installer/gtk/widget-partition.ui:151
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
+"Bitte stellen Sie sicher, dass Ihre A- und B-Partitionen den gleichen "
+"Speicherplatz haben."
 
-#: vanilla_installer/gtk/widget-partition.ui:188
+#: vanilla_installer/gtk/widget-partition.ui:160
 msgid "Root partitions are too small."
-msgstr ""
+msgstr "Root-Partitionen sind zu klein."
 
-#: vanilla_installer/gtk/widget-partition.ui:193
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:165
 msgid "Home Partition"
-msgstr "Partitionen"
+msgstr "Home-Partition"
 
-#: vanilla_installer/gtk/widget-partition.ui:194
+#: vanilla_installer/gtk/widget-partition.ui:166
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
+"Die Partition, die unter \"/home\" eingebunden werden soll. In diesem "
+"Verzeichnis werden alle Benutzerdaten gespeichert."
 
-#: vanilla_installer/gtk/widget-partition.ui:209
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Home partition is too small."
-msgstr ""
+msgstr "Home-Partition ist zu klein."
 
-#: vanilla_installer/gtk/widget-partition.ui:214
-#: vanilla_installer/gtk/widget-partition.ui:218
+#: vanilla_installer/gtk/widget-partition.ui:186
+#: vanilla_installer/gtk/widget-partition.ui:190
 #, fuzzy
-msgid "Swap partition"
-msgstr "Partitionen"
+#| msgid "Swap partition"
+msgid "Swap Partition"
+msgstr "Swap-Partition"
 
-#: vanilla_installer/gtk/widget-partition.ui:215
+#: vanilla_installer/gtk/widget-partition.ui:187
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"Swap agiert als virtuelle Erweiterung des Arbeitsspeichers und ermöglicht "
+"den Ruhezustand. Vanilla OS verwendet bereits zram, um Swapping ohne "
+"Speicherplatzverlust zu ermöglichen."
 
-#: vanilla_installer/gtk/widget-partition.ui:219
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Wählen Sie eine Partition aus, die neben zram für den Swap-Bereich verwendet "
+"werden soll. Dies ist für den Ruhezustand nicht erforderlich."
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
-#: vanilla_installer/defaults/disk.py:42
-#, python-brace-format
-msgid "Not enough space: {0}/{1}"
-msgstr ""
-
-#: vanilla_installer/defaults/disk.py:57
-msgid "This is the only disk available and cannot be deselected!"
-msgstr ""
-"Dies ist die einzige verfügbare Festplatte und kann nicht abgewählt werden!"
-
-#: vanilla_installer/defaults/disk.py:332
+#: vanilla_installer/defaults/disk.py:286
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
+"GParted wird bereits ausgeführt. Es ist nur eine Instanz von GParted "
+"zulässig."
 
-#: vanilla_installer/defaults/disk.py:431
+#: vanilla_installer/defaults/disk.py:376
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "Partition muss mindestens {} sein"
 
-#: vanilla_installer/defaults/disk.py:454
+#: vanilla_installer/defaults/disk.py:399
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partition muss GENAU {} sein"
 
-#: vanilla_installer/defaults/disk.py:556
+#: vanilla_installer/defaults/disk.py:510
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Partitionen haben sich geändert. Die aktuelle Auswahl wurde gelöscht."
 
-#: vanilla_installer/defaults/disk.py:621
+#: vanilla_installer/defaults/disk.py:567
 msgid "Entire disk will be used."
-msgstr "Die gesamte Festplatte wird verwendet."
+msgstr "Gesamte Festplatte wird verwendet."
 
-#: vanilla_installer/defaults/disk.py:628
+#: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Wird in {} formatiert und in {} eingehängt"
 
 #. signals
 #: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:122
+#: vanilla_installer/views/confirm.py:124
 #: vanilla_installer/views/progress.py:51
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
 msgid "clicked"
-msgstr ""
+msgstr "ausgewählt"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
-msgstr "Bitte wähle mindestens eine Option aus."
+msgstr "Bitte wählen Sie mindestens eine Option aus."
 
-#: vanilla_installer/utils/builder.py:67
+#: vanilla_installer/utils/builder.py:69
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Es fehlt die Angabe der 'log_file' in dem Rezept."
 
-#: vanilla_installer/utils/builder.py:76
+#: vanilla_installer/utils/builder.py:78
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "Protokolldatei konnte nicht erstellt werden: %s"
 
-#: vanilla_installer/utils/builder.py:77
+#: vanilla_installer/utils/builder.py:79
 msgid "No log will be stored."
-msgstr ""
+msgstr "Es wird kein Protokoll gespeichert."
 
-#: vanilla_installer/utils/builder.py:84
+#: vanilla_installer/utils/builder.py:86
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Durchführen der Anzeigebedingung: %s"
 
-#: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
+#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Schritt %s übersprungen aufgrund von Anzeigebedingungen"
 
 #: vanilla_installer/utils/recipe.py:46
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Ungültige Rezeptdatei"
 
 #: vanilla_installer/utils/recipe.py:55
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Rezept ist kein Wörterbuch"
 
 #: vanilla_installer/utils/recipe.py:60
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "Rezept vermisst den '{key}'-Schlüssel"
 
 #: vanilla_installer/utils/recipe.py:64
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Rezept Schritte sind keine Liste"
 
 #: vanilla_installer/utils/recipe.py:69
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "Schritt {step} ist kein Wörterbuch"
 
-#: vanilla_installer/views/confirm.py:78
-#, fuzzy
+#: vanilla_installer/views/confirm.py:79
 msgid "Keyboard"
-msgstr "Tastaturbelegung"
+msgstr "Tastatur"
 
-#: vanilla_installer/views/confirm.py:84
+#: vanilla_installer/views/confirm.py:85
 msgid "Timezone"
-msgstr ""
+msgstr "Zeitzone"
 
-#: vanilla_installer/views/confirm.py:90
-#, fuzzy
+#: vanilla_installer/views/confirm.py:91
 msgid "Users"
-msgstr "Nutzername"
+msgstr "Benutzer"
 
-#: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
+#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
 msgid "Disk"
-msgstr ""
+msgstr "Festplatte"
 
-#: vanilla_installer/views/confirm.py:125
+#: vanilla_installer/views/confirm.py:127
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
-msgstr ""
+msgstr "Installation bestätigt"
 
-#: vanilla_installer/views/done.py:38
+#: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Starten Sie Ihren PC neu, um Ihr {} Erlebnis zu genießen."
 
-#: vanilla_installer/views/done.py:52
+#: vanilla_installer/views/done.py:53
 msgid "Something went wrong"
 msgstr "Etwas ist schief gelaufen"
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
 msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
-msgstr ""
+msgstr "Seite geändert"
+
+#~ msgid "Select a Disk"
+#~ msgstr "Wählen Sie eine Festplatte aus"
+
+#~ msgid "Select the disk where you want to install Vanilla OS"
+#~ msgstr ""
+#~ "Wählen Sie die Festplatte aus, auf der Vanilla OS installiert werden soll"
+
+#~ msgid "Configure"
+#~ msgstr "Konfigurieren"
+
+#~ msgid "Disk Allocation"
+#~ msgstr "Festplattenzuordnung"
+
+#~ msgid "Choose how to install Vanilla OS on your drive."
+#~ msgstr ""
+#~ "Wählen Sie, wie Vanilla OS auf Ihrem Laufwerk installiert werden soll."
+
+#~ msgid "This will erase all data on the disk."
+#~ msgstr "Dadurch werden alle Daten auf der Festplatte gelöscht."
+
+#~ msgid "Manual Partitioning"
+#~ msgstr "Manuelle Partitionierung"
+
+#~ msgid ""
+#~ "Select which partitions to use for installation. Incorrect configuration "
+#~ "can lead to data loss, corruption, and/or an unbootable system."
+#~ msgstr ""
+#~ "Wählen Sie aus, welche Partitionen für die Installation verwendet werden "
+#~ "sollen. Eine falsche Konfiguration kann zu Datenverlust, Beschädigung und/"
+#~ "oder einem nicht bootfähigen System führen."
+
+#, python-brace-format
+#~ msgid "Not enough space: {0}/{1}"
+#~ msgstr "Nicht genügend Speicherplatz: {0}/{1}"
+
+#~ msgid "This is the only disk available and cannot be deselected!"
+#~ msgstr ""
+#~ "Dies ist die einzige verfügbare Festplatte und kann nicht abgewählt "
+#~ "werden!"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Vanilla OS ausprobieren"
 
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"

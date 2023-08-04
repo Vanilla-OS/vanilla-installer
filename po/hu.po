@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # Benjamin Kőhidi <benstone326@gmail.com>, 2023.
+# Nagy Ádám Aladár <totallynotlime@tutanota.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:41+0530\n"
-"PO-Revision-Date: 2023-02-23 00:29+0000\n"
-"Last-Translator: Benjamin Kőhidi <benstone326@gmail.com>\n"
+"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"PO-Revision-Date: 2023-04-09 13:23+0000\n"
+"Last-Translator: Nagy Ádám Aladár <totallynotlime@tutanota.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/hu/>\n"
 "Language: hu\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -43,11 +44,12 @@ msgid "The following changes will be made to your system:"
 msgstr "A következő változtatások lesznek végrehajtva a rendszerén:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:86
+#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "A Vanilla OS telepítése"
 
-#: vanilla_installer/gtk/default-disk.ui:20
+#: vanilla_installer/gtk/default-disk.ui:19
+#: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
 #: vanilla_installer/gtk/default-language.ui:23
 #: vanilla_installer/gtk/default-theme.ui:49
@@ -57,17 +59,55 @@ msgstr "A Vanilla OS telepítése"
 msgid "Next"
 msgstr "Következő"
 
+#: vanilla_installer/gtk/default-disk.ui:29
+#, fuzzy
+#| msgid "Confirm Installation"
+msgid "Install Location"
+msgstr "Telepítés megerősítése"
+
 #: vanilla_installer/gtk/default-disk.ui:30
-msgid "Select a Disk"
-msgstr "Válasszon egy lemezt"
+msgid ""
+"Select the disk where you want to install Vanilla OS. Alternatively, you can "
+"select one or more disks to configure manually."
+msgstr ""
 
-#: vanilla_installer/gtk/default-disk.ui:31
-msgid "Select the disk where you want to install Vanilla OS"
-msgstr "Válassza ki azt a lemezt, amelyre a Vanilla OS-t telepíteni szeretné"
+#: vanilla_installer/gtk/default-disk.ui:44
+#, fuzzy
+#| msgid "Entire Disk"
+msgid "Use entire disk"
+msgstr "Teljes lemez"
 
-#: vanilla_installer/gtk/default-disk.ui:41
-msgid "Configure"
-msgstr "Konfigurálás"
+#: vanilla_installer/gtk/default-disk.ui:56
+msgid "Manual"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:28
+msgid "Device Encryption"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:29
+msgid ""
+"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+"personal information in case your device gets stolen."
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:36
+msgid "Encrypt device"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:37
+msgid "Use a memorable password to encrypt your data"
+msgstr ""
+
+#: vanilla_installer/gtk/default-encryption.ui:49
+#: vanilla_installer/gtk/default-users.ui:60
+msgid "Password"
+msgstr "Jelszó"
+
+#: vanilla_installer/gtk/default-encryption.ui:55
+#: vanilla_installer/gtk/default-users.ui:66
+msgid "Confirm Password"
+msgstr "Jelszó megerősítése"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
@@ -83,7 +123,7 @@ msgstr "Billentyűkiosztás keresése"
 
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:72
+#: vanilla_installer/views/confirm.py:73
 msgid "Language"
 msgstr "Nyelv"
 
@@ -94,6 +134,36 @@ msgstr "Válassza ki a nyelvét"
 #: vanilla_installer/gtk/default-language.ui:44
 msgid "Search for a language"
 msgstr "Nyelv keresése"
+
+#: vanilla_installer/gtk/default-nvidia.ui:14
+msgid "NVIDIA® Drivers"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:15
+msgid ""
+"Choose whether to install proprietary NVIDIA drivers for better "
+"compatibility and performance."
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:29
+msgid "Don't install"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:38
+msgid "Install  (recommended)"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:70
+msgid "About Proprietary Drivers"
+msgstr ""
+
+#: vanilla_installer/gtk/default-nvidia.ui:78
+msgid ""
+"A proprietary driver has private code that neither Vanilla OS nor Debian "
+"developers can review.\n"
+"\n"
+"Security and other updates are dependent on the driver vendor."
+msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -147,28 +217,32 @@ msgstr "Név"
 msgid "Username"
 msgstr "Felhasználónév"
 
-#: vanilla_installer/gtk/default-users.ui:60
-msgid "Password"
-msgstr "Jelszó"
+#: vanilla_installer/gtk/default-welcome.ui:30
+msgid "Recovery"
+msgstr "Helyreállítás"
 
-#: vanilla_installer/gtk/default-users.ui:66
-msgid "Confirm Password"
-msgstr "Jelszó megerősítése"
+#: vanilla_installer/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Információ megjelenítése"
 
-#: vanilla_installer/gtk/default-welcome.ui:51
-msgid "Try Vanilla OS"
-msgstr "A Vanilla OS kipróbálása"
+#: vanilla_installer/gtk/dialog-disk.ui:5
+msgid "Configure Disk"
+msgstr "Lemez konfigurálása"
+
+#: vanilla_installer/gtk/dialog-disk.ui:17
+#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
+msgid "Cancel"
+msgstr "Mégse"
+
+#: vanilla_installer/gtk/dialog-disk.ui:22
+msgid "Apply"
+msgstr "Alkalmaz"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
 msgstr "Változások megerősítése"
-
-#: vanilla_installer/gtk/dialog-disk-confirm.ui:18
-#: vanilla_installer/gtk/dialog-disk.ui:17
-msgid "Cancel"
-msgstr "Mégse"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
@@ -178,21 +252,45 @@ msgstr ""
 "A következő változtatások lesznek végrehajtva a lemezen. Kérjük, tekintse át "
 "őket gondosan."
 
-#: vanilla_installer/gtk/dialog-disk.ui:5
-msgid "Configure Disk"
-msgstr "Lemez konfigurálása"
-
-#: vanilla_installer/gtk/dialog-disk.ui:22
-msgid "Apply"
-msgstr "Alkalmaz"
-
-#: vanilla_installer/gtk/dialog.ui:6
-msgid "Showing Information"
-msgstr "Információ megjelenítése"
-
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Napló"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Vanilla OS helyreállítás"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:26
+msgid "Console"
+msgstr "Konzol"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Nyisson meg egy terminált."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:33
+msgid "Gparted"
+msgstr "Gparted"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Lemezek és partíciók kezelése."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:40
+msgid "Handbook"
+msgstr "Kézikönyv"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Olvassa el a Vanilla OS kézikönyvet."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:47
+msgid "Web Browser"
+msgstr "Webböngésző"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Keressen segítséget az interneten."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -230,48 +328,19 @@ msgstr "Konzol kimenet megjelenítése"
 msgid "Show Slideshow"
 msgstr "Diavetítés megjelenítése"
 
-#: vanilla_installer/gtk/widget-partition.ui:7
-msgid "Disk Allocation"
-msgstr "Lemezkiosztás"
-
-#: vanilla_installer/gtk/widget-partition.ui:8
-msgid "Choose how to install Vanilla OS on your drive."
-msgstr "Válassza ki a lemezt, amelyre telepíteni szeretné a Vanilla OS-t."
-
-#: vanilla_installer/gtk/widget-partition.ui:11
-msgid "Entire Disk"
-msgstr "Teljes lemez"
-
-#: vanilla_installer/gtk/widget-partition.ui:12
-msgid "This will erase all data on the disk."
-msgstr "Ez törli az összes adatot a lemezről."
-
-#: vanilla_installer/gtk/widget-partition.ui:23
-msgid "Manual Partitioning"
-msgstr "Kézi partícionálás"
-
-#: vanilla_installer/gtk/widget-partition.ui:24
-msgid ""
-"Select which partitions to use for installation. Incorrect configuration can "
-"lead to data loss, corruption, and/or an unbootable system."
-msgstr ""
-"Válassza ki a telepítéshez használni kívánt partíciókat. A helytelen "
-"konfiguráció adatvesztéshez, sérüléshez és/vagy indíthatatlan rendszerhez "
-"vezethet."
-
-#: vanilla_installer/gtk/widget-partition.ui:39
+#: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Open GParted"
 msgstr "GParted megnyitása"
 
-#: vanilla_installer/gtk/widget-partition.ui:40
+#: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
 msgstr "GParted megnyitása a lemez kézi particionálásához"
 
-#: vanilla_installer/gtk/widget-partition.ui:57
+#: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Boot Partition"
 msgstr "Boot partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:58
+#: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting in Vanilla OS."
@@ -279,37 +348,37 @@ msgstr ""
 "A \"/boot\" alá csatolandó partíció. Ez a könyvtár tárolja a Vanilla OS-ben "
 "való indításhoz szükséges fájlokat."
 
-#: vanilla_installer/gtk/widget-partition.ui:61
-#: vanilla_installer/gtk/widget-partition.ui:82
-#: vanilla_installer/gtk/widget-partition.ui:103
-#: vanilla_installer/gtk/widget-partition.ui:152
-#: vanilla_installer/gtk/widget-partition.ui:166
-#: vanilla_installer/gtk/widget-partition.ui:197
-#: vanilla_installer/gtk/widget-partition.ui:230
-#: vanilla_installer/defaults/disk.py:467
+#: vanilla_installer/gtk/widget-partition.ui:33
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:75
+#: vanilla_installer/gtk/widget-partition.ui:124
+#: vanilla_installer/gtk/widget-partition.ui:138
+#: vanilla_installer/gtk/widget-partition.ui:169
+#: vanilla_installer/gtk/widget-partition.ui:203
+#: vanilla_installer/defaults/disk.py:412
 msgid "No partition selected"
 msgstr "Nincs kiválasztott partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:62
-#: vanilla_installer/gtk/widget-partition.ui:83
-#: vanilla_installer/gtk/widget-partition.ui:104
-#: vanilla_installer/gtk/widget-partition.ui:153
-#: vanilla_installer/gtk/widget-partition.ui:167
-#: vanilla_installer/gtk/widget-partition.ui:198
-#: vanilla_installer/gtk/widget-partition.ui:231
-#: vanilla_installer/defaults/disk.py:469
+#: vanilla_installer/gtk/widget-partition.ui:34
+#: vanilla_installer/gtk/widget-partition.ui:55
+#: vanilla_installer/gtk/widget-partition.ui:76
+#: vanilla_installer/gtk/widget-partition.ui:125
+#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:170
+#: vanilla_installer/gtk/widget-partition.ui:204
+#: vanilla_installer/defaults/disk.py:414
 msgid "Please select a partition from the options below"
 msgstr "Kérjük, válasszon egy partíciót az alábbi lehetőségek közül"
 
-#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
 msgstr "A boot partíció túl kicsi."
 
-#: vanilla_installer/gtk/widget-partition.ui:78
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid "EFI Partition"
 msgstr "EFI partíciók"
 
-#: vanilla_installer/gtk/widget-partition.ui:79
+#: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -317,15 +386,15 @@ msgstr ""
 "A \"/boot/efi\" alá csatolandó partíció. Ez a könyvtár tárolja a "
 "bootloaderben való indításhoz szükséges fájlokat."
 
-#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
 msgstr "Az EFI partíció túl kicsi."
 
-#: vanilla_installer/gtk/widget-partition.ui:99
+#: vanilla_installer/gtk/widget-partition.ui:71
 msgid "BIOS Boot Partition"
 msgstr "BIOS boot partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:100
+#: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -335,22 +404,22 @@ msgstr ""
 "támogatásához szükséges partíció. A lemez első 2 TB-ján kell elhelyezkednie, "
 "és pontosan 1 Mebibyte (1 MiB) méretűnek kell lennie."
 
-#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "A BIOS partíciónak pontosan 1 MiB-nak kell lennie."
 
-#: vanilla_installer/gtk/widget-partition.ui:120
+#: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partitions"
 msgstr "Root partíciók"
 
-#: vanilla_installer/gtk/widget-partition.ui:121
+#: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
 "A \"/\" alá csatolandó partíciók. Mindkét partíciónak azonos méretűnek kell "
 "lennie."
 
-#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:106
 msgid ""
 "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
 "which switches between two root partitions between updates."
@@ -358,41 +427,43 @@ msgstr ""
 "A Vanilla OS az ABRoot által kezelt A/B partíciós rendszert használja,\n"
 "amely a frissítéseknél két root partíció között váltogat."
 
-#: vanilla_installer/gtk/widget-partition.ui:178
+#: vanilla_installer/gtk/widget-partition.ui:150
 msgid "Root partitions are not the same size."
 msgstr "A root partíciók nem azonos méretűek."
 
-#: vanilla_installer/gtk/widget-partition.ui:179
+#: vanilla_installer/gtk/widget-partition.ui:151
 msgid "Please make sure your A and B partitions have the same disk space."
 msgstr ""
 "Kérjük, győződjön meg arról, hogy az A és B partíciók azonos tárhely "
 "mérettel rendelkeznek."
 
-#: vanilla_installer/gtk/widget-partition.ui:188
+#: vanilla_installer/gtk/widget-partition.ui:160
 msgid "Root partitions are too small."
 msgstr "A root partíciók túl kicsik."
 
-#: vanilla_installer/gtk/widget-partition.ui:193
+#: vanilla_installer/gtk/widget-partition.ui:165
 msgid "Home Partition"
 msgstr "Home partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:194
+#: vanilla_installer/gtk/widget-partition.ui:166
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
 "A \"/home\" alá csatolandó partíció. Ez a könyvtár tárolja az összes "
 "felhasználói adatot."
 
-#: vanilla_installer/gtk/widget-partition.ui:209
+#: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Home partition is too small."
 msgstr "A home partíció túl kicsi."
 
-#: vanilla_installer/gtk/widget-partition.ui:214
-#: vanilla_installer/gtk/widget-partition.ui:218
-msgid "Swap partition"
+#: vanilla_installer/gtk/widget-partition.ui:186
+#: vanilla_installer/gtk/widget-partition.ui:190
+#, fuzzy
+#| msgid "Swap partition"
+msgid "Swap Partition"
 msgstr "Swap partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:215
+#: vanilla_installer/gtk/widget-partition.ui:187
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -401,7 +472,7 @@ msgstr ""
 "hibernációt. A Vanilla OS már használja a zramot, hogy tárolási költség "
 "nélkül biztosítsa a swapolást."
 
-#: vanilla_installer/gtk/widget-partition.ui:219
+#: vanilla_installer/gtk/widget-partition.ui:191
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -413,42 +484,33 @@ msgstr ""
 msgid "Back"
 msgstr "Vissza"
 
-#: vanilla_installer/defaults/disk.py:42
-#, python-brace-format
-msgid "Not enough space: {0}/{1}"
-msgstr "Nincs elég hely: {0}/{1}"
-
-#: vanilla_installer/defaults/disk.py:57
-msgid "This is the only disk available and cannot be deselected!"
-msgstr "Ez az egyetlen elérhető lemez, és nem választható ki!"
-
-#: vanilla_installer/defaults/disk.py:332
+#: vanilla_installer/defaults/disk.py:286
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "A GParted már fut. Csak egy GParted példány engedélyezett."
 
-#: vanilla_installer/defaults/disk.py:431
+#: vanilla_installer/defaults/disk.py:376
 msgid "Partition must be at least {}"
 msgstr "A partíciónak legalább {} méretűnek kell lennie"
 
-#: vanilla_installer/defaults/disk.py:454
+#: vanilla_installer/defaults/disk.py:399
 msgid "Partition must EXACTLY {}"
 msgstr "A partíciónak PONTOSAN {} méretűnek kel lennie"
 
-#: vanilla_installer/defaults/disk.py:556
+#: vanilla_installer/defaults/disk.py:510
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "A partíciók megváltoztak. A jelenlegi kiválasztások törlődtek."
 
-#: vanilla_installer/defaults/disk.py:621
+#: vanilla_installer/defaults/disk.py:567
 msgid "Entire disk will be used."
 msgstr "A teljes lemez felhasználásra kerül."
 
-#: vanilla_installer/defaults/disk.py:628
+#: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} formátumban lesz formázva és {} formátumban lesz felcsatolva"
 
 #. signals
 #: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:122
+#: vanilla_installer/views/confirm.py:124
 #: vanilla_installer/views/progress.py:51
 #: vanilla_installer/views/progress.py:52
 #: vanilla_installer/windows/main_window.py:61
@@ -459,25 +521,25 @@ msgstr "csatolva"
 msgid "Please select at least one option."
 msgstr "Kérjük, válasszon legalább egy lehetőséget."
 
-#: vanilla_installer/utils/builder.py:67
+#: vanilla_installer/utils/builder.py:69
 msgid "Missing 'log_file' in the recipe."
 msgstr "Hiányzik a 'log_file' a receptben."
 
-#: vanilla_installer/utils/builder.py:76
+#: vanilla_installer/utils/builder.py:78
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "nem sikerült naplófájlt létrehozni: %s"
 
-#: vanilla_installer/utils/builder.py:77
+#: vanilla_installer/utils/builder.py:79
 msgid "No log will be stored."
 msgstr "A napló nem kerül tárolásra."
 
-#: vanilla_installer/utils/builder.py:84
+#: vanilla_installer/utils/builder.py:86
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Megjelenítési feltétel végrehajtása: %s"
 
-#: vanilla_installer/utils/builder.py:87 vanilla_installer/utils/builder.py:90
+#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "%s lépés kihagyva a megjelenítési feltételek miatt"
@@ -504,42 +566,82 @@ msgstr "A recept lépései nem egy lista"
 msgid "Step {step} is not a dictionary"
 msgstr "A {step} lépés nem egy bejegyzés"
 
-#: vanilla_installer/views/confirm.py:78
+#: vanilla_installer/views/confirm.py:79
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
-#: vanilla_installer/views/confirm.py:84
+#: vanilla_installer/views/confirm.py:85
 msgid "Timezone"
 msgstr "Időzóna"
 
-#: vanilla_installer/views/confirm.py:90
+#: vanilla_installer/views/confirm.py:91
 msgid "Users"
 msgstr "Felhasználók"
 
-#: vanilla_installer/views/confirm.py:97 vanilla_installer/views/confirm.py:106
+#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
 msgid "Disk"
 msgstr "Lemez"
 
-#: vanilla_installer/views/confirm.py:125
+#: vanilla_installer/views/confirm.py:127
 #: vanilla_installer/windows/main_window.py:64
 msgid "installation-confirmed"
 msgstr "telepítés-megerősítve"
 
-#: vanilla_installer/views/done.py:38
+#: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Indítsa újra a készüléket, hogy élvezhesse a {} élményt."
 
-#: vanilla_installer/views/done.py:52
+#: vanilla_installer/views/done.py:53
 msgid "Something went wrong"
 msgstr "Valami hiba történt"
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
 msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
 
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "oldal-megváltozott"
+
+#~ msgid "Select a Disk"
+#~ msgstr "Válasszon egy lemezt"
+
+#~ msgid "Select the disk where you want to install Vanilla OS"
+#~ msgstr ""
+#~ "Válassza ki azt a lemezt, amelyre a Vanilla OS-t telepíteni szeretné"
+
+#~ msgid "Configure"
+#~ msgstr "Konfigurálás"
+
+#~ msgid "Disk Allocation"
+#~ msgstr "Lemezkiosztás"
+
+#~ msgid "Choose how to install Vanilla OS on your drive."
+#~ msgstr "Válassza ki a lemezt, amelyre telepíteni szeretné a Vanilla OS-t."
+
+#~ msgid "This will erase all data on the disk."
+#~ msgstr "Ez törli az összes adatot a lemezről."
+
+#~ msgid "Manual Partitioning"
+#~ msgstr "Kézi partícionálás"
+
+#~ msgid ""
+#~ "Select which partitions to use for installation. Incorrect configuration "
+#~ "can lead to data loss, corruption, and/or an unbootable system."
+#~ msgstr ""
+#~ "Válassza ki a telepítéshez használni kívánt partíciókat. A helytelen "
+#~ "konfiguráció adatvesztéshez, sérüléshez és/vagy indíthatatlan rendszerhez "
+#~ "vezethet."
+
+#, python-brace-format
+#~ msgid "Not enough space: {0}/{1}"
+#~ msgstr "Nincs elég hely: {0}/{1}"
+
+#~ msgid "This is the only disk available and cannot be deselected!"
+#~ msgstr "Ez az egyetlen elérhető lemez, és nem választható ki!"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "A Vanilla OS kipróbálása"
 
 #~ msgid "Welcome"
 #~ msgstr "Üdv"

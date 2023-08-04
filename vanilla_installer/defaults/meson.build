@@ -7,8 +7,9 @@ sources = [
   'language.py',
   'keyboard.py',
   'timezone.py',
-  'users.py',
   'disk.py',
+  'encryption.py',
+  'nvidia.py',
 ]
 
 install_data(sources, install_dir: defaultsdir)

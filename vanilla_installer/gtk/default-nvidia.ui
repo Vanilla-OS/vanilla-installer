@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaDefaultNvidia" parent="AdwBin">
+    <property name="halign">0</property>
+    <property name="valign">0</property>
+    <property name="hexpand">true</property>
+    <child>
+      <object class="AdwStatusPage" id="status_page">
+        <property name="halign">0</property>
+        <property name="valign">0</property>
+        <property name="hexpand">true</property>
+        <property name="icon-name">video-display-symbolic</property>
+        <property name="title" translatable="yes">NVIDIA® Drivers</property>
+        <property name="description" translatable="yes">Choose whether to install proprietary NVIDIA drivers for better compatibility and performance.</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">1</property>
+            <property name="vexpand">true</property>
+            <property name="hexpand">true</property>
+            <property name="valign">3</property>
+            <child>
+              <object class="GtkBox">
+                <property name="valign">3</property>
+                <property name="spacing">10</property>
+                <property name="halign">3</property>
+                <child>
+                  <object class="GtkButton" id="btn_no">
+                    <property name="label" translatable="yes">Don't install</property>
+                    <property name="halign">3</property>
+                    <style>
+                      <class name="pill"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_yes">
+                    <property name="label" translatable="yes">Install  (recommended)</property>
+                    <property name="halign">3</property>
+                    <style>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <child>
+                      <object class="GtkButton" id="btn_info">
+                        <property name="icon-name">dialog-information-symbolic</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkPopover" id="info_popover">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">1</property>
+                            <property name="spacing">10</property>
+                            <property name="vexpand">true</property>
+                            <property name="halign">3</property>
+                            <property name="margin-top">10</property>
+                            <property name="margin-bottom">10</property>
+                            <property name="margin-start">10</property>
+                            <property name="margin-end">10</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">About Proprietary Drivers</property>
+                                <style>
+                                  <class name="title-4"/>
+                                </style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">A proprietary driver has private code that neither Vanilla OS nor Debian developers can review.
+
+Security and other updates are dependent on the driver vendor.</property>
+                                <property name="wrap">true</property>
+                                <property name="max-width-chars">50</property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
+

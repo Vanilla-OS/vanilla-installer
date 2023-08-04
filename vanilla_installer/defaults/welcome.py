@@ -19,13 +19,14 @@ import time
 from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.utils.run_async import RunAsync
+from vanilla_installer.windows.dialog_recovery import VanillaRecoveryDialog
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-welcome.ui')
 class VanillaDefaultWelcome(Adw.Bin):
     __gtype_name__ = 'VanillaDefaultWelcome'
 
-    btn_live = Gtk.Template.Child()
+    btn_recovery = Gtk.Template.Child()
     btn_install = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
@@ -36,12 +37,12 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.__step = step
 
         # signals
-        self.btn_live.connect('clicked', self.__on_live_clicked)
+        self.btn_recovery.connect('clicked', self.__on_recovery_clicked)
         self.btn_install.connect("clicked", self.__window.next)
 
     def get_finals(self):
         return {}
 
-    def __on_live_clicked(self, button):
-        sys.exit(0)
+    def __on_recovery_clicked(self, button):
+        VanillaRecoveryDialog(self.__window).show()
         

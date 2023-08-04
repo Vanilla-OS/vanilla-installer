@@ -23,6 +23,7 @@ from gi.repository import Gtk, Gio, GLib, Adw
 
 from vanilla_installer.core.timezones import all_timezones, get_current_timezone, get_preview_timezone
 
+from vanilla_installer.utils.run_async import RunAsync
 
 
 @Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-timezone.ui')
@@ -50,30 +51,15 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.str_list_region.splice(0, 0, list(all_timezones.keys()))
 
         # set up current timezone
+        self.__get_current_timezone()
+
         current_country, current_city = get_current_timezone()
-        country_set, city_set = False, False
-        for country, _ in all_timezones.items():
-            if country == current_country:
-                self.combo_region.set_selected(list(all_timezones.keys()).index(country))
-                self.__on_country_selected(None, None)
-                country_set = True
-
-                for index, city in enumerate(all_timezones[country]):
-                    if city == current_city:
-                        self.combo_zone.set_selected(index)
-                        city_set = True
-                        break
-
-                break
-
-        if not country_set or not city_set:
-            self.combo_region.set_selected(0)
-            self.__on_country_selected(None, None)
+        _time, _date = get_preview_timezone(current_country, current_city)
+        self.row_preview.set_title(_time)
+        self.row_preview.set_subtitle(_date)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
-        self.combo_region.connect("notify::selected", self.__on_country_selected)
-        self.combo_zone.connect("notify::selected", self.__on_city_selected)
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
 
@@ -120,7 +106,6 @@ class VanillaDefaultTimezone(Adw.Bin):
 
         for country, cities in all_timezones.items():
             for city in cities:
-
                 city = re.sub(r'[^a-zA-Z0-9 ]', '', city)
                 if re.search(keywords, city, re.IGNORECASE):
                     self.combo_region.set_selected(list(all_timezones.keys()).index(country))
@@ -131,3 +116,29 @@ class VanillaDefaultTimezone(Adw.Bin):
                             break
 
                     return
+
+    def __get_current_timezone(self):
+        def set_current_timezone():
+            current_country, current_city = get_current_timezone()
+            country_set, city_set = False, False
+            for country, _ in all_timezones.items():
+                if country == current_country:
+                    self.combo_region.set_selected(list(all_timezones.keys()).index(country))
+                    self.__on_country_selected(None, None)
+                    country_set = True
+
+                    for index, city in enumerate(all_timezones[country]):
+                        if city == current_city:
+                            self.combo_zone.set_selected(index)
+                            city_set = True
+                            break
+
+                    break
+
+            if not country_set or not city_set:
+                self.combo_region.set_selected(0)
+                self.__on_country_selected(None, None)
+            self.combo_region.connect("notify::selected", self.__on_country_selected)
+            self.combo_zone.connect("notify::selected", self.__on_city_selected)
+
+        RunAsync(set_current_timezone, None)

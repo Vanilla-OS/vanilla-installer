@@ -5,3 +5,5 @@
 /debian/vanilla-installer
 /debian/vanilla-installer.substvars
 /debian/vanilla-installer.debhelper.log
+install/
+.buildconfig
