@@ -1,7 +1,7 @@
 <div align="center">
     <img src="data/icons/hicolor/scalable/apps/org.vanillaos.Installer.svg" height="64">
     <h1>Vanilla OS Installer</h1>
-    <p>A frontend in GTK 4 and Libadwaita for distinst.</p>
+    <p>A frontend in GTK 4 and Libadwaita for Albius.</p>
     <hr />
     <a href="https://hosted.weblate.org/engage/vanilla-os/">
 <img src="https://hosted.weblate.org/widgets/vanilla-os/-/first-setup/svg-badge.svg" alt="Stato traduzione" />
@@ -21,6 +21,7 @@
 - libgweather-4-dev
 - python3-tz
 - python3-requests
+- gir1.2-vte-3.91
 
 ### Build
 ```bash
@@ -42,8 +43,3 @@ vanilla-installer
 Place a new recipe in `/etc/vanilla-installer/recipe.json` or launch the
 utility with the `VANILLA_CUSTOM_RECIPE` environment variable set to the path
 of the recipe.
-
-## Not on Vanilla OS?
-Currently, the installer only supports Vanilla OS due to some specific
-tasks that are performed during installation. Supporting other distros
-is planned for the future.

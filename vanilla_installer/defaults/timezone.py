@@ -48,11 +48,15 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__step = step
 
         # set up the string list for keyboard layouts
-        for country, _ in all_timezones.items():
-            self.str_list_region.append(country)
+        self.str_list_region.splice(0, 0, list(all_timezones.keys()))
 
         # set up current timezone
         self.__get_current_timezone()
+
+        current_country, current_city = get_current_timezone()
+        _time, _date = get_preview_timezone(current_country, current_city)
+        self.row_preview.set_title(_time)
+        self.row_preview.set_subtitle(_date)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
@@ -76,13 +80,10 @@ class VanillaDefaultTimezone(Adw.Bin):
             }
 
     def __on_country_selected(self, combo, param):
-        self.str_list_zone.splice(0, self.str_list_zone.get_n_items())
-
         country_index = self.combo_region.get_selected()
         country = list(all_timezones.keys())[country_index]
-        for timezone in all_timezones[country]:
-            replaced = re.sub(r'_', r' ', timezone)
-            self.str_list_zone.append(replaced)
+        timezone = list(map(lambda tz: tz.replace('_', ' '), all_timezones[country]))
+        self.str_list_zone.splice(0, self.str_list_zone.get_n_items(), timezone)
 
     def __on_city_selected(self, combo, param):
         country_index = self.combo_region.get_selected()
@@ -105,7 +106,6 @@ class VanillaDefaultTimezone(Adw.Bin):
 
         for country, cities in all_timezones.items():
             for city in cities:
-
                 city = re.sub(r'[^a-zA-Z0-9 ]', '', city)
                 if re.search(keywords, city, re.IGNORECASE):
                     self.combo_region.set_selected(list(all_timezones.keys()).index(country))
@@ -116,7 +116,7 @@ class VanillaDefaultTimezone(Adw.Bin):
                             break
 
                     return
-    
+
     def __get_current_timezone(self):
         def set_current_timezone():
             current_country, current_city = get_current_timezone()
@@ -140,4 +140,5 @@ class VanillaDefaultTimezone(Adw.Bin):
                 self.__on_country_selected(None, None)
             self.combo_region.connect("notify::selected", self.__on_country_selected)
             self.combo_zone.connect("notify::selected", self.__on_city_selected)
+
         RunAsync(set_current_timezone, None)

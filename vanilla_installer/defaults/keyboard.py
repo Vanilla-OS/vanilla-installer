@@ -20,6 +20,7 @@ import time
 import subprocess
 import contextlib
 from gi.repository import Gtk, Gio, GLib, Adw
+import os
 
 from vanilla_installer.core.keymaps import KeyMaps
 
@@ -47,11 +48,11 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__keymaps = KeyMaps()
-        
+
         # set up the string list for keyboard layouts
         for country in self.__keymaps.list_all.keys():
             self.str_list_layouts.append(country)
-        
+
         # set up current keyboard layout
         current_layout, current_variant = self.__get_current_layout()
         for country in self.__keymaps.list_all.keys():
@@ -74,17 +75,27 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.btn_next.connect("clicked", self.__next)
         self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
-        self.test_focus_controller.connect("enter", self.__apply_layout)
-    
+        if "VANILLA_NO_APPLY_XKB" not in os.environ:
+            self.test_focus_controller.connect("enter", self.__apply_layout)
+
     def __next(self, *args):
-        self.__window.next(None, self.__apply_layout)
+        if "VANILLA_NO_APPLY_XKB" in os.environ:
+            self.__window.next()
+        else:
+            self.__window.next(None, self.__apply_layout)
 
     def get_finals(self):
         variant_index = self.combo_variants.get_selected()
         variant = self.str_list_variants.get_item(variant_index)
 
         if variant is None:
-            return {"keyboard": "us"}  # fallback
+            return {
+                "keyboard": {
+                    "layout": "us",
+                    "model": "pc105",
+                    "variant": ""
+                }
+            }  # fallback
 
         variant = variant.get_string()
         layout_index = self.combo_layouts.get_selected()
@@ -94,9 +105,13 @@ class VanillaDefaultKeyboard(Adw.Bin):
         for key in layout.keys():
             if layout[key]["display_name"] == variant:
                 return {
-                    "keyboard": layout[key]["xkb_layout"]
+                    "keyboard": {
+                        "layout": layout[key]["xkb_layout"],
+                        "model": "pc105",
+                        "variant": layout[key]["xkb_variant"]
+                    }
                 }
-    
+
     def __get_current_layout(self):
         res = subprocess.run(
             ["setxkbmap", "-query"], capture_output=True, text=True
@@ -112,21 +127,21 @@ class VanillaDefaultKeyboard(Adw.Bin):
             current_variant = [l.split(": ")[1] for l in res if l.startswith("variant")][0]
             if "," in current_variant:
                 current_variant = current_variant.split(",")[0].strip()
-        
+
         return current_layout, current_variant
-    
+
     def __on_layout_selected(self, *args):
         self.str_list_variants.splice(0, self.str_list_variants.get_n_items())
 
         layout_index = self.combo_layouts.get_selected()
         layout = list(self.__keymaps.list_all.keys())[layout_index]
         layout = self.__keymaps.list_all[layout]
-        
+
         for variant in layout.keys():
             self.str_list_variants.append(layout[variant]["display_name"])
 
         self.combo_variants.set_visible(self.str_list_variants.get_n_items() != 0)
-    
+
     def __apply_layout(self, *args):
         variant_index = self.combo_variants.get_selected()
         variant = self.str_list_variants.get_item(variant_index)
