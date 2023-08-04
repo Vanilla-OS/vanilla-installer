@@ -79,11 +79,6 @@ mount -o bind /var/home /home
 mount -o bind /var/opt /opt
 mount -o bind,ro /.system/usr /usr
 
-echo "ABRoot: Running FsGuard..."
-
-# Use FsGuard to verify root integrity
-FsGuard verify /FsGuard/filelist
-
 echo "ABRoot: Starting systemd..."
 
 # Start systemd
