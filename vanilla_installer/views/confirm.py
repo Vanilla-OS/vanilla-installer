@@ -121,8 +121,8 @@ class VanillaConfirm(Adw.Bin):
         for widget in self.active_widgets:
             self.group_changes.add(widget)
 
-        self.btn_confirm.connect(_("clicked"), self.__on_confirm)
+        self._btn_confirm_signal = self.btn_confirm.connect(_("clicked"), self.__on_confirm)
 
     def __on_confirm(self, widget):
         self.emit(_("installation-confirmed"))
-
+        self.btn_confirm.disconnect(self._btn_confirm_signal)
