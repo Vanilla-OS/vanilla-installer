@@ -368,7 +368,7 @@ class Processor:
             "shell",
             [
                 "rm /mnt/a/usr/sbin/init",
-                "cp /tmp/system-init /mnt/a/usr/sbin/init"
+                "cp /tmp/system-init /mnt/a/usr/sbin/init",
                 "chmod +x /mnt/a/usr/sbin/init",
             ],
         )
