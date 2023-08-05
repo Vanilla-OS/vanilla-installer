@@ -528,11 +528,12 @@ class Processor:
             )
 
             # Keep only root A entry in fstab
+            fstab_regex = r"/^[^#]\S+\s+\/\S+\s+.+$/d"
             recipe.add_postinstall_step(
                 "shell",
                 [
                     f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
-                    "sed -i -r '/^[^#]\S+\s+\/\S+\s+.+$/d' /mnt/a/etc/fstab",
+                    f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
                 ],
             )
 
@@ -579,7 +580,7 @@ class Processor:
                     "umount -l /usr",
                     # "mount -o bind /.system/boot /boot",
                     "pkg-unlock",
-                    "update-initramfs -u",
+                    "update-initramfs -u -k all",
                     "pkg-lock",
                 ],
                 chroot=True,
