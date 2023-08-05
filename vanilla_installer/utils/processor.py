@@ -68,9 +68,6 @@ _ABIMAGE_FILE = """{
 _SYSTEM_INIT_FILE = """#!/usr/bin/bash
 echo "ABRoot: Initializing mount points..."
 
-# /var mount
-mount %s /var
-
 # /etc overlay
 mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc
 
@@ -83,6 +80,16 @@ echo "ABRoot: Starting systemd..."
 
 # Start systemd
 exec /lib/systemd/systemd
+"""
+
+_SYSTEMD_VAR_MOUNT = """[Unit]
+Description=Mount var partition
+Requires=cryptsetup.target
+After=cryptsetup.target
+
+[Service]
+Type=oneshot
+ExecStart=mount %s /var
 """
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
@@ -356,19 +363,29 @@ class Processor:
 
         # Create init file
         with open("/tmp/system-init", "w") as file:
-            base_script_root = "/dev/mapper/luks-" if encrypt else "-U "
-            init_file = _SYSTEM_INIT_FILE % f"{base_script_root}$VAR_UUID"
-            file.write(init_file)
+            file.write(_SYSTEM_INIT_FILE)
         recipe.add_postinstall_step(
             "shell",
             [
                 "rm /mnt/a/usr/sbin/init",
+                "cp /tmp/system-init /mnt/a/usr/sbin/init"
+                "chmod +x /mnt/a/usr/sbin/init",
+            ],
+        )
+
+        # Create SystemD unit to mount /var
+        with open("/tmp/system-var-mount", "w") as file:
+            base_script_root = "/dev/mapper/luks-" if encrypt else "-U "
+            init_file = _SYSTEMD_VAR_MOUNT % f"{base_script_root}$VAR_UUID"
+            file.write(init_file)
+        recipe.add_postinstall_step(
+            "shell",
+            [
                 " ".join(
                     f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
-                    envsubst < /tmp/system-init > /mnt/a/usr/sbin/init \
+                    envsubst < /tmp/system-var-mount > /mnt/a/etc/systemd/system/var-mount.service \
                     '$VAR_UUID'".split()
                 ),
-                "chmod +x /mnt/a/usr/sbin/init",
             ],
         )
 
