@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
 "PO-Revision-Date: 2023-08-04 19:24+0000\n"
 "Last-Translator: GT-610 <myddz1005@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -69,7 +69,8 @@ msgstr "安装位置"
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
-msgstr "选择要安装 Vanilla OS 的磁盘。或者，您也可以选择一个或多个磁盘进行手动配置。"
+msgstr ""
+"选择要安装 Vanilla OS 的磁盘。或者，您也可以选择一个或多个磁盘进行手动配置。"
 
 #: vanilla_installer/gtk/default-disk.ui:44
 msgid "Use entire disk"
@@ -219,6 +220,7 @@ msgid "Username"
 msgstr "用户名"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "恢复"
 
@@ -255,40 +257,44 @@ msgstr "以下更改将会应用到您的磁盘。请仔细检查。"
 msgid "Log"
 msgstr "日志"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS 恢复程序"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+#, fuzzy
+#| msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr "打开终端。"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "GParted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Manage disks and partitions."
+msgid "Manage disks and partitions"
 msgstr "管理磁盘和分区。"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "手册"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Handbook"
 msgstr "阅读 Vanilla OS 的手册。"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "网页浏览器"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Search online for help."
+msgid "Search online for help"
 msgstr "寻求在线帮助。"
 
 #: vanilla_installer/gtk/done.ui:12
@@ -585,6 +591,9 @@ msgstr "请联系发行版开发者。"
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "页面更改"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS 恢复程序"
 
 #~ msgid "Select a Disk"
 #~ msgstr "选择磁盘"
