@@ -8,13 +8,14 @@
 # strafe <lucas-strafe@pm.me>, 2023.
 # Lucas_Strafe <Lucas-Strafe@protonmail.com>, 2023.
 # Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>, 2023.
+# xiorcale <quentin.vaucher@protonmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-30 19:14+0530\n"
-"PO-Revision-Date: 2023-07-05 15:52+0000\n"
-"Last-Translator: Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>\n"
+"PO-Revision-Date: 2023-08-02 06:05+0000\n"
+"Last-Translator: xiorcale <quentin.vaucher@protonmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
 "Language: fr\n"
@@ -65,44 +66,45 @@ msgid "Next"
 msgstr "Suivant"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Confirmer l'installation"
+msgstr "Emplacement de l'installation"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Sélectionnez le disque sur lequel vous souhaitez installer Vanilla OS. Vous "
+"pouvez également sélectionner un ou plusieurs disques à configurer "
+"manuellement."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Entièreté du disque"
+msgstr "Utiliser tout le disque"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Cryptage des appareils"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS fournit un chiffrement complet du disque via LUKS2 pour protéger "
+"vos informations personnelles en cas de vol de votre appareil."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Crypter l'appareil"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Utilisez un mot de passe mémorable pour chiffrer vos données"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -142,25 +144,27 @@ msgstr "Rechercher une langue"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Pilotes NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Choisissez d'installer ou non les pilotes NVIDIA propriétaires pour une "
+"meilleure compatibilité et de meilleures performances."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Ne pas installer"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Installer (recommandé)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "À propos des pilotes propriétaires"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -169,6 +173,11 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Un pilote propriétaire a un code privé que ni les développeurs de Vanilla OS "
+"ni ceux de Debian ne peuvent examiner.\n"
+"\n"
+"Les mises à jour de sécurité et autres mises à jour dépendent du fournisseur "
+"du pilote."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -461,8 +470,6 @@ msgstr "La partition utilisateur est trop petite."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Partition swap"
 
