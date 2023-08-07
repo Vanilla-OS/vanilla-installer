@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
+# Nguyen Minh Thai <thaimeo200389@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-30 19:14+0530\n"
-"PO-Revision-Date: 2022-11-09 04:08+0000\n"
-"Last-Translator: Nguyễn Phú Trọng <minhhoang9105@gmail.com>\n"
+"PO-Revision-Date: 2023-08-02 06:05+0000\n"
+"Last-Translator: Nguyen Minh Thai <thaimeo200389@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/vi/>\n"
 "Language: vi\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -231,7 +232,7 @@ msgstr "Định hình cấu hình ổ đĩa"
 #: vanilla_installer/gtk/dialog-disk.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 msgid "Cancel"
-msgstr "Hủy"
+msgstr "Hủy bỏ"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
