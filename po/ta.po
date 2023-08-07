@@ -67,9 +67,8 @@ msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
-"நீங்கள் வெண்ணிலா OS ஐ நிறுவ விரும்பும் வட்டைத் தேர்ந்தெடுக்கவும். மாற்றாக, "
-"கைமுறையாக உள்ளமைக்க ஒன்று அல்லது அதற்கு மேற்பட்ட வட்டுகளைத் "
-"தேர்ந்தெடுக்கலாம்."
+"நீங்கள் வெண்ணிலா OS ஐ நிறுவ விரும்பும் வட்டைத் தேர்ந்தெடுக்கவும். மாற்றாக, கைமுறையாக "
+"உள்ளமைக்க ஒன்று அல்லது அதற்கு மேற்பட்ட வட்டுகளைத் தேர்ந்தெடுக்கலாம்."
 
 #: vanilla_installer/gtk/default-disk.ui:44
 msgid "Use entire disk"
@@ -88,8 +87,8 @@ msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
-"உங்கள் சாதனம் திருடப்பட்டால் உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS "
-"ஆனது LUKS2 மூலம் முழு-வட்டு குறியாக்கத்தை வழங்குகிறது."
+"உங்கள் சாதனம் திருடப்பட்டால் உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS ஆனது LUKS2 "
+"மூலம் முழு-வட்டு குறியாக்கத்தை வழங்குகிறது."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
@@ -144,8 +143,8 @@ msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
-"சிறந்த இணக்கத்தன்மை மற்றும் செயல்திறனுக்காக தனியுரிம NVIDIA இயக்கிகளை நிறுவ "
-"வேண்டுமா என்பதை தேர்வு செய்யவும்."
+"சிறந்த இணக்கத்தன்மை மற்றும் செயல்திறனுக்காக தனியுரிம NVIDIA இயக்கிகளை நிறுவ வேண்டுமா "
+"என்பதை தேர்வு செய்யவும்."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
@@ -166,8 +165,8 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
-"தனியுரிம இயக்கிக்கு தனிப்பட்ட குறியீடு உள்ளது, அதை வெண்ணிலா OS அல்லது டெபியன்"
-" டெவலப்பர்கள் மதிப்பாய்வு செய்ய முடியாது.\n"
+"தனியுரிம இயக்கிக்கு தனிப்பட்ட குறியீடு உள்ளது, அதை வெண்ணிலா OS அல்லது டெபியன் "
+"டெவலப்பர்கள் மதிப்பாய்வு செய்ய முடியாது.\n"
 "\n"
 "பாதுகாப்பு மற்றும் பிற புதுப்பிப்புகள் இயக்கி விற்பனையாளரைப் பொறுத்தது."
 
@@ -660,3 +659,15 @@ msgstr "பக்கம் மாற்றப்பட்டது"
 
 #~ msgid "Choose a mount point for the partition"
 #~ msgstr "பகிர்வுக்கு ஏற்ற புள்ளியைத் தேர்ந்தெடுக்கவும்"
+
+#~ msgid "Open a Terminal."
+#~ msgstr "ஒரு முனையத்தைத் திறக்கவும்."
+
+#~ msgid "Manage disks and partitions."
+#~ msgstr "வட்டுகள் மற்றும் பகிர்வுகளை நிர்வகிக்கவும்."
+
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "வெண்ணிலா OS கைப்புத்தகத்தை படியுங்கள்."
+
+#~ msgid "Search online for help."
+#~ msgstr "உதவிக்கு ஆன்லைனில் தேடவும்."
