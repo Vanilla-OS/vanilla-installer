@@ -277,37 +277,36 @@ msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
 msgstr "Ouvrez un terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
 msgstr "Gérer les disques et les partitions."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Manuel"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 #, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
 msgstr "Lisez le manuel du système d'exploitation Vanilla."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Navigateurs web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 #, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
 msgstr "Recherchez de l'aide en ligne."
 
@@ -620,8 +619,25 @@ msgstr "Veuillez contacter les développeurs de la distribution."
 msgid "page-changed"
 msgstr "page-changée"
 
-#~ msgid "Vanilla OS Recovery"
-#~ msgstr "Récupération du système d'exploitation Vanilla"
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Récupération du système d'exploitation Vanilla"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Ouvrez un terminal."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Gérer les disques et les partitions."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Lisez le manuel du système d'exploitation Vanilla."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Recherchez de l'aide en ligne."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Choisir un disque"
