@@ -275,37 +275,36 @@ msgstr "Консоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
 msgstr "Открыть Терминал."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
 msgstr "Управление дисками и разделами."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Справочник"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 #, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
 msgstr "Прочитайте Руководство по Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Веб-браузер"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 #, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
 msgstr "Искать помощь в Интернете."
 
@@ -616,8 +615,25 @@ msgstr "Пожалуйста, обратитесь к разработчикам
 msgid "page-changed"
 msgstr "страница-изменена"
 
-#~ msgid "Vanilla OS Recovery"
-#~ msgstr "Восстановление Vanilla OS"
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Восстановление Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Открыть Терминал."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Управление дисками и разделами."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Прочитайте Руководство по Vanilla OS."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Искать помощь в Интернете."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Выберите диск"
