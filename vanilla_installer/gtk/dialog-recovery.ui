@@ -3,7 +3,7 @@
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.0"/>
     <template class="VanillaRecoveryDialog" parent="AdwWindow">
-        <property name="title" translatable="yes">Vanilla OS Recovery</property>
+        <property name="title" translatable="yes">Recovery</property>
         <property name="default-width">500</property>
         <property name="modal">true</property>
         <child>
@@ -25,6 +25,16 @@
                             <property name="icon-name">utilities-terminal-symbolic</property>
                             <property name="title" translatable="yes">Console</property>
                             <property name="subtitle" translatable="yes">Open a Terminal.</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
                           </object>
                         </child>
                         <child>
@@ -32,6 +42,16 @@
                             <property name="icon-name">drive-harddisk-symbolic</property>
                             <property name="title" translatable="yes">Gparted</property>
                             <property name="subtitle" translatable="yes">Manage disks and partitions.</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
                           </object>
                         </child>
                         <child>
@@ -39,6 +59,16 @@
                             <property name="icon-name">help-browser-symbolic</property>
                             <property name="title" translatable="yes">Handbook</property>
                             <property name="subtitle" translatable="yes">Read the Vanilla OS Handbook.</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
                           </object>
                         </child>
                         <child>
@@ -46,6 +76,16 @@
                             <property name="icon-name">web-browser-symbolic</property>
                             <property name="title" translatable="yes">Web Browser</property>
                             <property name="subtitle" translatable="yes">Search online for help.</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
