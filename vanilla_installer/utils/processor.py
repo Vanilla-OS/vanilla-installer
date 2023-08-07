@@ -87,7 +87,7 @@ After=cryptsetup.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/sbin/.vanilla-mountpoints
+ExecStart=/usr/sbin/.abroot-mountpoints
 """
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
@@ -369,10 +369,10 @@ class Processor:
             [
                 " ".join(
                     f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
-                    envsubst < /tmp/mount-script > /mnt/a/usr/sbin/.vanilla-mountpoints \
+                    envsubst < /tmp/mount-script > /mnt/a/usr/sbin/.abroot-mountpoints \
                     '$VAR_UUID'".split()
                 ),
-                "chmod +x /mnt/a/usr/sbin/.vanilla-mountpoints",
+                "chmod +x /mnt/a/usr/sbin/.abroot-mountpoints",
             ],
         )
         # Create SystemD unit to setup mountpoints
@@ -381,9 +381,9 @@ class Processor:
         recipe.add_postinstall_step(
             "shell",
             [
-                "cp /tmp/systemd-mount /mnt/a/etc/systemd/system/var-mount.service",
+                "cp /tmp/systemd-mount /mnt/a/etc/systemd/system/abroot-mount.service",
                 "mkdir -p /mnt/a/etc/systemd/system/cryptsetup.target.wants",
-                "ln -s /mnt/a/etc/systemd/system/var-mount.service /mnt/a/etc/systemd/system/cryptsetup.target.wants/var-mount.service",
+                "ln -s /mnt/a/etc/systemd/system/abroot-mount.service /mnt/a/etc/systemd/system/cryptsetup.target.wants/abroot-mount.service",
             ],
         )
 
