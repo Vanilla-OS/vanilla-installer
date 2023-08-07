@@ -62,7 +62,6 @@ msgstr "Tiếp theo"
 
 #: vanilla_installer/gtk/default-disk.ui:29
 #, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
 msgstr "Xác nhận cài đặt"
 
@@ -266,6 +265,7 @@ msgid "Open a Terminal"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+#: vanilla_installer/gtk/dialog-recovery.ui:33
 #, fuzzy
 msgid "Gparted"
 msgstr "Mở GParted"
@@ -275,6 +275,7 @@ msgid "Manage disks and partitions"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr ""
 
@@ -283,6 +284,7 @@ msgid "Read the Vanilla OS Handbook"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr ""
 
@@ -590,9 +592,26 @@ msgstr "Xin hãy liên hệ tới các nhà phát triển bản phân phối."
 msgid "page-changed"
 msgstr ""
 
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 #, fuzzy
-#~ msgid "Vanilla OS Recovery"
-#~ msgstr "Trình cài đặt hệ điều hành Vanilla"
+msgid "Vanilla OS Recovery"
+msgstr "Trình cài đặt hệ điều hành Vanilla"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr ""
 
 #~ msgid "Select a Disk"
 #~ msgstr "Chọn một ổ đĩa"

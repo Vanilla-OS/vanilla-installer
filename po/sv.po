@@ -271,37 +271,36 @@ msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
 msgstr "Öppna en terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
 msgstr "Hantera diskar och partitioner."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Handbok"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 #, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
 msgstr "Läs VanillaOS Handbok."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Webbläsare"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 #, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
 msgstr "Sök efter hjälp på nätet."
 
@@ -612,8 +611,25 @@ msgstr "Kontakta distributionsutvecklarna."
 msgid "page-changed"
 msgstr "sida-ändrad"
 
-#~ msgid "Vanilla OS Recovery"
-#~ msgstr "Återställning av Vanilla OS"
+#: vanilla_installer/gtk/dialog-recovery.ui:6
+msgid "Vanilla OS Recovery"
+msgstr "Återställning av Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:27
+msgid "Open a Terminal."
+msgstr "Öppna en terminal."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:34
+msgid "Manage disks and partitions."
+msgstr "Hantera diskar och partitioner."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:41
+msgid "Read the Vanilla OS Handbook."
+msgstr "Läs VanillaOS Handbok."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:48
+msgid "Search online for help."
+msgstr "Sök efter hjälp på nätet."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Välj en disk"
