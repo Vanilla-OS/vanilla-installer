@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
-"PO-Revision-Date: 2023-07-14 11:48+0000\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"PO-Revision-Date: 2023-08-04 19:24+0000\n"
 "Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
@@ -65,44 +65,44 @@ msgid "Next"
 msgstr "Далее"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Подтверждение установки"
+msgstr "Место установки"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Выберите диск, на который будет установлена Vanilla OS. Также можно выбрать "
+"один или несколько дисков для настройки вручную."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Использовать весь Диск"
+msgstr "Использовать весь диск"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Руководство"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Шифрование"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS обеспечивает полное шифрование диска с помощью LUKS2 для защиты "
+"персональных данных в случае кражи устройства."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Зашифровать устройство"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Используйте запоминающийся пароль для шифрования данных"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -142,25 +142,27 @@ msgstr "Поиск языка"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Драйверы NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Выберите, устанавливать ли проприетарные драйверы NVIDIA для лучшей "
+"совместимости и производительности."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Не устанавливать"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Установить (рекомендуется)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "О проприетарных драйверах"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -169,6 +171,11 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Проприетарный драйвер имеет закрытый код, который не могут просматривать ни "
+"разработчики Vanilla OS, ни разработчики Debian.\n"
+"\n"
+"Обновления безопасности и другие обновления зависят от производителя "
+"драйвера."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -176,7 +183,7 @@ msgstr "По умолчанию"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr "Тёмный"
+msgstr "Тёмная"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
@@ -223,6 +230,7 @@ msgid "Username"
 msgstr "Имя пользователя"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Восстановление"
 
@@ -261,41 +269,45 @@ msgstr ""
 msgid "Log"
 msgstr "Журнал"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Восстановление Vanilla OS"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Консоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+#, fuzzy
+#| msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr "Открыть Терминал."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "GParted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Manage disks and partitions."
+msgid "Manage disks and partitions"
 msgstr "Управление дисками и разделами."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Справочник"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Handbook"
 msgstr "Прочитайте Руководство по Vanilla OS."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Веб-браузер"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "Ищите помощь в Интернете."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Search online for help."
+msgid "Search online for help"
+msgstr "Искать помощь в Интернете."
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -460,17 +472,15 @@ msgstr "Домашний раздел слишком мал."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
-msgstr "Swap раздел"
+msgstr "Раздел Своп"
 
 #: vanilla_installer/gtk/widget-partition.ui:187
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
-"Swap действует как виртуальное расширение вашей оперативной памяти и "
+"Своп действует как виртуальное расширение вашей оперативной памяти и "
 "позволяет переходить в спящий режим. Vanilla OS уже использует zram для "
 "обеспечения свопинга без затрат на хранение."
 
@@ -605,6 +615,9 @@ msgstr "Пожалуйста, обратитесь к разработчикам
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "страница-изменена"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Восстановление Vanilla OS"
 
 #~ msgid "Select a Disk"
 #~ msgstr "Выберите диск"

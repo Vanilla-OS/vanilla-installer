@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
 "PO-Revision-Date: 2023-06-23 22:52+0000\n"
 "Last-Translator: Dawid Bajon <dawidwsmole@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/vanilla-os/"
@@ -220,6 +220,7 @@ msgid "Username"
 msgstr "Nazwa użytkownika"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Odzyskiwanie"
 
@@ -257,40 +258,44 @@ msgstr ""
 msgid "Log"
 msgstr "Dziennik"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Odzyskiwanie systemu Vanilla OS"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Konsola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+#, fuzzy
+#| msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr "Otwórz Terminal."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Manage disks and partitions."
+msgid "Manage disks and partitions"
 msgstr "Zarządzaj dyskami i partycjami."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Podręcznik"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Handbook"
 msgstr "Przeczytaj podręcznik Vanilla OS."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Przeglądarka internetowa"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Search online for help."
+msgid "Search online for help"
 msgstr "Poszukaj pomocy w internecie."
 
 #: vanilla_installer/gtk/done.ui:12
@@ -602,6 +607,9 @@ msgstr "Prosimy o kontakt z twórcami dystrybucji."
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "strona-zmieniła się"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Odzyskiwanie systemu Vanilla OS"
 
 #~ msgid "Select a Disk"
 #~ msgstr "Wybierz dysk"

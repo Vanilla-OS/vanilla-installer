@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
 "PO-Revision-Date: 2023-07-16 04:26+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -217,6 +217,7 @@ msgid "Username"
 msgstr "მომხმარებლის სახელი"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "აღდგენა"
 
@@ -255,40 +256,44 @@ msgstr ""
 msgid "Log"
 msgstr "ჟურნალი"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS-ის აღდგენა"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "კონსოლი"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+#, fuzzy
+#| msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr "ტერმინალის გახსნა."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Manage disks and partitions."
+msgid "Manage disks and partitions"
 msgstr "მართეთ დისკები და დანაყოფები."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "სახელმძღვანელო"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Handbook"
 msgstr "წაიკითხეთ Vanilla OS-ის სახელმძღვანელო."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "ვებ-ბრაუზერი"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Search online for help."
+msgid "Search online for help"
 msgstr "დახმარების ონლაინ ძებნა."
 
 #: vanilla_installer/gtk/done.ui:12
@@ -599,6 +604,9 @@ msgstr "დაუკავშირდით დისტრიბუტივ�
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "გვერდი-შეიცვალა"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS-ის აღდგენა"
 
 #~ msgid "Select a Disk"
 #~ msgstr "აირჩიეთ დისკი"

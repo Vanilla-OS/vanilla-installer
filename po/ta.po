@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
-"PO-Revision-Date: 2023-07-12 17:58+0000\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"PO-Revision-Date: 2023-08-07 14:36+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -59,44 +59,45 @@ msgid "Next"
 msgstr "அடுத்தது"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "நிறுவலை உறுதிப்படுத்தவும்"
+msgstr "நிறுவல் இடம்"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"நீங்கள் வெண்ணிலா OS ஐ நிறுவ விரும்பும் வட்டைத் தேர்ந்தெடுக்கவும். மாற்றாக, "
+"கைமுறையாக உள்ளமைக்க ஒன்று அல்லது அதற்கு மேற்பட்ட வட்டுகளைத் "
+"தேர்ந்தெடுக்கலாம்."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "முழு வட்டு"
+msgstr "முழு வட்டையும் பயன்படுத்தவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "கையேடு"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "சாதன குறியாக்கம்"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"உங்கள் சாதனம் திருடப்பட்டால் உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS "
+"ஆனது LUKS2 மூலம் முழு-வட்டு குறியாக்கத்தை வழங்குகிறது."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "சாதனத்தை குறியாக்கம் செய்யவும்"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "உங்கள் தரவை குறியாக்க மறக்கமுடியாத கடவுச்சொல்லைப் பயன்படுத்தவும்"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -136,25 +137,27 @@ msgstr "ஒரு மொழியைத் தேடவும்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® இயக்கிகள்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"சிறந்த இணக்கத்தன்மை மற்றும் செயல்திறனுக்காக தனியுரிம NVIDIA இயக்கிகளை நிறுவ "
+"வேண்டுமா என்பதை தேர்வு செய்யவும்."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "நிறுவ வேண்டாம்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "நிறுவவும்   (பரிந்துரைக்கப்பட்டது)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "தனியுரிம இயக்கிகள் பற்றி"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -163,6 +166,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"தனியுரிம இயக்கிக்கு தனிப்பட்ட குறியீடு உள்ளது, அதை வெண்ணிலா OS அல்லது டெபியன்"
+" டெவலப்பர்கள் மதிப்பாய்வு செய்ய முடியாது.\n"
+"\n"
+"பாதுகாப்பு மற்றும் பிற புதுப்பிப்புகள் இயக்கி விற்பனையாளரைப் பொறுத்தது."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -217,6 +224,7 @@ msgid "Username"
 msgstr "பயனர் பெயர்"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "மீட்பு"
 
@@ -253,41 +261,37 @@ msgstr "உங்கள் வட்டில் பின்வரும் ம
 msgid "Log"
 msgstr "பதிவு"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "வெண்ணிலா OS மீட்பு"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "முனையம்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "ஒரு முனையத்தைத் திறக்கவும்."
+msgid "Open a Terminal"
+msgstr "ஒரு முனையத்தைத் திறக்கவும்"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "GParted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "வட்டுகள் மற்றும் பகிர்வுகளை நிர்வகிக்கவும்."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+msgid "Manage disks and partitions"
+msgstr "வட்டுகள் மற்றும் பகிர்வுகளை நிர்வகிக்கவும்"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "கைப்புத்தகம்"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "வெண்ணிலா OS கைப்புத்தகத்தை படியுங்கள்."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+msgid "Read the Vanilla OS Handbook"
+msgstr "வெண்ணிலா OS கைப்புத்தகத்தை படியுங்கள்"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "இணைய உலாவி"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "உதவிக்கு ஆன்லைனில் தேடவும்."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Search online for help"
+msgstr "உதவிக்கு ஆன்லைனில் தேடவும்"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -452,8 +456,6 @@ msgstr "வீட்டுப் பகிர்வு மிகவும் ச
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "ஸ்வாப் பகிர்வு"
 
@@ -596,6 +598,9 @@ msgstr "விநியோக டெவலப்பர்களைத் தொ�
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "பக்கம் மாற்றப்பட்டது"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "வெண்ணிலா OS மீட்பு"
 
 #~ msgid "Select a Disk"
 #~ msgstr "ஒரு வட்டைத் தேர்ந்தெடுக்கவும்"

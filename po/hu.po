@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Benjamin Kőhidi <benstone326@gmail.com>, 2023.
 # Nagy Ádám Aladár <totallynotlime@tutanota.com>, 2023.
+# Peter Rakmanyi <rakmanyi.peter@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
-"PO-Revision-Date: 2023-04-09 13:23+0000\n"
-"Last-Translator: Nagy Ádám Aladár <totallynotlime@tutanota.com>\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"PO-Revision-Date: 2023-08-07 10:00+0000\n"
+"Last-Translator: Peter Rakmanyi <rakmanyi.peter@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/hu/>\n"
 "Language: hu\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -60,44 +61,44 @@ msgid "Next"
 msgstr "Következő"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Telepítés megerősítése"
+msgstr "Telepítés helye"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Válassza ki a lemezt, amelyre a Vanilla OS-t telepíteni szeretné! Egy vagy "
+"több lemezt is kiválaszthat a tetszőleges beállításhoz."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Teljes lemez"
+msgstr "Teljes lemez használata"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Kézi"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Eszköz titkosítása"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"A Vanilla OS teljes lemezes titkosítást biztosít a LUKS2 segítségével, hogy "
+"megvédje személyes adatait, ha ellopják a készülékét."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Eszköz titkosítása"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Használjon megjegyezhető jelszót az adatok titkosításához"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -137,25 +138,27 @@ msgstr "Nyelv keresése"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® illesztőprogramok"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Válassza ki, hogy a jobb kompatibilitás és teljesítmény érdekében telepíteni "
+"kívánja-e a védjegyzett NVIDIA illesztőprogramokat."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Ne legyen telepítve"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Telepítés (ajánlott)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "A védjegyezett illesztőprogramokról"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -164,6 +167,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"A védjegyezett illesztőprogramnak privát kódja van, amelyet sem a Vanilla "
+"OS, sem az Ubuntu fejlesztői nem tudnak áttekinteni.\n"
+"\n"
+"A biztonsági és egyéb frissítések az illesztőprogram gyártójától függnek."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -218,6 +225,7 @@ msgid "Username"
 msgstr "Felhasználónév"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Helyreállítás"
 
@@ -256,40 +264,44 @@ msgstr ""
 msgid "Log"
 msgstr "Napló"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS helyreállítás"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Konzol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+#, fuzzy
+#| msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr "Nyisson meg egy terminált."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Manage disks and partitions."
+msgid "Manage disks and partitions"
 msgstr "Lemezek és partíciók kezelése."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Kézikönyv"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Handbook"
 msgstr "Olvassa el a Vanilla OS kézikönyvet."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Webböngésző"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Search online for help."
+msgid "Search online for help"
 msgstr "Keressen segítséget az interneten."
 
 #: vanilla_installer/gtk/done.ui:12
@@ -458,8 +470,6 @@ msgstr "A home partíció túl kicsi."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Swap partíció"
 
@@ -602,6 +612,9 @@ msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "oldal-megváltozott"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS helyreállítás"
 
 #~ msgid "Select a Disk"
 #~ msgstr "Válasszon egy lemezt"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
 "PO-Revision-Date: 2022-11-26 12:48+0000\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/vanilla-os/"
@@ -217,6 +217,7 @@ msgid "Username"
 msgstr "Používateľské meno"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr ""
 
@@ -255,42 +256,37 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-#, fuzzy
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS Inštalátor"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 #, fuzzy
 msgid "Gparted"
 msgstr "Otvorte GParted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+msgid "Manage disks and partitions"
 msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+msgid "Read the Vanilla OS Handbook"
 msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Search online for help"
 msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
@@ -591,6 +587,10 @@ msgstr "Prosím kontaktujte vývojárov distribúcie."
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS Inštalátor"
 
 #~ msgid "Select a Disk"
 #~ msgstr "Vyberte disk"

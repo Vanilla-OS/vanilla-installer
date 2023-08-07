@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
-"PO-Revision-Date: 2023-07-09 06:49+0000\n"
-"Last-Translator: juzac001 <julian.zachmann001@stud.fh-dortmund.de>\n"
+"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"PO-Revision-Date: 2023-07-31 16:10+0000\n"
+"Last-Translator: nautilusx <translate@disroot.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -66,44 +66,46 @@ msgid "Next"
 msgstr "Weiter"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Installation bestätigen"
+msgstr "Installationsort"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Wählen Sie die Festplatte aus, auf der Sie Vanilla OS installieren möchten. "
+"Alternativ können Sie auch eine oder mehrere Festplatten auswählen und "
+"manuell konfigurieren."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Gesamte Festplatte"
+msgstr "Gesamte Festplatte verwenden"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Geräteverschlüsselung"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS bietet eine vollständige Festplattenverschlüsselung durch LUKS2, "
+"um Ihre persönlichen Daten zu schützen, falls Ihr Gerät gestohlen wird."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Gerät verschlüsseln"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
 msgstr ""
+"Verwenden Sie ein einprägsames Passwort, um Ihre Daten zu verschlüsseln"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -143,25 +145,27 @@ msgstr "Suche nach einer Sprache"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA®-Treiber"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Legen Sie fest, ob proprietäre NVIDIA-Treiber für bessere Kompatibilität und "
+"Leistung installiert werden sollen."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Nicht installieren"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Installieren (empfohlen)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Über proprietäre Treiber"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -170,6 +174,11 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Ein proprietärer Treiber hat privaten Code, den weder Vanilla OS- noch "
+"Debian-Entwickler überprüfen können.\n"
+"\n"
+"Sicherheits- und andere Aktualisierungen sind vom Hersteller des Treibers "
+"abhängig."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -224,6 +233,7 @@ msgid "Username"
 msgstr "Nutzername"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Wiederherstellung"
 
@@ -262,40 +272,44 @@ msgstr ""
 msgid "Log"
 msgstr "Protokoll"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS Wiederherstellung"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Konsole"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
+#, fuzzy
+#| msgid "Open a Terminal."
+msgid "Open a Terminal"
 msgstr "Öffnen Sie ein Terminal."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
+#: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Manage disks and partitions."
+msgid "Manage disks and partitions"
 msgstr "Verwalten Sie Festplatten und Partitionen."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Handbuch"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Handbook"
 msgstr "Lesen Sie das Vanilla OS-Handbuch."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Internet-Browser"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Search online for help."
+msgid "Search online for help"
 msgstr "Suchen Sie online nach Hilfe."
 
 #: vanilla_installer/gtk/done.ui:12
@@ -465,8 +479,6 @@ msgstr "Home-Partition ist zu klein."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Swap-Partition"
 
@@ -611,6 +623,9 @@ msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 #: vanilla_installer/windows/main_window.py:62
 msgid "page-changed"
 msgstr "Seite geändert"
+
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS Wiederherstellung"
 
 #~ msgid "Select a Disk"
 #~ msgstr "Wählen Sie eine Festplatte aus"
