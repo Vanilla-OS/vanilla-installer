@@ -3,7 +3,7 @@
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.0"/>
     <template class="VanillaRecoveryDialog" parent="AdwWindow">
-        <property name="title" translatable="yes">Vanilla OS Recovery</property>
+        <property name="title" translatable="yes">Recovery</property>
         <property name="default-width">500</property>
         <property name="modal">true</property>
         <child>
