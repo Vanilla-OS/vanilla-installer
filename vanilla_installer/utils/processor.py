@@ -72,7 +72,7 @@ echo "ABRoot: Initializing mount points..."
 mount %s /var
 
 # /etc overlay
-mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc
+mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc
 
 # /var binds
 mount -o bind /var/home /home
