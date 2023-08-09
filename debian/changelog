@@ -1,4 +1,10 @@
-vanilla-installer (2.1.0) unstable; urgency=critical
+vanilla-installer (2.1.2) unstable; urgency=critical
+
+  * Fix encryption not working
+
+ -- Mateus Melchiades <matbme@duck.com>  Fri, 9 Aug 2023 13:29:00 -0300
+
+vanilla-installer (2.1.1) unstable; urgency=critical
 
   * Support for NVIDIA image
 
