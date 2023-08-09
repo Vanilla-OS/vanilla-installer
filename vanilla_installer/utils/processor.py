@@ -65,24 +65,29 @@ _ABIMAGE_FILE = """{
 }
 """
 
-_SYSTEM_INIT_FILE = """#!/usr/bin/bash
+_MOUNTPOINTS_FILE = """#!/usr/bin/bash
 echo "ABRoot: Initializing mount points..."
 
 # /var mount
 mount %s /var
 
 # /etc overlay
-mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc
+mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc
 
 # /var binds
 mount -o bind /var/home /home
 mount -o bind /var/opt /opt
 mount -o bind,ro /.system/usr /usr
+"""
 
-echo "ABRoot: Starting systemd..."
+_SYSTEMD_MOUNT_UNIT = """[Unit]
+Description=Mount partitions
+Requires=cryptsetup.target
+After=cryptsetup.target
 
-# Start systemd
-exec /lib/systemd/systemd
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/.abroot-mountpoints
 """
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
@@ -354,21 +359,31 @@ class Processor:
             r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", boot_part, re.MULTILINE
         )[0]
 
-        # Create init file
-        with open("/tmp/system-init", "w") as file:
+        # Create mountpoints script
+        with open("/tmp/mount-script", "w") as file:
             base_script_root = "/dev/mapper/luks-" if encrypt else "-U "
-            init_file = _SYSTEM_INIT_FILE % f"{base_script_root}$VAR_UUID"
-            file.write(init_file)
+            mount_file = _MOUNTPOINTS_FILE % f"{base_script_root}$VAR_UUID"
+            file.write(mount_file)
         recipe.add_postinstall_step(
             "shell",
             [
-                "rm /mnt/a/usr/sbin/init",
                 " ".join(
                     f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
-                    envsubst < /tmp/system-init > /mnt/a/usr/sbin/init \
+                    envsubst < /tmp/mount-script > /mnt/a/usr/sbin/.abroot-mountpoints \
                     '$VAR_UUID'".split()
                 ),
-                "chmod +x /mnt/a/usr/sbin/init",
+                "chmod +x /mnt/a/usr/sbin/.abroot-mountpoints",
+            ],
+        )
+        # Create SystemD unit to setup mountpoints
+        with open("/tmp/systemd-mount", "w") as file:
+            file.write(_SYSTEMD_MOUNT_UNIT)
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                "cp /tmp/systemd-mount /mnt/a/etc/systemd/system/abroot-mount.service",
+                "mkdir -p /mnt/a/etc/systemd/system/cryptsetup.target.wants",
+                "ln -s /mnt/a/etc/systemd/system/abroot-mount.service /mnt/a/etc/systemd/system/cryptsetup.target.wants/abroot-mount.service",
             ],
         )
 
@@ -544,8 +559,8 @@ class Processor:
                     "mv /.system/home /var",
                     "mv /.system/opt /var",
                     "mv /.system/tmp /var",
-                    "mkdir -p /var/lib/abroot/etc/a /var/lib/abroot/etc/b /var/lib/abroot/etc/a-work /var/lib/abroot/etc/b-work",
-                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/a,workdir=/var/lib/abroot/etc/a-work /etc",
+                    "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
+                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                     "mount -o bind,ro /.system/usr /usr",
