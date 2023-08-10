@@ -124,9 +124,9 @@ class AlbiusRecipe:
     def set_installation(self, method: str, source: str) -> None:
         self.installation = {
             "method": method,
-            "source": source
-            "initramfsPre": ["pkg-unlock"],
-            "initramfsPost": ["pkg-lock"],
+            "source": source,
+            "initramfsPre": ["lpkg --unlock"],
+            "initramfsPost": ["lpkg --lock"],
         }
 
     def add_postinstall_step(
@@ -591,19 +591,6 @@ class Processor:
                         '$IMAGE_DIGEST'".split()
                     )
                 ],
-            )
-
-            # Update initramfs
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "umount -l /usr",
-                    # "mount -o bind /.system/boot /boot",
-                    "pkg-unlock",
-                    "update-initramfs -u -k all",
-                    "pkg-lock",
-                ],
-                chroot=True,
             )
 
         recipe.merge_postinstall_steps()
