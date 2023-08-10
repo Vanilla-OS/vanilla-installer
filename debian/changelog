@@ -1,3 +1,9 @@
+vanilla-installer (2.1.3) unstable; urgency=critical
+
+  * Add initramfs pre-run and post-run commands in installation
+
+ -- Mateus Melchiades <matbme@duck.com>  Fri, 10 Aug 2023 10:28:00 -0300
+
 vanilla-installer (2.1.2) unstable; urgency=critical
 
   * Fix encryption not working

@@ -92,7 +92,7 @@ ExecStart=/usr/sbin/.abroot-mountpoints
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
-AlbiusInstallation = dict[str, str]
+AlbiusInstallation = dict[str, str, list[str], list[str]]
 AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
 
 
@@ -122,7 +122,12 @@ class AlbiusRecipe:
         )
 
     def set_installation(self, method: str, source: str) -> None:
-        self.installation = {"method": method, "source": source}
+        self.installation = {
+            "method": method,
+            "source": source
+            "initramfsPre": ["pkg-unlock"],
+            "initramfsPost": ["pkg-lock"],
+        }
 
     def add_postinstall_step(
         self, operation: str, params: list[Any], chroot: bool = False, late=False
