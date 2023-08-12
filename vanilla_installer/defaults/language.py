@@ -15,18 +15,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import re
-import sys
-import time
-import subprocess
-import contextlib
-from gi.repository import Gtk, Gio, GLib, Adw
+
+from gi.repository import Adw, Gtk
 
 from vanilla_installer.core.languages import all_languages, current_language
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-language.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-language.ui")
 class VanillaDefaultLanguage(Adw.Bin):
-    __gtype_name__ = 'VanillaDefaultLanguage'
+    __gtype_name__ = "VanillaDefaultLanguage"
 
     btn_next = Gtk.Template.Child()
     combo_languages = Gtk.Template.Child()
@@ -41,20 +38,23 @@ class VanillaDefaultLanguage(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
-        
+
         # set up the string list for all the languages
         for _, lang in all_languages.items():
             self.str_list_languages.append(lang)
-        
+
         # set up current language
         for locale in all_languages.keys():
             if current_language == locale:
-                self.combo_languages.set_selected(list(all_languages.keys()).index(locale))
+                self.combo_languages.set_selected(
+                    list(all_languages.keys()).index(locale)
+                )
                 break
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
-        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        self.search_controller.connect(
+            "key-released", self.__on_search_key_pressed)
         self.entry_search_language.add_controller(self.search_controller)
 
     def get_finals(self):
@@ -64,13 +64,15 @@ class VanillaDefaultLanguage(Adw.Bin):
 
     def __on_search_key_pressed(self, *args):
         keywords = self.entry_search_language.get_text().lower()
-        keywords = re.sub(r'[^a-zA-Z0-9 ]', '', keywords)
+        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", keywords)
 
         if keywords == "" or len(keywords) < 3:
             return
 
         for locale, lang in all_languages.items():
-            lang = re.sub(r'[^a-zA-Z0-9 ]', '', lang)
+            lang = re.sub(r"[^a-zA-Z0-9 ]", "", lang)
             if re.search(keywords, lang, re.IGNORECASE):
-                self.combo_languages.set_selected(list(all_languages.keys()).index(locale))
+                self.combo_languages.set_selected(
+                    list(all_languages.keys()).index(locale)
+                )
                 break

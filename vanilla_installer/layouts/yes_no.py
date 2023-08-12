@@ -14,16 +14,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import time
-from gi.repository import Gtk, Gio, GLib, Adw
+from gi.repository import Adw, Gtk
 
-from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.windows.dialog import VanillaDialog
-from gettext import gettext as _
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/layout-yes-no.ui')
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/layout-yes-no.ui")
 class VanillaLayoutYesNo(Adw.Bin):
-    __gtype_name__ = 'VanillaLayoutYesNo'
+    __gtype_name__ = "VanillaLayoutYesNo"
 
     status_page = Gtk.Template.Child()
     btn_no = Gtk.Template.Child()
@@ -66,14 +64,12 @@ class VanillaLayoutYesNo(Adw.Bin):
         dialog = VanillaDialog(
             self.__window,
             self.__step["buttons"]["info"]["title"],
-            self.__step["buttons"]["info"]["text"]
+            self.__step["buttons"]["info"]["text"],
         )
         dialog.show()
 
     def get_finals(self):
         return {
-            "vars": {
-                self.__key: self.__response
-            },
-            "funcs": [x for x in self.__step["final"]]
+            "vars": {self.__key: self.__response},
+            "funcs": [x for x in self.__step["final"]],
         }

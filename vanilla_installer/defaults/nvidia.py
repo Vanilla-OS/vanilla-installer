@@ -15,15 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
-import time
-import re, subprocess, shutil
-from gi.repository import Gtk, Gio, GLib, Adw
+from gi.repository import Adw, Gtk
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-nvidia.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-nvidia.ui")
 class VanillaDefaultNvidia(Adw.Bin):
-    __gtype_name__ = 'VanillaDefaultNvidia'
+    __gtype_name__ = "VanillaDefaultNvidia"
 
     btn_no = Gtk.Template.Child()
     btn_yes = Gtk.Template.Child()
@@ -43,9 +40,6 @@ class VanillaDefaultNvidia(Adw.Bin):
         self.btn_yes.connect("clicked", self.use_proprietary_drivers)
         self.btn_no.connect("clicked", self.use_open_drivers)
         self.btn_info.connect("clicked", self.show_info_popover)
-
-    def show_info_popover(self, user_data):
-        pass
 
     def get_finals(self):
         return {

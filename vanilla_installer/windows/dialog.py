@@ -14,13 +14,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from gi.repository import Gtk, Adw
 from gettext import gettext as _
 
+from gi.repository import Adw, Gtk
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog.ui')
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog.ui")
 class VanillaDialog(Adw.Window):
-    __gtype_name__ = 'VanillaDialog'
+    __gtype_name__ = "VanillaDialog"
 
     label_text = Gtk.Template.Child()
 

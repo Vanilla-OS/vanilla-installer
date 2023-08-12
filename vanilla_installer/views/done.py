@@ -15,15 +15,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import subprocess
-from gi.repository import Gtk, Adw
-
-from vanilla_installer.windows.dialog_output import VanillaDialogOutput
 from gettext import gettext as _
 
+from gi.repository import Adw, Gtk
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/done.ui')
+from vanilla_installer.windows.dialog_output import VanillaDialogOutput
+
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/done.ui")
 class VanillaDone(Adw.Bin):
-    __gtype_name__ = 'VanillaDone'
+    __gtype_name__ = "VanillaDone"
 
     status_page = Gtk.Template.Child()
     btn_reboot = Gtk.Template.Child()
@@ -51,12 +52,14 @@ class VanillaDone(Adw.Bin):
         if not result:
             self.status_page.set_icon_name("dialog-error-symbolic")
             self.status_page.set_title(_("Something went wrong"))
-            self.status_page.set_description(_("Please contact the distribution developers."))
+            self.status_page.set_description(
+                _("Please contact the distribution developers.")
+            )
             self.btn_reboot.set_visible(False)
             self.btn_close.set_visible(True)
 
     def __on_reboot_clicked(self, button):
-        subprocess.run(['gnome-session-quit', '--reboot'])
+        subprocess.run(["gnome-session-quit", "--reboot"])
 
     def __on_close_clicked(self, button):
         self.__window.close()

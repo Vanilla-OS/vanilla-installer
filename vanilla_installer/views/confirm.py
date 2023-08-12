@@ -15,13 +15,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import re
-from gi.repository import Gtk, GObject, Adw
 from gettext import gettext as _
 
+from gi.repository import Adw, GObject, Gtk
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-choice.ui')
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-choice.ui")
 class VanillaChoiceEntry(Adw.ActionRow):
-    __gtype_name__ = 'VanillaChoiceEntry'
+    __gtype_name__ = "VanillaChoiceEntry"
 
     img_choice = Gtk.Template.Child()
 
@@ -32,9 +33,9 @@ class VanillaChoiceEntry(Adw.ActionRow):
         self.img_choice.set_from_icon_name(icon_name)
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/widget-choice-expander.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-choice-expander.ui")
 class VanillaChoiceExpanderEntry(Adw.ExpanderRow):
-    __gtype_name__ = 'VanillaChoiceExpanderEntry'
+    __gtype_name__ = "VanillaChoiceExpanderEntry"
 
     img_choice = Gtk.Template.Child()
 
@@ -45,9 +46,9 @@ class VanillaChoiceExpanderEntry(Adw.ExpanderRow):
         self.img_choice.set_from_icon_name(icon_name)
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/confirm.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/confirm.ui")
 class VanillaConfirm(Adw.Bin):
-    __gtype_name__ = 'VanillaConfirm'
+    __gtype_name__ = "VanillaConfirm"
     __gsignals__ = {
         "installation-confirmed": (GObject.SIGNAL_RUN_FIRST, None, ()),
     }
@@ -69,59 +70,73 @@ class VanillaConfirm(Adw.Bin):
         for final in finals:
             for key, value in final.items():
                 if key == "language":
-                    self.active_widgets.append(VanillaChoiceEntry(
-                        _("Language"),
-                        value,
-                        "preferences-desktop-locale-symbolic"
-                    ))
+                    self.active_widgets.append(
+                        VanillaChoiceEntry(
+                            _("Language"), value, "preferences-desktop-locale-symbolic"
+                        )
+                    )
                 elif key == "keyboard":
-                    self.active_widgets.append(VanillaChoiceEntry(
-                        _("Keyboard"),
-                        value["layout"],
-                        "input-keyboard-symbolic"
-                    ))
+                    self.active_widgets.append(
+                        VanillaChoiceEntry(
+                            _("Keyboard"), value["layout"], "input-keyboard-symbolic"
+                        )
+                    )
                 elif key == "timezone":
-                    self.active_widgets.append(VanillaChoiceEntry(
-                        _("Timezone"),
-                        f"{value['region']} {value['zone']}",
-                        "preferences-system-time-symbolic"
-                    ))
+                    self.active_widgets.append(
+                        VanillaChoiceEntry(
+                            _("Timezone"),
+                            f"{value['region']} {value['zone']}",
+                            "preferences-system-time-symbolic",
+                        )
+                    )
                 elif key == "users":
-                    self.active_widgets.append(VanillaChoiceEntry(
-                        _("Users"),
-                        f"{value['username']} ({value['fullname']})",
-                        "system-users-symbolic"
-                    ))
+                    self.active_widgets.append(
+                        VanillaChoiceEntry(
+                            _("Users"),
+                            f"{value['username']} ({value['fullname']})",
+                            "system-users-symbolic",
+                        )
+                    )
                 elif key == "disk":
                     if "auto" in value:
-                        self.active_widgets.append(VanillaChoiceEntry(
-                            _("Disk"),
-                            f"{value['auto']['disk']} ({value['auto']['pretty_size']})",
-                            "drive-harddisk-system-symbolic"
-                        ))
+                        self.active_widgets.append(
+                            VanillaChoiceEntry(
+                                _("Disk"),
+                                f"{value['auto']['disk']} ({value['auto']['pretty_size']})",
+                                "drive-harddisk-system-symbolic",
+                            )
+                        )
                     else:
                         disks = {}
                         # block, device_block
                         for part, info in value.items():
-                            part_disk = re.match("^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE)[0]
+                            part_disk = re.match(
+                                "^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?",
+                                part,
+                                re.MULTILINE,
+                            )[0]
                             if part_disk not in disks:
                                 disks[part_disk] = VanillaChoiceExpanderEntry(
                                     _("Disk"),
                                     part_disk,
-                                    "drive-harddisk-system-symbolic"
+                                    "drive-harddisk-system-symbolic",
                                 )
                                 self.active_widgets.append(disks[part_disk])
 
-                            disks[part_disk].add_row(VanillaChoiceEntry(
-                                part,
-                                f"{info['fs']} {info['mp']} ({info['pretty_size']})",
-                                "drive-harddisk-system-symbolic"
-                            ))
+                            disks[part_disk].add_row(
+                                VanillaChoiceEntry(
+                                    part,
+                                    f"{info['fs']} {info['mp']} ({info['pretty_size']})",
+                                    "drive-harddisk-system-symbolic",
+                                )
+                            )
 
         for widget in self.active_widgets:
             self.group_changes.add(widget)
 
-        self._btn_confirm_signal = self.btn_confirm.connect("clicked", self.__on_confirm)
+        self._btn_confirm_signal = self.btn_confirm.connect(
+            "clicked", self.__on_confirm
+        )
 
     def __on_confirm(self, widget):
         self.emit("installation-confirmed")

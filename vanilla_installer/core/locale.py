@@ -15,16 +15,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-class Locale:
 
+class Locale:
     def __init__(self, locales, region, location):
         self.locales = locales
         self.region = region
         self.location = location
 
     def __str__(self):
-        return "<Locale: {} {} {}>".format(
-            self.locales, self.region, self.location)
+        return "<Locale: {} {} {}>".format(self.locales, self.region, self.location)
 
     def __repr__(self):
         return self.__str__()

@@ -15,15 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
-import time
-import re, subprocess, shutil
-from gi.repository import Gtk, Gio, GLib, Adw
+from gi.repository import Adw, Gtk
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-encryption.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-encryption.ui")
 class VanillaDefaultEncryption(Adw.Bin):
-    __gtype_name__ = 'VanillaDefaultEncryption'
+    __gtype_name__ = "VanillaDefaultEncryption"
 
     btn_next = Gtk.Template.Child()
     status_page = Gtk.Template.Child()
@@ -43,9 +40,13 @@ class VanillaDefaultEncryption(Adw.Bin):
         self.__step = step
 
         self.btn_next.connect("clicked", self.__window.next)
-        self.use_encryption_switch.connect("state-set", self.__on_encryption_switch_set)
-        self.encryption_pass_entry.connect('changed', self.__on_password_changed)
-        self.encryption_pass_entry_confirm.connect('changed', self.__on_password_changed)
+        self.use_encryption_switch.connect(
+            "state-set", self.__on_encryption_switch_set)
+        self.encryption_pass_entry.connect(
+            "changed", self.__on_password_changed)
+        self.encryption_pass_entry_confirm.connect(
+            "changed", self.__on_password_changed
+        )
 
         self.__update_btn_next()
 
@@ -67,13 +68,15 @@ class VanillaDefaultEncryption(Adw.Bin):
 
     def __on_password_changed(self, *args):
         password = self.encryption_pass_entry.get_text()
-        if password == self.encryption_pass_entry_confirm.get_text() \
-                and password.strip():
-            self.password_filled = True;
-            self.encryption_pass_entry_confirm.remove_css_class('error')
+        if (
+            password == self.encryption_pass_entry_confirm.get_text()
+            and password.strip()
+        ):
+            self.password_filled = True
+            self.encryption_pass_entry_confirm.remove_css_class("error")
         else:
-            self.password_filled = False;
-            self.encryption_pass_entry_confirm.add_css_class('error')
+            self.password_filled = False
+            self.encryption_pass_entry_confirm.add_css_class("error")
 
         self.__update_btn_next()
 

@@ -14,19 +14,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import json
+import logging
 import os
 import sys
-import logging
-import json
-
-from gi.repository import Gio
 from gettext import gettext as _
 
 logger = logging.getLogger("Installer::RecipeLoader")
 
 
 class RecipeLoader:
-
     recipe_path = "/etc/vanilla-installer/recipe.json"
 
     def __init__(self):

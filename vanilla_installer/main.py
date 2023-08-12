@@ -14,20 +14,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import gi
-import sys
 import logging
+import sys
 from gettext import gettext as _
 
-gi.require_version('Gtk', '4.0')
-gi.require_version('Adw', '1')
-gi.require_version('GnomeDesktop', '4.0')
-gi.require_version('GWeather', '4.0')
-gi.require_version('Vte', '3.91')
+import gi
+from gi.repository import Adw, Gio
 
-from gi.repository import Gtk, Gdk, Gio, Adw
 from vanilla_installer.windows.main_window import VanillaWindow
+
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
+gi.require_version("GnomeDesktop", "4.0")
+gi.require_version("GWeather", "4.0")
+gi.require_version("Vte", "3.91")
 
 
 logging.basicConfig(level=logging.INFO)
@@ -37,9 +37,11 @@ class FirstSetupApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self):
-        super().__init__(application_id='org.vanillaos.Installer',
-                         flags=Gio.ApplicationFlags.FLAGS_NONE)
-        self.create_action('quit', self.close, ['<primary>q'])
+        super().__init__(
+            application_id="org.vanillaos.Installer",
+            flags=Gio.ApplicationFlags.FLAGS_NONE,
+        )
+        self.create_action("quit", self.close, ["<primary>q"])
 
     def do_activate(self):
         """
@@ -49,7 +51,6 @@ class FirstSetupApplication(Adw.Application):
         necessary.
 
         """
-
 
         win = self.props.active_window
         if not win:

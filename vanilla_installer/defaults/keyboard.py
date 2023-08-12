@@ -14,20 +14,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import re
-import sys
-import time
-import subprocess
 import contextlib
-from gi.repository import Gtk, Gio, GLib, Adw
 import os
+import re
+import subprocess
+
+from gi.repository import Adw, Gio, GLib, Gtk
 
 from vanilla_installer.core.keymaps import KeyMaps
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-keyboard.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-keyboard.ui")
 class VanillaDefaultKeyboard(Adw.Bin):
-    __gtype_name__ = 'VanillaDefaultKeyboard'
+    __gtype_name__ = "VanillaDefaultKeyboard"
 
     btn_next = Gtk.Template.Child()
     entry_test = Gtk.Template.Child()
@@ -57,10 +56,14 @@ class VanillaDefaultKeyboard(Adw.Bin):
         current_layout, current_variant = self.__get_current_layout()
         for country in self.__keymaps.list_all.keys():
             if current_layout in self.__keymaps.list_all[country].keys():
-                self.combo_layouts.set_selected(list(self.__keymaps.list_all.keys()).index(country))
+                self.combo_layouts.set_selected(
+                    list(self.__keymaps.list_all.keys()).index(country)
+                )
                 self.__on_layout_selected()
 
-                for index, variant in enumerate(self.__keymaps.list_all[country].values()):
+                for index, variant in enumerate(
+                    self.__keymaps.list_all[country].values()
+                ):
                     if variant["xkb_variant"] == current_variant:
                         self.combo_variants.set_selected(index)
                         break
@@ -73,8 +76,10 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__next)
-        self.combo_layouts.connect("notify::selected", self.__on_layout_selected)
-        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        self.combo_layouts.connect(
+            "notify::selected", self.__on_layout_selected)
+        self.search_controller.connect(
+            "key-released", self.__on_search_key_pressed)
         if "VANILLA_NO_APPLY_XKB" not in os.environ:
             self.test_focus_controller.connect("enter", self.__apply_layout)
 
@@ -90,11 +95,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         if variant is None:
             return {
-                "keyboard": {
-                    "layout": "us",
-                    "model": "pc105",
-                    "variant": ""
-                }
+                "keyboard": {"layout": "us", "model": "pc105", "variant": ""}
             }  # fallback
 
         variant = variant.get_string()
@@ -108,7 +109,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
                     "keyboard": {
                         "layout": layout[key]["xkb_layout"],
                         "model": "pc105",
-                        "variant": layout[key]["xkb_variant"]
+                        "variant": layout[key]["xkb_variant"],
                     }
                 }
 
@@ -117,14 +118,18 @@ class VanillaDefaultKeyboard(Adw.Bin):
             ["setxkbmap", "-query"], capture_output=True, text=True
         ).stdout.splitlines()
 
-        current_layout = [l.split(": ")[1] for l in res if l.startswith("layout")][0]
+        current_layout = [
+            line.split(": ")[1] for line in res if line.startswith("layout")
+        ][0]
         current_variant = None
 
         if "," in current_layout:
             current_layout = current_layout.split(",")[0].strip()
 
         with contextlib.suppress(IndexError):
-            current_variant = [l.split(": ")[1] for l in res if l.startswith("variant")][0]
+            current_variant = [
+                line.split(": ")[1] for line in res if line.startswith("variant")
+            ][0]
             if "," in current_variant:
                 current_variant = current_variant.split(",")[0].strip()
 
@@ -140,7 +145,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
         for variant in layout.keys():
             self.str_list_variants.append(layout[variant]["display_name"])
 
-        self.combo_variants.set_visible(self.str_list_variants.get_n_items() != 0)
+        self.combo_variants.set_visible(
+            self.str_list_variants.get_n_items() != 0)
 
     def __apply_layout(self, *args):
         variant_index = self.combo_variants.get_selected()
@@ -165,31 +171,35 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
     def __on_search_key_pressed(self, *args):
         keywords = self.entry_search_keyboard.get_text().lower()
-        keywords = re.sub(r'[^a-zA-Z0-9 ]', '', keywords)
+        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", keywords)
 
         if keywords == "" or len(keywords) < 3:
             return
 
         for country in self.__keymaps.list_all.keys():
-            country = re.sub(r'[^a-zA-Z0-9 ]', '', country)
+            country = re.sub(r"[^a-zA-Z0-9 ]", "", country)
             if re.search(keywords, country, re.IGNORECASE):
-                self.combo_layouts.set_selected(list(self.__keymaps.list_all.keys()).index(country))
+                self.combo_layouts.set_selected(
+                    list(self.__keymaps.list_all.keys()).index(country)
+                )
                 # self.__on_layout_selected()
                 break
 
     def __set_keyboard_layout(self, layout, variant=None):
         value = layout
 
-        if variant != '':
-            value = layout + '+' + variant
+        if variant != "":
+            value = layout + "+" + variant
 
-        Gio.Settings.new('org.gnome.desktop.input-sources')\
-            .set_value(
-                'sources', 
-                GLib.Variant.new_array(GLib.VariantType('(ss)'), 
+        Gio.Settings.new("org.gnome.desktop.input-sources").set_value(
+            "sources",
+            GLib.Variant.new_array(
+                GLib.VariantType("(ss)"),
                 [
-                    GLib.Variant.new_tuple(GLib.Variant.new_string("xkb"), 
-                    GLib.Variant.new_string(value))
-                ]
-            )
+                    GLib.Variant.new_tuple(
+                        GLib.Variant.new_string(
+                            "xkb"), GLib.Variant.new_string(value)
+                    )
+                ],
+            ),
         )

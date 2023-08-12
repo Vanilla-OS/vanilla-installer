@@ -1,15 +1,18 @@
-import os
 import glob
 import importlib
 import inspect
+import os
 
-path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+path = os.path.dirname(os.path.abspath(
+    inspect.getfile(inspect.currentframe())))
 files = glob.glob(os.path.join(path, "*.py"))
 files.remove(os.path.join(path, "__init__.py"))
 
 all_locales_categorized = {}
 for file in files:
-    module = importlib.import_module("vanilla_installer.core.locales." + os.path.basename(file)[:-3])
+    module = importlib.import_module(
+        "vanilla_installer.core.locales." + os.path.basename(file)[:-3]
+    )
     all_locales_categorized[module.name] = module.locales
 
 all_locales = []

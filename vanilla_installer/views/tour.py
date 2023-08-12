@@ -16,13 +16,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from gi.repository import Gtk, Gio, GLib, Adw
 from gettext import gettext as _
 
+from gi.repository import Adw, Gtk
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/tour.ui')
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/tour.ui")
 class VanillaTour(Adw.Bin):
-    __gtype_name__ = 'VanillaTour'
+    __gtype_name__ = "VanillaTour"
 
     status_page = Gtk.Template.Child()
     assets_svg = Gtk.Template.Child()
@@ -37,4 +38,3 @@ class VanillaTour(Adw.Bin):
         self.assets_svg.set_resource(self.__tour["resource"])
         self.status_page.set_title(self.__tour["title"])
         self.status_page.set_description(self.__tour["description"])
-

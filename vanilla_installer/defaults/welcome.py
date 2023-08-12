@@ -14,17 +14,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
-import time
-from gi.repository import Gtk, Gio, GLib, Adw
+from gi.repository import Adw, Gtk
 
-from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.windows.dialog_recovery import VanillaRecoveryDialog
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/default-welcome.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-welcome.ui")
 class VanillaDefaultWelcome(Adw.Bin):
-    __gtype_name__ = 'VanillaDefaultWelcome'
+    __gtype_name__ = "VanillaDefaultWelcome"
 
     btn_recovery = Gtk.Template.Child()
     btn_install = Gtk.Template.Child()
@@ -37,7 +34,7 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.__step = step
 
         # signals
-        self.btn_recovery.connect('clicked', self.__on_recovery_clicked)
+        self.btn_recovery.connect("clicked", self.__on_recovery_clicked)
         self.btn_install.connect("clicked", self.__window.next)
 
     def get_finals(self):
@@ -45,4 +42,3 @@ class VanillaDefaultWelcome(Adw.Bin):
 
     def __on_recovery_clicked(self, button):
         VanillaRecoveryDialog(self.__window).show()
-        
