@@ -660,6 +660,8 @@ class VanillaDefaultDisk(Adw.Bin):
     btn_auto = Gtk.Template.Child()
     btn_manual = Gtk.Template.Child()
     group_disks = Gtk.Template.Child()
+    disk_space_err_box = Gtk.Template.Child()
+    disk_space_err_label = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -671,6 +673,13 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__selected_disks = []
         self.__disks = DisksManager()
         self.__partition_recipe = None
+        self.__selected_disks_sum = 0
+
+        self.min_disk_size = self.__window.recipe.get("min_disk_size", 28680)
+        self.disk_space_err_label.set_label(
+            self.disk_space_err_label.get_label()
+            % Diskutils.pretty_size(self.min_disk_size * 1_048_576)
+        )
 
         # append the disks widgets
         for index, disk in enumerate(self.__disks.all_disks):
@@ -712,11 +721,22 @@ class VanillaDefaultDisk(Adw.Bin):
     def on_disk_entry_toggled(self, widget, disk):
         if widget.get_active():
             self.__selected_disks.append(disk)
+            self.__selected_disks_sum += disk.size
         else:
             self.__selected_disks.remove(disk)
+            self.__selected_disks_sum -= disk.size
 
-        self.btn_auto.set_sensitive(len(self.__selected_disks) == 1)
-        self.btn_manual.set_sensitive(len(self.__selected_disks) > 0)
+        if (
+            self.__selected_disks_sum / 1_048_576 < self.min_disk_size
+            and self.__selected_disks_sum > 0
+        ):
+            self.disk_space_err_box.set_visible(True)
+            self.btn_auto.set_sensitive(False)
+            self.btn_manual.set_sensitive(False)
+        else:
+            self.disk_space_err_box.set_visible(False)
+            self.btn_auto.set_sensitive(len(self.__selected_disks) == 1)
+            self.btn_manual.set_sensitive(len(self.__selected_disks) > 0)
 
     def set_partition_recipe(self, recipe):
         self.__partition_recipe = recipe

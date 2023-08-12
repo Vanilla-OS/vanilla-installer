@@ -56,6 +56,8 @@ class Builder:
         self.__load()
 
     def __load(self):
+        self.__window.recipe = self.recipe
+
         # here we create a temporary file to store the output of the commands
         # the log path is defined in the recipe
         if "log_file" not in self.__recipe.raw:
