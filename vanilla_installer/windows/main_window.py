@@ -108,7 +108,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         recipe = Processor.gen_install_recipe(
             self.recipe.get("log_file", "/tmp/vanilla_installer.log"),
             self.finals,
-            self.recipe.get("images"),
+            self.recipe,
         )
         self.next()
         self.__view_progress.start(recipe)

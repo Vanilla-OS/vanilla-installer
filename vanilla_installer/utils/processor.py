@@ -156,7 +156,7 @@ class AlbiusRecipe:
 class Processor:
     @staticmethod
     def __gen_auto_partition_steps(
-        disk: str, encrypt: bool, password: str | None = None
+        disk: str, encrypt: bool, root_size: int, password: str | None = None
     ):
         setup_steps = []
         mountpoints = []
@@ -187,13 +187,13 @@ class Processor:
 
         # Roots
         setup_steps.append(
-            [disk, "mkpart", ["vos-a", "btrfs", part_offset, part_offset + 12288]]
+            [disk, "mkpart", ["vos-a", "btrfs", part_offset, part_offset + root_size]]
         )
-        part_offset += 12288
+        part_offset += root_size
         setup_steps.append(
-            [disk, "mkpart", ["vos-b", "btrfs", part_offset, part_offset + 12288]]
+            [disk, "mkpart", ["vos-b", "btrfs", part_offset, part_offset + root_size]]
         )
-        part_offset += 12288
+        part_offset += root_size
 
         # Home
         setup_steps.append(
@@ -311,11 +311,13 @@ class Processor:
         )
 
     @staticmethod
-    def gen_install_recipe(log_path, finals, images):
+    def gen_install_recipe(log_path, finals, sys_recipe):
         logger.info("processing the following final data: %s", finals)
 
         recipe = AlbiusRecipe()
 
+        images = sys_recipe.get("images")
+        root_size = sys_recipe.get("default_root_size")
         oci_image = images["default"]
 
         # Setup encryption if user selected it
@@ -331,7 +333,7 @@ class Processor:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
                     part_info = Processor.__gen_auto_partition_steps(
-                        final["disk"]["auto"]["disk"], encrypt, password
+                        final["disk"]["auto"]["disk"], encrypt, root_size, password
                     )
                 else:
                     part_info = Processor.__gen_manual_partition_steps(
