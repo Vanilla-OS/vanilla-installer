@@ -1,3 +1,10 @@
+vanilla-installer (2.2.0) unstable; urgency=critical
+
+  * Allow setting 'default_root_size' and 'min_disk_size' in recipe
+  * Re-introduce minimum disk size check
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 13 Aug 2023 16:51:00 -0300
+
 vanilla-installer (2.1.5) unstable; urgency=critical
 
   * Add initramfs pre-run and post-run commands in installation

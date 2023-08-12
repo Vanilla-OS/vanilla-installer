@@ -2,21 +2,21 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="VanillaDefaultDisk" parent="AdwBin">
-    <property name="halign">fill</property>
-    <property name="valign">fill</property>
+    <property name="halign">0</property>
+    <property name="valign">0</property>
     <property name="hexpand">true</property>
     <child>
       <object class="GtkOverlay">
-        <property name="valign">center</property>
+        <property name="valign">3</property>
         <child type="overlay">
           <object class="GtkButton" id="btn_next">
             <property name="margin-end">12</property>
             <property name="margin-start">12</property>
             <property name="icon-name">go-next-symbolic</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
+            <property name="halign">2</property>
+            <property name="valign">3</property>
             <property name="visible">false</property>
-            <property name="tooltip-text" translatable="yes">Next</property>
+            <property name="tooltip-text" translatable="true">Next</property>
             <style>
               <class name="circular"/>
               <class name="suggested-action"/>
@@ -26,8 +26,8 @@
         <child>
           <object class="AdwStatusPage" id="status_page">
             <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
-            <property name="title" translatable="yes">Install Location</property>
-            <property name="description" translatable="yes">Select the disk where you want to install Vanilla OS. Alternatively, you can select one or more disks to configure manually.</property>
+            <property name="title" translatable="true">Install Location</property>
+            <property name="description" translatable="true">Select the disk where you want to install Vanilla OS. Alternatively, you can select one or more disks to configure manually.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
@@ -37,13 +37,13 @@
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="GtkBox">
-                        <property name="halign">center</property>
+                        <property name="halign">3</property>
                         <property name="spacing">10</property>
                         <child>
                           <object class="GtkButton" id="btn_auto">
-                            <property name="label" translatable="yes">Use entire disk</property>
+                            <property name="label" translatable="true">Use entire disk</property>
                             <property name="margin-top">20</property>
-                            <property name="halign">center</property>
+                            <property name="halign">3</property>
                             <property name="sensitive">false</property>
                             <style>
                               <class name="pill"/>
@@ -53,13 +53,37 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_manual">
-                            <property name="label" translatable="yes">Manual</property>
+                            <property name="label" translatable="true">Manual</property>
                             <property name="margin-top">20</property>
-                            <property name="halign">center</property>
+                            <property name="halign">3</property>
                             <property name="sensitive">false</property>
                             <style>
                               <class name="pill"/>
                             </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <style>
+                      <class name="error"/>
+                    </style>
+                    <child>
+                      <object class="GtkBox" id="disk_space_err_box">
+                        <property name="visible">false</property>
+                        <property name="halign">3</property>
+                        <property name="spacing">5</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">drive-harddisk-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="disk_space_err_label">
+                            <property name="label" translatable="true">You need at least %s of disk space to proceed with installation.</property>
                           </object>
                         </child>
                       </object>

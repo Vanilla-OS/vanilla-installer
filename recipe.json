@@ -1,19 +1,13 @@
 {
     "log_file": "/etc/vanilla/installer.log",
     "distro_name": "Vanilla OS",
-    "distro_logo": "org.vanillaos.Installer", 
+    "distro_logo": "org.vanillaos.Installer",
     "images": {
     		"default": "ghcr.io/vanilla-os/desktop:main",
     		"nvidia": "ghcr.io/vanilla-os/nvidia:main"
     },
-    "pre_run": [
-        "sudo apx --sys update", 
-        "sudo apx --sys install -f"
-    ],
-    "post_run": [
-        "sudo apx --sys update", 
-        "sudo apx --sys install -f"
-    ],
+    "default_root_size": 8192,
+    "min_disk_size": 28680,
     "tour": {
         "welcome": {
             "resource": "/org/vanillaos/Installer/assets/welcome.svg",

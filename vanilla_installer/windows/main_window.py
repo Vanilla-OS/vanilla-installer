@@ -43,7 +43,6 @@ class VanillaWindow(Adw.ApplicationWindow):
         # this starts the builder and generates the widgets
         # to put in the carousel
         self.__builder = Builder(self)
-        self.recipe = self.__builder.recipe
 
         # system views
         self.__view_confirm = VanillaConfirm(self)
@@ -108,7 +107,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         recipe = Processor.gen_install_recipe(
             self.recipe.get("log_file", "/tmp/vanilla_installer.log"),
             self.finals,
-            self.recipe.get("images"),
+            self.recipe,
         )
         self.next()
         self.__view_progress.start(recipe)
