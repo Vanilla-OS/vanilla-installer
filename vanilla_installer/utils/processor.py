@@ -568,6 +568,7 @@ class Processor:
                     "mv /.system/tmp /var",
                     "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
                     "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
+                    "mv /var/storage /var/lib/abroot/",
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                     "mount -o bind,ro /.system/usr /usr",

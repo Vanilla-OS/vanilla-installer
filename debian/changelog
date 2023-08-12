@@ -1,9 +1,15 @@
+vanilla-installer (2.2.1) unstable; urgency=critical
+
+  * Move Albius storage into ABRoot storage
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 12 Aug 2023 19:24:00 -0300
+
 vanilla-installer (2.2.0) unstable; urgency=critical
 
   * Allow setting 'default_root_size' and 'min_disk_size' in recipe
   * Re-introduce minimum disk size check
 
- -- Mateus Melchiades <matbme@duck.com>  Sat, 13 Aug 2023 16:51:00 -0300
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 12 Aug 2023 16:51:00 -0300
 
 vanilla-installer (2.1.5) unstable; urgency=critical
 
