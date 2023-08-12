@@ -14,16 +14,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import time
-from gi.repository import Gtk, Gio, GLib, Adw
-
-from vanilla_installer.utils.run_async import RunAsync
-from vanilla_installer.windows.dialog import VanillaDialog
 from gettext import gettext as _
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/layout-preferences.ui')
+from gi.repository import Adw, Gtk
+
+from vanilla_installer.windows.dialog import VanillaDialog
+
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/layout-preferences.ui")
 class VanillaLayoutPreferences(Adw.Bin):
-    __gtype_name__ = 'VanillaLayoutPreferences'
+    __gtype_name__ = "VanillaLayoutPreferences"
 
     status_page = Gtk.Template.Child()
     prefs_list = Gtk.Template.Child()
@@ -48,8 +48,7 @@ class VanillaLayoutPreferences(Adw.Bin):
 
         for item in self.__step["preferences"]:
             _action_row = Adw.ActionRow(
-                title=item["title"],
-                subtitle=item.get("subtitle", "")
+                title=item["title"], subtitle=item.get("subtitle", "")
             )
             _switcher = Gtk.Switch()
             _switcher.set_active(item.get("default", False))
@@ -59,7 +58,7 @@ class VanillaLayoutPreferences(Adw.Bin):
             self.prefs_list.add(_action_row)
 
             self.__register_widgets.append((item["id"], _switcher))
-            
+
     def __next_step(self, widget):
         ws = self.__step.get("without_selection", {})
 
@@ -84,9 +83,11 @@ class VanillaLayoutPreferences(Adw.Bin):
         for _id, switcher in self.__register_widgets:
             finals["vars"][_id] = switcher.get_active()
 
-        if not any([x[1].get_active() for x in self.__register_widgets]) \
-            and ws.get("allowed", True) \
-            and ws.get("final", None):
+        if (
+            not any([x[1].get_active() for x in self.__register_widgets])
+            and ws.get("allowed", True)
+            and ws.get("final", None)
+        ):
             finals["vars"]["_managed"] = True
             finals["funcs"].extend(ws["final"])
 

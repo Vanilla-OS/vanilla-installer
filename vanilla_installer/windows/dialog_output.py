@@ -14,13 +14,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from gi.repository import Gtk, GObject, Adw
 from gettext import gettext as _
 
+from gi.repository import Adw, GObject, Gtk
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-output.ui')
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-output.ui")
 class VanillaDialogOutput(Adw.Window):
-    __gtype_name__ = 'VanillaDialogOutput'
+    __gtype_name__ = "VanillaDialogOutput"
 
     main_box = Gtk.Template.Child()
 
@@ -29,4 +30,3 @@ class VanillaDialogOutput(Adw.Window):
         self.set_transient_for(window)
 
         self.main_box.append(terminal)
-        

@@ -14,17 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from datetime import datetime
-import os
-import logging
-import tempfile
-import re
 import json
-from typing import Union, Any
+import logging
+import os
+import re
+import tempfile
+from datetime import datetime
+from typing import Any, Union
 
-from gettext import gettext as _
 from vanilla_installer.core.system import Systeminfo
-
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -169,7 +167,8 @@ class Processor:
         # Boot
         setup_steps.append([disk, "mkpart", ["vos-boot", "ext4", 1, 1025]])
         if Systeminfo.is_uefi():
-            setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
+            setup_steps.append(
+                [disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
             part_offset = 1537
         else:
             setup_steps.append([disk, "mkpart", ["BIOS", "fat32", 1025, 1026]])
@@ -197,7 +196,8 @@ class Processor:
         part_offset += 12288
 
         # Home
-        setup_steps.append([disk, "mkpart", _params("vos-var", fs, part_offset, -1)])
+        setup_steps.append(
+            [disk, "mkpart", _params("vos-var", fs, part_offset, -1)])
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
@@ -236,7 +236,8 @@ class Processor:
 
             # Should we encrypt?
             operation = (
-                "luks-format" if encrypt and values["mp"] in ["/var"] else "format"
+                "luks-format" if encrypt and values["mp"] in [
+                    "/var"] else "format"
             )
 
             def _params(*args):
@@ -271,8 +272,7 @@ class Processor:
                 part_name = "vos-var"
 
             setup_steps.append(
-                [part_disk, "namepart", [part_number, part_name]]
-            )
+                [part_disk, "namepart", [part_number, part_name]])
 
             if values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
@@ -465,7 +465,7 @@ class Processor:
                 "shell",
                 [
                     "mkdir -p /etc/gdm3",
-                    "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/daemon.conf"
+                    "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/daemon.conf",
                 ],
                 chroot=True,
             )
@@ -596,7 +596,8 @@ class Processor:
         recipe.merge_postinstall_steps()
 
         if "VANILLA_FAKE" in os.environ:
-            logger.info("VANILLA_FAKE is set, skipping the installation process.")
+            logger.info(
+                "VANILLA_FAKE is set, skipping the installation process.")
             logger.info(json.dumps(recipe, default=vars))
             return None
 

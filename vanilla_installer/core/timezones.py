@@ -1,9 +1,8 @@
 import datetime
+
 import pytz
 import requests
-
 from gi.repository import GnomeDesktop, GWeather
-
 
 # TODO: port to a dedicated class
 all_timezones = {}
@@ -35,14 +34,15 @@ all_timezones = dict(sorted(all_timezones.items()))
 for country in all_timezones.keys():
     all_timezones[country] = sorted(all_timezones[country])
 
+
 def get_current_timezone():
     success_code, country, city = get_timezone_by_ip()
     if not success_code:
         timezone = GnomeDesktop.WallClock().get_timezone()
         timezone = timezone.get_identifier()
 
-        country = timezone.split('/')[0]
-        city = timezone[country.__len__()+1:]
+        country = timezone.split("/")[0]
+        city = timezone[country.__len__() + 1:]
 
     return country, city
 
@@ -52,9 +52,9 @@ def get_timezone_by_ip():
         res = requests.get("http://ip-api.com/json", timeout=3).json()
         timezone = res["timezone"]
         country = timezone.split("/")[0]
-        city = timezone[country.__len__() + 1 :]
+        city = timezone[country.__len__() + 1:]
         success_code = True
-    except:
+    except Exception:
         success_code = False
         city = -1
         country = -1

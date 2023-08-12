@@ -15,13 +15,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import webbrowser
-from gi.repository import Gtk, GLib, Adw
 from gettext import gettext as _
 
+from gi.repository import Adw, GLib, Gtk
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/dialog-recovery.ui')
+
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-recovery.ui")
 class VanillaRecoveryDialog(Adw.Window):
-    __gtype_name__ = 'VanillaRecoveryDialog'
+    __gtype_name__ = "VanillaRecoveryDialog"
 
     row_console = Gtk.Template.Child()
     row_gparted = Gtk.Template.Child()
@@ -33,19 +34,19 @@ class VanillaRecoveryDialog(Adw.Window):
         self.set_transient_for(window)
 
         # signals
-        self.row_console.connect('activated', self.__on_console_activated)
-        self.row_gparted.connect('activated', self.__on_gparted_activated)
-        self.row_handbook.connect('activated', self.__on_handbook_activated)
-        self.row_web.connect('activated', self.__on_web_activated)
+        self.row_console.connect("activated", self.__on_console_activated)
+        self.row_gparted.connect("activated", self.__on_gparted_activated)
+        self.row_handbook.connect("activated", self.__on_handbook_activated)
+        self.row_web.connect("activated", self.__on_web_activated)
 
     def __on_console_activated(self, row):
-        GLib.spawn_command_line_async('kgx')
+        GLib.spawn_command_line_async("kgx")
 
     def __on_gparted_activated(self, row):
-        GLib.spawn_command_line_async('gparted')
+        GLib.spawn_command_line_async("gparted")
 
     def __on_handbook_activated(self, row):
-        webbrowser.open('https://handbook.vanillaos.org')
+        webbrowser.open("https://handbook.vanillaos.org")
 
     def __on_web_activated(self, row):
-        webbrowser.open('https://vanillaos.org')
+        webbrowser.open("https://vanillaos.org")

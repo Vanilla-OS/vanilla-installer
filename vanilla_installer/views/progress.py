@@ -15,17 +15,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import time
-from gi.repository import Gtk, Gdk, Gio, GLib, Adw, Vte, Pango
 from gettext import gettext as _
 
-from vanilla_installer.utils.run_async import RunAsync
+from gi.repository import Gdk, Gio, GLib, Gtk, Pango, Vte
 
+from vanilla_installer.utils.run_async import RunAsync
 from vanilla_installer.views.tour import VanillaTour
 
 
-@Gtk.Template(resource_path='/org/vanillaos/Installer/gtk/progress.ui')
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/progress.ui")
 class VanillaProgress(Gtk.Box):
-    __gtype_name__ = 'VanillaProgress'
+    __gtype_name__ = "VanillaProgress"
 
     carousel_tour = Gtk.Template.Child()
     tour_button = Gtk.Template.Child()
@@ -70,7 +70,24 @@ class VanillaProgress(Gtk.Box):
         self.console_output.append(self.__terminal)
         self.__terminal.connect("child-exited", self.on_vte_child_exited)
 
-        palette = ["#353535", "#c01c28", "#26a269", "#a2734c", "#12488b", "#a347ba", "#2aa1b3", "#cfcfcf", "#5d5d5d", "#f66151", "#33d17a", "#e9ad0c", "#2a7bde", "#c061cb", "#33c7de", "#ffffff"]
+        palette = [
+            "#353535",
+            "#c01c28",
+            "#26a269",
+            "#a2734c",
+            "#12488b",
+            "#a347ba",
+            "#2aa1b3",
+            "#cfcfcf",
+            "#5d5d5d",
+            "#f66151",
+            "#33d17a",
+            "#e9ad0c",
+            "#2a7bde",
+            "#c061cb",
+            "#33c7de",
+            "#ffffff",
+        ]
 
         FOREGROUND = palette[0]
         BACKGROUND = palette[15]
@@ -82,11 +99,11 @@ class VanillaProgress(Gtk.Box):
 
         self.colors = [Gdk.RGBA() for c in palette]
         [color.parse(s) for (color, s) in zip(self.colors, palette)]
-        desktop_schema = Gio.Settings.new('org.gnome.desktop.interface')
-        if desktop_schema.get_enum('color-scheme') == 0:
+        desktop_schema = Gio.Settings.new("org.gnome.desktop.interface")
+        if desktop_schema.get_enum("color-scheme") == 0:
             self.fg.parse(FOREGROUND)
             self.bg.parse(BACKGROUND)
-        elif desktop_schema.get_enum('color-scheme') == 1:
+        elif desktop_schema.get_enum("color-scheme") == 1:
             self.fg.parse(FOREGROUND_DARK)
             self.bg.parse(BACKGROUND_DARK)
         self.__terminal.set_colors(self.fg, self.bg, self.colors)
@@ -138,5 +155,5 @@ class VanillaProgress(Gtk.Box):
             None,
             -1,
             None,
-            None
+            None,
         )

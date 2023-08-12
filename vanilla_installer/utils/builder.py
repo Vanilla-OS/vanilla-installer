@@ -14,28 +14,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import sys
 import logging
+import os
 import subprocess
-import json
-
+import sys
 from gettext import gettext as _
-from gi.repository import Gio
 
-from vanilla_installer.utils.recipe import RecipeLoader
-
-from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
-from vanilla_installer.defaults.language import VanillaDefaultLanguage
-from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
-from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
 from vanilla_installer.defaults.disk import VanillaDefaultDisk
 from vanilla_installer.defaults.encryption import VanillaDefaultEncryption
+from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
+from vanilla_installer.defaults.language import VanillaDefaultLanguage
 from vanilla_installer.defaults.nvidia import VanillaDefaultNvidia
-
+from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
+from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
 from vanilla_installer.layouts.preferences import VanillaLayoutPreferences
 from vanilla_installer.layouts.yes_no import VanillaLayoutYesNo
-
+from vanilla_installer.utils.recipe import RecipeLoader
 
 logger = logging.getLogger("Installer::Builder")
 
@@ -49,12 +43,11 @@ templates = {
     "disk": VanillaDefaultDisk,
     "encryption": VanillaDefaultEncryption,
     "nvidia": VanillaDefaultNvidia,
-    "yes-no": VanillaLayoutYesNo
+    "yes-no": VanillaLayoutYesNo,
 }
 
 
 class Builder:
-
     def __init__(self, window):
         self.__window = window
         self.__recipe = RecipeLoader()
@@ -73,7 +66,7 @@ class Builder:
 
         if not os.path.exists(log_path):
             try:
-                open(log_path, 'a').close()
+                open(log_path, "a").close()
             except OSError:
                 logger.warning(_("failed to create log file: %s") % log_path)
                 logging.warning(_("No log will be stored."))
@@ -83,13 +76,23 @@ class Builder:
                 _condition_met = False
                 for command in step["display-conditions"]:
                     try:
-                        logger.info(_("Performing display-condition: %s") % command)
-                        output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-                        if output.decode("utf-8") == "" or output.decode("utf-8") == "1":
-                            logger.info(_("Step %s skipped due to display-conditions") % key)
+                        logger.info(
+                            _("Performing display-condition: %s") % command)
+                        output = subprocess.check_output(
+                            command, shell=True, stderr=subprocess.STDOUT
+                        )
+                        if (
+                            output.decode("utf-8") == ""
+                            or output.decode("utf-8") == "1"
+                        ):
+                            logger.info(
+                                _("Step %s skipped due to display-conditions") % key
+                            )
                             break
-                    except subprocess.CalledProcessError as e:
-                        logger.info(_("Step %s skipped due to display-conditions") % key)
+                    except subprocess.CalledProcessError:
+                        logger.info(
+                            _("Step %s skipped due to display-conditions") % key
+                        )
                         break
                 else:
                     _condition_met = True
@@ -98,7 +101,9 @@ class Builder:
                     continue
 
             if step["template"] in templates:
-                _widget = templates[step["template"]](self.__window, self.distro_info, key, step)
+                _widget = templates[step["template"]](
+                    self.__window, self.distro_info, key, step
+                )
                 self.__register_widgets.append(_widget)
 
     def get_finals(self):
@@ -116,10 +121,10 @@ class Builder:
     @property
     def recipe(self):
         return self.__recipe.raw
-    
+
     @property
     def distro_info(self):
         return {
             "name": self.__recipe.raw["distro_name"],
-            "logo": self.__recipe.raw["distro_logo"]
+            "logo": self.__recipe.raw["distro_logo"],
         }

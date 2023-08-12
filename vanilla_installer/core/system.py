@@ -1,5 +1,6 @@
 import subprocess
 
+
 class Systeminfo:
     uefi = None
 

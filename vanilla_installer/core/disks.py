@@ -1,21 +1,21 @@
 import os
 import subprocess
-import sys
+
 
 class Diskutils:
     @staticmethod
     def pretty_size(size: int) -> str:
-        if size > 1024 ** 3:
+        if size > 1024**3:
             return f"{round(size / 1024 ** 3, 2)} GB"
-        elif size > 1024 ** 2:
+        elif size > 1024**2:
             return f"{round(size / 1024 ** 2, 2)} MB"
         elif size > 1024:
             return f"{round(size / 1024, 2)} KB"
         else:
             return f"{size} B"
 
-class Disk:
 
+class Disk:
     def __init__(self, disk: str):
         self.__disk = disk
         self.__partitions = self.__get_partitions()
@@ -63,9 +63,9 @@ class Disk:
     @property
     def pretty_size(self):
         size = self.size
-        if size > 1024 ** 3:
+        if size > 1024**3:
             return f"{round(size / 1024 ** 3, 2)} GB"
-        elif size > 1024 ** 2:
+        elif size > 1024**2:
             return f"{round(size / 1024 ** 2, 2)} MB"
         elif size > 1024:
             return f"{round(size / 1024, 2)} KB"
@@ -74,7 +74,6 @@ class Disk:
 
 
 class Partition:
-
     def __init__(self, disk: str, partition: str):
         self.__disk = disk
         self.__partition = partition
@@ -86,10 +85,13 @@ class Partition:
 
     def __get_mountpoint(self):
         try:
-            return subprocess.check_output(
-                f"findmnt -n -o TARGET {self.partition}",
-                shell=True
-            ).decode("utf-8").strip()
+            return (
+                subprocess.check_output(
+                    f"findmnt -n -o TARGET {self.partition}", shell=True
+                )
+                .decode("utf-8")
+                .strip()
+            )
         except subprocess.CalledProcessError:
             return None
 
@@ -98,28 +100,37 @@ class Partition:
 
     def __get_fs_type(self):
         try:
-            return subprocess.check_output(
-                f"lsblk -d -n -o FSTYPE {self.partition}",
-                shell=True
-            ).decode("utf-8").strip()
+            return (
+                subprocess.check_output(
+                    f"lsblk -d -n -o FSTYPE {self.partition}", shell=True
+                )
+                .decode("utf-8")
+                .strip()
+            )
         except subprocess.CalledProcessError:
             return None
 
     def __get_uuid(self):
         try:
-            return subprocess.check_output(
-                f"lsblk -d -n -o UUID {self.partition}",
-                shell=True
-            ).decode("utf-8").strip()
+            return (
+                subprocess.check_output(
+                    f"lsblk -d -n -o UUID {self.partition}", shell=True
+                )
+                .decode("utf-8")
+                .strip()
+            )
         except subprocess.CalledProcessError:
             return None
 
     def __get_label(self):
         try:
-            return subprocess.check_output(
-                f"findmnt -n -o LABEL {self.partition}",
-                shell=True
-            ).decode("utf-8").strip()
+            return (
+                subprocess.check_output(
+                    f"findmnt -n -o LABEL {self.partition}", shell=True
+                )
+                .decode("utf-8")
+                .strip()
+            )
         except subprocess.CalledProcessError:
             return None
 
@@ -142,9 +153,9 @@ class Partition:
     @property
     def pretty_size(self):
         size = self.size
-        if size > 1024 ** 3:
+        if size > 1024**3:
             return f"{round(size / 1024 ** 3, 2)} GB"
-        elif size > 1024 ** 2:
+        elif size > 1024**2:
             return f"{round(size / 1024 ** 2, 2)} MB"
         elif size > 1024:
             return f"{round(size / 1024, 2)} KB"
@@ -173,7 +184,6 @@ class Partition:
 
 
 class DisksManager:
-
     def __init__(self):
         self.__disks = self.__get_disks()
 
