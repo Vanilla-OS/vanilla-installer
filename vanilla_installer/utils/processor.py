@@ -95,14 +95,7 @@ function load_video {
   fi
 }
 
-if [ x$feature_default_font_path = xy ] ; then
-   font=unicode
-else
-insmod part_gpt
-insmod btrfs
-search --no-floppy --fs-uuid --set=root %s
-    font="/grub/fonts/unicode.pf2"
-fi
+font=unicode
 
 if loadfont $font ; then
   set gfxmode=auto
@@ -594,7 +587,6 @@ class Processor:
             # Replace main GRUB entry in the boot partition
             with open("/tmp/boot-grub.cfg", "w") as file:
                 boot_entry = _BOOT_GRUB_CFG % (
-                    "$BOOT_UUID",
                     "$ROOTA_UUID",
                     "$ROOTB_UUID",
                 )
@@ -605,9 +597,8 @@ class Processor:
                     " ".join(
                         f"ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_part}) \
                         ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_part}) \
-                        BOOT_UUID=$(lsblk -d -n -o UUID {boot_part}) \
                         envsubst < /tmp/boot-grub.cfg > /mnt/a/boot/grub/grub.cfg \
-                        '$ROOTA_UUID $ROOTB_UUID $BOOT_UUID'".split()
+                        '$ROOTA_UUID $ROOTB_UUID".split()
                     )
                 ],
             )
