@@ -480,30 +480,6 @@ class Processor:
             ],
         )
 
-        # Set hostname
-        recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
-        for final in finals:
-            for key, value in final.items():
-                # Set timezone
-                if key == "timezone":
-                    recipe.add_postinstall_step(
-                        "timezone", [f"{value['region']}/{value['zone']}"], chroot=True
-                    )
-                # Set locale
-                if key == "language":
-                    recipe.add_postinstall_step("locale", [value], chroot=True)
-                # Set keyboard
-                if key == "keyboard":
-                    recipe.add_postinstall_step(
-                        "keyboard",
-                        [
-                            value["layout"],
-                            value["model"],
-                            value["variant"],
-                        ],
-                        chroot=True,
-                    )
-
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
             if encrypt:
@@ -662,6 +638,30 @@ class Processor:
                 ],
                 chroot=True,
             )
+
+        # Set hostname
+        recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
+        for final in finals:
+            for key, value in final.items():
+                # Set timezone
+                if key == "timezone":
+                    recipe.add_postinstall_step(
+                        "timezone", [f"{value['region']}/{value['zone']}"], chroot=True
+                    )
+                # Set locale
+                if key == "language":
+                    recipe.add_postinstall_step("locale", [value], chroot=True)
+                # Set keyboard
+                if key == "keyboard":
+                    recipe.add_postinstall_step(
+                        "keyboard",
+                        [
+                            value["layout"],
+                            value["model"],
+                            value["variant"],
+                        ],
+                        chroot=True,
+                    )
 
             # Create /abimage.abr
             with open("/tmp/abimage.abr", "w") as file:
