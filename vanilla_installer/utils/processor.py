@@ -50,14 +50,6 @@ if [ -s $prefix/grubenv ]; then
   set have_grubenv=true
   load_env
 fi
-if [ "${next_entry}" ] ; then
-   set default="${next_entry}"
-   set next_entry=
-   save_env next_entry
-   set boot_once=true
-else
-   set default="0"
-fi
 
 if [ x"${feature_menuentry_id}" = xy ]; then
   menuentry_id_option="--id"
