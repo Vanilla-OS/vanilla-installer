@@ -599,7 +599,7 @@ class Processor:
                         ROOTB_UUID=$(lsblk -d -n -o UUID {root_b_part}) \
                         BOOT_UUID=$(lsblk -d -n -o UUID {boot_part}) \
                         envsubst < /tmp/boot-grub.cfg > /mnt/a/boot/grub/grub.cfg \
-                        '$ROOTA_UUID $ROOTB_UUID".split()
+                        '$ROOTA_UUID $ROOTB_UUID'".split()
                     )
                 ],
             )
