@@ -194,6 +194,13 @@ class DisksManager:
             if disk.startswith(("loop", "ram", "sr", "zram")):
                 continue
 
+            if os.path.isfile("/sys/block/" + disk + "/removable"):
+                with open("/sys/block/" + disk + "/removable") as f:
+                    removable = int(f.readlines()[0].strip())
+
+                if removable == 1:
+                    continue
+
             disks.append(Disk(disk))
 
         return disks
