@@ -427,22 +427,6 @@ class Processor:
             r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", boot_part, re.MULTILINE
         )[0]
 
-        # Append bind entries to fstab
-        with open("/tmp/fstab_append", "w") as file:
-            base_mountpoint = "/dev/mapper/luks-" if encrypt else "UUID="
-            fstab_append = _FSTAB_ENTRIES % f"{base_mountpoint}$VAR_UUID"
-            file.write(fstab_append)
-        recipe.add_postinstall_step(
-            "shell",
-            [
-                " ".join(
-                    f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
-                    envsubst < /tmp/fstab_append >> /mnt/a/etc/fstab \
-                    '$VAR_UUID'".split()
-                ),
-            ],
-        )
-
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
             if encrypt:
@@ -582,6 +566,22 @@ class Processor:
                 [
                     f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
                     f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
+                ],
+            )
+
+            # Append bind entries to fstab
+            with open("/tmp/fstab_append", "w") as file:
+                base_mountpoint = "/dev/mapper/luks-" if encrypt else "UUID="
+                fstab_append = _FSTAB_ENTRIES % f"{base_mountpoint}$VAR_UUID"
+                file.write(fstab_append)
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    " ".join(
+                        f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
+                        envsubst < /tmp/fstab_append >> /mnt/a/etc/fstab \
+                        '$VAR_UUID'".split()
+                    ),
                 ],
             )
 
