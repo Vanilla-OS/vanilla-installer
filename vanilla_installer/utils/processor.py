@@ -437,7 +437,7 @@ class Processor:
             [
                 " ".join(
                     f"VAR_UUID=$(lsblk -d -n -o UUID {var_part}) \
-                    envsubst < /tmp/fstab_append-script >> /mnt/a/etc/fstab \
+                    envsubst < /tmp/fstab_append >> /mnt/a/etc/fstab \
                     '$VAR_UUID'".split()
                 ),
             ],
