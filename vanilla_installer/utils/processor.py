@@ -141,9 +141,8 @@ _ABIMAGE_FILE = """{
 }
 """
 
-_FSTAB_ENTRIES = """
-%s /var btrfs defaults 0 2
-overlay /etc overlay defaults,lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work 0 2
+_FSTAB_ENTRIES = """%s /var btrfs defaults 0 2
+overlay /etc overlay noauto,x-systemd.automount,lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work 0 0
 /var/home /home none bind 0 0
 /var/opt /opt none bind 0 0
 /.system/usr /usr none bind,ro 0 0
