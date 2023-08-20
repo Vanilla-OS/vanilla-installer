@@ -43,7 +43,10 @@ class VanillaRecoveryDialog(Adw.Window):
         GLib.spawn_command_line_async("kgx")
 
     def __on_gparted_activated(self, row):
-        GLib.spawn_command_line_async("gparted")
+        try:
+            GLib.spawn_command_line_async("gparted")
+        except:
+            GLib.spawn_command_line_async("/usr/sbin/gparted")
 
     def __on_handbook_activated(self, row):
         webbrowser.open("https://handbook.vanillaos.org")
