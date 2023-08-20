@@ -245,8 +245,7 @@ class Processor:
         # Boot
         setup_steps.append([disk, "mkpart", ["vos-boot", "ext4", 1, 1025]])
         if Systeminfo.is_uefi():
-            setup_steps.append(
-                [disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
+            setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
             part_offset = 1537
         else:
             setup_steps.append([disk, "mkpart", ["BIOS", "fat32", 1025, 1026]])
@@ -274,8 +273,7 @@ class Processor:
         part_offset += root_size
 
         # Home
-        setup_steps.append(
-            [disk, "mkpart", _params("vos-var", fs, part_offset, -1)])
+        setup_steps.append([disk, "mkpart", _params("vos-var", fs, part_offset, -1)])
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
@@ -314,8 +312,7 @@ class Processor:
 
             # Should we encrypt?
             operation = (
-                "luks-format" if encrypt and values["mp"] in [
-                    "/var"] else "format"
+                "luks-format" if encrypt and values["mp"] in ["/var"] else "format"
             )
 
             def _params(*args):
@@ -349,8 +346,7 @@ class Processor:
             elif values["mp"] == "/var":
                 part_name = "vos-var"
 
-            setup_steps.append(
-                [part_disk, "namepart", [part_number, part_name]])
+            setup_steps.append([part_disk, "namepart", [part_number, part_name]])
 
             if values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
@@ -678,8 +674,6 @@ class Processor:
         recipe.merge_postinstall_steps()
 
         if "VANILLA_FAKE" in os.environ:
-            logger.info(
-                "VANILLA_FAKE is set, skipping the installation process.")
             logger.info(json.dumps(recipe, default=vars))
             return None
 
