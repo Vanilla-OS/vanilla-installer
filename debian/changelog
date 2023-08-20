@@ -1,3 +1,10 @@
+vanilla-installer (2.2.4) unstable; urgency=critical
+
+  * List timezones from /usr/share/zoneinfo/zone.tab instead of relying on
+    GWeather which looks inconsistent with the system
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 13 Aug 2023 19:02:00 -0300
+  
 vanilla-installer (2.2.3) unstable; urgency=critical
 
   * Add more complete GRUB config
