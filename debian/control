@@ -32,6 +32,7 @@ Depends: python3,
          gir1.2-gnomedesktop-4.0,
          gir1.2-gweather-4.0,
          gir1.2-vte-3.91,
+         x11-xkb-utils,
          gparted,
          openssl,
          albius
