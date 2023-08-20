@@ -56,6 +56,9 @@ class Builder:
         self.__load()
 
     def __load(self):
+        if "VANILLA_FAKE" in os.environ:
+            logger.info("VANILLA_FAKE is set, skipping the installation process.")
+
         self.__window.recipe = self.recipe
 
         # here we create a temporary file to store the output of the commands
@@ -78,8 +81,7 @@ class Builder:
                 _condition_met = False
                 for command in step["display-conditions"]:
                     try:
-                        logger.info(
-                            _("Performing display-condition: %s") % command)
+                        logger.info(_("Performing display-condition: %s") % command)
                         output = subprocess.check_output(
                             command, shell=True, stderr=subprocess.STDOUT
                         )
