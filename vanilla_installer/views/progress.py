@@ -67,6 +67,7 @@ class VanillaProgress(Gtk.Box):
         self.__terminal.set_cursor_blink_mode(Vte.CursorBlinkMode.ON)
         self.__terminal.set_font(self.__font)
         self.__terminal.set_mouse_autohide(True)
+        self.__terminal.set_input_enabled(False)
         self.console_output.append(self.__terminal)
         self.__terminal.connect("child-exited", self.on_vte_child_exited)
 
