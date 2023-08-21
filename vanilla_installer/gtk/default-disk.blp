@@ -1,0 +1,88 @@
+using Gtk 4.0;
+
+template $VanillaDefaultDisk : $AdwBin {
+  halign: "0";
+  valign: "0";
+  hexpand: "true";
+
+  Overlay {
+    valign: center;
+
+    [overlay]
+    Button btn_next {
+      margin-end: 12;
+      margin-start: 12;
+      icon-name: "go-next-symbolic";
+      halign: end;
+      valign: center;
+      visible: false;
+      tooltip-text: _("Next");
+
+      styles [
+        "circular",
+        "suggested-action",
+      ]
+    }
+
+    $AdwStatusPage status_page {
+      icon-name: "vanilla-installer-harddisk-symbolic";
+      title: _("Install Location");
+      description: _("Select the disk where you want to install Vanilla OS. Alternatively, you can select one or more disks to configure manually.");
+
+      $AdwPreferencesPage {
+        $AdwPreferencesGroup group_disks {
+        }
+
+        $AdwPreferencesGroup {
+          Box {
+            halign: center;
+            spacing: 10;
+
+            Button btn_auto {
+              label: _("Use entire disk");
+              margin-top: 20;
+              halign: center;
+              sensitive: false;
+
+              styles [
+                "pill",
+                "suggested-action",
+              ]
+            }
+
+            Button btn_manual {
+              label: _("Manual");
+              margin-top: 20;
+              halign: center;
+              sensitive: false;
+
+              styles [
+                "pill",
+              ]
+            }
+          }
+        }
+
+        $AdwPreferencesGroup {
+          styles [
+            "error",
+          ]
+
+          Box disk_space_err_box {
+            visible: false;
+            halign: center;
+            spacing: 5;
+
+            Image {
+              icon-name: "drive-harddisk-symbolic";
+            }
+
+            Label disk_space_err_label {
+              label: _("You need at least %s of disk space to proceed with installation.");
+            }
+          }
+        }
+      }
+    }
+  }
+}

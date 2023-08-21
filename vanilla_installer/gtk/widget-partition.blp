@@ -1,0 +1,189 @@
+using Gtk 4.0;
+
+template $PartitionSelector : $AdwPreferencesPage {
+  $AdwPreferencesGroup open_gparted_group {
+    $AdwActionRow open_gparted_row {
+      icon-name: "vanilla-installer-harddisk-symbolic";
+      title: _("Open GParted");
+      subtitle: _("Open GParted to manually partition the disk");
+
+      [suffix]
+      Button launch_gparted {
+        icon-name: "adw-external-link-symbolic";
+        valign: center;
+        halign: center;
+
+        styles [
+          "circular",
+        ]
+      }
+
+      activatable-widget: "launch_gparted";
+    }
+  }
+
+  $AdwPreferencesGroup boot_part {
+    title: _("Boot Partition");
+    description: _("The partition to mount under “/boot”. This directory stores files for booting in Vanilla OS.");
+
+    $AdwExpanderRow boot_part_expand {
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+  }
+
+  $AdwPreferencesGroup boot_small_error {
+    styles [
+      "error",
+    ]
+
+    visible: "false";
+    title: _("Boot partition is too small.");
+  }
+
+  $AdwPreferencesGroup efi_part {
+    title: _("EFI Partition");
+    description: _("The partition to mount under “/boot/efi”. This directory stores files for booting in the bootloader.");
+
+    $AdwExpanderRow efi_part_expand {
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+  }
+
+  $AdwPreferencesGroup efi_small_error {
+    styles [
+      "error",
+    ]
+
+    visible: "false";
+    title: _("EFI partition is too small.");
+  }
+
+  $AdwPreferencesGroup bios_part {
+    title: _("BIOS Boot Partition");
+    description: _("The partition required by GPT-formatted disks to support booting from BIOS systems. It must be located in the first 2 TB of the disk and must be exactly 1 Mebibyte (1 MiB).");
+
+    $AdwExpanderRow bios_part_expand {
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+  }
+
+  $AdwPreferencesGroup bios_small_error {
+    styles [
+      "error",
+    ]
+
+    visible: "false";
+    title: _("BIOS partition must be exactly 1 MiB.");
+  }
+
+  $AdwPreferencesGroup roots_part {
+    title: _("Root Partitions");
+    description: _("The partitions to mount under “/”. Both partitions must be the same size.");
+
+    [header-suffix]
+    Box {
+      Button abroot_info_button {
+        valign: center;
+        icon-name: "info-symbolic";
+      }
+
+      Popover abroot_info_popover {
+        Label {
+          label: _("Vanilla OS uses an A/B partition system managed by ABRoot,\nwhich switches between two root partitions between updates.");
+        }
+      }
+    }
+
+    $AdwExpanderRow abroot_a_part_expand {
+      [prefix]
+      Label {
+        styles [
+          "heading",
+        ]
+
+        label: "A";
+      }
+
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+
+    $AdwExpanderRow abroot_b_part_expand {
+      [prefix]
+      Label {
+        styles [
+          "heading",
+        ]
+
+        label: "B";
+      }
+
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+  }
+
+  $AdwPreferencesGroup root_sizes_differ_error {
+    styles [
+      "error",
+    ]
+
+    visible: "false";
+    title: _("Root partitions are not the same size.");
+    description: _("Please make sure your A and B partitions have the same disk space.");
+  }
+
+  $AdwPreferencesGroup roots_small_error {
+    styles [
+      "error",
+    ]
+
+    visible: "false";
+    title: _("Root partitions are too small.");
+  }
+
+  $AdwPreferencesGroup home_part {
+    title: _("Home Partition");
+    description: _("The partition to mount under “/home”. This directory stores all user data.");
+
+    $AdwExpanderRow home_part_expand {
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+  }
+
+  $AdwPreferencesGroup home_small_error {
+    styles [
+      "error",
+    ]
+
+    visible: "false";
+    title: _("Home partition is too small.");
+  }
+
+  $AdwPreferencesGroup swap_part {
+    title: _("Swap Partition");
+    description: _("Swap acts as a virtual extension of your RAM and enables hibernation. Vanilla OS already uses zram to provide swapping at no storage cost.");
+
+    $AdwActionRow {
+      title: _("Swap Partition");
+      subtitle: _("Choose a partition to use for swap alongside zram. This is not required for hibernation.");
+
+      [suffix]
+      Switch use_swap_part {
+        valign: center;
+      }
+
+      activatable-widget: "use_swap_part";
+    }
+
+    $AdwExpanderRow swap_part_expand {
+      visible: bind use_swap_part.active;
+      title: _("No partition selected");
+      subtitle: _("Please select a partition from the options below");
+    }
+  }
+}

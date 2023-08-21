@@ -1,0 +1,17 @@
+using Gtk 4.0;
+
+template $VanillaTour : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  $AdwStatusPage status_page {
+    halign: "fill";
+    valign: "fill";
+    hexpand: "true";
+
+    Picture assets_svg {
+      can-shrink: false;
+    }
+  }
+}

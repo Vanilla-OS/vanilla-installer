@@ -1,0 +1,74 @@
+using Gtk 4.0;
+
+template $VanillaDefaultKeyboard : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  Box {
+    vexpand: true;
+    hexpand: true;
+
+    Overlay {
+      valign: center;
+
+      [overlay]
+      Button btn_next {
+        margin-end: 12;
+        margin-start: 12;
+        icon-name: "go-next-symbolic";
+        halign: end;
+        valign: center;
+        tooltip-text: _("Next");
+
+        styles [
+          "circular",
+          "suggested-action",
+        ]
+      }
+
+      $AdwStatusPage status_page {
+        icon-name: "input-keyboard-symbolic";
+        title: _("Keyboard Layout");
+        description: _("Select your preferred keyboard layout");
+
+        $AdwClamp {
+          maximum-size: "570";
+
+          Box {
+            orientation: vertical;
+
+            SearchEntry entry_search_keyboard {
+              hexpand: true;
+              placeholder-text: _("Search for a Keyboard Layout");
+            }
+
+            $AdwPreferencesGroup {
+              $AdwComboRow combo_layouts {
+                title: "Layout";
+                model: 
+                StringList str_list_layouts {
+                }
+
+                ;
+              }
+
+              $AdwComboRow combo_variants {
+                title: "Variant";
+                model: 
+                StringList str_list_variants {
+                }
+
+                ;
+              }
+
+              $AdwEntryRow entry_test {
+                title: "Test the Keyboard";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

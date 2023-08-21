@@ -1,0 +1,40 @@
+using Gtk 4.0;
+
+template $VanillaConfirm : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  $AdwStatusPage status_page {
+    title: _("Confirm Installation");
+    description: _("The following changes will be made to your system:");
+
+    $AdwClamp {
+      maximum-size: "570";
+
+      Box {
+        orientation: vertical;
+
+        $AdwPreferencesPage {
+          hexpand: "true";
+
+          $AdwPreferencesGroup group_changes {
+          }
+
+          $AdwPreferencesGroup {
+            Button btn_confirm {
+              label: _("Install Vanilla OS");
+              valign: center;
+              halign: center;
+
+              styles [
+                "destructive-action",
+                "pill",
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

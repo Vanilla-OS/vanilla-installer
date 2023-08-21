@@ -1,0 +1,89 @@
+using Gtk 4.0;
+
+template $VanillaRecoveryDialog : $AdwWindow {
+  title: _("Recovery");
+  default-width: "500";
+  modal: "true";
+
+  Box {
+    orientation: vertical;
+
+    $AdwHeaderBar {
+      styles [
+        "flat",
+      ]
+    }
+
+    $AdwPreferencesPage {
+      $AdwPreferencesGroup {
+        $AdwActionRow row_console {
+          icon-name: "utilities-terminal-symbolic";
+          title: _("Console");
+          subtitle: _("Open a Terminal");
+          activatable: "true";
+
+          [suffix]
+          Image {
+            icon-name: "go-next-symbolic";
+            valign: center;
+
+            styles [
+              "flat",
+            ]
+          }
+        }
+
+        $AdwActionRow row_gparted {
+          icon-name: "drive-harddisk-symbolic";
+          title: _("Gparted");
+          subtitle: _("Manage disks and partitions");
+          activatable: "true";
+
+          [suffix]
+          Image {
+            icon-name: "go-next-symbolic";
+            valign: center;
+
+            styles [
+              "flat",
+            ]
+          }
+        }
+
+        $AdwActionRow row_handbook {
+          icon-name: "help-browser-symbolic";
+          title: _("Handbook");
+          subtitle: _("Read the Vanilla OS Handbook");
+          activatable: "true";
+
+          [suffix]
+          Image {
+            icon-name: "go-next-symbolic";
+            valign: center;
+
+            styles [
+              "flat",
+            ]
+          }
+        }
+
+        $AdwActionRow row_web {
+          icon-name: "web-browser-symbolic";
+          title: _("Web Browser");
+          subtitle: _("Search online for help");
+          activatable: "true";
+
+          [suffix]
+          Image {
+            icon-name: "go-next-symbolic";
+            valign: center;
+
+            styles [
+              "flat",
+            ]
+          }
+        }
+      }
+    }
+  }
+}

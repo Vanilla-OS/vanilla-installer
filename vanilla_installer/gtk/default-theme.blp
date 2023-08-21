@@ -1,0 +1,55 @@
+using Gtk 4.0;
+
+template $VanillaDefaultTheme : Box {
+  orientation: vertical;
+  halign: fill;
+  valign: center;
+  hexpand: true;
+
+  Box {
+    valign: center;
+    spacing: 10;
+    halign: center;
+
+    CheckButton btn_default {
+      tooltip-text: _("Default");
+      halign: center;
+      active: true;
+
+      styles [
+        "theme-selector",
+        "light",
+        "card",
+      ]
+    }
+
+    CheckButton btn_dark {
+      tooltip-text: _("Dark");
+      halign: center;
+
+      styles [
+        "theme-selector",
+        "dark",
+        "card",
+      ]
+    }
+  }
+
+  $AdwStatusPage {
+    title: _("Color Scheme");
+    description: _("Choose a color scheme for your system");
+    halign: "fill";
+    valign: "fill";
+    hexpand: "true";
+
+    Button btn_next {
+      label: _("Next");
+      halign: center;
+
+      styles [
+        "pill",
+        "suggested-action",
+      ]
+    }
+  }
+}

@@ -2,11 +2,45 @@ pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.proje
 moduledir = join_paths(pkgdatadir, 'vanilla_installer')
 gnome = import('gnome')
 
+blueprints = custom_target('blueprints',
+  input: files(
+    'gtk/confirm.blp',
+    'gtk/default-keyboard.blp',
+    'gtk/default-language.blp',
+    'gtk/default-theme.blp',
+    'gtk/default-timezone.blp',
+    'gtk/default-users.blp',
+    'gtk/dialog-disk-confirm.blp',
+    'gtk/dialog-disk.blp',
+    'gtk/dialog-output.blp',
+    'gtk/dialog.blp',
+    'gtk/done.blp',
+    'gtk/layout-preferences.blp',
+    'gtk/layout-yes-no.blp',
+    'gtk/progress.blp',
+    'gtk/tour.blp',
+    'gtk/widget-choice-expander.blp',
+    'gtk/widget-choice.blp',
+    'gtk/widget-disk.blp',
+    'gtk/widget-partition-row.blp',
+    'gtk/window.blp',
+    'gtk/default-welcome.blp',
+    'gtk/default-disk.blp',
+    'gtk/default-encryption.blp',
+    'gtk/default-nvidia.blp',
+    'gtk/dialog-recovery.blp',
+    'gtk/widget-partition.blp',
+  ),
+  output: '.',
+  command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
+)
+
 gnome.compile_resources('vanilla-installer',
   'vanilla-installer.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
+  dependencies: blueprints,
 )
 
 python = import('python')

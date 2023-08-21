@@ -1,0 +1,15 @@
+using Gtk 4.0;
+
+template $VanillaDialogOutput : $AdwWindow {
+  title: _("Log");
+  modal: "true";
+  default-width: "500";
+  default-height: "450";
+
+  Box main_box {
+    orientation: vertical;
+
+    $AdwHeaderBar {
+    }
+  }
+}

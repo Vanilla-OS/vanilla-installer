@@ -1,0 +1,114 @@
+using Gtk 4.0;
+
+template $VanillaProgress : Box {
+  orientation: vertical;
+
+  Box tour_box {
+    visible: true;
+    margin-start: 40;
+    margin-end: 40;
+    margin-top: 1;
+    margin-bottom: 18;
+    height-request: 550;
+    orientation: vertical;
+
+    $AdwCarousel carousel_tour {
+      halign: "fill";
+      valign: "fill";
+      hexpand: "true";
+      vexpand: "true";
+      allow-scroll-wheel: "False";
+      allow-mouse-drag: "False";
+      allow-long-swipes: "False";
+    }
+
+    $AdwCarouselIndicatorDots {
+      carousel: "carousel_tour";
+      orientation: "horizontal";
+      margin-bottom: "18";
+    }
+  }
+
+  Box console_box {
+    visible: false;
+    margin-start: 40;
+    margin-end: 40;
+    margin-top: 1;
+    margin-bottom: 18;
+    height-request: 550;
+    orientation: vertical;
+
+    Box console_output {
+      visible: true;
+      margin-top: 12;
+      margin-start: 12;
+      margin-end: 12;
+      orientation: vertical;
+    }
+
+    styles [
+      "card",
+    ]
+  }
+
+  Box {
+    orientation: horizontal;
+
+    Label progressbar_text {
+      wrap: true;
+      wrap-mode: word_char;
+      halign: start;
+      valign: center;
+      margin-top: 40;
+      margin-start: 40;
+      label: _("Installing...");
+
+      styles [
+        "title-4",
+      ]
+    }
+
+    Box {
+      halign: fill;
+      hexpand: true;
+    }
+
+    Button console_button {
+      visible: true;
+      margin-end: 40;
+      margin-start: 12;
+      margin-top: 40;
+      icon-name: "media-view-subtitles-symbolic";
+      halign: end;
+      valign: center;
+      tooltip-text: _("Show Console output");
+
+      styles [
+        "circular",
+      ]
+    }
+
+    Button tour_button {
+      visible: false;
+      margin-end: 40;
+      margin-start: 12;
+      margin-top: 40;
+      icon-name: "image-x-generic-symbolic";
+      halign: end;
+      valign: center;
+      tooltip-text: _("Show Slideshow");
+
+      styles [
+        "circular",
+      ]
+    }
+  }
+
+  ProgressBar progressbar {
+    show-text: false;
+    margin-top: 12;
+    margin-start: 40;
+    margin-bottom: 40;
+    margin-end: 40;
+  }
+}
