@@ -582,7 +582,7 @@ class Processor:
             # Add `/boot/grub/abroot.cfg` to the root partition
             with open("/tmp/abroot.cfg", "w") as file:
                 root_entry = _ROOT_GRUB_CFG % (
-                    "UUID=$ROOTA_UUID",
+                    "$ROOTA_UUID",
                     "$KERNEL_VERSION",
                     "UUID=$ROOTA_UUID",
                     "$KERNEL_VERSION",
