@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-04-02 13:31+0000\n"
+"PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -59,44 +59,45 @@ msgid "Next"
 msgstr "Volgende"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Installatie bevestigen"
+msgstr "Installatie­locatie"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Selecteer de schijf waarop u Vanilla OS wilt installeren. U kunt ook één of "
+"meer schijven selecteren om handmatig te configureren."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Volledige schijf"
+msgstr "Volledige schijf gebruiken"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Handmatig"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Apparaat­versleuteling"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS biedt volledige schijfversleuteling via LUKS2 om uw persoonlijke "
+"gegevens te beschermen voor het geval uw apparaat gestolen wordt."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Apparaat versleutelen"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
 msgstr ""
+"Gebruik een makkelijk te onthouden wachtwoord om uw gegevens te versleutelen"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -136,25 +137,27 @@ msgstr "Zoek naar een taal"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA®-stuurprogramma's"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Kies of u propriëtaire NVIDIA-stuurprogramma's wilt installeren voor betere "
+"compatibiliteit en prestaties."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Niet installeren"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Installeren (aanbevolen)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Over propriëtaire stuurprogramma's"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -163,6 +166,11 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Een propriëtair stuurprogramma heeft privécode die noch de ontwikkelaars van "
+"Vanilla OS noch die van Debian kunnen bekijken.\n"
+"\n"
+"Beveiligings- en andere updates zijn afhankelijk van de leverancier van het "
+"stuurprogramma."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -261,8 +269,6 @@ msgid "Console"
 msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
 msgstr "Opent een terminal"
 
@@ -271,8 +277,6 @@ msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
 msgstr "Beheer schijven en partities"
 
@@ -281,8 +285,6 @@ msgid "Handbook"
 msgstr "Handleiding"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
 msgstr "Lees de handleiding van Vanilla OS"
 
@@ -291,8 +293,6 @@ msgid "Web Browser"
 msgstr "Webbrowser"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
 msgstr "Zoek online naar hulp"
 
@@ -461,8 +461,6 @@ msgstr "Gebruikerspartitie is te klein"
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Wisselgeheugenpartitie"
 
