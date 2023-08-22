@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-06-16 09:52+0000\n"
-"Last-Translator: Alex Marín <kysgeneral.nrgua@slmail.me>\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-09 16:03+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ja/>\n"
 "Language: ja\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18.1-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -63,43 +63,44 @@ msgid "Next"
 msgstr "次へ"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "インストールの確認"
+msgstr "インストール先"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Vanilla OSをインストールするディスクを選択します。または、1つ以上のディスクを"
+"選択して手動で設定することもできます。"
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
 msgid "Use entire disk"
 msgstr "ディスク全体を使う"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "手動"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "デバイスの暗号化"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OSはLUKS2によるフルディスク暗号化を提供し、万が一デバイスが盗難にあっ"
+"た場合でも個人情報を保護します。"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "デバイスを暗号化"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "覚えやすいパスワードを使用してデータを暗号化"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -139,25 +140,27 @@ msgstr "言語を検索"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® ドライバ"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"互換性とパフォーマンスの向上のために、プロプライエタリのNVIDIAドライバをイン"
+"ストールするかどうかを選択します。"
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "インストールしない"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "インストール  (推奨)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "プロプライエタリドライバについて"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -166,6 +169,11 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"プロプライエタリドライバには、Vanilla OSやDebianの開発者が検査不能な非公開の"
+"コードが含まれます。\n"
+"\n"
+"セキュリティアップデートやそのほかのアップデートは、ドライバーの開発元に左右"
+"されます。"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -222,7 +230,7 @@ msgstr "ユーザー名"
 #: vanilla_installer/gtk/default-welcome.ui:30
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
-msgstr ""
+msgstr "復元"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -259,36 +267,35 @@ msgstr "ログ"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "コンソール"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal"
-msgstr ""
+msgstr "ターミナルを開く"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#, fuzzy
 msgid "Gparted"
-msgstr "GParted を開く"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 msgid "Manage disks and partitions"
-msgstr ""
+msgstr "ディスクとパーティションを管理"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
-msgstr ""
+msgstr "ハンドブック"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Read the Vanilla OS Handbook"
-msgstr ""
+msgstr "Vanilla OS ハンドブックを読む"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
-msgstr ""
+msgstr "Web ブラウザー"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Search online for help"
-msgstr ""
+msgstr "オンラインでヘルプを検索"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -393,18 +400,16 @@ msgid "BIOS Boot Partition"
 msgstr "BIOS ブート パーティション"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
-#, fuzzy
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
-"BIOSシステムからの起動をサポートするためにGPTでフォーマットされたディスクで必"
-"要とされるパーティションです。ディスクの最初の2TBに位置し、正確に"
-"1Mebyte(1MiB)でなければなりません。"
+"BIOSシステムからの起動をサポートするために、GPTフォーマットされたディスクに必"
+"要なパーティションです。ディスク先頭2TBに配置し、正確に1メビバイト (1MiB) に"
+"する必要があります。"
 
 #: vanilla_installer/gtk/widget-partition.ui:87
-#, fuzzy
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOSパーティションは正確に1MiBでなければなりません。"
 
@@ -413,12 +418,11 @@ msgid "Root Partitions"
 msgstr "ルートパーティション"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
 msgstr ""
-"「/」の下にマウントするパーティション。両パーティションは同じサイズである必要"
-"があります。"
+"\"/\"配下にマウントするパーティションです。両方のパーティションは同じサイズに"
+"する必要があります。"
 
 #: vanilla_installer/gtk/widget-partition.ui:106
 msgid ""
@@ -446,11 +450,10 @@ msgid "Home Partition"
 msgstr "ホーム パーティション"
 
 #: vanilla_installer/gtk/widget-partition.ui:166
-#, fuzzy
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
 msgstr ""
-"「/home」の下にマウントするパーティション。このディレクトリには、すべてのユー"
+"“/home”の下にマウントするパーティション。このディレクトリには、すべてのユー"
 "ザーデータが格納されます。"
 
 #: vanilla_installer/gtk/widget-partition.ui:181
@@ -459,29 +462,25 @@ msgstr "ホームパーティションが小さすぎます。"
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "スワップ パーティション"
 
 #: vanilla_installer/gtk/widget-partition.ui:187
-#, fuzzy
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
-"スワップはRAMの仮想的な拡張として機能し、ハイバネーションを可能にします。"
-"Vanilla OSはすでにzramを使用して、ストレージコストなしでスワップを提供してい"
-"ます。"
+"スワップはRAMの仮想的な拡張として機能し、ハイバネーションを可能にします。現"
+"に、現在起動中のVanilla OSはzramを使用することで、ストレージを一切使用せずに"
+"スワップを提供しています。"
 
 #: vanilla_installer/gtk/widget-partition.ui:191
-#, fuzzy
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
-"zramと並んでswapに使用するパーティションを選択します。これはハイバネーション"
-"には必要ありません。"
+"zramと併用してスワップとして使用するパーティションを選択します。これはハイバ"
+"ネーションには必要ありません。"
 
 #: vanilla_installer/gtk/window.ui:39
 msgid "Back"
@@ -490,7 +489,7 @@ msgstr "戻る"
 #: vanilla_installer/defaults/disk.py:286
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
-"GPartedは既に起動されています。Gpartedのインスタンスは1つだけ許可されます。"
+"GPartedは既に起動しています。Gpartedのインスタンスは1つだけ許可されます。"
 
 #: vanilla_installer/defaults/disk.py:376
 msgid "Partition must be at least {}"
@@ -511,16 +510,6 @@ msgstr "ディスク全体を使用します。"
 #: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} でフォーマットされ、{} にマウントされます"
-
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-#, fuzzy
-msgid "clicked"
-msgstr "クリック"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -567,32 +556,25 @@ msgid "Recipe steps is not a list"
 msgstr "レシピの手順がリストではありません"
 
 #: vanilla_installer/utils/recipe.py:69
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "ステップ{step} は辞書ではありません"
 
 #: vanilla_installer/views/confirm.py:79
-#, fuzzy
 msgid "Keyboard"
-msgstr "キーボードレイアウト"
+msgstr "キーボード"
 
 #: vanilla_installer/views/confirm.py:85
 msgid "Timezone"
 msgstr "タイムゾーン"
 
 #: vanilla_installer/views/confirm.py:91
-#, fuzzy
 msgid "Users"
-msgstr "ユーザー名"
+msgstr "ユーザー"
 
 #: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
 msgid "Disk"
 msgstr "ディスク"
-
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "インストール確認済み"
 
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
@@ -606,9 +588,15 @@ msgstr "問題が発生しました"
 msgid "Please contact the distribution developers."
 msgstr "ディストリビューションの開発者にご連絡ください。"
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "ページ変更"
+#, fuzzy
+#~ msgid "clicked"
+#~ msgstr "クリック"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "インストール確認済み"
+
+#~ msgid "page-changed"
+#~ msgstr "ページ変更"
 
 #, fuzzy
 #~ msgid "Vanilla OS Recovery"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-06-01 08:52+0000\n"
 "Last-Translator: Michael Millet <mikevlet@protonmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/vanilla-os/"
@@ -509,15 +509,6 @@ msgstr "Hele disken vil blive brugt."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Vil blive formateret i {} og monteret i {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "klikket på"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Vælg venligst mindst én mulighed."
@@ -583,11 +574,6 @@ msgstr "Brugere"
 msgid "Disk"
 msgstr "Disk"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "Installationsbekræftet"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Genstart din enhed, for at nyde din {}-oplevelse."
@@ -600,9 +586,14 @@ msgstr "Noget gik galt"
 msgid "Please contact the distribution developers."
 msgstr "Kontakt venligst distributionsudviklerne."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "Sideændret"
+#~ msgid "clicked"
+#~ msgstr "klikket på"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "Installationsbekræftet"
+
+#~ msgid "page-changed"
+#~ msgstr "Sideændret"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Vanilla OS-Genoprettelse"

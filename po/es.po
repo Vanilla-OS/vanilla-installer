@@ -4,13 +4,14 @@
 # gallegonovato <fran-carro@hotmail.es>, 2023.
 # Juan <benitesjn@gmail.com>, 2023.
 # Juan Benites <benitesjn@gmail.com>, 2023.
+# Jorge Ivan Carmona Cortez <dh_plasma@hotmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-05-23 01:49+0000\n"
-"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-16 17:49+0000\n"
+"Last-Translator: Jorge Ivan Carmona Cortez <dh_plasma@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -61,44 +62,44 @@ msgid "Next"
 msgstr "Siguiente"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Confirmar instalación"
+msgstr "Ubicación de la instalación"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Seleccione el disco en el que desea instalar Vanilla OS. Alternativamente, "
+"puede seleccionar uno o más discos para configurarlos manualmente."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Usar todo el Disco"
+msgstr "Usar todo el disco"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Cifrado de dispositivos"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS proporciona cifrado de disco completo a través de LUKS2 para "
+"proteger tu información personal en caso de que te roben el dispositivo."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Cifrar dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Utiliza una contraseña fácil de recordar para encriptar tus datos"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -138,25 +139,27 @@ msgstr "Buscar un idioma"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Controladores de NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Elige si quieres instalar los controladores propietarios de NVIDIA para "
+"mejorar la compatibilidad y el rendimiento."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "No instalar"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Instalar (recomendado)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Acerca de los controladores propietarios"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -165,6 +168,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Un controlador propietario tiene código privado que ni los desarrolladores "
+"de Vanilla OS ni los de Debian pueden revisar.\n"
+"\n"
+"La seguridad y otras actualizaciones dependen del proveedor del controlador."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -263,40 +270,32 @@ msgid "Console"
 msgstr "Consola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
-msgstr "Abrir la Terminal."
+msgstr "Abrir la Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
-msgstr "Administrar discos y particiones."
+msgstr "Administrar discos y particiones"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Manual"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
-msgstr "Lea el Manual del sistema operativo Vanilla OS."
+msgstr "Lea el Manual del sistema operativo Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Navegadores web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
-msgstr "Buscar ayuda en línea."
+msgstr "Buscar ayuda en línea"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -460,8 +459,6 @@ msgstr "Partición Home demasiado pequeña."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Partición Swap"
 
@@ -510,15 +507,6 @@ msgstr "Se usará toda la unidad de almacenamiento."
 #: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Se formateará en {} y se montará en {}"
-
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "Hizo clic"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -585,11 +573,6 @@ msgstr "Usuarios"
 msgid "Disk"
 msgstr "Disco"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "Instalación-confirmada"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Reinicie su dispositivo para disfrutar su experiencia en {}."
@@ -603,9 +586,14 @@ msgid "Please contact the distribution developers."
 msgstr ""
 "Por favor, póngase en contacto con los desarrolladores de la distribución."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "página-cambiada"
+#~ msgid "clicked"
+#~ msgstr "Hizo clic"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "Instalación-confirmada"
+
+#~ msgid "page-changed"
+#~ msgstr "página-cambiada"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Recuperación de Vanilla OS"

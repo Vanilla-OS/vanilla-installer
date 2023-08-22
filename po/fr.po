@@ -9,13 +9,14 @@
 # Lucas_Strafe <Lucas-Strafe@protonmail.com>, 2023.
 # Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>, 2023.
 # xiorcale <quentin.vaucher@protonmail.com>, 2023.
+# tachyglossues <tachyglossues@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-08-02 06:05+0000\n"
-"Last-Translator: xiorcale <quentin.vaucher@protonmail.com>\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-10 16:10+0000\n"
+"Last-Translator: tachyglossues <tachyglossues@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
 "Language: fr\n"
@@ -276,39 +277,32 @@ msgid "Console"
 msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
 msgid "Open a Terminal"
-msgstr "Ouvrez un terminal."
+msgstr "Ouvrez un terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
 msgid "Manage disks and partitions"
-msgstr "Gérer les disques et les partitions."
+msgstr "Gérer les disques et les partitions"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Manuel"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
 msgid "Read the Vanilla OS Handbook"
-msgstr "Lisez le manuel du système d'exploitation Vanilla."
+msgstr "Lisez le manuel du Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
-#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Navigateurs web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
 msgid "Search online for help"
-msgstr "Recherchez de l'aide en ligne."
+msgstr "Recherchez de l'aide en ligne"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -524,15 +518,6 @@ msgstr "Le disque entier sera utilisé."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} sera formatté et monté sur {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "cliqué"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Veuillez sélectionner au moins une option."
@@ -598,11 +583,6 @@ msgstr "Utilisateurs"
 msgid "Disk"
 msgstr "Disque"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "installation-confirmée"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Redémarrez votre appareil pour profiter de votre expérience {}."
@@ -615,29 +595,29 @@ msgstr "Quelque chose s'est mal passé"
 msgid "Please contact the distribution developers."
 msgstr "Veuillez contacter les développeurs de la distribution."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "page-changée"
+#~ msgid "clicked"
+#~ msgstr "cliqué"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Récupération du système d'exploitation Vanilla"
+#~ msgid "installation-confirmed"
+#~ msgstr "installation-confirmée"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "Ouvrez un terminal."
+#~ msgid "page-changed"
+#~ msgstr "page-changée"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "Gérer les disques et les partitions."
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Récupération du système d'exploitation Vanilla"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "Lisez le manuel du système d'exploitation Vanilla."
+#~ msgid "Open a Terminal."
+#~ msgstr "Ouvrez un terminal."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "Recherchez de l'aide en ligne."
+#~ msgid "Manage disks and partitions."
+#~ msgstr "Gérer les disques et les partitions."
+
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "Lisez le manuel du système d'exploitation Vanilla."
+
+#~ msgid "Search online for help."
+#~ msgstr "Recherchez de l'aide en ligne."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Choisir un disque"

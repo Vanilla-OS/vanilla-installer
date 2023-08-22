@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-04-02 16:48+0000\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -63,44 +63,41 @@ msgid "Next"
 msgstr "下一步"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "確認安裝"
+msgstr "安裝位置"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
-msgstr ""
+msgstr "選取要安裝 Vanilla OS 的磁碟。您也可以選取一個或多個磁碟進行手動設定。"
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "整個磁碟"
+msgstr "使用整個磁碟"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "手動安裝"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "裝置加密"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS 透過 LUKS2 提供完整磁碟加密，可在裝置丟失時保護您的個人資訊。"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "加密裝置"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "使用容易記住的密碼加密資料"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -140,25 +137,25 @@ msgstr "搜尋語言"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® 驅動程式"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
-msgstr ""
+msgstr "選擇是否安裝 NVIDIA 專有驅動程式，以取得更好的相容性及效能。"
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "不要安裝"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "安裝（推薦）"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "關於專有驅動程式"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -167,6 +164,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"專有驅動程式含有私有程式碼，Vanilla OS 及 Debian 開發人員都無法查看這些程式"
+"碼。\n"
+"\n"
+"安全性及其他更新取決於提供驅動程式的廠商。"
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -263,40 +264,32 @@ msgid "Console"
 msgstr "終端機"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
-msgstr "開啟終端機。"
+msgstr "開啟終端機"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
-msgstr "管理磁碟和分割區。"
+msgstr "管理磁碟和分割區"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "手冊"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
-msgstr "閱讀 Vanilla OS 的手冊。"
+msgstr "閱讀 Vanilla OS 的手冊"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "網頁瀏覽器"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
-msgstr "尋求線上幫助。"
+msgstr "尋求線上幫助"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -425,7 +418,7 @@ msgid ""
 "which switches between two root partitions between updates."
 msgstr ""
 "Vanilla OS 使用由 ABRoot 管理的 A/B 分割區系統， \n"
-"它在更新之間的兩個根分割區之間切換。"
+" 每次更新會在兩個根分割區之間切換。"
 
 #: vanilla_installer/gtk/widget-partition.ui:150
 msgid "Root partitions are not the same size."
@@ -454,8 +447,6 @@ msgstr "主分割區過小。"
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "交換分割區"
 
@@ -500,15 +491,6 @@ msgstr "將使用整個磁碟。"
 #: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "將格式化為 {} 並掛載到 {}"
-
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "已按下"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -575,11 +557,6 @@ msgstr "使用者"
 msgid "Disk"
 msgstr "磁碟"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "安裝確認"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "重新啟動您的裝置，開始您的 {} 之旅。"
@@ -592,9 +569,14 @@ msgstr "出了點問題"
 msgid "Please contact the distribution developers."
 msgstr "請聯絡散布版開發人員。"
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "頁面變更"
+#~ msgid "clicked"
+#~ msgstr "已按下"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "安裝確認"
+
+#~ msgid "page-changed"
+#~ msgstr "頁面變更"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Vanilla OS 修復程式"

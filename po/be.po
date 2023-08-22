@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-07-12 17:58+0000\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-19 21:52+0000\n"
 "Last-Translator: Maksim <maxklezovich@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/be/>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
@@ -60,44 +60,44 @@ msgid "Next"
 msgstr "Далей"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Пацвердзіце ўстаноўку"
+msgstr "Усталяваць месцазнаходжанне"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Выберыце дыск, на які вы хочаце ўсталяваць Vanilla OS. Акрамя таго, вы "
+"можаце выбраць адзін або некалькі дыскаў для ручной канфігурацыі."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Увесь дыск"
+msgstr "Выкарыстоўвайце ўвесь дыск"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Дапаможнік"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Шыфраванне прылады"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS забяспечвае шыфраванне поўнага дыска праз LUKS2 для абароны вашай "
+"асабістай інфармацыі ў выпадку крадзяжу прылады."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Зашыфраваць прыладу"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Выкарыстоўвайце запамінальны пароль для шыфравання вашых даных"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -137,25 +137,27 @@ msgstr "Пошук мовы"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Драйверы NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Выберыце, ці варта ўсталёўваць прапрыетарныя драйверы NVIDIA для лепшай "
+"сумяшчальнасці і прадукцыйнасці."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Не ўсталёўваць"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Усталяваць (рэкамендуецца)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Аб прапрыетарных драйверах"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -164,6 +166,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Прапрыетарны драйвер мае прыватны код, які ні распрацоўшчыкі Vanilla OS, ні "
+"Debian не могуць праверыць.\n"
+"\n"
+"Абнаўленні бяспекі і іншыя абнаўленні залежаць ад пастаўшчыка драйвера."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -261,40 +267,32 @@ msgid "Console"
 msgstr "Кансоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
-msgstr "Адкрыйце тэрмінал."
+msgstr "Адкрыйце тэрмінал"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
-msgstr "Кіраванне дыскамі і раздзеламі."
+msgstr "Кіраванне дыскамі і раздзеламі"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Дапаможнік"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
-msgstr "Прачытайце даведнік па Vanilla OS."
+msgstr "Прачытайце даведнік па Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Вэб-браўзеры"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
-msgstr "Шукайце дапамогу ў Інтэрнэце."
+msgstr "Шукайце дапамогу ў Інтэрнэце"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -462,8 +460,6 @@ msgstr "Хатняя перагародка занадта малая."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Своп падзел"
 
@@ -511,15 +507,6 @@ msgstr "Будзе выкарыстаны ўвесь дыск."
 #: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Будзе адфарматаваны ў {} і змантаваны ў {}"
-
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "пстрыкнуў"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -586,11 +573,6 @@ msgstr "Карыстальнікі"
 msgid "Disk"
 msgstr "Дыск"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "ўстаноўка пацверджана"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Перазагрузіце прыладу, каб атрымаць асалоду ад {}."
@@ -603,9 +585,14 @@ msgstr "Нешта пайшло не так"
 msgid "Please contact the distribution developers."
 msgstr "Калі ласка, звяжыцеся з распрацоўшчыкамі дыстрыбутыва."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "старонка зменена"
+#~ msgid "clicked"
+#~ msgstr "пстрыкнуў"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "ўстаноўка пацверджана"
+
+#~ msgid "page-changed"
+#~ msgstr "старонка зменена"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Аднаўленне Vanilla OS"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-06-10 20:50+0000\n"
 "Last-Translator: Plamen Stanchev <sommersbynobodyev@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -518,15 +518,6 @@ msgstr "Ще се използва целият диск."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Ще бъде форматиран в {} и монтиран в {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "щракна върху"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Моля, изберете поне една опция."
@@ -592,11 +583,6 @@ msgstr "Потребители"
 msgid "Disk"
 msgstr "Диск"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "потвърдена инсталация"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr ""
@@ -610,9 +596,14 @@ msgstr "Нещо се обърка"
 msgid "Please contact the distribution developers."
 msgstr "Моля, свържете се с разработчиците на дистрибуцията."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "промяна на страницата"
+#~ msgid "clicked"
+#~ msgstr "щракна върху"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "потвърдена инсталация"
+
+#~ msgid "page-changed"
+#~ msgstr "промяна на страницата"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Възстановяване на операционната система Vanilla"

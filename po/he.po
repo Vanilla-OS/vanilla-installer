@@ -1,36 +1,41 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Daniel Toubul <molder@toubul.eu>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-22 05:19+0000\n"
+"Last-Translator: Daniel Toubul <molder@toubul.eu>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
 msgstr ""
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
+#, fuzzy
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "הגדר את ההתקנה של מערכת ונילה."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "אין תיאור"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
+#, fuzzy
 msgid "First release"
-msgstr ""
+msgstr "הוצאה ראשונה"
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"
@@ -54,7 +59,7 @@ msgstr ""
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
-msgstr ""
+msgstr "הבא"
 
 #: vanilla_installer/gtk/default-disk.ui:29
 msgid "Install Location"
@@ -160,15 +165,15 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "ברירת מחדל"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "כהה"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "ערכת נושא"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
@@ -217,7 +222,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "מציג מידע"
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
@@ -226,7 +231,7 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-disk.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "בטל"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
@@ -282,7 +287,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
-msgstr ""
+msgstr "הכל מוכן!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -302,11 +307,11 @@ msgstr ""
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "כן, אפשר את זה"
 
 #: vanilla_installer/gtk/progress.ui:70
 msgid "Installing..."
-msgstr ""
+msgstr "מתקין..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
@@ -314,7 +319,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr ""
+msgstr "הצג מצגת"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Open GParted"
@@ -474,15 +479,6 @@ msgstr ""
 msgid "Will be formatted in {} and mounted in {}"
 msgstr ""
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr ""
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr ""
@@ -548,11 +544,6 @@ msgstr ""
 msgid "Disk"
 msgstr ""
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr ""
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr ""
@@ -563,8 +554,4 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
-msgstr ""
-
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
 msgstr ""

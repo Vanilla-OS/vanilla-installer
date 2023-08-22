@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-07-16 04:26+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -510,15 +510,6 @@ msgstr "გამოყენებული იქნება მთელი 
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "ფორმატი იქნება {}, მიმაგრების წერტილი კი {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "დააწკაპუნა"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "არჩიეთ ერთი პარამეტრი მაინც."
@@ -584,11 +575,6 @@ msgstr "მომხმარებლები"
 msgid "Disk"
 msgstr "დისკი"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "დაყენება დასასტურებულია"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "{}-სთან მუშაობის დასაწყებად გადატვირთეთ თქვენი მოწყობილობა."
@@ -601,9 +587,14 @@ msgstr "რაღაც არასწორია"
 msgid "Please contact the distribution developers."
 msgstr "დაუკავშირდით დისტრიბუტივის პროგრამისტებს."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "გვერდი-შეიცვალა"
+#~ msgid "clicked"
+#~ msgstr "დააწკაპუნა"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "დაყენება დასასტურებულია"
+
+#~ msgid "page-changed"
+#~ msgstr "გვერდი-შეიცვალა"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Vanilla OS-ის აღდგენა"

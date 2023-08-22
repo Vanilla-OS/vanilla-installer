@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-03-24 18:25+0000\n"
 "Last-Translator: dogyx <aaronloit@zohomail.eu>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -506,15 +506,6 @@ msgstr "Kasutatakse kogu ketast."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Vormindatakse {} ja paigaldatakse {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "klõpsanud"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Palun vali vähemalt üks võimalus."
@@ -580,11 +571,6 @@ msgstr "Kasutajad"
 msgid "Disk"
 msgstr "Ketas"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "paigaldus-kinnitatud"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Taaskäivita seade, et nautida {} kogemust."
@@ -597,9 +583,14 @@ msgstr "Midagi läks valesti"
 msgid "Please contact the distribution developers."
 msgstr "Palun võta ühendust distributsiooni arendajatega."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "leht-muudetud"
+#~ msgid "clicked"
+#~ msgstr "klõpsanud"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "paigaldus-kinnitatud"
+
+#~ msgid "page-changed"
+#~ msgstr "leht-muudetud"
 
 #, fuzzy
 #~ msgid "Vanilla OS Recovery"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-08-04 19:24+0000\n"
-"Last-Translator: GT-610 <myddz1005@163.com>\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"PO-Revision-Date: 2023-08-09 16:03+0000\n"
+"Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -262,39 +262,32 @@ msgid "Console"
 msgstr "终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
 msgid "Open a Terminal"
-msgstr "打开终端。"
+msgstr "打开终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
 msgid "Manage disks and partitions"
-msgstr "管理磁盘和分区。"
+msgstr "管理磁盘和分区"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "手册"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
 msgid "Read the Vanilla OS Handbook"
-msgstr "阅读 Vanilla OS 的手册。"
+msgstr "阅读 Vanilla OS 的手册"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
-#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "网页浏览器"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
 msgid "Search online for help"
-msgstr "寻求在线帮助。"
+msgstr "寻求在线帮助"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -400,7 +393,7 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
-"GPT 格式磁盘所必需的用于自使用 BIOS 的系统启动的分区。必须位于磁盘开头的 2 "
+"GPT 格式磁盘所必需的用于从使用 BIOS 的系统启动的分区。必须位于磁盘开头的 2 "
 "TB 空间内，且大小必须为正好 1 MiB。"
 
 #: vanilla_installer/gtk/widget-partition.ui:87
@@ -496,15 +489,6 @@ msgstr "将会使用整个磁盘。"
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "将会格式化为 {} 并挂载到 {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "已点击"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "请至少选择一个选项。"
@@ -570,11 +554,6 @@ msgstr "用户"
 msgid "Disk"
 msgstr "磁盘"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "安装确认"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "重启设备，开启您的 {} 之旅。"
@@ -587,29 +566,29 @@ msgstr "出错了"
 msgid "Please contact the distribution developers."
 msgstr "请联系发行版开发者。"
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "页面更改"
+#~ msgid "clicked"
+#~ msgstr "已点击"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS 恢复程序"
+#~ msgid "installation-confirmed"
+#~ msgstr "安装确认"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "打开终端。"
+#~ msgid "page-changed"
+#~ msgstr "页面更改"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "管理磁盘和分区。"
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS 恢复程序"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "阅读 Vanilla OS 的手册。"
+#~ msgid "Open a Terminal."
+#~ msgstr "打开终端。"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "寻求在线帮助。"
+#~ msgid "Manage disks and partitions."
+#~ msgstr "管理磁盘和分区。"
+
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "阅读 Vanilla OS 的手册。"
+
+#~ msgid "Search online for help."
+#~ msgstr "寻求在线帮助。"
 
 #~ msgid "Select a Disk"
 #~ msgstr "选择磁盘"

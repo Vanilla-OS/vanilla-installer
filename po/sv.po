@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-08-07 13:57+0000\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/vanilla-os/"
@@ -275,7 +275,6 @@ msgid "Open a Terminal"
 msgstr "Öppna en terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "GParted"
 
@@ -285,7 +284,6 @@ msgid "Manage disks and partitions"
 msgstr "Hantera diskar och partitioner."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Handbok"
 
@@ -295,7 +293,6 @@ msgid "Read the Vanilla OS Handbook"
 msgstr "Läs VanillaOS Handbok."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
-#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Webbläsare"
 
@@ -516,15 +513,6 @@ msgstr "Hela disken kommer att användas."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Kommer att formateras med {} och monteras på {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "klickad"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Välj minst ett alternativ."
@@ -590,11 +578,6 @@ msgstr "Användare"
 msgid "Disk"
 msgstr "Disk"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "installation-bekräftad"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Starta om din enhet för att njuta av din {}-upplevelse."
@@ -607,29 +590,29 @@ msgstr "Något gick fel"
 msgid "Please contact the distribution developers."
 msgstr "Kontakta distributionsutvecklarna."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "sida-ändrad"
+#~ msgid "clicked"
+#~ msgstr "klickad"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Återställning av Vanilla OS"
+#~ msgid "installation-confirmed"
+#~ msgstr "installation-bekräftad"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "Öppna en terminal."
+#~ msgid "page-changed"
+#~ msgstr "sida-ändrad"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "Hantera diskar och partitioner."
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Återställning av Vanilla OS"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "Läs VanillaOS Handbok."
+#~ msgid "Open a Terminal."
+#~ msgstr "Öppna en terminal."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "Sök efter hjälp på nätet."
+#~ msgid "Manage disks and partitions."
+#~ msgstr "Hantera diskar och partitioner."
+
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "Läs VanillaOS Handbok."
+
+#~ msgid "Search online for help."
+#~ msgstr "Sök efter hjälp på nätet."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Välj en disk"

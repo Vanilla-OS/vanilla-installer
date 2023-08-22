@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-08-07 14:36+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
@@ -503,15 +503,6 @@ msgstr "முழு வட்டு பயன்படுத்தப்பட�
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} இல் வடிவமைக்கப்படும் மற்றும் {} இல் ஏற்றப்படும்"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "சொடுக்கப்பட்டது"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
@@ -577,11 +568,6 @@ msgstr "பயனர்கள்"
 msgid "Disk"
 msgstr "வட்டு"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "நிறுவல்-உறுதிப்படுத்தப்பட்டது"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "உங்கள் {} அனுபவத்தை அனுபவிக்க உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்."
@@ -594,9 +580,14 @@ msgstr "ஏதோ தவறாகிவிட்டது"
 msgid "Please contact the distribution developers."
 msgstr "விநியோக டெவலப்பர்களைத் தொடர்பு கொள்ளவும்."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "பக்கம் மாற்றப்பட்டது"
+#~ msgid "clicked"
+#~ msgstr "சொடுக்கப்பட்டது"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "நிறுவல்-உறுதிப்படுத்தப்பட்டது"
+
+#~ msgid "page-changed"
+#~ msgstr "பக்கம் மாற்றப்பட்டது"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "வெண்ணிலா OS மீட்பு"
