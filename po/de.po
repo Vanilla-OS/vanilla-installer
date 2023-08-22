@@ -9,13 +9,14 @@
 # Fabian Kaindl <weblate@fabiankaindl.de>, 2023.
 # George <georgeaufmschloss@gmail.com>, 2023.
 # juzac001 <julian.zachmann001@stud.fh-dortmund.de>, 2023.
+# Ettore Atalan <atalanttore@googlemail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-09 21:32+0530\n"
-"PO-Revision-Date: 2023-07-31 16:10+0000\n"
-"Last-Translator: nautilusx <translate@disroot.org>\n"
+"PO-Revision-Date: 2023-08-20 12:59+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -277,36 +278,32 @@ msgid "Console"
 msgstr "Konsole"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
 msgid "Open a Terminal"
-msgstr "Öffnen Sie ein Terminal."
+msgstr "Öffnen Sie ein Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
 msgid "Manage disks and partitions"
-msgstr "Verwalten Sie Festplatten und Partitionen."
+msgstr "Verwalten Sie Festplatten und Partitionen"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Handbuch"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
 msgid "Read the Vanilla OS Handbook"
-msgstr "Lesen Sie das Vanilla OS-Handbuch."
+msgstr "Lesen Sie das Vanilla OS-Handbuch"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Internet-Browser"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
 msgid "Search online for help"
-msgstr "Suchen Sie online nach Hilfe."
+msgstr "Suchen Sie online nach Hilfe"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
