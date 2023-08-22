@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-07 19:11+0530\n"
-"PO-Revision-Date: 2023-08-04 19:24+0000\n"
+"PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
@@ -20,8 +20,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
@@ -274,9 +274,8 @@ msgid "Console"
 msgstr "Консоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
 msgid "Open a Terminal"
-msgstr "Открыть Терминал."
+msgstr "Открыть Терминал"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 #: vanilla_installer/gtk/dialog-recovery.ui:33
@@ -284,9 +283,8 @@ msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
 msgid "Manage disks and partitions"
-msgstr "Управление дисками и разделами."
+msgstr "Управление дисками и разделами"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 #: vanilla_installer/gtk/dialog-recovery.ui:40
@@ -294,9 +292,8 @@ msgid "Handbook"
 msgstr "Справочник"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
 msgid "Read the Vanilla OS Handbook"
-msgstr "Прочитайте Руководство по Vanilla OS."
+msgstr "Прочитайте Руководство по Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 #: vanilla_installer/gtk/dialog-recovery.ui:47
@@ -304,9 +301,8 @@ msgid "Web Browser"
 msgstr "Веб-браузер"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
 msgid "Search online for help"
-msgstr "Искать помощь в Интернете."
+msgstr "Искать помощь в Интернете"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -621,7 +617,7 @@ msgstr "Восстановление Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal."
-msgstr "Открыть Терминал."
+msgstr "Открыть Консоль."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:34
 msgid "Manage disks and partitions."
