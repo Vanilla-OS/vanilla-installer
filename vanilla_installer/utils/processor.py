@@ -519,6 +519,8 @@ class Processor:
                 [
                     "mkdir -p /etc/gdm3",
                     "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/daemon.conf",
+                    "mkdir -p /home/vanilla/.config/dconf",
+                    "chmod 700 /home/vanilla/.config/dconf",
                 ],
                 chroot=True,
             )
