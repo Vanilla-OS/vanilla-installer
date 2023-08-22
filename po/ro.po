@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-04-02 13:31+0000\n"
 "Last-Translator: Matt C <matei.gurzu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -511,15 +511,6 @@ msgstr "Se va folosi întregul disc."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Va fi formatat în {} și montat în {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "apăsat"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Alegeți vă rog cel puțin o opțiune."
@@ -585,11 +576,6 @@ msgstr "Utilizatori"
 msgid "Disk"
 msgstr "Disc"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "instalare-confirmată"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Reporniți dispozitivul pentru a vă bucura de experiența {}."
@@ -602,9 +588,14 @@ msgstr "Ceva a dat greș"
 msgid "Please contact the distribution developers."
 msgstr "Vă rog să contactați dezvoltatorii distribuției."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "pagină-schimbată"
+#~ msgid "clicked"
+#~ msgstr "apăsat"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "instalare-confirmată"
+
+#~ msgid "page-changed"
+#~ msgstr "pagină-schimbată"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Recuperare Vanilla OS"

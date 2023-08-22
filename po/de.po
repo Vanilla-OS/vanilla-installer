@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-07-31 16:10+0000\n"
 "Last-Translator: nautilusx <translate@disroot.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
@@ -282,7 +282,6 @@ msgid "Open a Terminal"
 msgstr "Öffnen Sie ein Terminal."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "Gparted"
 
@@ -292,7 +291,6 @@ msgid "Manage disks and partitions"
 msgstr "Verwalten Sie Festplatten und Partitionen."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Handbuch"
 
@@ -302,7 +300,6 @@ msgid "Read the Vanilla OS Handbook"
 msgstr "Lesen Sie das Vanilla OS-Handbuch."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
-#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Internet-Browser"
 
@@ -528,15 +525,6 @@ msgstr "Gesamte Festplatte wird verwendet."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Wird in {} formatiert und in {} eingehängt"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "ausgewählt"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Bitte wählen Sie mindestens eine Option aus."
@@ -602,11 +590,6 @@ msgstr "Benutzer"
 msgid "Disk"
 msgstr "Festplatte"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "Installation bestätigt"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Starten Sie Ihren PC neu, um Ihr {} Erlebnis zu genießen."
@@ -619,29 +602,29 @@ msgstr "Etwas ist schief gelaufen"
 msgid "Please contact the distribution developers."
 msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "Seite geändert"
+#~ msgid "clicked"
+#~ msgstr "ausgewählt"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS Wiederherstellung"
+#~ msgid "installation-confirmed"
+#~ msgstr "Installation bestätigt"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "Öffnen Sie ein Terminal."
+#~ msgid "page-changed"
+#~ msgstr "Seite geändert"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "Verwalten Sie Festplatten und Partitionen."
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS Wiederherstellung"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "Lesen Sie das Vanilla OS-Handbuch."
+#~ msgid "Open a Terminal."
+#~ msgstr "Öffnen Sie ein Terminal."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "Suchen Sie online nach Hilfe."
+#~ msgid "Manage disks and partitions."
+#~ msgstr "Verwalten Sie Festplatten und Partitionen."
+
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "Lesen Sie das Vanilla OS-Handbuch."
+
+#~ msgid "Search online for help."
+#~ msgstr "Suchen Sie online nach Hilfe."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Wählen Sie eine Festplatte aus"

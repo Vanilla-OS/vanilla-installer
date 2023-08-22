@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/vanilla-os/"
@@ -70,7 +70,8 @@ msgstr "インストール先"
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
-msgstr "Vanilla OSをインストールするディスクを選択します。または、1つ以上のディスクを"
+msgstr ""
+"Vanilla OSをインストールするディスクを選択します。または、1つ以上のディスクを"
 "選択して手動で設定することもできます。"
 
 #: vanilla_installer/gtk/default-disk.ui:44
@@ -89,7 +90,8 @@ msgstr "デバイスの暗号化"
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
-msgstr "Vanilla OSはLUKS2によるフルディスク暗号化を提供し、万が一デバイスが盗難にあっ"
+msgstr ""
+"Vanilla OSはLUKS2によるフルディスク暗号化を提供し、万が一デバイスが盗難にあっ"
 "た場合でも個人情報を保護します。"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
@@ -144,7 +146,8 @@ msgstr "NVIDIA® ドライバ"
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
-msgstr "互換性とパフォーマンスの向上のために、プロプライエタリのNVIDIAドライバをイン"
+msgstr ""
+"互換性とパフォーマンスの向上のために、プロプライエタリのNVIDIAドライバをイン"
 "ストールするかどうかを選択します。"
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
@@ -166,8 +169,8 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
-"プロプライエタリドライバには、Vanilla "
-"OSやDebianの開発者が検査不能な非公開のコードが含まれます。\n"
+"プロプライエタリドライバには、Vanilla OSやDebianの開発者が検査不能な非公開の"
+"コードが含まれます。\n"
 "\n"
 "セキュリティアップデートやそのほかのアップデートは、ドライバーの開発元に左右"
 "されます。"
@@ -403,8 +406,8 @@ msgid ""
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
 "BIOSシステムからの起動をサポートするために、GPTフォーマットされたディスクに必"
-"要なパーティションです。ディスク先頭2TBに配置し、正確に1メビバイト (1MiB) "
-"にする必要があります。"
+"要なパーティションです。ディスク先頭2TBに配置し、正確に1メビバイト (1MiB) に"
+"する必要があります。"
 
 #: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
@@ -417,8 +420,9 @@ msgstr "ルートパーティション"
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
 "The partitions to mount under “/”. Both partitions must be the same size."
-msgstr "\"/\"配下にマウントするパーティションです"
-"。両方のパーティションは同じサイズにする必要があります。"
+msgstr ""
+"\"/\"配下にマウントするパーティションです。両方のパーティションは同じサイズに"
+"する必要があります。"
 
 #: vanilla_installer/gtk/widget-partition.ui:106
 msgid ""
@@ -448,8 +452,9 @@ msgstr "ホーム パーティション"
 #: vanilla_installer/gtk/widget-partition.ui:166
 msgid ""
 "The partition to mount under “/home”. This directory stores all user data."
-msgstr "“/home”の下にマウントするパーティション。このディレクトリには、すべてのユーザ"
-"ーデータが格納されます。"
+msgstr ""
+"“/home”の下にマウントするパーティション。このディレクトリには、すべてのユー"
+"ザーデータが格納されます。"
 
 #: vanilla_installer/gtk/widget-partition.ui:181
 msgid "Home partition is too small."
@@ -465,15 +470,16 @@ msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
-"スワップはRAMの仮想的な拡張として機能し、ハイバネーションを可能にします。現に"
-"、現在起動中のVanilla OSはzramを使用することで、ストレージを一切使用せずにス"
-"ワップを提供しています。"
+"スワップはRAMの仮想的な拡張として機能し、ハイバネーションを可能にします。現"
+"に、現在起動中のVanilla OSはzramを使用することで、ストレージを一切使用せずに"
+"スワップを提供しています。"
 
 #: vanilla_installer/gtk/widget-partition.ui:191
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
-msgstr "zramと併用してスワップとして使用するパーティションを選択します。これはハイバ"
+msgstr ""
+"zramと併用してスワップとして使用するパーティションを選択します。これはハイバ"
 "ネーションには必要ありません。"
 
 #: vanilla_installer/gtk/window.ui:39
@@ -482,7 +488,8 @@ msgstr "戻る"
 
 #: vanilla_installer/defaults/disk.py:286
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr "GPartedは既に起動しています。Gpartedのインスタンスは1つだけ許可されます。"
+msgstr ""
+"GPartedは既に起動しています。Gpartedのインスタンスは1つだけ許可されます。"
 
 #: vanilla_installer/defaults/disk.py:376
 msgid "Partition must be at least {}"
@@ -503,16 +510,6 @@ msgstr "ディスク全体を使用します。"
 #: vanilla_installer/defaults/disk.py:574
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} でフォーマットされ、{} にマウントされます"
-
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-#, fuzzy
-msgid "clicked"
-msgstr "クリック"
 
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
@@ -579,11 +576,6 @@ msgstr "ユーザー"
 msgid "Disk"
 msgstr "ディスク"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "インストール確認済み"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "デバイスを再起動して、{} をお楽しみください。"
@@ -596,9 +588,15 @@ msgstr "問題が発生しました"
 msgid "Please contact the distribution developers."
 msgstr "ディストリビューションの開発者にご連絡ください。"
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "ページ変更"
+#, fuzzy
+#~ msgid "clicked"
+#~ msgstr "クリック"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "インストール確認済み"
+
+#~ msgid "page-changed"
+#~ msgstr "ページ変更"
 
 #, fuzzy
 #~ msgid "Vanilla OS Recovery"

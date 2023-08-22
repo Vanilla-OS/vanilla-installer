@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-04-09 13:23+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/vanilla-os/"
@@ -500,15 +500,6 @@ msgstr "O disco inteiro será utilizado."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Será formatado em {} e montado em {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr ""
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Selecione pelo menos uma opção."
@@ -574,11 +565,6 @@ msgstr "Utilizadores"
 msgid "Disk"
 msgstr "Disco"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr ""
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Reinicie o seu dispositivo para desfrutar da sua experiência {}."
@@ -590,10 +576,6 @@ msgstr "Algo correu mal"
 #: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
 msgstr "Entre em contacto com os programadores da distribuição."
-
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr ""
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Recuperação do Vanilla OS"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-06-23 22:52+0000\n"
 "Last-Translator: \"ส. สิทธิชัยวัฒน์\" <phongthon.thuiprasid@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/vanilla-os/"
@@ -480,15 +480,6 @@ msgstr ""
 msgid "Will be formatted in {} and mounted in {}"
 msgstr ""
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr ""
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr ""
@@ -556,11 +547,6 @@ msgstr "ชื่อผู้ใช้"
 msgid "Disk"
 msgstr ""
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr ""
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "รีสตาร์ทอุปกรณ์ของคุณเพื่อเพลิดเพลินกับประสบการณ์ {} ของคุณ"
@@ -572,10 +558,6 @@ msgstr ""
 #: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
 msgstr "โปรดติดต่อผู้พัฒนาดิสทริบิวชัน"
-
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr ""
 
 #, fuzzy
 #~ msgid "Vanilla OS Recovery"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-04-13 12:45+0000\n"
 "Last-Translator: Abu Huraira <abuhuraira@tutamail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/vanilla-os/"
@@ -510,15 +510,6 @@ msgstr "সম্পূর্ণ ডিস্ক ব্যবহার করা
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} এ ফরম্যাট করা হবে এবং {} এ মাউন্ট করা হবে"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "ক্লিক করা হয়েছে"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "অন্তত একটি বিকল্প নির্বাচন করুন."
@@ -584,11 +575,6 @@ msgstr "ব্যবহারকারী"
 msgid "Disk"
 msgstr "ডিস্ক"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "ইনস্টলেশন-নিশ্চিত"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "ভ্যানিলা ওএস ব্যবহার করতে আপনার ডিভাইসটি রিস্টার্ট করুন।"
@@ -601,9 +587,14 @@ msgstr "কিছু একটা ভুল হয়েছে"
 msgid "Please contact the distribution developers."
 msgstr "ডিস্ট্রিবিউশন ডেভেলপারদের সাথে যোগাযোগ করুন।"
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "পৃষ্ঠা-পরিবর্তিত"
+#~ msgid "clicked"
+#~ msgstr "ক্লিক করা হয়েছে"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "ইনস্টলেশন-নিশ্চিত"
+
+#~ msgid "page-changed"
+#~ msgstr "পৃষ্ঠা-পরিবর্তিত"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "ভ্যানিলা ওএস পুনরুদ্ধার"

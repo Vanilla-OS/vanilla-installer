@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-07-09 06:49+0000\n"
 "Last-Translator: MJKim <kmj10727@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
@@ -491,15 +491,6 @@ msgstr "전체 디스크가 사용됩니다."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{}로 포맷되고 {}에 마운트됩니다"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr ""
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "옵션을 하나 이상 선택하십시오."
@@ -567,11 +558,6 @@ msgstr "사용자이름"
 msgid "Disk"
 msgstr ""
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr ""
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "사용자의 기기를 다시 시작하여 {} 환경을 즐기십시오."
@@ -583,10 +569,6 @@ msgstr "문제가 발생했습니다"
 #: vanilla_installer/views/done.py:54
 msgid "Please contact the distribution developers."
 msgstr "배포 개발자에게 문의하십시오."
-
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr ""
 
 #, fuzzy
 #~ msgid "Vanilla OS Recovery"

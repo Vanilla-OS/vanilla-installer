@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 19:14+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-08-07 13:57+0000\n"
 "Last-Translator: EncryptedEasty <95353984+EncryptedEasty@users.noreply."
 "github.com>\n"
@@ -264,44 +264,37 @@ msgstr ""
 msgid "Log"
 msgstr "Log"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Recupero di Vanilla OS"
-
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "Apri un Terminale."
+msgid "Open a Terminal"
+msgstr "Apri un Terminale"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:33
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "Gestisci dischi e partizioni."
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+msgid "Manage disks and partitions"
+msgstr "Gestisci dischi e partizioni"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:40
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Guida"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "Leggi il manuale di Vanilla OS."
+#: vanilla_installer/gtk/dialog-recovery.ui:61
+msgid "Read the Vanilla OS Handbook"
+msgstr "Leggi la guida di Vanilla OS"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:47
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Browser web"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "Cerca aiuto online."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Search online for help"
+msgstr "Cerca aiuto online"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -517,15 +510,6 @@ msgstr "Verrà utilizzato l'intero disco."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Verrà formattato in {} e montato in {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "cliccato"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Seleziona almeno un'opzione."
@@ -591,11 +575,6 @@ msgstr "Utenti"
 msgid "Disk"
 msgstr "Disco"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "Installazione-confermata"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Riavvia il dispositivo per goderti la tua esperienza {}."
@@ -608,25 +587,29 @@ msgstr "Qualcosa è andato storto"
 msgid "Please contact the distribution developers."
 msgstr "Si prega di contattare gli sviluppatori della distribuzione."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "pagina-cambiata"
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Recupero di Vanilla OS"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
-msgstr "Apri un Terminale"
+#~ msgid "Open a Terminal."
+#~ msgstr "Apri un Terminale."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:44
-msgid "Manage disks and partitions"
-msgstr "Gestisci dischi e partizioni"
+#~ msgid "Manage disks and partitions."
+#~ msgstr "Gestisci dischi e partizioni."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:61
-msgid "Read the Vanilla OS Handbook"
-msgstr "Leggi la guida di Vanilla OS"
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "Leggi il manuale di Vanilla OS."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Search online for help"
-msgstr "Cerca aiuto online"
+#~ msgid "Search online for help."
+#~ msgstr "Cerca aiuto online."
+
+#~ msgid "clicked"
+#~ msgstr "cliccato"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "Installazione-confermata"
+
+#~ msgid "page-changed"
+#~ msgstr "pagina-cambiata"
 
 #~ msgid "Select a Disk"
 #~ msgstr "Seleziona un disco"

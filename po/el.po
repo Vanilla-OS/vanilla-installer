@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-07-10 19:51+0000\n"
 "Last-Translator: Andrew Geo <andrewgeo@outlook.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/vanilla-os/"
@@ -518,15 +518,6 @@ msgstr "Θα χρησιμοποιηθεί ολόκληρος ο δίσκος."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Θα μορφοποιηθεί σε {} και θα αναρτηθεί στο {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "Επιλεγμένο"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Παρακαλώ επιλέξτε τουλάχιστον ένα στοιχείο."
@@ -592,11 +583,6 @@ msgstr "Χρήστες"
 msgid "Disk"
 msgstr "Δίσκος"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "Η εγκατάσταση επιβεβαιώθηκε"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Επανεκκινήστε τη συσκεύη σας για να απολαύσετε την εμπειρία {}."
@@ -609,9 +595,14 @@ msgstr "Κάτι πήγε στραβά"
 msgid "Please contact the distribution developers."
 msgstr "Παρακαλώ επικοινωνήστε με τους δημιουργούς της διανομής."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "Η σελίδα άλλαξε"
+#~ msgid "clicked"
+#~ msgstr "Επιλεγμένο"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "Η εγκατάσταση επιβεβαιώθηκε"
+
+#~ msgid "page-changed"
+#~ msgstr "Η σελίδα άλλαξε"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Επανόρθωση του Vanilla OS"

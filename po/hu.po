@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-08-07 10:00+0000\n"
 "Last-Translator: Peter Rakmanyi <rakmanyi.peter@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -274,7 +274,6 @@ msgid "Open a Terminal"
 msgstr "Nyisson meg egy terminált."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#: vanilla_installer/gtk/dialog-recovery.ui:33
 msgid "Gparted"
 msgstr "Gparted"
 
@@ -284,7 +283,6 @@ msgid "Manage disks and partitions"
 msgstr "Lemezek és partíciók kezelése."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#: vanilla_installer/gtk/dialog-recovery.ui:40
 msgid "Handbook"
 msgstr "Kézikönyv"
 
@@ -294,7 +292,6 @@ msgid "Read the Vanilla OS Handbook"
 msgstr "Olvassa el a Vanilla OS kézikönyvet."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
-#: vanilla_installer/gtk/dialog-recovery.ui:47
 msgid "Web Browser"
 msgstr "Webböngésző"
 
@@ -517,15 +514,6 @@ msgstr "A teljes lemez felhasználásra kerül."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} formátumban lesz formázva és {} formátumban lesz felcsatolva"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "csatolva"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "Kérjük, válasszon legalább egy lehetőséget."
@@ -591,11 +579,6 @@ msgstr "Felhasználók"
 msgid "Disk"
 msgstr "Lemez"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "telepítés-megerősítve"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Indítsa újra a készüléket, hogy élvezhesse a {} élményt."
@@ -608,29 +591,29 @@ msgstr "Valami hiba történt"
 msgid "Please contact the distribution developers."
 msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "oldal-megváltozott"
+#~ msgid "clicked"
+#~ msgstr "csatolva"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:6
-msgid "Vanilla OS Recovery"
-msgstr "Vanilla OS helyreállítás"
+#~ msgid "installation-confirmed"
+#~ msgstr "telepítés-megerősítve"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal."
-msgstr "Nyisson meg egy terminált."
+#~ msgid "page-changed"
+#~ msgstr "oldal-megváltozott"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:34
-msgid "Manage disks and partitions."
-msgstr "Lemezek és partíciók kezelése."
+#~ msgid "Vanilla OS Recovery"
+#~ msgstr "Vanilla OS helyreállítás"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:41
-msgid "Read the Vanilla OS Handbook."
-msgstr "Olvassa el a Vanilla OS kézikönyvet."
+#~ msgid "Open a Terminal."
+#~ msgstr "Nyisson meg egy terminált."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:48
-msgid "Search online for help."
-msgstr "Keressen segítséget az interneten."
+#~ msgid "Manage disks and partitions."
+#~ msgstr "Lemezek és partíciók kezelése."
+
+#~ msgid "Read the Vanilla OS Handbook."
+#~ msgstr "Olvassa el a Vanilla OS kézikönyvet."
+
+#~ msgid "Search online for help."
+#~ msgstr "Keressen segítséget az interneten."
 
 #~ msgid "Select a Disk"
 #~ msgstr "Válasszon egy lemezt"

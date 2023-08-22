@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-06-28 11:52+0000\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -506,15 +506,6 @@ msgstr "کل دیسک استفاده خواهد شد."
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "به صورت {} قالب‌بندی و در {} سوار خواهد شد"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "کلیک شده"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "لطفاً حداقل یک گزینه را برگزینید."
@@ -580,11 +571,6 @@ msgstr "کاربران"
 msgid "Disk"
 msgstr "دیسک"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "نصب تأیید شد"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "افزارهٔ خود را شروع دوباره کنید تا از تجربهٔ {} خود لذت ببرید."
@@ -597,9 +583,14 @@ msgstr "اشتباهی پیش آمد"
 msgid "Please contact the distribution developers."
 msgstr "لطفاً با توسعه‌دهندگان توزیع تماس بگیرید."
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "صفحه تغییر کرد"
+#~ msgid "clicked"
+#~ msgstr "کلیک شده"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "نصب تأیید شد"
+
+#~ msgid "page-changed"
+#~ msgstr "صفحه تغییر کرد"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "بازیابی سیستم‌عامل وانیلا"

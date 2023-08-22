@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 19:11+0530\n"
+"POT-Creation-Date: 2023-08-09 21:32+0530\n"
 "PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -88,7 +88,8 @@ msgstr "裝置加密"
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
-msgstr "Vanilla OS 透過 LUKS2 提供完整磁碟加密，可在裝置丟失時保護您的個人資訊。"
+msgstr ""
+"Vanilla OS 透過 LUKS2 提供完整磁碟加密，可在裝置丟失時保護您的個人資訊。"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
@@ -163,8 +164,8 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
-"專有驅動程式含有私有程式碼，Vanilla OS 及 Debian "
-"開發人員都無法查看這些程式碼。\n"
+"專有驅動程式含有私有程式碼，Vanilla OS 及 Debian 開發人員都無法查看這些程式"
+"碼。\n"
 "\n"
 "安全性及其他更新取決於提供驅動程式的廠商。"
 
@@ -491,15 +492,6 @@ msgstr "將使用整個磁碟。"
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "將格式化為 {} 並掛載到 {}"
 
-#. signals
-#: vanilla_installer/layouts/preferences.py:42
-#: vanilla_installer/views/confirm.py:124
-#: vanilla_installer/views/progress.py:51
-#: vanilla_installer/views/progress.py:52
-#: vanilla_installer/windows/main_window.py:61
-msgid "clicked"
-msgstr "已按下"
-
 #: vanilla_installer/layouts/preferences.py:68
 msgid "Please select at least one option."
 msgstr "請至少選取一個選項。"
@@ -565,11 +557,6 @@ msgstr "使用者"
 msgid "Disk"
 msgstr "磁碟"
 
-#: vanilla_installer/views/confirm.py:127
-#: vanilla_installer/windows/main_window.py:64
-msgid "installation-confirmed"
-msgstr "安裝確認"
-
 #: vanilla_installer/views/done.py:39
 msgid "Restart your device to enjoy your {} experience."
 msgstr "重新啟動您的裝置，開始您的 {} 之旅。"
@@ -582,9 +569,14 @@ msgstr "出了點問題"
 msgid "Please contact the distribution developers."
 msgstr "請聯絡散布版開發人員。"
 
-#: vanilla_installer/windows/main_window.py:62
-msgid "page-changed"
-msgstr "頁面變更"
+#~ msgid "clicked"
+#~ msgstr "已按下"
+
+#~ msgid "installation-confirmed"
+#~ msgstr "安裝確認"
+
+#~ msgid "page-changed"
+#~ msgstr "頁面變更"
 
 #~ msgid "Vanilla OS Recovery"
 #~ msgstr "Vanilla OS 修復程式"
