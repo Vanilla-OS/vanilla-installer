@@ -158,8 +158,8 @@ mount -o bind,ro /.system/usr /usr
 
 _SYSTEMD_MOUNT_UNIT = """[Unit]
 Description=Mount partitions
-Requires=cryptsetup.target
-After=cryptsetup.target
+Requires=%s.target
+After=%s.target
 
 [Service]
 Type=oneshot
@@ -458,7 +458,8 @@ class Processor:
         )
         # Create SystemD unit to setup mountpoints
         with open("/tmp/systemd-mount", "w") as file:
-            file.write(_SYSTEMD_MOUNT_UNIT)
+            target = "cryptsetup" if encrypt else "local-fs"
+            file.write(_SYSTEMD_MOUNT_UNIT % (target, target))
         recipe.add_postinstall_step(
             "shell",
             [
