@@ -115,11 +115,11 @@ class VanillaProgress(Gtk.Box):
         self.__start_tour()
 
     def __switch_tour(self, *args):
-        cur_index = self.carousel_tour.get_position()
-        page = self.carousel_tour.get_nth_page(cur_index + 1)
+        cur_index = self.carousel_tour.get_position() + 1
+        if cur_index == self.carousel_tour.get_n_pages():
+            cur_index = 0
 
-        if page is None:
-            page = self.carousel_tour.get_nth_page(0)
+        page = self.carousel_tour.get_nth_page(cur_index)
 
         self.carousel_tour.scroll_to(page, True)
 
