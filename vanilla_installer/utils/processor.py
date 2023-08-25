@@ -525,6 +525,16 @@ class Processor:
                 chroot=True,
             )
 
+            # Make sure the vanilla user uses the first-setup session
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    "mkdir -p /var/lib/AccountsService/users",
+                    "echo '[User]\nSession=firstsetup' > /var/lib/AccountsService/users/vanilla"
+                ],
+                chroot=True,
+            )
+
             # Add autostart script to vanilla-first-setup
             recipe.add_postinstall_step(
                 "shell",
