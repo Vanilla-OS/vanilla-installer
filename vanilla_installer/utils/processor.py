@@ -513,14 +513,6 @@ class Processor:
                 late=True,
             )
 
-            # Set the default user as the owned of it's home directory
-            recipe.add_postinstall_step(
-                "shell",
-                ["chown -R vanilla /home/vanilla"],
-                chroot=True,
-                late=True,
-            )
-
             # Set vanilla user to autologin
             recipe.add_postinstall_step(
                 "shell",
@@ -691,6 +683,14 @@ class Processor:
                     )
                 ],
             )
+
+        # Set the default user as the owned of it's home directory
+        recipe.add_postinstall_step(
+            "shell",
+            ["chown -R vanilla:vanilla /home/vanilla"],
+            chroot=True,
+            late=True,
+        )
 
         recipe.merge_postinstall_steps()
 

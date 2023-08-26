@@ -1,3 +1,9 @@
+vanilla-installer (2.3.3) unstable; urgency=critical
+
+  * Fix wrong group of default user $HOME
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 26 Aug 2023 18:30:00 -0300
+
 vanilla-installer (2.3.2) unstable; urgency=critical
 
   * Fix wrong ownership of default user $HOME
