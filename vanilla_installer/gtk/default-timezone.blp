@@ -1,0 +1,75 @@
+using Gtk 4.0;
+
+template $VanillaDefaultTimezone : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  Box {
+    vexpand: true;
+    hexpand: true;
+
+    Overlay {
+      valign: center;
+
+      [overlay]
+      Button btn_next {
+        margin-end: 12;
+        margin-start: 12;
+        icon-name: "go-next-symbolic";
+        halign: end;
+        valign: center;
+        tooltip-text: _("Next");
+
+        styles [
+          "circular",
+          "suggested-action",
+        ]
+      }
+
+      $AdwStatusPage status_page {
+        icon-name: "preferences-system-time-symbolic";
+        title: _("Date & Time");
+        description: _("Select your preferred timezone");
+
+        $AdwClamp {
+          maximum-size: "570";
+
+          Box {
+            orientation: vertical;
+
+            SearchEntry entry_search_timezone {
+              hexpand: true;
+              placeholder-text: _("Search for a Timezone");
+            }
+
+            $AdwPreferencesGroup {
+              $AdwComboRow combo_region {
+                title: _("Region");
+                model: 
+                StringList str_list_region {
+                }
+
+                ;
+              }
+
+              $AdwComboRow combo_zone {
+                title: _("Zone");
+                model: 
+                StringList str_list_zone {
+                }
+
+                ;
+              }
+
+              $AdwActionRow row_preview {
+                title: "19:07:00";
+                subtitle: "Saturday, 29 Oct 2022";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

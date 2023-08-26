@@ -1,0 +1,51 @@
+using Gtk 4.0;
+
+template $VanillaDone : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  $AdwStatusPage status_page {
+    icon-name: "emblem-default-symbolic";
+    title: _("All done!");
+    description: _("Restart your device to enjoy your Vanilla OS experience");
+    halign: "fill";
+    valign: "fill";
+    hexpand: "true";
+
+    Box {
+      halign: center;
+      spacing: 10;
+
+      Button btn_log {
+        label: _("Show Log");
+        halign: center;
+
+        styles [
+          "pill",
+        ]
+      }
+
+      Button btn_reboot {
+        label: _("Reboot Now");
+        halign: center;
+
+        styles [
+          "pill",
+          "suggested-action",
+        ]
+      }
+
+      Button btn_close {
+        label: _("Close");
+        halign: center;
+        visible: false;
+
+        styles [
+          "pill",
+          "suggested-action",
+        ]
+      }
+    }
+  }
+}

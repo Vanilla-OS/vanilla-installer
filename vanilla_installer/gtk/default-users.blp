@@ -1,0 +1,67 @@
+using Gtk 4.0;
+
+template $VanillaDefaultUsers : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  Overlay {
+    valign: center;
+
+    [overlay]
+    Button btn_next {
+      margin-end: 12;
+      margin-start: 12;
+      icon-name: "go-next-symbolic";
+      halign: end;
+      valign: center;
+      tooltip-text: _("Next");
+      sensitive: false;
+
+      styles [
+        "circular",
+        "suggested-action",
+      ]
+    }
+
+    Box {
+      orientation: vertical;
+
+      $AdwAvatar {
+        valign: "center";
+        size: "128";
+        show-initials: "True";
+        text: bind fullname_entry.text;
+      }
+
+      $AdwStatusPage status_page {
+        title: _("Create User");
+        description: _("Provide details for your user account");
+
+        $AdwPreferencesPage {
+          $AdwPreferencesGroup {
+            $AdwEntryRow fullname_entry {
+              title: _("Name");
+              input-purpose: "name";
+            }
+
+            $AdwEntryRow username_entry {
+              title: _("Username");
+              input-purpose: "name";
+            }
+
+            $AdwPasswordEntryRow password_entry {
+              title: _("Password");
+              input-purpose: "password";
+            }
+
+            $AdwPasswordEntryRow password_confirmation {
+              title: _("Confirm Password");
+              input-purpose: "password";
+            }
+          }
+        }
+      }
+    }
+  }
+}

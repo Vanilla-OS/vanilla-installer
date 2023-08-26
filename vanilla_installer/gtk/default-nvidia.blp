@@ -1,0 +1,87 @@
+using Gtk 4.0;
+
+template $VanillaDefaultNvidia : $AdwBin {
+  halign: "0";
+  valign: "0";
+  hexpand: "true";
+
+  $AdwStatusPage status_page {
+    halign: "0";
+    valign: "0";
+    hexpand: "true";
+    icon-name: "video-display-symbolic";
+    title: _("NVIDIA® Drivers");
+    description: _("Choose whether to install proprietary NVIDIA drivers for better compatibility and performance.");
+
+    Box {
+      orientation: vertical;
+      vexpand: true;
+      hexpand: true;
+      valign: center;
+
+      Box {
+        valign: center;
+        spacing: 10;
+        halign: center;
+
+        Button btn_no {
+          label: _("Don\'t install");
+          halign: center;
+
+          styles [
+            "pill",
+          ]
+        }
+
+        Button btn_yes {
+          label: _("Install  (recommended)");
+          halign: center;
+
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+        }
+
+        Box {
+          Button btn_info {
+            icon-name: "dialog-information-symbolic";
+
+            styles [
+              "flat",
+            ]
+          }
+
+          Popover info_popover {
+            child:             Box {
+              orientation: vertical;
+              spacing: 10;
+              vexpand: true;
+              halign: center;
+              margin-top: 10;
+              margin-bottom: 10;
+              margin-start: 10;
+              margin-end: 10;
+
+              Label {
+                label: _("About Proprietary Drivers");
+
+                styles [
+                  "title-4",
+                ]
+              }
+
+              Label {
+                label: _("A proprietary driver has private code that neither Vanilla OS nor Debian developers can review.\n\nSecurity and other updates are dependent on the driver vendor.");
+                wrap: true;
+                max-width-chars: 50;
+              }
+            }
+
+            ;
+          }
+        }
+      }
+    }
+  }
+}

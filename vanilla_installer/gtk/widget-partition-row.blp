@@ -1,0 +1,13 @@
+using Gtk 4.0;
+
+template $PartitionRow : $AdwActionRow {
+  [prefix]
+  CheckButton select_button {
+  }
+
+  activatable-widget: "select_button";
+
+  [suffix]
+  $AdwBin suffix_bin {
+  }
+}

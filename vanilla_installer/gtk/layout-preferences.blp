@@ -1,0 +1,35 @@
+using Gtk 4.0;
+
+template $VanillaLayoutPreferences : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  $AdwStatusPage status_page {
+    halign: "fill";
+    valign: "fill";
+    hexpand: "true";
+
+    Box {
+      orientation: vertical;
+      vexpand: true;
+      hexpand: true;
+      valign: center;
+
+      $AdwPreferencesPage {
+        $AdwPreferencesGroup prefs_list {
+        }
+      }
+
+      Button btn_next {
+        label: _("Next");
+        halign: center;
+
+        styles [
+          "pill",
+          "suggested-action",
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+using Gtk 4.0;
+
+template $VanillaDefaultDiskPartModal : $AdwWindow {
+  title: _("Configure Disk");
+  modal: "true";
+  deletable: "false";
+  default-width: "650";
+  default-height: "850";
+
+  Box {
+    orientation: vertical;
+
+    $AdwHeaderBar {
+      [start]
+      Button btn_cancel {
+        label: _("Cancel");
+      }
+
+      [end]
+      Button btn_apply {
+        label: _("Apply");
+
+        styles [
+          "suggested-action",
+        ]
+      }
+    }
+
+    $AdwToastOverlay group_partitions {
+    }
+  }
+}

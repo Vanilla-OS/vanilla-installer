@@ -1,0 +1,62 @@
+using Gtk 4.0;
+
+template $VanillaWindow : $AdwApplicationWindow {
+  default-width: "900";
+  default-height: "680";
+  title: _("Vanilla OS Installer");
+
+  Box {
+    orientation: vertical;
+
+    $AdwHeaderBar {
+      show-end-title-buttons: "False";
+
+      styles [
+        "flat",
+      ]
+      title-widget: 
+      $AdwCarouselIndicatorDots carousel_indicator_dots {
+        carousel: "carousel";
+        orientation: "horizontal";
+        visible: "False";
+      }
+
+      ;
+    }
+
+    Overlay {
+      valign: center;
+
+      [overlay]
+      Button btn_back {
+        visible: false;
+        margin-start: 12;
+        margin-end: 12;
+        icon-name: "go-previous-symbolic";
+        halign: start;
+        valign: center;
+        tooltip-text: _("Back");
+
+        styles [
+          "circular",
+        ]
+      }
+
+      Box {
+        orientation: horizontal;
+        vexpand: true;
+        hexpand: true;
+
+        $AdwToastOverlay toasts {
+          $AdwCarousel carousel {
+            vexpand: "True";
+            hexpand: "True";
+            allow-scroll-wheel: "False";
+            allow-mouse-drag: "False";
+            allow-long-swipes: "False";
+          }
+        }
+      }
+    }
+  }
+}

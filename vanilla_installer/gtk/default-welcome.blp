@@ -1,0 +1,44 @@
+using Gtk 4.0;
+
+template $VanillaDefaultWelcome : $AdwBin {
+  halign: "fill";
+  valign: "fill";
+  hexpand: "true";
+
+  $AdwStatusPage status_page {
+    Box {
+      orientation: vertical;
+      valign: center;
+      halign: center;
+
+      Image {
+        icon-name: "vanilla-logo-text";
+        pixel-size: 200;
+      }
+
+      Box {
+        spacing: 10;
+        valign: center;
+        halign: center;
+        margin-bottom: 60;
+
+        Button btn_recovery {
+          label: _("Recovery");
+
+          styles [
+            "pill",
+          ]
+        }
+
+        Button btn_install {
+          label: _("Install Vanilla OS");
+
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+        }
+      }
+    }
+  }
+}

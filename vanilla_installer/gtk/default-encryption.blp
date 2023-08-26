@@ -1,0 +1,59 @@
+using Gtk 4.0;
+
+template $VanillaDefaultEncryption : $AdwBin {
+  halign: "0";
+  valign: "0";
+  hexpand: "true";
+
+  Overlay {
+    valign: center;
+
+    [overlay]
+    Button btn_next {
+      margin-end: 12;
+      margin-start: 12;
+      icon-name: "go-next-symbolic";
+      halign: end;
+      valign: center;
+      tooltip-text: _("Next");
+
+      styles [
+        "circular",
+        "suggested-action",
+      ]
+    }
+
+    $AdwStatusPage status_page {
+      icon-name: "channel-secure-symbolic";
+      title: _("Device Encryption");
+      description: _("Vanilla OS provides full-disk encryption through LUKS2 to protect your personal information in case your device gets stolen.");
+
+      $AdwPreferencesPage {
+        $AdwPreferencesGroup {
+          $AdwActionRow {
+            title: _("Encrypt device");
+            subtitle: _("Use a memorable password to encrypt your data");
+
+            [suffix]
+            Switch use_encryption_switch {
+              valign: center;
+              active: true;
+            }
+
+            activatable-widget: "use_encryption_switch";
+          }
+
+          $AdwPasswordEntryRow encryption_pass_entry {
+            title: _("Password");
+            sensitive: bind use_encryption_switch.active;
+          }
+
+          $AdwPasswordEntryRow encryption_pass_entry_confirm {
+            title: _("Confirm Password");
+            sensitive: bind use_encryption_switch.active;
+          }
+        }
+      }
+    }
+  }
+}
