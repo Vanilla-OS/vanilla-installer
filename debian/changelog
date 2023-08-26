@@ -1,3 +1,9 @@
+vanilla-installer (2.3.1) unstable; urgency=critical
+
+  * Fix missing dependency in control
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 26 Aug 2023 16:53:00 -0300
+
 vanilla-installer (2.3.0) unstable; urgency=critical
 
   * Add useraccounts file for first-setup

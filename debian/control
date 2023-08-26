@@ -41,5 +41,5 @@ Depends: python3,
          albius,
          libnm0,
          libnma0,
-         libnma-gtk4-0
+         libnma-gtk4-dev
 Description: A frontend in GTK 4 and Libadwaita for Albius.
