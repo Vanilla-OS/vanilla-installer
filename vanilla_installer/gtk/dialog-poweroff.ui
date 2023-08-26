@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="libadwaita" version="1.0"/>
+    <template class="VanillaPoweroffDialog" parent="AdwWindow">
+        <property name="title" translatable="yes">Power Off</property>
+        <property name="default-width">500</property>
+        <property name="modal">true</property>
+        <child>
+            <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                    <object class="AdwHeaderBar">
+                        <style>
+                            <class name="flat"/>
+                        </style>
+                    </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesPage">
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <child>
+                          <object class="AdwActionRow" id="row_poweroff">
+                            <property name="icon-name">system-shutdown-symbolic</property>
+                            <property name="title" translatable="yes">Power Off</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow" id="row_reboot">
+                            <property name="icon-name">system-reboot-symbolic</property>
+                            <property name="title" translatable="yes">Restart</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow" id="row_firmware_setup">
+                            <property name="icon-name">application-x-executable-symbolic</property>
+                            <property name="title" translatable="yes">Restart into Firmware Setup</property>
+                            <property name="activatable">true</property>
+                            <child type="suffix">
+                              <object class="GtkImage">
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="valign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>

@@ -17,14 +17,16 @@
 from gi.repository import Adw, Gtk
 
 from vanilla_installer.windows.dialog_recovery import VanillaRecoveryDialog
-
+from vanilla_installer.windows.dialog_poweroff import VanillaPoweroffDialog
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-welcome.ui")
 class VanillaDefaultWelcome(Adw.Bin):
     __gtype_name__ = "VanillaDefaultWelcome"
 
-    btn_recovery = Gtk.Template.Child()
-    btn_install = Gtk.Template.Child()
+    status_page = Gtk.Template.Child()
+    row_install = Gtk.Template.Child()
+    row_recovery = Gtk.Template.Child()
+    row_poweroff = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -34,11 +36,15 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.__step = step
 
         # signals
-        self.btn_recovery.connect("clicked", self.__on_recovery_clicked)
-        self.btn_install.connect("clicked", self.__window.next)
+        self.row_install.connect("activated", self.__window.next)
+        self.row_recovery.connect("activated", self.__on_recovery_clicked)
+        self.row_poweroff.connect("activated", self.__on_poweroff_clicked)
 
     def get_finals(self):
         return {}
 
-    def __on_recovery_clicked(self, button):
+    def __on_recovery_clicked(self, row):
         VanillaRecoveryDialog(self.__window).show()
+
+    def __on_poweroff_clicked(self, row):
+        VanillaPoweroffDialog(self.__window).show()

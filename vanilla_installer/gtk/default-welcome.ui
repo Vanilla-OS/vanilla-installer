@@ -8,38 +8,61 @@
         <property name="hexpand">true</property>
         <child>
             <object class="AdwStatusPage" id="status_page">
+                <property name="icon-name">org.vanillaos.FirstSetup-flower</property>
+                <property name="title" translatable="yes">Welcome to Vanilla OS!</property>
                 <child>
-                    <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <property name="valign">center</property>
-                        <property name="halign">center</property>
+                    <object class="AdwPreferencesPage">
                         <child>
-                            <object class="GtkImage">
-                                <property name="icon-name">vanilla-logo-text</property>
-                                <property name="pixel-size">200</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkBox">
-                                <property name="spacing">10</property>
-                                <property name="valign">center</property>
-                                <property name="halign">center</property>
-                                <property name="margin-bottom">60</property>
+                            <object class="AdwPreferencesGroup">
                                 <child>
-                                    <object class="GtkButton" id="btn_recovery">
-                                        <property name="label" translatable="yes">Recovery</property>
-                                        <style>
-                                            <class name="pill" />
-                                        </style>
+                                    <object class="AdwActionRow" id="row_install">
+                                        <property name="title" translatable="yes">Install</property>
+                                        <property name="icon-name">folder-download-symbolic</property>
+                                        <property name="activatable">true</property>
+                                        <child>
+                                            <object class="GtkImage">
+                                                <property name="icon-name">go-next-symbolic</property>
+                                                <property name="halign">center</property>
+                                                <property name="valign">center</property>
+                                                <style>
+                                                    <class name="flat"/>
+                                                </style>
+                                            </object>
+                                        </child>
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="GtkButton" id="btn_install">
-                                        <property name="label" translatable="yes">Install Vanilla OS</property>
-                                        <style>
-                                            <class name="pill" />
-                                            <class name="suggested-action" />
-                                        </style>
+                                    <object class="AdwActionRow" id="row_recovery">
+                                        <property name="title" translatable="yes">Recovery</property>
+                                        <property name="icon-name">emoji-symbols-symbolic</property>
+                                        <property name="activatable">true</property>
+                                        <child>
+                                            <object class="GtkImage">
+                                                <property name="icon-name">go-next-symbolic</property>
+                                                <property name="halign">center</property>
+                                                <property name="valign">center</property>
+                                                <style>
+                                                    <class name="flat"/>
+                                                </style>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="AdwActionRow" id="row_poweroff">
+                                        <property name="title" translatable="yes">Power Off</property>
+                                        <property name="icon-name">system-shutdown-symbolic</property>
+                                        <property name="activatable">true</property>
+                                        <child>
+                                            <object class="GtkImage">
+                                                <property name="icon-name">go-next-symbolic</property>
+                                                <property name="halign">center</property>
+                                                <property name="valign">center</property>
+                                                <style>
+                                                    <class name="flat"/>
+                                                </style>
+                                            </object>
+                                        </child>
                                     </object>
                                 </child>
                             </object>
