@@ -12,9 +12,12 @@ Build-Depends: build-essential,
                gettext,
                desktop-file-utils,
                make,
-               libjpeg-dev
+               libjpeg-dev,
+               libnm-dev,
+               libnma-dev,
+               libnma-gtk4-dev
 Homepage: https://github.com/Vanilla-OS/vanilla-installer/
-Vcs-Browser: hhttps://github.com/Vanilla-OS/vanilla-installer
+Vcs-Browser: https://github.com/Vanilla-OS/vanilla-installer
 Vcs-Git: https://github.com/Vanilla-OS/vanilla-installer.git
 Rules-Requires-Root: no
 
@@ -35,5 +38,8 @@ Depends: python3,
          x11-xkb-utils,
          gparted,
          openssl,
-         albius
+         albius,
+         libnm0,
+         libnma0,
+         libnma-gtk4-0
 Description: A frontend in GTK 4 and Libadwaita for Albius.
