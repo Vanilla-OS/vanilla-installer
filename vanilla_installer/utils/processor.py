@@ -513,6 +513,14 @@ class Processor:
                 late=True,
             )
 
+            # Set the default user as the owned of it's home directory
+            recipe.add_postinstall_step(
+                "shell",
+                ["chown -R vanilla /home/vanilla"],
+                chroot=True,
+                late=True,
+            )
+
             # Set vanilla user to autologin
             recipe.add_postinstall_step(
                 "shell",
@@ -530,7 +538,7 @@ class Processor:
                 "shell",
                 [
                     "mkdir -p /var/lib/AccountsService/users",
-                    "echo '[User]\nSession=firstsetup' > /var/lib/AccountsService/users/vanilla"
+                    "echo '[User]\nSession=firstsetup' > /var/lib/AccountsService/users/vanilla",
                 ],
                 chroot=True,
             )

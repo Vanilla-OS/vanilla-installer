@@ -1,3 +1,9 @@
+vanilla-installer (2.3.2) unstable; urgency=critical
+
+  * Fix wrong ownership of default user $HOME
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 26 Aug 2023 17:56:00 -0300
+
 vanilla-installer (2.3.1) unstable; urgency=critical
 
   * Fix missing dependency in control
@@ -90,7 +96,7 @@ vanilla-installer (1.2.1-1) lunar; urgency=critical
   * Updated translations
 
  -- Mirko Brombin <send@mirko.pm>  Sat, 25 Feb 2023 23:06:00 +0000
- 
+
 vanilla-installer (1.2.1) kinetic; urgency=critical
 
   * Updated translations
