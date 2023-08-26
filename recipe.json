@@ -34,6 +34,12 @@
         "welcome": {
             "template": "welcome"
         },
+        "network": {
+            "template": "network"
+        },
+        "conn-check": {
+            "template": "conn-check"
+        },
         "language": {
             "template": "language"
         },

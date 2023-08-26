@@ -23,7 +23,7 @@ import traceback
 
 from gi.repository import GLib
 
-logger = logging.getLogger("Installer::Async")
+logger = logging.getLogger("VanillaInstaller::Async")
 
 
 class RunAsync(threading.Thread):
@@ -41,8 +41,7 @@ class RunAsync(threading.Thread):
         self.source_id = None
         assert threading.current_thread() is threading.main_thread()
 
-        super(RunAsync, self).__init__(
-            target=self.__target, args=args, kwargs=kwargs)
+        super(RunAsync, self).__init__(target=self.__target, args=args, kwargs=kwargs)
 
         self.task_func = task_func
 
@@ -68,7 +67,6 @@ class RunAsync(threading.Thread):
             error = exception
             _ex_type, _ex_value, trace = sys.exc_info()
             traceback.print_tb(trace)
-            traceback_info = "\n".join(traceback.format_tb(trace))
 
         self.source_id = GLib.idle_add(self.callback, result, error)
         return self.source_id

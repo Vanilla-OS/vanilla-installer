@@ -20,10 +20,12 @@ import subprocess
 import sys
 from gettext import gettext as _
 
+from vanilla_installer.defaults.conn_check import VanillaDefaultConnCheck
 from vanilla_installer.defaults.disk import VanillaDefaultDisk
 from vanilla_installer.defaults.encryption import VanillaDefaultEncryption
 from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
 from vanilla_installer.defaults.language import VanillaDefaultLanguage
+from vanilla_installer.defaults.network import VanillaDefaultNetwork
 from vanilla_installer.defaults.nvidia import VanillaDefaultNvidia
 from vanilla_installer.defaults.timezone import VanillaDefaultTimezone
 from vanilla_installer.defaults.welcome import VanillaDefaultWelcome
@@ -35,6 +37,8 @@ logger = logging.getLogger("Installer::Builder")
 
 
 templates = {
+    "network": VanillaDefaultNetwork,
+    "conn-check": VanillaDefaultConnCheck,
     "welcome": VanillaDefaultWelcome,
     "language": VanillaDefaultLanguage,
     "keyboard": VanillaDefaultKeyboard,
@@ -76,7 +80,7 @@ class Builder:
                 logger.warning(_("failed to create log file: %s") % log_path)
                 logging.warning(_("No log will be stored."))
 
-        for key, step in self.__recipe.raw["steps"].items():
+        for i, (key, step) in enumerate(self.__recipe.raw["steps"].items()):
             if step.get("display-conditions"):
                 _condition_met = False
                 for command in step["display-conditions"]:
@@ -105,6 +109,7 @@ class Builder:
                     continue
 
             if step["template"] in templates:
+                step["num"] = i
                 _widget = templates[step["template"]](
                     self.__window, self.distro_info, key, step
                 )

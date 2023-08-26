@@ -21,6 +21,8 @@
     <file>gtk/default-users.ui</file>
     <file>gtk/default-disk.ui</file>
     <file>gtk/default-encryption.ui</file>
+    <file>gtk/default-conn-check.ui</file>
+    <file>gtk/default-network.ui</file>
     <file>gtk/default-nvidia.ui</file>
 
     <file>gtk/widget-choice.ui</file>
@@ -28,6 +30,7 @@
     <file>gtk/widget-disk.ui</file>
     <file>gtk/widget-partition-row.ui</file>
     <file>gtk/widget-partition.ui</file>
+    <file>gtk/wireless-row.ui</file>
 
     <file>gtk/layout-preferences.ui</file>
     <file>gtk/layout-yes-no.ui</file>
@@ -39,6 +42,7 @@
     <file>assets/containerized.svg</file>
 </gresource>
   <gresource prefix="/org/vanillaos/Installer/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/background-app-ghost-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-installer-harddisk-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-installer-display-with-window-symbolic.svg</file>
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/vanilla-logo-text-symbolic.svg</file>

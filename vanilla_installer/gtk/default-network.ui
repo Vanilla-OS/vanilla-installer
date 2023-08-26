@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaDefaultNetwork" parent="AdwBin">
+    <property name="hexpand">true</property>
+    <property name="vexpand">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">1</property>
+        <property name="margin-bottom">20</property>
+        <property name="spacing">20</property>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">true</property>
+            <property name="hexpand">true</property>
+            <child>
+              <object class="AdwStatusPage">
+                <property name="title" translatable="true">Connect to the Internet</property>
+                <property name="description" translatable="true">An active internet connection is required to install the system.</property>
+                <property name="icon-name">network-wireless-symbolic</property>
+                <child>
+                  <object class="AdwClamp">
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">1</property>
+                        <property name="hexpand">false</property>
+                        <child>
+                          <object class="AdwPreferencesGroup" id="wired_group">
+                            <property name="title" translatable="true">Wired</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwPreferencesGroup" id="wireless_group">
+                            <property name="title" translatable="true">Wireless Networks</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwPreferencesGroup" id="advanced_group">
+                            <property name="title" translatable="true">Advanced</property>
+                            <child>
+                              <object class="AdwActionRow" id="hidden_network_row">
+                                <property name="title" translatable="true">Connect to Hidden Network...</property>
+                                <child type="prefix">
+                                  <object class="GtkOverlay">
+                                    <property name="vexpand">false</property>
+                                    <property name="hexpand">false</property>
+                                    <property name="margin-end">10</property>
+                                    <child>
+                                      <object class="GtkImage">
+                                        <property name="icon-name">network-wireless-signal-none-symbolic</property>
+                                      </object>
+                                    </child>
+                                    <child type="overlay">
+                                      <object class="GtkImage">
+                                        <property name="valign">2</property>
+                                        <property name="halign">1</property>
+                                        <property name="margin-start">10</property>
+                                        <property name="margin-bottom">10</property>
+                                        <property name="icon-name">background-app-ghost-symbolic</property>
+                                        <property name="pixel-size">14</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwActionRow" id="proxy_settings_row">
+                                <property name="title" translatable="true">Open Proxy Settings...</property>
+                                <child type="prefix">
+                                  <object class="GtkImage">
+                                    <property name="margin-start">5</property>
+                                    <property name="margin-end">5</property>
+                                    <property name="icon-name">preferences-system-network-proxy-symbolic</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_next">
+            <style>
+              <class name="pill"/>
+            </style>
+            <property name="halign">3</property>
+            <property name="label" translatable="true">Next</property>
+            <property name="sensitive">false</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

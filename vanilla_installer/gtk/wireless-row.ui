@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="WirelessRow" parent="AdwActionRow">
+    <child type="prefix">
+      <object class="GtkOverlay">
+        <property name="vexpand">false</property>
+        <property name="hexpand">false</property>
+        <property name="margin-end">10</property>
+        <child>
+          <object class="GtkImage" id="signal_icon">
+            <property name="icon-name">network-wireless-no-route-symbolic</property>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkImage" id="secure_icon">
+            <property name="valign">2</property>
+            <property name="halign">1</property>
+            <property name="margin-start">10</property>
+            <property name="margin-bottom">12</property>
+            <property name="icon-name">network-wireless-encrypted-symbolic</property>
+            <property name="pixel-size">10</property>
+            <property name="visible">false</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="suffix">
+      <object class="GtkLabel" id="connected_label">
+        <style>
+          <class name="dim-label"/>
+        </style>
+        <property name="label" translatable="true">Connected</property>
+        <property name="visible">false</property>
+      </object>
+    </child>
+  </template>
+</interface>

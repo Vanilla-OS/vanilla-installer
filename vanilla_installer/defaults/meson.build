@@ -10,6 +10,8 @@ sources = [
   'disk.py',
   'encryption.py',
   'nvidia.py',
+  'conn_check.py',
+  'network.py',
 ]
 
 install_data(sources, install_dir: defaultsdir)
