@@ -14,7 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import contextlib
 import re
 
 from gi.repository import Adw, Gtk
@@ -24,22 +23,40 @@ from vanilla_installer.core.timezones import (
     get_current_timezone,
     get_preview_timezone,
 )
-from vanilla_installer.utils.run_async import RunAsync
 
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-timezone.ui")
+class TimezoneRow(Adw.ActionRow):
+    __gtype_name__ = "TimezoneRow"
+
+    select_button = Gtk.Template.Child()
+    country_label = Gtk.Template.Child()
+
+    def __init__(self, title, subtitle, time, date, selected_timezone, **kwargs):
+        super().__init__(**kwargs)
+        self.__title = title
+        self.__subtitle = subtitle
+        self.__selected_timezone = selected_timezone
+
+        self.set_title(title)
+        self.set_subtitle(f'{time} • {date}')
+        self.country_label.set_label(subtitle)
+
+        self.select_button.connect("toggled", self.__on_check_button_toggled)
+
+    def __on_check_button_toggled(self, widget):
+        self.__selected_timezone["zone"] = self.__title
+        self.__selected_timezone["region"] = self.__subtitle
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-timezone.ui")
 class VanillaDefaultTimezone(Adw.Bin):
     __gtype_name__ = "VanillaDefaultTimezone"
 
     btn_next = Gtk.Template.Child()
-    row_preview = Gtk.Template.Child()
-    combo_region = Gtk.Template.Child()
-    combo_zone = Gtk.Template.Child()
-    str_list_region = Gtk.Template.Child()
-    str_list_zone = Gtk.Template.Child()
     entry_search_timezone = Gtk.Template.Child()
+    all_timezones_group = Gtk.Template.Child()
 
     search_controller = Gtk.EventControllerKey.new()
+    selected_timezone = {"region": "Europe", "zone": None}
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -48,107 +65,56 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__key = key
         self.__step = step
 
-        # set up the string list for keyboard layouts
-        self.str_list_region.splice(0, 0, list(all_timezones.keys()))
-
-        # set up current timezone
-        self.__get_current_timezone()
-
-        current_country, current_city = get_current_timezone()
-        _time, _date = get_preview_timezone(current_country, current_city)
-        self.row_preview.set_title(_time)
-        self.row_preview.set_subtitle(_date)
+        self.__timezone_rows = self.__generate_timezone_list_widgets(self.selected_timezone)
+        for i, widget in enumerate(self.__timezone_rows):
+            self.all_timezones_group.append(widget)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
-        self.search_controller.connect(
-            "key-released", self.__on_search_key_pressed)
+        self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
 
     def get_finals(self):
         try:
             return {
                 "timezone": {
-                    "region": list(all_timezones.keys())[
-                        self.combo_region.get_selected()
-                    ],
-                    "zone": all_timezones[
-                        list(all_timezones.keys())[
-                            self.combo_region.get_selected()]
-                    ][self.combo_zone.get_selected()],
+                    "region": self.selected_timezone['region'],
+                    "zone": self.selected_timezone['zone'],
                 }
             }
         except IndexError:
             return {"timezone": {"region": "Europe", "zone": "London"}}
-
-    def __on_country_selected(self, combo, param):
-        country_index = self.combo_region.get_selected()
-        country = list(all_timezones.keys())[country_index]
-        timezone = list(map(lambda tz: tz.replace(
-            "_", " "), all_timezones[country]))
-        self.str_list_zone.splice(
-            0, self.str_list_zone.get_n_items(), timezone)
-
-    def __on_city_selected(self, combo, param):
-        country_index = self.combo_region.get_selected()
-        country = list(all_timezones.keys())[country_index]
-        city_index = self.combo_zone.get_selected()
-
-        with contextlib.suppress(IndexError):
-            city = all_timezones[country][city_index]
-            _time, _date = get_preview_timezone(country, city)
-
-            self.row_preview.set_title(_time)
-            self.row_preview.set_subtitle(_date)
-
+        
     def __on_search_key_pressed(self, *args):
-        keywords = self.entry_search_timezone.get_text().lower()
-        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", keywords)
+        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", self.entry_search_timezone.get_text().lower())
 
-        if keywords == "" or len(keywords) < 3:
-            return
+        for row in self.all_timezones_group:
+            row_title = re.sub(r'[^a-zA-Z0-9 ]', '', row.get_title().lower())
+            row.set_visible(re.search(keywords, row_title, re.IGNORECASE) is not None)
 
-        for country, cities in all_timezones.items():
+    def __generate_timezone_dict(self):
+        all_timezones_dict =dict()
+
+        for continent, cities in all_timezones.items():
             for city in cities:
-                city = re.sub(r"[^a-zA-Z0-9 ]", "", city)
-                if re.search(keywords, city, re.IGNORECASE):
-                    self.combo_region.set_selected(
-                        list(all_timezones.keys()).index(country)
-                    )
+                all_timezones_dict[city] = continent
 
-                    for index, _city in enumerate(all_timezones[country]):
-                        if city == _city:
-                            self.combo_zone.set_selected(index)
-                            break
+        return all_timezones_dict
 
-                    return
-
-    def __get_current_timezone(self):
-        def set_current_timezone():
-            current_country, current_city = get_current_timezone()
-            country_set, city_set = False, False
-            for country, _ in all_timezones.items():
-                if country == current_country:
-                    self.combo_region.set_selected(
-                        list(all_timezones.keys()).index(country)
-                    )
-                    self.__on_country_selected(None, None)
-                    country_set = True
-
-                    for index, city in enumerate(all_timezones[country]):
-                        if city == current_city:
-                            self.combo_zone.set_selected(index)
-                            city_set = True
-                            break
-
-                    break
-
-            if not country_set or not city_set:
-                self.combo_region.set_selected(0)
-                self.__on_country_selected(None, None)
-            self.combo_region.connect(
-                "notify::selected", self.__on_country_selected)
-            self.combo_zone.connect(
-                "notify::selected", self.__on_city_selected)
-
-        RunAsync(set_current_timezone, None)
+    def __generate_timezone_list_widgets(self, selected_timezone):
+        timezone_widgets = []
+        current_country, current_city = get_current_timezone()
+        
+        for city, continent in self.__generate_timezone_dict().items():
+            time, date = get_preview_timezone(continent,city)
+            timezone_row = TimezoneRow(city, continent, time, date, selected_timezone)
+            
+            if len(timezone_widgets)>0:
+                timezone_row.select_button.set_group(timezone_widgets[0].select_button)
+            timezone_widgets.append(timezone_row)
+            
+            #set up current timezone
+            if current_city == city and current_country == continent:
+                timezone_row.select_button.set_active(True)
+            
+        return timezone_widgets
