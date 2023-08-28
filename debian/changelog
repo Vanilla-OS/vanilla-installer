@@ -1,3 +1,9 @@
+vanilla-installer (2.3.4) unstable; urgency=critical
+
+  * Replace pytz with zoneinfo
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 28 Aug 2023 20:20:00 -0300
+
 vanilla-installer (2.3.3) unstable; urgency=critical
 
   * Fix wrong group of default user $HOME
