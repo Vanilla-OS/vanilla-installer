@@ -22,7 +22,7 @@ from gettext import gettext as _
 from operator import attrgetter
 from threading import Lock, Timer
 
-from gi.repository import NM, NMA4, Adw, Gtk
+from gi.repository import NM, NMA4, Adw, Gtk, GLib
 
 from vanilla_installer.utils.run_async import RunAsync
 
@@ -358,7 +358,7 @@ class VanillaDefaultNetwork(Adw.Bin):
     def __start_auto_refresh(self):
         def run_async():
             while True:
-                self.__refresh()
+                GLib.idle_add(self.__refresh)
                 time.sleep(10)
 
         RunAsync(run_async, None)
