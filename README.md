@@ -11,7 +11,9 @@
 </div>
 
 ## Build
+
 ### Dependencies
+
 - build-essential
 - meson
 - libadwaita-1-dev
@@ -24,22 +26,26 @@
 - gir1.2-vte-3.91
 
 ### Build
+
 ```bash
 meson build
 ninja -C build
 ```
 
 ### Install
+
 ```bash
 sudo ninja -C build install
 ```
 
 ## Run
+
 ```bash
 vanilla-installer
 ```
 
 ### Using custom recipes
+
 Place a new recipe in `/etc/vanilla-installer/recipe.json` or launch the
 utility with the `VANILLA_CUSTOM_RECIPE` environment variable set to the path
 of the recipe.

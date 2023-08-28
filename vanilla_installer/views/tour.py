@@ -1,7 +1,7 @@
 # tour.py
 #
-# Copyright 2022 mirkobrombin
-# Copyright 2022 muqtadir
+# Copyright 2023 mirkobrombin
+# Copyright 2023 muqtadir
 #
 #
 # This program is free software: you can redistribute it and/or modify
