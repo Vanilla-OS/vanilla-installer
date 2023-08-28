@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TimezoneRow" parent="AdwActionRow">
+    <child type="prefix">
+      <object class="GtkCheckButton" id="select_button"></object>
+    </child>
+    <property name="activatable-widget">select_button</property>
+    <child type="suffix">
+      <object class="GtkLabel" id="country_label">
+        <style>
+          <class name="dim-label" />
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

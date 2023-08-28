@@ -32,6 +32,7 @@
     <file>gtk/widget-partition-row.ui</file>
     <file>gtk/widget-partition.ui</file>
     <file>gtk/widget-language.ui</file>
+    <file>gtk/widget-timezone.ui</file>
     <file>gtk/wireless-row.ui</file>
 
     <file>gtk/layout-preferences.ui</file>
