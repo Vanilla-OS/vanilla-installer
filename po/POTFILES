@@ -16,6 +16,7 @@ vanilla_installer/gtk/dialog.ui
 vanilla_installer/gtk/dialog-disk.ui
 vanilla_installer/gtk/dialog-disk-confirm.ui
 vanilla_installer/gtk/dialog-output.ui
+vanilla_installer/gtk/dialog-poweroff.ui
 vanilla_installer/gtk/dialog-recovery.ui
 vanilla_installer/gtk/done.ui
 vanilla_installer/gtk/layout-preferences.ui
@@ -28,11 +29,13 @@ vanilla_installer/gtk/widget-disk.ui
 vanilla_installer/gtk/widget-partition.ui
 vanilla_installer/gtk/widget-partition-row.ui
 vanilla_installer/gtk/window.ui
+vanilla_installer/gtk/wireless-row.ui
 
 vanilla_installer/defaults/disk.py
 vanilla_installer/defaults/encryption.py
 vanilla_installer/defaults/keyboard.py
 vanilla_installer/defaults/language.py
+vanilla_installer/defaults/network.py
 vanilla_installer/defaults/nvidia.py
 vanilla_installer/defaults/theme.py
 vanilla_installer/defaults/timezone.py
@@ -53,6 +56,7 @@ vanilla_installer/views/tour.py
 
 vanilla_installer/windows/dialog.py
 vanilla_installer/windows/dialog_output.py
+vanilla_installer/windows/dialog_poweroff.py
 vanilla_installer/windows/dialog_recovery.py
 vanilla_installer/windows/main_window.py
 
