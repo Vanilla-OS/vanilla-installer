@@ -1,6 +1,6 @@
 # locale.py
 #
-# Copyright 2022 axtloss <https://github.com/axtloss>
+# Copyright 2023 axtloss <https://github.com/axtloss>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
