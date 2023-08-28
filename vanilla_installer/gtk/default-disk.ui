@@ -16,7 +16,7 @@
             <property name="halign">2</property>
             <property name="valign">3</property>
             <property name="visible">false</property>
-            <property name="tooltip-text" translatable="true">Next</property>
+            <property name="tooltip-text" translatable="yes">Next</property>
             <style>
               <class name="circular"/>
               <class name="suggested-action"/>
@@ -26,8 +26,8 @@
         <child>
           <object class="AdwStatusPage" id="status_page">
             <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
-            <property name="title" translatable="true">Install Location</property>
-            <property name="description" translatable="true">Select the disk where you want to install Vanilla OS. Alternatively, you can select one or more disks to configure manually.</property>
+            <property name="title" translatable="yes">Install Location</property>
+            <property name="description" translatable="yes">Select the disk where you want to install Vanilla OS. Alternatively, you can select one or more disks to configure manually.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
@@ -41,7 +41,7 @@
                         <property name="spacing">10</property>
                         <child>
                           <object class="GtkButton" id="btn_auto">
-                            <property name="label" translatable="true">Use entire disk</property>
+                            <property name="label" translatable="yes">Use entire disk</property>
                             <property name="margin-top">20</property>
                             <property name="halign">3</property>
                             <property name="sensitive">false</property>
@@ -53,7 +53,7 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="btn_manual">
-                            <property name="label" translatable="true">Manual</property>
+                            <property name="label" translatable="yes">Manual</property>
                             <property name="margin-top">20</property>
                             <property name="halign">3</property>
                             <property name="sensitive">false</property>
@@ -83,7 +83,7 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="disk_space_err_label">
-                            <property name="label" translatable="true">You need at least %s of disk space to proceed with installation.</property>
+                            <property name="label" translatable="yes">You need at least %s of disk space to proceed with installation.</property>
                           </object>
                         </child>
                       </object>
