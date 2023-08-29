@@ -1,8 +1,8 @@
 import datetime
 
-import pytz
 import requests
 from gi.repository import GnomeDesktop
+from zoneinfo import ZoneInfo
 
 all_timezones = {}
 
@@ -57,7 +57,7 @@ def get_timezone_by_ip():
 
 
 def get_preview_timezone(country, city):
-    timezone = pytz.timezone(f"{country}/{city}")
+    timezone = ZoneInfo(f"{country}/{city}")
     now = datetime.datetime.now(timezone)
 
     return now.strftime("%H:%M"), now.strftime("%A, %d %B %Y")
