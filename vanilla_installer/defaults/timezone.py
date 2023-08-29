@@ -24,6 +24,7 @@ from vanilla_installer.core.timezones import (
     get_preview_timezone,
 )
 
+
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-timezone.ui")
 class TimezoneRow(Adw.ActionRow):
     __gtype_name__ = "TimezoneRow"
@@ -38,7 +39,7 @@ class TimezoneRow(Adw.ActionRow):
         self.__selected_timezone = selected_timezone
 
         self.set_title(title)
-        self.set_subtitle(f'{time} • {date}')
+        self.set_subtitle(f"{time} • {date}")
         self.country_label.set_label(subtitle)
 
         self.select_button.connect("toggled", self.__on_check_button_toggled)
@@ -46,6 +47,7 @@ class TimezoneRow(Adw.ActionRow):
     def __on_check_button_toggled(self, widget):
         self.__selected_timezone["zone"] = self.__title
         self.__selected_timezone["region"] = self.__subtitle
+
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-timezone.ui")
 class VanillaDefaultTimezone(Adw.Bin):
@@ -65,7 +67,9 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__key = key
         self.__step = step
 
-        self.__timezone_rows = self.__generate_timezone_list_widgets(self.selected_timezone)
+        self.__timezone_rows = self.__generate_timezone_list_widgets(
+            self.selected_timezone
+        )
         for i, widget in enumerate(self.__timezone_rows):
             self.all_timezones_group.append(widget)
 
@@ -78,22 +82,24 @@ class VanillaDefaultTimezone(Adw.Bin):
         try:
             return {
                 "timezone": {
-                    "region": self.selected_timezone['region'],
-                    "zone": self.selected_timezone['zone'],
+                    "region": self.selected_timezone["region"],
+                    "zone": self.selected_timezone["zone"],
                 }
             }
         except IndexError:
             return {"timezone": {"region": "Europe", "zone": "London"}}
-        
+
     def __on_search_key_pressed(self, *args):
-        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", self.entry_search_timezone.get_text().lower())
+        keywords = re.sub(
+            r"[^a-zA-Z0-9 ]", "", self.entry_search_timezone.get_text().lower()
+        )
 
         for row in self.all_timezones_group:
-            row_title = re.sub(r'[^a-zA-Z0-9 ]', '', row.get_title().lower())
+            row_title = re.sub(r"[^a-zA-Z0-9 ]", "", row.get_title().lower())
             row.set_visible(re.search(keywords, row_title, re.IGNORECASE) is not None)
 
     def __generate_timezone_dict(self):
-        all_timezones_dict =dict()
+        all_timezones_dict = dict()
 
         for continent, cities in all_timezones.items():
             for city in cities:
@@ -104,17 +110,17 @@ class VanillaDefaultTimezone(Adw.Bin):
     def __generate_timezone_list_widgets(self, selected_timezone):
         timezone_widgets = []
         current_country, current_city = get_current_timezone()
-        
+
         for city, continent in self.__generate_timezone_dict().items():
-            time, date = get_preview_timezone(continent,city)
+            time, date = get_preview_timezone(continent, city)
             timezone_row = TimezoneRow(city, continent, time, date, selected_timezone)
-            
-            if len(timezone_widgets)>0:
+
+            if len(timezone_widgets) > 0:
                 timezone_row.select_button.set_group(timezone_widgets[0].select_button)
             timezone_widgets.append(timezone_row)
-            
-            #set up current timezone
+
+            # set up current timezone
             if current_city == city and current_country == continent:
                 timezone_row.select_button.set_active(True)
-            
+
         return timezone_widgets
