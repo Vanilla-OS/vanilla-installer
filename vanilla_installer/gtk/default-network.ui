@@ -15,8 +15,8 @@
             <property name="hexpand">true</property>
             <child>
               <object class="AdwStatusPage">
-                <property name="title" translatable="true">Connect to the Internet</property>
-                <property name="description" translatable="true">An active internet connection is required to install the system.</property>
+                <property name="title" translatable="yes">Connect to the Internet</property>
+                <property name="description" translatable="yes">An active internet connection is required to install the system.</property>
                 <property name="icon-name">network-wireless-symbolic</property>
                 <child>
                   <object class="AdwClamp">
@@ -26,20 +26,20 @@
                         <property name="hexpand">false</property>
                         <child>
                           <object class="AdwPreferencesGroup" id="wired_group">
-                            <property name="title" translatable="true">Wired</property>
+                            <property name="title" translatable="yes">Wired</property>
                           </object>
                         </child>
                         <child>
                           <object class="AdwPreferencesGroup" id="wireless_group">
-                            <property name="title" translatable="true">Wireless Networks</property>
+                            <property name="title" translatable="yes">Wireless Networks</property>
                           </object>
                         </child>
                         <child>
                           <object class="AdwPreferencesGroup" id="advanced_group">
-                            <property name="title" translatable="true">Advanced</property>
+                            <property name="title" translatable="yes">Advanced</property>
                             <child>
                               <object class="AdwActionRow" id="hidden_network_row">
-                                <property name="title" translatable="true">Connect to Hidden Network...</property>
+                                <property name="title" translatable="yes">Connect to Hidden Network...</property>
                                 <child type="prefix">
                                   <object class="GtkOverlay">
                                     <property name="vexpand">false</property>
@@ -66,7 +66,7 @@
                             </child>
                             <child>
                               <object class="AdwActionRow" id="proxy_settings_row">
-                                <property name="title" translatable="true">Open Proxy Settings...</property>
+                                <property name="title" translatable="yes">Open Proxy Settings...</property>
                                 <child type="prefix">
                                   <object class="GtkImage">
                                     <property name="margin-start">5</property>
@@ -92,7 +92,7 @@
               <class name="pill"/>
             </style>
             <property name="halign">3</property>
-            <property name="label" translatable="true">Next</property>
+            <property name="label" translatable="yes">Next</property>
             <property name="sensitive">false</property>
           </object>
         </child>

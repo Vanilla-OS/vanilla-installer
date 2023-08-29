@@ -354,6 +354,7 @@ class VanillaDefaultNetwork(Adw.Bin):
                 self.__scan_wifi(device)
 
         self.set_btn_next(self.has_eth_connection or self.has_wifi_connection)
+        return GLib.SOURCE_REMOVE
 
     def __start_auto_refresh(self):
         def run_async():
