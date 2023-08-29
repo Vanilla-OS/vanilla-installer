@@ -23,6 +23,33 @@ from gi.repository import Adw, Gio, GLib, Gtk
 
 from vanilla_installer.core.keymaps import KeyMaps
 
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-keyboard.ui")
+class KeyboardRow(Adw.ActionRow):
+    __gtype_name__ = "KeyboardRow"
+
+    select_button = Gtk.Template.Child()
+    suffix_bin = Gtk.Template.Child()
+
+    def __init__(self, title, subtitle, layout, variant, key, selected_keyboard, **kwargs):
+        super().__init__(**kwargs)
+        self.__title = title
+        self.__subtitle = subtitle
+        self.__layout = layout
+        self.__variant = variant
+        self.__key = key
+        self.__selected_keyboard = selected_keyboard
+
+        self.set_title(title)
+        self.set_subtitle(subtitle)
+        self.suffix_bin.set_label(key)
+
+        self.select_button.connect("toggled", self.__on_check_button_toggled)
+
+    def __on_check_button_toggled(self, widget):
+        self.__selected_keyboard["layout"] = self.__layout
+        self.__selected_keyboard["variant"] = self.__variant
+        print("\n\n\n", self.__selected_keyboard)
+
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-keyboard.ui")
 class VanillaDefaultKeyboard(Adw.Bin):
@@ -30,12 +57,9 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
     btn_next = Gtk.Template.Child()
     entry_test = Gtk.Template.Child()
-    combo_layouts = Gtk.Template.Child()
-    combo_variants = Gtk.Template.Child()
-    str_list_layouts = Gtk.Template.Child()
-    str_list_variants = Gtk.Template.Child()
     entry_search_keyboard = Gtk.Template.Child()
-    entry_test = Gtk.Template.Child()
+    all_keyboards_group = Gtk.Template.Child()
+    selected_keyboard = {"layout": None, "model": "pc105", "variant": None}
 
     search_controller = Gtk.EventControllerKey.new()
     test_focus_controller = Gtk.EventControllerFocus.new()
@@ -48,27 +72,9 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__step = step
         self.__keymaps = KeyMaps()
 
-        # set up the string list for keyboard layouts
-        for country in self.__keymaps.list_all.keys():
-            self.str_list_layouts.append(country)
-
-        # set up current keyboard layout
-        current_layout, current_variant = self.__get_current_layout()
-        for country in self.__keymaps.list_all.keys():
-            if current_layout in self.__keymaps.list_all[country].keys():
-                self.combo_layouts.set_selected(
-                    list(self.__keymaps.list_all.keys()).index(country)
-                )
-                self.__on_layout_selected()
-
-                for index, variant in enumerate(
-                    self.__keymaps.list_all[country].values()
-                ):
-                    if variant["xkb_variant"] == current_variant:
-                        self.combo_variants.set_selected(index)
-                        break
-
-                break
+        self.__keyboard_rows = self.__generate_keyboard_list_widgets(self.selected_keyboard)
+        for i, widget in enumerate(self.__keyboard_rows):
+            self.all_keyboards_group.append(widget)
 
         # controllers
         self.entry_search_keyboard.add_controller(self.search_controller)
@@ -76,12 +82,19 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__next)
-        self.combo_layouts.connect(
-            "notify::selected", self.__on_layout_selected)
-        self.search_controller.connect(
-            "key-released", self.__on_search_key_pressed)
+        self.all_keyboards_group.connect("selected-rows-changed", self.__keyboard_verify)
+        self.all_keyboards_group.connect("row-selected", self.__keyboard_verify)
+        self.all_keyboards_group.connect("row-activated", self.__keyboard_verify)
+
+        self.search_controller.connect("key-released", self.__on_search_key_pressed)
         if "VANILLA_NO_APPLY_XKB" not in os.environ:
             self.test_focus_controller.connect("enter", self.__apply_layout)
+
+    def __keyboard_verify(self, *args):
+        if self.selected_keyboard['layout'] is not None:
+            self.btn_next.set_sensitive(True)
+        else:
+            self.btn_next.set_sensitive(False)
 
     def __next(self, *args):
         if "VANILLA_NO_APPLY_XKB" in os.environ:
@@ -90,28 +103,50 @@ class VanillaDefaultKeyboard(Adw.Bin):
             self.__window.next(None, self.__apply_layout)
 
     def get_finals(self):
-        variant_index = self.combo_variants.get_selected()
-        variant = self.str_list_variants.get_item(variant_index)
+        variant = self.selected_keyboard['variant']
 
         if variant is None:
             return {
                 "keyboard": {"layout": "us", "model": "pc105", "variant": ""}
             }  # fallback
 
-        variant = variant.get_string()
-        layout_index = self.combo_layouts.get_selected()
-        layout = list(self.__keymaps.list_all.keys())[layout_index]
-        layout = self.__keymaps.list_all[layout]
+        return {
+            "keyboard": {
+                "layout": self.selected_keyboard["layout"],
+                "model": "pc105",
+                "variant": self.selected_keyboard["variant"],
+            }
+        }
+    
+    def __generate_keyboard_dict(self):
+        all_keyboard_layouts = dict()
 
-        for key in layout.keys():
-            if layout[key]["display_name"] == variant:
-                return {
-                    "keyboard": {
-                        "layout": layout[key]["xkb_layout"],
-                        "model": "pc105",
-                        "variant": layout[key]["xkb_variant"],
-                    }
-                }
+        for country in self.__keymaps.list_all.keys():
+            for key, value in self.__keymaps.list_all[country].items():
+                all_keyboard_layouts[value['display_name']] = {'key': key, 'country': country, 'layout': value['xkb_layout'], 'variant': value['xkb_variant']}
+
+        return all_keyboard_layouts
+    
+    def __generate_keyboard_list_widgets(self, selected_keyboard):
+        keyboard_widgets = []
+        current_layout, current_variant = self.__get_current_layout()
+
+        for keyboard_title, content in self.__generate_keyboard_dict().items():
+            keyboard_key = content['key']
+            keyboard_country = content['country']
+            keyboard_layout = content['layout']
+            keyboard_variant = content['variant']
+            keyboard_row = KeyboardRow(keyboard_title, keyboard_country, keyboard_layout, keyboard_variant, keyboard_key, selected_keyboard)
+
+            if len(keyboard_widgets)>0:
+                keyboard_row.select_button.set_group(keyboard_widgets[0].select_button)
+            keyboard_widgets.append(keyboard_row)
+            
+            #set up current keyboard
+            if current_layout == keyboard_layout and current_variant == keyboard_variant:
+                keyboard_row.select_button.set_active(True)
+
+        return keyboard_widgets
 
     def __get_current_layout(self):
         res = subprocess.run(
@@ -135,55 +170,25 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         return current_layout, current_variant
 
-    def __on_layout_selected(self, *args):
-        self.str_list_variants.splice(0, self.str_list_variants.get_n_items())
-
-        layout_index = self.combo_layouts.get_selected()
-        layout = list(self.__keymaps.list_all.keys())[layout_index]
-        layout = self.__keymaps.list_all[layout]
-
-        for variant in layout.keys():
-            self.str_list_variants.append(layout[variant]["display_name"])
-
-        self.combo_variants.set_visible(
-            self.str_list_variants.get_n_items() != 0)
-
     def __apply_layout(self, *args):
-        variant_index = self.combo_variants.get_selected()
-        variant = self.str_list_variants.get_item(variant_index)
+        layout = self.selected_keyboard["layout"]
+        variant = self.selected_keyboard["variant"]
 
         if variant is None:
             return
 
-        variant = variant.get_string()
-        layout_index = self.combo_layouts.get_selected()
-        layout = list(self.__keymaps.list_all.keys())[layout_index]
-        layout = self.__keymaps.list_all[layout]
-
-        for key in layout.keys():
-            if layout[key]["display_name"] == variant:
-                xkb_layout = layout[key]["xkb_layout"]
-                xkb_variant = layout[key]["xkb_variant"]
-                break
-
         # set the layout
-        self.__set_keyboard_layout(xkb_layout, xkb_variant)
+        self.__set_keyboard_layout(layout, variant)
 
     def __on_search_key_pressed(self, *args):
-        keywords = self.entry_search_keyboard.get_text().lower()
-        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", keywords)
+        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", self.entry_search_keyboard.get_text().lower())
 
-        if keywords == "" or len(keywords) < 3:
-            return
-
-        for country in self.__keymaps.list_all.keys():
-            country = re.sub(r"[^a-zA-Z0-9 ]", "", country)
-            if re.search(keywords, country, re.IGNORECASE):
-                self.combo_layouts.set_selected(
-                    list(self.__keymaps.list_all.keys()).index(country)
-                )
-                # self.__on_layout_selected()
-                break
+        for row in self.all_keyboards_group:
+            row_title = re.sub(r'[^a-zA-Z0-9 ]', '', row.get_title().lower())
+            row_subtitle = re.sub(r'[^a-zA-Z0-9 ]', '', row.get_subtitle().lower())
+            row_label = re.sub(r'[^a-zA-Z0-9 ]', '', row.suffix_bin.get_label().lower())
+            search_text = row_title + ' ' + row_subtitle + ' ' + row_label
+            row.set_visible(re.search(keywords, search_text, re.IGNORECASE) is not None)
 
     def __set_keyboard_layout(self, layout, variant=None):
         value = layout
