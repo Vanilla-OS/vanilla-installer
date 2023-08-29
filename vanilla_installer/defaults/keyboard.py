@@ -48,8 +48,6 @@ class KeyboardRow(Adw.ActionRow):
     def __on_check_button_toggled(self, widget):
         self.__selected_keyboard["layout"] = self.__layout
         self.__selected_keyboard["variant"] = self.__variant
-        print("\n\n\n", self.__selected_keyboard)
-
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-keyboard.ui")
 class VanillaDefaultKeyboard(Adw.Bin):

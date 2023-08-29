@@ -35,43 +35,33 @@
                             </object>
                         </child>
                         <child>
-                            <object class="AdwPreferencesPage">
-                                <property name="hexpand">true</property>
-                                <property name="vexpand">true</property>
+                            <object class="AdwStatusPage" id="status_page">
+                                <property name="icon-name">input-keyboard-symbolic</property>
+                                <property name="title" translatable="yes">Keyboard Layout</property>
+                                <property name="description" translatable="yes">Select your preferred keyboard layout</property>
                                 <child>
-                                    <object class="AdwPreferencesGroup">
+                                    <object class="AdwClamp">
+                                        <property name="maximum-size">600</property>
                                         <child>
-                                            <object class="GtkLabel">
-                                                <property name="margin-top">12</property>
-                                                <property name="margin-bottom">24</property>
-                                                <property name="wrap">True</property>
-                                                <property name="justify">center</property>
-                                                <property name="label" translatable="yes">Keyboard</property>
-                                                <style>
-                                                    <class name="title-1" />
-                                                </style>
-                                            </object>
-                                        </child>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="AdwPreferencesGroup">
-                                        <child>
-                                            <object class="GtkSearchEntry" id="entry_search_keyboard">
-                                                <property name="hexpand">true</property>
-                                                <property name="placeholder-text" translatable="yes">Search for keyboard</property>
-                                                <property name="margin-bottom">12</property>
-                                            </object>
-                                        </child>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="AdwPreferencesGroup">
-                                        <child>
-                                            <object class="GtkListBox" id="all_keyboards_group">
-                                                <style>
-                                                    <class name="boxed-list" />
-                                                </style>
+                                            <object class="GtkBox">
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                    <object class="GtkSearchEntry" id="entry_search_keyboard">
+                                                        <property name="hexpand">true</property>
+                                                        <property name="placeholder-text" translatable="yes">Search for a Keyboard Layout</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="AdwPreferencesGroup">
+                                                        <child>
+                                                            <object class="GtkListBox" id="all_keyboards_group">
+                                                                <style>
+                                                                    <class name="boxed-list" />
+                                                                </style>
+                                                            </object>
+                                                        </child>
+                                                    </object>
+                                                </child>
                                             </object>
                                         </child>
                                     </object>
