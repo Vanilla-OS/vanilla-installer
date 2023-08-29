@@ -86,7 +86,6 @@
                                         </child>
                                         <child>
                                             <object class="AdwClamp">
-                                                <property name="maximum-size">590</property>
                                                 <child>
                                                     <object class="AdwPreferencesGroup">
                                                         <property name="margin-top">6</property>

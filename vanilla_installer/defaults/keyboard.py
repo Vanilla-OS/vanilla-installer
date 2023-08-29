@@ -121,6 +121,9 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
         for country in self.__keymaps.list_all.keys():
             for key, value in self.__keymaps.list_all[country].items():
+                if value['display_name'] == 'Czech (with <\|> key)':    #changed display_name as this charchter string is causing gtk markup error
+                    value['display_name'] = 'Czech (bksl)'
+
                 all_keyboard_layouts[value['display_name']] = {'key': key, 'country': country, 'layout': value['xkb_layout'], 'variant': value['xkb_variant']}
 
         return all_keyboard_layouts
@@ -134,6 +137,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
             keyboard_country = content['country']
             keyboard_layout = content['layout']
             keyboard_variant = content['variant']
+            
             keyboard_row = KeyboardRow(keyboard_title, keyboard_country, keyboard_layout, keyboard_variant, keyboard_key, selected_keyboard)
 
             if len(keyboard_widgets)>0:
