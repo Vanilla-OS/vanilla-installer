@@ -154,6 +154,7 @@ mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/v
 mount -o bind /var/home /home
 mount -o bind /var/opt /opt
 mount -o bind,ro /.system/usr /usr
+mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale
 """
 
 _SYSTEMD_MOUNT_UNIT = """[Unit]
@@ -636,6 +637,8 @@ class Processor:
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                     "mount -o bind,ro /.system/usr /usr",
+                    "mkdir -p /var/lib/abroot/etc/vos-a/locales",
+                    "mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale",
                 ],
                 chroot=True,
             )
