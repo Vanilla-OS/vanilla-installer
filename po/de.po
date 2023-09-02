@@ -767,3 +767,9 @@ msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 
 #~ msgid "Choose a mount point for the partition"
 #~ msgstr "Wähle einen Einhängepunkt für die Partition"
+
+#~ msgid "Search for a language"
+#~ msgstr "Suche nach einer Sprache"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Vanilla OS ausprobieren"

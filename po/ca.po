@@ -61,7 +61,6 @@ msgstr "Següent"
 
 #: vanilla_installer/gtk/default-disk.ui:29
 #, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
 msgstr "Confirma la instal·lació"
 
@@ -131,7 +130,6 @@ msgstr "Llengua"
 
 #: vanilla_installer/gtk/default-language.ui:47
 #, fuzzy
-#| msgid "Search for a language"
 msgid "Search for language"
 msgstr "Busca un idioma"
 
@@ -219,13 +217,11 @@ msgstr "Nom d'usuari"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
 #, fuzzy
-#| msgid "Try Vanilla OS"
 msgid "Welcome to Vanilla OS!"
 msgstr "Prova Vanilla OS"
 
 #: vanilla_installer/gtk/default-welcome.ui:19
 #, fuzzy
-#| msgid "Installing..."
 msgid "Install"
 msgstr "Instal·lant..."
 
@@ -704,3 +700,9 @@ msgstr "Siusplau, contacta amb els desenvolupadors de la distribució."
 
 #~ msgid "Choose a mount point for the partition"
 #~ msgstr "Escull un punt de muntatge per a la partició"
+
+#~ msgid "Search for a language"
+#~ msgstr "Busca un idioma"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Prova Vanilla OS"
