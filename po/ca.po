@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2023-06-13 03:57+0000\n"
+"PO-Revision-Date: 2023-08-29 21:46+0000\n"
 "Last-Translator: jolupa <jolupameister@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ca/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -26,7 +26,7 @@ msgstr "Instal·lador de Vanilla OS"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Ajusta la teva instal·lació del sistema operatiu Vanilla."
+msgstr "Modifica la teva instal·lació de Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -105,12 +105,12 @@ msgstr ""
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
-msgstr "Contrassenya"
+msgstr "Contrasenya"
 
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Confirma la Contrassenya"
+msgstr "Confirmar la contrasenya"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
@@ -203,11 +203,11 @@ msgstr "Zona"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Crea Usuari"
+msgstr "Crear Usuari"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Dóna detalls per al compte del teu usuari"
+msgstr "Proporciona detalls per la teva conte d'usuari"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -242,7 +242,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Mostrant Informació"
+msgstr "Mostrant informació"
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
@@ -349,7 +349,7 @@ msgstr "Mostra la sortida de Consola"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr "Mostra la Presentació"
+msgstr "Mostra la presentació"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Open GParted"
@@ -495,7 +495,7 @@ msgstr ""
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:370
 msgid "Connected"
-msgstr ""
+msgstr "Conectat"
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -523,55 +523,55 @@ msgstr "Es formatarà en {} i es muntarà a {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Xarxa no segura (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Xarxa segura (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Xarxa segura (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Xarxa segura (WPA3)"
 
 #: vanilla_installer/defaults/network.py:373
 msgid "Authentication required"
-msgstr ""
+msgstr "És necessita autenticació"
 
 #: vanilla_installer/defaults/network.py:381
 msgid "Connecting"
-msgstr ""
+msgstr "Conectant"
 
 #: vanilla_installer/defaults/network.py:383
 msgid "Disconnected"
-msgstr ""
+msgstr "Desconectat"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Disconnecting"
-msgstr ""
+msgstr "Desconectant"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Connection Failed"
-msgstr ""
+msgstr "La conexió a fallat"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Status Unknown"
-msgstr ""
+msgstr "Estat desconegut"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Unmanaged"
-msgstr ""
+msgstr "No administrat"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Unavailable"
-msgstr ""
+msgstr "No disponible"
 
 #: vanilla_installer/defaults/network.py:407
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Cable Desconectat"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
