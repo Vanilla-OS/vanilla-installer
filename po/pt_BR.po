@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2023-06-17 17:48+0000\n"
-"Last-Translator: Leonardo Gonzalez <leog110@gmail.com>\n"
+"PO-Revision-Date: 2023-08-30 12:19+0000\n"
+"Last-Translator: Fernando Lopes <118869201+plasmus777@users.noreply.github."
+"com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -62,48 +63,50 @@ msgid "Next"
 msgstr "Próximo"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Confirmar Instalação"
+msgstr "Local de Instalação"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Selecione o disco onde você deseja instalar o Vanilla OS. Como alternativa, "
+"você pode selecionar um ou mais discos para configurar manualmente."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
 msgstr "Usar o disco inteiro"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with installation."
 msgstr ""
+"Você precisa de pelo menos %s de espaço em disco para prosseguir com a "
+"instalação."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Criptografia do Dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"O Vanilla OS fornece criptografia de disco completo através do LUKS2 para "
+"proteger suas informações pessoais no caso de seu dispositivo ser roubado."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Criptografar dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Use uma senha memorável para criptografar seus dados"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -113,7 +116,7 @@ msgstr "Senha"
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Confirme a Senha"
+msgstr "Confirmar Senha"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
@@ -133,32 +136,32 @@ msgid "Language"
 msgstr "Idioma"
 
 #: vanilla_installer/gtk/default-language.ui:47
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search for language"
-msgstr "Pesquisar por um idioma"
+msgstr "Procurar idioma"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Drivers NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Escolha se deseja instalar drivers NVIDIA proprietários para melhor "
+"compatibilidade e desempenho."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Não instalar"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Instalar  (recomendado)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Sobre Drivers Proprietários"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -167,6 +170,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Um driver proprietário tem código privado que nem o Vanilla OS nem os "
+"desenvolvedores Debian podem revisar.\n"
+"\n"
+"A segurança e outras atualizações dependem do fornecedor do driver."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -221,16 +228,12 @@ msgid "Username"
 msgstr "Nome de usuário"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Try Vanilla OS"
 msgid "Welcome to Vanilla OS!"
-msgstr "Experimentar o Vanilla OS"
+msgstr "Boas-vindas ao Vanilla OS!"
 
 #: vanilla_installer/gtk/default-welcome.ui:19
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "Instalando..."
+msgstr "Instalar"
 
 #: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -241,7 +244,7 @@ msgstr "Recuperação"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Desligar"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -280,51 +283,43 @@ msgstr "Registro"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Reiniciar para a Configuração do Firmware"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
-msgstr "Abrir um Terminal."
+msgstr "Abrir um Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
-msgstr "Gerencie discos e partições."
+msgstr "Gerenciar discos e partições"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Handbook"
 msgstr "Manual"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Handbook"
-msgstr "Leia o Manual do Vanilla OS."
+msgstr "Ler o Manual do Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Web Browser"
 msgstr "Navegador Web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
-msgstr "Procure ajuda on-line."
+msgstr "Procurar ajuda on-line"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -494,10 +489,8 @@ msgstr "A partição Home é muito pequena."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
-msgstr "Partição swap"
+msgstr "Partição Swap"
 
 #: vanilla_installer/gtk/widget-partition.ui:187
 msgid ""
@@ -523,7 +516,7 @@ msgstr "Voltar"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:370
 msgid "Connected"
-msgstr ""
+msgstr "Conectado"
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -552,55 +545,55 @@ msgstr "Será formatado em {} e montado em {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Rede insegura (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Rede segura (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Rede segura (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Rede segura (WPA3)"
 
 #: vanilla_installer/defaults/network.py:373
 msgid "Authentication required"
-msgstr ""
+msgstr "Autenticação necessária"
 
 #: vanilla_installer/defaults/network.py:381
 msgid "Connecting"
-msgstr ""
+msgstr "Conectando"
 
 #: vanilla_installer/defaults/network.py:383
 msgid "Disconnected"
-msgstr ""
+msgstr "Desconectado"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Disconnecting"
-msgstr ""
+msgstr "Desconectando"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Connection Failed"
-msgstr ""
+msgstr "Conexão Falhou"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Status Unknown"
-msgstr ""
+msgstr "Status Desconhecido"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Unmanaged"
-msgstr ""
+msgstr "Não gerenciado"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Unavailable"
-msgstr ""
+msgstr "Indisponível"
 
 #: vanilla_installer/defaults/network.py:407
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Cabo Desplugado"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
