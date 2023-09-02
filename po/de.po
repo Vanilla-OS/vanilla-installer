@@ -16,9 +16,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2023-08-22 05:19+0000\n"
-"Last-Translator: Experiencing A Significant Gravitas Shortfall <bedeb1@pm."
-"me>\n"
+"PO-Revision-Date: 2023-08-30 12:19+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -26,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -91,6 +90,8 @@ msgstr "Manuell"
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with installation."
 msgstr ""
+"Sie benötigen mindestens %s an Festplattenplatz, um mit der Installation "
+"fortzufahren."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -141,10 +142,8 @@ msgid "Language"
 msgstr "Sprache"
 
 #: vanilla_installer/gtk/default-language.ui:47
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search for language"
-msgstr "Suche nach einer Sprache"
+msgstr "Nach Sprache suchen"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -225,7 +224,7 @@ msgstr "Benutzer erstellen"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Geben Sie Details für Ihr Benutzerkonto an"
+msgstr "Geben Sie Details zu Ihrem Benutzerkonto an"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -233,19 +232,15 @@ msgstr "Name"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
-msgstr "Nutzername"
+msgstr "Benutzername"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Try Vanilla OS"
 msgid "Welcome to Vanilla OS!"
-msgstr "Vanilla OS ausprobieren"
+msgstr "Willkommen bei Vanilla OS!"
 
 #: vanilla_installer/gtk/default-welcome.ui:19
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "Installiere..."
+msgstr "Installieren"
 
 #: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -256,7 +251,7 @@ msgstr "Wiederherstellung"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Ausschalten"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -295,11 +290,11 @@ msgstr "Protokoll"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Neustart"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Neustart in die Firmware-Einrichtung"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -527,7 +522,7 @@ msgstr "Zurück"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:370
 msgid "Connected"
-msgstr ""
+msgstr "Verbunden"
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -557,55 +552,55 @@ msgstr "Wird in {} formatiert und in {} eingehängt"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Unsicheres Netzwerk (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Sicheres Netzwerk (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Sicheres Netzwerk (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Sicheres Netzwerk (WPA3)"
 
 #: vanilla_installer/defaults/network.py:373
 msgid "Authentication required"
-msgstr ""
+msgstr "Authentifizierung erforderlich"
 
 #: vanilla_installer/defaults/network.py:381
 msgid "Connecting"
-msgstr ""
+msgstr "Wird verbunden"
 
 #: vanilla_installer/defaults/network.py:383
 msgid "Disconnected"
-msgstr ""
+msgstr "Getrennt"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Disconnecting"
-msgstr ""
+msgstr "Wird getrennt"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Connection Failed"
-msgstr ""
+msgstr "Verbindung fehlgeschlagen"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Status Unknown"
-msgstr ""
+msgstr "Status unbekannt"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Unmanaged"
-msgstr ""
+msgstr "Nicht verwaltet"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Unavailable"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 #: vanilla_installer/defaults/network.py:407
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Kabel ausgesteckt"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
