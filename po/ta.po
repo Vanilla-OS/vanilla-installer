@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2023-08-07 14:36+0000\n"
+"PO-Revision-Date: 2023-08-30 12:19+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -79,7 +79,7 @@ msgstr "கையேடு"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with installation."
-msgstr ""
+msgstr "நிறுவலைத் தொடர குறைந்தபட்சம் %s வட்டு இடம் தேவை."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -129,10 +129,8 @@ msgid "Language"
 msgstr "மொழி"
 
 #: vanilla_installer/gtk/default-language.ui:47
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search for language"
-msgstr "ஒரு மொழியைத் தேடவும்"
+msgstr "மொழியைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -223,16 +221,12 @@ msgid "Username"
 msgstr "பயனர் பெயர்"
 
 #: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Try Vanilla OS"
 msgid "Welcome to Vanilla OS!"
-msgstr "வெண்ணிலா OS ஐ முயற்சிக்கவும்"
+msgstr "வெண்ணிலா OS க்கு வரவேற்கிறோம்!"
 
 #: vanilla_installer/gtk/default-welcome.ui:19
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "நிறுவுகிறது…"
+msgstr "நிறுவு"
 
 #: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -243,7 +237,7 @@ msgstr "மீட்பு"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "மின்சாரத்தை நிறுத்து"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -280,11 +274,11 @@ msgstr "பதிவு"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "மறுதொடக்கம்"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "நிலைபொருள் அமைப்பில் மறுதொடக்கம் செய்யுங்கள்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -296,7 +290,7 @@ msgstr "ஒரு முனையத்தைத் திறக்கவும�
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
-msgstr "GParted"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 msgid "Manage disks and partitions"
@@ -507,7 +501,7 @@ msgstr "திரும்பவும்"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:370
 msgid "Connected"
-msgstr ""
+msgstr "இணைக்கப்பட்டது"
 
 #: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -536,55 +530,55 @@ msgstr "{} இல் வடிவமைக்கப்படும் மற்�
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "பாதுகாப்பற்ற வலைப்பின்னல் (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA3)"
 
 #: vanilla_installer/defaults/network.py:373
 msgid "Authentication required"
-msgstr ""
+msgstr "அங்கீகாரம் தேவை"
 
 #: vanilla_installer/defaults/network.py:381
 msgid "Connecting"
-msgstr ""
+msgstr "இணைக்கிறது"
 
 #: vanilla_installer/defaults/network.py:383
 msgid "Disconnected"
-msgstr ""
+msgstr "இணைப்பு துண்டிக்கப்பட்டது"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Disconnecting"
-msgstr ""
+msgstr "இணைப்பைத் துண்டிக்கிறது"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Connection Failed"
-msgstr ""
+msgstr "இணைப்பு தோல்வியடைந்தது"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Status Unknown"
-msgstr ""
+msgstr "நிலை தெரியவில்லை"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Unmanaged"
-msgstr ""
+msgstr "நிர்வகிக்கப்படாதது"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Unavailable"
-msgstr ""
+msgstr "கிடைக்கவில்லை"
 
 #: vanilla_installer/defaults/network.py:407
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "கம்பி துண்டிக்கப்பட்டது"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
