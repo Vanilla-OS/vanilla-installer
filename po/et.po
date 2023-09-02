@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"POT-Creation-Date: 2023-08-28 15:47+0530\n"
 "PO-Revision-Date: 2023-03-24 18:25+0000\n"
 "Last-Translator: dogyx <aaronloit@zohomail.eu>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -46,14 +46,13 @@ msgid "The following changes will be made to your system:"
 msgstr "Sinu süsteemis tehakse järgmised muudatused:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Paigalda Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
@@ -81,6 +80,10 @@ msgstr "Kogu ketas"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
+msgstr ""
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
@@ -123,18 +126,15 @@ msgstr "Vali eelistatud klaviatuuripaigutus"
 msgid "Search for a Keyboard Layout"
 msgstr "Klaviatuuripaigutuse otsimine"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Keel"
 
-#: vanilla_installer/gtk/default-language.ui:34
-msgid "Select your language"
-msgstr "Vali oma keel"
-
-#: vanilla_installer/gtk/default-language.ui:44
-msgid "Search for a language"
+#: vanilla_installer/gtk/default-language.ui:47
+#, fuzzy
+#| msgid "Search for a language"
+msgid "Search for language"
 msgstr "Keele otsimine"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -219,9 +219,27 @@ msgstr "Nimi"
 msgid "Username"
 msgstr "Kasutajanimi"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:12
+#, fuzzy
+#| msgid "Try Vanilla OS"
+msgid "Welcome to Vanilla OS!"
+msgstr "Proovi Vanilla OS-i"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+#, fuzzy
+#| msgid "Installing..."
+msgid "Install"
+msgstr "Paigaldamine..."
+
+#: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
+msgstr ""
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
@@ -258,6 +276,14 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Logi"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -355,7 +381,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "Partitsiooni pole valitud"
 
@@ -366,7 +392,7 @@ msgstr "Partitsiooni pole valitud"
 #: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "Palun vali partitsioon allolevatest valikutest"
 
@@ -478,110 +504,171 @@ msgstr ""
 "Vali partitsioon, mida kasutada swap'i jaoks koos zram'iga. See ei ole "
 "hibernatsiooni jaoks vajalik."
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "Tagasi"
 
-#: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted on juba käivitatud. Lubatud on ainult üks GParted'i instants."
 
-#: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "Partitsioon peab olema vähemalt {}"
 
-#: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "Partitsioon peab olema TÄPSELT {}"
 
-#: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Partitsioonid on muutunud. Praegused valikud on tühistatud."
 
-#: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "Kasutatakse kogu ketast."
 
-#: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Vormindatakse {} ja paigaldatakse {}"
 
-#: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr ""
+
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Palun vali vähemalt üks võimalus."
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "Retseptis puudub 'log_file'."
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "ei õnnestunud luua logifaili: %s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "Ühtegi logi ei salvestata."
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Rakendatakse display-condition: %s"
 
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Samm %s jäetakse vahele display-conditions tõttu"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "Sobimatu retseptifail"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "Retsept ei ole sõnastik"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "Retseptil puudub võti {key}"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "Retsepti sammud ei ole nimekiri"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "Samm {step} ei ole sõnastik"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "Klaviatuur"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "Ajavöönd"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "Kasutajad"
 
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "Ketas"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Taaskäivita seade, et nautida {} kogemust."
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "Midagi läks valesti"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Palun võta ühendust distributsiooni arendajatega."
+
+#~ msgid "Select your language"
+#~ msgstr "Vali oma keel"
 
 #~ msgid "clicked"
 #~ msgstr "klõpsanud"
@@ -631,6 +718,3 @@ msgstr "Palun võta ühendust distributsiooni arendajatega."
 
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "See on ainus saadaolev ketas ja seda ei saa valikust välja jätta!"
-
-#~ msgid "Try Vanilla OS"
-#~ msgstr "Proovi Vanilla OS-i"
