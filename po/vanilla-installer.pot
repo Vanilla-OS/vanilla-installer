@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"POT-Creation-Date: 2023-09-03 17:42+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,10 +47,10 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
+#: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
+#: vanilla_installer/gtk/default-timezone.ui:17
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
@@ -75,7 +75,7 @@ msgid "Manual"
 msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
+msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
@@ -106,16 +106,13 @@ msgstr ""
 msgid "Confirm Password"
 msgstr ""
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
-msgid "Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:49
+#: vanilla_installer/views/confirm.py:81
+msgid "Keyboard"
 msgstr ""
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
-msgid "Select your preferred keyboard layout"
-msgstr ""
-
-#: vanilla_installer/gtk/default-keyboard.ui:44
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:62
+msgid "Search for keyboard"
 msgstr ""
 
 #: vanilla_installer/gtk/default-language.ui:34
@@ -173,24 +170,13 @@ msgstr ""
 msgid "Choose a color scheme for your system"
 msgstr ""
 
-#: vanilla_installer/gtk/default-timezone.ui:33
-msgid "Date & Time"
-msgstr ""
-
 #: vanilla_installer/gtk/default-timezone.ui:34
-msgid "Select your preferred timezone"
+#: vanilla_installer/views/confirm.py:87
+msgid "Timezone"
 msgstr ""
 
-#: vanilla_installer/gtk/default-timezone.ui:44
-msgid "Search for a Timezone"
-msgstr ""
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr ""
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
+#: vanilla_installer/gtk/default-timezone.ui:47
+msgid "Search for your preferred timezone"
 msgstr ""
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -472,7 +458,7 @@ msgid "Back"
 msgstr ""
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr ""
 
@@ -516,39 +502,39 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:381
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:383
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:408
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -599,14 +585,6 @@ msgstr ""
 #: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
-
-#: vanilla_installer/views/confirm.py:81
-msgid "Keyboard"
-msgstr ""
-
-#: vanilla_installer/views/confirm.py:87
-msgid "Timezone"
 msgstr ""
 
 #: vanilla_installer/views/confirm.py:95

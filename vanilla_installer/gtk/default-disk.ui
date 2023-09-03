@@ -83,7 +83,7 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="disk_space_err_label">
-                            <property name="label" translatable="yes">You need at least %s of disk space to proceed with installation.</property>
+                            <property name="label" translatable="yes">You need at least %s of disk space to proceed with the installation.</property>
                           </object>
                         </child>
                       </object>
