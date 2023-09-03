@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
-"PO-Revision-Date: 2023-08-09 16:03+0000\n"
+"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"PO-Revision-Date: 2023-09-02 12:49+0000\n"
 "Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
@@ -20,9 +20,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -49,14 +49,13 @@ msgid "The following changes will be made to your system:"
 msgstr "В вашу систему будут внесены следующие изменения:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Установить Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
@@ -83,6 +82,12 @@ msgstr "Использовать весь диск"
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
 msgstr "Руководство"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
+msgstr ""
+"Для продолжения установки вам нужно иметь как минимум %s дискового "
+"пространства."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -112,7 +117,7 @@ msgstr "Пароль"
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Подтвердите пароль"
+msgstr "Подтверждение Пароля"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
 msgid "Keyboard Layout"
@@ -126,18 +131,13 @@ msgstr "Выберите предпочтительную раскладку к�
 msgid "Search for a Keyboard Layout"
 msgstr "Поиск раскладки клавиатуры"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Язык"
 
-#: vanilla_installer/gtk/default-language.ui:34
-msgid "Select your language"
-msgstr "Выберите ваш язык"
-
-#: vanilla_installer/gtk/default-language.ui:44
-msgid "Search for a language"
+#: vanilla_installer/gtk/default-language.ui:47
+msgid "Search for language"
 msgstr "Поиск языка"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -215,11 +215,11 @@ msgstr "Город"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Создать Пользователя"
+msgstr "Создание Пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Предоставьте данные для вашей учетной записи пользователя"
+msgstr "Предоставьте информацию для Вашего аккаунта пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -229,10 +229,24 @@ msgstr "Имя"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:12
+msgid "Welcome to Vanilla OS!"
+msgstr "Добро пожаловать в Vanilla OS!"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+msgid "Install"
+msgstr "Установить"
+
+#: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Восстановление"
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr "Выключение"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -268,6 +282,14 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Журнал"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr "Перезагрузка"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr "Перезагрузка в параметры встроенного ПО"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -364,7 +386,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "Раздел не выбран"
 
@@ -375,7 +397,7 @@ msgstr "Раздел не выбран"
 #: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "Пожалуйста, выберите раздел из вариантов ниже"
 
@@ -484,111 +506,172 @@ msgstr ""
 "Выберите раздел, который будет использоваться для подкачки наряду с zram. "
 "Для гибернации это не требуется."
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "Назад"
 
-#: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr "Подключено"
+
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted уже запущен. Разрешается использовать только один экземпляр GParted."
 
-#: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "Раздел должен быть не менее {}"
 
-#: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "Раздел должен быть ТОЧНО {}"
 
-#: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Разделы изменились. Текущие выборки удалены."
 
-#: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "Будет использован весь диск."
 
-#: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Будет отформатирован в {} и смонтирован в {}"
 
-#: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr "Небезопасная сеть (WEP)"
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr "Безопасная сеть (WPA)"
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr "Безопасная сеть (WPA2)"
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr "Безопасная сеть (WPA3)"
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr "Требуется Аутентификация"
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr "Подключение"
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr "Отключено"
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr "Отключение"
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr "Соединение не удалось"
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr "Состояние неизвестно"
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr "Неуправляемая сеть"
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr "Недоступно"
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr "Кабель отключён"
+
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Пожалуйста, выберите хотя бы один вариант."
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "Отсутствует 'log_file' в средстве."
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "не удалось создать файл журнала: %s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "Журнал не будет сохранен."
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Выполнение условия отображения: %s"
 
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Шаг %s пропущен из-за условий отображения"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "Неверный файл рецепта"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "Рецепт - это не словарь"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "В рецепте отсутствует ключ '{key}'"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "Шаги рецепта - это не список"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "Шаг {step} не словарь"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "Раскладка клавиатуры"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "Часовой пояс"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "Пользователи"
 
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "Диск"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Перезагрузите ваше устройство, чтобы насладиться работой {}."
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "Что-то пошло не так"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Пожалуйста, обратитесь к разработчикам дистрибутива."
+
+#~ msgid "Select your language"
+#~ msgstr "Выберите ваш язык"
 
 #~ msgid "clicked"
 #~ msgstr "выбрано"
@@ -649,9 +732,6 @@ msgstr "Пожалуйста, обратитесь к разработчикам
 
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "Это единственный доступный диск, выбор которого нельзя отменить!"
-
-#~ msgid "Try Vanilla OS"
-#~ msgstr "Попробовать Vanilla OS"
 
 #~ msgid "Welcome"
 #~ msgstr "Добро пожаловать"

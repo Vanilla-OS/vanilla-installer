@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"POT-Creation-Date: 2023-08-28 15:47+0530\n"
 "PO-Revision-Date: 2023-08-07 10:00+0000\n"
 "Last-Translator: Peter Rakmanyi <rakmanyi.peter@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -45,14 +45,13 @@ msgid "The following changes will be made to your system:"
 msgstr "A következő változtatások lesznek végrehajtva a rendszerén:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "A Vanilla OS telepítése"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
@@ -79,6 +78,10 @@ msgstr "Teljes lemez használata"
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
 msgstr "Kézi"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
+msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -122,18 +125,15 @@ msgstr "Válassza ki a kívánt billentyűkiosztást"
 msgid "Search for a Keyboard Layout"
 msgstr "Billentyűkiosztás keresése"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Nyelv"
 
-#: vanilla_installer/gtk/default-language.ui:34
-msgid "Select your language"
-msgstr "Válassza ki a nyelvét"
-
-#: vanilla_installer/gtk/default-language.ui:44
-msgid "Search for a language"
+#: vanilla_installer/gtk/default-language.ui:47
+#, fuzzy
+#| msgid "Search for a language"
+msgid "Search for language"
 msgstr "Nyelv keresése"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -224,10 +224,28 @@ msgstr "Név"
 msgid "Username"
 msgstr "Felhasználónév"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:12
+#, fuzzy
+#| msgid "Try Vanilla OS"
+msgid "Welcome to Vanilla OS!"
+msgstr "A Vanilla OS kipróbálása"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+#, fuzzy
+#| msgid "Installing..."
+msgid "Install"
+msgstr "Telepítés…"
+
+#: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Helyreállítás"
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -263,6 +281,14 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Napló"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -363,7 +389,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "Nincs kiválasztott partíció"
 
@@ -374,7 +400,7 @@ msgstr "Nincs kiválasztott partíció"
 #: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "Kérjük, válasszon egy partíciót az alábbi lehetőségek közül"
 
@@ -486,110 +512,171 @@ msgstr ""
 "Válasszon egy partíciót, amelyet a zram mellett a swap számára használ. Ez "
 "nem szükséges a hibernáláshoz."
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "Vissza"
 
-#: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "A GParted már fut. Csak egy GParted példány engedélyezett."
 
-#: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "A partíciónak legalább {} méretűnek kell lennie"
 
-#: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "A partíciónak PONTOSAN {} méretűnek kel lennie"
 
-#: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "A partíciók megváltoztak. A jelenlegi kiválasztások törlődtek."
 
-#: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "A teljes lemez felhasználásra kerül."
 
-#: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} formátumban lesz formázva és {} formátumban lesz felcsatolva"
 
-#: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr ""
+
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Kérjük, válasszon legalább egy lehetőséget."
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "Hiányzik a 'log_file' a receptben."
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "nem sikerült naplófájlt létrehozni: %s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "A napló nem kerül tárolásra."
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Megjelenítési feltétel végrehajtása: %s"
 
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "%s lépés kihagyva a megjelenítési feltételek miatt"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "Érvénytelen receptfájl"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "A recept nem egy bejegyzés"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "A receptből hiányzik a '{key}' kulcs"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "A recept lépései nem egy lista"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "A {step} lépés nem egy bejegyzés"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "Időzóna"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "Felhasználók"
 
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "Lemez"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Indítsa újra a készüléket, hogy élvezhesse a {} élményt."
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "Valami hiba történt"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
+
+#~ msgid "Select your language"
+#~ msgstr "Válassza ki a nyelvét"
 
 #~ msgid "clicked"
 #~ msgstr "csatolva"
@@ -651,9 +738,6 @@ msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
 
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "Ez az egyetlen elérhető lemez, és nem választható ki!"
-
-#~ msgid "Try Vanilla OS"
-#~ msgstr "A Vanilla OS kipróbálása"
 
 #~ msgid "Welcome"
 #~ msgstr "Üdv"
