@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"POT-Creation-Date: 2023-08-28 15:47+0530\n"
 "PO-Revision-Date: 2023-06-10 20:50+0000\n"
 "Last-Translator: Plamen Stanchev <sommersbynobodyev@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -45,14 +45,13 @@ msgid "The following changes will be made to your system:"
 msgstr "Във вашата система ще бъдат направени следните промени:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Инсталирайте Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
@@ -80,6 +79,10 @@ msgstr "Целият диск"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
+msgstr ""
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
@@ -122,18 +125,15 @@ msgstr "Изберете предпочитаната от вас подредб
 msgid "Search for a Keyboard Layout"
 msgstr "Потърсете Клавиатурна Подредба"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Език"
 
-#: vanilla_installer/gtk/default-language.ui:34
-msgid "Select your language"
-msgstr "Изберете вашия език"
-
-#: vanilla_installer/gtk/default-language.ui:44
-msgid "Search for a language"
+#: vanilla_installer/gtk/default-language.ui:47
+#, fuzzy
+#| msgid "Search for a language"
+msgid "Search for language"
 msgstr "Търсене на език"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -218,10 +218,28 @@ msgstr "Име"
 msgid "Username"
 msgstr "Потребителско име"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:12
+#, fuzzy
+#| msgid "Install Vanilla OS"
+msgid "Welcome to Vanilla OS!"
+msgstr "Инсталирайте Vanilla OS"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+#, fuzzy
+#| msgid "Installing..."
+msgid "Install"
+msgstr "Инсталиране..."
+
+#: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Възстановяване"
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -257,6 +275,14 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Дневник"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -363,7 +389,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "Не е избран дял"
 
@@ -374,7 +400,7 @@ msgstr "Не е избран дял"
 #: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "Моля, изберете дял от опциите по-долу"
 
@@ -488,113 +514,174 @@ msgstr ""
 "Изберете дял, който да използвате за суап заедно с zram. Това не се изисква "
 "за хибернация."
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "Обратно"
 
-#: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr ""
+
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted вече работи. Разрешено е използването само на една инстанция на "
 "GParted."
 
-#: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "Делът трябва да бъде поне {}"
 
-#: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "Делът трябва да е точно {}"
 
-#: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Разделите са променени. Текущите селекции са изтрити."
 
-#: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "Ще се използва целият диск."
 
-#: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Ще бъде форматиран в {} и монтиран в {}"
 
-#: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr ""
+
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Моля, изберете поне една опция."
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "Липсва 'log_file' в рецептата."
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "не успя да създаде файл на дневника: %s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "Няма да се съхранява дневник."
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Извършване на дисплей-състояние: %s"
 
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Стъпка %s е пропусната поради условия за показване"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "Невалиден файл с рецепта"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "Рецептата не е речник"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "В рецептата липсва ключът '{key}'"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "Стъпките на рецептата не са списък"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "Стъпка {step} не е речник"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "Клавиатура"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "Часови пояс"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "Потребители"
 
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "Диск"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr ""
 "Рестартирайте устройството си, за да се насладите на изживяването си с {}."
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "Нещо се обърка"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Моля, свържете се с разработчиците на дистрибуцията."
+
+#~ msgid "Select your language"
+#~ msgstr "Изберете вашия език"
 
 #~ msgid "clicked"
 #~ msgstr "щракна върху"

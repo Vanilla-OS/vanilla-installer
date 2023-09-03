@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
-"PO-Revision-Date: 2023-08-07 14:36+0000\n"
+"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"PO-Revision-Date: 2023-08-30 12:19+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -43,14 +43,13 @@ msgid "The following changes will be made to your system:"
 msgstr "உங்கள் கணினியில் பின்வரும் மாற்றங்கள் செய்யப்படும்:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "வெண்ணிலா OS ஐ நிறுவவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
@@ -77,6 +76,10 @@ msgstr "முழு வட்டையும் பயன்படுத்த�
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
 msgstr "கையேடு"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
+msgstr "நிறுவலைத் தொடர குறைந்தபட்சம் %s வட்டு இடம் தேவை."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -120,19 +123,14 @@ msgstr "உங்களுக்கு விருப்பமான விச�
 msgid "Search for a Keyboard Layout"
 msgstr "ஒரு விசைப்பலகை தளவமைப்பைத் தேடுங்கள்"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "மொழி"
 
-#: vanilla_installer/gtk/default-language.ui:34
-msgid "Select your language"
-msgstr "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்"
-
-#: vanilla_installer/gtk/default-language.ui:44
-msgid "Search for a language"
-msgstr "ஒரு மொழியைத் தேடவும்"
+#: vanilla_installer/gtk/default-language.ui:47
+msgid "Search for language"
+msgstr "மொழியைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -222,10 +220,24 @@ msgstr "பெயர்"
 msgid "Username"
 msgstr "பயனர் பெயர்"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:12
+msgid "Welcome to Vanilla OS!"
+msgstr "வெண்ணிலா OS க்கு வரவேற்கிறோம்!"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+msgid "Install"
+msgstr "நிறுவு"
+
+#: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "மீட்பு"
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr "மின்சாரத்தை நிறுத்து"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -260,6 +272,14 @@ msgstr "உங்கள் வட்டில் பின்வரும் ம
 msgid "Log"
 msgstr "பதிவு"
 
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr "மறுதொடக்கம்"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr "நிலைபொருள் அமைப்பில் மறுதொடக்கம் செய்யுங்கள்"
+
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "முனையம்"
@@ -270,7 +290,7 @@ msgstr "ஒரு முனையத்தைத் திறக்கவும�
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Gparted"
-msgstr "GParted"
+msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 msgid "Manage disks and partitions"
@@ -355,7 +375,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "பகிர்வு எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
@@ -366,7 +386,7 @@ msgstr "பகிர்வு எதுவும் தேர்ந்தெட�
 #: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "கீழே உள்ள விருப்பங்களிலிருந்து ஒரு பகிர்வைத் தேர்ந்தெடுக்கவும்"
 
@@ -474,111 +494,172 @@ msgid ""
 msgstr ""
 "zram உடன் ஸ்வாப் பயன்படுத்த ஒரு பகிர்வை தேர்வு செய்யவும். உறக்கநிலைக்கு இது தேவையில்லை."
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "திரும்பவும்"
 
-#: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr "இணைக்கப்பட்டது"
+
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted ஏற்கனவே இயங்குகிறது. GParted இன் ஒரு நிகழ்வு மட்டுமே அனுமதிக்கப்படுகிறது."
 
-#: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "பகிர்வு குறைந்தது {} ஆக இருக்க வேண்டும்"
 
-#: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "பகிர்வு கண்டிப்பாக {}"
 
-#: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "பகிர்வுகள் மாறிவிட்டன. தற்போதைய தேர்வுகள் அழிக்கப்பட்டன."
 
-#: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "முழு வட்டு பயன்படுத்தப்படும்."
 
-#: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} இல் வடிவமைக்கப்படும் மற்றும் {} இல் ஏற்றப்படும்"
 
-#: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr "பாதுகாப்பற்ற வலைப்பின்னல் (WEP)"
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA)"
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA2)"
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA3)"
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr "அங்கீகாரம் தேவை"
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr "இணைக்கிறது"
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr "இணைப்பு துண்டிக்கப்பட்டது"
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr "இணைப்பைத் துண்டிக்கிறது"
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr "இணைப்பு தோல்வியடைந்தது"
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr "நிலை தெரியவில்லை"
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr "நிர்வகிக்கப்படாதது"
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr "கிடைக்கவில்லை"
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr "கம்பி துண்டிக்கப்பட்டது"
+
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "செய்முறையில் 'log_file' இல்லை."
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "பதிவு கோப்பை உருவாக்க முடியவில்லை: %s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "பதிவு எதுவும் சேமிக்கப்படாது."
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "காட்சி-நிலையை செயல்படுத்துகிறது: %s"
 
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "காட்சி-நிபந்தனைகள் காரணமாக படி %s தவிர்க்கப்பட்டது"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "தவறான செய்முறை கோப்பு"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "செய்முறை அகராதி அல்ல"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "செய்முறையில் '{key}' விசை இல்லை"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "செய்முறை படிகள் பட்டியல் அல்ல"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "படி {step} என்பது அகராதி அல்ல"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "விசைப்பலகை"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "நேர மண்டலம்"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "பயனர்கள்"
 
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "வட்டு"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr "உங்கள் {} அனுபவத்தை அனுபவிக்க உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்."
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "ஏதோ தவறாகிவிட்டது"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "விநியோக டெவலப்பர்களைத் தொடர்பு கொள்ளவும்."
+
+#~ msgid "Select your language"
+#~ msgstr "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்"
 
 #~ msgid "clicked"
 #~ msgstr "சொடுக்கப்பட்டது"
@@ -627,9 +708,6 @@ msgstr "விநியோக டெவலப்பர்களைத் தொ�
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "இந்த வட்டு மட்டுமே உள்ளது மற்றும் தேர்வுநீக்க முடியாது!"
 
-#~ msgid "Try Vanilla OS"
-#~ msgstr "வெண்ணிலா OS ஐ முயற்சிக்கவும்"
-
 #~ msgid "Welcome"
 #~ msgstr "வரவேற்கிறோம்"
 
@@ -662,3 +740,9 @@ msgstr "விநியோக டெவலப்பர்களைத் தொ�
 
 #~ msgid "Search online for help."
 #~ msgstr "உதவிக்கு ஆன்லைனில் தேடவும்."
+
+#~ msgid "Search for a language"
+#~ msgstr "ஒரு மொழியைத் தேடவும்"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "வெண்ணிலா OS ஐ முயற்சிக்கவும்"

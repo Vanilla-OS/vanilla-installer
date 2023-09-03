@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-09 21:32+0530\n"
-"PO-Revision-Date: 2023-08-09 16:03+0000\n"
+"PO-Revision-Date: 2023-08-27 12:54+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -59,6 +59,7 @@ msgstr "安裝 Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/default-language.ui:17
 msgid "Next"
 msgstr "下一步"
 
@@ -124,6 +125,8 @@ msgstr "搜尋鍵盤配置"
 #: vanilla_installer/gtk/default-language.ui:33
 #: vanilla_installer/gtk/default-language.ui:51
 #: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "語言"
 
@@ -223,6 +226,7 @@ msgstr "使用者名稱"
 
 #: vanilla_installer/gtk/default-welcome.ui:30
 #: vanilla_installer/gtk/dialog-recovery.ui:6
+#: vanilla_installer/gtk/default-welcome.ui:36
 msgid "Recovery"
 msgstr "修復"
 
@@ -353,6 +357,7 @@ msgstr "要掛接到「/boot」的分割區。這個目錄中儲存的檔案將�
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
 #: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "未選取分割區"
 
@@ -364,6 +369,7 @@ msgstr "未選取分割區"
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
 #: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "請在下面的選項中選取一個分割區"
 
@@ -405,7 +411,7 @@ msgstr "BIOS 分割區必須恰好為 1 MiB。"
 
 #: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partitions"
-msgstr "根分割區"
+msgstr "Root 分割區"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
@@ -418,7 +424,7 @@ msgid ""
 "which switches between two root partitions between updates."
 msgstr ""
 "Vanilla OS 使用由 ABRoot 管理的 A/B 分割區系統， \n"
-" 每次更新會在兩個根分割區之間切換。"
+" 每次更新會在兩個 Root 分割區之間切換。"
 
 #: vanilla_installer/gtk/widget-partition.ui:150
 msgid "Root partitions are not the same size."
@@ -464,110 +470,207 @@ msgid ""
 "hibernation."
 msgstr "選取要和 zram 一起用作交換區的分割區。這並非為休眠功能所需要。"
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:39 vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "返回"
 
 #: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted 已在執行。僅允許一個 GParted 執行個體。"
 
 #: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "分割區必須至少為 {}"
 
 #: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "分割區必須恰好為 {}"
 
 #: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "分割區已變更。目前選取的項目已被清除。"
 
 #: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "將使用整個磁碟。"
 
 #: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "將格式化為 {} 並掛載到 {}"
 
 #: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "請至少選取一個選項。"
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:69 vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "配方中缺失 'log_file'。"
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:78 vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "無法建立記錄檔：%s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:79 vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "記錄檔將不會儲存。"
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:86 vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "正在執行 display-condition: %s"
 
 #: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "由於 display-condition 而跳過步驟 %s"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:46 vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "無效的配方檔"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:55 vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "配方的資料型別不是字典"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:60 vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "配方缺少 '{key}' 鍵"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:64 vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "配方步驟的資料型別不是串列"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:69 vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "步驟 {step} 的資料型別不是字典"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:79 vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "鍵盤"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:85 vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "時區"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:91 vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "使用者"
 
 #: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "磁碟"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:39 vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr "重新啟動您的裝置，開始您的 {} 之旅。"
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:53 vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "出了點問題"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:54 vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "請聯絡散布版開發人員。"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
+msgstr "至少需要 %s 的磁碟空間才能繼續安裝。"
+
+#: vanilla_installer/gtk/default-language.ui:47
+msgid "Search for language"
+msgstr "搜尋語言"
+
+#: vanilla_installer/gtk/default-welcome.ui:12
+msgid "Welcome to Vanilla OS!"
+msgstr "歡迎使用 Vanilla OS！"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+msgid "Install"
+msgstr "安裝"
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr "關機"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr "重新啟動"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr "重新啟動進入韌體設定"
+
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr "已連線"
+
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr "不安全的網路（WEP）"
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr "安全的網路（WPA）"
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr "安全的網路（WPA2）"
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr "安全的網路（WPA3）"
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr "需要驗證"
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr "連線中"
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr "已中斷連線"
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr "正在中斷連線"
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr "連線失敗"
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr "狀態未知"
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr "不受管理"
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr "無法使用"
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr "線纜已拔出"
 
 #~ msgid "clicked"
 #~ msgstr "已按下"

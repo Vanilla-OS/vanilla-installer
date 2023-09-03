@@ -15,10 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
-"PO-Revision-Date: 2023-08-22 05:19+0000\n"
-"Last-Translator: Experiencing A Significant Gravitas Shortfall <bedeb1@pm.me>"
-"\n"
+"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"PO-Revision-Date: 2023-08-30 12:19+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -26,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -53,14 +52,13 @@ msgid "The following changes will be made to your system:"
 msgstr "Die folgenden Änderungen werden am System vorgenommen:"
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "Vanilla OS installieren"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-language.ui:17
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
@@ -88,6 +86,12 @@ msgstr "Gesamte Festplatte verwenden"
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
 msgstr "Manuell"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with installation."
+msgstr ""
+"Sie benötigen mindestens %s an Festplattenplatz, um mit der Installation "
+"fortzufahren."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -132,19 +136,14 @@ msgstr "Wählen Sie Ihr bevorzugtes Tastaturlayout aus"
 msgid "Search for a Keyboard Layout"
 msgstr "Suche nach einem Tastaturlayout"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
+#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Sprache"
 
-#: vanilla_installer/gtk/default-language.ui:34
-msgid "Select your language"
-msgstr "Wählen Sie eine Sprache"
-
-#: vanilla_installer/gtk/default-language.ui:44
-msgid "Search for a language"
-msgstr "Suche nach einer Sprache"
+#: vanilla_installer/gtk/default-language.ui:47
+msgid "Search for language"
+msgstr "Nach Sprache suchen"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -225,7 +224,7 @@ msgstr "Benutzer erstellen"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Geben Sie Details für Ihr Benutzerkonto an"
+msgstr "Geben Sie Details zu Ihrem Benutzerkonto an"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -233,12 +232,26 @@ msgstr "Name"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
-msgstr "Nutzername"
+msgstr "Benutzername"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:12
+msgid "Welcome to Vanilla OS!"
+msgstr "Willkommen bei Vanilla OS!"
+
+#: vanilla_installer/gtk/default-welcome.ui:19
+msgid "Install"
+msgstr "Installieren"
+
+#: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Wiederherstellung"
+
+#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr "Ausschalten"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -274,6 +287,14 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
 msgstr "Protokoll"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr "Neustart"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr "Neustart in die Firmware-Einrichtung"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -370,7 +391,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:138
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
+#: vanilla_installer/defaults/disk.py:475
 msgid "No partition selected"
 msgstr "Keine Partition ausgewählt"
 
@@ -381,7 +402,7 @@ msgstr "Keine Partition ausgewählt"
 #: vanilla_installer/gtk/widget-partition.ui:139
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
+#: vanilla_installer/defaults/disk.py:477
 msgid "Please select a partition from the options below"
 msgstr "Bitte wählen Sie eine Partition aus den folgenden Optionen"
 
@@ -494,112 +515,173 @@ msgstr ""
 "Wählen Sie eine Partition aus, die neben zram für den Swap-Bereich verwendet "
 "werden soll. Dies ist für den Ruhezustand nicht erforderlich."
 
-#: vanilla_installer/gtk/window.ui:39
+#: vanilla_installer/gtk/window.ui:38
 msgid "Back"
 msgstr "Zurück"
 
-#: vanilla_installer/defaults/disk.py:286
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:370
+msgid "Connected"
+msgstr "Verbunden"
+
+#: vanilla_installer/defaults/disk.py:327
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted wird bereits ausgeführt. Es ist nur eine Instanz von GParted "
 "zulässig."
 
-#: vanilla_installer/defaults/disk.py:376
+#: vanilla_installer/defaults/disk.py:429
 msgid "Partition must be at least {}"
 msgstr "Partition muss mindestens {} sein"
 
-#: vanilla_installer/defaults/disk.py:399
+#: vanilla_installer/defaults/disk.py:460
 msgid "Partition must EXACTLY {}"
 msgstr "Partition muss GENAU {} sein"
 
-#: vanilla_installer/defaults/disk.py:510
+#: vanilla_installer/defaults/disk.py:575
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Partitionen haben sich geändert. Die aktuelle Auswahl wurde gelöscht."
 
-#: vanilla_installer/defaults/disk.py:567
+#: vanilla_installer/defaults/disk.py:633
 msgid "Entire disk will be used."
 msgstr "Gesamte Festplatte wird verwendet."
 
-#: vanilla_installer/defaults/disk.py:574
+#: vanilla_installer/defaults/disk.py:640
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Wird in {} formatiert und in {} eingehängt"
 
-#: vanilla_installer/layouts/preferences.py:68
+#: vanilla_installer/defaults/network.py:37
+msgid "Insecure network (WEP)"
+msgstr "Unsicheres Netzwerk (WEP)"
+
+#: vanilla_installer/defaults/network.py:38
+msgid "Secure network (WPA)"
+msgstr "Sicheres Netzwerk (WPA)"
+
+#: vanilla_installer/defaults/network.py:39
+msgid "Secure network (WPA2)"
+msgstr "Sicheres Netzwerk (WPA2)"
+
+#: vanilla_installer/defaults/network.py:40
+msgid "Secure network (WPA3)"
+msgstr "Sicheres Netzwerk (WPA3)"
+
+#: vanilla_installer/defaults/network.py:373
+msgid "Authentication required"
+msgstr "Authentifizierung erforderlich"
+
+#: vanilla_installer/defaults/network.py:381
+msgid "Connecting"
+msgstr "Wird verbunden"
+
+#: vanilla_installer/defaults/network.py:383
+msgid "Disconnected"
+msgstr "Getrennt"
+
+#: vanilla_installer/defaults/network.py:385
+msgid "Disconnecting"
+msgstr "Wird getrennt"
+
+#: vanilla_installer/defaults/network.py:387
+msgid "Connection Failed"
+msgstr "Verbindung fehlgeschlagen"
+
+#: vanilla_installer/defaults/network.py:389
+msgid "Status Unknown"
+msgstr "Status unbekannt"
+
+#: vanilla_installer/defaults/network.py:391
+msgid "Unmanaged"
+msgstr "Nicht verwaltet"
+
+#: vanilla_installer/defaults/network.py:393
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+#: vanilla_installer/defaults/network.py:407
+msgid "Cable Unplugged"
+msgstr "Kabel ausgesteckt"
+
+#: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Bitte wählen Sie mindestens eine Option aus."
 
-#: vanilla_installer/utils/builder.py:69
+#: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
 msgstr "Es fehlt die Angabe der 'log_file' in dem Rezept."
 
-#: vanilla_installer/utils/builder.py:78
+#: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "Protokolldatei konnte nicht erstellt werden: %s"
 
-#: vanilla_installer/utils/builder.py:79
+#: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
 msgstr "Es wird kein Protokoll gespeichert."
 
-#: vanilla_installer/utils/builder.py:86
+#: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Durchführen der Anzeigebedingung: %s"
 
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Schritt %s übersprungen aufgrund von Anzeigebedingungen"
 
-#: vanilla_installer/utils/recipe.py:46
+#: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
 msgstr "Ungültige Rezeptdatei"
 
-#: vanilla_installer/utils/recipe.py:55
+#: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
 msgstr "Rezept ist kein Wörterbuch"
 
-#: vanilla_installer/utils/recipe.py:60
+#: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
 msgstr "Rezept vermisst den '{key}'-Schlüssel"
 
-#: vanilla_installer/utils/recipe.py:64
+#: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
 msgstr "Rezept Schritte sind keine Liste"
 
-#: vanilla_installer/utils/recipe.py:69
+#: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
 msgstr "Schritt {step} ist kein Wörterbuch"
 
-#: vanilla_installer/views/confirm.py:79
+#: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: vanilla_installer/views/confirm.py:85
+#: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
 msgstr "Zeitzone"
 
-#: vanilla_installer/views/confirm.py:91
+#: vanilla_installer/views/confirm.py:95
 msgid "Users"
 msgstr "Benutzer"
 
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
 msgid "Disk"
 msgstr "Festplatte"
 
-#: vanilla_installer/views/done.py:39
+#: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
 msgstr "Starten Sie Ihren PC neu, um Ihr {} Erlebnis zu genießen."
 
-#: vanilla_installer/views/done.py:53
+#: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
 msgstr "Etwas ist schief gelaufen"
 
-#: vanilla_installer/views/done.py:54
+#: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
+
+#~ msgid "Select your language"
+#~ msgstr "Wählen Sie eine Sprache"
 
 #~ msgid "clicked"
 #~ msgstr "ausgewählt"
@@ -665,9 +747,6 @@ msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 #~ "Dies ist die einzige verfügbare Festplatte und kann nicht abgewählt "
 #~ "werden!"
 
-#~ msgid "Try Vanilla OS"
-#~ msgstr "Vanilla OS ausprobieren"
-
 #~ msgid "Welcome"
 #~ msgstr "Willkommen"
 
@@ -688,3 +767,9 @@ msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 
 #~ msgid "Choose a mount point for the partition"
 #~ msgstr "Wähle einen Einhängepunkt für die Partition"
+
+#~ msgid "Search for a language"
+#~ msgstr "Suche nach einer Sprache"
+
+#~ msgid "Try Vanilla OS"
+#~ msgstr "Vanilla OS ausprobieren"
