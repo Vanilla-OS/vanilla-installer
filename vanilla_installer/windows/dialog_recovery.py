@@ -25,6 +25,7 @@ class VanillaRecoveryDialog(Adw.Window):
     __gtype_name__ = "VanillaRecoveryDialog"
 
     row_console = Gtk.Template.Child()
+    row_documentation = Gtk.Template.Child()
     row_gparted = Gtk.Template.Child()
     row_handbook = Gtk.Template.Child()
     row_web = Gtk.Template.Child()
@@ -35,12 +36,16 @@ class VanillaRecoveryDialog(Adw.Window):
 
         # signals
         self.row_console.connect("activated", self.__on_console_activated)
+        self.row_documentation.connect("activated", self.__on_documentation_activated)
         self.row_gparted.connect("activated", self.__on_gparted_activated)
         self.row_handbook.connect("activated", self.__on_handbook_activated)
         self.row_web.connect("activated", self.__on_web_activated)
 
     def __on_console_activated(self, row):
         GLib.spawn_command_line_async("kgx")
+
+    def __on_documentation_activated(self, row):
+        webbrowser.open("https://documentation.vanillaos.org")
 
     def __on_gparted_activated(self, row):
         try:
