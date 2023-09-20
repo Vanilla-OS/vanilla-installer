@@ -266,6 +266,7 @@ class VanillaDefaultNetwork(Adw.Bin):
         # there's a high change that it coincides with a periodic
         # refresh operation.
         self.__wifi_lock = Lock()
+        self.__scan_lock = Lock()
 
         # Since we have a dedicated page for checking connectivity,
         # we only need to make sure the user has some type of
@@ -411,10 +412,15 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.wired_group.add(eth_conn)
         self.__wired_children.append(eth_conn)
 
-    def __refresh_wifi_list(self, conn: NM.DeviceWifi):
+    def __poll_wifi_scan(self, conn: NM.DeviceWifi):
+        self.__scan_lock.acquire()
         while conn.get_last_scan() == self.__last_wifi_scan:
             time.sleep(0.25)
+        self.__scan_lock.release()
 
+        GLib.idle_add(self.__refresh_wifi_list, conn)
+
+    def __refresh_wifi_list(self, conn: NM.DeviceWifi):
         networks = {}
         for ap in conn.get_access_points():
             ssid = ap.get_ssid()
@@ -471,10 +477,12 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__wifi_lock.release()
 
     def __scan_wifi(self, conn: NM.DeviceWifi):
+        self.__scan_lock.acquire()
         self.__last_wifi_scan = conn.get_last_scan()
+        self.__scan_lock.release()
         conn.request_scan_async()
 
-        t = Timer(1.5, self.__refresh_wifi_list, [conn])
+        t = Timer(1.5, self.__poll_wifi_scan, [conn])
         t.start()
 
     @property
