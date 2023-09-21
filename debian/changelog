@@ -1,3 +1,16 @@
+vanilla-installer (2.3.6) unstable; urgency=critical
+
+  * Improve startup speed
+  * Fix incorrect default language
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 21 Sep 2023 20:13:00 -0300
+
+vanilla-installer (2.3.5) unstable; urgency=critical
+
+  * Fix: Crash on network page
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 20 Sep 2023 18:02:00 -0300
+
 vanilla-installer (2.3.4) unstable; urgency=critical
 
   * Replace pytz with zoneinfo
