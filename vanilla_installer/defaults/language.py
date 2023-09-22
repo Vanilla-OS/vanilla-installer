@@ -16,8 +16,8 @@
 
 import re
 from gi.repository import Adw, Gtk
-from gi.repository import GnomeDesktop
 from vanilla_installer.core.languages import all_languages, current_language
+
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-language.ui")
 class LanguageRow(Adw.ActionRow):
@@ -51,7 +51,7 @@ class VanillaDefaultLanguage(Adw.Bin):
     search_controller = Gtk.EventControllerKey.new()
     all_languages_group = Gtk.Template.Child()
 
-    selected_language = {'language_title': None, 'language_subtitle': None}
+    selected_language = {"language_title": None, "language_subtitle": None}
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -59,9 +59,10 @@ class VanillaDefaultLanguage(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.__language_rows = []
 
-        self.__language_rows = self.__generate_language_list_widgets(self.selected_language)
-        for i, widget in enumerate(self.__language_rows):
+        self.__generate_language_list_widgets()
+        for widget in self.__language_rows:
             self.all_languages_group.append(widget)
 
         # signals
@@ -69,32 +70,32 @@ class VanillaDefaultLanguage(Adw.Bin):
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_language.add_controller(self.search_controller)
 
-    def __generate_language_list_widgets(self, selected_language):
-        language_widgets = []
-        curr_language = GnomeDesktop.get_language_from_locale(current_language, None)
+    def __generate_language_list_widgets(self):
+        for language_code, language_title in all_languages.items():
+            language_row = LanguageRow(
+                language_title, language_code, self.selected_language
+            )
 
-        for language_subtitle, language_title in all_languages.items():
-            language_row = LanguageRow(language_title, language_subtitle, selected_language)
-            
-            if len(language_widgets)>0:
-                language_row.select_button.set_group(language_widgets[0].select_button)
-            language_widgets.append(language_row)
+            if len(self.__language_rows) > 0:
+                language_row.select_button.set_group(self.__language_rows[0].select_button)
 
-            if curr_language == language_title:
+            self.__language_rows.append(language_row)
+
+            if current_language == language_code:
                 language_row.select_button.set_active(True)
 
-        return language_widgets
-
     def get_finals(self):
-        return {
-            "language": self.selected_language["language_subtitle"]
-        }
+        return {"language": self.selected_language["language_subtitle"]}
 
     def __on_search_key_pressed(self, *args):
-        keywords = re.sub(r"[^a-zA-Z0-9 ]", "", self.entry_search_language.get_text().lower())
+        keywords = re.sub(
+            r"[^a-zA-Z0-9 ]", "", self.entry_search_language.get_text().lower()
+        )
 
         for row in self.all_languages_group:
-            row_title = re.sub(r'[^a-zA-Z0-9 ]', '', row.get_title().lower())
-            row_subtitle = re.sub(r'[^a-zA-Z0-9 ]', '', row.suffix_bin.get_label().lower())
-            search_text = row_title + ' ' + row_subtitle
+            row_title = re.sub(r"[^a-zA-Z0-9 ]", "", row.get_title().lower())
+            row_subtitle = re.sub(
+                r"[^a-zA-Z0-9 ]", "", row.suffix_bin.get_label().lower()
+            )
+            search_text = row_title + " " + row_subtitle
             row.set_visible(re.search(keywords, search_text, re.IGNORECASE) is not None)

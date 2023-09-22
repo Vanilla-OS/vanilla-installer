@@ -52,6 +52,7 @@ class KeyboardRow(Adw.ActionRow):
         self.__selected_keyboard["layout"] = self.__layout
         self.__selected_keyboard["variant"] = self.__variant
 
+
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-keyboard.ui")
 class VanillaDefaultKeyboard(Adw.Bin):
     __gtype_name__ = "VanillaDefaultKeyboard"
@@ -64,6 +65,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
 
     search_controller = Gtk.EventControllerKey.new()
     test_focus_controller = Gtk.EventControllerFocus.new()
+
+    match_regex = re.compile(r"[^a-zA-Z0-9 ]")
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -123,28 +126,28 @@ class VanillaDefaultKeyboard(Adw.Bin):
             }
         }
 
-    def __generate_keyboard_dict(self):
-        all_keyboard_layouts = dict()
-
-        for country in self.__keymaps.list_all.keys():
-            for key, value in self.__keymaps.list_all[country].items():
-                if value['display_name'] == 'Czech (with <\|> key)':    #changed display_name as this charchter string is causing gtk markup error
-                    value['display_name'] = 'Czech (bksl)'
-
-                all_keyboard_layouts[value["display_name"]] = {
-                    "key": key,
-                    "country": country,
-                    "layout": value["xkb_layout"],
-                    "variant": value["xkb_variant"],
-                }
-
-        return all_keyboard_layouts
-
     def __generate_keyboard_list_widgets(self, selected_keyboard):
         keyboard_widgets = []
         current_layout, current_variant = self.__get_current_layout()
 
-        for keyboard_title, content in self.__generate_keyboard_dict().items():
+        all_keyboard_layouts = {
+            value["display_name"]: {
+                "key": key,
+                "country": country,
+                "layout": value["xkb_layout"],
+                "variant": value["xkb_variant"],
+            }
+            for country in self.__keymaps.list_all.keys()
+            for key, value in self.__keymaps.list_all[country].items()
+        }
+
+        # Changed display_name as this charchter string is causing gtk markup error
+        if all_keyboard_layouts.get("Czech (with <\|> key)"):
+            all_keyboard_layouts["Czech (bksl)"] = all_keyboard_layouts.pop(
+                "Czech (with <\|> key)"
+            )
+
+        for keyboard_title, content in all_keyboard_layouts.items():
             keyboard_key = content["key"]
             keyboard_country = content["country"]
             keyboard_layout = content["layout"]
@@ -204,14 +207,15 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__set_keyboard_layout(layout, variant)
 
     def __on_search_key_pressed(self, *args):
-        keywords = re.sub(
-            r"[^a-zA-Z0-9 ]", "", self.entry_search_keyboard.get_text().lower()
+        keywords = self.match_regex.sub(
+            "", self.entry_search_keyboard.get_text().lower()
         )
 
         for row in self.all_keyboards_group:
-            row_title = re.sub(r"[^a-zA-Z0-9 ]", "", row.get_title().lower())
-            row_subtitle = re.sub(r"[^a-zA-Z0-9 ]", "", row.get_subtitle().lower())
-            row_label = re.sub(r"[^a-zA-Z0-9 ]", "", row.suffix_bin.get_label().lower())
+            row_title = self.match_regex.sub("", row.get_title().lower())
+            row_subtitle = self.match_regex.sub("", row.get_subtitle().lower())
+            row_label = self.match_regex.sub("", row.suffix_bin.get_label().lower())
+
             search_text = row_title + " " + row_subtitle + " " + row_label
             row.set_visible(re.search(keywords, search_text, re.IGNORECASE) is not None)
 
