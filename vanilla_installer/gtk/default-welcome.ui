@@ -8,8 +8,6 @@
         <property name="hexpand">true</property>
         <child>
             <object class="AdwStatusPage" id="status_page">
-                <property name="icon-name">org.vanillaos.FirstSetup-flower</property>
-                <property name="title" translatable="yes">Welcome to Vanilla OS!</property>
                 <child>
                     <object class="AdwPreferencesPage">
                         <child>
