@@ -67,8 +67,21 @@ class VanillaDefaultLanguage(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
+        self.all_languages_group.connect(
+            "selected-rows-changed", self.__language_verify
+        )
+        self.all_languages_group.connect("row-selected", self.__language_verify)
+        self.all_languages_group.connect("row-activated", self.__language_verify)
+        self.__window.carousel.connect("page-changed", self.__language_verify)
+        
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_language.add_controller(self.search_controller)
+
+    def __language_verify(self, *args):
+        if self.selected_language["language_subtitle"] is not None:
+            self.btn_next.set_sensitive(True)
+        else:
+            self.btn_next.set_sensitive(False)
 
     def __generate_language_list_widgets(self):
         for language_code, language_title in all_languages.items():
@@ -83,6 +96,8 @@ class VanillaDefaultLanguage(Adw.Bin):
 
             if current_language == language_code:
                 language_row.select_button.set_active(True)
+                self.selected_language["language_title"] = language_title
+                self.selected_language["language_subtitle"] = language_code
 
     def get_finals(self):
         return {"language": self.selected_language["language_subtitle"]}

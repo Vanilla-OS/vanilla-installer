@@ -93,6 +93,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
         )
         self.all_keyboards_group.connect("row-selected", self.__keyboard_verify)
         self.all_keyboards_group.connect("row-activated", self.__keyboard_verify)
+        self.__window.carousel.connect("page-changed", self.__keyboard_verify)
 
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         if "VANILLA_NO_APPLY_XKB" not in os.environ:
@@ -171,6 +172,8 @@ class VanillaDefaultKeyboard(Adw.Bin):
                 and current_variant == keyboard_variant
             ):
                 keyboard_row.select_button.set_active(True)
+                self.selected_keyboard["layout"] = current_layout
+                self.selected_keyboard["variant"] = current_variant
 
         return keyboard_widgets
 

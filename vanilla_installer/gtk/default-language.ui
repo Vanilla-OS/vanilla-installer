@@ -9,6 +9,7 @@
                 <property name="valign">center</property>
                 <child type="overlay">
                     <object class="GtkButton" id="btn_next">
+                        <property name="sensitive">False</property>
                         <property name="margin-end">12</property>
                         <property name="margin-start">12</property>
                         <property name="icon-name">go-next-symbolic</property>
