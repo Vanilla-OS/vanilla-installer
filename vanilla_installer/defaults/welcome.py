@@ -35,6 +35,12 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.__key = key
         self.__step = step
 
+        distro_name = self.__distro_info.get("name", "Vanilla OS")
+        distro_logo = self.__distro_info.get("logo", "org.vanillaos.Installer-flower")
+        
+        self.status_page.set_icon_name(distro_logo)
+        self.status_page.set_title(f"Welcome to {distro_name}!")
+
         # signals
         self.row_install.connect("activated", self.__window.next)
         self.row_recovery.connect("activated", self.__on_recovery_clicked)

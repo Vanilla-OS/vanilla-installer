@@ -1,7 +1,7 @@
 {
     "log_file": "/etc/vanilla/installer.log",
     "distro_name": "Vanilla OS",
-    "distro_logo": "org.vanillaos.Installer",
+    "distro_logo": "org.vanillaos.Installer-flower",
     "images": {
     		"default": "ghcr.io/vanilla-os/desktop:main",
     		"nvidia": "ghcr.io/vanilla-os/nvidia:main"
