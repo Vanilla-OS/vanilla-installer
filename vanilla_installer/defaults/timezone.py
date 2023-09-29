@@ -88,8 +88,21 @@ class VanillaDefaultTimezone(Adw.Bin):
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
+        self.all_timezones_group.connect(
+            "selected-rows-changed", self.__timezone_verify
+        )
+        self.all_timezones_group.connect("row-selected", self.__timezone_verify)
+        self.all_timezones_group.connect("row-activated", self.__timezone_verify)
+        self.__window.carousel.connect("page-changed", self.__timezone_verify)
+
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
+
+    def __timezone_verify(self, *args):
+        if self.selected_timezone["region"] and self.selected_timezone["zone"] is not None:
+            self.btn_next.set_sensitive(True)
+        else:
+            self.btn_next.set_sensitive(False)
 
     def get_finals(self):
         try:
@@ -131,3 +144,5 @@ class VanillaDefaultTimezone(Adw.Bin):
         for row in self.__timezone_rows:
             if current_city == row.title and current_country == row.subtitle:
                 row.select_button.set_active(True)
+                self.selected_timezone["zone"] = current_city
+                self.selected_timezone["region"] = current_country
