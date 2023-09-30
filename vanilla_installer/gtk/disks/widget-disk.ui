@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="DiskToggleButton" parent="GtkToggleButton">
+    <style>
+      <class name="card"/>
+    </style>
+    <child>
+      <object class="GtkBox">
+        <property name="height-request">128</property>
+        <property name="width-request">128</property>
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
+        <property name="margin-start">12</property>
+        <property name="margin-end">12</property>
+        <property name="spacing">6</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkImage">
+            <property name="icon-name">drive-harddisk</property>
+            <property name="pixel-size">96</property>
+            <property name="halign">center</property>
+            <property name="margin-top">12</property>
+            <property name="margin-bottom">12</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
+            <style>
+                <class name="icon-dropshadow"/>
+            </style>                                              
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="disk_title">
+            <property name="halign">center</property>
+            <property name="margin-bottom">2</property>
+            <style>
+              <class name="title-4" />
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="disk_subtitle">
+            <property name="halign">center</property>
+            <style>
+                <class name="dim-label" />
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

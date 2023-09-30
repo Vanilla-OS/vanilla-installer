@@ -2,12 +2,12 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="VanillaDefaultDisk" parent="AdwBin">
-    <property name="halign">0</property>
-    <property name="valign">0</property>
+    <property name="halign">fill</property>
+    <property name="valign">fill</property>
     <property name="hexpand">true</property>
     <child>
       <object class="GtkOverlay">
-        <property name="valign">3</property>
+        <property name="valign">center</property>
         <child type="overlay">
           <object class="GtkButton" id="btn_next">
             <property name="margin-end">12</property>
@@ -23,73 +23,317 @@
             </style>
           </object>
         </child>
+        <child type="overlay">
+          <object class="GtkButton" id="default_install_btn_next">
+            <property name="margin-end">12</property>
+            <property name="margin-start">12</property>
+            <property name="icon-name">go-next-symbolic</property>
+            <property name="halign">2</property>
+            <property name="valign">3</property>
+            <property name="visible">false</property>
+            <property name="tooltip-text" translatable="yes">Default Next</property>
+            <style>
+              <class name="circular"/>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkButton" id="manual_install_btn_next">
+            <property name="margin-end">12</property>
+            <property name="margin-start">12</property>
+            <property name="icon-name">go-next-symbolic</property>
+            <property name="halign">2</property>
+            <property name="valign">3</property>
+            <property name="visible">false</property>
+            <property name="tooltip-text" translatable="yes">Manual Next</property>
+            <style>
+              <class name="circular"/>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkButton" id="btn_back">
+            <property name="margin-end">12</property>
+            <property name="margin-start">12</property>
+            <property name="icon-name">go-previous-symbolic</property>
+            <property name="halign">start</property>
+            <property name="valign">center</property>
+            <property name="visible">True</property>
+            <property name="tooltip-text" translatable="yes">Back</property>
+            <style>
+              <class name="circular"/>
+            </style>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkButton" id="subpage_btn_back">
+            <property name="margin-end">12</property>
+            <property name="margin-start">12</property>
+            <property name="icon-name">go-previous-symbolic</property>
+            <property name="halign">start</property>
+            <property name="valign">center</property>
+            <property name="visible">False</property>
+            <property name="tooltip-text" translatable="yes">Main Page</property>
+            <style>
+              <class name="circular"/>
+            </style>
+          </object>
+        </child>
         <child>
-          <object class="AdwStatusPage" id="status_page">
-            <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
-            <property name="title" translatable="yes">Install Location</property>
-            <property name="description" translatable="yes">Select the disk where you want to install Vanilla OS. Alternatively, you can select one or more disks to configure manually.</property>
+          <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwPreferencesPage">
+              <object class="AdwLeaflet" id="mainleaflet">
+                <property name="can-unfold">False</property>
+                <property name="can-navigate-back">True</property>
                 <child>
-                  <object class="AdwPreferencesGroup" id="group_disks"></object>
-                </child>
-                <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="AdwStatusPage" id="mainpage">
+                    <property name="title" translatable="yes">Install</property>
+                    <property name="description" translatable="yes">Select your installation type</property>
                     <child>
-                      <object class="GtkBox">
-                        <property name="halign">3</property>
-                        <property name="spacing">10</property>
+                      <object class="AdwClamp">
+                        <property name="maximum-size">600</property>
                         <child>
-                          <object class="GtkButton" id="btn_auto">
-                            <property name="label" translatable="yes">Use entire disk</property>
-                            <property name="margin-top">20</property>
-                            <property name="halign">3</property>
-                            <property name="sensitive">false</property>
-                            <style>
-                              <class name="pill"/>
-                              <class name="suggested-action"/>
-                            </style>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="btn_manual">
-                            <property name="label" translatable="yes">Manual</property>
-                            <property name="margin-top">20</property>
-                            <property name="halign">3</property>
-                            <property name="sensitive">false</property>
-                            <style>
-                              <class name="pill"/>
-                            </style>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="activatable">False</property>
+                                    <property name="focusable">False</property>
+                                    <child>
+                                      <object class="GtkGrid">
+                                        <property name="column-homogeneous">True</property>
+                                        <property name="column-spacing">2</property>
+                                        <property name="row-spacing">6</property>
+                                        <property name="hexpand">True</property>
+                                        <child>
+                                          <object class="GtkToggleButton" id="default_install_togglebutton">
+                                            <property name="margin-top">6</property>
+                                            <property name="margin-start">4</property>
+                                            <property name="margin-end">4</property>
+                                            <style>
+                                              <class name="install-button"/>
+                                            </style>
+                                            <layout>
+                                              <property name="column">0</property>
+                                              <property name="row">0</property>
+                                            </layout>
+                                            <child>
+                                              <object class="AdwBin">
+                                                <property name="height-request">196</property>
+                                                <style>
+                                                  <class name="background"/>
+                                                  <class name="frame"/>
+                                                </style>
+                                                <child>
+                                                  <object class="GtkImage">
+                                                    <property name="icon-name">org.vanillaos.Installer</property>
+                                                    <property name="pixel-size">128</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="margin-top">12</property>
+                                                    <property name="margin-bottom">12</property>
+                                                    <property name="margin-start">12</property>
+                                                    <property name="margin-end">12</property>
+                                                    <style>
+                                                        <class name="icon-dropshadow"/>
+                                                    </style>                                              
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkToggleButton" id="manual_install_togglebutton">
+                                            <property name="margin-top">6</property>
+                                            <property name="margin-start">4</property>
+                                            <property name="margin-end">4</property>
+                                            <style>
+                                              <class name="install-button"/>
+                                            </style>
+                                            <layout>
+                                              <property name="column">1</property>
+                                              <property name="row">0</property>
+                                            </layout>
+                                            <child>
+                                              <object class="AdwBin">
+                                                <property name="height-request">196</property>
+                                                <style>
+                                                  <class name="background"/>
+                                                  <class name="frame"/>
+                                                </style>
+                                                <child>
+                                                  <object class="GtkImage">
+                                                    <property name="icon-name">org.gnome.DiskUtility</property>
+                                                    <property name="pixel-size">128</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="margin-top">12</property>
+                                                    <property name="margin-bottom">12</property>
+                                                    <property name="margin-start">12</property>
+                                                    <property name="margin-end">12</property>
+                                                    <style>
+                                                        <class name="icon-dropshadow"/>
+                                                    </style>                                              
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkCheckButton" id="default_install_checkbutton">
+                                            <property name="margin-start">6</property>
+                                            <property name="margin-end">6</property>
+                                            <property name="margin-bottom">12</property>
+                                            <layout>
+                                              <property name="column">0</property>
+                                              <property name="row">1</property>
+                                            </layout>
+                                            <property name="child">
+                                              <object class="GtkBox">
+                                                <property name="valign">center</property>
+                                                <property name="margin-start">6</property>
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                  <object class="GtkLabel">
+                                                    <property name="xalign">0.0</property>
+                                                    <property name="label" translatable="yes">Clean Install</property>
+                                                    <property name="margin-bottom">2</property>
+                                                    <style>
+                                                      <class name="title" />
+                                                    </style>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel">
+                                                    <property name="xalign">0.0</property>
+                                                    <property name="wrap">1</property>
+                                                    <property name="label" translatable="yes">Erase everything and install new copy of Vanilla OS.</property>
+                                                    <style>
+                                                      <class name="subtitle" />
+                                                    </style>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </property>                                            
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkCheckButton" id="manual_install_checkbutton">
+                                            <property name="margin-start">6</property>
+                                            <property name="margin-end">6</property>
+                                            <property name="margin-bottom">12</property>
+                                            <layout>
+                                              <property name="column">1</property>
+                                              <property name="row">1</property>
+                                            </layout>
+                                            <property name="group">default_install_checkbutton</property>
+                                            <property name="child">
+                                              <object class="GtkBox">
+                                                <property name="valign">center</property>
+                                                <property name="margin-start">6</property>
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                  <object class="GtkLabel">
+                                                    <property name="xalign">0.0</property>
+                                                    <property name="label" translatable="yes">Manual Install</property>
+                                                    <property name="margin-bottom">2</property>
+                                                    <style>
+                                                      <class name="title" />
+                                                    </style>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel">
+                                                    <property name="xalign">0.0</property>
+                                                    <property name="wrap">1</property>
+                                                    <property name="label" translatable="yes">Create, resize and manage paritions manually to install Vanilla OS.</property>
+                                                    <style>
+                                                      <class name="subtitle" />
+                                                    </style>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </property>                                            
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="margin-top">24</property>
+                                <child>
+                                  <object class="AdwActionRow">
+                                    <property name="title" translatable="yes">Installation Guide</property>
+                                    <property name="icon-name">folder-download-symbolic</property>
+                                    <child>
+                                      <object class="GtkButton">
+                                        <property name="icon-name">adw-external-link-symbolic</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <style>
+                                          <class name="flat"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwActionRow">
+                                    <property name="title" translatable="yes">Manual Paritioning Guide</property>
+                                    <property name="icon-name">system-run-symbolic</property>
+                                    <child>
+                                      <object class="GtkButton">
+                                        <property name="icon-name">adw-external-link-symbolic</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <style>
+                                          <class name="flat"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
                     </child>
                   </object>
                 </child>
+
                 <child>
-                  <object class="AdwPreferencesGroup">
-                    <style>
-                      <class name="error"/>
-                    </style>
-                    <child>
-                      <object class="GtkBox" id="disk_space_err_box">
-                        <property name="visible">false</property>
-                        <property name="halign">3</property>
-                        <property name="spacing">5</property>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon-name">drive-harddisk-symbolic</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="disk_space_err_label">
-                            <property name="label" translatable="yes">You need at least %s of disk space to proceed with the installation.</property>
-                          </object>
-                        </child>
+                  <object class="AdwLeafletPage">
+                    <property name="navigatable">False</property>
+                    <property name="child">
+                      <object class="GtkBox" id="default_install_page">
+                        <property name="halign">fill</property>
+                        <property name="valign">fill</property>
                       </object>
-                    </child>
+                    </property>
                   </object>
                 </child>
+
+                <child>
+                  <object class="AdwLeafletPage">
+                    <property name="navigatable">False</property>
+                    <property name="child">
+                      <object class="GtkBox" id="manual_install_page">
+                        <property name="halign">fill</property>
+                        <property name="valign">fill</property>
+                      </object>
+                    </property>  
+                  </object>
+                </child>
+
               </object>
             </child>
           </object>

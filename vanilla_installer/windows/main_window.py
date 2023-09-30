@@ -74,14 +74,23 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.carousel.append(self.__view_progress)
         self.carousel.append(self.__view_done)
 
+    def __get_disk_page(self):
+        for widget in self.__builder.widgets:
+            if "disk" in str(widget):
+                disk_page = widget
+                break
+        return disk_page
+
     def __on_page_changed(self, *args):
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index)
+        disk_page = self.__get_disk_page()
 
         if page not in [self.__view_progress, self.__view_done]:
-            self.btn_back.set_visible(cur_index != 0.0)
-            self.btn_back.set_sensitive(cur_index != 0.0)
             self.carousel_indicator_dots.set_visible(cur_index != 0.0)
+            if page not in [disk_page]:
+                self.btn_back.set_visible(cur_index != 0.0)
+                self.btn_back.set_sensitive(cur_index != 0.0)
             return
 
         self.btn_back.set_visible(False)

@@ -19,8 +19,7 @@ import sys
 from gettext import gettext as _
 
 import gi
-from gi.repository import Adw, Gio
-
+from gi.repository import Gtk, Gdk, Gio, Adw
 from vanilla_installer.windows.main_window import VanillaWindow
 
 gi.require_version("Gtk", "4.0")
@@ -51,7 +50,13 @@ class FirstSetupApplication(Adw.Application):
         necessary.
 
         """
-
+        provider = Gtk.CssProvider()
+        provider.load_from_resource("/org/vanillaos/Installer/style.css")
+        Gtk.StyleContext.add_provider_for_display(
+            display=Gdk.Display.get_default(),
+            provider=provider,
+            priority=Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
+        )
         win = self.props.active_window
         if not win:
             win = VanillaWindow(application=self)

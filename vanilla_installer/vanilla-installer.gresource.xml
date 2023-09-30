@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/vanillaos/Installer">
+    <file>style.css</file>
     <file>gtk/window.ui</file>
     <file>gtk/confirm.ui</file>
     <file>gtk/done.ui</file>
@@ -10,7 +11,6 @@
     <file>gtk/dialog.ui</file>
     <file>gtk/dialog-output.ui</file>
     <file>gtk/dialog-disk.ui</file>
-    <file>gtk/dialog-disk-confirm.ui</file>
     <file>gtk/dialog-recovery.ui</file>
     <file>gtk/dialog-poweroff.ui</file>
 
@@ -28,13 +28,17 @@
 
     <file>gtk/widget-choice.ui</file>
     <file>gtk/widget-choice-expander.ui</file>
-    <file>gtk/widget-disk.ui</file>
     <file>gtk/widget-partition-row.ui</file>
     <file>gtk/widget-partition.ui</file>
     <file>gtk/widget-language.ui</file>
     <file>gtk/widget-keyboard.ui</file>
     <file>gtk/widget-timezone.ui</file>
     <file>gtk/wireless-row.ui</file>
+
+    <file>gtk/disks/widget-disk.ui</file>
+    <file>gtk/disks/dialog-disk-confirm.ui</file>
+    <file>gtk/disks/default-page.ui</file>
+    <file>gtk/disks/manual-page.ui</file>
 
     <file>gtk/layout-preferences.ui</file>
     <file>gtk/layout-yes-no.ui</file>

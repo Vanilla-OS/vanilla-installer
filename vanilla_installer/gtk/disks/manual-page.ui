@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="DiskManualPage" parent="AdwBin">
+    <property name="hexpand">true</property>
+    <child>
+      <object class="AdwStatusPage" id="disk_page">
+        <property name="title" translatable="yes">Manual Install</property>
+        <child>
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwExpanderRow" id="boot_part_expand">
+                    <property name="title" translatable="yes">Boot</property>
+                    <property name="subtitle" translatable="yes">Minimum Size: 900.0 MB</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="boot_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwExpanderRow" id="efi_part_expand">
+                    <property name="title" translatable="yes">EFI</property>
+                    <property name="subtitle" translatable="yes">Minimum Size: 512.0 MB</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="efi_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwExpanderRow" id="bios_part_expand">
+                    <property name="title" translatable="yes">Bios</property>
+                    <property name="subtitle" translatable="yes">Size: 1 MiB</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="bios_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwExpanderRow" id="abroot_a_part_expand">
+                    <property name="title" translatable="yes">Root: A</property>
+                    <property name="subtitle" translatable="yes">Minimum Size: 10.0 GB</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="abroot_a_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwExpanderRow" id="abroot_b_part_expand">
+                    <property name="title" translatable="yes">Root: B</property>
+                    <property name="subtitle" translatable="yes">Minimum Size: 10.0 GB</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="abroot_b_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwExpanderRow" id="home_part_expand">
+                    <property name="title" translatable="yes">Home</property>
+                    <property name="subtitle" translatable="yes">Minimum Size: 5.0 GB</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="home_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwExpanderRow" id="swap_part_expand">
+                    <property name="title" translatable="yes">Swap</property>
+                    <child type="action">
+                      <object class="GtkLabel" id="swap_part_expand_label">
+                        <property name="label">None</property>
+                        <style>
+                          <class name="monospace"/>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>                
+  </template>
+</interface>
