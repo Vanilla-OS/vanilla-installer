@@ -1,98 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.0"/>
-    <requires lib="libadwaita" version="1.0"/>
-    <template class="VanillaRecoveryDialog" parent="AdwWindow">
-        <property name="title" translatable="yes">Recovery</property>
-        <property name="default-width">500</property>
-        <property name="modal">true</property>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="VanillaRecoveryDialog" parent="AdwWindow">
+    <property name="title" translatable="yes">Recovery</property>
+    <property name="default-width">500</property>
+    <property name="modal">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
         <child>
-            <object class="GtkBox">
-                <property name="orientation">vertical</property>
+          <object class="AdwHeaderBar">
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup">
                 <child>
-                    <object class="AdwHeaderBar">
+                  <object class="AdwActionRow" id="row_console">
+                    <property name="icon-name">utilities-terminal-symbolic</property>
+                    <property name="title" translatable="yes">Console</property>
+                    <property name="subtitle" translatable="yes">Open a Terminal</property>
+                    <property name="activatable">true</property>
+                    <child type="suffix">
+                      <object class="GtkImage">
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="valign">center</property>
                         <style>
-                            <class name="flat"/>
+                          <class name="flat"/>
                         </style>
-                    </object>
-                </child>
-                <child>
-                  <object class="AdwPreferencesPage">
-                    <child>
-                      <object class="AdwPreferencesGroup">
-                        <child>
-                          <object class="AdwActionRow" id="row_console">
-                            <property name="icon-name">utilities-terminal-symbolic</property>
-                            <property name="title" translatable="yes">Console</property>
-                            <property name="subtitle" translatable="yes">Open a Terminal</property>
-                            <property name="activatable">true</property>
-                            <child type="suffix">
-                              <object class="GtkImage">
-                                <property name="icon-name">go-next-symbolic</property>
-                                <property name="valign">center</property>
-                                <style>
-                                  <class name="flat"/>
-                                </style>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="AdwActionRow" id="row_gparted">
-                            <property name="icon-name">drive-harddisk-symbolic</property>
-                            <property name="title" translatable="yes">Gparted</property>
-                            <property name="subtitle" translatable="yes">Manage disks and partitions</property>
-                            <property name="activatable">true</property>
-                            <child type="suffix">
-                              <object class="GtkImage">
-                                <property name="icon-name">go-next-symbolic</property>
-                                <property name="valign">center</property>
-                                <style>
-                                  <class name="flat"/>
-                                </style>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="AdwActionRow" id="row_handbook">
-                            <property name="icon-name">help-browser-symbolic</property>
-                            <property name="title" translatable="yes">Handbook</property>
-                            <property name="subtitle" translatable="yes">Read the Vanilla OS Handbook</property>
-                            <property name="activatable">true</property>
-                            <child type="suffix">
-                              <object class="GtkImage">
-                                <property name="icon-name">go-next-symbolic</property>
-                                <property name="valign">center</property>
-                                <style>
-                                  <class name="flat"/>
-                                </style>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="AdwActionRow" id="row_web">
-                            <property name="icon-name">web-browser-symbolic</property>
-                            <property name="title" translatable="yes">Web Browser</property>
-                            <property name="subtitle" translatable="yes">Search online for help</property>
-                            <property name="activatable">true</property>
-                            <child type="suffix">
-                              <object class="GtkImage">
-                                <property name="icon-name">go-next-symbolic</property>
-                                <property name="valign">center</property>
-                                <style>
-                                  <class name="flat"/>
-                                </style>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
                       </object>
                     </child>
                   </object>
                 </child>
-            </object>
+                <child>
+                  <object class="AdwActionRow" id="row_documentation">
+                    <property name="icon-name">folder-documents-symbolic</property>
+                    <property name="title" translatable="yes">Documentation</property>
+                    <property name="subtitle" translatable="yes">Read the Vanilla OS Documentation</property>
+                    <property name="activatable">true</property>
+                    <child type="suffix">
+                      <object class="GtkImage">
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="valign">center</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="row_gparted">
+                    <property name="icon-name">drive-harddisk-symbolic</property>
+                    <property name="title" translatable="yes">Gparted</property>
+                    <property name="subtitle" translatable="yes">Manage disks and partitions</property>
+                    <property name="activatable">true</property>
+                    <child type="suffix">
+                      <object class="GtkImage">
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="valign">center</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="row_handbook">
+                    <property name="icon-name">accessories-dictionary-symbolic</property>
+                    <property name="title" translatable="yes">Handbook</property>
+                    <property name="subtitle" translatable="yes">Read tutorials and guides about Vanilla OS.</property>
+                    <property name="activatable">true</property>
+                    <child type="suffix">
+                      <object class="GtkImage">
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="valign">center</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="row_web">
+                    <property name="icon-name">web-browser-symbolic</property>
+                    <property name="title" translatable="yes">Web Browser</property>
+                    <property name="subtitle" translatable="yes">Search online for help</property>
+                    <property name="activatable">true</property>
+                    <child type="suffix">
+                      <object class="GtkImage">
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="valign">center</property>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
         </child>
-    </template>
+      </object>
+    </child>
+  </template>
 </interface>
