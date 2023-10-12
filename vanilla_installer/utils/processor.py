@@ -242,39 +242,56 @@ class Processor:
         post_install_steps = []
 
         setup_steps.append([disk, "label", ["gpt"]])
-
         # Boot
         setup_steps.append([disk, "mkpart", ["vos-boot", "ext4", 1, 1025]])
         if Systeminfo.is_uefi():
             setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
-            part_offset = 1537
         else:
             setup_steps.append([disk, "mkpart", ["BIOS", "fat32", 1025, 1026]])
             setup_steps.append([disk, "setflag", ["2", "bios_grub", True]])
-            part_offset = 1026
+
+        # LVM PVs
+        setup_steps.append([disk, "mkpart", ["vos-root", "btrfs", 1, 20481]])
+        setup_steps.append([disk, "mkpart", ["vos-var", "btrfs", 20481, -1]])
+        if not re.match(r"[0-9]", disk[-1]):
+            part_prefix = f"{disk}"
+        else:
+            part_prefix = f"{disk}p"
+        setup_steps.append([disk, "pvcreate", part_prefix + "1"])
+
+        # LVM VGs
+        setup_steps.append([disk, "vgcreate", "vos-root", part_prefix + "1"])
+        setup_steps.append([disk, "vgcreate", "vos-var", part_prefix + "2"])
+
+        # LVM root thin pool
+        setup_steps.append([disk, "lvcreate", "root", "vos-root", "linear", 19456])
+        setup_steps.append([disk, "lvcreate", "root-meta", "vos-root", "linear", 1024])
+        setup_steps.append(
+            [disk, "make-thin-pool", "root-pool", "vos-root/root", "vos-root/root-meta"]
+        )
+        setup_steps.append(
+            [disk, "lvcreate-thin", "root-a", "vos-root", 20480, "root-pool"]
+        )
+        setup_steps.append(
+            [disk, "lvcreate-thin", "root-b", "vos-root", 20480, "root-pool"]
+        )
+        setup_steps.append([disk, "lvm-format", "vos-root/root-a", "btrfs"])
+        setup_steps.append([disk, "lvm-format", "vos-root/root-b", "btrfs"])
 
         # Should we encrypt?
-        fs = "luks-btrfs" if encrypt else "btrfs"
+        # fs = "luks-btrfs" if encrypt else "btrfs"
+        # def _params(*args):
+        #     base_params = [*args]
+        #     if encrypt:
+        #         assert isinstance(password, str)
+        #         base_params.append(password)
+        #     return base_params
 
-        def _params(*args):
-            base_params = [*args]
-            if encrypt:
-                assert isinstance(password, str)
-                base_params.append(password)
-            return base_params
-
-        # Roots
-        setup_steps.append(
-            [disk, "mkpart", ["vos-a", "btrfs", part_offset, part_offset + root_size]]
-        )
-        part_offset += root_size
-        setup_steps.append(
-            [disk, "mkpart", ["vos-b", "btrfs", part_offset, part_offset + root_size]]
-        )
-        part_offset += root_size
-
-        # Home
-        setup_steps.append([disk, "mkpart", _params("vos-var", fs, part_offset, -1)])
+        # LVM var
+        # FIXME: Figure out the disk size, subract 21GiB, add as var LV size
+        # FIXME: Support LUKS encryption
+        setup_steps.append([disk, "lvcreate", "var", "vos-var", 19456])
+        setup_steps.append([disk, "lvm-format", "vos-var/var", "btrfs"])
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
