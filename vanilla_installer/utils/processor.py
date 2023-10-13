@@ -169,7 +169,7 @@ ExecStart=/usr/sbin/.abroot-mountpoints
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
-AlbiusInstallation = dict[str, str, list[str], list[str]]
+AlbiusInstallation = dict[str, str | list[str]]
 AlbiusPostInstallStep = dict[str, Union[bool, str, list[Any]]]
 
 
@@ -377,12 +377,12 @@ class Processor:
         return setup_steps, mountpoints, post_install_steps
 
     @staticmethod
-    def __find_partitions(recipe):
-        boot_partition = None
-        efi_partition = None
-        root_a_partition = None
-        root_b_partition = None
-        var_partition = None
+    def __find_partitions(recipe: AlbiusRecipe) -> tuple[str, str, str, str, str]:
+        boot_partition = ""
+        efi_partition = ""
+        root_a_partition = ""
+        root_b_partition = ""
+        var_partition = ""
 
         for mnt in recipe.mountpoints:
             if mnt["target"] == "/boot":
