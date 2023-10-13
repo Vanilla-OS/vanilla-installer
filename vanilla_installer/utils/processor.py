@@ -687,25 +687,25 @@ class Processor:
                         chroot=True,
                     )
 
-            # Create /abimage.abr
-            with open("/tmp/abimage.abr", "w") as file:
-                abimage = _ABIMAGE_FILE % (
-                    "$IMAGE_DIGEST",
-                    datetime.now().astimezone().isoformat(),
-                    oci_image,
-                )
-                file.write(abimage)
-
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    " ".join(
-                        "IMAGE_DIGEST=$(cat /mnt/a/.oci_digest) \
-                        envsubst < /tmp/abimage.abr > /mnt/a/abimage.abr \
-                        '$IMAGE_DIGEST'".split()
-                    )
-                ],
+        # Create /abimage.abr
+        with open("/tmp/abimage.abr", "w") as file:
+            abimage = _ABIMAGE_FILE % (
+                "$IMAGE_DIGEST",
+                datetime.now().astimezone().isoformat(),
+                oci_image,
             )
+            file.write(abimage)
+
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                " ".join(
+                    "IMAGE_DIGEST=$(cat /mnt/a/.oci_digest) \
+                    envsubst < /tmp/abimage.abr > /mnt/a/abimage.abr \
+                    '$IMAGE_DIGEST'".split()
+                )
+            ],
+        )
 
         # Set the default user as the owned of it's home directory
         recipe.add_postinstall_step(
