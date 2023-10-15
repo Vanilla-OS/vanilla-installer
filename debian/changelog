@@ -1,3 +1,9 @@
+vanilla-installer (2.3.7) unstable; urgency=critical
+
+  * Fix grub installation using incorrect prefix
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 21 Sep 2023 20:13:00 -0300
+
 vanilla-installer (2.3.6) unstable; urgency=critical
 
   * Improve startup speed
