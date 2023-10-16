@@ -38,8 +38,8 @@ _ROOT_GRUB_CFG = """insmod gzio
 insmod part_gpt
 insmod ext2
 search --no-floppy --fs-uuid --set=root %s
-linux   /.system/boot/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff
-initrd  /.system/boot/initrd.img-%s
+linux   (lvm/vos--root-init)/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff
+initrd  (lvm/vos--root-init)/initrd.img-%s
 """
 
 _BOOT_GRUB_CFG = """set default=0
@@ -247,8 +247,8 @@ class Processor:
         setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
 
         # LVM PVs
-        setup_steps.append([disk, "mkpart", ["vos-root", "btrfs", 1537, 23044]])
-        setup_steps.append([disk, "mkpart", ["vos-var", "btrfs", 23044, -1]])
+        setup_steps.append([disk, "mkpart", ["vos-root", "btrfs", 1537, 23556]])
+        setup_steps.append([disk, "mkpart", ["vos-var", "btrfs", 23556, -1]])
         if not re.match(r"[0-9]", disk[-1]):
             part_prefix = f"{disk}"
         else:
@@ -259,6 +259,10 @@ class Processor:
         # LVM VGs
         setup_steps.append([disk, "vgcreate", ["vos-root", [part_prefix + "3"]]])
         setup_steps.append([disk, "vgcreate", ["vos-var", [part_prefix + "4"]]])
+
+        # Init files LV
+        setup_steps.append([disk, "lvcreate", ["init", "vos-root", "linear", 512]])
+        setup_steps.append([disk, "lvm-format", ["vos-root/init", "ext4"]])
 
         # LVM root thin pool
         setup_steps.append([disk, "lvcreate", ["root", "vos-root", "linear", 19456]])
@@ -610,6 +614,19 @@ class Processor:
             # Run `grub-mkconfig` inside the root partition
             recipe.add_postinstall_step(
                 "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+            )
+
+            # Copy init files to init LV
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    "mkdir /.system/boot/init",
+                    "mount /dev/vos--root-init /boot/init",
+                    "mv /.system/boot/vmlinuz* /.system/boot/init",
+                    "mv /.system/boot/initrd* /.system/boot/init",
+                    "umount /"
+                ],
+                chroot=True,
             )
 
             # Add `/boot/grub/abroot.cfg` to the root partition
