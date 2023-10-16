@@ -621,7 +621,7 @@ class Processor:
                 "shell",
                 [
                     "mkdir /.system/boot/init",
-                    "mount /dev/vos--root-init /boot/init",
+                    "mount /dev/vos-root/init /.system/boot/init",
                     "mv /.system/boot/vmlinuz* /.system/boot/init",
                     "mv /.system/boot/initrd* /.system/boot/init",
                     "umount /.system/boot/init",
