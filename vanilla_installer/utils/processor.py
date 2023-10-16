@@ -624,7 +624,7 @@ class Processor:
                     "mount /dev/vos--root-init /boot/init",
                     "mv /.system/boot/vmlinuz* /.system/boot/init",
                     "mv /.system/boot/initrd* /.system/boot/init",
-                    "umount /"
+                    "umount /.system/boot/init",
                 ],
                 chroot=True,
             )
