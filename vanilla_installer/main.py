@@ -19,15 +19,17 @@ import sys
 from gettext import gettext as _
 
 import gi
-from gi.repository import Adw, Gio
-
-from vanilla_installer.windows.main_window import VanillaWindow
-
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 gi.require_version("GnomeDesktop", "4.0")
 gi.require_version("GWeather", "4.0")
 gi.require_version("Vte", "3.91")
+gi.require_version('NM', '1.0')
+gi.require_version('NMA4', '1.0')
+from gi.repository import Adw, Gio
+
+from vanilla_installer.windows.main_window import VanillaWindow
+
 
 
 logging.basicConfig(level=logging.INFO)
