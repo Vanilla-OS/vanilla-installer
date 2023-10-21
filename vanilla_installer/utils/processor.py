@@ -482,15 +482,15 @@ class Processor:
             ],
         )
         # Create SystemD unit to setup mountpoints
+        target = "cryptsetup" if encrypt else "local-fs"
         with open("/tmp/systemd-mount", "w") as file:
-            target = "cryptsetup" if encrypt else "local-fs"
             file.write(_SYSTEMD_MOUNT_UNIT % (target, target))
         recipe.add_postinstall_step(
             "shell",
             [
                 "cp /tmp/systemd-mount /mnt/a/etc/systemd/system/abroot-mount.service",
-                "mkdir -p /mnt/a/etc/systemd/system/cryptsetup.target.wants",
-                "ln -s /mnt/a/etc/systemd/system/abroot-mount.service /mnt/a/etc/systemd/system/cryptsetup.target.wants/abroot-mount.service",
+                f"mkdir -p /mnt/a/etc/systemd/system/{target}.target.wants",
+                f"ln -s /mnt/a/etc/systemd/system/abroot-mount.service /mnt/a/etc/systemd/system/{target}.target.wants/abroot-mount.service",
             ],
         )
 
