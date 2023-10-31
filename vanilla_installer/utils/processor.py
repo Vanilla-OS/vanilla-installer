@@ -295,7 +295,7 @@ class Processor:
 
         # LVM var
         # FIXME: Support LUKS encryption
-        setup_steps.append([disk, "lvcreate", ["var", "vos-var", "linear", "100%%FREE"]])
+        setup_steps.append([disk, "lvcreate", ["var", "vos-var", "linear", "100%FREE"]])
         setup_steps.append([disk, "lvm-format", ["vos-var/var", "btrfs"]])
 
         # Mountpoints
@@ -608,7 +608,6 @@ class Processor:
                     "mkdir /.system/boot/init/b",
                     "mv /.system/boot/vmlinuz* /.system/boot/init/a",
                     "mv /.system/boot/initrd* /.system/boot/init/a",
-                    "umount /.system/boot/init",
                 ],
                 chroot=True,
             )
