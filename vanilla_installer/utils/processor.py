@@ -261,7 +261,7 @@ class Processor:
 
         # Init files LV
         setup_steps.append([disk, "lvcreate", ["init", "vos-root", "linear", 512]])
-        setup_steps.append([disk, "lvm-format", ["vos-root/init", "ext4"]])
+        setup_steps.append([disk, "lvm-format", ["vos-root/init", "ext4", "vos-init"]])
 
         # LVM root thin pool
         setup_steps.append([disk, "lvcreate", ["root", "vos-root", "linear", 19456]])
@@ -281,8 +281,8 @@ class Processor:
         setup_steps.append(
             [disk, "lvcreate-thin", ["root-b", "vos-root", 19456, "root"]]
         )
-        setup_steps.append([disk, "lvm-format", ["vos-root/root-a", "btrfs"]])
-        setup_steps.append([disk, "lvm-format", ["vos-root/root-b", "btrfs"]])
+        setup_steps.append([disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]])
+        setup_steps.append([disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]])
 
         # Should we encrypt?
         # fs = "luks-btrfs" if encrypt else "btrfs"
@@ -296,7 +296,7 @@ class Processor:
         # LVM var
         # FIXME: Support LUKS encryption
         setup_steps.append([disk, "lvcreate", ["var", "vos-var", "linear", "100%FREE"]])
-        setup_steps.append([disk, "lvm-format", ["vos-var/var", "btrfs"]])
+        setup_steps.append([disk, "lvm-format", ["vos-var/var", "btrfs", "vos-var"]])
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
