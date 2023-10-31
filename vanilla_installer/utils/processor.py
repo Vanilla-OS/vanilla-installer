@@ -587,6 +587,9 @@ class Processor:
             # Replace main GRUB entry in the boot partition
             with open("/tmp/boot-grub.cfg", "w") as file:
                 file.write(_BOOT_GRUB_CFG)
+            recipe.add_postinstall_step(
+                "shell", ["cp /tmp/boot-grub.cfg /mnt/a/boot/grub/grub.cfg"]
+            )
 
             # Unmount boot partition so we can modify the root GRUB config
             recipe.add_postinstall_step(
