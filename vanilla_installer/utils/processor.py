@@ -717,6 +717,16 @@ class Processor:
             late=True,
         )
 
+        # Set ABRoot Thin-Provisioning option
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                "cp /usr/share/abroot/abroot.json /etc/abroot",
+                'echo -e "$(head -n-1 /etc/abroot/abroot.json),\n    \"thinProvisioning\": true,\n    \"thinInitVolume\": \"vos-init\"\n}"',
+            ],
+            chroot=True,
+        )
+
         recipe.merge_postinstall_steps()
 
         if "VANILLA_FAKE" in os.environ:
