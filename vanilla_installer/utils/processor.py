@@ -709,7 +709,7 @@ class Processor:
             ],
         )
 
-        # Set the default user as the owned of it's home directory
+        # Set the default user as the owner of it's home directory
         recipe.add_postinstall_step(
             "shell",
             ["chown -R vanilla:vanilla /home/vanilla"],
@@ -721,8 +721,8 @@ class Processor:
         recipe.add_postinstall_step(
             "shell",
             [
-                "cp /usr/share/abroot/abroot.json /etc/abroot",
-                'echo -e "$(head -n-1 /etc/abroot/abroot.json),\n    \"thinProvisioning\": true,\n    \"thinInitVolume\": \"vos-init\"\n}"',
+                "mkdir -p /etc/abroot",
+                'echo -e "$(head -n-1 /usr/share/abroot/abroot.json),\n    \"thinProvisioning\": true,\n    \"thinInitVolume\": \"vos-init\"\n}" > /etc/abroot/abroot.json',
             ],
             chroot=True,
         )
