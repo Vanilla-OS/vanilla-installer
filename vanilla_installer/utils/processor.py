@@ -722,7 +722,7 @@ class Processor:
             "shell",
             [
                 "mkdir -p /etc/abroot",
-                'echo -e "$(head -n-1 /usr/share/abroot/abroot.json),\n    \"thinProvisioning\": true,\n    \"thinInitVolume\": \"vos-init\"\n}" > /etc/abroot/abroot.json',
+                'echo -e "$(head -n-1 /usr/share/abroot/abroot.json),\n    \\\"thinProvisioning\\\": true,\n    \\\"thinInitVolume\\\": \\\"vos-init\\\"\n}" > /etc/abroot/abroot.json',
             ],
             chroot=True,
         )
