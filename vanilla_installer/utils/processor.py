@@ -159,7 +159,7 @@ mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale
 _SYSTEMD_MOUNT_UNIT = """[Unit]
 Description=Mount partitions
 Requires=%s.target
-After=%s.target
+Before=sysinit.target
 
 [Service]
 Type=oneshot
@@ -482,7 +482,7 @@ class Processor:
         # Create SystemD unit to setup mountpoints
         target = "cryptsetup" if encrypt else "local-fs"
         with open("/tmp/systemd-mount", "w") as file:
-            file.write(_SYSTEMD_MOUNT_UNIT % (target, target))
+            file.write(_SYSTEMD_MOUNT_UNIT % target)
         recipe.add_postinstall_step(
             "shell",
             [
