@@ -27,11 +27,12 @@ jobs:
 
     - name: Build debian package
       run: dpkg-buildpackage --no-sign
-    
-    - name: De-bloat stock image
-      run: |
-        ls ../
-        echo $PWD
+
+    - uses: softprops/action-gh-release@v1
+      with:
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        files: |
+          /__w/vanilla-installer/*.deb
 
     - uses: actions/upload-artifact@v3
       with:
