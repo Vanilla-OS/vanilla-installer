@@ -1,0 +1,34 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/vanilla-os/pico:main
+      volumes:
+        - /proc:/proc
+        - /:/run/host
+      options: --privileged -it
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: De-bloat stock image
+      run: |
+        rm -r /run/host/usr/share/dotnet
+        rm -r /run/host${{ runner.tool_cache }}
+
+    - name: Install needed packages
+      run: ls && apt update && apt install dpkg-dev -y
+
+    - name: Build debian package
+      run: dpkg-build-package --no-sign
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: vanilla-installer
+        path: builds/
