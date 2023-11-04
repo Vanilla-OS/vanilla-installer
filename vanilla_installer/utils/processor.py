@@ -284,19 +284,14 @@ class Processor:
         setup_steps.append([disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]])
         setup_steps.append([disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]])
 
-        # Should we encrypt?
-        # fs = "luks-btrfs" if encrypt else "btrfs"
-        # def _params(*args):
-        #     base_params = [*args]
-        #     if encrypt:
-        #         assert isinstance(password, str)
-        #         base_params.append(password)
-        #     return base_params
-
         # LVM var
-        # FIXME: Support LUKS encryption
         setup_steps.append([disk, "lvcreate", ["var", "vos-var", "linear", "100%FREE"]])
-        setup_steps.append([disk, "lvm-format", ["vos-var/var", "btrfs", "vos-var"]])
+        lvm_var_args = ["vos-var/var", "btrfs", "vos-var"]
+        if encrypt:
+            lvm_var_args.insert(2, password)
+        setup_steps.append(
+            [disk, "lvm-luks-format" if encrypt else "lvm-format", lvm_var_args]
+        )
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
