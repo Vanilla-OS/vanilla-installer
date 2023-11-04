@@ -31,6 +31,9 @@ jobs:
     - uses: softprops/action-gh-release@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
+        tag_name: "continuous"
+        prerelease: true
+        name: "Continuous Build"
         files: |
           /__w/vanilla-installer/*.deb
 
