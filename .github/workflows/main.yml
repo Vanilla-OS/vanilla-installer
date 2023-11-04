@@ -23,10 +23,15 @@ jobs:
         rm -r /run/host${{ runner.tool_cache }}
 
     - name: Install needed packages
-      run: ls && apt update && apt install dpkg-dev build-essential debhelper python3 meson libadwaita-1-dev libgnome-desktop-4-dev libgweather-4-dev gettext desktop-file-utils make libjpeg-dev libnm-dev libnma-dev libnma-gtk4-dev -y
+      run: apt update && apt install dpkg-dev build-essential debhelper python3 meson libadwaita-1-dev libgnome-desktop-4-dev libgweather-4-dev gettext desktop-file-utils make libjpeg-dev libnm-dev libnma-dev libnma-gtk4-dev -y
 
     - name: Build debian package
       run: dpkg-buildpackage --no-sign
+    
+    - name: De-bloat stock image
+      run: |
+        ls ../
+        echo $PWD
 
     - uses: actions/upload-artifact@v3
       with:
