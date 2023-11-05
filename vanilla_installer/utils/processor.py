@@ -569,8 +569,8 @@ class Processor:
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
-                    f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
+                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/.system/etc/fstab',
+                    f"sed -i -r '{fstab_regex}' /mnt/a/.system/etc/fstab",
                 ],
             )
 
