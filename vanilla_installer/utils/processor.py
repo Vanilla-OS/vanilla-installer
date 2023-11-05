@@ -29,7 +29,7 @@ logger = logging.getLogger("Installer::Processor")
 # fmt: off
 _BASE_DIRS = ["boot", "dev", "home", "media", "mnt", "var", "opt",
               "part-future", "proc", "root", "run", "srv", "sys", "tmp"]
-_REL_LINKS = ["usr", "usr/bin", "usr/lib",
+_REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
               "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
 _REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
 # fmt: on
@@ -564,35 +564,7 @@ class Processor:
                 late=True,
             )
 
-            # Keep only root A entry in fstab
-            fstab_regex = r"/^[^#]\S+\s+\/\S+\s+.+$/d"
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
-                    f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
-                ],
-            )
-
-            # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "mv /.system/home /var",
-                    "mv /.system/opt /var",
-                    "mv /.system/tmp /var",
-                    "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
-                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
-                    "mv /var/storage /var/lib/abroot/",
-                    "mount -o bind /var/home /home",
-                    "mount -o bind /var/opt /opt",
-                    "mount -o bind,ro /.system/usr /usr",
-                    "mkdir -p /var/lib/abroot/etc/vos-a/locales",
-                    "mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale",
-                ],
-                chroot=True,
-            )
-
+            # TODO: Install grub-pc if target is BIOS
             # Run `grub-install` with the boot partition as target
             grub_type = "efi" if Systeminfo.is_uefi() else "bios"
             recipe.add_postinstall_step(
@@ -657,6 +629,35 @@ class Processor:
                         '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
                     )
                 ],
+            )
+
+            # Keep only root A entry in fstab
+            fstab_regex = r"/^[^#]\S+\s+\/\S+\s+.+$/d"
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
+                    f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
+                ],
+            )
+
+            # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
+            recipe.add_postinstall_step(
+                "shell",
+                [
+                    "mv /.system/home /var",
+                    "mv /.system/opt /var",
+                    "mv /.system/tmp /var",
+                    "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
+                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
+                    "mv /var/storage /var/lib/abroot/",
+                    "mount -o bind /var/home /home",
+                    "mount -o bind /var/opt /opt",
+                    "mount -o bind,ro /.system/usr /usr",
+                    "mkdir -p /var/lib/abroot/etc/vos-a/locales",
+                    "mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale",
+                ],
+                chroot=True,
             )
 
         # Set hostname
