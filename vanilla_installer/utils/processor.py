@@ -377,6 +377,8 @@ class Processor:
                 setup_steps.append(
                     [part_disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]]
                 )
+                mountpoints.append(["/dev/vos-root/root-a", "/"])
+                mountpoints.append(["/dev/vos-root/root-b", "/"])
             elif values["mp"] == "/boot":
                 setup_partition("vos-boot")
             elif values["mp"] == "/boot/efi":
