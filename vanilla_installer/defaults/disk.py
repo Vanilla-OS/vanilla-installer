@@ -122,10 +122,10 @@ class PartitionRow(Adw.ActionRow):
 
         # Sets already selected partitions as not sensitive
         self.__page.update_partition_rows()
-        # Checks whether we can proceed with installation
-        self.__page.update_apply_button_status()
         # Checks whether selected partitions are big enough
         self.__page.check_selected_partitions_sizes()
+        # Checks whether we can proceed with installation
+        self.__page.update_apply_button_status()
 
     def __on_dropdown_selected(self, widget, _):
         fs_type = self.__partition_fs_types[widget.get_selected()]
@@ -607,7 +607,7 @@ class VanillaDefaultDisk(Adw.Bin):
         )
 
         # append the disks widgets
-        for index, disk in enumerate(self.__disks.all_disks):
+        for disk in self.__disks.all_disks:
             entry = VanillaDefaultDiskEntry(self, disk)
             self.group_disks.add(entry)
 
