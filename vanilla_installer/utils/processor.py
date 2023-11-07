@@ -248,10 +248,7 @@ class Processor:
         # LVM PVs
         setup_steps.append([disk, "mkpart", ["vos-root", "btrfs", 1537, 23556]])
         setup_steps.append([disk, "mkpart", ["vos-var", "btrfs", 23556, -1]])
-        if not re.match(r"[0-9]", disk[-1]):
-            part_prefix = f"{disk}"
-        else:
-            part_prefix = f"{disk}p"
+        part_prefix = f"{disk}p" if re.match(r"[0-9]", disk[-1]) else f"{disk}"
         setup_steps.append([disk, "pvcreate", [part_prefix + "3"]])
         setup_steps.append([disk, "pvcreate", [part_prefix + "4"]])
 
@@ -321,55 +318,74 @@ class Processor:
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
         # But we still need to format partitions.
-        root_a_set = False
         for part, values in disk_final.items():
-            part_disk = re.match(
-                r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", part, re.MULTILINE
-            )[0]
-            part_number = re.sub(r".*[a-z]([0-9]+)", r"\1", part)
+            disk_regex = r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?"
+            part_regex = r".*[a-z]([0-9]+)"
+            part_disk = re.match(disk_regex, part, re.MULTILINE)[0]
+            part_number = re.sub(part_regex, r"\1", part)
 
-            # Should we encrypt?
-            operation = (
-                "luks-format" if encrypt and values["mp"] in ["/var"] else "format"
-            )
-
-            def _params(*args):
-                base_params = [*args]
-                if encrypt and values["mp"] in ["/var"]:
-                    assert isinstance(password, str)
-                    base_params.append(password)
-                return base_params
-
-            setup_steps.append(
-                [part_disk, operation, _params(part_number, values["fs"])]
-            )
-
-            if not Systeminfo.is_uefi() and values["mp"] == "":
+            def setup_partition(
+                part_name: str, encrypt: bool = False, password: str = None
+            ):
+                format_args = [part_number, values["fs"]]
+                if encrypt:
+                    operation = "luks-format"
+                    assert password is not None
+                    format_args.append(password)
+                else:
+                    operation = "format"
+                setup_steps.append([part_disk, operation, format_args])
                 setup_steps.append(
-                    [part_disk, "setflag", [part_number, "bios_grub", True]]
+                    [part_disk, "namepart", [part_number, values["fs"], part_name]]
+                )
+                mountpoints.append([part, values["mp"]])
+
+            if values["mp"] == "/":
+                setup_steps.append([part_disk, "pvcreate", [part_number]])
+                setup_steps.append([part_disk, "vgcreate", ["vos-root", [part_number]]])
+                setup_steps.append(
+                    [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvm-format", ["vos-root/init", "ext4", "vos-init"]]
                 )
 
-            # Set partition labels for ABRoot
-            part_name = ""
-            if values["mp"] == "/":
-                if not root_a_set:
-                    part_name = "vos-a"
-                    root_a_set = True
-                else:
-                    part_name = "vos-b"
+                # LVM root thin pool
+                # Total pool size is subtracted from the init and metedata volumes
+                thin_size = values["size"] - 1024 - 512
+                setup_steps.append(
+                    [part_disk, "lvcreate", ["root", "vos-root", "linear", thin_size]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvcreate", ["root-meta", "vos-root", "linear", 1024]]
+                )
+                setup_steps.append(
+                    [
+                        part_disk,
+                        "make-thin-pool",
+                        ["vos-root/root", "vos-root/root-meta"],
+                    ]
+                )
+                setup_steps.append(
+                    [part_disk, "lvcreate-thin", ["root-a", "vos-root", thin_size, "root"]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvcreate-thin", ["root-b", "vos-root", thin_size, "root"]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]]
+                )
             elif values["mp"] == "/boot":
-                part_name = "vos-boot"
+                setup_partition("vos-boot")
             elif values["mp"] == "/boot/efi":
-                part_name = "vos-efi"
+                setup_partition("vos-efi")
             elif values["mp"] == "/var":
-                part_name = "vos-var"
-
-            setup_steps.append([part_disk, "namepart", [part_number, part_name]])
-
-            if values["mp"] == "swap":
+                setup_partition("vos-var", encrypt, password)
+            elif values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
-            else:
-                mountpoints.append([part, values["mp"]])
 
         return setup_steps, mountpoints, post_install_steps
 

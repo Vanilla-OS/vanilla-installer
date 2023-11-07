@@ -86,13 +86,12 @@ class PartitionRow(Adw.ActionRow):
         fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
         fs_dropdown.set_valign(Gtk.Align.CENTER)
         fs_dropdown.set_visible(False)
+
+        selected_fs = self.__default_fs
         if self.__partition.fs_type in self.__partition_fs_types:
-            fs_dropdown.set_selected(
-                self.__partition_fs_types.index(self.__partition.fs_type)
-            )
-        else:
-            fs_dropdown.set_selected(
-                self.__partition_fs_types.index(self.__default_fs))
+            selected_fs = self.__partition.fs_type
+
+        fs_dropdown.set_selected(self.__partition_fs_types.index(selected_fs))
         fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
         self.suffix_bin.set_child(fs_dropdown)
 
@@ -112,8 +111,7 @@ class PartitionRow(Adw.ActionRow):
         if dropdown:
             dropdown.set_visible(True)
             fs_type = self.__partition_fs_types[dropdown.get_selected()]
-            self.__parent.set_subtitle(
-                f"{self.__partition.pretty_size} ({fs_type})")
+            self.__parent.set_subtitle(f"{self.__partition.pretty_size} ({fs_type})")
         else:
             self.__parent.set_subtitle(f"{self.__partition.pretty_size}")
 
@@ -222,7 +220,7 @@ class PartitionSelector(Adw.PreferencesPage):
         for i, widget in enumerate(self.__boot_part_rows):
             self.boot_part_expand.add_row(widget)
             widget.add_siblings(
-                self.__boot_part_rows[:i] + self.__boot_part_rows[i + 1:]
+                self.__boot_part_rows[:i] + self.__boot_part_rows[i + 1 :]
             )
             self.__selected_partitions["boot_part_expand"]["fstype"] = "ext4"
 
@@ -234,7 +232,7 @@ class PartitionSelector(Adw.PreferencesPage):
             for i, widget in enumerate(self.__efi_part_rows):
                 self.efi_part_expand.add_row(widget)
                 widget.add_siblings(
-                    self.__efi_part_rows[:i] + self.__efi_part_rows[i + 1:]
+                    self.__efi_part_rows[:i] + self.__efi_part_rows[i + 1 :]
                 )
                 self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
 
@@ -250,7 +248,7 @@ class PartitionSelector(Adw.PreferencesPage):
             for i, widget in enumerate(self.__bios_part_rows):
                 self.bios_part_expand.add_row(widget)
                 widget.add_siblings(
-                    self.__bios_part_rows[:i] + self.__bios_part_rows[i + 1:]
+                    self.__bios_part_rows[:i] + self.__bios_part_rows[i + 1 :]
                 )
                 self.__selected_partitions["bios_part_expand"]["fstype"] = "ext4"
 
@@ -265,8 +263,7 @@ class PartitionSelector(Adw.PreferencesPage):
         for i, widget in enumerate(self.__root_part_rows):
             self.root_part_expand.add_row(widget)
             widget.add_siblings(
-                self.__root_part_rows[:i] +
-                self.__root_part_rows[i + 1:]
+                self.__root_part_rows[:i] + self.__root_part_rows[i + 1 :]
             )
             self.__selected_partitions["root_part_expand"]["fstype"] = "btrfs"
 
@@ -276,7 +273,7 @@ class PartitionSelector(Adw.PreferencesPage):
         for i, widget in enumerate(self.__var_part_rows):
             self.var_part_expand.add_row(widget)
             widget.add_siblings(
-                self.__var_part_rows[:i] + self.__var_part_rows[i + 1:]
+                self.__var_part_rows[:i] + self.__var_part_rows[i + 1 :]
             )
             self.__selected_partitions["var_part_expand"]["fstype"] = "btrfs"
 
@@ -286,7 +283,7 @@ class PartitionSelector(Adw.PreferencesPage):
         for i, widget in enumerate(self.__swap_part_rows):
             self.swap_part_expand.add_row(widget)
             widget.add_siblings(
-                self.__swap_part_rows[:i] + self.__swap_part_rows[i + 1:]
+                self.__swap_part_rows[:i] + self.__swap_part_rows[i + 1 :]
             )
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
@@ -368,22 +365,19 @@ class PartitionSelector(Adw.PreferencesPage):
                     )
                     if partition == "boot_part_expand":
                         self.boot_part_expand.get_style_context().add_class("error")
-                        self.boot_small_error.set_description(
-                            error_description)
+                        self.boot_small_error.set_description(error_description)
                         self.boot_small_error.set_visible(True)
                     elif partition == "efi_part_expand":
                         self.efi_part_expand.get_style_context().add_class("error")
                         self.efi_small_error.set_description(error_description)
                         self.efi_small_error.set_visible(True)
-                    elif (partition == "root_part_expand"):
+                    elif partition == "root_part_expand":
                         self.root_part_expand.get_style_context().add_class("error")
-                        self.root_small_error.set_description(
-                            error_description)
+                        self.root_small_error.set_description(error_description)
                         self.root_small_error.set_visible(True)
                     elif partition == "var_part_expand":
                         self.var_part_expand.get_style_context().add_class("error")
-                        self.var_small_error.set_description(
-                            error_description)
+                        self.var_small_error.set_description(error_description)
                         self.var_small_error.set_visible(True)
 
         # Special case for BIOS, where the partitions needs to be EXACTLY 1 MiB
@@ -500,8 +494,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
             if current_partitions != self.__partitions:
                 self.__partition_selector.cleanup()
                 self.__partition_selector.unrealize()
-                self.__partition_selector = PartitionSelector(
-                    self, self.__partitions)
+                self.__partition_selector = PartitionSelector(self, self.__partitions)
                 self.group_partitions.set_child(self.__partition_selector)
                 partitions_changed_toast = Adw.Toast.new(
                     _("Partitions have changed. Current selections have been cleared.")
@@ -640,13 +633,11 @@ class VanillaDefaultDisk(Adw.Bin):
                 "size": self.__selected_disks[0].size,
             }
         }
-        modal = VanillaDefaultDiskConfirmModal(
-            self.__window, self.__partition_recipe)
+        modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
         modal.present()
 
     def __on_manual_clicked(self, button):
-        modal = VanillaDefaultDiskPartModal(
-            self.__window, self, self.__selected_disks)
+        modal = VanillaDefaultDiskPartModal(self.__window, self, self.__selected_disks)
         modal.connect("partitioning-set", self.__on_modal_close_request)
         modal.present()
 
@@ -674,6 +665,5 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__partition_recipe = recipe
 
     def __on_btn_next_clicked(self, button):
-        modal = VanillaDefaultDiskConfirmModal(
-            self.__window, self.__partition_recipe)
+        modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
         modal.present()
