@@ -339,8 +339,8 @@ class Processor:
                 mountpoints.append([part, values["mp"]])
 
             if values["mp"] == "/":
-                setup_steps.append([part_disk, "pvcreate", [part_number]])
                 part_prefix = f"{part_disk}p" if re.match(r"[0-9]", part_disk[-1]) else f"{part_disk}"
+                setup_steps.append([part_disk, "pvcreate", [part_prefix + part_number]])
                 setup_steps.append([part_disk, "vgcreate", ["vos-root", [part_prefix + part_number]]])
                 setup_steps.append(
                     [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
