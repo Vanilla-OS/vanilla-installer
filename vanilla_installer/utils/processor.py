@@ -334,14 +334,20 @@ class Processor:
                     format_args.append(password)
                 else:
                     operation = "format"
+                format_args.append(part_name)
                 setup_steps.append([part_disk, operation, format_args])
-                setup_steps.append([part_disk, "namepart", [part_number, part_name]])
                 mountpoints.append([part, values["mp"]])
 
             if values["mp"] == "/":
-                part_prefix = f"{part_disk}p" if re.match(r"[0-9]", part_disk[-1]) else f"{part_disk}"
+                part_prefix = (
+                    f"{part_disk}p"
+                    if re.match(r"[0-9]", part_disk[-1])
+                    else f"{part_disk}"
+                )
                 setup_steps.append([part_disk, "pvcreate", [part_prefix + part_number]])
-                setup_steps.append([part_disk, "vgcreate", ["vos-root", [part_prefix + part_number]]])
+                setup_steps.append(
+                    [part_disk, "vgcreate", ["vos-root", [part_prefix + part_number]]]
+                )
                 setup_steps.append(
                     [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
                 )
@@ -350,13 +356,16 @@ class Processor:
                 )
 
                 # LVM root thin pool
-                # Total pool size is subtracted from the init and metedata volumes
-                thin_size = values["size"] - 1024 - 512
-                setup_steps.append(
-                    [part_disk, "lvcreate", ["root", "vos-root", "linear", thin_size]]
-                )
+                # Total pool size is the disk size, subtracted by:
+                # - 512 MiB from the init LV
+                # - 1024 MiB from the metadata LV
+                # - 1028 MiB from LVM's internals (4 MiB header and 1024 MiB for thin)
+                thin_size = (values["size"] / 1_048_576) - 1024 - 512 - 1028
                 setup_steps.append(
                     [part_disk, "lvcreate", ["root-meta", "vos-root", "linear", 1024]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvcreate", ["root", "vos-root", "linear", thin_size]]
                 )
                 setup_steps.append(
                     [
@@ -366,10 +375,18 @@ class Processor:
                     ]
                 )
                 setup_steps.append(
-                    [part_disk, "lvcreate-thin", ["root-a", "vos-root", thin_size, "root"]]
+                    [
+                        part_disk,
+                        "lvcreate-thin",
+                        ["root-a", "vos-root", thin_size, "root"],
+                    ]
                 )
                 setup_steps.append(
-                    [part_disk, "lvcreate-thin", ["root-b", "vos-root", thin_size, "root"]]
+                    [
+                        part_disk,
+                        "lvcreate-thin",
+                        ["root-b", "vos-root", thin_size, "root"],
+                    ]
                 )
                 setup_steps.append(
                     [part_disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]]
@@ -734,7 +751,7 @@ class Processor:
             "shell",
             [
                 "mkdir -p /etc/abroot",
-                'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n    \\\"thinProvisioning\\\": true,\n    \\\"thinInitVolume\\\": \\\"vos-init\\\"\n}" > /etc/abroot/abroot.json',
+                'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n    \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
             ],
             chroot=True,
         )
