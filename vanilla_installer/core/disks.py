@@ -191,7 +191,7 @@ class DisksManager:
         disks = []
 
         for disk in os.listdir("/sys/block"):
-            if disk.startswith(("loop", "ram", "sr", "zram")):
+            if disk.startswith(("loop", "ram", "sr", "zram", "dm-")):
                 continue
 
             if os.path.isfile("/sys/block/" + disk + "/removable"):
