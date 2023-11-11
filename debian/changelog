@@ -1,3 +1,9 @@
+vanilla-installer (2.4.0) unstable; urgency=critical
+
+  * Switch installation to LVM thin-provisioning
+
+ -- Mateus Melchiades <matbme@duck.com>  Sat, 10 Nov 2023 21:15:00 -0300
+
 vanilla-installer (2.3.7) unstable; urgency=critical
 
   * Fix grub installation using incorrect prefix
