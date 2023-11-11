@@ -1,0 +1,43 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/vanilla-os/pico:main
+      volumes:
+        - /proc:/proc
+        - /:/run/host
+      options: --privileged -it
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: De-bloat stock image
+      run: |
+        rm -r /run/host/usr/share/dotnet
+        rm -r /run/host${{ runner.tool_cache }}
+
+    - name: Install needed packages
+      run: apt update && apt install dpkg-dev build-essential debhelper python3 meson libadwaita-1-dev libgnome-desktop-4-dev libgweather-4-dev gettext desktop-file-utils make libjpeg-dev libnm-dev libnma-dev libnma-gtk4-dev -y
+
+    - name: Build debian package
+      run: dpkg-buildpackage --no-sign
+
+    - uses: softprops/action-gh-release@v1
+      with:
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        tag_name: "continuous"
+        prerelease: true
+        name: "Continuous Build"
+        files: |
+          /__w/vanilla-installer/*.deb
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: vanilla-installer
+        path: /__w/vanilla-installer/*.deb
