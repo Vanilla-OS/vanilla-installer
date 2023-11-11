@@ -4,6 +4,12 @@ vanilla-installer (2.4.0) unstable; urgency=critical
 
  -- Mateus Melchiades <matbme@duck.com>  Sat, 10 Nov 2023 21:15:00 -0300
 
+vanilla-installer (2.3.8) unstable; urgency=critical
+
+  * Should fix the crash on network page
+
+ -- Mirko Brombin <send@mirko.pm>  Sun, 22 Oct 2023 15:25:00 -0300
+
 vanilla-installer (2.3.7) unstable; urgency=critical
 
   * Fix grub installation using incorrect prefix

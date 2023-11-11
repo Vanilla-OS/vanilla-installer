@@ -359,11 +359,13 @@ class VanillaDefaultNetwork(Adw.Bin):
 
     def __start_auto_refresh(self):
         def run_async():
-            while True:
-                GLib.idle_add(self.__refresh)
-                time.sleep(10)
+            return time.sleep(10)
+        
+        def callback(*args):
+            self.__refresh()
+            RunAsync(run_async, callback)
 
-        RunAsync(run_async, None)
+        RunAsync(run_async, callback)
 
     def __device_status(self, conn: NM.Device):
         connected = False
