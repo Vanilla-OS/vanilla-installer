@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: De-bloat stock image
       run: |
         rm -r /run/host/usr/share/dotnet
@@ -26,7 +26,9 @@ jobs:
       run: apt update && apt install dpkg-dev build-essential debhelper python3 meson libadwaita-1-dev libgnome-desktop-4-dev libgweather-4-dev gettext desktop-file-utils make libjpeg-dev libnm-dev libnma-dev libnma-gtk4-dev -y
 
     - name: Build debian package
-      run: dpkg-buildpackage --no-sign
+      run: |
+        dpkg-buildpackage --no-sign
+        mv ../*.deb ../vanilla-installer.deb
 
     - uses: softprops/action-gh-release@v1
       with:
@@ -35,9 +37,4 @@ jobs:
         prerelease: true
         name: "Continuous Build"
         files: |
-          /__w/vanilla-installer/*.deb
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: vanilla-installer
-        path: /__w/vanilla-installer/*.deb
+          /__w/vanilla-installer.deb
