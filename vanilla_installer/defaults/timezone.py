@@ -78,13 +78,8 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
-        self.__timezone_rows = []
 
-        RunAsync(self.__set_current_timezone)
-
-        self.__generate_timezone_list_widgets()
-        for widget in self.__timezone_rows:
-            self.all_timezones_group.append(widget)
+        RunAsync(self.__generate_timezone_list_widgets)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
@@ -99,10 +94,8 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.entry_search_timezone.add_controller(self.search_controller)
 
     def __timezone_verify(self, *args):
-        if self.selected_timezone["region"] and self.selected_timezone["zone"] is not None:
-            self.btn_next.set_sensitive(True)
-        else:
-            self.btn_next.set_sensitive(False)
+        valid = self.selected_timezone["region"] and self.selected_timezone["zone"] is not None
+        self.btn_next.set_sensitive(valid)
 
     def get_finals(self):
         try:
@@ -125,24 +118,24 @@ class VanillaDefaultTimezone(Adw.Bin):
             row.set_visible(re.search(keywords, row_title, re.IGNORECASE) is not None)
 
     def __generate_timezone_list_widgets(self):
+        first_elem = None
         for city, continent in self.all_timezones_dict.items():
             timezone_row = TimezoneRow(city, continent, self.selected_timezone)
+            self.all_timezones_group.append(timezone_row)
+            if first_elem is None:
+                first_elem = timezone_row
+            else:
+                timezone_row.select_button.set_group(first_elem.select_button)
 
-            if len(self.__timezone_rows) > 0:
-                timezone_row.select_button.set_group(
-                    self.__timezone_rows[0].select_button
-                )
-
-            self.__timezone_rows.append(timezone_row)
+        self.__set_current_timezone()
 
     def __set_current_timezone(self):
         current_country, current_city = get_current_timezone()
 
-        while len(self.__timezone_rows) < len(self.all_timezones_dict):
-            pass
-
-        for row in self.__timezone_rows:
+        for i in range(len(self.all_timezones_dict)):
+            row = self.all_timezones_group.get_row_at_index(i)
             if current_city == row.title and current_country == row.subtitle:
                 row.select_button.set_active(True)
                 self.selected_timezone["zone"] = current_city
                 self.selected_timezone["region"] = current_country
+                break
