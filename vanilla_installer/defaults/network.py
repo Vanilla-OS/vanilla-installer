@@ -259,14 +259,11 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__wired_children = []
         self.__wireless_children = {}
 
-        self.__last_wifi_scan = 0
-
         # Prevent concurrency issues when re-scanning Wi-Fi devices.
         # Since we reload the list every time there's a state change,
         # there's a high change that it coincides with a periodic
         # refresh operation.
         self.__wifi_lock = Lock()
-        self.__scan_lock = Lock()
 
         # Since we have a dedicated page for checking connectivity,
         # we only need to make sure the user has some type of
@@ -360,7 +357,7 @@ class VanillaDefaultNetwork(Adw.Bin):
     def __start_auto_refresh(self):
         def run_async():
             return time.sleep(10)
-        
+
         def callback(*args):
             self.__refresh()
             RunAsync(run_async, callback)
@@ -395,6 +392,8 @@ class VanillaDefaultNetwork(Adw.Bin):
                 status = _("Unmanaged")
             case NM.DeviceState.UNAVAILABLE:
                 status = _("Unavailable")
+            case _:
+                status = _("Unknown")
 
         return status, connected
 
@@ -414,11 +413,9 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.wired_group.add(eth_conn)
         self.__wired_children.append(eth_conn)
 
-    def __poll_wifi_scan(self, conn: NM.DeviceWifi):
-        self.__scan_lock.acquire()
-        while conn.get_last_scan() == self.__last_wifi_scan:
+    def __poll_wifi_scan(self, conn: NM.DeviceWifi, last_known_scan: int):
+        while conn.get_last_scan() == last_known_scan:
             time.sleep(0.25)
-        self.__scan_lock.release()
 
         GLib.idle_add(self.__refresh_wifi_list, conn)
 
@@ -479,12 +476,10 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__wifi_lock.release()
 
     def __scan_wifi(self, conn: NM.DeviceWifi):
-        self.__scan_lock.acquire()
-        self.__last_wifi_scan = conn.get_last_scan()
-        self.__scan_lock.release()
+        last_known_scan = conn.get_last_scan()
         conn.request_scan_async()
 
-        t = Timer(1.5, self.__poll_wifi_scan, [conn])
+        t = Timer(1.5, self.__poll_wifi_scan, [conn, last_known_scan])
         t.start()
 
     @property
@@ -501,3 +496,4 @@ class VanillaDefaultNetwork(Adw.Bin):
             [it[0] for it in list(self.__wireless_children.values())],
             (("connected", True), ("signal_strength", True), ("ssid", True)),
         )
+
