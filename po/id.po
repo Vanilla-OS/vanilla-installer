@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-06-13 03:57+0000\n"
+"PO-Revision-Date: 2023-11-26 16:57+0000\n"
 "Last-Translator: Sultan Iskandar Maulana <nattadasu@nattadasu.my.id>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -44,7 +44,7 @@ msgstr "Konfirmasi Instalasi"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
-msgstr "Perubahan berikut akan di buat pada sistem anda:"
+msgstr "Perubahan berikut akan di buat pada sistem Anda:"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -62,58 +62,59 @@ msgid "Next"
 msgstr "Lanjut"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Konfirmasi Instalasi"
+msgstr "Lokasi Instalasi"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Pilih disk yang mana Anda ingin memasang Vanilla OS. Atau Anda dapat memilih "
+"satu atau beberapa disk untuk dikonfigurasikan secara manual."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Seluruh Disk"
+msgstr "Gunakan seluruh disk"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
+"Anda memerlukan setidaknya %s dari ruang disk untuk melanjutkan instalasi."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Enkripsi Perangkat"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS menyediakan enkripsi disk menyeluruh menggunakan LUKS2 untuk "
+"menjaga informasi personal Anda dikala perangkat Anda dicuri."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Enkripsikan perangkat"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Gunakan kata sandi yang mudah diingat untuk mengenkripsi data Anda"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
-msgstr "Sandi"
+msgstr "Kata Sandi"
 
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Konfirmasi Sandi"
+msgstr "Konfirmasi Kata Sandi"
 
 #: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
@@ -137,32 +138,32 @@ msgid "Select your language"
 msgstr "Pilih bahasa anda"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search for a language"
-msgstr "Cari bahasa"
+msgstr "Cari salah satu bahasa"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Driver NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Pilih jika ingin memasang driver NVIDIA proprietary untuk kompatibilitas dan "
+"performa yang lebih baik."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Jangan pasang"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Pasang  (direkomendasikan)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Mengenai Driver Proprietary"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -171,6 +172,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Driver proprietary memiliki kode pribadi yang mana pengembang Vanilla OS "
+"ataupun Debian tidak bisa ulas.\n"
+"\n"
+"Keamanan dan pembaruan lainnya tergantung pada pemilik driver."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -217,10 +222,8 @@ msgid "Username"
 msgstr "Nama Pengguna"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "Menginstal..."
+msgstr "Pasang"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -231,7 +234,7 @@ msgstr "Pemulihan"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Matikan Daya"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -270,41 +273,35 @@ msgstr "Log"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Mulai Ulang"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Mulai Ulang ke Pengaturan Firmware"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
-msgstr "Buka Terminal."
+msgstr "Buka Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentasi"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Documentation"
-msgstr "Baca Buku Panduan OS Vanilla."
+msgstr "Baca Dokumentasi Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
-msgstr "Kelola disk dan partisi."
+msgstr "Kelola disk dan partisi"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
@@ -312,17 +309,15 @@ msgstr "Buku Panduan"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "Baca tutorial dan petunjuk mengenai Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Web Browser"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
-msgstr "Cari bantuan secara online."
+msgstr "Cari bantuan secara daring"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -375,16 +370,12 @@ msgid "Boot Partition"
 msgstr "Partisi Boot"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
 "Partisi yang akan dipasang pada \"/boot\". Direktori ini menyimpan file "
-"untuk booting kedalam Vanilla OS."
+"untuk booting ke dalam Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
@@ -445,45 +436,32 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "Partisi BIOS harus berukuran tepat 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Partisi root"
+msgstr "Partisi Root"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"Partisi yang akan dipasang pada \"/boot\". Direktori ini menyimpan file "
-"untuk booting kedalam Vanilla OS."
+"Partisi yang akan dipasang pada \"/\". Ini akan secara otomatis "
+"dikonversikan ke pool tipis LVM saat pemasangan."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "Partisi boot terlalu kecil."
+msgstr "Partisi root terlalu kecil."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Var Partition"
-msgstr "Partisi Swap"
+msgstr "Partisi Var"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"Partisi yang akan dipasang di bawah \"/home\". Direktori ini menyimpan semua "
-"data pengguna."
+"Partisi yang akan dipasang di bawah \"/var\". Direktori ini menyimpan semua "
+"data pengguna seperti dokumen pribadi dan konfigurasi di seluruh sistem."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
@@ -491,8 +469,6 @@ msgstr "Partisi rumah terlalu kecil."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Partisi Swap"
 
@@ -520,7 +496,7 @@ msgstr "Kembali"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "Terhubung"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -528,7 +504,7 @@ msgstr "GParted sudah berjalan. Hanya satu instansi dari GParted dibolehkan."
 
 #: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "Partisi harus setidaknya {}"
 
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
@@ -548,55 +524,55 @@ msgstr "Akan diformat dalam {} dan dimount dalam {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Jaringan tidak aman (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Jaringan aman (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Jaringan aman (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Jaringan aman (WPA3)"
 
 #: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
+msgstr "Otentikasi diperlukan"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
-msgstr ""
+msgstr "Menghubungkan"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
-msgstr ""
+msgstr "Tidak Terhubung"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
-msgstr ""
+msgstr "Memutuskan"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
-msgstr ""
+msgstr "Koneksi Gagal"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
-msgstr ""
+msgstr "Status Tidak Diketahui"
 
 #: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
-msgstr ""
+msgstr "Tidak Dikelola"
 
 #: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
-msgstr ""
+msgstr "Tidak Tersedia"
 
 #: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Kabel Tidak Terpasang"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
@@ -649,7 +625,7 @@ msgstr "Langkah {step} bukanlah sebuah kamus"
 
 #: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
-msgstr "Keyboard"
+msgstr "Papan Ketik"
 
 #: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
