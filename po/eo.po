@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-05-02 16:51+0000\n"
+"PO-Revision-Date: 2023-12-02 18:17+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/eo/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -500,7 +500,7 @@ msgstr "Reen"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "Konektita"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -528,19 +528,19 @@ msgstr "Estas strukturota laŭ {} kaj surmetota ĉe {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Nesekura reto (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Sekura reto (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Sekura reto (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Sekura reto (WPA3)"
 
 #: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
@@ -548,15 +548,15 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
-msgstr ""
+msgstr "Konektanta"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
-msgstr ""
+msgstr "Malkonektita"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
-msgstr ""
+msgstr "Malkonektanta"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
@@ -564,15 +564,15 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
-msgstr ""
+msgstr "Nekonata stato"
 
 #: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
-msgstr ""
+msgstr "Ne administrata"
 
 #: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
-msgstr ""
+msgstr "Ne havebla"
 
 #: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
