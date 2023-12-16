@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-08-30 12:19+0000\n"
+"PO-Revision-Date: 2023-11-25 18:19+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -78,8 +78,6 @@ msgid "Manual"
 msgstr "கையேடு"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-#, fuzzy
-#| msgid "You need at least %s of disk space to proceed with installation."
 msgid "You need at least %s of disk space to proceed with the installation."
 msgstr "நிறுவலைத் தொடர குறைந்தபட்சம் %s வட்டு இடம் தேவை."
 
@@ -284,13 +282,11 @@ msgstr "ஒரு முனையத்தைத் திறக்கவும�
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "ஆவணம்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook"
 msgid "Read the Vanilla OS Documentation"
-msgstr "வெண்ணிலா OS கைப்புத்தகத்தை படியுங்கள்"
+msgstr "வெண்ணிலா OS ஆவணத்தைப் படிக்கவும்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
@@ -306,7 +302,7 @@ msgstr "கைப்புத்தகம்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "வெண்ணிலா OS பற்றிய பயிற்சிகள் மற்றும் வழிகாட்டிகளைப் படிக்கவும்."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
@@ -365,16 +361,12 @@ msgid "Boot Partition"
 msgstr "துவக்க பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
-"\"/boot\" இன் கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த அடைவு வெண்ணிலா OS இல் துவக்க "
-"கோப்புகளை சேமிக்கிறது."
+"\"/boot\" இன் கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த அடைவு வெண்ணிலா OS இல் "
+"துவக்க கோப்புகளை சேமிக்கிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
@@ -435,45 +427,32 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS பகிர்வு சரியாக 1 MiB ஆக இருக்க வேண்டும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "வேர் பகிர்வுகள்"
+msgstr "வேர் பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"\"/boot\" இன் கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த அடைவு வெண்ணிலா OS இல் துவக்க "
-"கோப்புகளை சேமிக்கிறது."
+"\"/\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. நிறுவலின் போது இது தானாகவே LVM "
+"மெல்லிய குளமாக மாற்றப்படும்."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "துவக்க பகிர்வு மிகவும் சிறியது."
+msgstr "வேர் பகிர்வு மிகவும் சிறியது."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "ஸ்வாப் பகிர்வு"
+msgstr "Var பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"\"/home\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த அடைவு அனைத்து பயனர் தரவையும் "
-"சேமிக்கிறது."
+"\"/var\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த கோப்பகம் தனிப்பட்ட ஆவணங்கள்"
+" மற்றும் கணினி முழுவதும் உள்ளமைவு போன்ற அனைத்து பயனர் தரவையும் சேமிக்கிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
