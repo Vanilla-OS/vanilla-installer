@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
 # Martin <stefanic.martin@gmail.com>, 2023.
+# DanyCDev <dany@kmaster.ovh>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
 "PO-Revision-Date: 2023-11-26 16:57+0000\n"
-"Last-Translator: Martin <stefanic.martin@gmail.com>\n"
+"Last-Translator: DanyCDev <dany@kmaster.ovh>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sk/>\n"
 "Language: sk\n"
@@ -260,7 +261,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Záznam"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
@@ -397,6 +398,8 @@ msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"Partícia ktorá sa má pripojiť pod “/boot/efi“. Tento priečinok ukladá súbory "
+"na štart v bootloaderi."
 
 #: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
