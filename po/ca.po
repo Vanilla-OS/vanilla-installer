@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-08-29 21:46+0000\n"
+"PO-Revision-Date: 2023-12-04 13:06+0000\n"
 "Last-Translator: jolupa <jolupameister@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ca/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -60,46 +60,50 @@ msgid "Next"
 msgstr "Següent"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
 msgid "Install Location"
-msgstr "Confirma la instal·lació"
+msgstr "Ubicació de l'instal·lació"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Selecciona el disc on vols instal·lar Vanilla OS. De manera alternativa pots "
+"escollir un o més discs per configurar de forma manual."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
 msgid "Use entire disk"
-msgstr "Utilitza el disc sencer"
+msgstr "Utilitzar el disc sencer"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
+"Necessites com a minim %s d'espai al disc per poder fer la instal·lació."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Xifratge del dispositiu"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS proporciona xifratge complert del disc mitjançant LUKS2 per "
+"protegir la teva informació personal en cas que robin el teu dispositiu."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Xifra el dispositiu"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
 msgstr ""
+"Fes servir una contrasenya que puguis recordar per xifrar les teves dades"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -138,25 +142,27 @@ msgstr "Busca un idioma"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Controladors NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Tria si vols instal·lar els controladors propietaris de NVIDIA per una "
+"millor compatibilitat i rendiment."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "No instal·leu"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Instal·lar (recomanat)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Sobre els Controladors Propietaris"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -165,6 +171,11 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Un controlador propietari té codi privat que els desenvolupadors de Vanilla "
+"OS o Debian no poden revisar.\n"
+"\n"
+"Les actualitzacions de seguretat i d'altres depenen del proveïdor del "
+"controlador."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -211,20 +222,19 @@ msgid "Username"
 msgstr "Nom d'usuari"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
-#, fuzzy
 msgid "Install"
-msgstr "Instal·lant..."
+msgstr "Instal·la"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
-msgstr ""
+msgstr "Recuperació"
 
 #: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Apagar"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -237,7 +247,7 @@ msgstr "Configura el disc"
 #: vanilla_installer/gtk/dialog-disk.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 msgid "Cancel"
-msgstr "Cancel·lar"
+msgstr "Cancel·la"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
@@ -258,58 +268,55 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Registre"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Reinicieu dintre de la configuració del Firmware"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Consola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal"
-msgstr ""
+msgstr "Obrir un terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Documentació"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Tweak your Vanilla OS installation."
 msgid "Read the Vanilla OS Documentation"
-msgstr "Modifica la teva instal·lació de Vanilla OS."
+msgstr "Llegeix la documentació de Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
 msgid "Gparted"
-msgstr "Obrir GParted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
-msgstr ""
+msgstr "Gestionar discs i particions"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
-msgstr ""
+msgstr "Manual"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "Llegeix tutorials i guies sobre Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
-msgstr ""
+msgstr "Navegador"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
-msgstr ""
+msgstr "Cercar ajuda en línia"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -321,7 +328,7 @@ msgstr "Reinicia el teu dispositiu per gaudir la teva experiència Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Mostrar el registre"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -356,15 +363,16 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Obrir GParted per a particionar manualment el disc"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Particions"
+msgstr "Partició d'arrencada"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
+"La partició per muntar a ”/boot\". Aquest directori conté els fitxers per "
+"arrencar Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
@@ -374,7 +382,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:151
 #: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
-msgstr ""
+msgstr "No has seleccionat cap partició"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
@@ -383,33 +391,32 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:118
 #: vanilla_installer/gtk/widget-partition.ui:152
 #: vanilla_installer/defaults/disk.py:404
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "Siusplau, escull com a mínim una opció."
+msgstr "Seleccioneu una partició de les opcions següents"
 
 #: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "La partició d'arrencada és massa petita."
 
 #: vanilla_installer/gtk/widget-partition.ui:50
-#, fuzzy
 msgid "EFI Partition"
-msgstr "Particions"
+msgstr "Partició EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"La partició a muntar a \"/boot/efi\". Aquest directori emmagatzema fitxers "
+"per arrencar al carregador d'arrencada."
 
 #: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "La partició EFI és massa petita."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "Particions"
+msgstr "Partició d'arrencada de la BIOS"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
@@ -417,63 +424,71 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"La partició requerida pels discs amb format GPT per donar suport a "
+"l'arrencada des dels sistemes BIOS. S'ha d'ubicar als primers 2 TB del disc "
+"i ha de tenir exactament 1 Mebibyte (1 MiB)."
 
 #: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "La partició de la BIOS ha de ser exactament d'1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
 msgid "Root Partition"
-msgstr "Particions"
+msgstr "Partició Arrel"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
+"La partició per muntar a \"/\". Es convertirà automàticament a un grup LVM "
+"durant l'instal·lació."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
 msgid "Root partition is too small."
-msgstr "Particions"
+msgstr "La partició Arrel es massa petita."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
 msgid "Var Partition"
-msgstr "Particions"
+msgstr "Partició Var"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
+"La partició que serà muntada a \"/var\". Aquest directori conté totes les "
+"dades d'usuari com documents personals i configuracions de sistema."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
-msgstr ""
+msgstr "La partició d'Inici es massa petita."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
-#, fuzzy
 msgid "Swap Partition"
-msgstr "Particions"
+msgstr "Partició d'Intercanvi"
 
 #: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"La partició d'Intercanvi actua com una extensió virtual de la memòria RAM i "
+"permet l'hibernació. Vanilla OS ja utilitza zram per oferir intercanvi sense "
+"cap cost d'emmagatzematge."
 
 #: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Trieu una partició per utilitzar-la per a l'intercanvi juntament amb zram. "
+"Això no és necessari per a la hibernació."
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
-msgstr ""
+msgstr "Enrere"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:374
@@ -482,19 +497,19 @@ msgstr "Conectat"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr ""
+msgstr "GParted ja s'està executant. Només es permet una instància de GParted."
 
 #: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "La partició ha de ser com a mínim {}"
 
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "La partició ha de ser EXACTAMENT {}"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Les particions han canviat. Les seleccions actuals s'han esborrat."
 
 #: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
@@ -562,71 +577,69 @@ msgstr "Siusplau, escull com a mínim una opció."
 
 #: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Falta 'log_file' a la recepta."
 
 #: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "no s'ha pogut crear el fitxer de registre: %s"
 
 #: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
-msgstr ""
+msgstr "No s'emmagatzemarà cap registre."
 
 #: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Condició de visualització en funcionament: %s"
 
 #: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "El pas %s s'ha saltat a causa de les condicions de visualització"
 
 #: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Fitxer de receptes no vàlid"
 
 #: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "La recepta no és un diccionari"
 
 #: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "Falta la tecla '{key}' a la recepta"
 
 #: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Els passos de la recepta no són una llista"
 
 #: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "El pas {step} no és un diccionari"
 
 #: vanilla_installer/views/confirm.py:81
-#, fuzzy
 msgid "Keyboard"
-msgstr "Distribució de teclat"
+msgstr "Teclat"
 
 #: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
-msgstr ""
+msgstr "Fus horari"
 
 #: vanilla_installer/views/confirm.py:95
-#, fuzzy
 msgid "Users"
-msgstr "Nom d'usuari"
+msgstr "Usuaris"
 
 #: vanilla_installer/views/confirm.py:104
 #: vanilla_installer/views/confirm.py:120
 msgid "Disk"
-msgstr ""
+msgstr "Disc"
 
 #: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Reinicia el teu ordinador per gaudir la teva experiència {}."
+msgstr "Reinicia el teu dispositiu per gaudir la teva experiència {}."
 
 #: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
