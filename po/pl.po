@@ -5,13 +5,14 @@
 # Krzysztof Kuska <kk@fw190.info>, 2023.
 # Dawid Bajon <dawidwsmole@gmail.com>, 2023.
 # Dominik Gęgotek <ioutora@disroot.org>, 2023.
+# Tomasz Dyńka <gramyteraz12@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-08-09 16:03+0000\n"
-"Last-Translator: Dominik Gęgotek <ioutora@disroot.org>\n"
+"PO-Revision-Date: 2023-11-30 23:03+0000\n"
+"Last-Translator: Tomasz Dyńka <gramyteraz12@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/pl/>\n"
 "Language: pl\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -83,7 +84,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "Potrzebujesz co najmniej %s miejsca na dysku by zainstalować system."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -237,7 +238,7 @@ msgstr "Odzyskiwanie"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Wyłącz"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -275,11 +276,12 @@ msgstr "Dziennik"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Uruchom ponownie"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
+#, fuzzy
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Restart do ustawień Firmware"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -291,13 +293,11 @@ msgstr "Otwórz Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentacja"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook"
 msgid "Read the Vanilla OS Documentation"
-msgstr "Przeczytaj podręcznik Vanilla OS"
+msgstr "Przeczytaj dokumentację Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
@@ -460,10 +460,8 @@ msgstr ""
 "przechowywane są pliki do uruchomienia systemu Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "Partycja boot jest za mała."
+msgstr "Partycja  root jest zbyt mała."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
 #, fuzzy
