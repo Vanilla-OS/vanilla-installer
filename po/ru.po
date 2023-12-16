@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2023-09-02 12:49+0000\n"
+"PO-Revision-Date: 2023-12-15 22:16+0000\n"
 "Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
@@ -20,9 +20,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.3\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -46,7 +46,7 @@ msgstr "Подтверждение установки"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system:"
-msgstr "В вашу систему будут внесены следующие изменения:"
+msgstr "В Вашу систему будут внесены следующие изменения:"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -60,6 +60,9 @@ msgstr "Установить Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:23
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/default-keyboard.ui:30
+#: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-timezone.ui:18
 msgid "Next"
 msgstr "Далее"
 
@@ -117,22 +120,26 @@ msgstr "Пароль"
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Подтверждение Пароля"
+msgstr "Подтверждение пароля"
 
 #: vanilla_installer/gtk/default-keyboard.ui:33
+#: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
 msgstr "Раскладка клавиатуры"
 
 #: vanilla_installer/gtk/default-keyboard.ui:34
+#: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
 msgstr "Выберите предпочтительную раскладку клавиатуры"
 
 #: vanilla_installer/gtk/default-keyboard.ui:44
+#: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
 msgstr "Поиск раскладки клавиатуры"
 
 #: vanilla_installer/gtk/default-language.ui:34
 #: vanilla_installer/views/confirm.py:75
+#: vanilla_installer/gtk/default-language.ui:28
 msgid "Language"
 msgstr "Язык"
 
@@ -191,17 +198,20 @@ msgstr "Цветовая схема"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Выберите цветовую схему для вашей системы"
+msgstr "Выберите цветовую схему для Вашей системы"
 
 #: vanilla_installer/gtk/default-timezone.ui:33
+#: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
-msgstr "Дата и Время"
+msgstr "Дата и время"
 
 #: vanilla_installer/gtk/default-timezone.ui:34
+#: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "Выберите предпочитаемый часовой пояс"
 
 #: vanilla_installer/gtk/default-timezone.ui:44
+#: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search for a Timezone"
 msgstr "Поиск часового пояса"
 
@@ -215,11 +225,11 @@ msgstr "Город"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Создание Пользователя"
+msgstr "Создание пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Предоставьте информацию для Вашего аккаунта пользователя"
+msgstr "Предоставьте информацию для Вашей учётной записи пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -234,17 +244,20 @@ msgid "Welcome to Vanilla OS!"
 msgstr "Добро пожаловать в Vanilla OS!"
 
 #: vanilla_installer/gtk/default-welcome.ui:19
+#: vanilla_installer/gtk/default-welcome.ui:17
 msgid "Install"
 msgstr "Установить"
 
 #: vanilla_installer/gtk/default-welcome.ui:36
 #: vanilla_installer/gtk/dialog-recovery.ui:6
+#: vanilla_installer/gtk/default-welcome.ui:34
 msgid "Recovery"
 msgstr "Восстановление"
 
 #: vanilla_installer/gtk/default-welcome.ui:53
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
+#: vanilla_installer/gtk/default-welcome.ui:51
 msgid "Power Off"
 msgstr "Выключение"
 
@@ -254,7 +267,7 @@ msgstr "Отображение информации"
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
-msgstr "Настроить диск"
+msgstr "Настройка диска"
 
 #: vanilla_installer/gtk/dialog-disk.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
@@ -297,29 +310,34 @@ msgstr "Консоль"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal"
-msgstr "Открыть Терминал"
+msgstr "Открыть терминал"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
+#: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
-msgstr "Управление дисками и разделами"
+msgstr "Управлять дисками и разделами"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
 msgstr "Справочник"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Read the Vanilla OS Handbook"
-msgstr "Прочитайте Руководство по Vanilla OS"
+msgstr "Читать руководство по Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Веб-браузер"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
+#: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
 msgstr "Искать помощь в Интернете"
 
@@ -333,7 +351,7 @@ msgstr "Перезагрузите устройство, чтобы наслад
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr "Показать Журнал"
+msgstr "Показать журнал"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -369,7 +387,7 @@ msgstr "Откройте GParted, чтобы вручную разбить ди�
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Boot Partition"
-msgstr "Загрузочный Раздел"
+msgstr "Загрузочный раздел"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
@@ -387,6 +405,10 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:169
 #: vanilla_installer/gtk/widget-partition.ui:203
 #: vanilla_installer/defaults/disk.py:475
+#: vanilla_installer/gtk/widget-partition.ui:96
+#: vanilla_installer/gtk/widget-partition.ui:117
+#: vanilla_installer/gtk/widget-partition.ui:151
+#: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
 msgstr "Раздел не выбран"
 
@@ -398,6 +420,10 @@ msgstr "Раздел не выбран"
 #: vanilla_installer/gtk/widget-partition.ui:170
 #: vanilla_installer/gtk/widget-partition.ui:204
 #: vanilla_installer/defaults/disk.py:477
+#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "Пожалуйста, выберите раздел из вариантов ниже"
 
@@ -407,7 +433,7 @@ msgstr "Загрузочный раздел слишком мал."
 
 #: vanilla_installer/gtk/widget-partition.ui:50
 msgid "EFI Partition"
-msgstr "EFI Раздел"
+msgstr "EFI раздел"
 
 #: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
@@ -423,7 +449,7 @@ msgstr "EFI раздел слишком мал."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
 msgid "BIOS Boot Partition"
-msgstr "BIOS Boot Раздел"
+msgstr "Раздел BIOS Boot"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
@@ -440,7 +466,7 @@ msgstr "Раздел BIOS должен быть ровно 1 МБ."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partitions"
-msgstr "Корневые Разделы"
+msgstr "Корневые разделы"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
@@ -471,7 +497,7 @@ msgstr "Корневые разделы слишком малы."
 
 #: vanilla_installer/gtk/widget-partition.ui:165
 msgid "Home Partition"
-msgstr "Домашний Раздел"
+msgstr "Домашний раздел"
 
 #: vanilla_installer/gtk/widget-partition.ui:166
 msgid ""
@@ -481,15 +507,19 @@ msgstr ""
 "пользователя."
 
 #: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
 msgstr "Домашний раздел слишком мал."
 
 #: vanilla_installer/gtk/widget-partition.ui:186
 #: vanilla_installer/gtk/widget-partition.ui:190
+#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
-msgstr "Раздел Своп"
+msgstr "Раздел своп"
 
 #: vanilla_installer/gtk/widget-partition.ui:187
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -499,6 +529,7 @@ msgstr ""
 "обеспечения свопинга без затрат на хранение."
 
 #: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -506,37 +537,44 @@ msgstr ""
 "Выберите раздел, который будет использоваться для подкачки наряду с zram. "
 "Для гибернации это не требуется."
 
-#: vanilla_installer/gtk/window.ui:38
+#: vanilla_installer/gtk/window.ui:38 vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "Назад"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:370
+#: vanilla_installer/defaults/network.py:374
 msgid "Connected"
 msgstr "Подключено"
 
 #: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted уже запущен. Разрешается использовать только один экземпляр GParted."
 
 #: vanilla_installer/defaults/disk.py:429
+#: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
 msgstr "Раздел должен быть не менее {}"
 
 #: vanilla_installer/defaults/disk.py:460
+#: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "Раздел должен быть ТОЧНО {}"
 
 #: vanilla_installer/defaults/disk.py:575
+#: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Разделы изменились. Текущие выборки удалены."
 
 #: vanilla_installer/defaults/disk.py:633
+#: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "Будет использован весь диск."
 
 #: vanilla_installer/defaults/disk.py:640
+#: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Будет отформатирован в {} и смонтирован в {}"
 
@@ -557,38 +595,47 @@ msgid "Secure network (WPA3)"
 msgstr "Безопасная сеть (WPA3)"
 
 #: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr "Требуется Аутентификация"
+msgstr "Требуется аутентификация"
 
 #: vanilla_installer/defaults/network.py:381
+#: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
 msgstr "Подключение"
 
 #: vanilla_installer/defaults/network.py:383
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
 msgstr "Отключено"
 
 #: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
 msgstr "Отключение"
 
 #: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
 msgstr "Соединение не удалось"
 
 #: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
 msgstr "Состояние неизвестно"
 
 #: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
 msgstr "Неуправляемая сеть"
 
 #: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
 msgstr "Недоступно"
 
 #: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
 msgstr "Кабель отключён"
 
@@ -598,7 +645,7 @@ msgstr "Пожалуйста, выберите хотя бы один вариа
 
 #: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
-msgstr "Отсутствует 'log_file' в средстве."
+msgstr "Отсутствует 'log_file' в рецепте."
 
 #: vanilla_installer/utils/builder.py:80
 #, python-format
@@ -643,7 +690,7 @@ msgstr "Шаг {step} не словарь"
 
 #: vanilla_installer/views/confirm.py:81
 msgid "Keyboard"
-msgstr "Раскладка клавиатуры"
+msgstr "Клавиатура"
 
 #: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
@@ -660,7 +707,7 @@ msgstr "Диск"
 
 #: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Перезагрузите ваше устройство, чтобы насладиться работой {}."
+msgstr "Перезагрузите устройство, чтобы насладиться работой {}."
 
 #: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
@@ -670,8 +717,66 @@ msgstr "Что-то пошло не так"
 msgid "Please contact the distribution developers."
 msgstr "Пожалуйста, обратитесь к разработчикам дистрибутива."
 
-#~ msgid "Select your language"
-#~ msgstr "Выберите ваш язык"
+#: vanilla_installer/gtk/default-language.ui:29
+msgid "Select your language"
+msgstr "Выберите язык"
+
+#: vanilla_installer/gtk/default-language.ui:39
+msgid "Search for a language"
+msgstr "Поиск языка"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+msgid "You need at least %s of disk space to proceed with the installation."
+msgstr ""
+"Для продолжения установки вам нужно иметь как минимум %s дискового "
+"пространства."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:43
+msgid "Documentation"
+msgstr "Документация"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+msgid "Read the Vanilla OS Documentation"
+msgstr "Читать документацию Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Read tutorials and guides about Vanilla OS."
+msgstr "Читайте обучающие материалы и руководства по Vanilla OS."
+
+#: vanilla_installer/gtk/widget-partition.ui:30
+msgid ""
+"The partition to mount under “/boot”. This directory stores files for "
+"booting into Vanilla OS."
+msgstr ""
+"Раздел для монтирования “/boot”. В нём хранятся файлы для запуска Vanilla OS."
+
+#: vanilla_installer/gtk/widget-partition.ui:92
+msgid "Root Partition"
+msgstr "Корневой раздел"
+
+#: vanilla_installer/gtk/widget-partition.ui:93
+msgid ""
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
+msgstr ""
+"Раздел для монтирования \"/\". В процессе установки он будет автоматически "
+"преобразован в тонкий пул LVM."
+
+#: vanilla_installer/gtk/widget-partition.ui:108
+msgid "Root partition is too small."
+msgstr "Корневой раздел слишком мал."
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+msgid "Var Partition"
+msgstr "Раздел var"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
+msgid ""
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
+msgstr ""
+"Раздел для монтирования \"/var\". В нём хранятся все пользовательские "
+"данные, такие как личные документы и общесистемная конфигурация."
 
 #~ msgid "clicked"
 #~ msgstr "выбрано"
@@ -753,9 +858,6 @@ msgstr "Пожалуйста, обратитесь к разработчикам
 
 #~ msgid "Choose a mount point for the partition"
 #~ msgstr "Выберите точку монтирования для раздела"
-
-#~ msgid "Search for a language"
-#~ msgstr "Поиск языка"
 
 #~ msgid "Try Vanilla OS"
 #~ msgstr "Попробовать Vanilla OS"
