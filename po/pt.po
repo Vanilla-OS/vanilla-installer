@@ -6,13 +6,14 @@
 # ssantos <ssantos@web.de>, 2023.
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
 # Ricardo <ricardo.btupy@gmail.com>, 2023.
+# Wagner Costa Gottschald <wagnercostag@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-11-25 18:19+0000\n"
-"Last-Translator: Ricardo <ricardo.btupy@gmail.com>\n"
+"PO-Revision-Date: 2023-12-16 12:22+0000\n"
+"Last-Translator: Wagner Costa Gottschald <wagnercostag@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/pt/>\n"
 "Language: pt\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.3\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -86,11 +87,12 @@ msgstr "Manual"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "precisa-se no mínimo %s de memoria livre para concluir a instalação."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
+#, fuzzy
 msgid "Device Encryption"
-msgstr ""
+msgstr "criptografar disco"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
@@ -428,16 +430,17 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"A partição exigida pelos discos formatados em GPT para dar suporte à "
+"inicialização a partir de sistemas BIOS. Ele deve estar localizado nos "
+"primeiros 2 TB do disco e deve ter exatamente 1 Mebibyte (1 MiB)."
 
 #: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "A partição BIOS deve ter exatamente 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Partição raíz"
+msgstr "Partição root"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
@@ -464,8 +467,8 @@ msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"A partição a montar sob \"/boot\". Este directório armazena ficheiros para "
-"arrancar no Vanilla OS."
+"A partição esta montada sob \"/var\". Este diretório armazena todas as "
+"configurações para arrancar no Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
@@ -473,8 +476,6 @@ msgstr "A partição Home é muito pequena."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Partição swap"
 
@@ -483,12 +484,18 @@ msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"Swap atua como uma extensão virtual de sua memoria RAM e permite a "
+"hibernação. O Vanilla OS já usa zram para fornecer troca sem custos "
+"adicionais de armazenamento."
 
 #: vanilla_installer/gtk/widget-partition.ui:139
+#, fuzzy
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Escolha uma partição para usar ao lado da zram. Isso não é necessário para a "
+"hibernação"
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
@@ -514,7 +521,7 @@ msgstr "A partição deverá ter EXATAMENTE {}"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Houve alguma mudança nas partições. As tabelas atuais foram apagadas"
 
 #: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
@@ -525,12 +532,14 @@ msgid "Will be formatted in {} and mounted in {}"
 msgstr "Será formatado em {} e montado em {}"
 
 #: vanilla_installer/defaults/network.py:37
+#, fuzzy
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Rede Insegura (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
+#, fuzzy
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Rede Insegura"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
@@ -542,23 +551,23 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
+msgstr "Necessário autenticação"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
-msgstr ""
+msgstr "conectando"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
-msgstr ""
+msgstr "desconectando"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
-msgstr ""
+msgstr "Desconectando"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
-msgstr ""
+msgstr "Falha na Conexão"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
@@ -570,11 +579,11 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
-msgstr ""
+msgstr "Indisponível"
 
 #: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Cabo desconectado"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
