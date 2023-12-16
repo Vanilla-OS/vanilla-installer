@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-08-13 22:01+0000\n"
+"PO-Revision-Date: 2023-12-07 23:04+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/en_GB/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -79,7 +79,7 @@ msgstr "Manual"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "You need at least %s of disk space to proceed with the installation."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -133,8 +133,6 @@ msgid "Select your language"
 msgstr "Select your language"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search for a language"
 msgstr "Search for a language"
 
@@ -219,10 +217,8 @@ msgid "Username"
 msgstr "Username"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "Installing..."
+msgstr "Install"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -233,7 +229,7 @@ msgstr "Recovery"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Power Off"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -272,11 +268,11 @@ msgstr "Log"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Restart"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Restart into Firmware Setup"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
@@ -288,13 +284,11 @@ msgstr "Open a Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Documentation"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook"
 msgid "Read the Vanilla OS Documentation"
-msgstr "Read the Vanilla OS Handbook"
+msgstr "Read the Vanilla OS Documentation"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
@@ -310,7 +304,7 @@ msgstr "Handbook"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "Read tutorials and guides about Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
@@ -369,16 +363,12 @@ msgid "Boot Partition"
 msgstr "Boot Partition"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
@@ -439,44 +429,32 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS partition must be exactly 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Root Partitions"
+msgstr "Root Partition"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "Boot partition is too small."
+msgstr "Root partition is too small."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "Swap Partition"
+msgstr "Var Partition"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"The partition to mount under “/home”. This directory stores all user data."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
@@ -510,7 +488,7 @@ msgstr "Back"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "Connected"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -538,55 +516,55 @@ msgstr "Will be formatted in {} and mounted in {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Insecure network (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Secure network (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Secure network (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Secure network (WPA3)"
 
 #: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
+msgstr "Authentication required"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
-msgstr ""
+msgstr "Connecting"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
-msgstr ""
+msgstr "Disconnected"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
-msgstr ""
+msgstr "Disconnecting"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
-msgstr ""
+msgstr "Connection Failed"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
-msgstr ""
+msgstr "Status Unknown"
 
 #: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
-msgstr ""
+msgstr "Unmanaged"
 
 #: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
-msgstr ""
+msgstr "Unavailable"
 
 #: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Cable Unplugged"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
