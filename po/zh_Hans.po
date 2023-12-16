@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-08-09 16:03+0000\n"
+"PO-Revision-Date: 2023-11-25 18:19+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hans/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -80,8 +80,6 @@ msgid "Manual"
 msgstr "手动安装"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-#, fuzzy
-#| msgid "You need at least %s of disk space to proceed with installation."
 msgid "You need at least %s of disk space to proceed with the installation."
 msgstr "至少需要 %s 的磁盘空间才能继续安装。"
 
@@ -281,13 +279,11 @@ msgstr "打开终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "文档"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook"
 msgid "Read the Vanilla OS Documentation"
-msgstr "阅读 Vanilla OS 的手册"
+msgstr "阅读 Vanilla OS 的文档"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
@@ -303,7 +299,7 @@ msgstr "手册"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "阅读有关 Vanilla OS 的教程和指南。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
@@ -362,10 +358,6 @@ msgid "Boot Partition"
 msgstr "引导分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
@@ -427,41 +419,29 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS 引导分区的大小必须为正好 1 MiB。"
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
 msgstr "根分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
-msgstr "要挂载到“/boot”的分区。此目录下的文件用于启动 Vanilla OS。"
+msgstr "要挂载到“/boot”的分区。在安装过程中会自动转换为 LVM 精简池。"
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "引导分区过小。"
+msgstr "根分区过小。"
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "交换分区"
+msgstr "/var 分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
-msgstr "要挂载到“/home”的分区。此目录存储所有用户数据。"
+msgstr "要挂载到“/var”的分区。此目录存储所有的用户数据，例如个人文档及系统范围的配置"
+"文件。"
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
