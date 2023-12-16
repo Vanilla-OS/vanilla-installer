@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"POT-Creation-Date: 2023-11-22 10:57+0530\n"
 "PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/vanilla-os/"
@@ -52,10 +52,10 @@ msgstr "Vanilla OS をインストール"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:17
+#: vanilla_installer/gtk/default-keyboard.ui:30
+#: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
+#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
@@ -82,7 +82,7 @@ msgid "Manual"
 msgstr "手動"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
+msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
@@ -115,27 +115,31 @@ msgstr "パスワード"
 msgid "Confirm Password"
 msgstr "パスワードの確認"
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
+#: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
 msgstr "キーボードレイアウト"
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
+#: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
 msgstr "使用するキーボードレイアウトを選択してください"
 
-#: vanilla_installer/gtk/default-keyboard.ui:44
+#: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
 msgstr "キーボードレイアウトを検索"
 
-#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "言語"
 
-#: vanilla_installer/gtk/default-language.ui:47
+#: vanilla_installer/gtk/default-language.ui:29
+msgid "Select your language"
+msgstr "言語を選択してください"
+
+#: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for language"
+msgid "Search for a language"
 msgstr "言語を検索"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -191,25 +195,17 @@ msgstr "カラースキーム"
 msgid "Choose a color scheme for your system"
 msgstr "システムのカラースキームを選択してください"
 
-#: vanilla_installer/gtk/default-timezone.ui:33
+#: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
 msgstr "日付と時刻"
 
-#: vanilla_installer/gtk/default-timezone.ui:34
+#: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "使用するタイムゾーンを選択してください"
 
-#: vanilla_installer/gtk/default-timezone.ui:44
+#: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search for a Timezone"
 msgstr "タイムゾーンを検索"
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr "地域"
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
-msgstr "タイムゾーン"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -227,24 +223,18 @@ msgstr "名前"
 msgid "Username"
 msgstr "ユーザー名"
 
-#: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Try Vanilla OS"
-msgid "Welcome to Vanilla OS!"
-msgstr "Vanilla OS を試用"
-
-#: vanilla_installer/gtk/default-welcome.ui:19
+#: vanilla_installer/gtk/default-welcome.ui:17
 #, fuzzy
 #| msgid "Installing..."
 msgid "Install"
 msgstr "インストールしています…"
 
-#: vanilla_installer/gtk/default-welcome.ui:36
+#: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "復元"
 
-#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
@@ -300,26 +290,36 @@ msgid "Open a Terminal"
 msgstr "ターミナルを開く"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+msgid "Documentation"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook"
+msgid "Read the Vanilla OS Documentation"
+msgstr "Vanilla OS ハンドブックを読む"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:44
+#: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
 msgstr "ディスクとパーティションを管理"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
 msgstr "ハンドブック"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:61
-msgid "Read the Vanilla OS Handbook"
-msgstr "Vanilla OS ハンドブックを読む"
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Read tutorials and guides about Vanilla OS."
+msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Web ブラウザー"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
+#: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
 msgstr "オンラインでヘルプを検索"
 
@@ -372,9 +372,13 @@ msgid "Boot Partition"
 msgstr "ブート パーティション"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/boot”. This directory stores files for "
+#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 msgstr ""
 "「/boot」の下にマウントするパーティション。このディレクトリはVanilla OSの起動"
 "に必要なファイルが格納されます。"
@@ -382,22 +386,20 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
 #: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:124
-#: vanilla_installer/gtk/widget-partition.ui:138
-#: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:475
+#: vanilla_installer/gtk/widget-partition.ui:96
+#: vanilla_installer/gtk/widget-partition.ui:117
+#: vanilla_installer/gtk/widget-partition.ui:151
+#: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
 msgstr "パーティションが選択されていません"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
 #: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:125
-#: vanilla_installer/gtk/widget-partition.ui:139
-#: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:477
+#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "最低でもひとつはオプションを選択してください"
 
@@ -440,58 +442,56 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOSパーティションは正確に1MiBでなければなりません。"
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-msgid "Root Partitions"
+#, fuzzy
+#| msgid "Root Partitions"
+msgid "Root Partition"
 msgstr "ルートパーティション"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/boot”. This directory stores files for "
+#| "booting in Vanilla OS."
 msgid ""
-"The partitions to mount under “/”. Both partitions must be the same size."
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
 msgstr ""
-"\"/\"配下にマウントするパーティションです。両方のパーティションは同じサイズに"
-"する必要があります。"
+"「/boot」の下にマウントするパーティション。このディレクトリはVanilla OSの起動"
+"に必要なファイルが格納されます。"
 
-#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:108
+#, fuzzy
+#| msgid "Boot partition is too small."
+msgid "Root partition is too small."
+msgstr "ブートパーティションが小さすぎます。"
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+#, fuzzy
+#| msgid "Swap Partition"
+msgid "Var Partition"
+msgstr "スワップ パーティション"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
-"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
-"which switches between two root partitions between updates."
-msgstr ""
-"Vanilla OS は ABRootによって管理されているA/Bパーティション システムを使って"
-"います、\n"
-"これは更新のたびに2つのルートパーティションが切り替わります。"
-
-#: vanilla_installer/gtk/widget-partition.ui:150
-msgid "Root partitions are not the same size."
-msgstr "ルートパーティションが同じサイズではありません。"
-
-#: vanilla_installer/gtk/widget-partition.ui:151
-msgid "Please make sure your A and B partitions have the same disk space."
-msgstr "AとBのパーティションが同じディスク容量であることを確認してください。"
-
-#: vanilla_installer/gtk/widget-partition.ui:160
-msgid "Root partitions are too small."
-msgstr "ルートパーティションが小さすぎます。"
-
-#: vanilla_installer/gtk/widget-partition.ui:165
-msgid "Home Partition"
-msgstr "ホーム パーティション"
-
-#: vanilla_installer/gtk/widget-partition.ui:166
-msgid ""
-"The partition to mount under “/home”. This directory stores all user data."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 msgstr ""
 "“/home”の下にマウントするパーティション。このディレクトリには、すべてのユー"
 "ザーデータが格納されます。"
 
-#: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
 msgstr "ホームパーティションが小さすぎます。"
 
-#: vanilla_installer/gtk/widget-partition.ui:186
-#: vanilla_installer/gtk/widget-partition.ui:190
+#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "スワップ パーティション"
 
-#: vanilla_installer/gtk/widget-partition.ui:187
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -500,7 +500,7 @@ msgstr ""
 "に、現在起動中のVanilla OSはzramを使用することで、ストレージを一切使用せずに"
 "スワップを提供しています。"
 
-#: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -508,37 +508,37 @@ msgstr ""
 "zramと併用してスワップとして使用するパーティションを選択します。これはハイバ"
 "ネーションには必要ありません。"
 
-#: vanilla_installer/gtk/window.ui:38
+#: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "戻る"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
+#: vanilla_installer/defaults/network.py:374
 msgid "Connected"
 msgstr ""
 
-#: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GPartedは既に起動しています。Gpartedのインスタンスは1つだけ許可されます。"
 
-#: vanilla_installer/defaults/disk.py:429
+#: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
 msgstr "パーティションは少なくとも{}でなければなりません"
 
-#: vanilla_installer/defaults/disk.py:460
+#: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "パーティションは正確に{}でなければなりません"
 
-#: vanilla_installer/defaults/disk.py:575
+#: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "パーティションが変更されました。現在の選択項目がクリアされました。"
 
-#: vanilla_installer/defaults/disk.py:633
+#: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "ディスク全体を使用します。"
 
-#: vanilla_installer/defaults/disk.py:640
+#: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "{} でフォーマットされ、{} にマウントされます"
 
@@ -558,39 +558,39 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:381
+#: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:383
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -672,8 +672,43 @@ msgstr "問題が発生しました"
 msgid "Please contact the distribution developers."
 msgstr "ディストリビューションの開発者にご連絡ください。"
 
-#~ msgid "Select your language"
-#~ msgstr "言語を選択してください"
+#~ msgid "Region"
+#~ msgstr "地域"
+
+#~ msgid "Zone"
+#~ msgstr "タイムゾーン"
+
+#, fuzzy
+#~| msgid "Try Vanilla OS"
+#~ msgid "Welcome to Vanilla OS!"
+#~ msgstr "Vanilla OS を試用"
+
+#~ msgid ""
+#~ "The partitions to mount under “/”. Both partitions must be the same size."
+#~ msgstr ""
+#~ "\"/\"配下にマウントするパーティションです。両方のパーティションは同じサイ"
+#~ "ズにする必要があります。"
+
+#~ msgid ""
+#~ "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
+#~ "which switches between two root partitions between updates."
+#~ msgstr ""
+#~ "Vanilla OS は ABRootによって管理されているA/Bパーティション システムを使っ"
+#~ "ています、\n"
+#~ "これは更新のたびに2つのルートパーティションが切り替わります。"
+
+#~ msgid "Root partitions are not the same size."
+#~ msgstr "ルートパーティションが同じサイズではありません。"
+
+#~ msgid "Please make sure your A and B partitions have the same disk space."
+#~ msgstr ""
+#~ "AとBのパーティションが同じディスク容量であることを確認してください。"
+
+#~ msgid "Root partitions are too small."
+#~ msgstr "ルートパーティションが小さすぎます。"
+
+#~ msgid "Home Partition"
+#~ msgstr "ホーム パーティション"
 
 #, fuzzy
 #~ msgid "clicked"

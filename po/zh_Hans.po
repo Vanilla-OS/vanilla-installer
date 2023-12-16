@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 21:32+0530\n"
+"POT-Creation-Date: 2023-11-22 10:57+0530\n"
 "PO-Revision-Date: 2023-08-09 16:03+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -46,19 +46,17 @@ msgid "The following changes will be made to your system:"
 msgstr "以下更改将会应用到您的系统："
 
 #: vanilla_installer/gtk/confirm.ui:28
-#: vanilla_installer/gtk/default-welcome.ui:38
 msgid "Install Vanilla OS"
 msgstr "安装 Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:23
+#: vanilla_installer/gtk/default-keyboard.ui:30
+#: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
+#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
-#: vanilla_installer/gtk/default-language.ui:17
 msgid "Next"
 msgstr "继续"
 
@@ -80,6 +78,12 @@ msgstr "使用整个磁盘"
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
 msgstr "手动安装"
+
+#: vanilla_installer/gtk/default-disk.ui:86
+#, fuzzy
+#| msgid "You need at least %s of disk space to proceed with installation."
+msgid "You need at least %s of disk space to proceed with the installation."
+msgstr "至少需要 %s 的磁盘空间才能继续安装。"
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -109,31 +113,28 @@ msgstr "密码"
 msgid "Confirm Password"
 msgstr "确认密码"
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
+#: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
+#: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
 msgstr "选择您的首选键盘布局"
 
-#: vanilla_installer/gtk/default-keyboard.ui:44
+#: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
 msgstr "搜索键盘布局"
 
-#: vanilla_installer/gtk/default-language.ui:33
-#: vanilla_installer/gtk/default-language.ui:51
-#: vanilla_installer/views/confirm.py:73
-#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "语言"
 
-#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/gtk/default-language.ui:29
 msgid "Select your language"
 msgstr "选择您的语言"
 
-#: vanilla_installer/gtk/default-language.ui:44
+#: vanilla_installer/gtk/default-language.ui:39
 msgid "Search for a language"
 msgstr "搜索语言"
 
@@ -186,25 +187,17 @@ msgstr "配色方案"
 msgid "Choose a color scheme for your system"
 msgstr "为您的系统选择配色方案"
 
-#: vanilla_installer/gtk/default-timezone.ui:33
+#: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
 msgstr "日期与时间"
 
-#: vanilla_installer/gtk/default-timezone.ui:34
+#: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "选择您的首选时区"
 
-#: vanilla_installer/gtk/default-timezone.ui:44
+#: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search for a Timezone"
 msgstr "搜索时区"
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr "地区"
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
-msgstr "时区"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -222,11 +215,20 @@ msgstr "名称"
 msgid "Username"
 msgstr "用户名"
 
-#: vanilla_installer/gtk/default-welcome.ui:30
+#: vanilla_installer/gtk/default-welcome.ui:17
+msgid "Install"
+msgstr "安装"
+
+#: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
-#: vanilla_installer/gtk/default-welcome.ui:36
 msgid "Recovery"
 msgstr "恢复"
+
+#: vanilla_installer/gtk/default-welcome.ui:51
+#: vanilla_installer/gtk/dialog-poweroff.ui:6
+#: vanilla_installer/gtk/dialog-poweroff.ui:26
+msgid "Power Off"
+msgstr "关机"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -261,6 +263,14 @@ msgstr "以下更改将会应用到您的磁盘。请仔细检查。"
 msgid "Log"
 msgstr "日志"
 
+#: vanilla_installer/gtk/dialog-poweroff.ui:42
+msgid "Restart"
+msgstr "重新启动"
+
+#: vanilla_installer/gtk/dialog-poweroff.ui:58
+msgid "Restart into Firmware Setup"
+msgstr "重启进入固件设置"
+
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "终端"
@@ -270,26 +280,36 @@ msgid "Open a Terminal"
 msgstr "打开终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+msgid "Documentation"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook"
+msgid "Read the Vanilla OS Documentation"
+msgstr "阅读 Vanilla OS 的手册"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "GParted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:44
+#: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
 msgstr "管理磁盘和分区"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
 msgstr "手册"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:61
-msgid "Read the Vanilla OS Handbook"
-msgstr "阅读 Vanilla OS 的手册"
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Read tutorials and guides about Vanilla OS."
+msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "网页浏览器"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
+#: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
 msgstr "寻求在线帮助"
 
@@ -342,32 +362,32 @@ msgid "Boot Partition"
 msgstr "引导分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/boot”. This directory stores files for "
+#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 msgstr "要挂载到“/boot”的分区。此目录下的文件用于启动 Vanilla OS。"
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
 #: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:124
-#: vanilla_installer/gtk/widget-partition.ui:138
-#: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:412
-#: vanilla_installer/defaults/disk.py:475
+#: vanilla_installer/gtk/widget-partition.ui:96
+#: vanilla_installer/gtk/widget-partition.ui:117
+#: vanilla_installer/gtk/widget-partition.ui:151
+#: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
 msgstr "未选择分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
 #: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:125
-#: vanilla_installer/gtk/widget-partition.ui:139
-#: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:414
-#: vanilla_installer/defaults/disk.py:477
+#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "请从下列选项中选择一个分区"
 
@@ -407,53 +427,52 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS 引导分区的大小必须为正好 1 MiB。"
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-msgid "Root Partitions"
+#, fuzzy
+#| msgid "Root Partitions"
+msgid "Root Partition"
 msgstr "根分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/boot”. This directory stores files for "
+#| "booting in Vanilla OS."
 msgid ""
-"The partitions to mount under “/”. Both partitions must be the same size."
-msgstr "要挂载到“/”的分区。两个分区的大小必须相同。"
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
+msgstr "要挂载到“/boot”的分区。此目录下的文件用于启动 Vanilla OS。"
 
-#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:108
+#, fuzzy
+#| msgid "Boot partition is too small."
+msgid "Root partition is too small."
+msgstr "引导分区过小。"
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+#, fuzzy
+#| msgid "Swap Partition"
+msgid "Var Partition"
+msgstr "交换分区"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
-"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
-"which switches between two root partitions between updates."
-msgstr ""
-"Vanilla OS 使用由 ABRoot 管理的 A/B 分区系统，\n"
-"每次更新会在两个根分区之间切换。"
-
-#: vanilla_installer/gtk/widget-partition.ui:150
-msgid "Root partitions are not the same size."
-msgstr "两个根分区的大小不相同。"
-
-#: vanilla_installer/gtk/widget-partition.ui:151
-msgid "Please make sure your A and B partitions have the same disk space."
-msgstr "请确保 A 和 B 分区的大小相同。"
-
-#: vanilla_installer/gtk/widget-partition.ui:160
-msgid "Root partitions are too small."
-msgstr "根分区过小。"
-
-#: vanilla_installer/gtk/widget-partition.ui:165
-msgid "Home Partition"
-msgstr "家分区"
-
-#: vanilla_installer/gtk/widget-partition.ui:166
-msgid ""
-"The partition to mount under “/home”. This directory stores all user data."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 msgstr "要挂载到“/home”的分区。此目录存储所有用户数据。"
 
-#: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
 msgstr "家分区过小。"
 
-#: vanilla_installer/gtk/widget-partition.ui:186
-#: vanilla_installer/gtk/widget-partition.ui:190
+#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "交换分区"
 
-#: vanilla_installer/gtk/widget-partition.ui:187
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -461,161 +480,44 @@ msgstr ""
 "交换空间起到虚拟内存的作用，也为休眠功能所必需。Vanilla OS 默认使用 zram 以提"
 "供内存交换，不需要消耗存储空间。"
 
-#: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr "选择要和 zram 一起使用的交换分区。这部分与休眠功能无必然联系。"
 
-#: vanilla_installer/gtk/window.ui:39 vanilla_installer/gtk/window.ui:38
+#: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "返回"
 
-#: vanilla_installer/defaults/disk.py:286
-#: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/gtk/wireless-row.ui:33
+#: vanilla_installer/defaults/network.py:374
+msgid "Connected"
+msgstr "已连接"
+
+#: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted 已在运行。只允许同时运行 1 个 GParted 实例。"
 
-#: vanilla_installer/defaults/disk.py:376
-#: vanilla_installer/defaults/disk.py:429
+#: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
 msgstr "分区必须至少为 {}"
 
-#: vanilla_installer/defaults/disk.py:399
-#: vanilla_installer/defaults/disk.py:460
+#: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "分区必须正好为 {}"
 
-#: vanilla_installer/defaults/disk.py:510
-#: vanilla_installer/defaults/disk.py:575
+#: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "分区已更改。当前选择已清除。"
 
-#: vanilla_installer/defaults/disk.py:567
-#: vanilla_installer/defaults/disk.py:633
+#: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "将会使用整个磁盘。"
 
-#: vanilla_installer/defaults/disk.py:574
-#: vanilla_installer/defaults/disk.py:640
+#: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "将会格式化为 {} 并挂载到 {}"
-
-#: vanilla_installer/layouts/preferences.py:68
-#: vanilla_installer/layouts/preferences.py:67
-msgid "Please select at least one option."
-msgstr "请至少选择一个选项。"
-
-#: vanilla_installer/utils/builder.py:69 vanilla_installer/utils/builder.py:71
-msgid "Missing 'log_file' in the recipe."
-msgstr "配方中缺少“log_file”。"
-
-#: vanilla_installer/utils/builder.py:78 vanilla_installer/utils/builder.py:80
-#, python-format
-msgid "failed to create log file: %s"
-msgstr "无法创建日志文件：%s"
-
-#: vanilla_installer/utils/builder.py:79 vanilla_installer/utils/builder.py:81
-msgid "No log will be stored."
-msgstr "日志将不会储存。"
-
-#: vanilla_installer/utils/builder.py:86 vanilla_installer/utils/builder.py:88
-#, python-format
-msgid "Performing display-condition: %s"
-msgstr "正在执行 display-condition：%s"
-
-#: vanilla_installer/utils/builder.py:89 vanilla_installer/utils/builder.py:92
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
-#, python-format
-msgid "Step %s skipped due to display-conditions"
-msgstr "由于 display-condition 而跳过步骤 %s"
-
-#: vanilla_installer/utils/recipe.py:46 vanilla_installer/utils/recipe.py:43
-msgid "Invalid recipe file"
-msgstr "无效的配方文件"
-
-#: vanilla_installer/utils/recipe.py:55 vanilla_installer/utils/recipe.py:52
-msgid "Recipe is not a dictionary"
-msgstr "配方不是字典类型"
-
-#: vanilla_installer/utils/recipe.py:60 vanilla_installer/utils/recipe.py:57
-#, python-brace-format
-msgid "Recipe is missing the '{key}' key"
-msgstr "配方缺少键“{key}”"
-
-#: vanilla_installer/utils/recipe.py:64 vanilla_installer/utils/recipe.py:61
-msgid "Recipe steps is not a list"
-msgstr "配方步骤不是列表类型"
-
-#: vanilla_installer/utils/recipe.py:69 vanilla_installer/utils/recipe.py:66
-#, python-brace-format
-msgid "Step {step} is not a dictionary"
-msgstr "步骤 {step} 不是字典类型"
-
-#: vanilla_installer/views/confirm.py:79 vanilla_installer/views/confirm.py:81
-msgid "Keyboard"
-msgstr "键盘"
-
-#: vanilla_installer/views/confirm.py:85 vanilla_installer/views/confirm.py:87
-msgid "Timezone"
-msgstr "时区"
-
-#: vanilla_installer/views/confirm.py:91 vanilla_installer/views/confirm.py:95
-msgid "Users"
-msgstr "用户"
-
-#: vanilla_installer/views/confirm.py:98 vanilla_installer/views/confirm.py:109
-#: vanilla_installer/views/confirm.py:104
-#: vanilla_installer/views/confirm.py:120
-msgid "Disk"
-msgstr "磁盘"
-
-#: vanilla_installer/views/done.py:39 vanilla_installer/views/done.py:40
-msgid "Restart your device to enjoy your {} experience."
-msgstr "重启设备，开启您的 {} 之旅。"
-
-#: vanilla_installer/views/done.py:53 vanilla_installer/views/done.py:54
-msgid "Something went wrong"
-msgstr "出错了"
-
-#: vanilla_installer/views/done.py:54 vanilla_installer/views/done.py:56
-msgid "Please contact the distribution developers."
-msgstr "请联系发行版开发者。"
-
-#: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
-msgstr "至少需要 %s 的磁盘空间才能继续安装。"
-
-#: vanilla_installer/gtk/default-language.ui:47
-msgid "Search for language"
-msgstr "搜索语言"
-
-#: vanilla_installer/gtk/default-welcome.ui:12
-msgid "Welcome to Vanilla OS!"
-msgstr "欢迎使用 Vanilla OS！"
-
-#: vanilla_installer/gtk/default-welcome.ui:19
-msgid "Install"
-msgstr "安装"
-
-#: vanilla_installer/gtk/default-welcome.ui:53
-#: vanilla_installer/gtk/dialog-poweroff.ui:6
-#: vanilla_installer/gtk/dialog-poweroff.ui:26
-msgid "Power Off"
-msgstr "关机"
-
-#: vanilla_installer/gtk/dialog-poweroff.ui:42
-msgid "Restart"
-msgstr "重新启动"
-
-#: vanilla_installer/gtk/dialog-poweroff.ui:58
-msgid "Restart into Firmware Setup"
-msgstr "重启进入固件设置"
-
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
-msgid "Connected"
-msgstr "已连接"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
@@ -633,41 +535,154 @@ msgstr "安全的网络（WPA2）"
 msgid "Secure network (WPA3)"
 msgstr "安全的网络（WPA3）"
 
-#: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
 msgstr "需要认证"
 
-#: vanilla_installer/defaults/network.py:381
+#: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
 msgstr "连接中"
 
-#: vanilla_installer/defaults/network.py:383
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
 msgstr "已断开连接"
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
 msgstr "正在断开连接"
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
 msgstr "连接失败"
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
 msgstr "状态未知"
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
 msgstr "不受管理"
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
 msgstr "不可用"
 
-#: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
 msgstr "线缆已拔出"
+
+#: vanilla_installer/layouts/preferences.py:67
+msgid "Please select at least one option."
+msgstr "请至少选择一个选项。"
+
+#: vanilla_installer/utils/builder.py:71
+msgid "Missing 'log_file' in the recipe."
+msgstr "配方中缺少“log_file”。"
+
+#: vanilla_installer/utils/builder.py:80
+#, python-format
+msgid "failed to create log file: %s"
+msgstr "无法创建日志文件：%s"
+
+#: vanilla_installer/utils/builder.py:81
+msgid "No log will be stored."
+msgstr "日志将不会储存。"
+
+#: vanilla_installer/utils/builder.py:88
+#, python-format
+msgid "Performing display-condition: %s"
+msgstr "正在执行 display-condition：%s"
+
+#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#, python-format
+msgid "Step %s skipped due to display-conditions"
+msgstr "由于 display-condition 而跳过步骤 %s"
+
+#: vanilla_installer/utils/recipe.py:43
+msgid "Invalid recipe file"
+msgstr "无效的配方文件"
+
+#: vanilla_installer/utils/recipe.py:52
+msgid "Recipe is not a dictionary"
+msgstr "配方不是字典类型"
+
+#: vanilla_installer/utils/recipe.py:57
+#, python-brace-format
+msgid "Recipe is missing the '{key}' key"
+msgstr "配方缺少键“{key}”"
+
+#: vanilla_installer/utils/recipe.py:61
+msgid "Recipe steps is not a list"
+msgstr "配方步骤不是列表类型"
+
+#: vanilla_installer/utils/recipe.py:66
+#, python-brace-format
+msgid "Step {step} is not a dictionary"
+msgstr "步骤 {step} 不是字典类型"
+
+#: vanilla_installer/views/confirm.py:81
+msgid "Keyboard"
+msgstr "键盘"
+
+#: vanilla_installer/views/confirm.py:87
+msgid "Timezone"
+msgstr "时区"
+
+#: vanilla_installer/views/confirm.py:95
+msgid "Users"
+msgstr "用户"
+
+#: vanilla_installer/views/confirm.py:104
+#: vanilla_installer/views/confirm.py:120
+msgid "Disk"
+msgstr "磁盘"
+
+#: vanilla_installer/views/done.py:40
+msgid "Restart your device to enjoy your {} experience."
+msgstr "重启设备，开启您的 {} 之旅。"
+
+#: vanilla_installer/views/done.py:54
+msgid "Something went wrong"
+msgstr "出错了"
+
+#: vanilla_installer/views/done.py:56
+msgid "Please contact the distribution developers."
+msgstr "请联系发行版开发者。"
+
+#~ msgid "Region"
+#~ msgstr "地区"
+
+#~ msgid "Zone"
+#~ msgstr "时区"
+
+#~ msgid ""
+#~ "The partitions to mount under “/”. Both partitions must be the same size."
+#~ msgstr "要挂载到“/”的分区。两个分区的大小必须相同。"
+
+#~ msgid ""
+#~ "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
+#~ "which switches between two root partitions between updates."
+#~ msgstr ""
+#~ "Vanilla OS 使用由 ABRoot 管理的 A/B 分区系统，\n"
+#~ "每次更新会在两个根分区之间切换。"
+
+#~ msgid "Root partitions are not the same size."
+#~ msgstr "两个根分区的大小不相同。"
+
+#~ msgid "Please make sure your A and B partitions have the same disk space."
+#~ msgstr "请确保 A 和 B 分区的大小相同。"
+
+#~ msgid "Root partitions are too small."
+#~ msgstr "根分区过小。"
+
+#~ msgid "Home Partition"
+#~ msgstr "家分区"
+
+#~ msgid "Search for language"
+#~ msgstr "搜索语言"
+
+#~ msgid "Welcome to Vanilla OS!"
+#~ msgstr "欢迎使用 Vanilla OS！"
 
 #~ msgid "clicked"
 #~ msgstr "已点击"
