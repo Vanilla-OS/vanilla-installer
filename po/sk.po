@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Martin <stefanic.martin@gmail.com>, 2023.
+# DanyCDev <dany@kmaster.ovh>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2022-11-26 12:48+0000\n"
-"Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
+"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"PO-Revision-Date: 2023-11-26 16:57+0000\n"
+"Last-Translator: DanyCDev <dany@kmaster.ovh>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sk/>\n"
 "Language: sk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -25,7 +25,7 @@ msgstr "Vanilla OS Inštalátor"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr "Vylaďte si Vanilla OS."
+msgstr "Vylaďte si inštaláciu Vanilla OS."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -49,57 +49,59 @@ msgstr "Nainštalovať Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:17
+#: vanilla_installer/gtk/default-keyboard.ui:30
+#: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
+#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
 msgstr "Ďalej"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Potvrďte inštaláciu"
+msgstr "Umiestnenie inštalácie"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Vyberte disk, kde chcete inštalovať Vanilla OS, alebo vyberte jeden či viac "
+"diskov pre manuálne nastavenie."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
 msgid "Use entire disk"
-msgstr "Použitie celého disku"
+msgstr "Použiť celý disk"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manuálne"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
+msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
+"Potrebujete aspoň % miesta na disku, aby bolo možné pokračovať v inštalácii."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Šifrovanie zariadenia"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS poskytuje celkové šifrovanie diasku prostredníctvom LUKS2, aby "
+"ochránil Vaše osobné dáta, ak by bolo Vaše zariadenie odcudzené."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Zašifrovať zariadenie"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Použite zapamätateľné heslo na zašifrovanie Vašich dát"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -109,34 +111,36 @@ msgstr "Heslo"
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "Potvrďte heslo"
+msgstr "Potvrdiť heslo"
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
+#: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
 msgstr "Rozloženie klávesnice"
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
+#: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
 msgstr "Zvoľte si rozloženie klávesnice"
 
-#: vanilla_installer/gtk/default-keyboard.ui:44
+#: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
 msgstr "Vyhľadávanie rozloženia klávesnice"
 
-#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Jazyk"
 
-#: vanilla_installer/gtk/default-language.ui:47
-#, fuzzy
-#| msgid "Search for a language"
-msgid "Search for language"
-msgstr "Vyhľadávanie jazyka"
+#: vanilla_installer/gtk/default-language.ui:29
+msgid "Select your language"
+msgstr "Zvoľte si jazyk systému"
+
+#: vanilla_installer/gtk/default-language.ui:39
+msgid "Search for a language"
+msgstr "Vyhľadať jazyk"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "Ovládače NVIDIA®"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
@@ -180,25 +184,17 @@ msgstr "Vzhľad"
 msgid "Choose a color scheme for your system"
 msgstr "Zvoľte si vzhľad systému"
 
-#: vanilla_installer/gtk/default-timezone.ui:33
+#: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
 msgstr "Dátum a čas"
 
-#: vanilla_installer/gtk/default-timezone.ui:34
+#: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "Vyberte si časové pásmo"
 
-#: vanilla_installer/gtk/default-timezone.ui:44
+#: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search for a Timezone"
 msgstr "Vyhľadávanie časového pásma"
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr "Oblasť"
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
-msgstr "Zóna"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -206,7 +202,7 @@ msgstr "Vytvoriť používateľa"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Zadajte údaje o svojom používateľskom účte"
+msgstr "Zadajte podrobnosti k Vášmu používateľskému kontu"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -216,23 +212,17 @@ msgstr "Meno"
 msgid "Username"
 msgstr "Používateľské meno"
 
-#: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Try Vanilla OS"
-msgid "Welcome to Vanilla OS!"
-msgstr "Vyskúšať Vanilla OS"
-
-#: vanilla_installer/gtk/default-welcome.ui:19
+#: vanilla_installer/gtk/default-welcome.ui:17
 #, fuzzy
 msgid "Install"
 msgstr "Inštalácia..."
 
-#: vanilla_installer/gtk/default-welcome.ui:36
+#: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr ""
 
-#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
@@ -240,7 +230,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr "Zobrazenie informácií"
+msgstr "Zobraziť informácie"
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
@@ -271,7 +261,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Záznam"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
@@ -283,36 +273,43 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Konzola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal"
-msgstr ""
+msgstr "Otvoriť teminál"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#, fuzzy
-msgid "Gparted"
-msgstr "Otvorte GParted"
+msgid "Documentation"
+msgstr "Dokumentácia"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-msgid "Manage disks and partitions"
-msgstr ""
+msgid "Read the Vanilla OS Documentation"
+msgstr "Prečítajte si dokumenťáciu Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Handbook"
-msgstr ""
+msgid "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-msgid "Read the Vanilla OS Handbook"
-msgstr ""
+msgid "Manage disks and partitions"
+msgstr "Spravujte disky a partície"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
-msgid "Web Browser"
-msgstr ""
+msgid "Handbook"
+msgstr "Manuál"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Read tutorials and guides about Vanilla OS."
+msgstr "Prečítajte návody a sprievodcov o Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:94
+msgid "Web Browser"
+msgstr "Webový prehliadač"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
-msgstr ""
+msgstr "Vyhľadať pomoc online"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -324,7 +321,7 @@ msgstr "Reštartujte počítač a vychutnajte si prácu s Vanilla OS"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Ukázať protokol"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
@@ -339,13 +336,12 @@ msgid "Yes, enable it"
 msgstr "Áno, povoľte to"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
 msgstr "Inštalácia..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
-msgstr "Zobraziť výstup z konzoly"
+msgstr "Ukázať výstup konzoly"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
@@ -360,62 +356,58 @@ msgid "Open GParted to manually partition the disk"
 msgstr "Otvorte GParted a ručne rozdeľte disk"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
-#, fuzzy
 msgid "Boot Partition"
-msgstr "Oddelenia"
+msgstr "Zavádzacia partícia"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
 #: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:124
-#: vanilla_installer/gtk/widget-partition.ui:138
-#: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:475
+#: vanilla_installer/gtk/widget-partition.ui:96
+#: vanilla_installer/gtk/widget-partition.ui:117
+#: vanilla_installer/gtk/widget-partition.ui:151
+#: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
-msgstr ""
+msgstr "Nebola vybraná partícia"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
 #: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:125
-#: vanilla_installer/gtk/widget-partition.ui:139
-#: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:477
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
-msgstr "Prosím, vyberte aspoň jednu možnosť."
+msgstr "Prosím vyberte partíciu zo zoznamu nižšie"
 
 #: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "Zavádzacia partícia je príliš malá."
 
 #: vanilla_installer/gtk/widget-partition.ui:50
-#, fuzzy
 msgid "EFI Partition"
-msgstr "Oddelenia"
+msgstr "EFI partícia"
 
 #: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"Partícia ktorá sa má pripojiť pod “/boot/efi“. Tento priečinok ukladá súbory "
+"na štart v bootloaderi."
 
 #: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI partícia je príliš malá."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "Oddelenia"
+msgstr "Zavádzacia partícia BIOSu"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
@@ -426,152 +418,141 @@ msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS partícia musí mať presne 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-msgid "Root Partitions"
-msgstr "Oddelenia"
+msgid "Root Partition"
+msgstr "Koreňová partícia"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
-"The partitions to mount under “/”. Both partitions must be the same size."
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:108
+msgid "Root partition is too small."
+msgstr "Koreňová partícia je príliš malá."
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+msgid "Var Partition"
+msgstr "Var partícia"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
 msgid ""
-"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
-"which switches between two root partitions between updates."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:150
-msgid "Root partitions are not the same size."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:151
-msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:160
-msgid "Root partitions are too small."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:165
-#, fuzzy
-msgid "Home Partition"
-msgstr "Oddelenia"
-
-#: vanilla_installer/gtk/widget-partition.ui:166
-msgid ""
-"The partition to mount under “/home”. This directory stores all user data."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
-msgstr ""
+msgstr "Domovská partícia je príliš malá."
 
-#: vanilla_installer/gtk/widget-partition.ui:186
-#: vanilla_installer/gtk/widget-partition.ui:190
-#, fuzzy
+#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
-msgstr "Oddelenia"
+msgstr "Swap partícia"
 
-#: vanilla_installer/gtk/widget-partition.ui:187
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"Swap slúži ako virtuálne rozšírenie operačnej pamäti a umožňuje hybernáciu. "
+"Vanilla OS už používa zram na swapping bez použitia úložiska."
 
-#: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
 msgstr ""
+"Vyberte partíciu za účelom swap popri zram. K hibernácii to nie je "
+"nevyhnutné."
 
-#: vanilla_installer/gtk/window.ui:38
+#: vanilla_installer/gtk/window.ui:37
 msgid "Back"
-msgstr ""
+msgstr "Späť"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
+#: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "Pripojené"
 
-#: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr ""
+msgstr "GParted už beží. Je povolená len jedna relácia GParted."
 
-#: vanilla_installer/defaults/disk.py:429
+#: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "Partícia musí mať aspoň {}"
 
-#: vanilla_installer/defaults/disk.py:460
+#: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "Partícia musí mať PRESNE {}"
 
-#: vanilla_installer/defaults/disk.py:575
+#: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "Partície sa zmenili. Súčasné výber bol vymazaný."
 
-#: vanilla_installer/defaults/disk.py:633
+#: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "Využije sa celý disk."
 
-#: vanilla_installer/defaults/disk.py:640
+#: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Bude naformátovaný v {} a pripojený do {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Nezabezpečená sieť (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Zabezpečená sieť (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Zabezpečená sieť (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Zabezpečená sieť (WPA3)"
 
-#: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
-
-#: vanilla_installer/defaults/network.py:381
-msgid "Connecting"
-msgstr ""
-
-#: vanilla_installer/defaults/network.py:383
-msgid "Disconnected"
-msgstr ""
+msgstr "Vyžaduje autentifikáciu"
 
 #: vanilla_installer/defaults/network.py:385
-msgid "Disconnecting"
-msgstr ""
+msgid "Connecting"
+msgstr "Pripájanie"
 
 #: vanilla_installer/defaults/network.py:387
-msgid "Connection Failed"
-msgstr ""
+msgid "Disconnected"
+msgstr "Odpojené"
 
 #: vanilla_installer/defaults/network.py:389
-msgid "Status Unknown"
-msgstr ""
+msgid "Disconnecting"
+msgstr "Odpájanie"
 
 #: vanilla_installer/defaults/network.py:391
-msgid "Unmanaged"
-msgstr ""
+msgid "Connection Failed"
+msgstr "Pripojenie zlyhalo"
 
 #: vanilla_installer/defaults/network.py:393
-msgid "Unavailable"
-msgstr ""
+msgid "Status Unknown"
+msgstr "Neznámy stav"
 
-#: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:395
+msgid "Unmanaged"
+msgstr "Nespravované"
+
+#: vanilla_installer/defaults/network.py:397
+msgid "Unavailable"
+msgstr "Nedostupné"
+
+#: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Odpojený kábel"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
@@ -579,71 +560,69 @@ msgstr "Prosím, vyberte aspoň jednu možnosť."
 
 #: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "Chýba 'log_file' v recepte."
 
 #: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "vytvorenie súboru protokolu zlyhalo: %s"
 
 #: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
-msgstr ""
+msgstr "Nebude uložený protokol."
 
 #: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "Vykonávanie podmienky zobrazenia: %s"
 
 #: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "Krok %s preskočený kvôli podmienkam zobrazenia"
 
 #: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "Neplatný súbor receptu"
 
 #: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "Recept nie je slovník"
 
 #: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "V recepte chýba '{key}' kľúč"
 
 #: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "Kroky receptu nie sú zoznamom"
 
 #: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "Krok {step} nie je slovník"
 
 #: vanilla_installer/views/confirm.py:81
-#, fuzzy
 msgid "Keyboard"
-msgstr "Rozloženie klávesnice"
+msgstr "Klávesnica"
 
 #: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
-msgstr ""
+msgstr "Časové pásmo"
 
 #: vanilla_installer/views/confirm.py:95
-#, fuzzy
 msgid "Users"
-msgstr "Používateľské meno"
+msgstr "Používateľ"
 
 #: vanilla_installer/views/confirm.py:104
 #: vanilla_installer/views/confirm.py:120
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 #: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
-msgstr "Reštartujte počítač, aby ste si mohli vychutnať svoje {} zážitky."
+msgstr "Reštartujte zariadenie, aby ste vychutnali svoj {} zážitok."
 
 #: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
@@ -653,8 +632,20 @@ msgstr "Niečo sa pokazilo"
 msgid "Please contact the distribution developers."
 msgstr "Prosím kontaktujte vývojárov distribúcie."
 
-#~ msgid "Select your language"
-#~ msgstr "Zvoľte si jazyk systému"
+#~ msgid "Region"
+#~ msgstr "Oblasť"
+
+#~ msgid "Zone"
+#~ msgstr "Zóna"
+
+#, fuzzy
+#~| msgid "Try Vanilla OS"
+#~ msgid "Welcome to Vanilla OS!"
+#~ msgstr "Vyskúšať Vanilla OS"
+
+#, fuzzy
+#~ msgid "Home Partition"
+#~ msgstr "Oddelenia"
 
 #, fuzzy
 #~ msgid "Vanilla OS Recovery"

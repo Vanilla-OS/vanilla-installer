@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"POT-Creation-Date: 2023-11-22 10:57+0530\n"
 "PO-Revision-Date: 2023-06-10 20:50+0000\n"
 "Last-Translator: Plamen Stanchev <sommersbynobodyev@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -50,10 +50,10 @@ msgstr "Инсталирайте Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:17
+#: vanilla_installer/gtk/default-keyboard.ui:30
+#: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
+#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
@@ -82,7 +82,7 @@ msgid "Manual"
 msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
+msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
@@ -113,27 +113,31 @@ msgstr "Парола"
 msgid "Confirm Password"
 msgstr "Потвърдете паролата"
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
+#: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
 msgstr "Клавиатурна Подредба"
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
+#: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
 msgstr "Изберете предпочитаната от вас подредба на клавиатурата"
 
-#: vanilla_installer/gtk/default-keyboard.ui:44
+#: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
 msgstr "Потърсете Клавиатурна Подредба"
 
-#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Език"
 
-#: vanilla_installer/gtk/default-language.ui:47
+#: vanilla_installer/gtk/default-language.ui:29
+msgid "Select your language"
+msgstr "Изберете вашия език"
+
+#: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for language"
+msgid "Search for a language"
 msgstr "Търсене на език"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -182,25 +186,17 @@ msgstr "Цветова схема"
 msgid "Choose a color scheme for your system"
 msgstr "Изберете цветова схема за вашата система"
 
-#: vanilla_installer/gtk/default-timezone.ui:33
+#: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
 msgstr "Дата и Час"
 
-#: vanilla_installer/gtk/default-timezone.ui:34
+#: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "Изберете предпочитаната от вас часова зона"
 
-#: vanilla_installer/gtk/default-timezone.ui:44
+#: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search for a Timezone"
 msgstr "Потърсете часова зона"
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr "Регион"
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
-msgstr "Зона"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -218,24 +214,18 @@ msgstr "Име"
 msgid "Username"
 msgstr "Потребителско име"
 
-#: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Install Vanilla OS"
-msgid "Welcome to Vanilla OS!"
-msgstr "Инсталирайте Vanilla OS"
-
-#: vanilla_installer/gtk/default-welcome.ui:19
+#: vanilla_installer/gtk/default-welcome.ui:17
 #, fuzzy
 #| msgid "Installing..."
 msgid "Install"
 msgstr "Инсталиране..."
 
-#: vanilla_installer/gtk/default-welcome.ui:36
+#: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Възстановяване"
 
-#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
@@ -295,30 +285,38 @@ msgid "Open a Terminal"
 msgstr "Отворете терминал."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+msgid "Documentation"
+msgstr ""
+
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Read the Vanilla OS Handbook."
+msgid "Read the Vanilla OS Documentation"
+msgstr "Прочетете Наръчника на Vanilla OS."
+
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "Gparted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:44
+#: vanilla_installer/gtk/dialog-recovery.ui:61
 #, fuzzy
 #| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
 msgstr "Управление на дискове и дялове."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
 msgstr "Наръчник"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
-msgid "Read the Vanilla OS Handbook"
-msgstr "Прочетете Наръчника на Vanilla OS."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Read tutorials and guides about Vanilla OS."
+msgstr ""
 
-#: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Уеб Браузъри"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
+#: vanilla_installer/gtk/dialog-recovery.ui:95
 #, fuzzy
 #| msgid "Search online for help."
 msgid "Search online for help"
@@ -375,9 +373,13 @@ msgid "Boot Partition"
 msgstr "Стартиращ дял за зареждане"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/boot”. This directory stores files for "
+#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 msgstr ""
 "Раздела, който да се монтира под \"/boot\". В тази директория се съхраняват "
 "файлове за зареждане на операционната система Vanilla."
@@ -385,22 +387,20 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
 #: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:124
-#: vanilla_installer/gtk/widget-partition.ui:138
-#: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:475
+#: vanilla_installer/gtk/widget-partition.ui:96
+#: vanilla_installer/gtk/widget-partition.ui:117
+#: vanilla_installer/gtk/widget-partition.ui:151
+#: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
 msgstr "Не е избран дял"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
 #: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:125
-#: vanilla_installer/gtk/widget-partition.ui:139
-#: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:477
+#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "Моля, изберете дял от опциите по-долу"
 
@@ -443,61 +443,58 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "Делът на BIOS трябва да е точно 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-msgid "Root Partitions"
+#, fuzzy
+#| msgid "Root Partitions"
+msgid "Root Partition"
 msgstr "Коренни дялове (Root)"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/boot”. This directory stores files for "
+#| "booting in Vanilla OS."
 msgid ""
-"The partitions to mount under “/”. Both partitions must be the same size."
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
 msgstr ""
-"Разделите, които да се монтират под \"/\" (/root). Двата дяла трябва да са с "
-"еднакъв размер."
+"Раздела, който да се монтира под \"/boot\". В тази директория се съхраняват "
+"файлове за зареждане на операционната система Vanilla."
 
-#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:108
+#, fuzzy
+#| msgid "Boot partition is too small."
+msgid "Root partition is too small."
+msgstr "Размера на стартиращия дял е твърде малък."
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+#, fuzzy
+#| msgid "Swap partition"
+msgid "Var Partition"
+msgstr "Суап дял (swap)"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
+#, fuzzy
+#| msgid ""
+#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
-"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
-"which switches between two root partitions between updates."
-msgstr ""
-"Операционната система Vanilla OS използва система от дялове A/B, управлявана "
-"от ABRoot,\n"
-"която превключва между два коренови дяла между актуализациите."
-
-#: vanilla_installer/gtk/widget-partition.ui:150
-msgid "Root partitions are not the same size."
-msgstr "Коренните дялове не са с еднакъв размер."
-
-#: vanilla_installer/gtk/widget-partition.ui:151
-msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
-"Уверете се, че дяловете A и B разполагат с еднакво дисково пространство."
-
-#: vanilla_installer/gtk/widget-partition.ui:160
-msgid "Root partitions are too small."
-msgstr "Коренните дялове са твърде малки."
-
-#: vanilla_installer/gtk/widget-partition.ui:165
-msgid "Home Partition"
-msgstr "Домашен дял (/home)"
-
-#: vanilla_installer/gtk/widget-partition.ui:166
-msgid ""
-"The partition to mount under “/home”. This directory stores all user data."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 msgstr ""
 "Раздела за монтиране под \"/home\". В тази директория се съхраняват всички "
 "потребителски данни."
 
-#: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
 msgstr "Домашния дял (/home) е твърде малък."
 
-#: vanilla_installer/gtk/widget-partition.ui:186
-#: vanilla_installer/gtk/widget-partition.ui:190
+#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:138
 #, fuzzy
 #| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "Суап дял (swap)"
 
-#: vanilla_installer/gtk/widget-partition.ui:187
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -506,7 +503,7 @@ msgstr ""
 "хибернация. Vanilla OS вече използва zram, за да осигури суап без да има "
 "нужда от реален суап дял."
 
-#: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -514,38 +511,38 @@ msgstr ""
 "Изберете дял, който да използвате за суап заедно с zram. Това не се изисква "
 "за хибернация."
 
-#: vanilla_installer/gtk/window.ui:38
+#: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "Обратно"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
+#: vanilla_installer/defaults/network.py:374
 msgid "Connected"
 msgstr ""
 
-#: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted вече работи. Разрешено е използването само на една инстанция на "
 "GParted."
 
-#: vanilla_installer/defaults/disk.py:429
+#: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
 msgstr "Делът трябва да бъде поне {}"
 
-#: vanilla_installer/defaults/disk.py:460
+#: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "Делът трябва да е точно {}"
 
-#: vanilla_installer/defaults/disk.py:575
+#: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Разделите са променени. Текущите селекции са изтрити."
 
-#: vanilla_installer/defaults/disk.py:633
+#: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "Ще се използва целият диск."
 
-#: vanilla_installer/defaults/disk.py:640
+#: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Ще бъде форматиран в {} и монтиран в {}"
 
@@ -565,39 +562,39 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:381
+#: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:383
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -680,8 +677,43 @@ msgstr "Нещо се обърка"
 msgid "Please contact the distribution developers."
 msgstr "Моля, свържете се с разработчиците на дистрибуцията."
 
-#~ msgid "Select your language"
-#~ msgstr "Изберете вашия език"
+#~ msgid "Region"
+#~ msgstr "Регион"
+
+#~ msgid "Zone"
+#~ msgstr "Зона"
+
+#, fuzzy
+#~| msgid "Install Vanilla OS"
+#~ msgid "Welcome to Vanilla OS!"
+#~ msgstr "Инсталирайте Vanilla OS"
+
+#~ msgid ""
+#~ "The partitions to mount under “/”. Both partitions must be the same size."
+#~ msgstr ""
+#~ "Разделите, които да се монтират под \"/\" (/root). Двата дяла трябва да "
+#~ "са с еднакъв размер."
+
+#~ msgid ""
+#~ "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
+#~ "which switches between two root partitions between updates."
+#~ msgstr ""
+#~ "Операционната система Vanilla OS използва система от дялове A/B, "
+#~ "управлявана от ABRoot,\n"
+#~ "която превключва между два коренови дяла между актуализациите."
+
+#~ msgid "Root partitions are not the same size."
+#~ msgstr "Коренните дялове не са с еднакъв размер."
+
+#~ msgid "Please make sure your A and B partitions have the same disk space."
+#~ msgstr ""
+#~ "Уверете се, че дяловете A и B разполагат с еднакво дисково пространство."
+
+#~ msgid "Root partitions are too small."
+#~ msgstr "Коренните дялове са твърде малки."
+
+#~ msgid "Home Partition"
+#~ msgstr "Домашен дял (/home)"
 
 #~ msgid "clicked"
 #~ msgstr "щракна върху"

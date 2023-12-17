@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 15:47+0530\n"
-"PO-Revision-Date: 2023-08-07 13:57+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
+"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"PO-Revision-Date: 2023-11-25 18:19+0000\n"
+"Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sv/>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -50,10 +50,10 @@ msgstr "Installera Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:17
+#: vanilla_installer/gtk/default-keyboard.ui:30
+#: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
+#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 msgid "Next"
@@ -80,8 +80,8 @@ msgid "Manual"
 msgstr "Manuell"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
-msgstr ""
+msgid "You need at least %s of disk space to proceed with the installation."
+msgstr "Du behöver minst %s diskutrymme för att fortsätta med installationen."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
@@ -113,27 +113,29 @@ msgstr "lösenord"
 msgid "Confirm Password"
 msgstr "Bekräfta lösenord"
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
+#: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
 msgstr "Tangentbordslayout"
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
+#: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
 msgstr "Välj önskad tangentbordslayout"
 
-#: vanilla_installer/gtk/default-keyboard.ui:44
+#: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
 msgstr "Sök efter en tangentbordslayout"
 
-#: vanilla_installer/gtk/default-language.ui:34
+#: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Språk"
 
-#: vanilla_installer/gtk/default-language.ui:47
-#, fuzzy
-#| msgid "Search for a language"
-msgid "Search for language"
+#: vanilla_installer/gtk/default-language.ui:29
+msgid "Select your language"
+msgstr "Välj ditt språk"
+
+#: vanilla_installer/gtk/default-language.ui:39
+msgid "Search for a language"
 msgstr "Sök efter ett språk"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -189,25 +191,17 @@ msgstr "Färgschema"
 msgid "Choose a color scheme for your system"
 msgstr "Välj ett färgschema för ditt system"
 
-#: vanilla_installer/gtk/default-timezone.ui:33
+#: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
 msgstr "Datum & tid"
 
-#: vanilla_installer/gtk/default-timezone.ui:34
+#: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "Välj önskad tidszon"
 
-#: vanilla_installer/gtk/default-timezone.ui:44
+#: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search for a Timezone"
 msgstr "Sök efter en tidszon"
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr "Region"
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
-msgstr "Zon"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -225,28 +219,20 @@ msgstr "Namn"
 msgid "Username"
 msgstr "användarnamn"
 
-#: vanilla_installer/gtk/default-welcome.ui:12
-#, fuzzy
-#| msgid "Try Vanilla OS"
-msgid "Welcome to Vanilla OS!"
-msgstr "Prova Vanilla OS"
-
-#: vanilla_installer/gtk/default-welcome.ui:19
-#, fuzzy
-#| msgid "Installing..."
+#: vanilla_installer/gtk/default-welcome.ui:17
 msgid "Install"
-msgstr "Installerar..."
+msgstr "Installera"
 
-#: vanilla_installer/gtk/default-welcome.ui:36
+#: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Återställning"
 
-#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Stäng av"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -285,47 +271,51 @@ msgstr "Logg"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Starta om"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Starta om till inställning av fastprogramvara"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
 msgid "Open a Terminal"
-msgstr "Öppna en terminal."
+msgstr "Öppna en terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:44
+msgid "Read the Vanilla OS Documentation"
+msgstr "Läs dokumentationen för Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "GParted"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
+#: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
-msgstr "Hantera diskar och partitioner."
+msgstr "Hantera diskar och partitioner"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:60
+#: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
 msgstr "Handbok"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-msgid "Read the Vanilla OS Handbook"
-msgstr "Läs VanillaOS Handbok."
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+msgid "Read tutorials and guides about Vanilla OS."
+msgstr "Läs handledningar och guider om Vanilla OS."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:77
+#: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Webbläsare"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
+#: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
-msgstr "Sök efter hjälp på nätet."
+msgstr "Sök på nätet efter hjälp"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -378,30 +368,28 @@ msgstr "Boot Partition"
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 msgstr ""
 "Partitionen som ska monteras under \"/boot\". Den här katalogen lagrar filer "
-"för uppstart av Vanilla OS."
+"för uppstart in till Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
 #: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:124
-#: vanilla_installer/gtk/widget-partition.ui:138
-#: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:475
+#: vanilla_installer/gtk/widget-partition.ui:96
+#: vanilla_installer/gtk/widget-partition.ui:117
+#: vanilla_installer/gtk/widget-partition.ui:151
+#: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
 msgstr "Ingen partition har valts"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
 #: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:125
-#: vanilla_installer/gtk/widget-partition.ui:139
-#: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:477
+#: vanilla_installer/gtk/widget-partition.ui:97
+#: vanilla_installer/gtk/widget-partition.ui:118
+#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "Välj en partition från alternativen nedan"
 
@@ -444,57 +432,43 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS-partitionen måste vara exakt 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-msgid "Root Partitions"
-msgstr "Root Partitioner"
+msgid "Root Partition"
+msgstr "Root Partition"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
-"The partitions to mount under “/”. Both partitions must be the same size."
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
 msgstr ""
-"Partitionerna som ska monteras under \"/\". Båda partitionerna måste vara "
-"lika stora."
+"Partitionen som ska monteras under \"/\". Den kommer automatiskt att "
+"omvandlas till en tunn LVM-pool under installationen."
 
-#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:108
+msgid "Root partition is too small."
+msgstr "Rootpartitionen är för liten."
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+msgid "Var Partition"
+msgstr "Var partition"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
 msgid ""
-"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
-"which switches between two root partitions between updates."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 msgstr ""
-"Vanilla OS använder ett A/B-partitionssystem som hanteras av ABRoot,\n"
-"vilket växlar mellan två rootpartitioner mellan uppdateringar."
+"Partitionen som ska monteras under \"/var\". Denna katalog lagrar all "
+"användardata som personliga dokument och systemomfattande konfiguration."
 
-#: vanilla_installer/gtk/widget-partition.ui:150
-msgid "Root partitions are not the same size."
-msgstr "Rootpartitionerna har inte samma storlek."
-
-#: vanilla_installer/gtk/widget-partition.ui:151
-msgid "Please make sure your A and B partitions have the same disk space."
-msgstr "Se till att dina A och B-partitioner har samma diskutrymme."
-
-#: vanilla_installer/gtk/widget-partition.ui:160
-msgid "Root partitions are too small."
-msgstr "Rootpartitionerna är för små."
-
-#: vanilla_installer/gtk/widget-partition.ui:165
-msgid "Home Partition"
-msgstr "Hem Partition"
-
-#: vanilla_installer/gtk/widget-partition.ui:166
-msgid ""
-"The partition to mount under “/home”. This directory stores all user data."
-msgstr ""
-"Partitionen som ska monteras under \"/home\". Denna katalog lagrar all "
-"användardata."
-
-#: vanilla_installer/gtk/widget-partition.ui:181
+#: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
 msgstr "Hempartitionen är för liten."
 
-#: vanilla_installer/gtk/widget-partition.ui:186
-#: vanilla_installer/gtk/widget-partition.ui:190
+#: vanilla_installer/gtk/widget-partition.ui:134
+#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "Swap partition"
 
-#: vanilla_installer/gtk/widget-partition.ui:187
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -503,7 +477,7 @@ msgstr ""
 "viloläge. Vanilla OS använder redan zram för att tillhandahålla utbyte utan "
 "lagringskostnad."
 
-#: vanilla_installer/gtk/widget-partition.ui:191
+#: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -511,90 +485,90 @@ msgstr ""
 "Välj en partition att använda för swap tillsammans med zram. Detta krävs "
 "inte för hibernering."
 
-#: vanilla_installer/gtk/window.ui:38
+#: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "Tillbaka"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
+#: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "Ansluten"
 
-#: vanilla_installer/defaults/disk.py:327
+#: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr "GParted körs redan. Endast en instans av GParted är tillåten."
 
-#: vanilla_installer/defaults/disk.py:429
+#: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
 msgstr "Partition måste vara minst {}"
 
-#: vanilla_installer/defaults/disk.py:460
+#: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "Partition måste EXAKT {}"
 
-#: vanilla_installer/defaults/disk.py:575
+#: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Partitionerna har ändrats. Aktuella val har raderats."
 
-#: vanilla_installer/defaults/disk.py:633
+#: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "Hela disken kommer att användas."
 
-#: vanilla_installer/defaults/disk.py:640
+#: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Kommer att formateras med {} och monteras på {}"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Osäkert nätverk (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Säkert nätverk (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Säkert nätverk (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Säkert nätverk (WPA3)"
 
-#: vanilla_installer/defaults/network.py:373
+#: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
-
-#: vanilla_installer/defaults/network.py:381
-msgid "Connecting"
-msgstr ""
-
-#: vanilla_installer/defaults/network.py:383
-msgid "Disconnected"
-msgstr ""
+msgstr "Autentisering krävs"
 
 #: vanilla_installer/defaults/network.py:385
-msgid "Disconnecting"
-msgstr ""
+msgid "Connecting"
+msgstr "Ansluter"
 
 #: vanilla_installer/defaults/network.py:387
-msgid "Connection Failed"
-msgstr ""
+msgid "Disconnected"
+msgstr "Frånkopplad"
 
 #: vanilla_installer/defaults/network.py:389
-msgid "Status Unknown"
-msgstr ""
+msgid "Disconnecting"
+msgstr "Kopplar från"
 
 #: vanilla_installer/defaults/network.py:391
-msgid "Unmanaged"
-msgstr ""
+msgid "Connection Failed"
+msgstr "Anslutningen misslyckades"
 
 #: vanilla_installer/defaults/network.py:393
-msgid "Unavailable"
-msgstr ""
+msgid "Status Unknown"
+msgstr "Status okänd"
 
-#: vanilla_installer/defaults/network.py:407
+#: vanilla_installer/defaults/network.py:395
+msgid "Unmanaged"
+msgstr "Ohanterad"
+
+#: vanilla_installer/defaults/network.py:397
+msgid "Unavailable"
+msgstr "Inte tillgänglig"
+
+#: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Kabel urkopplad"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
@@ -674,8 +648,41 @@ msgstr "Något gick fel"
 msgid "Please contact the distribution developers."
 msgstr "Kontakta distributionsutvecklarna."
 
-#~ msgid "Select your language"
-#~ msgstr "Välj ditt språk"
+#~ msgid "Region"
+#~ msgstr "Region"
+
+#~ msgid "Zone"
+#~ msgstr "Zon"
+
+#, fuzzy
+#~| msgid "Try Vanilla OS"
+#~ msgid "Welcome to Vanilla OS!"
+#~ msgstr "Prova Vanilla OS"
+
+#~ msgid ""
+#~ "The partitions to mount under “/”. Both partitions must be the same size."
+#~ msgstr ""
+#~ "Partitionerna som ska monteras under \"/\". Båda partitionerna måste vara "
+#~ "lika stora."
+
+#~ msgid ""
+#~ "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
+#~ "which switches between two root partitions between updates."
+#~ msgstr ""
+#~ "Vanilla OS använder ett A/B-partitionssystem som hanteras av ABRoot,\n"
+#~ "vilket växlar mellan två rootpartitioner mellan uppdateringar."
+
+#~ msgid "Root partitions are not the same size."
+#~ msgstr "Rootpartitionerna har inte samma storlek."
+
+#~ msgid "Please make sure your A and B partitions have the same disk space."
+#~ msgstr "Se till att dina A och B-partitioner har samma diskutrymme."
+
+#~ msgid "Root partitions are too small."
+#~ msgstr "Rootpartitionerna är för små."
+
+#~ msgid "Home Partition"
+#~ msgstr "Hem Partition"
 
 #~ msgid "clicked"
 #~ msgstr "klickad"
