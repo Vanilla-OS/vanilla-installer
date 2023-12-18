@@ -154,10 +154,22 @@ Options=%s
 """
 
 systemd_mount_unit_contents = [
-   ["/var/home", "/home", "none", "bind", "home.mount"],
-   ["/var/opt", "/opt", "none", "bind", "opt.mount"],
-   ["/var/lib/abroot/etc/vos-a/locales", "/.system/usr/lib/locale", "none", "bind", "\\x2esystem-usr-lib-locale.mount"],
-   ["overlay", "/.system/etc", "overlay", "lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work", "\\x2esystem-etc.mount"],
+    ["/var/home", "/home", "none", "bind", "home.mount"],
+    ["/var/opt", "/opt", "none", "bind", "opt.mount"],
+    [
+        "/var/lib/abroot/etc/vos-a/locales",
+        "/.system/usr/lib/locale",
+        "none",
+        "bind",
+        "\\x2esystem-usr-lib-locale.mount",
+    ],
+    [
+        "overlay",
+        "/.system/etc",
+        "overlay",
+        "lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work",
+        "\\x2esystem-etc.mount",
+    ],
 ]
 
 
@@ -241,8 +253,8 @@ class Processor:
         setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
 
         # LVM PVs
-        setup_steps.append([disk, "mkpart", ["vos-root", "btrfs", 1537, 23556]])
-        setup_steps.append([disk, "mkpart", ["vos-var", "btrfs", 23556, -1]])
+        setup_steps.append([disk, "mkpart", ["vos-root", "none", 1537, 23556]])
+        setup_steps.append([disk, "mkpart", ["vos-var", "none", 23556, -1]])
         part_prefix = f"{disk}p" if re.match(r"[0-9]", disk[-1]) else f"{disk}"
         setup_steps.append([disk, "pvcreate", [part_prefix + "3"]])
         setup_steps.append([disk, "pvcreate", [part_prefix + "4"]])
@@ -497,7 +509,10 @@ class Processor:
             filename = systemd_mount[4]
             filename_escaped = filename.replace("\\", "\\\\")
             with open("/tmp/" + filename, "w") as file:
-                file.write(_SYSTEMD_MOUNT_UNIT % (destination, extra_target, source, destination, fs_type, options))
+                file.write(
+                    _SYSTEMD_MOUNT_UNIT
+                    % (destination, extra_target, source, destination, fs_type, options)
+                )
             recipe.add_postinstall_step(
                 "shell",
                 [
@@ -660,7 +675,7 @@ class Processor:
                     f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
                     f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
                     "echo '/.system/usr  /.system/usr  none  bind,ro' >> /mnt/a/etc/fstab",
-                    f'VAR_UUID=$(lsblk -d -n -o UUID {var_part}) && echo "{var_location_prefix}$VAR_UUID /var  auto  defaults  0  0" >> /mnt/a/etc/fstab'
+                    f'VAR_UUID=$(lsblk -d -n -o UUID {var_part}) && echo "{var_location_prefix}$VAR_UUID /var  auto  defaults  0  0" >> /mnt/a/etc/fstab',
                 ],
             )
 
