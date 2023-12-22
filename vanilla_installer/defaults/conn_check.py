@@ -100,7 +100,7 @@ class VanillaDefaultConnCheck(Adw.Bin):
             self.status_page.set_icon_name("network-wired-disconnected-symbolic")
             self.status_page.set_title(_("No Internet Connection!"))
             self.status_page.set_description(
-                _("First Setup requires an active internet connection")
+                _("Installer requires an active internet connection")
             )
             self.btn_recheck.set_visible(True)
 
