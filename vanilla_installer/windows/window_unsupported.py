@@ -17,6 +17,7 @@
 from gettext import gettext as _
 import subprocess
 from gi.repository import Adw, Gtk
+from vanilla_installer.utils.recipe import RecipeLoader
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/window-unsupported.ui")
@@ -24,10 +25,12 @@ class VanillaUnsupportedWindow(Adw.Window):
     __gtype_name__ = "VanillaUnsupportedWindow"
 
     btn_poweroff = Gtk.Template.Child()
+    description_label = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.description_label.set_label(f"{RecipeLoader().raw['distro_name']} requires UEFI to install")
         self.btn_poweroff.connect("clicked", self.__on_poweroff)
 
     def __on_poweroff(self, btn):
