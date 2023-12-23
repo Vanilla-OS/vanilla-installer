@@ -31,12 +31,14 @@ from gettext import gettext as _
 from gi.repository import Adw, Gio
 
 from vanilla_installer.windows.main_window import VanillaWindow
+from vanilla_installer.windows.window_unsupported import VanillaUnsupportedWindow
+from vanilla_installer.core.system import Systeminfo
 
 
 logging.basicConfig(level=logging.INFO)
 
 
-class FirstSetupApplication(Adw.Application):
+class VanillaInstaller(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self):
@@ -57,7 +59,10 @@ class FirstSetupApplication(Adw.Application):
 
         win = self.props.active_window
         if not win:
-            win = VanillaWindow(application=self)
+            if Systeminfo.is_uefi():
+                win = VanillaWindow(application=self)
+            else:
+                win = VanillaUnsupportedWindow(application=self)
         win.present()
 
     def create_action(self, name, callback, shortcuts=None):
@@ -82,5 +87,5 @@ class FirstSetupApplication(Adw.Application):
 
 def main(version):
     """The application's entry point."""
-    app = FirstSetupApplication()
+    app = VanillaInstaller()
     return app.run(sys.argv)

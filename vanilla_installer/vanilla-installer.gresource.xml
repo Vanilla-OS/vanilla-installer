@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/org/vanillaos/Installer">
     <file>gtk/window.ui</file>
+    <file>gtk/window-unsupported.ui</file>
     <file>gtk/confirm.ui</file>
     <file>gtk/done.ui</file>
     <file>gtk/progress.ui</file>
@@ -44,6 +45,7 @@
     <file>assets/complete.svg</file>
     <file>assets/control-center.svg</file>
     <file>assets/containerized.svg</file>
+    <file>assets/unsupported.svg</file>
 </gresource>
   <gresource prefix="/org/vanillaos/Installer/icons/scalable/actions/">
     <file preprocess="xml-stripblanks">../data/icons/hicolor/symbolic/actions/background-app-ghost-symbolic.svg</file>

@@ -8,6 +8,7 @@ sources = [
   'dialog_output.py',
   'dialog_recovery.py',
   'dialog_poweroff.py',
+  'window_unsupported.py',
 ]
 
 install_data(sources, install_dir: windowsdir)
