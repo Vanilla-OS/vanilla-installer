@@ -10,7 +10,7 @@
     "min_disk_size": 28680,
     "tour": {
         "welcome": {
-            "resource": "/org/vanillaos/Installer/assets/welcome.svg",
+            "resource": "/org/vanillaos/Installer/assets/welcome.png",
             "title": "Installing Vanilla OS",
             "description": "The process could take a few minutes, please be patient."
         },

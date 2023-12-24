@@ -37,7 +37,7 @@
     <file>gtk/layout-yes-no.ui</file>
   </gresource>
   <gresource prefix="/org/vanillaos/Installer">
-    <file>assets/welcome.svg</file>
+    <file>assets/welcome.png</file>
     <file>assets/complete.svg</file>
     <file>assets/ready.svg</file>
     <file>assets/containerized.svg</file>
