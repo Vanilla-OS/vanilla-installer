@@ -30,6 +30,8 @@ class VanillaProgress(Gtk.Box):
     carousel_tour = Gtk.Template.Child()
     tour_button = Gtk.Template.Child()
     tour_box = Gtk.Template.Child()
+    tour_btn_back = Gtk.Template.Child()
+    tour_btn_next = Gtk.Template.Child()
     progressbar = Gtk.Template.Child()
     console_button = Gtk.Template.Child()
     console_box = Gtk.Template.Child()
@@ -52,6 +54,9 @@ class VanillaProgress(Gtk.Box):
 
         self.style_manager.connect("notify::dark", self.__on_setup_terminal_colors)
         self.tour_button.connect("clicked", self.__on_tour_button)
+        self.tour_btn_back.connect("clicked", self.__on_tour_back)
+        self.tour_btn_next.connect("clicked", self.__on_tour_next)
+        self.carousel_tour.connect("page-changed", self.__on_page_changed)
         self.console_button.connect("clicked", self.__on_console_button)
 
 
@@ -60,7 +65,7 @@ class VanillaProgress(Gtk.Box):
         is_dark: bool = self.style_manager.get_dark()
 
         palette = [
-            "#3d3d3d",
+            "#363636",
             "#c01c28",
             "#26a269",
             "#a2734c",
@@ -103,6 +108,23 @@ class VanillaProgress(Gtk.Box):
         self.console_box.set_visible(False)
         self.tour_button.set_visible(False)
         self.console_button.set_visible(True)
+
+    def __on_tour_back(self, *args):
+        cur_index = self.carousel_tour.get_position()
+        page = self.carousel_tour.get_nth_page(cur_index - 1)
+        self.carousel_tour.scroll_to(page, True)
+
+    def __on_tour_next(self, *args):
+        cur_index = self.carousel_tour.get_position()
+        page = self.carousel_tour.get_nth_page(cur_index + 1)
+        self.carousel_tour.scroll_to(page, True)
+
+    def __on_page_changed(self, *args):
+        position = self.carousel_tour.get_position()
+        pages = self.carousel_tour.get_n_pages()
+
+        self.tour_btn_back.set_visible(position < pages and position > 0)
+        self.tour_btn_next.set_visible(position < pages - 1)
 
     def __on_console_button(self, *args):
         self.tour_box.set_visible(False)

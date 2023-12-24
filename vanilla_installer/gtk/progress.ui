@@ -14,21 +14,61 @@
                 <property name="height-request">550</property>
                 <property name="orientation">vertical</property>
                 <child>
-                    <object class="AdwCarousel" id="carousel_tour">
-                        <property name="halign">fill</property>
-                        <property name="valign">fill</property>
-                        <property name="hexpand">true</property>
-                        <property name="vexpand">true</property>
-                        <property name="allow_scroll_wheel">False</property>
-                        <property name="allow_mouse_drag">False</property>
-                        <property name="allow_long_swipes">False</property>
-                    </object>
-                </child>
-                <child>
-                    <object class="AdwCarouselIndicatorDots">
-                        <property name="carousel">carousel_tour</property>
-                        <property name="orientation">horizontal</property>
-                        <property name="margin-bottom">18</property>
+                    <object class="GtkOverlay">
+                        <property name="valign">center</property>
+                        <child type="overlay">
+                            <object class="GtkButton" id="tour_btn_back">
+                                <property name="visible">False</property>
+                                <property name="margin-start">12</property>
+                                <property name="margin-end">12</property>
+                                <property name="icon-name">go-previous-symbolic</property>
+                                <property name="halign">start</property>
+                                <property name="valign">center</property>
+                                <property name="tooltip-text" translatable="yes">Previous</property>
+                                <style>
+                                <class name="circular" />
+                                </style>
+                            </object>
+                        </child>
+                        <child type="overlay">
+                            <object class="GtkButton" id="tour_btn_next">
+                                <property name="visible">False</property>
+                                <property name="margin-start">12</property>
+                                <property name="margin-end">12</property>
+                                <property name="icon-name">go-next-symbolic</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="tooltip-text" translatable="yes">Next</property>
+                                <style>
+                                <class name="circular" />
+                                </style>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="vexpand">true</property>
+                                <property name="hexpand">true</property>
+                                <child>
+                                    <object class="AdwCarousel" id="carousel_tour">
+                                        <property name="halign">fill</property>
+                                        <property name="valign">fill</property>
+                                        <property name="hexpand">true</property>
+                                        <property name="vexpand">true</property>
+                                        <property name="allow_scroll_wheel">False</property>
+                                        <property name="allow_mouse_drag">False</property>
+                                        <property name="allow_long_swipes">False</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="AdwCarouselIndicatorDots">
+                                        <property name="carousel">carousel_tour</property>
+                                        <property name="orientation">horizontal</property>
+                                        <property name="margin-bottom">18</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
                     </object>
                 </child>
             </object>
