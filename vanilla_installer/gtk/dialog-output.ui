@@ -1,19 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.0"/>
-    <requires lib="libadwaita" version="1.0" />
-    <template class="VanillaDialogOutput" parent="AdwWindow">
-        <property name="title" translatable="yes">Log</property>
-        <property name="modal">true</property>
-        <property name="default-width">500</property>
-        <property name="default-height">450</property>
-        <child>
-            <object class="GtkBox" id="main_box">
-                <property name="orientation">vertical</property>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0" />
+  <template class="VanillaDialogOutput" parent="AdwWindow">
+    <property name="title" translatable="yes">Log</property>
+    <property name="modal">true</property>
+    <property name="default-width">500</property>
+    <property name="default-height">500</property>
+    <child>
+      <object class="AdwBin">
+        <property name="child">
+          <object class="AdwToolbarView">
+            <child type="top">
+              <object class="AdwHeaderBar" />
+            </child>
+            <property name="content">
+              <object class="AdwBin">
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">12</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <style>
+                  <class name="card"/>
+                </style>
                 <child>
-                    <object class="AdwHeaderBar"></object>
+                  <object class="GtkBox" id="main_box">
+                    <property name="margin-top">6</property>
+                    <property name="margin-bottom">6</property>
+                    <property name="margin-start">6</property>
+                    <property name="margin-end">6</property>
+                  </object>
                 </child>
-            </object>
-        </child>
-    </template>
+              </object>
+            </property>
+          </object>
+        </property> 
+      </object>
+    </child>
+  </template>
 </interface>
