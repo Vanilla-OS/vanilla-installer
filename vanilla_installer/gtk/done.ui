@@ -9,7 +9,7 @@
         <child>
             <object class="AdwStatusPage" id="status_page">
                 <property name="icon-name">emblem-default-symbolic</property>
-                <property name="title" translatable="yes">All done!</property>
+                <property name="title" translatable="yes">Finished!</property>
                 <property name="description" translatable="yes">Restart your device to enjoy your Vanilla OS experience</property>
                 <property name="halign">fill</property>
                 <property name="valign">fill</property>

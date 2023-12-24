@@ -24,8 +24,8 @@
           </child>
           <child>
             <object class="AdwStatusPage">
-              <property name="title" translatable="yes">Connect to the Internet</property>
-              <property name="description" translatable="yes">An active internet connection is required to install the system.</property>
+              <property name="title" translatable="yes">Internet</property>
+              <property name="description" translatable="yes">An active internet connection is required to install the system</property>
               <property name="icon-name">network-wireless-symbolic</property>
               <child>
                 <object class="AdwClamp">

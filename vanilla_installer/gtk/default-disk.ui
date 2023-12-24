@@ -41,7 +41,7 @@
                         <property name="spacing">10</property>
                         <child>
                           <object class="GtkButton" id="btn_auto">
-                            <property name="label" translatable="yes">Use entire disk</property>
+                            <property name="label" translatable="yes">Use Entire Disk</property>
                             <property name="margin-top">20</property>
                             <property name="halign">3</property>
                             <property name="sensitive">false</property>

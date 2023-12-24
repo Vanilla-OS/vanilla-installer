@@ -36,7 +36,7 @@
                                         <child>
                                             <object class="GtkSearchEntry" id="entry_search_language">
                                                 <property name="hexpand">true</property>
-                                                <property name="placeholder-text" translatable="yes">Search for a language</property>
+                                                <property name="placeholder-text" translatable="yes">Search languages</property>
                                             </object>
                                         </child>
                                         <child>
