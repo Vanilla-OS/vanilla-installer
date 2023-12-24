@@ -3,32 +3,32 @@
     "distro_name": "Vanilla OS",
     "distro_logo": "org.vanillaos.Installer-flower",
     "images": {
-    		"default": "ghcr.io/vanilla-os/desktop:main",
-    		"nvidia": "ghcr.io/vanilla-os/nvidia:main"
+        "default": "ghcr.io/vanilla-os/desktop:main",
+        "nvidia": "ghcr.io/vanilla-os/nvidia:main"
     },
     "default_root_size": 12288,
     "min_disk_size": 28680,
     "tour": {
         "welcome": {
             "resource": "/org/vanillaos/Installer/assets/welcome.svg",
-            "title": "Welcome to Vanilla",
-            "description": "Designed to last over time and always be faithful to you."
-       },
-       "control": {
-           "resource": "/org/vanillaos/Installer/assets/control-center.svg",
-           "title": "You're in Control",
-           "description": "Configure the system to your liking in the Vanilla Control Center."
-       },
-       "containerized": {
-           "resource": "/org/vanillaos/Installer/assets/containerized.svg",
-           "title": "Containerized",
-           "description": "You never have to worry about breakage due to incompatible or conflicting packages."
-       },
-       "completed": {
-           "resource": "/org/vanillaos/Installer/assets/complete.svg",
-           "title": "Complete and Reliable",
-           "description": "Use your system your way without anything getting in the way."
-       }
+            "title": "Installing Vanilla OS",
+            "description": "The process could take a few minutes, please be patient."
+        },
+        "control": {
+            "resource": "/org/vanillaos/Installer/assets/ready.svg",
+            "title": "Always Ready",
+            "description": "Don't be held back by your system, use it the way you want."
+        },
+        "containerized": {
+            "resource": "/org/vanillaos/Installer/assets/containerized.svg",
+            "title": "Containerized",
+            "description": "You never have to worry about breakage due to incompatible or conflicting packages."
+        },
+        "completed": {
+            "resource": "/org/vanillaos/Installer/assets/complete.svg",
+            "title": "Complete and Reliable",
+            "description": "The largest software catalog at your fingertips."
+        }
     },
     "steps": {
         "welcome": {
@@ -51,8 +51,8 @@
         },
         "nvidia": {
             "template": "nvidia",
-        		"display-conditions": [
-            		"lspci | grep -i '.* nvidia .*'"
+            "display-conditions": [
+                "lspci | grep -i '.* nvidia .*'"
             ]
         },
         "disk": {
