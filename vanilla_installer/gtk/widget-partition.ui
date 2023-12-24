@@ -7,7 +7,7 @@
         <child>
           <object class="AdwActionRow" id="open_gparted_row">
             <property name="icon-name">vanilla-installer-harddisk-symbolic</property>
-            <property name="title" translatable="yes">Open GParted</property>
+            <property name="title" translatable="yes">Manually Partition</property>
             <property name="subtitle" translatable="yes">Open GParted to manually partition the disk</property>
             <child type="suffix">
               <object class="GtkButton" id="launch_gparted">

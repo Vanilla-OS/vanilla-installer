@@ -26,7 +26,7 @@
                 <property name="halign">3</property>
                 <child>
                   <object class="GtkButton" id="btn_no">
-                    <property name="label" translatable="yes">Don't install</property>
+                    <property name="label" translatable="yes">Skip</property>
                     <property name="halign">3</property>
                     <style>
                       <class name="pill"/>

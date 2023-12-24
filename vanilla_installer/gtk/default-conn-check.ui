@@ -10,7 +10,7 @@
             <object class="AdwStatusPage" id="status_page">
                 <property name="icon-name">content-loading-symbolic</property>
                 <property name="title" translatable="yes">Checking Connection…</property>
-                <property name="description" translatable="yes">Please wait until the connection check is done.</property>
+                <property name="description" translatable="yes">Please wait until the connection check is done</property>
                 <child>
                     <object class="GtkButton" id="btn_recheck">
                         <property name="label">Check Again</property>

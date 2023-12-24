@@ -26,14 +26,14 @@
           <object class="AdwStatusPage" id="status_page">
             <property name="icon-name">channel-secure-symbolic</property>
             <property name="title" translatable="yes">Device Encryption</property>
-            <property name="description" translatable="yes">Vanilla OS provides full-disk encryption through LUKS2 to protect your personal information in case your device gets stolen.</property>
+            <property name="description" translatable="yes">Vanilla OS encrypts your disk to protect your personal information</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Encrypt device</property>
+                        <property name="title" translatable="yes">Encrypt Device</property>
                         <property name="subtitle" translatable="yes">Use a memorable password to encrypt your data</property>
                         <child type="suffix">
                           <object class="GtkSwitch" id="use_encryption_switch">

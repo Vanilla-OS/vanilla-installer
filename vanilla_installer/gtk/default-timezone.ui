@@ -36,7 +36,7 @@
                                         <child>
                                             <object class="GtkSearchEntry" id="entry_search_timezone">
                                                 <property name="hexpand">true</property>
-                                                <property name="placeholder-text" translatable="yes">Search for a Timezone</property>
+                                                <property name="placeholder-text" translatable="yes">Search timezones</property>
                                             </object>
                                         </child>
                                         <child>
