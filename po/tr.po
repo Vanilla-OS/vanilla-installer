@@ -5,13 +5,14 @@
 #
 # Murattut <tutmurattut@outlook.com>, 2023.
 # Fellow Turkish <f3ll0wm4il3r_12@protonmail.com>, 2023.
+# Muhammed Dalgalı <muhammedalgali2@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-06-27 10:57+0000\n"
-"Last-Translator: Murattut <tutmurattut@outlook.com>\n"
+"PO-Revision-Date: 2023-12-24 12:17+0000\n"
+"Last-Translator: Muhammed Dalgalı <muhammedalgali2@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/tr/>\n"
 "Language: tr\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -61,48 +62,48 @@ msgid "Next"
 msgstr "Sonraki"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "Kurulumu Doğrulayın"
+msgstr "Kurulum Konumu"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Vanilla OS'yi kurmak istediğiniz diski seçin. Ayrıca manuel olarak "
+"yapılandırmak için bir veya daha fazla disk seçebilirsiniz."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Entire Disk"
 msgid "Use entire disk"
-msgstr "Tüm Diski Kullan"
+msgstr "Tüm diski kullan"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "Kuruluma devam etmek için en az %s disk alanına ihtiyacınız var."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Cihaz Şifreleme"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
 msgstr ""
+"Vanilla OS, cihazınızın çalınması durumunda kişisel bilgilerinizi korumak "
+"için LUKS2 aracılığıyla tam disk şifrelemesi sağlar."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "Cihazı şifrele"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Verilerinizi şifrelemek için unutmayacağınız bir şifre kullanın"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -143,25 +144,27 @@ msgstr "Dil arayın"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® Sürücüleri"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Daha iyi uyumluluk ve performans için özel NVIDIA sürücülerinin kurulup "
+"kurulmayacağını seçin."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "Yükleme"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Yükle    (önerilir)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Tescilli Sürücüler Hakkında"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -170,6 +173,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Tescilli bir sürücünün ne Vanilla OS ne de Debian geliştiricilerinin "
+"inceleyemeyeceği özel kodu vardır.\n"
+"\n"
+"Güvenlik ve diğer güncellemeler sürücü sağlayıcısına bağlıdır."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -205,7 +212,7 @@ msgstr "Kullanıcı oluşturun"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Kullanıcı hesabınız için bazı detayları girin"
+msgstr "Kullanıcı hesabınız için ayrıntıları girin"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -216,10 +223,8 @@ msgid "Username"
 msgstr "Kullanıcı Adı"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "Kuruluyor..."
+msgstr "Kur"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -230,7 +235,7 @@ msgstr "Kurtarma"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Kapat"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -269,41 +274,35 @@ msgstr "Günlük"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Yeniden Başlat"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Yazılım Kurulumunu Yeniden Başlatın"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a Terminal"
-msgstr "Bir Terminal açın."
+msgstr "Bir Terminal Aç"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Dokümantasyon"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Read the Vanilla OS Documentation"
-msgstr "Vanilla OS El Kitabını okuyun."
+msgstr "Vanilla OS Belgelerini Okuyun"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "Gparted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
-msgstr "Diskleri ve bölümleri yönetin."
+msgstr "Diskleri ve bölümleri yönetin"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
@@ -311,17 +310,15 @@ msgstr "El Kitabı"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "Vanilla OS hakkındaki eğitimleri ve kılavuzları okuyun."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Web Tarayıcıları"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help."
 msgid "Search online for help"
-msgstr "Yardım için internette arama yapın."
+msgstr "Yardım için çevrimiçi arama yapın"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -373,15 +370,11 @@ msgid "Boot Partition"
 msgstr "Önyükleme Bölümleniyor"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
-"Bu Bölüm \"/boot\". olarak bağlanacak. Bu dizin Vanilla OS'un önyüklenebilir "
+"Bu Bölüm \"/boot\" olarak bağlanacak. Bu dizin Vanilla OS'un önyüklenebilir "
 "dosyalarını depolar."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
@@ -443,10 +436,8 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS bölümü tam olarak 1 MİB(1 Mebibyte) olmalıdır."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Kök bölümleri"
+msgstr "Kök Bölümü"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 #, fuzzy
@@ -461,26 +452,19 @@ msgstr ""
 "dosyalarını depolar."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "Önyükleme bölümü çok küçük."
+msgstr "Kök bölümü çok küçük."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Var Partition"
-msgstr "Swap bölümü"
+msgstr "War Bölümü"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"Bu Bölüm \"/home\" altında bağlanacak. Bu dizin tum kullanıcı dosyalarını "
+"Bu Bölüm \"/var\" altında bağlanacak. Bu dizin tüm kullanıcı dosyalarını "
 "depolar."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
@@ -489,10 +473,8 @@ msgstr "Ev bölümü çok küçük."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
-msgstr "Swap bölümü"
+msgstr "Bölümü Değiştir"
 
 #: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
@@ -518,7 +500,7 @@ msgstr "Geri"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "Bağlandı"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -546,43 +528,43 @@ msgstr "{} şeklinde biçimlendirilecek ve {} noktasına bağlanacaktır"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Güvenli olmayan ağ (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Güvenli ağ (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Güvenli ağ (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Güvenli ağ (WPA3)"
 
 #: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
+msgstr "Kimlik doğrulaması gerekli"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
-msgstr ""
+msgstr "Bağlanıyor"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
-msgstr ""
+msgstr "Bağlantı kesildi"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
-msgstr ""
+msgstr "Bağlantı kesiliyor"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
-msgstr ""
+msgstr "Bağlantı başarısız oldu"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
-msgstr ""
+msgstr "Durum bilinmiyor"
 
 #: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
@@ -594,11 +576,11 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Kablo Takılı değil"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
-msgstr "Lütfen en azından bir seçeneği seçin."
+msgstr "Lütfen en az bir seçeneği seçin."
 
 #: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
