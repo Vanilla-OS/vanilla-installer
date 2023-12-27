@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-12-24 12:17+0000\n"
 "Last-Translator: Muhammed Dalgalı <muhammedalgali2@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/vanilla-os/"
@@ -43,7 +43,9 @@ msgid "Confirm Installation"
 msgstr "Kurulumu Doğrulayın"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Aşağıdaki değişiklikler sisteminize uygulanacaktır:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -58,6 +60,7 @@ msgstr "Vanilla OS'u yükleyin"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Sonraki"
 
@@ -74,7 +77,9 @@ msgstr ""
 "yapılandırmak için bir veya daha fazla disk seçebilirsiniz."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-msgid "Use entire disk"
+#, fuzzy
+#| msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Tüm diski kullan"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -90,15 +95,19 @@ msgid "Device Encryption"
 msgstr "Cihaz Şifreleme"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+#, fuzzy
+#| msgid ""
+#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+#| "personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 "Vanilla OS, cihazınızın çalınması durumunda kişisel bilgilerinizi korumak "
 "için LUKS2 aracılığıyla tam disk şifrelemesi sağlar."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+#, fuzzy
+#| msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr "Cihazı şifrele"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -115,16 +124,18 @@ msgstr "Şifre"
 msgid "Confirm Password"
 msgstr "Şifreyi Doğrulayın"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Klavye Yerleşimi"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Tercih ettiğiniz klavye yerleşimini seçin"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Klavye Yerleşimi arayın"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -139,7 +150,7 @@ msgstr "Dilinizi seçin"
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for a language"
+msgid "Search languages"
 msgstr "Dil arayın"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -155,8 +166,8 @@ msgstr ""
 "kurulmayacağını seçin."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
-msgstr "Yükleme"
+msgid "Skip"
+msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -203,7 +214,9 @@ msgid "Select your preferred timezone"
 msgstr "Tercih ettiğiniz saat dilimini seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Bir saat dilimini ara"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -285,7 +298,9 @@ msgid "Console"
 msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
+#, fuzzy
+#| msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "Bir Terminal Aç"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -293,11 +308,15 @@ msgid "Documentation"
 msgstr "Dokümantasyon"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-msgid "Read the Vanilla OS Documentation"
+#, fuzzy
+#| msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Vanilla OS Belgelerini Okuyun"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -309,7 +328,9 @@ msgid "Handbook"
 msgstr "El Kitabı"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+#, fuzzy
+#| msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr "Vanilla OS hakkındaki eğitimleri ve kılavuzları okuyun."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -317,12 +338,14 @@ msgid "Web Browser"
 msgstr "Web Tarayıcıları"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+#, fuzzy
+#| msgid "Search online for help"
+msgid "Search help online"
 msgstr "Yardım için çevrimiçi arama yapın"
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Her şey tamam!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -345,21 +368,27 @@ msgstr "Kapat"
 msgid "Yes, enable it"
 msgstr "Evet, aktif hale getir"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "Kuruluyor..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Konsol çıktısını göster"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Slayt gösterisini göster"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "GParted'ı Aç"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "Manuel Bölümleniyor"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -498,7 +527,7 @@ msgid "Back"
 msgstr "Geri"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr "Bağlandı"
 
@@ -542,39 +571,45 @@ msgstr "Güvenli ağ (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Güvenli ağ (WPA3)"
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr "Kimlik doğrulaması gerekli"
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr "Bağlanıyor"
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr "Bağlantı kesildi"
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr "Bağlantı kesiliyor"
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr "Bağlantı başarısız oldu"
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr "Durum bilinmiyor"
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+#, fuzzy
+#| msgid "Status Unknown"
+msgid "Unknown"
+msgstr "Durum bilinmiyor"
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr "Kablo Takılı değil"
 
@@ -657,6 +692,15 @@ msgstr "Bazı şeyler yolunda gitmedi"
 msgid "Please contact the distribution developers."
 msgstr "Lütfen dağıtım geliştiricileri ile irtibata geçin."
 
+#~ msgid "Don't install"
+#~ msgstr "Yükleme"
+
+#~ msgid "All done!"
+#~ msgstr "Her şey tamam!"
+
+#~ msgid "Open GParted"
+#~ msgstr "GParted'ı Aç"
+
 #~ msgid "Region"
 #~ msgstr "Bölge"
 
@@ -723,9 +767,6 @@ msgstr "Lütfen dağıtım geliştiricileri ile irtibata geçin."
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Bu işlem, diskteki tüm veriyi silecektir."
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "Manuel Bölümleniyor"
 
 #~ msgid ""
 #~ "Select which partitions to use for installation. Incorrect configuration "

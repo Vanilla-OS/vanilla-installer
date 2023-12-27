@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,9 @@ msgid "Confirm Installation"
 msgstr "Patvirtinti diegimą"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Jūsų sistemoje bus atlikti šie pakeitimai:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -53,6 +55,7 @@ msgstr "Įdiegti Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Kitas"
 
@@ -70,7 +73,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
-msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Naudoti visą diską"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -86,13 +89,11 @@ msgid "Device Encryption"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -109,16 +110,18 @@ msgstr "Slaptažodis"
 msgid "Confirm Password"
 msgstr "Patvirtinti slaptažodį"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Klaviatūros išdėstymas"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Pasirinkite pageidaujamą klaviatūros išdėstymą"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Ieškoti klaviatūros išdėstymo"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -133,7 +136,7 @@ msgstr "Pasirinkite savo kalbą"
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for a language"
+msgid "Search languages"
 msgstr "Ieškoti kalbos"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -147,7 +150,7 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
+msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
@@ -191,7 +194,9 @@ msgid "Select your preferred timezone"
 msgstr "Pasirinkite pageidautiną laiko juostą"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Ieškokite laiko juostos"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -272,7 +277,7 @@ msgid "Console"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -282,12 +287,12 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
 #| msgid "Tweak your Vanilla OS installation."
-msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Pakoreguokite savo Vanilla OS diegimą."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 #, fuzzy
-msgid "Gparted"
+msgid "GParted"
 msgstr "Atidaryti GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -299,7 +304,7 @@ msgid "Handbook"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -307,12 +312,12 @@ msgid "Web Browser"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+msgid "Search help online"
 msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Viskas baigta!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -334,22 +339,27 @@ msgstr "Uždaryti"
 msgid "Yes, enable it"
 msgstr "Taip, įgalinti"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 #, fuzzy
 msgid "Installing..."
 msgstr "Įdiegiama..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Rodyti konsolės išvestį"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Rodyti skaidrių demonstraciją"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "Atidaryti GParted"
+#, fuzzy
+msgid "Manually Partition"
+msgstr "Skaidiniai"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -476,7 +486,7 @@ msgid "Back"
 msgstr ""
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr ""
 
@@ -520,39 +530,43 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+msgid "Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -636,6 +650,12 @@ msgstr "Kažkas nutiko"
 msgid "Please contact the distribution developers."
 msgstr "Susisiekite su platinimo kūrėjais."
 
+#~ msgid "All done!"
+#~ msgstr "Viskas baigta!"
+
+#~ msgid "Open GParted"
+#~ msgstr "Atidaryti GParted"
+
 #~ msgid "Region"
 #~ msgstr "Regionas"
 
@@ -671,10 +691,6 @@ msgstr "Susisiekite su platinimo kūrėjais."
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Tai ištrins visus duomenis iš disko."
-
-#, fuzzy
-#~ msgid "Manual Partitioning"
-#~ msgstr "Skaidiniai"
 
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "Tai yra vienintelis diskas, kurio negalima panaikinti!"

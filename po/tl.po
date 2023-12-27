@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2022-12-13 11:48+0000\n"
 "Last-Translator: Cealica <asayuumi072203@gmail.com>\n"
 "Language-Team: Tagalog <https://hosted.weblate.org/projects/vanilla-os/"
@@ -41,7 +41,9 @@ msgid "Confirm Installation"
 msgstr "Kunpirmahin ang Installation"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Ang mga sumusunod na pagbabago ay mangyayari sa iyong system:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -56,6 +58,7 @@ msgstr "Install ang Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Sunod"
 
@@ -73,7 +76,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
-msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Gamitin ang Buong Disk"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -89,13 +92,11 @@ msgid "Device Encryption"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -112,16 +113,18 @@ msgstr "Hudyat"
 msgid "Confirm Password"
 msgstr "ikumpirma ang hudyat"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Kaayusan ng keyboard"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Mamili ng ninanais na kaayusan ng keyboard"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Maghanap ng Keyboard Layout"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -136,7 +139,7 @@ msgstr "Piliin ang iyong wika"
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for a language"
+msgid "Search languages"
 msgstr "Maghanap ng wika"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -150,7 +153,7 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
+msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
@@ -194,7 +197,9 @@ msgid "Select your preferred timezone"
 msgstr "Mamili na preferred na timezone"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Hanapin ang ninanais na Timezone"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -276,7 +281,7 @@ msgid "Console"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -286,12 +291,12 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
 #| msgid "Tweak your Vanilla OS installation."
-msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Kalikutin ang iyong installer ng Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 #, fuzzy
-msgid "Gparted"
+msgid "GParted"
 msgstr "Buksan ang GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -303,7 +308,7 @@ msgid "Handbook"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -311,12 +316,12 @@ msgid "Web Browser"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+msgid "Search help online"
 msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Tapos na!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -340,22 +345,27 @@ msgstr "Sarado"
 msgid "Yes, enable it"
 msgstr "Oo, paganahin mo"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 #, fuzzy
 msgid "Installing..."
 msgstr "Nag-iinstall…"
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Ipakita ang output sa Console"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Ipakita ang Slideshow"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "Buksan ang GParted"
+#, fuzzy
+msgid "Manually Partition"
+msgstr "Partitions"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -482,7 +492,7 @@ msgid "Back"
 msgstr ""
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr ""
 
@@ -526,39 +536,43 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+msgid "Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -642,6 +656,12 @@ msgstr "May nang-yari na di inaasahan"
 msgid "Please contact the distribution developers."
 msgstr "Pakiusap na ipag-alam sa mga developers na namahagi ng system."
 
+#~ msgid "All done!"
+#~ msgstr "Tapos na!"
+
+#~ msgid "Open GParted"
+#~ msgstr "Buksan ang GParted"
+
 #~ msgid "Region"
 #~ msgstr "Rehiyon"
 
@@ -677,10 +697,6 @@ msgstr "Pakiusap na ipag-alam sa mga developers na namahagi ng system."
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Ito ay buburahin lahat ng nilalaman ng iyong disk."
-
-#, fuzzy
-#~ msgid "Manual Partitioning"
-#~ msgstr "Partitions"
 
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "Ito lang ang magagamit na disk at hindi pwede ibahin!"
