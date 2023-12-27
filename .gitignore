@@ -7,3 +7,4 @@
 /debian/vanilla-installer.debhelper.log
 install/
 .buildconfig
+.vscode/
