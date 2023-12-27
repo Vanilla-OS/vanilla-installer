@@ -5,13 +5,14 @@
 #
 # Namhoon Kim <namhoon80.kim@gmail.com>, 2023.
 # MJKim <kmj10727@gmail.com>, 2023.
+# lmj0927 <lmjj0927@naver.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 10:57+0530\n"
-"PO-Revision-Date: 2023-07-09 06:49+0000\n"
-"Last-Translator: MJKim <kmj10727@gmail.com>\n"
+"PO-Revision-Date: 2023-12-22 13:50+0000\n"
+"Last-Translator: lmj0927 <lmjj0927@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ko/>\n"
 "Language: ko\n"
@@ -19,15 +20,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
 msgstr "바닐라 OS 설치 프로그램"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
+#, fuzzy
 msgid "Tweak your Vanilla OS installation."
-msgstr "사용자의 바닐라 OS 설치를 수정합니다."
+msgstr "우분투 바닐라 GNOME 설치를 수정합니다."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
@@ -61,16 +63,15 @@ msgid "Next"
 msgstr "다음"
 
 #: vanilla_installer/gtk/default-disk.ui:29
-#, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
-msgstr "설치 확인하기"
+msgstr "설치위치"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
-msgstr ""
+msgstr "바닐라 OS를 설치할 디스크를 선택하세요. 또는 수동으로 구성할 하나 이상의 "
+"디스크를 선택할 수 있습니다."
 
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
@@ -79,51 +80,52 @@ msgstr "전체 디스크 사용하기"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "메뉴얼"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "설치를 계속하려면 최소 %s의 디스크 공간이 필요합니다."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "장치 암호화"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid ""
 "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
 "personal information in case your device gets stolen."
-msgstr ""
+msgstr "바닐라 OS는 LUKS2를 통한 완전한 디스크 암호화를 제공하여 장치가 도난당한 "
+"경우 개인 정보를 보호합니다."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt device"
-msgstr ""
+msgstr "암호화 된 장치"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "데이터를 암호화하기 위해 기억하기 쉬운 암호 사용하세요"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
-msgstr "암호"
+msgstr "비밀번호"
 
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr "암호 확인하기"
+msgstr "비밀번호 확인"
 
 #: vanilla_installer/gtk/default-keyboard.ui:40
 msgid "Keyboard Layout"
-msgstr "자판 배열"
+msgstr "키보드 레이아웃"
 
 #: vanilla_installer/gtk/default-keyboard.ui:41
 msgid "Select your preferred keyboard layout"
-msgstr "원하는 자판 배열 선택하기"
+msgstr "원하는 키보드 레이아웃 선택하십시오"
 
 #: vanilla_installer/gtk/default-keyboard.ui:51
 msgid "Search for a Keyboard Layout"
-msgstr "자판 배열 검색하기"
+msgstr "키보드 레이아웃 검색"
 
 #: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/views/confirm.py:75
@@ -142,25 +144,25 @@ msgstr "언어 검색하기"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® 드라이버"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
-msgstr ""
+msgstr "호환성 및 성능 향상을 위해 NVIDIA 전용 드라이버를 설치할지 여부를 선택하세요."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Don't install"
-msgstr ""
+msgstr "설치하지 않기"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "설치(권장)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "독점 드라이버 정보"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -169,6 +171,10 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"독점 드라이버에는 바닐라 OS나 데비안 개발자가 검토할 수 없는 비공개 코드가 "
+"있습니다.\n"
+"\n"
+"보안 및 기타 업데이트는 드라이버 공급업체에 따라 다릅니다."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
@@ -200,11 +206,11 @@ msgstr "시간대 검색하기"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "사용자 만들기"
+msgstr "사용자 생성"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "사용자 계정에 대한 세부정보 제공하기"
+msgstr "사용자 계정에 대한 세부 정보를 제공하세요"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -212,25 +218,25 @@ msgstr "이름"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
-msgstr "사용자이름"
+msgstr "사용자 이름"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
-#, fuzzy
 msgid "Install"
-msgstr "설치하는 중..."
+msgstr "설치"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
-msgstr ""
+msgstr "복구"
 
 #: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "전원 시스템 종료"
 
 #: vanilla_installer/gtk/dialog.ui:6
+#, fuzzy
 msgid "Showing Information"
 msgstr "정보 표시"
 
@@ -265,54 +271,51 @@ msgstr "로그"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "재시작"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "펌웨어 설정으로 재시작"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "콘솔"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a Terminal"
-msgstr ""
+msgstr "터미널 열기"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "문서"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Tweak your Vanilla OS installation."
 msgid "Read the Vanilla OS Documentation"
-msgstr "사용자의 바닐라 OS 설치를 수정합니다."
+msgstr "Vanilla OS 문서 읽기"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
 msgid "Gparted"
-msgstr "GParted 열기"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
-msgstr ""
+msgstr "디스크 및 파티션 관리"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
-msgstr ""
+msgstr "핸드북"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS."
-msgstr ""
+msgstr "바닐라 OS에 대한 튜토리얼 및 가이드 읽기."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
-msgstr ""
+msgstr "웹 브라우저"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search online for help"
-msgstr ""
+msgstr "온라인에서 도움말 검색"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "All done!"
@@ -339,17 +342,16 @@ msgid "Yes, enable it"
 msgstr "예, 활성화합니다"
 
 #: vanilla_installer/gtk/progress.ui:70
-#, fuzzy
 msgid "Installing..."
-msgstr "설치하는 중..."
+msgstr "설치중..."
 
 #: vanilla_installer/gtk/progress.ui:91
 msgid "Show Console output"
-msgstr "콘솔 출력 표시하기"
+msgstr "콘솔 출력 표시"
 
 #: vanilla_installer/gtk/progress.ui:106
 msgid "Show Slideshow"
-msgstr "슬라이드쇼 표시하기"
+msgstr "슬라이드쇼 표시"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Open GParted"
@@ -360,9 +362,8 @@ msgid "Open GParted to manually partition the disk"
 msgstr "디스크를 수동으로 분할하기 위해 GParted 열기"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
-#, fuzzy
 msgid "Boot Partition"
-msgstr "파티션"
+msgstr "부팅 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 #, fuzzy
@@ -391,9 +392,8 @@ msgstr "파티션이 선택되지 않았습니다"
 #: vanilla_installer/gtk/widget-partition.ui:118
 #: vanilla_installer/gtk/widget-partition.ui:152
 #: vanilla_installer/defaults/disk.py:404
-#, fuzzy
 msgid "Please select a partition from the options below"
-msgstr "옵션을 하나 이상 선택하십시오."
+msgstr "아래 옵션에서 파티션을 선택하세요."
 
 #: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
@@ -414,9 +414,8 @@ msgid "EFI partition is too small."
 msgstr "EFI 파티션이 너무 작습니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
-#, fuzzy
 msgid "BIOS Boot Partition"
-msgstr "파티션"
+msgstr "BIOS 부팅 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
@@ -438,82 +437,76 @@ msgid "Root Partition"
 msgstr "루트 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
-msgstr "\"/boot\" 파티션. 바닐라 OS 부팅 파일들을 위한 디렉토리 입니다."
+msgstr "파티션을 \"/\" 아래에 마운트합니다. 설치 중에 자동으로 LVM 얇은 풀로 "
+"변환됩니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "부트 파티션이 너무 작습니다."
+msgstr "루트 파티션이 너무 작습니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
 msgid "Var Partition"
-msgstr "파티션"
+msgstr "var 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
-msgstr "\"/boot\" 파티션. 바닐라 OS 부팅 파일들을 위한 디렉토리 입니다."
+msgstr ""
+"\"/var\" 아래에 마운트할 파티션입니다. 이 디렉터리에는 개인 문서 및 시스템 "
+"전역 구성과 같은 모든 사용자 데이터가 저장됩니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
-msgstr ""
+msgstr "홈 파티션이 너무 작습니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
-#, fuzzy
 msgid "Swap Partition"
-msgstr "파티션"
+msgstr "파티션 교체"
 
 #: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
+"스왑은 RAM의 가상 확장 역할을 하며 최대 절전 모드를 활성화합니다. 바닐라 "
+"OS는 이미 zram을 사용하여 스토리지 비용 없이 스왑을 제공합니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
-msgstr ""
+msgstr "zram과 함께 스왑에 사용할 파티션을 선택합니다. 최대 절전 모드에서는 필요하지 "
+"않습니다."
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
-msgstr ""
+msgstr "뒤로"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:374
 msgid "Connected"
-msgstr ""
+msgstr "연결됨"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
-msgstr ""
+msgstr "GParted가 이미 실행 중입니다. GParted의 인스턴스는 하나만 허용됩니다."
 
 #: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
-msgstr ""
+msgstr "파티션은 {} 이상이어야 합니다"
 
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
-msgstr ""
+msgstr "파티션은 정확히 {}여야 합니다"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
-msgstr ""
+msgstr "파티션이 변경되었습니다. 현재 선택 항목이 지워졌습니다."
 
 #: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
@@ -525,55 +518,55 @@ msgstr "{}로 포맷되고 {}에 마운트됩니다"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "보안이 취약한 네트워크 (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "안전한 네트워크 (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "안전한 네트워크 (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "안전한 네트워크 (WPA3)"
 
 #: vanilla_installer/defaults/network.py:377
 msgid "Authentication required"
-msgstr ""
+msgstr "인증이 필요합니다"
 
 #: vanilla_installer/defaults/network.py:385
 msgid "Connecting"
-msgstr ""
+msgstr "연결중"
 
 #: vanilla_installer/defaults/network.py:387
 msgid "Disconnected"
-msgstr ""
+msgstr "연결이 끊어졌습니다"
 
 #: vanilla_installer/defaults/network.py:389
 msgid "Disconnecting"
-msgstr ""
+msgstr "연결 끊는 중"
 
 #: vanilla_installer/defaults/network.py:391
 msgid "Connection Failed"
-msgstr ""
+msgstr "연결 실패"
 
 #: vanilla_installer/defaults/network.py:393
 msgid "Status Unknown"
-msgstr ""
+msgstr "상태를 알 수 없음"
 
 #: vanilla_installer/defaults/network.py:395
 msgid "Unmanaged"
-msgstr ""
+msgstr "관리되지 않음"
 
 #: vanilla_installer/defaults/network.py:397
 msgid "Unavailable"
-msgstr ""
+msgstr "사용할 수 없음"
 
 #: vanilla_installer/defaults/network.py:411
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "케이블이 연결되지 않음"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
@@ -581,71 +574,70 @@ msgstr "옵션을 하나 이상 선택하십시오."
 
 #: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
-msgstr ""
+msgstr "레시피에 '로그 파일'이 누락되었습니다."
 
 #: vanilla_installer/utils/builder.py:80
 #, python-format
 msgid "failed to create log file: %s"
-msgstr ""
+msgstr "로그 파일을 만들지 못했습니다: %s"
 
 #: vanilla_installer/utils/builder.py:81
 msgid "No log will be stored."
-msgstr ""
+msgstr "로그는 저장되지 않습니다."
 
 #: vanilla_installer/utils/builder.py:88
 #, python-format
 msgid "Performing display-condition: %s"
-msgstr ""
+msgstr "디스플레이 조건 수행: %s"
 
 #: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
 #, python-format
 msgid "Step %s skipped due to display-conditions"
-msgstr ""
+msgstr "%s 단계는 디스플레이 조건으로 인해 건너뛰었습니다"
 
 #: vanilla_installer/utils/recipe.py:43
 msgid "Invalid recipe file"
-msgstr ""
+msgstr "잘못된 레시피 파일"
 
 #: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
-msgstr ""
+msgstr "레시피는 사전이 아닙니다"
 
 #: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
 msgid "Recipe is missing the '{key}' key"
-msgstr ""
+msgstr "레시피에 '{key}' 키가 누락되었습니다"
 
 #: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
-msgstr ""
+msgstr "레시피 단계는 목록이 아닙니다"
 
 #: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
 msgid "Step {step} is not a dictionary"
-msgstr ""
+msgstr "{step} 단계는 사전이 아닙니다"
 
 #: vanilla_installer/views/confirm.py:81
-#, fuzzy
 msgid "Keyboard"
-msgstr "자판 배열"
+msgstr "키보드"
 
 #: vanilla_installer/views/confirm.py:87
 msgid "Timezone"
-msgstr ""
+msgstr "표준 시간대"
 
 #: vanilla_installer/views/confirm.py:95
-#, fuzzy
 msgid "Users"
-msgstr "사용자이름"
+msgstr "사용자"
 
 #: vanilla_installer/views/confirm.py:104
 #: vanilla_installer/views/confirm.py:120
 msgid "Disk"
-msgstr ""
+msgstr "디스크"
 
 #: vanilla_installer/views/done.py:40
+#, fuzzy
 msgid "Restart your device to enjoy your {} experience."
-msgstr "사용자의 기기를 다시 시작하여 {} 환경을 즐기십시오."
+msgstr "사용자의 PC를 다시 시작하여 {} 환경을 즐기십시오."
 
 #: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
