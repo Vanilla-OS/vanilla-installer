@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-07-09 06:49+0000\n"
 "Last-Translator: Michal Walach <misawalach00@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/vanilla-os/"
@@ -43,7 +43,9 @@ msgid "Confirm Installation"
 msgstr "Potvrďte instalaci"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "V systému budou provedeny následující změny:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -58,6 +60,7 @@ msgstr "Nainstalovat Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Další"
 
@@ -76,7 +79,7 @@ msgstr ""
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
 #| msgid "Entire Disk"
-msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Celý disk"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -92,13 +95,11 @@ msgid "Device Encryption"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -115,16 +116,18 @@ msgstr "Heslo"
 msgid "Confirm Password"
 msgstr "Potvrzení hesla"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Rozložení klávesnice"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Vyberte rozložení klávesnice"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Hledat rozložení klávesnice"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -139,7 +142,7 @@ msgstr "Vyberte svůj jazyk"
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for a language"
+msgid "Search languages"
 msgstr "Hledat jazyk"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -153,7 +156,7 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
+msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
@@ -197,7 +200,9 @@ msgid "Select your preferred timezone"
 msgstr "Vyberte časové pásmo"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Vyhledat časové pásmo"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -281,7 +286,7 @@ msgstr "Konzole"
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
 #| msgid "Open a Terminal."
-msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "Otevřít terminál."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -291,11 +296,13 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
 #| msgid "Read the Vanilla OS Handbook."
-msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Přečíst příručku Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -309,7 +316,7 @@ msgid "Handbook"
 msgstr "Příručka"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -319,12 +326,12 @@ msgstr "Webový prohlížeč"
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 #, fuzzy
 #| msgid "Search online for help."
-msgid "Search online for help"
+msgid "Search help online"
 msgstr "Vyhledat pomoc na internetu."
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Hotovo!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -347,21 +354,27 @@ msgstr "Zavřít"
 msgid "Yes, enable it"
 msgstr "Ano, povolit to"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "Instalace..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Ukázat výstup z konzole"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Zobrazit prezentaci"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "Otevřít aplikaci GParted"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "Ruční tvorba oddílů"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -515,7 +528,7 @@ msgid "Back"
 msgstr "Zpět"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr ""
 
@@ -559,39 +572,43 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+msgid "Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -673,6 +690,12 @@ msgstr "Něco se pokazilo"
 msgid "Please contact the distribution developers."
 msgstr "Obraťte se prosím na vývojáře distribuce."
 
+#~ msgid "All done!"
+#~ msgstr "Hotovo!"
+
+#~ msgid "Open GParted"
+#~ msgstr "Otevřít aplikaci GParted"
+
 #~ msgid "Region"
 #~ msgstr "Oblast"
 
@@ -737,9 +760,6 @@ msgstr "Obraťte se prosím na vývojáře distribuce."
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Tím se vymažou všechna data na disku."
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "Ruční tvorba oddílů"
 
 #~ msgid ""
 #~ "Select which partitions to use for installation. Incorrect configuration "

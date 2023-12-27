@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-08-30 12:19+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
@@ -48,7 +48,9 @@ msgid "Confirm Installation"
 msgstr "Installation bestätigen"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Die folgenden Änderungen werden am System vorgenommen:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -63,6 +65,7 @@ msgstr "Vanilla OS installieren"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Weiter"
 
@@ -80,7 +83,9 @@ msgstr ""
 "manuell konfigurieren."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-msgid "Use entire disk"
+#, fuzzy
+#| msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Gesamte Festplatte verwenden"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -100,15 +105,19 @@ msgid "Device Encryption"
 msgstr "Geräteverschlüsselung"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+#, fuzzy
+#| msgid ""
+#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+#| "personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 "Vanilla OS bietet eine vollständige Festplattenverschlüsselung durch LUKS2, "
 "um Ihre persönlichen Daten zu schützen, falls Ihr Gerät gestohlen wird."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+#, fuzzy
+#| msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr "Gerät verschlüsseln"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -126,16 +135,18 @@ msgstr "Passwort"
 msgid "Confirm Password"
 msgstr "Passwort bestätigen"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Tastaturbelegung"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Wählen Sie Ihr bevorzugtes Tastaturlayout aus"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Suche nach einem Tastaturlayout"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -148,8 +159,10 @@ msgid "Select your language"
 msgstr "Wählen Sie eine Sprache"
 
 #: vanilla_installer/gtk/default-language.ui:39
-msgid "Search for a language"
-msgstr "Suche nach einer Sprache"
+#, fuzzy
+#| msgid "Search for language"
+msgid "Search languages"
+msgstr "Nach Sprache suchen"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -164,8 +177,8 @@ msgstr ""
 "Leistung installiert werden sollen."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
-msgstr "Nicht installieren"
+msgid "Skip"
+msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -213,7 +226,9 @@ msgid "Select your preferred timezone"
 msgstr "Wählen Sie Ihre bevorzugte Zeitzone"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Suche nach einer Zeitzone"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -295,7 +310,9 @@ msgid "Console"
 msgstr "Konsole"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
+#, fuzzy
+#| msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "Öffnen Sie ein Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -305,11 +322,13 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
 #| msgid "Read the Vanilla OS Handbook"
-msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Lesen Sie das Vanilla OS-Handbuch"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -321,7 +340,7 @@ msgid "Handbook"
 msgstr "Handbuch"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -329,12 +348,14 @@ msgid "Web Browser"
 msgstr "Webbrowser"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+#, fuzzy
+#| msgid "Search online for help"
+msgid "Search help online"
 msgstr "Suchen Sie online nach Hilfe"
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Alles erledigt!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -356,21 +377,27 @@ msgstr "Schließen"
 msgid "Yes, enable it"
 msgstr "Ja, aktivieren"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "Installiere..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Konsolenausgabe anzeigen"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Diashow anzeigen"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "GParted öffnen"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "Manuelle Partitionierung"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -522,7 +549,7 @@ msgid "Back"
 msgstr "Zurück"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr "Verbunden"
 
@@ -568,39 +595,45 @@ msgstr "Sicheres Netzwerk (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Sicheres Netzwerk (WPA3)"
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr "Authentifizierung erforderlich"
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr "Wird verbunden"
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr "Getrennt"
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr "Wird getrennt"
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr "Verbindung fehlgeschlagen"
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr "Status unbekannt"
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr "Nicht verwaltet"
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr "Nicht verfügbar"
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+#, fuzzy
+#| msgid "Status Unknown"
+msgid "Unknown"
+msgstr "Status unbekannt"
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr "Kabel ausgesteckt"
 
@@ -682,8 +715,17 @@ msgstr "Etwas ist schief gelaufen"
 msgid "Please contact the distribution developers."
 msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 
-#~ msgid "Search for language"
-#~ msgstr "Nach Sprache suchen"
+#~ msgid "Search for a language"
+#~ msgstr "Suche nach einer Sprache"
+
+#~ msgid "Don't install"
+#~ msgstr "Nicht installieren"
+
+#~ msgid "All done!"
+#~ msgstr "Alles erledigt!"
+
+#~ msgid "Open GParted"
+#~ msgstr "GParted öffnen"
 
 #~ msgid "Region"
 #~ msgstr "Region"
@@ -765,9 +807,6 @@ msgstr "Bitte wenden Sie sich an die Entwickler der Distribution."
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Dadurch werden alle Daten auf der Festplatte gelöscht."
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "Manuelle Partitionierung"
 
 #~ msgid ""
 #~ "Select which partitions to use for installation. Incorrect configuration "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 15:47+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-11-22 11:29+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
@@ -42,7 +42,9 @@ msgid "Confirm Installation"
 msgstr "Confirmar instalación"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Se realizarán los siguientes cambios en su sistema:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -51,15 +53,13 @@ msgstr "Instalar Vanilla OS"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
-#: vanilla_installer/gtk/default-keyboard.ui:23
-#: vanilla_installer/gtk/default-language.ui:17
-#: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:23
-#: vanilla_installer/gtk/default-users.ui:19
-#: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:18
+#: vanilla_installer/gtk/default-users.ui:19
+#: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Siguiente"
 
@@ -76,7 +76,9 @@ msgstr ""
 "puede seleccionar uno o más discos para configurarlos manualmente."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-msgid "Use entire disk"
+#, fuzzy
+#| msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Usar todo el disco"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -84,7 +86,7 @@ msgid "Manual"
 msgstr "Manual"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with installation."
+msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
 "Necesita al menos %s de espacio en disco para proceder con la instalación."
 
@@ -93,15 +95,19 @@ msgid "Device Encryption"
 msgstr "Cifrado de dispositivos"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+#, fuzzy
+#| msgid ""
+#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+#| "personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 "Vanilla OS proporciona cifrado de disco completo a través de LUKS2 para "
 "proteger tu información personal en caso de que te roben el dispositivo."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+#, fuzzy
+#| msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr "Cifrar dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -118,29 +124,33 @@ msgstr "Contraseña"
 msgid "Confirm Password"
 msgstr "Confirmar contraseña"
 
-#: vanilla_installer/gtk/default-keyboard.ui:33
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Distribución de teclado"
 
-#: vanilla_installer/gtk/default-keyboard.ui:34
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Seleccione su distribución de teclado preferida"
 
-#: vanilla_installer/gtk/default-keyboard.ui:44
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Buscar una distribución de teclado"
 
-#: vanilla_installer/gtk/default-language.ui:34
-#: vanilla_installer/views/confirm.py:75
 #: vanilla_installer/gtk/default-language.ui:28
+#: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Idioma"
 
-#: vanilla_installer/gtk/default-language.ui:47
-msgid "Search for language"
+#: vanilla_installer/gtk/default-language.ui:29
+msgid "Select your language"
+msgstr "Elija su idioma"
+
+#: vanilla_installer/gtk/default-language.ui:39
+#, fuzzy
+#| msgid "Search for language"
+msgid "Search languages"
 msgstr "Buscar por idioma"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -156,8 +166,8 @@ msgstr ""
 "mejorar la compatibilidad y el rendimiento."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
-msgstr "No instalar"
+msgid "Skip"
+msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -195,28 +205,19 @@ msgstr "Paleta de colores"
 msgid "Choose a color scheme for your system"
 msgstr "Elija una paleta de colores para el sistema"
 
-#: vanilla_installer/gtk/default-timezone.ui:33
 #: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
 msgstr "Fecha y hora"
 
-#: vanilla_installer/gtk/default-timezone.ui:34
 #: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
 msgstr "Seleccione su zona horaria preferida"
 
-#: vanilla_installer/gtk/default-timezone.ui:44
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Buscar una zona horaria"
-
-#: vanilla_installer/gtk/default-timezone.ui:51
-msgid "Region"
-msgstr "Región"
-
-#: vanilla_installer/gtk/default-timezone.ui:59
-msgid "Zone"
-msgstr "Zona"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -234,25 +235,18 @@ msgstr "Nombre"
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: vanilla_installer/gtk/default-welcome.ui:12
-msgid "Welcome to Vanilla OS!"
-msgstr "¡Bienvenid@ a Vanilla OS!"
-
-#: vanilla_installer/gtk/default-welcome.ui:19
 #: vanilla_installer/gtk/default-welcome.ui:17
 msgid "Install"
 msgstr "Instalar"
 
-#: vanilla_installer/gtk/default-welcome.ui:36
-#: vanilla_installer/gtk/dialog-recovery.ui:6
 #: vanilla_installer/gtk/default-welcome.ui:34
+#: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
 msgstr "Recuperación"
 
-#: vanilla_installer/gtk/default-welcome.ui:53
+#: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
-#: vanilla_installer/gtk/default-welcome.ui:51
 msgid "Power Off"
 msgstr "Apagar"
 
@@ -304,41 +298,54 @@ msgid "Console"
 msgstr "Consola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
+#, fuzzy
+#| msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "Abrir la Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
-#: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
-msgstr "Gparted"
+msgid "Documentation"
+msgstr "Información"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
+#, fuzzy
+#| msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
+msgstr "Lea la información de Vanilla OS"
+
+#: vanilla_installer/gtk/dialog-recovery.ui:60
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
+msgstr "Gparted"
+
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
 msgstr "Administrar discos y particiones"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:60
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
 msgstr "Manual"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:61
-msgid "Read the Vanilla OS Handbook"
-msgstr "Lea el Manual del sistema operativo Vanilla OS"
+#: vanilla_installer/gtk/dialog-recovery.ui:78
+#, fuzzy
+#| msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
+msgstr "Lee los tutoriales y guías sobre Vanilla OS."
 
-#: vanilla_installer/gtk/dialog-recovery.ui:77
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Navegadores web"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+#, fuzzy
+#| msgid "Search online for help"
+msgid "Search help online"
 msgstr "Buscar ayuda en línea"
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "¡Todo listo!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -360,21 +367,27 @@ msgstr "Cerrar"
 msgid "Yes, enable it"
 msgstr "Sí, activar"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "Instalando..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Mostrar la salida de la consola"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Ver las presentación de las diapositivas"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "Abrir GParted"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "Particionamiento manual"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -387,19 +400,14 @@ msgstr "Particion de arranque"
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
-"booting in Vanilla OS."
+"booting into Vanilla OS."
 msgstr ""
-"Partición “/boot”. Este directorio almacena archivos para arrancar en "
-"Vanilla OS."
+"La partición para montar en \"/boot\". Este directorio almacena los archivos "
+"para iniciar Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
 #: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:124
-#: vanilla_installer/gtk/widget-partition.ui:138
-#: vanilla_installer/gtk/widget-partition.ui:169
-#: vanilla_installer/gtk/widget-partition.ui:203
-#: vanilla_installer/defaults/disk.py:475
 #: vanilla_installer/gtk/widget-partition.ui:96
 #: vanilla_installer/gtk/widget-partition.ui:117
 #: vanilla_installer/gtk/widget-partition.ui:151
@@ -410,11 +418,6 @@ msgstr "Ninguna partición seleccionada"
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
 #: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:125
-#: vanilla_installer/gtk/widget-partition.ui:139
-#: vanilla_installer/gtk/widget-partition.ui:170
-#: vanilla_installer/gtk/widget-partition.ui:204
-#: vanilla_installer/defaults/disk.py:477
 #: vanilla_installer/gtk/widget-partition.ui:97
 #: vanilla_installer/gtk/widget-partition.ui:118
 #: vanilla_installer/gtk/widget-partition.ui:152
@@ -461,58 +464,43 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "La partición BIOS debe tener exactamente 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-msgid "Root Partitions"
-msgstr "Particiones Root"
+msgid "Root Partition"
+msgstr "Partición Root"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 msgid ""
-"The partitions to mount under “/”. Both partitions must be the same size."
-msgstr "Partición “/”. Ambas particiones deben tener el mismo tamaño."
+"The partition to mount under “/”. It will be automatically converted into an "
+"LVM thin pool during installation."
+msgstr ""
+"La partición para montar bajo “/”. Se convertirá automáticamente en un grupo "
+"delgado LVM durante la instalación."
 
-#: vanilla_installer/gtk/widget-partition.ui:106
+#: vanilla_installer/gtk/widget-partition.ui:108
+msgid "Root partition is too small."
+msgstr "La partición Root es demasiado pequeña."
+
+#: vanilla_installer/gtk/widget-partition.ui:113
+msgid "Var Partition"
+msgstr "Partición Var"
+
+#: vanilla_installer/gtk/widget-partition.ui:114
 msgid ""
-"Vanilla OS uses an A/B partition system managed by ABRoot,\n"
-"which switches between two root partitions between updates."
+"The partition to mount under “/var”. This directory stores all user data "
+"like personal documents and system-wide configuration."
 msgstr ""
-"Vanilla OS utiliza un sistema de partición A/B administrado por ABRoot,\n"
-"que cambia entre dos particiones raíz entre actualizaciones."
+"La partición a montar bajo \"/var\". Este directorio almacena todos los "
+"datos del usuario, como los documentos personales y la configuración de todo "
+"el sistema."
 
-#: vanilla_installer/gtk/widget-partition.ui:150
-msgid "Root partitions are not the same size."
-msgstr "Las particiones Raíz no son del mismo tamaño."
-
-#: vanilla_installer/gtk/widget-partition.ui:151
-msgid "Please make sure your A and B partitions have the same disk space."
-msgstr ""
-"Asegúrese de que sus particiones A y B tengan el mismo espacio en disco."
-
-#: vanilla_installer/gtk/widget-partition.ui:160
-msgid "Root partitions are too small."
-msgstr "Las particiones Raíz son demasiado pequeñas."
-
-#: vanilla_installer/gtk/widget-partition.ui:165
-msgid "Home Partition"
-msgstr "Particion Home"
-
-#: vanilla_installer/gtk/widget-partition.ui:166
-msgid ""
-"The partition to mount under “/home”. This directory stores all user data."
-msgstr ""
-"Partición “/home”. Este directorio almacena todos los datos del usuario."
-
-#: vanilla_installer/gtk/widget-partition.ui:181
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
 msgstr "Partición Home demasiado pequeña."
 
-#: vanilla_installer/gtk/widget-partition.ui:186
-#: vanilla_installer/gtk/widget-partition.ui:190
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "Partición Swap"
 
-#: vanilla_installer/gtk/widget-partition.ui:187
 #: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
@@ -522,7 +510,6 @@ msgstr ""
 "Vanilla OS ya usa zram para proporcionar intercambio sin costo de "
 "almacenamiento."
 
-#: vanilla_installer/gtk/widget-partition.ui:191
 #: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
@@ -531,43 +518,36 @@ msgstr ""
 "Elija una partición para usar para el intercambio junto con zram. Esto no es "
 "necesario para la hibernación."
 
-#: vanilla_installer/gtk/window.ui:38 vanilla_installer/gtk/window.ui:37
+#: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "Regresar"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:370
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr "Conectado"
 
-#: vanilla_installer/defaults/disk.py:327
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
 msgstr ""
 "GParted ya se está ejecutando. Solo se permite una instancia de GParted."
 
-#: vanilla_installer/defaults/disk.py:429
 #: vanilla_installer/defaults/disk.py:363
 msgid "Partition must be at least {}"
 msgstr "La partición debe tener al menos {}"
 
-#: vanilla_installer/defaults/disk.py:460
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "La partición debe ser EXACTAMENTE {}"
 
-#: vanilla_installer/defaults/disk.py:575
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
 msgstr "Las particiones han cambiado. Las selecciones actuales se han borrado."
 
-#: vanilla_installer/defaults/disk.py:633
 #: vanilla_installer/defaults/disk.py:558
 msgid "Entire disk will be used."
 msgstr "Se usará toda la unidad de almacenamiento."
 
-#: vanilla_installer/defaults/disk.py:640
 #: vanilla_installer/defaults/disk.py:565
 msgid "Will be formatted in {} and mounted in {}"
 msgstr "Se formateará en {} y se montará en {}"
@@ -588,48 +568,45 @@ msgstr "Red segura (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Red segura (WPA3)"
 
-#: vanilla_installer/defaults/network.py:373
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr "Autenticación necesaria"
 
-#: vanilla_installer/defaults/network.py:381
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr "Conectando"
 
-#: vanilla_installer/defaults/network.py:383
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr "Desconectado"
 
-#: vanilla_installer/defaults/network.py:385
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr "Desconectando"
 
-#: vanilla_installer/defaults/network.py:387
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr "Conexión fallida"
 
-#: vanilla_installer/defaults/network.py:389
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr "Estado desconocido"
 
-#: vanilla_installer/defaults/network.py:391
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr "No gestionado"
 
-#: vanilla_installer/defaults/network.py:393
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr "No está disponible"
 
-#: vanilla_installer/defaults/network.py:407
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+#, fuzzy
+#| msgid "Status Unknown"
+msgid "Unknown"
+msgstr "Estado desconocido"
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr "Cable desconectado"
 
@@ -712,67 +689,72 @@ msgid "Please contact the distribution developers."
 msgstr ""
 "Por favor, póngase en contacto con los desarrolladores de la distribución."
 
-#: vanilla_installer/gtk/default-language.ui:29
-msgid "Select your language"
-msgstr "Elija su idioma"
+#~ msgid "You need at least %s of disk space to proceed with installation."
+#~ msgstr ""
+#~ "Necesita al menos %s de espacio en disco para proceder con la instalación."
 
-#: vanilla_installer/gtk/default-disk.ui:86
-msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
-"Necesita al menos %s de espacio en disco para proceder con la instalación."
+#~ msgid "Don't install"
+#~ msgstr "No instalar"
 
-#: vanilla_installer/gtk/default-language.ui:39
-msgid "Search for a language"
-msgstr "Buscar un idioma"
+#~ msgid "Region"
+#~ msgstr "Región"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:43
-msgid "Documentation"
-msgstr "Información"
+#~ msgid "Zone"
+#~ msgstr "Zona"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:44
-msgid "Read the Vanilla OS Documentation"
-msgstr "Lea la información de Vanilla OS"
+#~ msgid "Welcome to Vanilla OS!"
+#~ msgstr "¡Bienvenid@ a Vanilla OS!"
 
-#: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
-msgstr "Lee los tutoriales y guías sobre Vanilla OS."
+#~ msgid "Read the Vanilla OS Handbook"
+#~ msgstr "Lea el Manual del sistema operativo Vanilla OS"
 
-#: vanilla_installer/gtk/widget-partition.ui:30
-msgid ""
-"The partition to mount under “/boot”. This directory stores files for "
-"booting into Vanilla OS."
-msgstr ""
-"La partición para montar en \"/boot\". Este directorio almacena los archivos "
-"para iniciar Vanilla OS."
+#~ msgid "All done!"
+#~ msgstr "¡Todo listo!"
 
-#: vanilla_installer/gtk/widget-partition.ui:92
-msgid "Root Partition"
-msgstr "Partición Root"
+#~ msgid "Open GParted"
+#~ msgstr "Abrir GParted"
 
-#: vanilla_installer/gtk/widget-partition.ui:93
-msgid ""
-"The partition to mount under “/”. It will be automatically converted into an "
-"LVM thin pool during installation."
-msgstr ""
-"La partición para montar bajo “/”. Se convertirá automáticamente en un grupo "
-"delgado LVM durante la instalación."
+#~ msgid ""
+#~ "The partition to mount under “/boot”. This directory stores files for "
+#~ "booting in Vanilla OS."
+#~ msgstr ""
+#~ "Partición “/boot”. Este directorio almacena archivos para arrancar en "
+#~ "Vanilla OS."
 
-#: vanilla_installer/gtk/widget-partition.ui:108
-msgid "Root partition is too small."
-msgstr "La partición Root es demasiado pequeña."
+#~ msgid "Root Partitions"
+#~ msgstr "Particiones Root"
 
-#: vanilla_installer/gtk/widget-partition.ui:113
-msgid "Var Partition"
-msgstr "Partición Var"
+#~ msgid ""
+#~ "The partitions to mount under “/”. Both partitions must be the same size."
+#~ msgstr "Partición “/”. Ambas particiones deben tener el mismo tamaño."
 
-#: vanilla_installer/gtk/widget-partition.ui:114
-msgid ""
-"The partition to mount under “/var”. This directory stores all user data "
-"like personal documents and system-wide configuration."
-msgstr ""
-"La partición a montar bajo \"/var\". Este directorio almacena todos los "
-"datos del usuario, como los documentos personales y la configuración de todo "
-"el sistema."
+#~ msgid ""
+#~ "Vanilla OS uses an A/B partition system managed by ABRoot,\n"
+#~ "which switches between two root partitions between updates."
+#~ msgstr ""
+#~ "Vanilla OS utiliza un sistema de partición A/B administrado por ABRoot,\n"
+#~ "que cambia entre dos particiones raíz entre actualizaciones."
+
+#~ msgid "Root partitions are not the same size."
+#~ msgstr "Las particiones Raíz no son del mismo tamaño."
+
+#~ msgid "Please make sure your A and B partitions have the same disk space."
+#~ msgstr ""
+#~ "Asegúrese de que sus particiones A y B tengan el mismo espacio en disco."
+
+#~ msgid "Root partitions are too small."
+#~ msgstr "Las particiones Raíz son demasiado pequeñas."
+
+#~ msgid "Home Partition"
+#~ msgstr "Particion Home"
+
+#~ msgid ""
+#~ "The partition to mount under “/home”. This directory stores all user data."
+#~ msgstr ""
+#~ "Partición “/home”. Este directorio almacena todos los datos del usuario."
+
+#~ msgid "Search for a language"
+#~ msgstr "Buscar un idioma"
 
 #~ msgid "clicked"
 #~ msgstr "Hizo clic"
@@ -803,9 +785,6 @@ msgstr ""
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Esto borrará todos los datos de la unidad."
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "Particionamiento manual"
 
 #~ msgid ""
 #~ "Select which partitions to use for installation. Incorrect configuration "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-12-02 18:17+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/vanilla-os/"
@@ -41,7 +41,9 @@ msgid "Confirm Installation"
 msgstr "Konfirmu instaladon"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Jen la ŝanĝoj efektivigotaj sur vian sistemon:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -56,6 +58,7 @@ msgstr "Instali Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Sekven"
 
@@ -74,7 +77,7 @@ msgstr ""
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
 #| msgid "Entire Disk"
-msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Tuta disko"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -90,13 +93,11 @@ msgid "Device Encryption"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -113,16 +114,18 @@ msgstr "Pasvorto"
 msgid "Confirm Password"
 msgstr "Konfirmu pasvorton"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Klavarfasono"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Elektu vian klavarfasonon"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Serĉi klavarfasonon"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -137,7 +140,7 @@ msgstr "Elektu vian lingvon"
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for a language"
+msgid "Search languages"
 msgstr "Serĉi lingvon"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -151,7 +154,7 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
+msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
@@ -195,7 +198,9 @@ msgid "Select your preferred timezone"
 msgstr "Elektu vian horzonon"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Serĉi horzonon"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -280,7 +285,7 @@ msgstr "Konzolo"
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
 #| msgid "Open a Terminal."
-msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "Malfermi terminalon."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -290,11 +295,13 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
 #| msgid "Read the Vanilla OS Handbook."
-msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Legi la manlibron de Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -306,7 +313,7 @@ msgid "Handbook"
 msgstr "Manlibro"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -314,12 +321,12 @@ msgid "Web Browser"
 msgstr "TTT-legilo"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+msgid "Search help online"
 msgstr ""
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Finite!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -341,21 +348,27 @@ msgstr "Fermi"
 msgid "Yes, enable it"
 msgstr "Jes, ŝaltu ĝin"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "Instalante…"
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Montri terminalan eliraĵon"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Montri bildaron"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "Lanĉi GParted"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "Neaŭtomata dispartigo"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -498,7 +511,7 @@ msgid "Back"
 msgstr "Reen"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr "Konektita"
 
@@ -542,39 +555,45 @@ msgstr "Sekura reto (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Sekura reto (WPA3)"
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr "Konektanta"
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr "Malkonektita"
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr "Malkonektanta"
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr "Nekonata stato"
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr "Ne administrata"
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr "Ne havebla"
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+#, fuzzy
+#| msgid "Status Unknown"
+msgid "Unknown"
+msgstr "Nekonata stato"
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -656,6 +675,12 @@ msgstr "Io fiaskis"
 msgid "Please contact the distribution developers."
 msgstr "Bonvolu kontakti la programistojn de la distribuaĵo."
 
+#~ msgid "All done!"
+#~ msgstr "Finite!"
+
+#~ msgid "Open GParted"
+#~ msgstr "Lanĉi GParted"
+
 #~ msgid "Region"
 #~ msgstr "Regiono"
 
@@ -702,9 +727,6 @@ msgstr "Bonvolu kontakti la programistojn de la distribuaĵo."
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Ĉi tio forviŝos ĉiom da datenoj sur la disko."
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "Neaŭtomata dispartigo"
 
 #~ msgid "This is the only disk available and cannot be deselected!"
 #~ msgstr "Jen la disko ununura kaj tial ne malelektebla!"

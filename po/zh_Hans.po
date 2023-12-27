@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-11-25 18:19+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -42,7 +42,9 @@ msgid "Confirm Installation"
 msgstr "确认安装"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "以下更改将会应用到您的系统："
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -57,6 +59,7 @@ msgstr "安装 Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "继续"
 
@@ -72,7 +75,9 @@ msgstr ""
 "选择要安装 Vanilla OS 的磁盘。或者，您也可以选择一个或多个磁盘进行手动配置。"
 
 #: vanilla_installer/gtk/default-disk.ui:44
-msgid "Use entire disk"
+#, fuzzy
+#| msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "使用整个磁盘"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -88,13 +93,17 @@ msgid "Device Encryption"
 msgstr "设备加密"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+#, fuzzy
+#| msgid ""
+#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
+#| "personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr "Vanilla OS 通过 LUKS2 提供全磁盘加密，可在设备被盗时保护您的个人信息。"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+#, fuzzy
+#| msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr "加密设备"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -111,16 +120,18 @@ msgstr "密码"
 msgid "Confirm Password"
 msgstr "确认密码"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "选择您的首选键盘布局"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "搜索键盘布局"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -133,7 +144,9 @@ msgid "Select your language"
 msgstr "选择您的语言"
 
 #: vanilla_installer/gtk/default-language.ui:39
-msgid "Search for a language"
+#, fuzzy
+#| msgid "Search for language"
+msgid "Search languages"
 msgstr "搜索语言"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -147,8 +160,8 @@ msgid ""
 msgstr "选择是否安装 NVIDIA 专有驱动程序，以获得更好的兼容性和性能。"
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
-msgstr "不要安装"
+msgid "Skip"
+msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -194,7 +207,9 @@ msgid "Select your preferred timezone"
 msgstr "选择您的首选时区"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "搜索时区"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -274,7 +289,9 @@ msgid "Console"
 msgstr "终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-msgid "Open a Terminal"
+#, fuzzy
+#| msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "打开终端"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -282,11 +299,15 @@ msgid "Documentation"
 msgstr "文档"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-msgid "Read the Vanilla OS Documentation"
+#, fuzzy
+#| msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "阅读 Vanilla OS 的文档"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
 msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -298,7 +319,9 @@ msgid "Handbook"
 msgstr "手册"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+#, fuzzy
+#| msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr "阅读有关 Vanilla OS 的教程和指南。"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -306,12 +329,14 @@ msgid "Web Browser"
 msgstr "网页浏览器"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-msgid "Search online for help"
+#, fuzzy
+#| msgid "Search online for help"
+msgid "Search help online"
 msgstr "寻求在线帮助"
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "大功告成！"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -333,21 +358,27 @@ msgstr "关闭"
 msgid "Yes, enable it"
 msgstr "是的，请启用"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "正在安装..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "显示控制台输出"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "显示轮播图"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "打开 GParted"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "手动分区"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -440,7 +471,8 @@ msgstr "/var 分区"
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
-msgstr "要挂载到“/var”的分区。此目录存储所有的用户数据，例如个人文档及系统范围的配置"
+msgstr ""
+"要挂载到“/var”的分区。此目录存储所有的用户数据，例如个人文档及系统范围的配置"
 "文件。"
 
 #: vanilla_installer/gtk/widget-partition.ui:129
@@ -471,7 +503,7 @@ msgid "Back"
 msgstr "返回"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr "已连接"
 
@@ -515,39 +547,45 @@ msgstr "安全的网络（WPA2）"
 msgid "Secure network (WPA3)"
 msgstr "安全的网络（WPA3）"
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr "需要认证"
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr "连接中"
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr "已断开连接"
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr "正在断开连接"
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr "连接失败"
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr "状态未知"
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr "不受管理"
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr "不可用"
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+#, fuzzy
+#| msgid "Status Unknown"
+msgid "Unknown"
+msgstr "状态未知"
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr "线缆已拔出"
 
@@ -629,6 +667,18 @@ msgstr "出错了"
 msgid "Please contact the distribution developers."
 msgstr "请联系发行版开发者。"
 
+#~ msgid "Search for a language"
+#~ msgstr "搜索语言"
+
+#~ msgid "Don't install"
+#~ msgstr "不要安装"
+
+#~ msgid "All done!"
+#~ msgstr "大功告成！"
+
+#~ msgid "Open GParted"
+#~ msgstr "打开 GParted"
+
 #~ msgid "Region"
 #~ msgstr "地区"
 
@@ -657,9 +707,6 @@ msgstr "请联系发行版开发者。"
 
 #~ msgid "Home Partition"
 #~ msgstr "家分区"
-
-#~ msgid "Search for language"
-#~ msgstr "搜索语言"
 
 #~ msgid "Welcome to Vanilla OS!"
 #~ msgstr "欢迎使用 Vanilla OS！"
@@ -705,9 +752,6 @@ msgstr "请联系发行版开发者。"
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "这将擦除磁盘上的所有数据。"
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "手动分区"
 
 #~ msgid ""
 #~ "Select which partitions to use for installation. Incorrect configuration "

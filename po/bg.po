@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 10:57+0530\n"
+"POT-Creation-Date: 2023-12-27 23:27+0530\n"
 "PO-Revision-Date: 2023-06-10 20:50+0000\n"
 "Last-Translator: Plamen Stanchev <sommersbynobodyev@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -41,7 +41,9 @@ msgid "Confirm Installation"
 msgstr "Потвърдете инсталирането"
 
 #: vanilla_installer/gtk/confirm.ui:11
-msgid "The following changes will be made to your system:"
+#, fuzzy
+#| msgid "The following changes will be made to your system:"
+msgid "The following changes will be made to your system"
 msgstr "Във вашата система ще бъдат направени следните промени:"
 
 #: vanilla_installer/gtk/confirm.ui:28
@@ -56,6 +58,7 @@ msgstr "Инсталирайте Vanilla OS"
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
+#: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
 msgstr "Напред"
 
@@ -74,7 +77,7 @@ msgstr ""
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
 #| msgid "Entire Disk"
-msgid "Use entire disk"
+msgid "Use Entire Disk"
 msgstr "Целият диск"
 
 #: vanilla_installer/gtk/default-disk.ui:56
@@ -90,13 +93,11 @@ msgid "Device Encryption"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-msgid ""
-"Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-"personal information in case your device gets stolen."
+msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-msgid "Encrypt device"
+msgid "Encrypt Device"
 msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:37
@@ -113,16 +114,18 @@ msgstr "Парола"
 msgid "Confirm Password"
 msgstr "Потвърдете паролата"
 
-#: vanilla_installer/gtk/default-keyboard.ui:40
+#: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
 msgstr "Клавиатурна Подредба"
 
-#: vanilla_installer/gtk/default-keyboard.ui:41
+#: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
 msgstr "Изберете предпочитаната от вас подредба на клавиатурата"
 
-#: vanilla_installer/gtk/default-keyboard.ui:51
-msgid "Search for a Keyboard Layout"
+#: vanilla_installer/gtk/default-keyboard.ui:53
+#, fuzzy
+#| msgid "Search for a Keyboard Layout"
+msgid "Search keyboard layouts"
 msgstr "Потърсете Клавиатурна Подредба"
 
 #: vanilla_installer/gtk/default-language.ui:28
@@ -137,7 +140,7 @@ msgstr "Изберете вашия език"
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
 #| msgid "Search for a language"
-msgid "Search for a language"
+msgid "Search languages"
 msgstr "Търсене на език"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
@@ -151,7 +154,7 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
-msgid "Don't install"
+msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
@@ -195,7 +198,9 @@ msgid "Select your preferred timezone"
 msgstr "Изберете предпочитаната от вас часова зона"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search for a Timezone"
+#, fuzzy
+#| msgid "Search for a Timezone"
+msgid "Search timezones"
 msgstr "Потърсете часова зона"
 
 #: vanilla_installer/gtk/default-users.ui:40
@@ -281,7 +286,7 @@ msgstr "Конзола"
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
 #| msgid "Open a Terminal."
-msgid "Open a Terminal"
+msgid "Open a terminal"
 msgstr "Отворете терминал."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
@@ -291,11 +296,13 @@ msgstr ""
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
 #| msgid "Read the Vanilla OS Handbook."
-msgid "Read the Vanilla OS Documentation"
+msgid "Open the Vanilla OS documentation"
 msgstr "Прочетете Наръчника на Vanilla OS."
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-msgid "Gparted"
+#, fuzzy
+#| msgid "Gparted"
+msgid "GParted"
 msgstr "Gparted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
@@ -309,7 +316,7 @@ msgid "Handbook"
 msgstr "Наръчник"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-msgid "Read tutorials and guides about Vanilla OS."
+msgid "Read tutorials and guides about Vanilla OS"
 msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
@@ -319,12 +326,12 @@ msgstr "Уеб Браузъри"
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 #, fuzzy
 #| msgid "Search online for help."
-msgid "Search online for help"
+msgid "Search help online"
 msgstr "Потърсете помощ онлайн."
 
 #: vanilla_installer/gtk/done.ui:12
-msgid "All done!"
-msgstr "Всичко е готово!"
+msgid "Finished!"
+msgstr ""
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -348,21 +355,27 @@ msgstr "Затвори"
 msgid "Yes, enable it"
 msgstr "Да, разрешете го"
 
-#: vanilla_installer/gtk/progress.ui:70
+#: vanilla_installer/gtk/progress.ui:27
+msgid "Previous"
+msgstr ""
+
+#: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
 msgstr "Инсталиране..."
 
-#: vanilla_installer/gtk/progress.ui:91
+#: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
 msgstr "Показване на изхода на конзолата"
 
-#: vanilla_installer/gtk/progress.ui:106
+#: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
 msgstr "Показване на слайдшоу"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-msgid "Open GParted"
-msgstr "Отворете GParted"
+#, fuzzy
+#| msgid "Manual Partitioning"
+msgid "Manually Partition"
+msgstr "Ръчно разделяне на дялове"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -516,7 +529,7 @@ msgid "Back"
 msgstr "Обратно"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:371
 msgid "Connected"
 msgstr ""
 
@@ -562,39 +575,43 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:377
+#: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:385
+#: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:387
+#: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:389
+#: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:391
+#: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:393
+#: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:395
+#: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:397
+#: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:411
+#: vanilla_installer/defaults/network.py:396
+msgid "Unknown"
+msgstr ""
+
+#: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
 msgstr ""
 
@@ -677,6 +694,12 @@ msgstr "Нещо се обърка"
 msgid "Please contact the distribution developers."
 msgstr "Моля, свържете се с разработчиците на дистрибуцията."
 
+#~ msgid "All done!"
+#~ msgstr "Всичко е готово!"
+
+#~ msgid "Open GParted"
+#~ msgstr "Отворете GParted"
+
 #~ msgid "Region"
 #~ msgstr "Регион"
 
@@ -745,9 +768,6 @@ msgstr "Моля, свържете се с разработчиците на д�
 
 #~ msgid "This will erase all data on the disk."
 #~ msgstr "Това ще изтрие всички данни на диска."
-
-#~ msgid "Manual Partitioning"
-#~ msgstr "Ръчно разделяне на дялове"
 
 #~ msgid ""
 #~ "Select which partitions to use for installation. Incorrect configuration "
