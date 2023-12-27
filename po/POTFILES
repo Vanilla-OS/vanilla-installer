@@ -3,10 +3,12 @@ data/org.vanillaos.Installer.appdata.xml.in
 data/org.vanillaos.Installer.gschema.xml
 
 vanilla_installer/gtk/confirm.ui
+vanilla_installer/gtk/default-conn-check.ui
 vanilla_installer/gtk/default-disk.ui
 vanilla_installer/gtk/default-encryption.ui
 vanilla_installer/gtk/default-keyboard.ui
 vanilla_installer/gtk/default-language.ui
+vanilla_installer/gtk/default-network.ui
 vanilla_installer/gtk/default-nvidia.ui
 vanilla_installer/gtk/default-theme.ui
 vanilla_installer/gtk/default-timezone.ui
@@ -26,8 +28,12 @@ vanilla_installer/gtk/tour.ui
 vanilla_installer/gtk/widget-choice.ui
 vanilla_installer/gtk/widget-choice-expander.ui
 vanilla_installer/gtk/widget-disk.ui
+vanilla_installer/gtk/widget-keyboard.ui
+vanilla_installer/gtk/widget-language.ui
 vanilla_installer/gtk/widget-partition.ui
 vanilla_installer/gtk/widget-partition-row.ui
+vanilla_installer/gtk/widget-timezone.ui
+vanilla_installer/gtk/window-unsupported.ui
 vanilla_installer/gtk/window.ui
 vanilla_installer/gtk/wireless-row.ui
 
