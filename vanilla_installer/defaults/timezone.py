@@ -24,8 +24,6 @@ from vanilla_installer.core.timezones import (
     get_preview_timezone,
 )
 
-from vanilla_installer.utils.run_async import RunAsync
-
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-timezone.ui")
 class TimezoneRow(Adw.ActionRow):
@@ -79,7 +77,7 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__key = key
         self.__step = step
 
-        RunAsync(self.__generate_timezone_list_widgets)
+        self.__generate_timezone_list_widgets()
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
@@ -94,7 +92,10 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.entry_search_timezone.add_controller(self.search_controller)
 
     def __timezone_verify(self, *args):
-        valid = self.selected_timezone["region"] and self.selected_timezone["zone"] is not None
+        valid = (
+            self.selected_timezone["region"]
+            and self.selected_timezone["zone"] is not None
+        )
         self.btn_next.set_sensitive(valid)
 
     def get_finals(self):
