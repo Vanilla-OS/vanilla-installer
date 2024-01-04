@@ -1,62 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.0"/>
-    <requires lib="libadwaita" version="1.0" />
-    <template class="VanillaDefaultTimezone" parent="AdwBin">
-        <property name="hexpand">true</property>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaDefaultTimezone" parent="AdwBin">
+    <property name="hexpand">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">1</property>
         <child>
-            <object class="GtkOverlay">
-                <property name="valign">center</property>
-                <child type="overlay">
-                    <object class="GtkButton" id="btn_next">
-                        <property name="sensitive">False</property>
-                        <property name="margin-end">12</property>
-                        <property name="margin-start">12</property>
-                        <property name="icon-name">go-next-symbolic</property>
-                        <property name="halign">end</property>
-                        <property name="valign">center</property>
-                        <property name="tooltip-text" translatable="yes">Next</property>
-                        <style>
-                            <class name="circular" />
-                            <class name="suggested-action" />
-                        </style>
-                    </object>
-                </child>
+          <object class="GtkOverlay">
+            <property name="valign">3</property>
+            <child type="overlay">
+              <object class="GtkButton" id="btn_next">
+                <property name="sensitive">false</property>
+                <property name="margin-end">12</property>
+                <property name="margin-start">12</property>
+                <property name="icon-name">go-next-symbolic</property>
+                <property name="halign">2</property>
+                <property name="valign">3</property>
+                <property name="tooltip-text" translatable="true">Next</property>
+                <style>
+                  <class name="circular"/>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="AdwStatusPage" id="status_page">
+                <property name="icon-name">preferences-system-time-symbolic</property>
+                <property name="title" translatable="true">Date &amp; Time</property>
+                <property name="description" translatable="true">Select your preferred timezone</property>
                 <child>
-                    <object class="AdwStatusPage" id="status_page">
-                        <property name="icon-name">preferences-system-time-symbolic</property>
-                        <property name="title" translatable="yes">Date &amp; Time</property>
-                        <property name="description" translatable="yes">Select your preferred timezone</property>
+                  <object class="AdwClamp">
+                    <property name="maximum-size">600</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">1</property>
                         <child>
-                            <object class="AdwClamp">
-                                <property name="maximum-size">600</property>
-                                <child>
-                                    <object class="GtkBox">
-                                        <property name="orientation">vertical</property>
-                                        <child>
-                                            <object class="GtkSearchEntry" id="entry_search_timezone">
-                                                <property name="hexpand">true</property>
-                                                <property name="placeholder-text" translatable="yes">Search timezones</property>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="AdwPreferencesGroup">
-                                                <child>
-                                                    <object class="GtkListBox" id="all_timezones_group">
-                                                        <style>
-                                                            <class name="boxed-list" />
-                                                        </style>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
-                                    </object>
-                                </child>
-                            </object>
+                          <object class="GtkSearchEntry" id="entry_search_timezone">
+                            <property name="hexpand">true</property>
+                            <property name="placeholder-text" translatable="true">Search timezones</property>
+                          </object>
                         </child>
-                    </object>
+                        <child>
+                          <object class="AdwPreferencesGroup" id="all_timezones_group"></object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
                 </child>
-            </object>
+              </object>
+            </child>
+          </object>
         </child>
-    </template>
+        <child>
+          <object class="GtkStack">
+            <property name="vhomogeneous">false</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">current_tz_footer</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="orientation">1</property>
+                    <child>
+                      <object class="GtkSeparator">
+                        <property name="orientation">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">0</property>
+                        <property name="halign">3</property>
+                        <property name="spacing">10</property>
+                        <property name="margin-top">10</property>
+                        <property name="margin-bottom">10</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="true">Current timezone: </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="current_tz_label">
+                            <style>
+                              <class name="heading"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="current_location_label"></object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>
