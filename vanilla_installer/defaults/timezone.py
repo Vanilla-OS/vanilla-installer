@@ -18,6 +18,7 @@ import re
 import unicodedata
 
 from gi.repository import Adw, Gtk
+from gettext import gettext as _
 
 from vanilla_installer.core.timezones import (
     all_timezones,
@@ -53,6 +54,8 @@ class TimezoneRow(Adw.ActionRow):
         tz_split = self.tz_name.split("/", 1)
         self.parent.selected_timezone["region"] = tz_split[0]
         self.parent.selected_timezone["zone"] = tz_split[1]
+        self.parent.current_tz_label.set_label(self.tz_name)
+        self.parent.current_location_label.set_label(_("(at %s, %s)") % (self.title, self.subtitle))
         self.parent.timezone_verify()
 
 
@@ -63,6 +66,8 @@ class VanillaDefaultTimezone(Adw.Bin):
     btn_next = Gtk.Template.Child()
     entry_search_timezone = Gtk.Template.Child()
     all_timezones_group = Gtk.Template.Child()
+    current_tz_label = Gtk.Template.Child()
+    current_location_label = Gtk.Template.Child()
 
     search_controller = Gtk.EventControllerKey.new()
     selected_timezone = {"region": "Europe", "zone": None}
