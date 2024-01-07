@@ -61,6 +61,14 @@ class VanillaInstaller(Adw.Application):
         if not win:
             if Systeminfo.is_uefi():
                 win = VanillaWindow(application=self)
+
+                if Systeminfo.is_cpu_enough() and Systeminfo.is_ram_enough():
+                    win = VanillaWindow(application=self)
+                else:
+                    #TODO: Not meeting requirements screen
+                    pass
+
+
             else:
                 win = VanillaUnsupportedWindow(application=self)
         win.present()
