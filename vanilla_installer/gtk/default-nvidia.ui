@@ -35,7 +35,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_yes">
-                    <property name="label" translatable="yes">Install  (recommended)</property>
+                    <property name="label" translatable="yes">Install  (Recommended)</property>
                     <property name="halign">3</property>
                     <style>
                       <class name="pill"/>
