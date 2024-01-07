@@ -63,7 +63,6 @@
           <class name="error"/>
         </style>
         <property name="visible">false</property>
-        <property name="title" translatable="yes">EFI partition is too small.</property>
       </object>
     </child>
     <child>
