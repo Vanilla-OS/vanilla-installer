@@ -27,11 +27,13 @@ gi.require_version("NMA4", "1.0")
 import logging
 import sys
 from gettext import gettext as _
+import os
 
 from gi.repository import Adw, Gio
 
 from vanilla_installer.windows.main_window import VanillaWindow
 from vanilla_installer.windows.window_unsupported import VanillaUnsupportedWindow
+from vanilla_installer.windows.window_underpowered import VanillaUnderpoweredWindow
 from vanilla_installer.core.system import Systeminfo
 
 
@@ -62,11 +64,10 @@ class VanillaInstaller(Adw.Application):
             if Systeminfo.is_uefi():
                 win = VanillaWindow(application=self)
 
-                if Systeminfo.is_cpu_enough() and Systeminfo.is_ram_enough():
+                if (Systeminfo.is_cpu_enough() and Systeminfo.is_ram_enough()) or "IGNORE_SYSTEM_REQUIREMENTS" in os.environ:
                     win = VanillaWindow(application=self)
                 else:
-                    #TODO: Not meeting requirements screen
-                    pass
+                    win = VanillaUnderpoweredWindow(application=self)
 
 
             else:
