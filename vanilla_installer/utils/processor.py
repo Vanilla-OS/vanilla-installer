@@ -483,6 +483,9 @@ class Processor:
             elif "nvidia" in final.keys():
                 if final["nvidia"]["use-proprietary"]:
                     oci_image = images["nvidia"]
+            elif "vm" in final.keys():
+                if final["vm"]["use-vm-tools"]:
+                    oci_image = images["vm"]
 
         # Installation
         recipe.set_installation("oci", oci_image)
