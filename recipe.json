@@ -4,7 +4,8 @@
     "distro_logo": "org.vanillaos.Installer-flower",
     "images": {
         "default": "ghcr.io/vanilla-os/desktop:main",
-        "nvidia": "ghcr.io/vanilla-os/nvidia:main"
+        "nvidia": "ghcr.io/vanilla-os/nvidia:main",
+        "vm": "ghcr.io/vanilla-os/vm:main"
     },
     "default_root_size": 12288,
     "min_disk_size": 28680,
@@ -53,6 +54,12 @@
             "template": "nvidia",
             "display-conditions": [
                 "lspci | grep -i '.* nvidia .*'"
+            ]
+        },
+        "vm": {
+            "template": "vm",
+            "display-conditions": [
+                "grep 'hypervisor' /proc/cpuinfo"
             ]
         },
         "disk": {

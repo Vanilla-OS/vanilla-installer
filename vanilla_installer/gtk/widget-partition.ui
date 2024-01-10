@@ -30,7 +30,7 @@
         <property name="description" translatable="yes">The partition to mount under “/boot”. This directory stores files for booting into Vanilla OS.</property>
         <child>
           <object class="AdwExpanderRow" id="boot_part_expand">
-            <property name="title" translatable="yes">No partition selected</property>
+            <property name="title" translatable="yes">No Partition Selected</property>
             <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
           </object>
         </child>
@@ -42,7 +42,6 @@
           <class name="error"/>
         </style>
         <property name="visible">false</property>
-        <property name="title" translatable="yes">Boot partition is too small.</property>
       </object>
     </child>
     <child>
@@ -51,7 +50,7 @@
         <property name="description" translatable="yes">The partition to mount under “/boot/efi”. This directory stores files for booting in the bootloader.</property>
         <child>
           <object class="AdwExpanderRow" id="efi_part_expand">
-            <property name="title" translatable="yes">No partition selected</property>
+            <property name="title" translatable="yes">No Partition Selected</property>
             <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
           </object>
         </child>
@@ -63,7 +62,6 @@
           <class name="error"/>
         </style>
         <property name="visible">false</property>
-        <property name="title" translatable="yes">EFI partition is too small.</property>
       </object>
     </child>
     <child>
@@ -72,7 +70,7 @@
         <property name="description" translatable="yes">The partition required by GPT-formatted disks to support booting from BIOS systems. It must be located in the first 2 TB of the disk and must be exactly 1 Mebibyte (1 MiB).</property>
         <child>
           <object class="AdwExpanderRow" id="bios_part_expand">
-            <property name="title" translatable="yes">No partition selected</property>
+            <property name="title" translatable="yes">No Partition Selected</property>
             <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
           </object>
         </child>
@@ -93,7 +91,7 @@
         <property name="description" translatable="yes">The partition to mount under “/”. It will be automatically converted into an LVM thin pool during installation.</property>
         <child>
           <object class="AdwExpanderRow" id="root_part_expand">
-            <property name="title" translatable="yes">No partition selected</property>
+            <property name="title" translatable="yes">No Partition Selected</property>
             <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
           </object>
         </child>
@@ -105,7 +103,6 @@
           <class name="error"/>
         </style>
         <property name="visible">false</property>
-        <property name="title" translatable="yes">Root partition is too small.</property>
       </object>
     </child>
     <child>
@@ -114,7 +111,7 @@
         <property name="description" translatable="yes">The partition to mount under “/var”. This directory stores all user data like personal documents and system-wide configuration.</property>
         <child>
           <object class="AdwExpanderRow" id="var_part_expand">
-            <property name="title" translatable="yes">No partition selected</property>
+            <property name="title" translatable="yes">No Partition Selected</property>
             <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
           </object>
         </child>
@@ -126,7 +123,6 @@
           <class name="error"/>
         </style>
         <property name="visible">false</property>
-        <property name="title" translatable="yes">Home partition is too small.</property>
       </object>
     </child>
     <child>
@@ -148,7 +144,7 @@
         <child>
           <object class="AdwExpanderRow" id="swap_part_expand">
             <property name="visible" bind-source="use_swap_part" bind-property="active" bind-flags="sync-create"/>
-            <property name="title" translatable="yes">No partition selected</property>
+            <property name="title" translatable="yes">No Partition Selected</property>
             <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
           </object>
         </child>

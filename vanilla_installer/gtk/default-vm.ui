@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaDefaultVm" parent="AdwBin">
+    <property name="halign">0</property>
+    <property name="valign">0</property>
+    <property name="hexpand">true</property>
+    <child>
+      <object class="AdwStatusPage" id="status_page">
+        <property name="halign">0</property>
+        <property name="valign">0</property>
+        <property name="hexpand">true</property>
+        <property name="icon-name">video-display-symbolic</property>
+        <property name="title" translatable="yes">VM Tools</property>
+        <property name="description" translatable="yes">Choose whether to install VM Tools for better compatibility and performance.</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">1</property>
+            <property name="vexpand">true</property>
+            <property name="hexpand">true</property>
+            <property name="valign">3</property>
+            <child>
+              <object class="GtkBox">
+                <property name="valign">3</property>
+                <property name="spacing">10</property>
+                <property name="halign">3</property>
+                <child>
+                  <object class="GtkButton" id="btn_no">
+                    <property name="label" translatable="yes">Skip</property>
+                    <property name="halign">3</property>
+                    <style>
+                      <class name="pill"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_yes">
+                    <property name="label" translatable="yes">Install  (Recommended)</property>
+                    <property name="halign">3</property>
+                    <style>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

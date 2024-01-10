@@ -26,6 +26,7 @@
     <file>gtk/default-conn-check.ui</file>
     <file>gtk/default-network.ui</file>
     <file>gtk/default-nvidia.ui</file>
+    <file>gtk/default-vm.ui</file>
     <file>gtk/widget-choice.ui</file>
     <file>gtk/widget-choice-expander.ui</file>
     <file>gtk/widget-disk.ui</file>
