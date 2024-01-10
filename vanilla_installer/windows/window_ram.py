@@ -1,4 +1,4 @@
-# window_unsupported.py
+# window_ram.py
 #
 # Copyright 2023 muhdsalm
 #
@@ -21,9 +21,9 @@ from gi.repository import Adw, Gtk
 from vanilla_installer.utils.recipe import RecipeLoader
 
 
-@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/window-underpowered.ui")
-class VanillaUnderpoweredWindow(Adw.Window):
-    __gtype_name__ = "VanillaUnderpoweredWindow"
+@Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/window-ram.ui")
+class VanillaRamWindow(Adw.Window):
+    __gtype_name__ = "VanillaRamWindow"
 
     btn_continue = Gtk.Template.Child()
     description_label = Gtk.Template.Child()
@@ -31,11 +31,11 @@ class VanillaUnderpoweredWindow(Adw.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.description_label.set_label(f"Your computer does not meet the system requirements to run {RecipeLoader().raw['distro_name']}")
+        self.description_label.set_label(f"Your computer does have enough RAM to run {RecipeLoader().raw['distro_name']} (4GB)")
         self.btn_continue.connect("clicked", self.__continue())
 
     def __continue(self, btn):
-        subprocess.Popen("IGNORE_SYSTEM_REQUIREMENTS=1 vanilla-installer", shell=True)
+        subprocess.Popen("IGNORE_RAM=1 vanilla-installer", shell=True)
         sys.exit(0)
 
 

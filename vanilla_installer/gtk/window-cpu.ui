@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
-  <template class="VanillaUnsupportedWindow" parent="AdwWindow">
+  <template class="VanillaCpuWindow" parent="AdwWindow">
     <property name="default-width">800</property>
     <property name="default-height">600</property>
     <property name="deletable">False</property>
@@ -32,7 +32,7 @@
                 <property name="wrap">True</property>
                 <property name="wrap-mode">word-char</property>
                 <property name="justify">center</property>
-                <property name="label">Not meeting requirements</property>
+                <property name="label">Not enough CPU cores</property>
                 <style>
                   <class name="title"/>
                   <class name="title-1"/>

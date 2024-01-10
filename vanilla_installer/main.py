@@ -33,7 +33,8 @@ from gi.repository import Adw, Gio
 
 from vanilla_installer.windows.main_window import VanillaWindow
 from vanilla_installer.windows.window_unsupported import VanillaUnsupportedWindow
-from vanilla_installer.windows.window_underpowered import VanillaUnderpoweredWindow
+from vanilla_installer.windows.window_ram import VanillaRamWindow
+from vanilla_installer.windows.window_cpu import VanillaCpuWindow
 from vanilla_installer.core.system import Systeminfo
 
 
@@ -64,10 +65,13 @@ class VanillaInstaller(Adw.Application):
             if Systeminfo.is_uefi():
                 win = VanillaWindow(application=self)
 
-                if (Systeminfo.is_cpu_enough() and Systeminfo.is_ram_enough()) or "IGNORE_SYSTEM_REQUIREMENTS" in os.environ:
-                    win = VanillaWindow(application=self)
+                if Systeminfo.is_ram_enough() or "IGNORE_RAM" in os.environ:
+                    if Systeminfo.is_cpu_enough() or "IGNORE_CPU" in os.environ:
+                        win = VanillaWindow(application=self)
+                    else:
+                        win = VanillaCpuWindow(application=self)
                 else:
-                    win = VanillaUnderpoweredWindow(application=self)
+                    win = VanillaRamWindow(application=self)
 
 
             else:
