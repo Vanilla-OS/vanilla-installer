@@ -27,11 +27,14 @@ gi.require_version("NMA4", "1.0")
 import logging
 import sys
 from gettext import gettext as _
+import os
 
 from gi.repository import Adw, Gio
 
 from vanilla_installer.windows.main_window import VanillaWindow
 from vanilla_installer.windows.window_unsupported import VanillaUnsupportedWindow
+from vanilla_installer.windows.window_ram import VanillaRamWindow
+from vanilla_installer.windows.window_cpu import VanillaCpuWindow
 from vanilla_installer.core.system import Systeminfo
 
 
@@ -61,6 +64,16 @@ class VanillaInstaller(Adw.Application):
         if not win:
             if Systeminfo.is_uefi():
                 win = VanillaWindow(application=self)
+
+                if Systeminfo.is_ram_enough() or "IGNORE_RAM" in os.environ:
+                    if Systeminfo.is_cpu_enough() or "IGNORE_CPU" in os.environ:
+                        win = VanillaWindow(application=self)
+                    else:
+                        win = VanillaCpuWindow(application=self)
+                else:
+                    win = VanillaRamWindow(application=self)
+
+
             else:
                 win = VanillaUnsupportedWindow(application=self)
         win.present()

@@ -3,6 +3,8 @@
   <gresource prefix="/org/vanillaos/Installer">
     <file>gtk/window.ui</file>
     <file>gtk/window-unsupported.ui</file>
+    <file>gtk/window-ram.ui</file>
+    <file>gtk/window-cpu.ui</file>
     <file>gtk/confirm.ui</file>
     <file>gtk/done.ui</file>
     <file>gtk/progress.ui</file>
