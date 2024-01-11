@@ -32,7 +32,7 @@
                 <property name="wrap">True</property>
                 <property name="wrap-mode">word-char</property>
                 <property name="justify">center</property>
-                <property name="label">Not enough RAM</property>
+                <property name="label">Not Enough RAM</property>
                 <style>
                   <class name="title"/>
                   <class name="title-1"/>
