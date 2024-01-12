@@ -344,6 +344,7 @@ class VanillaDefaultNetwork(Adw.Bin):
             self.wired_group.remove(child)
         self.__wired_children = []
 
+        self.has_eth_connection = False
         for device in self.__devices:
             device_type = device.get_device_type()
             if device_type == NM.DeviceType.ETHERNET:
@@ -402,8 +403,6 @@ class VanillaDefaultNetwork(Adw.Bin):
         if connected:
             status += f" - {conn.get_speed()} Mbps"
             self.has_eth_connection = True
-        else:
-            self.has_eth_connection = False
 
         # Wired devices with no cable plugged in are shown as unavailable
         if conn.get_state() == NM.DeviceState.UNAVAILABLE:
