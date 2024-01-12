@@ -35,3 +35,5 @@ class Systeminfo:
                                      shell=True, stdout=subprocess.PIPE).stdout\
                                      .read().decode()
             Systeminfo.cpu = (int(proc1) * int(proc2)) > 2
+        
+        return Systeminfo.cpu
