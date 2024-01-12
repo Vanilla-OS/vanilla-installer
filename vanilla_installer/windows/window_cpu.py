@@ -32,7 +32,7 @@ class VanillaCpuWindow(Adw.Window):
         super().__init__(**kwargs)
 
         self.description_label.set_label(f"Your computer does have enough CPU cores to run {RecipeLoader().raw['distro_name']} (2)")
-        self.btn_continue.connect("clicked", self.__continue())
+        self.btn_continue.connect("clicked", self.__continue)
 
     def __continue(self, btn):
         subprocess.Popen("IGNORE_RAM=1 IGNORE_CPU=1 vanilla-installer", shell=True)
