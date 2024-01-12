@@ -2,6 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="WirelessRow" parent="AdwActionRow">
+    <property name="use-markup">false</property>
     <child type="prefix">
       <object class="GtkOverlay">
         <property name="vexpand">false</property>
@@ -30,7 +31,7 @@
         <style>
           <class name="dim-label"/>
         </style>
-        <property name="label" translatable="yes">Connected</property>
+        <property name="label" translatable="true">Connected</property>
         <property name="visible">false</property>
       </object>
     </child>
