@@ -21,9 +21,12 @@
 - desktop-file-utils
 - libgnome-desktop-4-dev
 - libgweather-4-dev
-- python3-tz
 - python3-requests
 - gir1.2-vte-3.91
+- libnma-dev
+- libnma-gtk4-dev
+- mutter-common
+- x11-xkb-utils
 
 ### Build
 

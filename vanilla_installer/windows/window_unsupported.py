@@ -30,7 +30,7 @@ class VanillaUnsupportedWindow(Adw.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.description_label.set_label(f"{RecipeLoader().raw['distro_name']} requires UEFI to install")
+        self.description_label.set_label(_("%s requires UEFI to install") % RecipeLoader().raw['distro_name'])
         self.btn_poweroff.connect("clicked", self.__on_poweroff)
 
     def __on_poweroff(self, btn):

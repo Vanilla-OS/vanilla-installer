@@ -1,4 +1,4 @@
-# keyboard.py
+# language.py
 #
 # Copyright 2023 mirkobrombin
 #
@@ -73,7 +73,7 @@ class VanillaDefaultLanguage(Adw.Bin):
         self.all_languages_group.connect("row-selected", self.__language_verify)
         self.all_languages_group.connect("row-activated", self.__language_verify)
         self.__window.carousel.connect("page-changed", self.__language_verify)
-        
+
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_language.add_controller(self.search_controller)
 

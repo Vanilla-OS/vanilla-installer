@@ -62,20 +62,14 @@ class VanillaInstaller(Adw.Application):
 
         win = self.props.active_window
         if not win:
-            if Systeminfo.is_uefi():
-                win = VanillaWindow(application=self)
-
-                if Systeminfo.is_ram_enough() or "IGNORE_RAM" in os.environ:
-                    if Systeminfo.is_cpu_enough() or "IGNORE_CPU" in os.environ:
-                        win = VanillaWindow(application=self)
-                    else:
-                        win = VanillaCpuWindow(application=self)
-                else:
-                    win = VanillaRamWindow(application=self)
-
-
+            if not Systeminfo.is_ram_enough() and "IGNORE_RAM" not in os.environ:
+                win = VanillaRamWindow(application=self)  # Not enough RAM
+            elif not Systeminfo.is_cpu_enough() and "IGNORE_CPU" not in os.environ:
+                win = VanillaCpuWindow(application=self)  # Not enough CPU
+            elif not Systeminfo.is_uefi():
+                win = VanillaUnsupportedWindow(application=self)  # Not UEFI
             else:
-                win = VanillaUnsupportedWindow(application=self)
+                win = VanillaWindow(application=self)  # All good
         win.present()
 
     def create_action(self, name, callback, shortcuts=None):

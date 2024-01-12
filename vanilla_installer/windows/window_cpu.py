@@ -31,7 +31,7 @@ class VanillaCpuWindow(Adw.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.description_label.set_label(f"Your computer does have enough CPU cores to run {RecipeLoader().raw['distro_name']} (2)")
+        self.description_label.set_label(_("Your computer does have enough CPU cores to run %s (minimum 2)") % RecipeLoader().raw['distro_name'])
         self.btn_continue.connect("clicked", self.__continue)
 
     def __continue(self, btn):
