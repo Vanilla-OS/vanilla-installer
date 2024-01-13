@@ -4,13 +4,14 @@
 # EncryptedEasty <c.zullo08@gmail.com>, 2023.
 # EncryptedEasty <95353984+EncryptedEasty@users.noreply.github.com>, 2023.
 # Adrian <adrian06.dev@gmail.com>, 2023.
+# Tom Tom <emaxtiger3000@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-12-26 14:09+0000\n"
-"Last-Translator: Adrian <adrian06.dev@gmail.com>\n"
+"PO-Revision-Date: 2024-01-09 21:09+0000\n"
+"Last-Translator: Tom Tom <emaxtiger3000@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/it/>\n"
 "Language: it\n"
@@ -41,10 +42,8 @@ msgid "Confirm Installation"
 msgstr "Conferma l'installazione"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "Verranno apportate le seguenti modifiche al sistema:"
+msgstr "Verranno apportate le seguenti modifiche al sistema"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -105,14 +104,9 @@ msgid "Device Encryption"
 msgstr "Crittografia del Dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
-"Vanilla OS offre la crittografia dell'intero disco tramite LUKS2 per "
-"proteggere le informazioni personali in caso di furto del dispositivo."
+"Vanilla OS crittografa il disco per proteggere le tue informazioni personali"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 #, fuzzy
@@ -122,7 +116,7 @@ msgstr "Crittografa Dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr "Utilizza una password memorabile per criptare i tuoi dati"
+msgstr "Utilizza una password facile da ricordare per criptare i tuoi dati"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
@@ -510,10 +504,8 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "La partizione del BIOS deve essere esattamente 1 MiB."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Partizioni Root"
+msgstr "Partizione Root"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 #, fuzzy
@@ -528,10 +520,8 @@ msgstr ""
 "l'avvio di Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "La partizione di avvio è troppo piccola."
+msgstr "La partizione root è troppo piccola."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
 #, fuzzy
@@ -540,15 +530,12 @@ msgid "Var Partition"
 msgstr "Partizione Swap"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"La partizione da montare in \"/home\". Questa directory memorizza tutti i "
-"dati dell'utente."
+"La partizione da montare in \"/var\". Questa directory contiene tutti i dati "
+"dell'utente come documenti personali e configurazioni di sistema."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
@@ -577,10 +564,8 @@ msgstr ""
 "necessario per l'ibernazione."
 
 #: vanilla_installer/gtk/window-unsupported.ui:58
-#, fuzzy
-#| msgid "Power Off"
 msgid "Power Off..."
-msgstr "Arresta Sistema"
+msgstr "Arresta Sistema..."
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
@@ -665,10 +650,8 @@ msgid "Unavailable"
 msgstr "Non disponibile"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "Stato Sconosciuto"
+msgstr "Sconosciuto"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
