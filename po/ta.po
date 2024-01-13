@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-11-25 18:19+0000\n"
+"PO-Revision-Date: 2023-12-29 16:06+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ta/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -39,10 +39,8 @@ msgid "Confirm Installation"
 msgstr "நிறுவலை உறுதிப்படுத்தவும்"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "உங்கள் கணினியில் பின்வரும் மாற்றங்கள் செய்யப்படும்:"
+msgstr "உங்கள் கணினியில் பின்வரும் மாற்றங்கள் செய்யப்படும்"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -50,11 +48,11 @@ msgstr "வெண்ணிலா OS ஐ நிறுவவும்"
 
 #: vanilla_installer/gtk/default-conn-check.ui:12
 msgid "Checking Connection…"
-msgstr ""
+msgstr "இணைப்பைச் சரிபார்க்கிறது…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr ""
+msgstr "இணைப்புச் சரிபார்ப்பு முடியும் வரை காத்திருக்கவும்"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
@@ -82,8 +80,6 @@ msgstr ""
 "உள்ளமைக்க ஒன்று அல்லது அதற்கு மேற்பட்ட வட்டுகளைத் தேர்ந்தெடுக்கலாம்."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
 msgstr "முழு வட்டையும் பயன்படுத்தவும்"
 
@@ -100,18 +96,11 @@ msgid "Device Encryption"
 msgstr "சாதன குறியாக்கம்"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
-"உங்கள் சாதனம் திருடப்பட்டால் உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS ஆனது LUKS2 "
-"மூலம் முழு-வட்டு குறியாக்கத்தை வழங்குகிறது."
+"உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS உங்கள் வட்டை குறியாக்குகிறது"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
 msgstr "சாதனத்தை குறியாக்கம் செய்யவும்"
 
@@ -138,10 +127,8 @@ msgid "Select your preferred keyboard layout"
 msgstr "உங்களுக்கு விருப்பமான விசைப்பலகை அமைப்பைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
-msgstr "ஒரு விசைப்பலகை தளவமைப்பைத் தேடுங்கள்"
+msgstr "விசைப்பலகை தளவமைப்புகளைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/gtk/widget-language.ui:12
@@ -154,38 +141,36 @@ msgid "Select your language"
 msgstr "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for language"
 msgid "Search languages"
-msgstr "மொழியைத் தேடுங்கள்"
+msgstr "மொழிகளைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-network.ui:27
 msgid "Internet"
-msgstr ""
+msgstr "இணையதளம்"
 
 #: vanilla_installer/gtk/default-network.ui:28
 msgid "An active internet connection is required to install the system"
-msgstr ""
+msgstr "கணினியை நிறுவ செயலில் இணைய இணைப்பு தேவை"
 
 #: vanilla_installer/gtk/default-network.ui:39
 msgid "Wired"
-msgstr ""
+msgstr "கம்பியுடையது"
 
 #: vanilla_installer/gtk/default-network.ui:44
 msgid "Wireless Networks"
-msgstr ""
+msgstr "கம்பியில்லா பிணையங்கள்"
 
 #: vanilla_installer/gtk/default-network.ui:49
 msgid "Advanced"
-msgstr ""
+msgstr "மேம்பட்டது"
 
 #: vanilla_installer/gtk/default-network.ui:52
 msgid "Connect to Hidden Network..."
-msgstr ""
+msgstr "மறைக்கப்பட்ட பிணையத்துடன் இணைக்கவும்..."
 
 #: vanilla_installer/gtk/default-network.ui:79
 msgid "Open Proxy Settings..."
-msgstr ""
+msgstr "ப்ராக்ஸி அமைப்புகளைத் திறக்கவும்..."
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -201,7 +186,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "தவிர்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -248,10 +233,8 @@ msgid "Select your preferred timezone"
 msgstr "உங்களுக்கு விருப்பமான நேர மண்டலத்தைத் தேர்ந்தெடுக்கவும்"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
 msgid "Search timezones"
-msgstr "ஒரு நேர மண்டலத்தை தேடுங்கள்"
+msgstr "நேர மண்டலங்களைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -330,8 +313,6 @@ msgid "Console"
 msgstr "முனையம்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
 msgstr "ஒரு முனையத்தைத் திறக்கவும்"
 
@@ -340,16 +321,12 @@ msgid "Documentation"
 msgstr "ஆவணம்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Documentation"
 msgid "Open the Vanilla OS documentation"
-msgstr "வெண்ணிலா OS ஆவணத்தைப் படிக்கவும்"
+msgstr "வெண்ணிலா OS ஆவணத்தைத் திறக்கவும்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
-msgstr "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
@@ -360,24 +337,20 @@ msgid "Handbook"
 msgstr "கைப்புத்தகம்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Read tutorials and guides about Vanilla OS."
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr "வெண்ணிலா OS பற்றிய பயிற்சிகள் மற்றும் வழிகாட்டிகளைப் படிக்கவும்."
+msgstr "வெண்ணிலா OS பற்றிய பயிற்சிகள் மற்றும் வழிகாட்டிகளைப் படிக்கவும்"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "இணைய உலாவி"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
 msgstr "உதவிக்கு ஆன்லைனில் தேடவும்"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "முடிந்துவிட்டது!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -401,7 +374,7 @@ msgstr "ஆம், அதை இயக்கு"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "முந்தைய"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -417,13 +390,11 @@ msgstr "ஸ்லைடுஷோவைக் காட்டு"
 
 #: vanilla_installer/gtk/widget-keyboard.ui:12
 msgid "key"
-msgstr ""
+msgstr "சாவி"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
-#| msgid "Manual Partitioning"
 msgid "Manually Partition"
-msgstr "கைமுறை பகிர்வு"
+msgstr "கைமுறையாக பகிர்வு"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -553,10 +524,8 @@ msgstr ""
 "zram உடன் ஸ்வாப் பயன்படுத்த ஒரு பகிர்வை தேர்வு செய்யவும். உறக்கநிலைக்கு இது தேவையில்லை."
 
 #: vanilla_installer/gtk/window-unsupported.ui:58
-#, fuzzy
-#| msgid "Power Off"
 msgid "Power Off..."
-msgstr "மின்சாரத்தை நிறுத்து"
+msgstr "மின்சாரத்தை நிறுத்து..."
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
@@ -641,10 +610,8 @@ msgid "Unavailable"
 msgstr "கிடைக்கவில்லை"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "நிலை தெரியவில்லை"
+msgstr "தெரியவில்லை"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
