@@ -4,13 +4,14 @@
 # Benjamin Kőhidi <benstone326@gmail.com>, 2023.
 # Nagy Ádám Aladár <totallynotlime@tutanota.com>, 2023.
 # Peter Rakmanyi <rakmanyi.peter@gmail.com>, 2023.
+# Balázs Szeles <zutvas@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-08-07 10:00+0000\n"
-"Last-Translator: Peter Rakmanyi <rakmanyi.peter@gmail.com>\n"
+"PO-Revision-Date: 2023-12-29 16:06+0000\n"
+"Last-Translator: Balázs Szeles <zutvas@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/hu/>\n"
 "Language: hu\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -41,10 +42,8 @@ msgid "Confirm Installation"
 msgstr "Telepítés megerősítése"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "A következő változtatások lesznek végrehajtva a rendszerén:"
+msgstr "A következő változtatások lesznek végrehajtva a rendszerén"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -52,11 +51,11 @@ msgstr "A Vanilla OS telepítése"
 
 #: vanilla_installer/gtk/default-conn-check.ui:12
 msgid "Checking Connection…"
-msgstr ""
+msgstr "Csatlakozás ellenőrzése…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr ""
+msgstr "Kérjük várjon, amíg a kapcsolat ellenőrzése befejeződik"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
@@ -84,8 +83,6 @@ msgstr ""
 "több lemezt is kiválaszthat a tetszőleges beállításhoz."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
 msgstr "Teljes lemez használata"
 
@@ -95,25 +92,17 @@ msgstr "Kézi"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "Szüksége van legalább %s lemezterületre, hogy folytassa a telepítést."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
 msgstr "Eszköz titkosítása"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
-msgstr ""
-"A Vanilla OS teljes lemezes titkosítást biztosít a LUKS2 segítségével, hogy "
-"megvédje személyes adatait, ha ellopják a készülékét."
+msgstr "A Vanilla OS titkosítja a lemezt, hogy megvédje a személyes adatait"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
 msgstr "Eszköz titkosítása"
 
@@ -140,10 +129,8 @@ msgid "Select your preferred keyboard layout"
 msgstr "Válassza ki a kívánt billentyűkiosztást"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
-msgstr "Billentyűkiosztás keresése"
+msgstr "Billentyűkiosztások keresése"
 
 #: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/gtk/widget-language.ui:12
@@ -156,38 +143,36 @@ msgid "Select your language"
 msgstr "Válassza ki a nyelvét"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search languages"
-msgstr "Nyelv keresése"
+msgstr "Nyelvek keresése"
 
 #: vanilla_installer/gtk/default-network.ui:27
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: vanilla_installer/gtk/default-network.ui:28
 msgid "An active internet connection is required to install the system"
-msgstr ""
+msgstr "Aktív internetkapcsolatra van szükség a rendszer telepítéséhez"
 
 #: vanilla_installer/gtk/default-network.ui:39
 msgid "Wired"
-msgstr ""
+msgstr "Vezetékes"
 
 #: vanilla_installer/gtk/default-network.ui:44
 msgid "Wireless Networks"
-msgstr ""
+msgstr "Vezeték nélküli hálózatok"
 
 #: vanilla_installer/gtk/default-network.ui:49
 msgid "Advanced"
-msgstr ""
+msgstr "Speciális"
 
 #: vanilla_installer/gtk/default-network.ui:52
 msgid "Connect to Hidden Network..."
-msgstr ""
+msgstr "Kapcsolódás rejtett hálózathoz..."
 
 #: vanilla_installer/gtk/default-network.ui:79
 msgid "Open Proxy Settings..."
-msgstr ""
+msgstr "Proxy-beállítások megnyitása..."
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -203,7 +188,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "Átugrás"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -250,10 +235,8 @@ msgid "Select your preferred timezone"
 msgstr "Válassza ki a kívánt időzónát"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
 msgid "Search timezones"
-msgstr "Időzóna keresése"
+msgstr "Időzónák keresése"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -272,10 +255,8 @@ msgid "Username"
 msgstr "Felhasználónév"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
-#, fuzzy
-#| msgid "Installing..."
 msgid "Install"
-msgstr "Telepítés…"
+msgstr "Telepítés"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
@@ -286,7 +267,7 @@ msgstr "Helyreállítás"
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Kikapcsolás"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
@@ -325,40 +306,35 @@ msgstr "Napló"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Újraindítás"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Újraindítás a Firmware Setup-ba"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
 msgstr "Konzol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
 msgid "Open a terminal"
-msgstr "Nyisson meg egy terminált."
+msgstr "Nyisson meg egy terminált"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentáció"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
 msgid "Open the Vanilla OS documentation"
-msgstr "Olvassa el a Vanilla OS kézikönyvet."
+msgstr "A Vanilla OS dokumentációjának megnyitása"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
-msgstr "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
-#, fuzzy
 msgid "Manage disks and partitions"
-msgstr "Lemezek és partíciók kezelése."
+msgstr "Lemezek és partíciók kezelése"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
@@ -366,20 +342,19 @@ msgstr "Kézikönyv"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr ""
+msgstr "Olvassa el a Vanilla OS útmutatóit"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Webböngésző"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
 msgid "Search help online"
-msgstr "Keressen segítséget az interneten."
+msgstr "Keressen segítséget az interneten"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "Kész!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -403,7 +378,7 @@ msgstr "Igen, engedélyezze"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Előző"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -419,11 +394,9 @@ msgstr "Diavetítés megjelenítése"
 
 #: vanilla_installer/gtk/widget-keyboard.ui:12
 msgid "key"
-msgstr ""
+msgstr "kulcs"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
-#| msgid "Manual Partitioning"
 msgid "Manually Partition"
 msgstr "Kézi partícionálás"
 
@@ -436,10 +409,6 @@ msgid "Boot Partition"
 msgstr "Boot partíció"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
@@ -506,45 +475,33 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "A BIOS partíciónak pontosan 1 MiB-nak kell lennie."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Root partíciók"
+msgstr "Root partíció"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"A \"/boot\" alá csatolandó partíció. Ez a könyvtár tárolja a Vanilla OS-ben "
-"való indításhoz szükséges fájlokat."
+"A \"/\" alá csatolandó partíció. Ez automatikusan át lesz alakítva egy LVM "
+"thin pool-ba a telepítés során."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "A boot partíció túl kicsi."
+msgstr "A root partíció túl kicsi."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "Swap partíció"
+msgstr "Var partíció"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"A \"/home\" alá csatolandó partíció. Ez a könyvtár tárolja az összes "
-"felhasználói adatot."
+"A \"/var\" alá csatolandó partíció. Ez a könyvtár tárolja az összes "
+"felhasználói adatot, mint például a személyes dokumentumok és a "
+"rendszerszintű konfiguráció."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
@@ -574,7 +531,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/window-unsupported.ui:58
 msgid "Power Off..."
-msgstr ""
+msgstr "Kikapcsolás..."
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
@@ -583,7 +540,7 @@ msgstr "Vissza"
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:371
 msgid "Connected"
-msgstr ""
+msgstr "Csatlakoztatva"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -611,59 +568,59 @@ msgstr "{} formátumban lesz formázva és {} formátumban lesz felcsatolva"
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Nem biztonságos hálózat (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Biztonságos hálózat (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Biztonságos hálózat (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Biztonságos hálózat (WPA3)"
 
 #: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
-msgstr ""
+msgstr "Hitelesítés szükséges"
 
 #: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
-msgstr ""
+msgstr "Csatlakozás"
 
 #: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
-msgstr ""
+msgstr "Lekapcsolódott"
 
 #: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
-msgstr ""
+msgstr "Lekapcsolódás"
 
 #: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
-msgstr ""
+msgstr "Nem sikerült a kapcsolódás"
 
 #: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
-msgstr ""
+msgstr "Ismeretlen állapot"
 
 #: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
-msgstr ""
+msgstr "Nem kezelt"
 
 #: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
-msgstr ""
+msgstr "Nem elérhető"
 
 #: vanilla_installer/defaults/network.py:396
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Kábel kihúzva"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
