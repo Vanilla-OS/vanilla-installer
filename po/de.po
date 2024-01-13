@@ -11,13 +11,14 @@
 # juzac001 <julian.zachmann001@stud.fh-dortmund.de>, 2023.
 # Ettore Atalan <atalanttore@googlemail.com>, 2023.
 # Experiencing A Significant Gravitas Shortfall <bedeb1@pm.me>, 2023.
+# Neo <neobihli@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-08-30 12:19+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2024-01-04 14:08+0000\n"
+"Last-Translator: Neo <neobihli@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -48,10 +49,8 @@ msgid "Confirm Installation"
 msgstr "Installation bestätigen"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "Die folgenden Änderungen werden am System vorgenommen:"
+msgstr "Die folgenden Änderungen werden am System vorgenommen"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -59,11 +58,11 @@ msgstr "Vanilla OS installieren"
 
 #: vanilla_installer/gtk/default-conn-check.ui:12
 msgid "Checking Connection…"
-msgstr ""
+msgstr "Überprüfe Verbindung…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr ""
+msgstr "Bitte warten, Verbindung wird geprüft"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
@@ -114,14 +113,9 @@ msgid "Device Encryption"
 msgstr "Geräteverschlüsselung"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
-"Vanilla OS bietet eine vollständige Festplattenverschlüsselung durch LUKS2, "
-"um Ihre persönlichen Daten zu schützen, falls Ihr Gerät gestohlen wird."
+"Vanilla OS verschlüsselt Ihre Festplatte zum Schutz Ihrer persönlichen Daten"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 #, fuzzy
@@ -153,10 +147,8 @@ msgid "Select your preferred keyboard layout"
 msgstr "Wählen Sie Ihr bevorzugtes Tastaturlayout aus"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
-msgstr "Suche nach einem Tastaturlayout"
+msgstr "Suche Tastaturlayouts"
 
 #: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/gtk/widget-language.ui:12
@@ -169,18 +161,18 @@ msgid "Select your language"
 msgstr "Wählen Sie eine Sprache"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for language"
 msgid "Search languages"
-msgstr "Nach Sprache suchen"
+msgstr "Sprachen durchsuchen"
 
 #: vanilla_installer/gtk/default-network.ui:27
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: vanilla_installer/gtk/default-network.ui:28
 msgid "An active internet connection is required to install the system"
 msgstr ""
+"Für die Installation des Systems ist eine aktive Internetverbindung "
+"erforderlich"
 
 #: vanilla_installer/gtk/default-network.ui:39
 msgid "Wired"
@@ -355,13 +347,11 @@ msgstr "Öffnen Sie ein Terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook"
 msgid "Open the Vanilla OS documentation"
-msgstr "Lesen Sie das Vanilla OS-Handbuch"
+msgstr "Öffnen Sie die Vanilla OS Dokumentation"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 #, fuzzy
@@ -379,21 +369,19 @@ msgstr "Handbuch"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr ""
+msgstr "Lese Tutorials und Anleitungen über Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Webbrowser"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
-msgstr "Suchen Sie online nach Hilfe"
+msgstr "Nach Hilfe online suchen"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "Fertig!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -417,7 +405,7 @@ msgstr "Ja, aktivieren"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Vorher"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -433,7 +421,7 @@ msgstr "Diashow anzeigen"
 
 #: vanilla_installer/gtk/widget-keyboard.ui:12
 msgid "key"
-msgstr ""
+msgstr "Schlüssel"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 #, fuzzy
@@ -520,10 +508,8 @@ msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS-Partition muss genau 1 MiB groß sein."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
-#, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
-msgstr "Root-Partitionen"
+msgstr "Root-Partition"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
 #, fuzzy
@@ -538,27 +524,21 @@ msgstr ""
 "Verzeichnis werden Dateien für das Booten in Vanilla OS gespeichert."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
-#, fuzzy
-#| msgid "Boot partition is too small."
 msgid "Root partition is too small."
-msgstr "Boot-Partition ist zu klein."
+msgstr "Root-Partition ist zu klein."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "Swap-Partition"
+msgstr "Var-Partition"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/home”. This directory stores all user data."
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"Die Partition, die unter \"/home\" eingebunden werden soll. In diesem "
-"Verzeichnis werden alle Benutzerdaten gespeichert."
+"Die Partition, die unter \"/var\" eingebunden werden soll. In diesem "
+"Verzeichnis werden alle Benutzerdaten wie persönliche Dokumente und die "
+"systemweite Konfiguration gespeichert."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
 msgid "Home partition is too small."
@@ -676,10 +656,8 @@ msgid "Unavailable"
 msgstr "Nicht verfügbar"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "Status unbekannt"
+msgstr "Unbekannt"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
