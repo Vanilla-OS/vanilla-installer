@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# gallegonovato <fran-carro@hotmail.es>, 2023.
+# gallegonovato <fran-carro@hotmail.es>, 2023, 2024.
 # Juan <benitesjn@gmail.com>, 2023.
 # Juan Benites <benitesjn@gmail.com>, 2023.
 # Jorge Ivan Carmona Cortez <dh_plasma@hotmail.com>, 2023.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-11-22 11:29+0000\n"
+"PO-Revision-Date: 2024-01-01 14:07+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/es/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -42,10 +42,8 @@ msgid "Confirm Installation"
 msgstr "Confirmar instalación"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "Se realizarán los siguientes cambios en su sistema:"
+msgstr "Se realizarán los siguientes cambios en su sistema"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -85,10 +83,8 @@ msgstr ""
 "puede seleccionar uno o más discos para configurarlos manualmente."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
-msgstr "Usar todo el disco"
+msgstr "Utilizar todo el disco"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
@@ -114,10 +110,8 @@ msgstr ""
 "proteger tu información personal en caso de que te roben el dispositivo."
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
-msgstr "Cifrar dispositivo"
+msgstr "Cifrar el dispositivo"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
@@ -142,10 +136,8 @@ msgid "Select your preferred keyboard layout"
 msgstr "Seleccione su distribución de teclado preferida"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
-msgstr "Buscar una distribución de teclado"
+msgstr "Buscar diseños de teclado"
 
 #: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/gtk/widget-language.ui:12
@@ -177,7 +169,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-network.ui:44
 msgid "Wireless Networks"
-msgstr ""
+msgstr "Redes inalámbricas"
 
 #: vanilla_installer/gtk/default-network.ui:49
 msgid "Advanced"
@@ -336,26 +328,20 @@ msgid "Console"
 msgstr "Consola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
-msgstr "Abrir la Terminal"
+msgstr "Abrir un terminal"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
 msgstr "Información"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Documentation"
 msgid "Open the Vanilla OS documentation"
-msgstr "Lea la información de Vanilla OS"
+msgstr "Abra la documentación de Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
-msgstr "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
@@ -366,24 +352,20 @@ msgid "Handbook"
 msgstr "Manual"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Read tutorials and guides about Vanilla OS."
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr "Lee los tutoriales y guías sobre Vanilla OS."
+msgstr "Lee tutoriales y guías sobre Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Navegadores web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
-msgstr "Buscar ayuda en línea"
+msgstr "Buscar ayuda en Internet"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "¡Terminado!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -407,7 +389,7 @@ msgstr "Sí, activar"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -423,13 +405,11 @@ msgstr "Ver las presentación de las diapositivas"
 
 #: vanilla_installer/gtk/widget-keyboard.ui:12
 msgid "key"
-msgstr ""
+msgstr "clave"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
-#| msgid "Manual Partitioning"
 msgid "Manually Partition"
-msgstr "Particionamiento manual"
+msgstr "Partición manual"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -561,10 +541,8 @@ msgstr ""
 "necesario para la hibernación."
 
 #: vanilla_installer/gtk/window-unsupported.ui:58
-#, fuzzy
-#| msgid "Power Off"
 msgid "Power Off..."
-msgstr "Apagar"
+msgstr "Apagar..."
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
@@ -649,10 +627,8 @@ msgid "Unavailable"
 msgstr "No está disponible"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "Estado desconocido"
+msgstr "Desconocido"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
