@@ -7,13 +7,14 @@
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023.
 # Ricardo <ricardo.btupy@gmail.com>, 2023.
 # Wagner Costa Gottschald <wagnercostag@gmail.com>, 2023.
+# Vinícius <vinicius.cgobbi2004@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-12-16 12:22+0000\n"
-"Last-Translator: Wagner Costa Gottschald <wagnercostag@gmail.com>\n"
+"PO-Revision-Date: 2024-01-09 21:09+0000\n"
+"Last-Translator: Vinícius <vinicius.cgobbi2004@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/pt/>\n"
 "Language: pt\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -611,14 +612,12 @@ msgid "Will be formatted in {} and mounted in {}"
 msgstr "Será formatado em {} e montado em {}"
 
 #: vanilla_installer/defaults/network.py:37
-#, fuzzy
 msgid "Insecure network (WEP)"
 msgstr "Rede Insegura (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
-#, fuzzy
 msgid "Secure network (WPA)"
-msgstr "Rede Insegura"
+msgstr "Rede Segura (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
