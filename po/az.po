@@ -1,56 +1,58 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the vanilla-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Alvan Rahimli <alvan@rahim.li>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-09 21:09+0000\n"
+"Last-Translator: Alvan Rahimli <alvan@rahim.li>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/vanilla-os/"
+"installer/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
-msgstr ""
+msgstr "Vanilla OS Quraşdırıcı"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:7
 msgid "Tweak your Vanilla OS installation."
-msgstr ""
+msgstr "Vanilla OS quraşdırmanızı sazlayın."
 
 #: data/org.vanillaos.Installer.appdata.xml.in:10
 msgid "No description"
-msgstr ""
+msgstr "İzah yoxdur"
 
 #: data/org.vanillaos.Installer.appdata.xml.in:26
 msgid "First release"
-msgstr ""
+msgstr "İlk buraxılış"
 
 #: vanilla_installer/gtk/confirm.ui:10
 msgid "Confirm Installation"
-msgstr ""
+msgstr "Quraşdırmanı təstiqləyin"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system"
-msgstr ""
+msgstr "Sisteminizə aşağıdakı dəyişikliklər tətbiq olunacaq"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
-msgstr ""
+msgstr "Vanilla OS-i yükləyin"
 
 #: vanilla_installer/gtk/default-conn-check.ui:12
 msgid "Checking Connection…"
-msgstr ""
+msgstr "Bağlantı yoxlanılır…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr ""
+msgstr "Zəhmət olmasa, bağlantı yoxlanışı bitənədək gözləyin"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
@@ -63,131 +65,135 @@ msgstr ""
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
 msgid "Next"
-msgstr ""
+msgstr "Sonrakı"
 
 #: vanilla_installer/gtk/default-disk.ui:29
 msgid "Install Location"
-msgstr ""
+msgstr "Yükləmə Yeri"
 
 #: vanilla_installer/gtk/default-disk.ui:30
 msgid ""
 "Select the disk where you want to install Vanilla OS. Alternatively, you can "
 "select one or more disks to configure manually."
 msgstr ""
+"Vanilla OS-i yükləmək istədiyiniz diski seçin. Və ya, əl ilə quraşdırmaq "
+"üçün bir və ya bir neçə disk seçə bilərsiniz."
 
 #: vanilla_installer/gtk/default-disk.ui:44
 msgid "Use Entire Disk"
-msgstr ""
+msgstr "Bütün diski istifadə edin"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
-msgstr ""
+msgstr "Əl ilə"
 
 #: vanilla_installer/gtk/default-disk.ui:86
 msgid "You need at least %s of disk space to proceed with the installation."
-msgstr ""
+msgstr "Quraşdırmaya davam etmək üçün ən azı %s disk yeri lazımdır."
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr ""
+msgstr "Cihaz Şifrələnməsi"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid "Vanilla OS encrypts your disk to protect your personal information"
-msgstr ""
+msgstr "Şəxsi məlumatlarınızı qorumaq üçün Vanilla OS diskinizi şifrələyir"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt Device"
-msgstr ""
+msgstr "Cihazı Şifrələ"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
-msgstr ""
+msgstr "Məlumatlarınızı şifrələmək üçün yaddaqalan şifrə istifadə edin"
 
 #: vanilla_installer/gtk/default-encryption.ui:49
 #: vanilla_installer/gtk/default-users.ui:60
 msgid "Password"
-msgstr ""
+msgstr "Şifrə"
 
 #: vanilla_installer/gtk/default-encryption.ui:55
 #: vanilla_installer/gtk/default-users.ui:66
 msgid "Confirm Password"
-msgstr ""
+msgstr "Şifrəni təstiq et"
 
 #: vanilla_installer/gtk/default-keyboard.ui:42
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Klaviatura Quruluşu"
 
 #: vanilla_installer/gtk/default-keyboard.ui:43
 msgid "Select your preferred keyboard layout"
-msgstr ""
+msgstr "Üstünlük verilən klaviatura quruluşunu seçin"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
 msgid "Search keyboard layouts"
-msgstr ""
+msgstr "Klaviatura quruluşlarını axtarın"
 
 #: vanilla_installer/gtk/default-language.ui:28
 #: vanilla_installer/gtk/widget-language.ui:12
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
-msgstr ""
+msgstr "Dil"
 
 #: vanilla_installer/gtk/default-language.ui:29
 msgid "Select your language"
-msgstr ""
+msgstr "Dil seçin"
 
 #: vanilla_installer/gtk/default-language.ui:39
 msgid "Search languages"
-msgstr ""
+msgstr "Dil axtarın"
 
 #: vanilla_installer/gtk/default-network.ui:27
 msgid "Internet"
-msgstr ""
+msgstr "İnternet"
 
 #: vanilla_installer/gtk/default-network.ui:28
 msgid "An active internet connection is required to install the system"
-msgstr ""
+msgstr "Sistemi quraşdırmaq üçün aktiv internet bağlantısı tələb olunur"
 
 #: vanilla_installer/gtk/default-network.ui:39
 msgid "Wired"
-msgstr ""
+msgstr "Simli"
 
 #: vanilla_installer/gtk/default-network.ui:44
 msgid "Wireless Networks"
-msgstr ""
+msgstr "Simsiz Şəbəkələr"
 
 #: vanilla_installer/gtk/default-network.ui:49
 msgid "Advanced"
-msgstr ""
+msgstr "Qabaqcıl"
 
 #: vanilla_installer/gtk/default-network.ui:52
 msgid "Connect to Hidden Network..."
-msgstr ""
+msgstr "Gizli Şəbəkəyə Qoşul..."
 
 #: vanilla_installer/gtk/default-network.ui:79
 msgid "Open Proxy Settings..."
-msgstr ""
+msgstr "Proksi Ayarlarını Açın..."
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
-msgstr ""
+msgstr "NVIDIA® Sürücüləri"
 
 #: vanilla_installer/gtk/default-nvidia.ui:15
 msgid ""
 "Choose whether to install proprietary NVIDIA drivers for better "
 "compatibility and performance."
 msgstr ""
+"Daha yaxşı uyğunluq və performans üçün NVIDIA sürücülərinin quraşdırılıb-"
+"quraşdırılmamasını seçin."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "Ötür"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
-msgstr ""
+msgstr "Quraşdır  (tövsiyyə olunur)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
 msgid "About Proprietary Drivers"
-msgstr ""
+msgstr "Açıq olmayan cihaz sürücülər barədə"
 
 #: vanilla_installer/gtk/default-nvidia.ui:78
 msgid ""
@@ -196,208 +202,218 @@ msgid ""
 "\n"
 "Security and other updates are dependent on the driver vendor."
 msgstr ""
+"Özəl mülkiyyətdə olan cihaz sürücülərinin mənbə kodları açıq olmadığına "
+"görə, nə Vanilla OS, nə də Debian tərtibatçıları onları nəzərdən keçirə "
+"bilmir.\n"
+"\n"
+"Təhlükəsizlik və digər yeniləmələr cihaz sürücüsü tərtibatçılarından "
+"asılıdır."
 
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
-msgstr ""
+msgstr "Standart"
 
 #: vanilla_installer/gtk/default-theme.ui:29
 msgid "Dark"
-msgstr ""
+msgstr "Tünd"
 
 #: vanilla_installer/gtk/default-theme.ui:42
 msgid "Color Scheme"
-msgstr ""
+msgstr "Rəng Palitrası"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr ""
+msgstr "Sisteminiz üçün rəng palitrası seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
-msgstr ""
+msgstr "Tarix & Saat"
 
 #: vanilla_installer/gtk/default-timezone.ui:29
 msgid "Select your preferred timezone"
-msgstr ""
+msgstr "Üstünlük verilən saat qurşağını seçin"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
 msgid "Search timezones"
-msgstr ""
+msgstr "Saat qurşaqlarını axtarın"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr ""
+msgstr "İstifadəçi Yarat"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr ""
+msgstr "İstifadəçi hesabı üçün təfərrüatları daxil edin"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #: vanilla_installer/gtk/default-users.ui:54
 msgid "Username"
-msgstr ""
+msgstr "Soyad"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
 msgid "Install"
-msgstr ""
+msgstr "Quraşdırın"
 
 #: vanilla_installer/gtk/default-welcome.ui:34
 #: vanilla_installer/gtk/dialog-recovery.ui:6
 msgid "Recovery"
-msgstr ""
+msgstr "Bərpa"
 
 #: vanilla_installer/gtk/default-welcome.ui:51
 #: vanilla_installer/gtk/dialog-poweroff.ui:6
 #: vanilla_installer/gtk/dialog-poweroff.ui:26
 msgid "Power Off"
-msgstr ""
+msgstr "Söndür"
 
 #: vanilla_installer/gtk/dialog.ui:6
 msgid "Showing Information"
-msgstr ""
+msgstr "Məlumatlar Göstərilir"
 
 #: vanilla_installer/gtk/dialog-disk.ui:5
 msgid "Configure Disk"
-msgstr ""
+msgstr "Diski konfiqurasiya edin"
 
 #: vanilla_installer/gtk/dialog-disk.ui:17
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:18
 msgid "Cancel"
-msgstr ""
+msgstr "Ləğv edin"
 
 #: vanilla_installer/gtk/dialog-disk.ui:22
 msgid "Apply"
-msgstr ""
+msgstr "Tətbiq edin"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:6
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:25
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:36
 msgid "Confirm Changes"
-msgstr ""
+msgstr "Dəyişiklikləri təsdiqləyin"
 
 #: vanilla_installer/gtk/dialog-disk-confirm.ui:26
 msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
+"Aşağıdakı dəyişikliklər diskə tətbiq olunacaq. Zəhmət olmasa, diqqətlə "
+"nəzərdən keçirin."
 
 #: vanilla_installer/gtk/dialog-output.ui:6
 msgid "Log"
-msgstr ""
+msgstr "Loq"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:42
 msgid "Restart"
-msgstr ""
+msgstr "Yenidən başlat"
 
 #: vanilla_installer/gtk/dialog-poweroff.ui:58
 msgid "Restart into Firmware Setup"
-msgstr ""
+msgstr "Mikroproqram quraşdırılması üçün yenidən başladın"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:26
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 msgid "Open a terminal"
-msgstr ""
+msgstr "Terminal aç"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Təlimatlar"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 msgid "Open the Vanilla OS documentation"
-msgstr ""
+msgstr "Vanilla OS təlimatlarını aç"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 msgid "GParted"
-msgstr ""
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
-msgstr ""
+msgstr "Disk və disk bölgülərini idarə edin"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
-msgstr ""
+msgstr "Stolüstü kitab"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr ""
+msgstr "Vanilla OS haqqında təlimat və göstərişlər oxuyun"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
-msgstr ""
+msgstr "Veb Brauzer"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 msgid "Search help online"
-msgstr ""
+msgstr "Onlayn kömək axtar"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "Bitdi!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
-msgstr ""
+msgstr "Vanilla OS təcrübənizdən zövq almaq üçün cihazınızı yenidən başladın"
 
 #: vanilla_installer/gtk/done.ui:23
 msgid "Show Log"
-msgstr ""
+msgstr "Loq-ları göstər"
 
 #: vanilla_installer/gtk/done.ui:32
 msgid "Reboot Now"
-msgstr ""
+msgstr "İndi yenidən başladın"
 
 #: vanilla_installer/gtk/done.ui:42
 msgid "Close"
-msgstr ""
+msgstr "Bağla"
 
 #: vanilla_installer/gtk/layout-yes-no.ui:36
 msgid "Yes, enable it"
-msgstr ""
+msgstr "Bəli, aktiv edin"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Əvvəlki"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
-msgstr ""
+msgstr "Quraşdırılır..."
 
 #: vanilla_installer/gtk/progress.ui:131
 msgid "Show Console output"
-msgstr ""
+msgstr "Konsol çıxışını göstər"
 
 #: vanilla_installer/gtk/progress.ui:146
 msgid "Show Slideshow"
-msgstr ""
+msgstr "Slayd şounu göstər"
 
 #: vanilla_installer/gtk/widget-keyboard.ui:12
 msgid "key"
-msgstr ""
+msgstr "açar"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
 msgid "Manually Partition"
-msgstr ""
+msgstr "Əl ilə bölgü"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
-msgstr ""
+msgstr "Diski əl ilə bölmək üçün GParted-i açın"
 
 #: vanilla_installer/gtk/widget-partition.ui:29
 msgid "Boot Partition"
-msgstr ""
+msgstr "İşədüşmə disk hissəsi"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
+"\"/boot\" daxilində yerləşən disk hissəsi. Vanilla OS-ə keçid etmək üçün "
+"fayllar bu qovluqdadır."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
@@ -407,7 +423,7 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:151
 #: vanilla_installer/defaults/disk.py:402
 msgid "No partition selected"
-msgstr ""
+msgstr "Heç bir disk hissəsi seçilməyib"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
 #: vanilla_installer/gtk/widget-partition.ui:55
@@ -417,29 +433,31 @@ msgstr ""
 #: vanilla_installer/gtk/widget-partition.ui:152
 #: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
-msgstr ""
+msgstr "Zəhmət olmasa, aşağıdakı seçimlərdən disk hissəsi seçin"
 
 #: vanilla_installer/gtk/widget-partition.ui:45
 msgid "Boot partition is too small."
-msgstr ""
+msgstr "İşədüşmə disk hissəsində kifayət qədər yer yoxdur."
 
 #: vanilla_installer/gtk/widget-partition.ui:50
 msgid "EFI Partition"
-msgstr ""
+msgstr "EFI Disk hissəsi"
 
 #: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
+"\"/boot/efi\" qovluğunda yerləşən disk hissəsi. Yükləyiciyə keçid etmək üçün "
+"lazım olan faylları saxlayır."
 
 #: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
-msgstr ""
+msgstr "EFI disk hissəsində kifayət qədər yer yoxdur."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
 msgid "BIOS Boot Partition"
-msgstr ""
+msgstr "BIOS Boot Disk hissəsi"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
@@ -447,10 +465,13 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
+"Kompyuteri BIOS sistemlərindən işə salmaq üçün GPT-formatlanmış disklər "
+"tərəfindən tələb olunan disk hissəsidir. Diskin ilk 2TB-da yerləşməlidir, və "
+"tam olaraq 1Mebibyte (1 MiB) həcmində olmalıdır."
 
 #: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr ""
+msgstr "BIOS disk hissəsi tam 1MiB olmalıdır."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partition"
@@ -503,12 +524,12 @@ msgstr ""
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
-msgstr ""
+msgstr "Geri"
 
 #: vanilla_installer/gtk/wireless-row.ui:33
 #: vanilla_installer/defaults/network.py:371
 msgid "Connected"
-msgstr ""
+msgstr "Qoşulu"
 
 #: vanilla_installer/defaults/disk.py:298
 msgid "GParted is already running. Only one instance of GParted is permitted."
@@ -536,51 +557,51 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:37
 msgid "Insecure network (WEP)"
-msgstr ""
+msgstr "Təhlükəli şəbəkə (WEP)"
 
 #: vanilla_installer/defaults/network.py:38
 msgid "Secure network (WPA)"
-msgstr ""
+msgstr "Təhlükəsiz şəbəkə (WPA)"
 
 #: vanilla_installer/defaults/network.py:39
 msgid "Secure network (WPA2)"
-msgstr ""
+msgstr "Təhlükəsiz şəbəkə (WPA2)"
 
 #: vanilla_installer/defaults/network.py:40
 msgid "Secure network (WPA3)"
-msgstr ""
+msgstr "Təhlükəsiz şəbəkə (WPA3)"
 
 #: vanilla_installer/defaults/network.py:374
 msgid "Authentication required"
-msgstr ""
+msgstr "Doğrulama tələb olunur"
 
 #: vanilla_installer/defaults/network.py:382
 msgid "Connecting"
-msgstr ""
+msgstr "Qoşulur"
 
 #: vanilla_installer/defaults/network.py:384
 msgid "Disconnected"
-msgstr ""
+msgstr "Bağlantı kəsildi"
 
 #: vanilla_installer/defaults/network.py:386
 msgid "Disconnecting"
-msgstr ""
+msgstr "Bağlantı kəsilir"
 
 #: vanilla_installer/defaults/network.py:388
 msgid "Connection Failed"
-msgstr ""
+msgstr "Bağlantı uğursuz oldu"
 
 #: vanilla_installer/defaults/network.py:390
 msgid "Status Unknown"
-msgstr ""
+msgstr "Naməlum Status"
 
 #: vanilla_installer/defaults/network.py:392
 msgid "Unmanaged"
-msgstr ""
+msgstr "İdarə olunmayan"
 
 #: vanilla_installer/defaults/network.py:394
 msgid "Unavailable"
-msgstr ""
+msgstr "Əlçatmaz"
 
 #: vanilla_installer/defaults/network.py:396
 msgid "Unknown"
@@ -588,11 +609,11 @@ msgstr ""
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"
-msgstr ""
+msgstr "Kabel taxılmayıb"
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Zəhmət olmasa azı bir variant seçin."
 
 #: vanilla_installer/utils/builder.py:71
 msgid "Missing 'log_file' in the recipe."
@@ -658,12 +679,12 @@ msgstr ""
 
 #: vanilla_installer/views/done.py:40
 msgid "Restart your device to enjoy your {} experience."
-msgstr ""
+msgstr "{} təcrübənizdən həzz almaq üçün cihazınızı yenidən başladın."
 
 #: vanilla_installer/views/done.py:54
 msgid "Something went wrong"
-msgstr ""
+msgstr "Səhv baş verdi"
 
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
-msgstr ""
+msgstr "Zəhmət olmasa proqramçılarla əlaqə saxlayın."
