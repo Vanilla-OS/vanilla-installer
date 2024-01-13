@@ -7,13 +7,14 @@
 # Максим <mrxzzet@gmail.com>, 2023.
 # Alexei <aleksejfedorov963@gmail.com>, 2023.
 # Fedorov Alexei <aleksejfedorov963@gmail.com>, 2023, 2024.
+# Vin <k3kelm4vw@mozmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2024-01-04 14:08+0000\n"
-"Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
+"PO-Revision-Date: 2024-01-09 21:09+0000\n"
+"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ru/>\n"
 "Language: ru\n"
@@ -46,7 +47,7 @@ msgstr "Подтверждение установки"
 
 #: vanilla_installer/gtk/confirm.ui:11
 msgid "The following changes will be made to your system"
-msgstr "В Вашу систему будут внесены следующие изменения"
+msgstr "В вашу систему будут внесены следующие изменения"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -58,7 +59,7 @@ msgstr "Проверка соединения…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr "Пожалуйста подождите, пока проверяется соединение"
+msgstr "Пожалуйста, подождите, пока проверяется соединение"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
@@ -101,7 +102,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:28
 msgid "Device Encryption"
-msgstr "Шифрование"
+msgstr "Шифрование устройства"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid "Vanilla OS encrypts your disk to protect your personal information"
@@ -177,7 +178,7 @@ msgstr "Подключение к скрытой сети…"
 
 #: vanilla_installer/gtk/default-network.ui:79
 msgid "Open Proxy Settings..."
-msgstr "Открыть параметры прокси…"
+msgstr "Открыть настройки прокси…"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -230,7 +231,7 @@ msgstr "Цветовая схема"
 
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
-msgstr "Выберите цветовую схему для Вашей системы"
+msgstr "Выберите цветовую схему для вашей системы"
 
 #: vanilla_installer/gtk/default-timezone.ui:28
 msgid "Date & Time"
@@ -246,11 +247,11 @@ msgstr "Поиск часового пояса"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
-msgstr "Создание пользователя"
+msgstr "Создать пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:41
 msgid "Provide details for your user account"
-msgstr "Предоставьте информацию для Вашей учётной записи пользователя"
+msgstr "Предоставьте информацию для вашей учётной записи пользователя"
 
 #: vanilla_installer/gtk/default-users.ui:48
 msgid "Name"
@@ -303,7 +304,7 @@ msgid ""
 "The following changes will be made to your disk. Please review them "
 "carefully."
 msgstr ""
-"Следующие изменения будут применены к Вашему диску. Пожалуйста, просмотрите "
+"Следующие изменения будут применены к вашему диску. Пожалуйста, просмотрите "
 "их внимательно."
 
 #: vanilla_installer/gtk/dialog-output.ui:6
@@ -340,7 +341,7 @@ msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
-msgstr "Управлять дисками и разделами"
+msgstr "Управление дисками и разделами"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:77
 msgid "Handbook"
@@ -419,7 +420,8 @@ msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr ""
-"Раздел для монтирования “/boot”. В нём хранятся файлы для запуска Vanilla OS."
+"Раздел для монтирования в \"/boot\". В нём хранятся файлы для запуска "
+"Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
 #: vanilla_installer/gtk/widget-partition.ui:54
@@ -447,23 +449,23 @@ msgstr "Загрузочный раздел слишком мал."
 
 #: vanilla_installer/gtk/widget-partition.ui:50
 msgid "EFI Partition"
-msgstr "EFI раздел"
+msgstr "Раздел EFI"
 
 #: vanilla_installer/gtk/widget-partition.ui:51
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
-"Раздел для монтирования \"/boot/efi\". В этом каталоге хранятся файлы для "
+"Раздел для монтирования в \"/boot/efi\". В этом каталоге хранятся файлы для "
 "запуска загрузчика."
 
 #: vanilla_installer/gtk/widget-partition.ui:66
 msgid "EFI partition is too small."
-msgstr "EFI раздел слишком мал."
+msgstr "Раздел EFI слишком мал."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
 msgid "BIOS Boot Partition"
-msgstr "Раздел BIOS Boot"
+msgstr "Загрузочный раздел BIOS"
 
 #: vanilla_installer/gtk/widget-partition.ui:72
 msgid ""
@@ -471,12 +473,13 @@ msgid ""
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
-"Раздел, требуемый дисками в формате GPT для поддержки загрузки из систем "
-"BIOS. Он должен располагаться в первых 2 ТБ диска и иметь размер ровно 1 МБ."
+"Раздел, необходимый дискам в формате GPT для поддержки загрузки из систем "
+"BIOS. Он должен располагаться в первых 2 ТБ диска и быть ровно 1 Мебибайт (1 "
+"МиБ)."
 
 #: vanilla_installer/gtk/widget-partition.ui:87
 msgid "BIOS partition must be exactly 1 MiB."
-msgstr "Раздел BIOS должен быть ровно 1 МБ."
+msgstr "Раздел BIOS должен быть ровно 1 МиБ."
 
 #: vanilla_installer/gtk/widget-partition.ui:92
 msgid "Root Partition"
@@ -487,7 +490,7 @@ msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"Раздел для монтирования \"/\". В процессе установки он будет автоматически "
+"Раздел для монтирования в \"/\". В процессе установки он будет автоматически "
 "преобразован в тонкий пул LVM."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
@@ -503,7 +506,7 @@ msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
-"Раздел для монтирования \"/var\". В нём хранятся все пользовательские "
+"Раздел для монтирования в \"/var\". В нём хранятся все пользовательские "
 "данные, такие как личные документы и общесистемная конфигурация."
 
 #: vanilla_installer/gtk/widget-partition.ui:129
@@ -513,16 +516,16 @@ msgstr "Домашний раздел слишком мал."
 #: vanilla_installer/gtk/widget-partition.ui:134
 #: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
-msgstr "Раздел своп"
+msgstr "Раздел Swap"
 
 #: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
-"Своп действует как виртуальное расширение Вашей оперативной памяти и "
-"позволяет переходить в спящий режим. Vanilla OS уже использует zram для "
-"обеспечения свопинга без затрат на хранение."
+"Swap действует как виртуальное расширение ОЗУ и позволяет переходить в "
+"спящий режим. Vanilla OS уже использует zram для обеспечения свопинга без "
+"затрат на хранение."
 
 #: vanilla_installer/gtk/widget-partition.ui:139
 msgid ""
@@ -556,7 +559,7 @@ msgstr "Раздел должен быть не менее {}"
 
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
-msgstr "Раздел должен быть ТОЧНО {}"
+msgstr "Раздел должен быть РОВНО {}"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -659,7 +662,7 @@ msgstr "Неверный файл рецепта"
 
 #: vanilla_installer/utils/recipe.py:52
 msgid "Recipe is not a dictionary"
-msgstr "Рецепт - это не словарь"
+msgstr "Рецепт не является словарём"
 
 #: vanilla_installer/utils/recipe.py:57
 #, python-brace-format
@@ -668,7 +671,7 @@ msgstr "В рецепте отсутствует ключ '{key}'"
 
 #: vanilla_installer/utils/recipe.py:61
 msgid "Recipe steps is not a list"
-msgstr "Шаги рецепта - это не список"
+msgstr "Шаги рецепта не являются списком"
 
 #: vanilla_installer/utils/recipe.py:66
 #, python-brace-format
