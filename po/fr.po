@@ -9,15 +9,15 @@
 # Lucas_Strafe <Lucas-Strafe@protonmail.com>, 2023.
 # Adrien SCHNEIDER-NOURY <darkaos006@gmail.com>, 2023.
 # xiorcale <quentin.vaucher@protonmail.com>, 2023.
-# tachyglossues <tachyglossues@gmail.com>, 2023.
+# tachyglossues <tachyglossues@gmail.com>, 2023, 2024.
 # Gabin <quagligabin.praud@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2024-01-04 14:08+0000\n"
-"Last-Translator: Gabin <quagligabin.praud@gmail.com>\n"
+"PO-Revision-Date: 2024-01-09 21:09+0000\n"
+"Last-Translator: tachyglossues <tachyglossues@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/fr/>\n"
 "Language: fr\n"
@@ -470,7 +470,6 @@ msgid "EFI partition is too small."
 msgstr "La partition EFI est trop petite."
 
 #: vanilla_installer/gtk/widget-partition.ui:71
-#, fuzzy
 msgid "BIOS Boot Partition"
 msgstr "Partition du Boot pour le BIOS"
 
@@ -493,26 +492,20 @@ msgid "Root Partition"
 msgstr "Partition racine"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"La partition à monter dans « / ». Il sera automatiquement converti en LVM "
-"Thin Pool lors de l’installation."
+"La partition à monter sous \"/\". Elle sera automatiquement convertie en LVM "
+"thin pool lors de l'installation."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
 msgid "Root partition is too small."
 msgstr "La partition racine est trop petite."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "Partition var"
+msgstr "Partition Var"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
 msgid ""
