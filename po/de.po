@@ -9,7 +9,7 @@
 # Fabian Kaindl <weblate@fabiankaindl.de>, 2023.
 # George <georgeaufmschloss@gmail.com>, 2023.
 # juzac001 <julian.zachmann001@stud.fh-dortmund.de>, 2023.
-# Ettore Atalan <atalanttore@googlemail.com>, 2023.
+# Ettore Atalan <atalanttore@googlemail.com>, 2023, 2024.
 # Experiencing A Significant Gravitas Shortfall <bedeb1@pm.me>, 2023.
 # Neo <neobihli@gmail.com>, 2024.
 msgid ""
@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2024-01-04 14:08+0000\n"
-"Last-Translator: Neo <neobihli@gmail.com>\n"
+"PO-Revision-Date: 2024-01-13 18:18+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/de/>\n"
 "Language: de\n"
@@ -91,8 +91,6 @@ msgstr ""
 "manuell konfigurieren."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
 msgstr "Gesamte Festplatte verwenden"
 
