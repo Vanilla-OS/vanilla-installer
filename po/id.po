@@ -6,13 +6,14 @@
 # Alim Satria <alimsatria2017@mail.ugm.ac.id>, 2023.
 # Zee <efzeee@pm.me>, 2023.
 # Sultan Iskandar Maulana <nattadasu@nattadasu.my.id>, 2023.
+# Reza Almanda <rezaalmanda27@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2023-11-26 16:57+0000\n"
-"Last-Translator: Sultan Iskandar Maulana <nattadasu@nattadasu.my.id>\n"
+"PO-Revision-Date: 2023-12-30 08:05+0000\n"
+"Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/id/>\n"
 "Language: id\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -43,10 +44,8 @@ msgid "Confirm Installation"
 msgstr "Konfirmasi Instalasi"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "Perubahan berikut akan di buat pada sistem Anda:"
+msgstr "Perubahan berikut ini akan dilakukan pada sistem Anda"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
@@ -54,11 +53,11 @@ msgstr "Install Vanilla OS"
 
 #: vanilla_installer/gtk/default-conn-check.ui:12
 msgid "Checking Connection…"
-msgstr ""
+msgstr "Memeriksa koneksi…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr ""
+msgstr "Harap tunggu hingga pemeriksaan koneksi selesai"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
