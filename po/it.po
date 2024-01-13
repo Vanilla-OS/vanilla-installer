@@ -5,13 +5,14 @@
 # EncryptedEasty <95353984+EncryptedEasty@users.noreply.github.com>, 2023.
 # Adrian <adrian06.dev@gmail.com>, 2023.
 # Tom Tom <emaxtiger3000@gmail.com>, 2024.
+# boblaspugna4f1ee5d391024b4c <boblaspugna@null.net>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-27 23:44+0530\n"
-"PO-Revision-Date: 2024-01-09 21:09+0000\n"
-"Last-Translator: Tom Tom <emaxtiger3000@gmail.com>\n"
+"PO-Revision-Date: 2024-01-10 17:02+0000\n"
+"Last-Translator: boblaspugna4f1ee5d391024b4c <boblaspugna@null.net>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/it/>\n"
 "Language: it\n"
@@ -51,11 +52,11 @@ msgstr "Installa Vanilla OS"
 
 #: vanilla_installer/gtk/default-conn-check.ui:12
 msgid "Checking Connection…"
-msgstr ""
+msgstr "Controllo Connessione…"
 
 #: vanilla_installer/gtk/default-conn-check.ui:13
 msgid "Please wait until the connection check is done"
-msgstr ""
+msgstr "Attendere che il controllo della conessione sia completato"
 
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
@@ -83,18 +84,14 @@ msgstr ""
 "puoi scegliere uno o più dischi da configurare manualmente."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
-msgstr "Usa l'intero disco"
+msgstr "Usa l'Intero Disco"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
 msgstr "Manuale"
 
 #: vanilla_installer/gtk/default-disk.ui:86
-#, fuzzy
-#| msgid "You need at least %s of disk space to proceed with installation."
 msgid "You need at least %s of disk space to proceed with the installation."
 msgstr ""
 "Devi avere almeno %s di spazio nel disco per procedere con l'installazione."
@@ -109,8 +106,6 @@ msgstr ""
 "Vanilla OS crittografa il disco per proteggere le tue informazioni personali"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
 msgstr "Crittografa Dispositivo"
 
@@ -137,8 +132,6 @@ msgid "Select your preferred keyboard layout"
 msgstr "Seleziona il layout di tastiera preferito"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
 msgstr "Cerca un layout di tastiera"
 
@@ -153,38 +146,36 @@ msgid "Select your language"
 msgstr "Seleziona la tua lingua"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for language"
 msgid "Search languages"
 msgstr "Cerca una lingua"
 
 #: vanilla_installer/gtk/default-network.ui:27
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: vanilla_installer/gtk/default-network.ui:28
 msgid "An active internet connection is required to install the system"
-msgstr ""
+msgstr "È richiesta una connessione internet attiva per installare il sistema"
 
 #: vanilla_installer/gtk/default-network.ui:39
 msgid "Wired"
-msgstr ""
+msgstr "Cavo"
 
 #: vanilla_installer/gtk/default-network.ui:44
 msgid "Wireless Networks"
-msgstr ""
+msgstr "Rete Wireless"
 
 #: vanilla_installer/gtk/default-network.ui:49
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzato"
 
 #: vanilla_installer/gtk/default-network.ui:52
 msgid "Connect to Hidden Network..."
-msgstr ""
+msgstr "Connessione a Reti Nascoste..."
 
 #: vanilla_installer/gtk/default-network.ui:79
 msgid "Open Proxy Settings..."
-msgstr ""
+msgstr "Apertura Impostazioni Proxy..."
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -200,7 +191,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "Salta"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -247,8 +238,6 @@ msgid "Select your preferred timezone"
 msgstr "Seleziona il tuo fuso orario preferito"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
 msgid "Search timezones"
 msgstr "Cerca un fuso orario"
 
@@ -331,26 +320,20 @@ msgid "Console"
 msgstr "Console"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
-msgstr "Apri un Terminale"
+msgstr "Apri un terminale"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:43
 msgid "Documentation"
-msgstr ""
+msgstr "Documentazione"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Handbook"
 msgid "Open the Vanilla OS documentation"
-msgstr "Leggi la guida di Vanilla OS"
+msgstr "Apri la documentazione di Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
-msgstr "Gparted"
+msgstr "GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 msgid "Manage disks and partitions"
@@ -362,21 +345,19 @@ msgstr "Guida"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr ""
+msgstr "Leggi i tutorial e le guide relative a Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Browser web"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
 msgstr "Cerca aiuto online"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "Finito!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -401,7 +382,7 @@ msgstr "Sì, abilitalo"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Precedente"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -417,11 +398,9 @@ msgstr "Mostra la presentazione"
 
 #: vanilla_installer/gtk/widget-keyboard.ui:12
 msgid "key"
-msgstr ""
+msgstr "chiave"
 
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
-#| msgid "Manual Partitioning"
 msgid "Manually Partition"
 msgstr "Partizionamento Manuale"
 
@@ -434,10 +413,6 @@ msgid "Boot Partition"
 msgstr "Partizione di avvio"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
@@ -508,26 +483,20 @@ msgid "Root Partition"
 msgstr "Partizione Root"
 
 #: vanilla_installer/gtk/widget-partition.ui:93
-#, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
-"La partizione da montare in \"/boot\". Questa directory contiene i file per "
-"l'avvio di Vanilla OS."
+"La partizione da montare in \"/\". Questa sarà automaticamente convertita in "
+"un LVM thin pool durante l'installazione."
 
 #: vanilla_installer/gtk/widget-partition.ui:108
 msgid "Root partition is too small."
 msgstr "La partizione root è troppo piccola."
 
 #: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap Partition"
 msgid "Var Partition"
-msgstr "Partizione Swap"
+msgstr "Partizione Var"
 
 #: vanilla_installer/gtk/widget-partition.ui:114
 msgid ""
