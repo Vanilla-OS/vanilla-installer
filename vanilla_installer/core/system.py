@@ -34,6 +34,6 @@ class Systeminfo:
             proc2 = subprocess.Popen("lscpu | egrep 'Socket\(s\)' | awk '{print $2}'",
                                      shell=True, stdout=subprocess.PIPE).stdout\
                                      .read().decode()
-            Systeminfo.cpu = (int(proc1) * int(proc2)) > 2
+            Systeminfo.cpu = (int(proc1) * int(proc2)) >= 2
         
         return Systeminfo.cpu
