@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:27+0530\n"
-"PO-Revision-Date: 2023-12-04 13:06+0000\n"
+"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"PO-Revision-Date: 2023-12-31 10:47+0000\n"
 "Last-Translator: jolupa <jolupameister@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/ca/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -41,19 +41,26 @@ msgid "Confirm Installation"
 msgstr "Confirma la instal·lació"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "Els canvis següents s'aplicaran al teu sistema:"
+msgstr "Els canvis següents s'aplicaran al teu sistema"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
 msgstr "Instal·la Vanilla OS"
 
+#: vanilla_installer/gtk/default-conn-check.ui:12
+msgid "Checking Connection…"
+msgstr "Comprovant conexió…"
+
+#: vanilla_installer/gtk/default-conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Sisplau espera fins que s'acabi de comprovar la conexió"
+
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
@@ -75,10 +82,8 @@ msgstr ""
 "escollir un o més discs per configurar de forma manual."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
-msgstr "Utilitzar el disc sencer"
+msgstr "Utilitzar el Disc Sencer"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
@@ -94,20 +99,12 @@ msgid "Device Encryption"
 msgstr "Xifratge del dispositiu"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
-msgstr ""
-"Vanilla OS proporciona xifratge complert del disc mitjançant LUKS2 per "
-"protegir la teva informació personal en cas que robin el teu dispositiu."
+msgstr "Vanilla OS xifra el teu disc per protegir les teves dades personals"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
-msgstr "Xifra el dispositiu"
+msgstr "Xifra el Dispositiu"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
@@ -133,12 +130,11 @@ msgid "Select your preferred keyboard layout"
 msgstr "Escull la distribució de teclat que prefereixis"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
 msgstr "Busca una distribució de teclat"
 
 #: vanilla_installer/gtk/default-language.ui:28
+#: vanilla_installer/gtk/widget-language.ui:12
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Llengua"
@@ -148,9 +144,36 @@ msgid "Select your language"
 msgstr "Escull el teu idioma"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
 msgid "Search languages"
 msgstr "Busca un idioma"
+
+#: vanilla_installer/gtk/default-network.ui:27
+msgid "Internet"
+msgstr "Internet"
+
+#: vanilla_installer/gtk/default-network.ui:28
+msgid "An active internet connection is required to install the system"
+msgstr "És necessari una conexió a internet activa per instal·lar el sistema"
+
+#: vanilla_installer/gtk/default-network.ui:39
+msgid "Wired"
+msgstr "Xarxes amb cable"
+
+#: vanilla_installer/gtk/default-network.ui:44
+msgid "Wireless Networks"
+msgstr "Xarxes inalàmbriques"
+
+#: vanilla_installer/gtk/default-network.ui:49
+msgid "Advanced"
+msgstr "Avançat"
+
+#: vanilla_installer/gtk/default-network.ui:52
+msgid "Connect to Hidden Network..."
+msgstr "Connectar-se a xarxes ocultes…"
+
+#: vanilla_installer/gtk/default-network.ui:79
+msgid "Open Proxy Settings..."
+msgstr "Obrir la configuració del Proxy…"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -166,7 +189,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "Saltar"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -214,8 +237,6 @@ msgid "Select your preferred timezone"
 msgstr "Escull la zona horària que prefereixis"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
 msgid "Search timezones"
 msgstr "Busca una zona horària"
 
@@ -297,8 +318,6 @@ msgid "Console"
 msgstr "Consola"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
 msgstr "Obrir un terminal"
 
@@ -307,14 +326,10 @@ msgid "Documentation"
 msgstr "Documentació"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Documentation"
 msgid "Open the Vanilla OS documentation"
-msgstr "Llegeix la documentació de Vanilla OS"
+msgstr "Obre la documentació de Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
 msgstr "GParted"
 
@@ -327,24 +342,20 @@ msgid "Handbook"
 msgstr "Manual"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Read tutorials and guides about Vanilla OS."
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr "Llegeix tutorials i guies sobre Vanilla OS."
+msgstr "Llegeix tutorials i guies sobre Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Navegador"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
 msgstr "Cercar ajuda en línia"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "Acabat!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -368,7 +379,7 @@ msgstr "Sí, habilita-ho"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -382,10 +393,13 @@ msgstr "Mostra la sortida de Consola"
 msgid "Show Slideshow"
 msgstr "Mostra la presentació"
 
+#: vanilla_installer/gtk/widget-keyboard.ui:12
+msgid "key"
+msgstr "clau"
+
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
 msgid "Manually Partition"
-msgstr "Particions"
+msgstr "Particionat manual"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -515,6 +529,10 @@ msgstr ""
 "Trieu una partició per utilitzar-la per a l'intercanvi juntament amb zram. "
 "Això no és necessari per a la hibernació."
 
+#: vanilla_installer/gtk/window-unsupported.ui:58
+msgid "Power Off..."
+msgstr "Apagar…"
+
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "Enrere"
@@ -597,10 +615,8 @@ msgid "Unavailable"
 msgstr "No disponible"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "Estat desconegut"
+msgstr "Desconegut"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"

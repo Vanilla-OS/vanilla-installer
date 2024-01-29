@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the vanilla-installer package.
 # Automatically generated, 2022.
 #
-# lakejason0 <sunliyuan200402@outlook.com>, 2023.
+# lakejason0 <sunliyuan200402@outlook.com>, 2023, 2024.
 # Jen Kung-chih <Kaitul@outlook.com>, 2023.
 # 菘菘 <rrt467778@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:27+0530\n"
-"PO-Revision-Date: 2023-12-06 17:03+0000\n"
+"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"PO-Revision-Date: 2024-01-01 14:07+0000\n"
 "Last-Translator: lakejason0 <sunliyuan200402@outlook.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "vanilla-os/installer/zh_Hant/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -43,19 +43,26 @@ msgid "Confirm Installation"
 msgstr "確認安裝"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "將對系統進行以下變更："
+msgstr "將對系統進行以下變更"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
 msgstr "安裝 Vanilla OS"
 
+#: vanilla_installer/gtk/default-conn-check.ui:12
+msgid "Checking Connection…"
+msgstr "正在檢查連線…"
+
+#: vanilla_installer/gtk/default-conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "請等候連線檢查完成"
+
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
@@ -75,8 +82,6 @@ msgid ""
 msgstr "選取要安裝 Vanilla OS 的磁碟。您也可以選取一個或多個磁碟進行手動設定。"
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
 msgstr "使用整個磁碟"
 
@@ -93,17 +98,10 @@ msgid "Device Encryption"
 msgstr "裝置加密"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
-msgstr ""
-"Vanilla OS 透過 LUKS2 提供完整磁碟加密，可在裝置丟失時保護您的個人資訊。"
+msgstr "Vanilla OS 加密磁碟以保護您的個人資訊"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
 msgstr "加密裝置"
 
@@ -130,12 +128,11 @@ msgid "Select your preferred keyboard layout"
 msgstr "選取您偏好的鍵盤配置"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
 msgstr "搜尋鍵盤配置"
 
 #: vanilla_installer/gtk/default-language.ui:28
+#: vanilla_installer/gtk/widget-language.ui:12
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "語言"
@@ -145,10 +142,36 @@ msgid "Select your language"
 msgstr "選取您的語言"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for language"
 msgid "Search languages"
 msgstr "搜尋語言"
+
+#: vanilla_installer/gtk/default-network.ui:27
+msgid "Internet"
+msgstr "網際網路"
+
+#: vanilla_installer/gtk/default-network.ui:28
+msgid "An active internet connection is required to install the system"
+msgstr "安裝系統需要有效的網際網路連線"
+
+#: vanilla_installer/gtk/default-network.ui:39
+msgid "Wired"
+msgstr "有線"
+
+#: vanilla_installer/gtk/default-network.ui:44
+msgid "Wireless Networks"
+msgstr "無線網路"
+
+#: vanilla_installer/gtk/default-network.ui:49
+msgid "Advanced"
+msgstr "進階"
+
+#: vanilla_installer/gtk/default-network.ui:52
+msgid "Connect to Hidden Network..."
+msgstr "連線到隱藏網路…"
+
+#: vanilla_installer/gtk/default-network.ui:79
+msgid "Open Proxy Settings..."
+msgstr "開啟網路代理設定…"
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -162,7 +185,7 @@ msgstr "選擇是否安裝 NVIDIA 專有驅動程式，以取得更好的相容�
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "跳過"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -209,8 +232,6 @@ msgid "Select your preferred timezone"
 msgstr "選取您偏好的時區"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
 msgid "Search timezones"
 msgstr "搜尋時區"
 
@@ -291,8 +312,6 @@ msgid "Console"
 msgstr "終端機"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
 msgstr "開啟終端機"
 
@@ -301,14 +320,10 @@ msgid "Documentation"
 msgstr "說明文件"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Documentation"
 msgid "Open the Vanilla OS documentation"
-msgstr "閱讀 Vanilla OS 的說明文件"
+msgstr "開啟 Vanilla OS 的說明文件"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
 msgstr "GParted"
 
@@ -321,24 +336,20 @@ msgid "Handbook"
 msgstr "手冊"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Read tutorials and guides about Vanilla OS."
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr "閱讀有關 Vanilla OS 的教學和指南。"
+msgstr "閱讀有關 Vanilla OS 的教學和指南"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "網頁瀏覽器"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
 msgstr "尋求線上幫助"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "大功告成！"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -362,7 +373,7 @@ msgstr "是的，請啟用"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "上一個"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -376,9 +387,11 @@ msgstr "顯示主控台輸出"
 msgid "Show Slideshow"
 msgstr "顯示投影片"
 
+#: vanilla_installer/gtk/widget-keyboard.ui:12
+msgid "key"
+msgstr "按鍵"
+
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
-#| msgid "Manual Partitioning"
 msgid "Manually Partition"
 msgstr "手動分割"
 
@@ -501,6 +514,10 @@ msgid ""
 "hibernation."
 msgstr "選取要和 zram 一起用作交換區的分割區。這並非為休眠功能所需要。"
 
+#: vanilla_installer/gtk/window-unsupported.ui:58
+msgid "Power Off..."
+msgstr "關機…"
+
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "返回"
@@ -583,10 +600,8 @@ msgid "Unavailable"
 msgstr "無法使用"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "狀態未知"
+msgstr "未知"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"

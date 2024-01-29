@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:27+0530\n"
+"POT-Creation-Date: 2023-12-27 23:44+0530\n"
 "PO-Revision-Date: 2023-08-19 21:52+0000\n"
 "Last-Translator: Maksim <maxklezovich@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -49,10 +49,19 @@ msgstr "У вашу сістэму будуць унесены наступны�
 msgid "Install Vanilla OS"
 msgstr "Усталюйце Vanilla OS"
 
+#: vanilla_installer/gtk/default-conn-check.ui:12
+msgid "Checking Connection…"
+msgstr ""
+
+#: vanilla_installer/gtk/default-conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr ""
+
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
@@ -136,6 +145,7 @@ msgid "Search keyboard layouts"
 msgstr "Пошук раскладкі клавіятуры"
 
 #: vanilla_installer/gtk/default-language.ui:28
+#: vanilla_installer/gtk/widget-language.ui:12
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Мовы"
@@ -149,6 +159,34 @@ msgstr "Выберыце сваю мову"
 #| msgid "Search for a language"
 msgid "Search languages"
 msgstr "Пошук мовы"
+
+#: vanilla_installer/gtk/default-network.ui:27
+msgid "Internet"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:28
+msgid "An active internet connection is required to install the system"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:39
+msgid "Wired"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:44
+msgid "Wireless Networks"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:49
+msgid "Advanced"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:52
+msgid "Connect to Hidden Network..."
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:79
+msgid "Open Proxy Settings..."
+msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -379,6 +417,10 @@ msgstr "Паказаць выхад кансолі"
 msgid "Show Slideshow"
 msgstr "Паказаць слайд-шоў"
 
+#: vanilla_installer/gtk/widget-keyboard.ui:12
+msgid "key"
+msgstr ""
+
 #: vanilla_installer/gtk/widget-partition.ui:10
 #, fuzzy
 #| msgid "Manual Partitioning"
@@ -529,6 +571,10 @@ msgid ""
 msgstr ""
 "Выберыце падзел для свопу разам з zram. Гэта не патрабуецца для спячага "
 "рэжыму."
+
+#: vanilla_installer/gtk/window-unsupported.ui:58
+msgid "Power Off..."
+msgstr ""
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"

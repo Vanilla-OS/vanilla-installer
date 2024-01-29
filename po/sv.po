@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:27+0530\n"
-"PO-Revision-Date: 2023-11-25 18:19+0000\n"
+"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"PO-Revision-Date: 2023-12-29 16:06+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/vanilla-os/"
 "installer/sv/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/org.vanillaos.Installer.desktop.in:3 vanilla_installer/gtk/window.ui:8
 msgid "Vanilla OS Installer"
@@ -41,19 +41,26 @@ msgid "Confirm Installation"
 msgstr "Bekräfta installation"
 
 #: vanilla_installer/gtk/confirm.ui:11
-#, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
-msgstr "Följande ändringar kommer att göras på ditt system:"
+msgstr "Följande ändringar kommer att göras på ditt system"
 
 #: vanilla_installer/gtk/confirm.ui:28
 msgid "Install Vanilla OS"
 msgstr "Installera Vanilla OS"
 
+#: vanilla_installer/gtk/default-conn-check.ui:12
+msgid "Checking Connection…"
+msgstr "Kontrollerar anslutning…"
+
+#: vanilla_installer/gtk/default-conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Vänta tills anslutningskontrollen är klar"
+
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
@@ -75,10 +82,8 @@ msgstr ""
 "eller flera diskar att konfigurera manuellt."
 
 #: vanilla_installer/gtk/default-disk.ui:44
-#, fuzzy
-#| msgid "Use entire disk"
 msgid "Use Entire Disk"
-msgstr "Använd hela disken"
+msgstr "Använd Hela Disken"
 
 #: vanilla_installer/gtk/default-disk.ui:56
 msgid "Manual"
@@ -93,20 +98,12 @@ msgid "Device Encryption"
 msgstr "Kryptering av enhet"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
-#, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
-msgstr ""
-"Vanilla OS tillhandahåller fullständig diskkryptering via LUKS2 för att "
-"skydda din personliga information om din enhet blir stulen."
+msgstr "Vanilla OS krypterar din disk för att skydda din personliga information"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
-#, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
-msgstr "Kryptera enhet"
+msgstr "Kryptera Enhet"
 
 #: vanilla_installer/gtk/default-encryption.ui:37
 msgid "Use a memorable password to encrypt your data"
@@ -131,12 +128,11 @@ msgid "Select your preferred keyboard layout"
 msgstr "Välj önskad tangentbordslayout"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
-#, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
-msgstr "Sök efter en tangentbordslayout"
+msgstr "Sök efter tangentbordslayouter"
 
 #: vanilla_installer/gtk/default-language.ui:28
+#: vanilla_installer/gtk/widget-language.ui:12
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "Språk"
@@ -146,10 +142,36 @@ msgid "Select your language"
 msgstr "Välj ditt språk"
 
 #: vanilla_installer/gtk/default-language.ui:39
-#, fuzzy
-#| msgid "Search for a language"
 msgid "Search languages"
-msgstr "Sök efter ett språk"
+msgstr "Sök efter språk"
+
+#: vanilla_installer/gtk/default-network.ui:27
+msgid "Internet"
+msgstr "Internet"
+
+#: vanilla_installer/gtk/default-network.ui:28
+msgid "An active internet connection is required to install the system"
+msgstr "En aktiv internetanslutning krävs för att installera systemet"
+
+#: vanilla_installer/gtk/default-network.ui:39
+msgid "Wired"
+msgstr "Trådbunden"
+
+#: vanilla_installer/gtk/default-network.ui:44
+msgid "Wireless Networks"
+msgstr "Trådlösa nätverk"
+
+#: vanilla_installer/gtk/default-network.ui:49
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: vanilla_installer/gtk/default-network.ui:52
+msgid "Connect to Hidden Network..."
+msgstr "Anslut till ett Dolt nätverk..."
+
+#: vanilla_installer/gtk/default-network.ui:79
+msgid "Open Proxy Settings..."
+msgstr "Öppna Proxy inställningar..."
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -165,7 +187,7 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
 msgid "Skip"
-msgstr ""
+msgstr "Hoppa över"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
 msgid "Install  (recommended)"
@@ -213,10 +235,8 @@ msgid "Select your preferred timezone"
 msgstr "Välj önskad tidszon"
 
 #: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
 msgid "Search timezones"
-msgstr "Sök efter en tidszon"
+msgstr "Sök tidszoner"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -297,8 +317,6 @@ msgid "Console"
 msgstr "Konsol"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
-#, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
 msgstr "Öppna en terminal"
 
@@ -307,14 +325,10 @@ msgid "Documentation"
 msgstr "Dokumentation"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
-#, fuzzy
-#| msgid "Read the Vanilla OS Documentation"
 msgid "Open the Vanilla OS documentation"
-msgstr "Läs dokumentationen för Vanilla OS"
+msgstr "Öppna dokumentationen för Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
-#, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
 msgstr "GParted"
 
@@ -327,24 +341,20 @@ msgid "Handbook"
 msgstr "Handbok"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
-#, fuzzy
-#| msgid "Read tutorials and guides about Vanilla OS."
 msgid "Read tutorials and guides about Vanilla OS"
-msgstr "Läs handledningar och guider om Vanilla OS."
+msgstr "Läs handledningar och guider om Vanilla OS"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:94
 msgid "Web Browser"
 msgstr "Webbläsare"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
-#, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
-msgstr "Sök på nätet efter hjälp"
+msgstr "Sök efter hjälp online"
 
 #: vanilla_installer/gtk/done.ui:12
 msgid "Finished!"
-msgstr ""
+msgstr "Färdigt!"
 
 #: vanilla_installer/gtk/done.ui:13
 msgid "Restart your device to enjoy your Vanilla OS experience"
@@ -368,7 +378,7 @@ msgstr "Ja, aktivera det"
 
 #: vanilla_installer/gtk/progress.ui:27
 msgid "Previous"
-msgstr ""
+msgstr "Föregående"
 
 #: vanilla_installer/gtk/progress.ui:110
 msgid "Installing..."
@@ -382,11 +392,13 @@ msgstr "Visa konsolutdata"
 msgid "Show Slideshow"
 msgstr "Visa bildspel"
 
+#: vanilla_installer/gtk/widget-keyboard.ui:12
+msgid "key"
+msgstr "tangent"
+
 #: vanilla_installer/gtk/widget-partition.ui:10
-#, fuzzy
-#| msgid "Manual Partitioning"
 msgid "Manually Partition"
-msgstr "Manuell partitionering"
+msgstr "Partitionera manuellt"
 
 #: vanilla_installer/gtk/widget-partition.ui:11
 msgid "Open GParted to manually partition the disk"
@@ -516,6 +528,10 @@ msgstr ""
 "Välj en partition att använda för swap tillsammans med zram. Detta krävs "
 "inte för hibernering."
 
+#: vanilla_installer/gtk/window-unsupported.ui:58
+msgid "Power Off..."
+msgstr "Stäng av..."
+
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
 msgstr "Tillbaka"
@@ -598,10 +614,8 @@ msgid "Unavailable"
 msgstr "Inte tillgänglig"
 
 #: vanilla_installer/defaults/network.py:396
-#, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
-msgstr "Status okänd"
+msgstr "Okänd"
 
 #: vanilla_installer/defaults/network.py:410
 msgid "Cable Unplugged"

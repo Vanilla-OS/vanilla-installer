@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:27+0530\n"
+"POT-Creation-Date: 2023-12-27 23:44+0530\n"
 "PO-Revision-Date: 2023-12-22 13:50+0000\n"
 "Last-Translator: lmj0927 <lmjj0927@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
@@ -53,10 +53,19 @@ msgstr "사용자의 시스템에 다음과 같은 변경사항이 적용됩니�
 msgid "Install Vanilla OS"
 msgstr "바닐라 OS 설치하기"
 
+#: vanilla_installer/gtk/default-conn-check.ui:12
+msgid "Checking Connection…"
+msgstr ""
+
+#: vanilla_installer/gtk/default-conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr ""
+
 #: vanilla_installer/gtk/default-disk.ui:19
 #: vanilla_installer/gtk/default-encryption.ui:18
 #: vanilla_installer/gtk/default-keyboard.ui:30
 #: vanilla_installer/gtk/default-language.ui:18
+#: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
 #: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
@@ -139,6 +148,7 @@ msgid "Search keyboard layouts"
 msgstr "키보드 레이아웃 검색"
 
 #: vanilla_installer/gtk/default-language.ui:28
+#: vanilla_installer/gtk/widget-language.ui:12
 #: vanilla_installer/views/confirm.py:75
 msgid "Language"
 msgstr "언어"
@@ -152,6 +162,34 @@ msgstr "사용자의 언어 선택하기"
 #| msgid "Search for a language"
 msgid "Search languages"
 msgstr "언어 검색하기"
+
+#: vanilla_installer/gtk/default-network.ui:27
+msgid "Internet"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:28
+msgid "An active internet connection is required to install the system"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:39
+msgid "Wired"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:44
+msgid "Wireless Networks"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:49
+msgid "Advanced"
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:52
+msgid "Connect to Hidden Network..."
+msgstr ""
+
+#: vanilla_installer/gtk/default-network.ui:79
+msgid "Open Proxy Settings..."
+msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:14
 msgid "NVIDIA® Drivers"
@@ -381,6 +419,10 @@ msgstr "콘솔 출력 표시"
 msgid "Show Slideshow"
 msgstr "슬라이드쇼 표시"
 
+#: vanilla_installer/gtk/widget-keyboard.ui:12
+msgid "key"
+msgstr ""
+
 #: vanilla_installer/gtk/widget-partition.ui:10
 #, fuzzy
 msgid "Manually Partition"
@@ -513,6 +555,12 @@ msgid ""
 msgstr ""
 "zram과 함께 스왑에 사용할 파티션을 선택합니다. 최대 절전 모드에서는 필요하지 "
 "않습니다."
+
+#: vanilla_installer/gtk/window-unsupported.ui:58
+#, fuzzy
+#| msgid "Power Off"
+msgid "Power Off..."
+msgstr "전원 시스템 종료"
 
 #: vanilla_installer/gtk/window.ui:37
 msgid "Back"
