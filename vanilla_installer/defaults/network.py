@@ -1,7 +1,7 @@
 # network.py
 #
-# Copyright 2023 mirkobrombin
-# Copyright 2023 matbme
+# Copyright 2024 mirkobrombin
+# Copyright 2024 matbme
 #
 #
 # This program is free software: you can redistribute it and/or modify

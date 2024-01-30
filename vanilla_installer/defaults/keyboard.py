@@ -1,6 +1,6 @@
 # keyboard.py
 #
-# Copyright 2023 mirkobrombin
+# Copyright 2024 mirkobrombin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,7 +22,6 @@ import subprocess
 from gi.repository import Adw, Gio, GLib, Gtk
 
 from vanilla_installer.core.keymaps import KeyMaps
-
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-keyboard.ui")
 class KeyboardRow(Adw.ActionRow):

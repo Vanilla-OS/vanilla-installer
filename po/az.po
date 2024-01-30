@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"POT-Creation-Date: 2024-01-30 16:48+0530\n"
 "PO-Revision-Date: 2024-01-09 21:09+0000\n"
 "Last-Translator: Alvan Rahimli <alvan@rahim.li>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/vanilla-os/"
@@ -60,7 +60,6 @@ msgstr "Zəhmət olmasa, bağlantı yoxlanışı bitənədək gözləyin"
 #: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
@@ -184,11 +183,14 @@ msgstr ""
 "quraşdırılmamasını seçin."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
+#: vanilla_installer/gtk/default-vm.ui:29
 msgid "Skip"
 msgstr "Ötür"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
-msgid "Install  (recommended)"
+#: vanilla_installer/gtk/default-vm.ui:38
+#, fuzzy
+msgid "Install  (Recommended)"
 msgstr "Quraşdır  (tövsiyyə olunur)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
@@ -209,6 +211,18 @@ msgstr ""
 "Təhlükəsizlik və digər yeniləmələr cihaz sürücüsü tərtibatçılarından "
 "asılıdır."
 
+#: vanilla_installer/gtk/default-vm.ui:14
+msgid "VM Tools"
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:15
+#, fuzzy
+msgid ""
+"Choose whether to install VM Tools for better compatibility and performance."
+msgstr ""
+"Daha yaxşı uyğunluq və performans üçün NVIDIA sürücülərinin quraşdırılıb-"
+"quraşdırılmamasını seçin."
+
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
 msgstr "Standart"
@@ -224,18 +238,6 @@ msgstr "Rəng Palitrası"
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
 msgstr "Sisteminiz üçün rəng palitrası seçin"
-
-#: vanilla_installer/gtk/default-timezone.ui:28
-msgid "Date & Time"
-msgstr "Tarix & Saat"
-
-#: vanilla_installer/gtk/default-timezone.ui:29
-msgid "Select your preferred timezone"
-msgstr "Üstünlük verilən saat qurşağını seçin"
-
-#: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search timezones"
-msgstr "Saat qurşaqlarını axtarın"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -416,34 +418,30 @@ msgstr ""
 "fayllar bu qovluqdadır."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
-#: vanilla_installer/gtk/widget-partition.ui:54
-#: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:96
-#: vanilla_installer/gtk/widget-partition.ui:117
-#: vanilla_installer/gtk/widget-partition.ui:151
-#: vanilla_installer/defaults/disk.py:402
-msgid "No partition selected"
+#: vanilla_installer/gtk/widget-partition.ui:53
+#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:147
+#, fuzzy
+msgid "No Partition Selected"
 msgstr "Heç bir disk hissəsi seçilməyib"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
-#: vanilla_installer/gtk/widget-partition.ui:55
-#: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:97
-#: vanilla_installer/gtk/widget-partition.ui:118
-#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:74
+#: vanilla_installer/gtk/widget-partition.ui:95
+#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:148
 #: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "Zəhmət olmasa, aşağıdakı seçimlərdən disk hissəsi seçin"
 
-#: vanilla_installer/gtk/widget-partition.ui:45
-msgid "Boot partition is too small."
-msgstr "İşədüşmə disk hissəsində kifayət qədər yer yoxdur."
-
-#: vanilla_installer/gtk/widget-partition.ui:50
+#: vanilla_installer/gtk/widget-partition.ui:49
 msgid "EFI Partition"
 msgstr "EFI Disk hissəsi"
 
-#: vanilla_installer/gtk/widget-partition.ui:51
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -451,15 +449,11 @@ msgstr ""
 "\"/boot/efi\" qovluğunda yerləşən disk hissəsi. Yükləyiciyə keçid etmək üçün "
 "lazım olan faylları saxlayır."
 
-#: vanilla_installer/gtk/widget-partition.ui:66
-msgid "EFI partition is too small."
-msgstr "EFI disk hissəsində kifayət qədər yer yoxdur."
-
-#: vanilla_installer/gtk/widget-partition.ui:71
+#: vanilla_installer/gtk/widget-partition.ui:69
 msgid "BIOS Boot Partition"
 msgstr "BIOS Boot Disk hissəsi"
 
-#: vanilla_installer/gtk/widget-partition.ui:72
+#: vanilla_installer/gtk/widget-partition.ui:70
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -469,50 +463,42 @@ msgstr ""
 "tərəfindən tələb olunan disk hissəsidir. Diskin ilk 2TB-da yerləşməlidir, və "
 "tam olaraq 1Mebibyte (1 MiB) həcmində olmalıdır."
 
-#: vanilla_installer/gtk/widget-partition.ui:87
+#: vanilla_installer/gtk/widget-partition.ui:85
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS disk hissəsi tam 1MiB olmalıdır."
 
-#: vanilla_installer/gtk/widget-partition.ui:92
+#: vanilla_installer/gtk/widget-partition.ui:90
 msgid "Root Partition"
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:93
+#: vanilla_installer/gtk/widget-partition.ui:91
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:108
-msgid "Root partition is too small."
-msgstr ""
-
-#: vanilla_installer/gtk/widget-partition.ui:113
+#: vanilla_installer/gtk/widget-partition.ui:110
 msgid "Var Partition"
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:111
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:129
-msgid "Home partition is too small."
-msgstr ""
-
+#: vanilla_installer/gtk/widget-partition.ui:130
 #: vanilla_installer/gtk/widget-partition.ui:134
-#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:135
+#: vanilla_installer/gtk/widget-partition.ui:131
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -526,8 +512,8 @@ msgstr ""
 msgid "Back"
 msgstr "Geri"
 
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:371
+#: vanilla_installer/gtk/wireless-row.ui:34
+#: vanilla_installer/defaults/network.py:372
 msgid "Connected"
 msgstr "Qoşulu"
 
@@ -542,6 +528,10 @@ msgstr ""
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr ""
+
+#: vanilla_installer/defaults/disk.py:402
+msgid "No partition selected"
+msgstr "Heç bir disk hissəsi seçilməyib"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -571,69 +561,74 @@ msgstr "Təhlükəsiz şəbəkə (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Təhlükəsiz şəbəkə (WPA3)"
 
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:375
 msgid "Authentication required"
 msgstr "Doğrulama tələb olunur"
 
-#: vanilla_installer/defaults/network.py:382
+#: vanilla_installer/defaults/network.py:383
 msgid "Connecting"
 msgstr "Qoşulur"
 
-#: vanilla_installer/defaults/network.py:384
+#: vanilla_installer/defaults/network.py:385
 msgid "Disconnected"
 msgstr "Bağlantı kəsildi"
 
-#: vanilla_installer/defaults/network.py:386
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnecting"
 msgstr "Bağlantı kəsilir"
 
-#: vanilla_installer/defaults/network.py:388
+#: vanilla_installer/defaults/network.py:389
 msgid "Connection Failed"
 msgstr "Bağlantı uğursuz oldu"
 
-#: vanilla_installer/defaults/network.py:390
+#: vanilla_installer/defaults/network.py:391
 msgid "Status Unknown"
 msgstr "Naməlum Status"
 
-#: vanilla_installer/defaults/network.py:392
+#: vanilla_installer/defaults/network.py:393
 msgid "Unmanaged"
 msgstr "İdarə olunmayan"
 
-#: vanilla_installer/defaults/network.py:394
+#: vanilla_installer/defaults/network.py:395
 msgid "Unavailable"
 msgstr "Əlçatmaz"
 
-#: vanilla_installer/defaults/network.py:396
+#: vanilla_installer/defaults/network.py:397
 msgid "Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:410
+#: vanilla_installer/defaults/network.py:409
 msgid "Cable Unplugged"
 msgstr "Kabel taxılmayıb"
+
+#: vanilla_installer/defaults/timezone.py:58
+#, python-format
+msgid "(at %s, %s)"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Zəhmət olmasa azı bir variant seçin."
 
-#: vanilla_installer/utils/builder.py:71
+#: vanilla_installer/utils/builder.py:73
 msgid "Missing 'log_file' in the recipe."
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:80
+#: vanilla_installer/utils/builder.py:82
 #, python-format
 msgid "failed to create log file: %s"
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:81
+#: vanilla_installer/utils/builder.py:83
 msgid "No log will be stored."
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:88
+#: vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#: vanilla_installer/utils/builder.py:99 vanilla_installer/utils/builder.py:104
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr ""
@@ -688,3 +683,18 @@ msgstr "Səhv baş verdi"
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Zəhmət olmasa proqramçılarla əlaqə saxlayın."
+
+#~ msgid "Date & Time"
+#~ msgstr "Tarix & Saat"
+
+#~ msgid "Select your preferred timezone"
+#~ msgstr "Üstünlük verilən saat qurşağını seçin"
+
+#~ msgid "Search timezones"
+#~ msgstr "Saat qurşaqlarını axtarın"
+
+#~ msgid "Boot partition is too small."
+#~ msgstr "İşədüşmə disk hissəsində kifayət qədər yer yoxdur."
+
+#~ msgid "EFI partition is too small."
+#~ msgstr "EFI disk hissəsində kifayət qədər yer yoxdur."

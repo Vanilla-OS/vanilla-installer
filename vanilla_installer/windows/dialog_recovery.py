@@ -1,6 +1,6 @@
 # dialog_recovery.py
 #
-# Copyright 2023 mirkobrombin
+# Copyright 2024 mirkobrombin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ class VanillaRecoveryDialog(Adw.Window):
         GLib.spawn_command_line_async("kgx")
 
     def __on_documentation_activated(self, row):
-        webbrowser.open("https://documentation.vanillaos.org")
+        webbrowser.open("https://docs.vanillaos.org/collections/docs")
 
     def __on_gparted_activated(self, row):
         try:
@@ -54,7 +54,7 @@ class VanillaRecoveryDialog(Adw.Window):
             GLib.spawn_command_line_async("/usr/sbin/gparted")
 
     def __on_handbook_activated(self, row):
-        webbrowser.open("https://handbook.vanillaos.org")
+        webbrowser.open("https://docs.vanillaos.org/collections/handbook")
 
     def __on_web_activated(self, row):
         webbrowser.open("https://vanillaos.org")

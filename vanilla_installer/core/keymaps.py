@@ -1,6 +1,5 @@
 from gi.repository.GnomeDesktop import XkbInfo
 
-
 class KeyMaps:
     def __init__(self):
         self.__all_keymaps = self.__get_all_keymaps()
