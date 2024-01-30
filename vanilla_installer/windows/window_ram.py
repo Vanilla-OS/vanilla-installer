@@ -1,6 +1,6 @@
 # window_ram.py
 #
-# Copyright 2023 muhdsalm
+# Copyright 2024 muhdsalm
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -37,6 +37,3 @@ class VanillaRamWindow(Adw.Window):
     def __continue(self, btn):
         subprocess.Popen("IGNORE_RAM=1 vanilla-installer", shell=True)
         sys.exit(0)
-
-
-

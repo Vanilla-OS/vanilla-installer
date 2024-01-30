@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"POT-Creation-Date: 2024-01-30 16:48+0530\n"
 "PO-Revision-Date: 2023-12-29 16:06+0000\n"
 "Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/vanilla-os/"
@@ -60,7 +60,6 @@ msgstr "இணைப்புச் சரிபார்ப்பு முட�
 #: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
@@ -97,8 +96,7 @@ msgstr "சாதன குறியாக்கம்"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 msgid "Vanilla OS encrypts your disk to protect your personal information"
-msgstr ""
-"உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS உங்கள் வட்டை குறியாக்குகிறது"
+msgstr "உங்கள் தனிப்பட்ட தகவலைப் பாதுகாக்க வெண்ணிலா OS உங்கள் வட்டை குறியாக்குகிறது"
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 msgid "Encrypt Device"
@@ -185,11 +183,14 @@ msgstr ""
 "என்பதை தேர்வு செய்யவும்."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
+#: vanilla_installer/gtk/default-vm.ui:29
 msgid "Skip"
 msgstr "தவிர்"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
-msgid "Install  (recommended)"
+#: vanilla_installer/gtk/default-vm.ui:38
+#, fuzzy
+msgid "Install  (Recommended)"
 msgstr "நிறுவவும்   (பரிந்துரைக்கப்பட்டது)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
@@ -208,6 +209,18 @@ msgstr ""
 "\n"
 "பாதுகாப்பு மற்றும் பிற புதுப்பிப்புகள் இயக்கி விற்பனையாளரைப் பொறுத்தது."
 
+#: vanilla_installer/gtk/default-vm.ui:14
+msgid "VM Tools"
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:15
+#, fuzzy
+msgid ""
+"Choose whether to install VM Tools for better compatibility and performance."
+msgstr ""
+"சிறந்த இணக்கத்தன்மை மற்றும் செயல்திறனுக்காக தனியுரிம NVIDIA இயக்கிகளை நிறுவ வேண்டுமா "
+"என்பதை தேர்வு செய்யவும்."
+
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
 msgstr "இயல்புநிலை"
@@ -223,18 +236,6 @@ msgstr "வண்ண திட்டம்"
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
 msgstr "உங்கள் கணினிக்கான வண்ணத் திட்டத்தைத் தேர்ந்தெடுக்கவும்"
-
-#: vanilla_installer/gtk/default-timezone.ui:28
-msgid "Date & Time"
-msgstr "தேதி & நேரம்"
-
-#: vanilla_installer/gtk/default-timezone.ui:29
-msgid "Select your preferred timezone"
-msgstr "உங்களுக்கு விருப்பமான நேர மண்டலத்தைத் தேர்ந்தெடுக்கவும்"
-
-#: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search timezones"
-msgstr "நேர மண்டலங்களைத் தேடுங்கள்"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -413,34 +414,30 @@ msgstr ""
 "கோப்புகளை சேமிக்கிறது."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
-#: vanilla_installer/gtk/widget-partition.ui:54
-#: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:96
-#: vanilla_installer/gtk/widget-partition.ui:117
-#: vanilla_installer/gtk/widget-partition.ui:151
-#: vanilla_installer/defaults/disk.py:402
-msgid "No partition selected"
+#: vanilla_installer/gtk/widget-partition.ui:53
+#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:147
+#, fuzzy
+msgid "No Partition Selected"
 msgstr "பகிர்வு எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
-#: vanilla_installer/gtk/widget-partition.ui:55
-#: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:97
-#: vanilla_installer/gtk/widget-partition.ui:118
-#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:74
+#: vanilla_installer/gtk/widget-partition.ui:95
+#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:148
 #: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "கீழே உள்ள விருப்பங்களிலிருந்து ஒரு பகிர்வைத் தேர்ந்தெடுக்கவும்"
 
-#: vanilla_installer/gtk/widget-partition.ui:45
-msgid "Boot partition is too small."
-msgstr "துவக்க பகிர்வு மிகவும் சிறியது."
-
-#: vanilla_installer/gtk/widget-partition.ui:50
+#: vanilla_installer/gtk/widget-partition.ui:49
 msgid "EFI Partition"
 msgstr "EFI பகிர்வு"
 
-#: vanilla_installer/gtk/widget-partition.ui:51
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -448,15 +445,11 @@ msgstr ""
 "\"/boot/efi\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த கோப்பகம் பூட்லோடரில் துவக்க "
 "கோப்புகளை சேமிக்கிறது."
 
-#: vanilla_installer/gtk/widget-partition.ui:66
-msgid "EFI partition is too small."
-msgstr "EFI பகிர்வு மிகவும் சிறியது."
-
-#: vanilla_installer/gtk/widget-partition.ui:71
+#: vanilla_installer/gtk/widget-partition.ui:69
 msgid "BIOS Boot Partition"
 msgstr "BIOS துவக்க பகிர்வு"
 
-#: vanilla_installer/gtk/widget-partition.ui:72
+#: vanilla_installer/gtk/widget-partition.ui:70
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -466,15 +459,15 @@ msgstr ""
 "தேவைப்படும் பகிர்வு. இது வட்டின் முதல் 2 TB இல் இருக்க வேண்டும் மற்றும் சரியாக 1 "
 "Mebibyte (1 MiB) ஆக இருக்க வேண்டும்."
 
-#: vanilla_installer/gtk/widget-partition.ui:87
+#: vanilla_installer/gtk/widget-partition.ui:85
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS பகிர்வு சரியாக 1 MiB ஆக இருக்க வேண்டும்."
 
-#: vanilla_installer/gtk/widget-partition.ui:92
+#: vanilla_installer/gtk/widget-partition.ui:90
 msgid "Root Partition"
 msgstr "வேர் பகிர்வு"
 
-#: vanilla_installer/gtk/widget-partition.ui:93
+#: vanilla_installer/gtk/widget-partition.ui:91
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
@@ -482,15 +475,11 @@ msgstr ""
 "\"/\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. நிறுவலின் போது இது தானாகவே LVM மெல்லிய "
 "குளமாக மாற்றப்படும்."
 
-#: vanilla_installer/gtk/widget-partition.ui:108
-msgid "Root partition is too small."
-msgstr "வேர் பகிர்வு மிகவும் சிறியது."
-
-#: vanilla_installer/gtk/widget-partition.ui:113
+#: vanilla_installer/gtk/widget-partition.ui:110
 msgid "Var Partition"
 msgstr "Var பகிர்வு"
 
-#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:111
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
@@ -498,16 +487,12 @@ msgstr ""
 "\"/var\" கீழ் மவுண்ட் செய்ய வேண்டிய பகிர்வு. இந்த கோப்பகம் தனிப்பட்ட ஆவணங்கள் மற்றும் கணினி "
 "முழுவதும் உள்ளமைவு போன்ற அனைத்து பயனர் தரவையும் சேமிக்கிறது."
 
-#: vanilla_installer/gtk/widget-partition.ui:129
-msgid "Home partition is too small."
-msgstr "வீட்டுப் பகிர்வு மிகவும் சிறியது."
-
+#: vanilla_installer/gtk/widget-partition.ui:130
 #: vanilla_installer/gtk/widget-partition.ui:134
-#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "ஸ்வாப் பகிர்வு"
 
-#: vanilla_installer/gtk/widget-partition.ui:135
+#: vanilla_installer/gtk/widget-partition.ui:131
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -516,7 +501,7 @@ msgstr ""
 "செயல்படுத்துகிறது. வெண்ணிலா OS ஏற்கனவே zram ஐப் பயன்படுத்தி, சேமிப்பகச் செலவில் "
 "இடமாற்றம் செய்யவில்லை."
 
-#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -531,8 +516,8 @@ msgstr "மின்சாரத்தை நிறுத்து..."
 msgid "Back"
 msgstr "திரும்பவும்"
 
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:371
+#: vanilla_installer/gtk/wireless-row.ui:34
+#: vanilla_installer/defaults/network.py:372
 msgid "Connected"
 msgstr "இணைக்கப்பட்டது"
 
@@ -548,6 +533,10 @@ msgstr "பகிர்வு குறைந்தது {} ஆக இருக
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "பகிர்வு கண்டிப்பாக {}"
+
+#: vanilla_installer/defaults/disk.py:402
+msgid "No partition selected"
+msgstr "பகிர்வு எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -577,69 +566,74 @@ msgstr "பாதுகாப்பான வலைப்பின்னல் (
 msgid "Secure network (WPA3)"
 msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA3)"
 
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:375
 msgid "Authentication required"
 msgstr "அங்கீகாரம் தேவை"
 
-#: vanilla_installer/defaults/network.py:382
+#: vanilla_installer/defaults/network.py:383
 msgid "Connecting"
 msgstr "இணைக்கிறது"
 
-#: vanilla_installer/defaults/network.py:384
+#: vanilla_installer/defaults/network.py:385
 msgid "Disconnected"
 msgstr "இணைப்பு துண்டிக்கப்பட்டது"
 
-#: vanilla_installer/defaults/network.py:386
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnecting"
 msgstr "இணைப்பைத் துண்டிக்கிறது"
 
-#: vanilla_installer/defaults/network.py:388
+#: vanilla_installer/defaults/network.py:389
 msgid "Connection Failed"
 msgstr "இணைப்பு தோல்வியடைந்தது"
 
-#: vanilla_installer/defaults/network.py:390
+#: vanilla_installer/defaults/network.py:391
 msgid "Status Unknown"
 msgstr "நிலை தெரியவில்லை"
 
-#: vanilla_installer/defaults/network.py:392
+#: vanilla_installer/defaults/network.py:393
 msgid "Unmanaged"
 msgstr "நிர்வகிக்கப்படாதது"
 
-#: vanilla_installer/defaults/network.py:394
+#: vanilla_installer/defaults/network.py:395
 msgid "Unavailable"
 msgstr "கிடைக்கவில்லை"
 
-#: vanilla_installer/defaults/network.py:396
+#: vanilla_installer/defaults/network.py:397
 msgid "Unknown"
 msgstr "தெரியவில்லை"
 
-#: vanilla_installer/defaults/network.py:410
+#: vanilla_installer/defaults/network.py:409
 msgid "Cable Unplugged"
 msgstr "கம்பி துண்டிக்கப்பட்டது"
+
+#: vanilla_installer/defaults/timezone.py:58
+#, python-format
+msgid "(at %s, %s)"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
 
-#: vanilla_installer/utils/builder.py:71
+#: vanilla_installer/utils/builder.py:73
 msgid "Missing 'log_file' in the recipe."
 msgstr "செய்முறையில் 'log_file' இல்லை."
 
-#: vanilla_installer/utils/builder.py:80
+#: vanilla_installer/utils/builder.py:82
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "பதிவு கோப்பை உருவாக்க முடியவில்லை: %s"
 
-#: vanilla_installer/utils/builder.py:81
+#: vanilla_installer/utils/builder.py:83
 msgid "No log will be stored."
 msgstr "பதிவு எதுவும் சேமிக்கப்படாது."
 
-#: vanilla_installer/utils/builder.py:88
+#: vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "காட்சி-நிலையை செயல்படுத்துகிறது: %s"
 
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#: vanilla_installer/utils/builder.py:99 vanilla_installer/utils/builder.py:104
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "காட்சி-நிபந்தனைகள் காரணமாக படி %s தவிர்க்கப்பட்டது"
@@ -694,6 +688,27 @@ msgstr "ஏதோ தவறாகிவிட்டது"
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "விநியோக டெவலப்பர்களைத் தொடர்பு கொள்ளவும்."
+
+#~ msgid "Date & Time"
+#~ msgstr "தேதி & நேரம்"
+
+#~ msgid "Select your preferred timezone"
+#~ msgstr "உங்களுக்கு விருப்பமான நேர மண்டலத்தைத் தேர்ந்தெடுக்கவும்"
+
+#~ msgid "Search timezones"
+#~ msgstr "நேர மண்டலங்களைத் தேடுங்கள்"
+
+#~ msgid "Boot partition is too small."
+#~ msgstr "துவக்க பகிர்வு மிகவும் சிறியது."
+
+#~ msgid "EFI partition is too small."
+#~ msgstr "EFI பகிர்வு மிகவும் சிறியது."
+
+#~ msgid "Root partition is too small."
+#~ msgstr "வேர் பகிர்வு மிகவும் சிறியது."
+
+#~ msgid "Home partition is too small."
+#~ msgstr "வீட்டுப் பகிர்வு மிகவும் சிறியது."
 
 #~ msgid "Search for a language"
 #~ msgstr "ஒரு மொழியைத் தேடவும்"

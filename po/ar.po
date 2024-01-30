@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"POT-Creation-Date: 2024-01-30 16:48+0530\n"
 "PO-Revision-Date: 2023-07-05 15:52+0000\n"
 "Last-Translator: Moumn Almunawy <moumnalmunawy2006@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/vanilla-os/"
@@ -46,7 +46,6 @@ msgstr "تأكيد التثبيت"
 
 #: vanilla_installer/gtk/confirm.ui:11
 #, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
 msgstr "ستطبق التعديلات التالية على نظامك:"
 
@@ -68,7 +67,6 @@ msgstr ""
 #: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
@@ -77,7 +75,6 @@ msgstr "التالي"
 
 #: vanilla_installer/gtk/default-disk.ui:29
 #, fuzzy
-#| msgid "Confirm Installation"
 msgid "Install Location"
 msgstr "تأكيد التثبيت"
 
@@ -89,7 +86,6 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-disk.ui:44
 #, fuzzy
-#| msgid "Entire Disk"
 msgid "Use Entire Disk"
 msgstr "استخدم كامل القرص"
 
@@ -137,7 +133,6 @@ msgstr "حدد تخطيط لوحة المفاتيح المفضل لديك"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
 #, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
 msgstr "البحث عن تخطيط لوحة مفاتيح"
 
@@ -153,7 +148,6 @@ msgstr "اختر لغتك"
 
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
-#| msgid "Search for a language"
 msgid "Search languages"
 msgstr "البحث عن لغة"
 
@@ -196,11 +190,13 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
+#: vanilla_installer/gtk/default-vm.ui:29
 msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
-msgid "Install  (recommended)"
+#: vanilla_installer/gtk/default-vm.ui:38
+msgid "Install  (Recommended)"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
@@ -213,6 +209,15 @@ msgid ""
 "developers can review.\n"
 "\n"
 "Security and other updates are dependent on the driver vendor."
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:14
+msgid "VM Tools"
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:15
+msgid ""
+"Choose whether to install VM Tools for better compatibility and performance."
 msgstr ""
 
 #: vanilla_installer/gtk/default-theme.ui:17
@@ -230,20 +235,6 @@ msgstr "سمة النظام"
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
 msgstr "اختر سمة لون نظامك"
-
-#: vanilla_installer/gtk/default-timezone.ui:28
-msgid "Date & Time"
-msgstr "التاريخ والوقت"
-
-#: vanilla_installer/gtk/default-timezone.ui:29
-msgid "Select your preferred timezone"
-msgstr "اختر المنطقة الزمنية"
-
-#: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
-msgid "Search timezones"
-msgstr "البحث عن منطقة زمنية"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -263,7 +254,6 @@ msgstr "اسم المستخدم"
 
 #: vanilla_installer/gtk/default-welcome.ui:17
 #, fuzzy
-#| msgid "Installing..."
 msgid "Install"
 msgstr "جارٍ التثبيت ..."
 
@@ -325,7 +315,6 @@ msgstr "المتحكم"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
-#| msgid "Open a Terminal."
 msgid "Open a terminal"
 msgstr "فتح الوحدة الطرفية"
 
@@ -335,7 +324,6 @@ msgstr ""
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
-#| msgid "Read the Vanilla OS Handbook."
 msgid "Open the Vanilla OS documentation"
 msgstr "اقرأ كتيب نظام فانيلا"
 
@@ -346,7 +334,6 @@ msgstr "فتح GParted"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:61
 #, fuzzy
-#| msgid "Manage disks and partitions."
 msgid "Manage disks and partitions"
 msgstr "إدارة الأقراص والأقسام."
 
@@ -364,7 +351,6 @@ msgstr "متصفح الإنترنت"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 #, fuzzy
-#| msgid "Search online for help."
 msgid "Search help online"
 msgstr "ابحث على الإنترنت للمساعدة."
 
@@ -432,107 +418,86 @@ msgid ""
 msgstr ""
 
 #: vanilla_installer/gtk/widget-partition.ui:33
-#: vanilla_installer/gtk/widget-partition.ui:54
-#: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:96
-#: vanilla_installer/gtk/widget-partition.ui:117
-#: vanilla_installer/gtk/widget-partition.ui:151
-#: vanilla_installer/defaults/disk.py:402
-msgid "No partition selected"
+#: vanilla_installer/gtk/widget-partition.ui:53
+#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:147
+#, fuzzy
+msgid "No Partition Selected"
 msgstr "لم يتم تحديد أي تقسيم"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
-#: vanilla_installer/gtk/widget-partition.ui:55
-#: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:97
-#: vanilla_installer/gtk/widget-partition.ui:118
-#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:74
+#: vanilla_installer/gtk/widget-partition.ui:95
+#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:148
 #: vanilla_installer/defaults/disk.py:404
 #, fuzzy
 msgid "Please select a partition from the options below"
 msgstr "يرجى تحديد خيار واحد على الأقل."
 
-#: vanilla_installer/gtk/widget-partition.ui:45
-msgid "Boot partition is too small."
-msgstr "تقسيم التمهيد صغير جدا."
-
-#: vanilla_installer/gtk/widget-partition.ui:50
+#: vanilla_installer/gtk/widget-partition.ui:49
 msgid "EFI Partition"
 msgstr "تقسيم EFI"
 
-#: vanilla_installer/gtk/widget-partition.ui:51
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:66
-msgid "EFI partition is too small."
-msgstr "تقسيم EFI صغير جدا."
-
-#: vanilla_installer/gtk/widget-partition.ui:71
+#: vanilla_installer/gtk/widget-partition.ui:69
 msgid "BIOS Boot Partition"
 msgstr "تقسيم تمهيد BIOS"
 
-#: vanilla_installer/gtk/widget-partition.ui:72
+#: vanilla_installer/gtk/widget-partition.ui:70
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
 "exactly 1 Mebibyte (1 MiB)."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:87
+#: vanilla_installer/gtk/widget-partition.ui:85
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:92
+#: vanilla_installer/gtk/widget-partition.ui:90
 #, fuzzy
 msgid "Root Partition"
 msgstr "تقسيمات الروت"
 
-#: vanilla_installer/gtk/widget-partition.ui:93
+#: vanilla_installer/gtk/widget-partition.ui:91
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:108
+#: vanilla_installer/gtk/widget-partition.ui:110
 #, fuzzy
-#| msgid "Boot partition is too small."
-msgid "Root partition is too small."
-msgstr "تقسيم التمهيد صغير جدا."
-
-#: vanilla_installer/gtk/widget-partition.ui:113
-#, fuzzy
-#| msgid "Swap partition"
 msgid "Var Partition"
 msgstr "تقسيم Swap"
 
-#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:111
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:129
-#, fuzzy
-msgid "Home partition is too small."
-msgstr "تقسيم المنزل صغير جدا."
-
+#: vanilla_installer/gtk/widget-partition.ui:130
 #: vanilla_installer/gtk/widget-partition.ui:134
-#: vanilla_installer/gtk/widget-partition.ui:138
 #, fuzzy
-#| msgid "Swap partition"
 msgid "Swap Partition"
 msgstr "تقسيم Swap"
 
-#: vanilla_installer/gtk/widget-partition.ui:135
+#: vanilla_installer/gtk/widget-partition.ui:131
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
 msgstr ""
 
-#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -546,8 +511,8 @@ msgstr ""
 msgid "Back"
 msgstr "إلى الخلف"
 
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:371
+#: vanilla_installer/gtk/wireless-row.ui:34
+#: vanilla_installer/defaults/network.py:372
 msgid "Connected"
 msgstr ""
 
@@ -562,6 +527,10 @@ msgstr ""
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "يجب أن يكون التقسيم بالضبط {}"
+
+#: vanilla_installer/defaults/disk.py:402
+msgid "No partition selected"
+msgstr "لم يتم تحديد أي تقسيم"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -591,69 +560,74 @@ msgstr ""
 msgid "Secure network (WPA3)"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:375
 msgid "Authentication required"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:382
+#: vanilla_installer/defaults/network.py:383
 msgid "Connecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:384
+#: vanilla_installer/defaults/network.py:385
 msgid "Disconnected"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:386
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnecting"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:388
+#: vanilla_installer/defaults/network.py:389
 msgid "Connection Failed"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:390
+#: vanilla_installer/defaults/network.py:391
 msgid "Status Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:392
+#: vanilla_installer/defaults/network.py:393
 msgid "Unmanaged"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:394
+#: vanilla_installer/defaults/network.py:395
 msgid "Unavailable"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:396
+#: vanilla_installer/defaults/network.py:397
 msgid "Unknown"
 msgstr ""
 
-#: vanilla_installer/defaults/network.py:410
+#: vanilla_installer/defaults/network.py:409
 msgid "Cable Unplugged"
+msgstr ""
+
+#: vanilla_installer/defaults/timezone.py:58
+#, python-format
+msgid "(at %s, %s)"
 msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "يرجى تحديد خيار واحد على الأقل."
 
-#: vanilla_installer/utils/builder.py:71
+#: vanilla_installer/utils/builder.py:73
 msgid "Missing 'log_file' in the recipe."
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:80
+#: vanilla_installer/utils/builder.py:82
 #, python-format
 msgid "failed to create log file: %s"
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:81
+#: vanilla_installer/utils/builder.py:83
 msgid "No log will be stored."
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:88
+#: vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr ""
 
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#: vanilla_installer/utils/builder.py:99 vanilla_installer/utils/builder.py:104
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr ""
@@ -711,6 +685,32 @@ msgstr "هناك خطأ ما"
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "يرجى التواصل مع مطوري التوزيعة."
+
+#~ msgid "Date & Time"
+#~ msgstr "التاريخ والوقت"
+
+#~ msgid "Select your preferred timezone"
+#~ msgstr "اختر المنطقة الزمنية"
+
+#, fuzzy
+#~| msgid "Search for a Timezone"
+#~ msgid "Search timezones"
+#~ msgstr "البحث عن منطقة زمنية"
+
+#~ msgid "Boot partition is too small."
+#~ msgstr "تقسيم التمهيد صغير جدا."
+
+#~ msgid "EFI partition is too small."
+#~ msgstr "تقسيم EFI صغير جدا."
+
+#, fuzzy
+#~| msgid "Boot partition is too small."
+#~ msgid "Root partition is too small."
+#~ msgstr "تقسيم التمهيد صغير جدا."
+
+#, fuzzy
+#~ msgid "Home partition is too small."
+#~ msgstr "تقسيم المنزل صغير جدا."
 
 #~ msgid "All done!"
 #~ msgstr "تم!"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"POT-Creation-Date: 2024-01-30 16:48+0530\n"
 "PO-Revision-Date: 2023-12-22 13:50+0000\n"
 "Last-Translator: lmj0927 <lmjj0927@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/vanilla-os/"
@@ -45,7 +45,6 @@ msgstr "설치 확인하기"
 
 #: vanilla_installer/gtk/confirm.ui:11
 #, fuzzy
-#| msgid "The following changes will be made to your system:"
 msgid "The following changes will be made to your system"
 msgstr "사용자의 시스템에 다음과 같은 변경사항이 적용됩니다:"
 
@@ -67,7 +66,6 @@ msgstr ""
 #: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
@@ -105,9 +103,6 @@ msgstr "장치 암호화"
 
 #: vanilla_installer/gtk/default-encryption.ui:29
 #, fuzzy
-#| msgid ""
-#| "Vanilla OS provides full-disk encryption through LUKS2 to protect your "
-#| "personal information in case your device gets stolen."
 msgid "Vanilla OS encrypts your disk to protect your personal information"
 msgstr ""
 "바닐라 OS는 LUKS2를 통한 완전한 디스크 암호화를 제공하여 장치가 도난당한 경"
@@ -115,7 +110,6 @@ msgstr ""
 
 #: vanilla_installer/gtk/default-encryption.ui:36
 #, fuzzy
-#| msgid "Encrypt device"
 msgid "Encrypt Device"
 msgstr "암호화 된 장치"
 
@@ -143,7 +137,6 @@ msgstr "원하는 키보드 레이아웃 선택하십시오"
 
 #: vanilla_installer/gtk/default-keyboard.ui:53
 #, fuzzy
-#| msgid "Search for a Keyboard Layout"
 msgid "Search keyboard layouts"
 msgstr "키보드 레이아웃 검색"
 
@@ -159,7 +152,6 @@ msgstr "사용자의 언어 선택하기"
 
 #: vanilla_installer/gtk/default-language.ui:39
 #, fuzzy
-#| msgid "Search for a language"
 msgid "Search languages"
 msgstr "언어 검색하기"
 
@@ -203,11 +195,14 @@ msgstr ""
 "호환성 및 성능 향상을 위해 NVIDIA 전용 드라이버를 설치할지 여부를 선택하세요."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
+#: vanilla_installer/gtk/default-vm.ui:29
 msgid "Skip"
 msgstr ""
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
-msgid "Install  (recommended)"
+#: vanilla_installer/gtk/default-vm.ui:38
+#, fuzzy
+msgid "Install  (Recommended)"
 msgstr "설치(권장)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
@@ -226,6 +221,17 @@ msgstr ""
 "\n"
 "보안 및 기타 업데이트는 드라이버 공급업체에 따라 다릅니다."
 
+#: vanilla_installer/gtk/default-vm.ui:14
+msgid "VM Tools"
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:15
+#, fuzzy
+msgid ""
+"Choose whether to install VM Tools for better compatibility and performance."
+msgstr ""
+"호환성 및 성능 향상을 위해 NVIDIA 전용 드라이버를 설치할지 여부를 선택하세요."
+
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
 msgstr "기본값"
@@ -241,20 +247,6 @@ msgstr "색 구성표"
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
 msgstr "사용자 시스템의 색 구성표 고르기"
-
-#: vanilla_installer/gtk/default-timezone.ui:28
-msgid "Date & Time"
-msgstr "날짜 및 시간"
-
-#: vanilla_installer/gtk/default-timezone.ui:29
-msgid "Select your preferred timezone"
-msgstr "원하는 시간대 선택하기"
-
-#: vanilla_installer/gtk/default-timezone.ui:39
-#, fuzzy
-#| msgid "Search for a Timezone"
-msgid "Search timezones"
-msgstr "시간대 검색하기"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -335,7 +327,6 @@ msgstr "콘솔"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:27
 #, fuzzy
-#| msgid "Open a Terminal"
 msgid "Open a terminal"
 msgstr "터미널 열기"
 
@@ -345,13 +336,11 @@ msgstr "문서"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:44
 #, fuzzy
-#| msgid "Read the Vanilla OS Documentation"
 msgid "Open the Vanilla OS documentation"
 msgstr "Vanilla OS 문서 읽기"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:60
 #, fuzzy
-#| msgid "Gparted"
 msgid "GParted"
 msgstr "GParted"
 
@@ -365,7 +354,6 @@ msgstr "핸드북"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:78
 #, fuzzy
-#| msgid "Read tutorials and guides about Vanilla OS."
 msgid "Read tutorials and guides about Vanilla OS"
 msgstr "바닐라 OS에 대한 튜토리얼 및 가이드 읽기."
 
@@ -375,7 +363,6 @@ msgstr "웹 브라우저"
 
 #: vanilla_installer/gtk/dialog-recovery.ui:95
 #, fuzzy
-#| msgid "Search online for help"
 msgid "Search help online"
 msgstr "온라인에서 도움말 검색"
 
@@ -438,57 +425,46 @@ msgstr "부팅 파티션"
 
 #: vanilla_installer/gtk/widget-partition.ui:30
 #, fuzzy
-#| msgid ""
-#| "The partition to mount under “/boot”. This directory stores files for "
-#| "booting in Vanilla OS."
 msgid ""
 "The partition to mount under “/boot”. This directory stores files for "
 "booting into Vanilla OS."
 msgstr "\"/boot\" 파티션. 바닐라 OS 부팅 파일들을 위한 디렉토리 입니다."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
-#: vanilla_installer/gtk/widget-partition.ui:54
-#: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:96
-#: vanilla_installer/gtk/widget-partition.ui:117
-#: vanilla_installer/gtk/widget-partition.ui:151
-#: vanilla_installer/defaults/disk.py:402
-msgid "No partition selected"
+#: vanilla_installer/gtk/widget-partition.ui:53
+#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:147
+#, fuzzy
+msgid "No Partition Selected"
 msgstr "파티션이 선택되지 않았습니다"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
-#: vanilla_installer/gtk/widget-partition.ui:55
-#: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:97
-#: vanilla_installer/gtk/widget-partition.ui:118
-#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:74
+#: vanilla_installer/gtk/widget-partition.ui:95
+#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:148
 #: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "아래 옵션에서 파티션을 선택하세요."
 
-#: vanilla_installer/gtk/widget-partition.ui:45
-msgid "Boot partition is too small."
-msgstr "부트 파티션이 너무 작습니다."
-
-#: vanilla_installer/gtk/widget-partition.ui:50
+#: vanilla_installer/gtk/widget-partition.ui:49
 msgid "EFI Partition"
 msgstr "EFI 파티션"
 
-#: vanilla_installer/gtk/widget-partition.ui:51
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
 msgstr "\"/boot/efi\" 파티션. 부트로더를 위한 파일들이 저장됩니다."
 
-#: vanilla_installer/gtk/widget-partition.ui:66
-msgid "EFI partition is too small."
-msgstr "EFI 파티션이 너무 작습니다."
-
-#: vanilla_installer/gtk/widget-partition.ui:71
+#: vanilla_installer/gtk/widget-partition.ui:69
 msgid "BIOS Boot Partition"
 msgstr "BIOS 부팅 파티션"
 
-#: vanilla_installer/gtk/widget-partition.ui:72
+#: vanilla_installer/gtk/widget-partition.ui:70
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -497,17 +473,16 @@ msgstr ""
 "BIOS 부팅을 지원하기 위해서 GPT-형식의 디스크에서 요구하는 파티션. 반드시 디"
 "스크의 처음 2TB에 위치하여야 하며 정확히 1 MiB 크기가 필요합니다."
 
-#: vanilla_installer/gtk/widget-partition.ui:87
+#: vanilla_installer/gtk/widget-partition.ui:85
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "BIOS 파티션은 정확히 1MiB 이어야 합니다."
 
-#: vanilla_installer/gtk/widget-partition.ui:92
+#: vanilla_installer/gtk/widget-partition.ui:90
 #, fuzzy
-#| msgid "Root Partitions"
 msgid "Root Partition"
 msgstr "루트 파티션"
 
-#: vanilla_installer/gtk/widget-partition.ui:93
+#: vanilla_installer/gtk/widget-partition.ui:91
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
@@ -515,15 +490,11 @@ msgstr ""
 "파티션을 \"/\" 아래에 마운트합니다. 설치 중에 자동으로 LVM 얇은 풀로 변환됩니"
 "다."
 
-#: vanilla_installer/gtk/widget-partition.ui:108
-msgid "Root partition is too small."
-msgstr "루트 파티션이 너무 작습니다."
-
-#: vanilla_installer/gtk/widget-partition.ui:113
+#: vanilla_installer/gtk/widget-partition.ui:110
 msgid "Var Partition"
 msgstr "var 파티션"
 
-#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:111
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
@@ -531,16 +502,12 @@ msgstr ""
 "\"/var\" 아래에 마운트할 파티션입니다. 이 디렉터리에는 개인 문서 및 시스템 전"
 "역 구성과 같은 모든 사용자 데이터가 저장됩니다."
 
-#: vanilla_installer/gtk/widget-partition.ui:129
-msgid "Home partition is too small."
-msgstr "홈 파티션이 너무 작습니다."
-
+#: vanilla_installer/gtk/widget-partition.ui:130
 #: vanilla_installer/gtk/widget-partition.ui:134
-#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "파티션 교체"
 
-#: vanilla_installer/gtk/widget-partition.ui:135
+#: vanilla_installer/gtk/widget-partition.ui:131
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -548,7 +515,7 @@ msgstr ""
 "스왑은 RAM의 가상 확장 역할을 하며 최대 절전 모드를 활성화합니다. 바닐라 OS"
 "는 이미 zram을 사용하여 스토리지 비용 없이 스왑을 제공합니다."
 
-#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -558,7 +525,6 @@ msgstr ""
 
 #: vanilla_installer/gtk/window-unsupported.ui:58
 #, fuzzy
-#| msgid "Power Off"
 msgid "Power Off..."
 msgstr "전원 시스템 종료"
 
@@ -566,8 +532,8 @@ msgstr "전원 시스템 종료"
 msgid "Back"
 msgstr "뒤로"
 
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:371
+#: vanilla_installer/gtk/wireless-row.ui:34
+#: vanilla_installer/defaults/network.py:372
 msgid "Connected"
 msgstr "연결됨"
 
@@ -582,6 +548,10 @@ msgstr "파티션은 {} 이상이어야 합니다"
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "파티션은 정확히 {}여야 합니다"
+
+#: vanilla_installer/defaults/disk.py:402
+msgid "No partition selected"
+msgstr "파티션이 선택되지 않았습니다"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -611,71 +581,75 @@ msgstr "안전한 네트워크 (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "안전한 네트워크 (WPA3)"
 
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:375
 msgid "Authentication required"
 msgstr "인증이 필요합니다"
 
-#: vanilla_installer/defaults/network.py:382
+#: vanilla_installer/defaults/network.py:383
 msgid "Connecting"
 msgstr "연결중"
 
-#: vanilla_installer/defaults/network.py:384
+#: vanilla_installer/defaults/network.py:385
 msgid "Disconnected"
 msgstr "연결이 끊어졌습니다"
 
-#: vanilla_installer/defaults/network.py:386
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnecting"
 msgstr "연결 끊는 중"
 
-#: vanilla_installer/defaults/network.py:388
+#: vanilla_installer/defaults/network.py:389
 msgid "Connection Failed"
 msgstr "연결 실패"
 
-#: vanilla_installer/defaults/network.py:390
+#: vanilla_installer/defaults/network.py:391
 msgid "Status Unknown"
 msgstr "상태를 알 수 없음"
 
-#: vanilla_installer/defaults/network.py:392
+#: vanilla_installer/defaults/network.py:393
 msgid "Unmanaged"
 msgstr "관리되지 않음"
 
-#: vanilla_installer/defaults/network.py:394
+#: vanilla_installer/defaults/network.py:395
 msgid "Unavailable"
 msgstr "사용할 수 없음"
 
-#: vanilla_installer/defaults/network.py:396
+#: vanilla_installer/defaults/network.py:397
 #, fuzzy
-#| msgid "Status Unknown"
 msgid "Unknown"
 msgstr "상태를 알 수 없음"
 
-#: vanilla_installer/defaults/network.py:410
+#: vanilla_installer/defaults/network.py:409
 msgid "Cable Unplugged"
 msgstr "케이블이 연결되지 않음"
+
+#: vanilla_installer/defaults/timezone.py:58
+#, python-format
+msgid "(at %s, %s)"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "옵션을 하나 이상 선택하십시오."
 
-#: vanilla_installer/utils/builder.py:71
+#: vanilla_installer/utils/builder.py:73
 msgid "Missing 'log_file' in the recipe."
 msgstr "레시피에 '로그 파일'이 누락되었습니다."
 
-#: vanilla_installer/utils/builder.py:80
+#: vanilla_installer/utils/builder.py:82
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "로그 파일을 만들지 못했습니다: %s"
 
-#: vanilla_installer/utils/builder.py:81
+#: vanilla_installer/utils/builder.py:83
 msgid "No log will be stored."
 msgstr "로그는 저장되지 않습니다."
 
-#: vanilla_installer/utils/builder.py:88
+#: vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "디스플레이 조건 수행: %s"
 
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#: vanilla_installer/utils/builder.py:99 vanilla_installer/utils/builder.py:104
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "%s 단계는 디스플레이 조건으로 인해 건너뛰었습니다"
@@ -731,6 +705,29 @@ msgstr "문제가 발생했습니다"
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "배포 개발자에게 문의하십시오."
+
+#~ msgid "Date & Time"
+#~ msgstr "날짜 및 시간"
+
+#~ msgid "Select your preferred timezone"
+#~ msgstr "원하는 시간대 선택하기"
+
+#, fuzzy
+#~| msgid "Search for a Timezone"
+#~ msgid "Search timezones"
+#~ msgstr "시간대 검색하기"
+
+#~ msgid "Boot partition is too small."
+#~ msgstr "부트 파티션이 너무 작습니다."
+
+#~ msgid "EFI partition is too small."
+#~ msgstr "EFI 파티션이 너무 작습니다."
+
+#~ msgid "Root partition is too small."
+#~ msgstr "루트 파티션이 너무 작습니다."
+
+#~ msgid "Home partition is too small."
+#~ msgstr "홈 파티션이 너무 작습니다."
 
 #~ msgid "Don't install"
 #~ msgstr "설치하지 않기"

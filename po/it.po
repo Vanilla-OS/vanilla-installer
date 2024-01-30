@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"POT-Creation-Date: 2024-01-30 16:48+0530\n"
 "PO-Revision-Date: 2024-01-10 17:02+0000\n"
 "Last-Translator: boblaspugna4f1ee5d391024b4c <boblaspugna@null.net>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -64,7 +64,6 @@ msgstr "Attendere che il controllo della conessione sia completato"
 #: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
@@ -190,11 +189,14 @@ msgstr ""
 "compatibilità e prestazioni."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
+#: vanilla_installer/gtk/default-vm.ui:29
 msgid "Skip"
 msgstr "Salta"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
-msgid "Install  (recommended)"
+#: vanilla_installer/gtk/default-vm.ui:38
+#, fuzzy
+msgid "Install  (Recommended)"
 msgstr "Installazione (consigliata)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
@@ -213,6 +215,18 @@ msgstr ""
 "\n"
 "La sicurezza e gli altri aggiornamenti dipendono dal fornitore del driver."
 
+#: vanilla_installer/gtk/default-vm.ui:14
+msgid "VM Tools"
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:15
+#, fuzzy
+msgid ""
+"Choose whether to install VM Tools for better compatibility and performance."
+msgstr ""
+"Scegli se installare i driver NVIDIA proprietari per una migliore "
+"compatibilità e prestazioni."
+
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
 msgstr "Predefinito"
@@ -228,18 +242,6 @@ msgstr "Combinazione di colori"
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
 msgstr "Scegli una combinazione di colori per il tuo sistema"
-
-#: vanilla_installer/gtk/default-timezone.ui:28
-msgid "Date & Time"
-msgstr "Data e ora"
-
-#: vanilla_installer/gtk/default-timezone.ui:29
-msgid "Select your preferred timezone"
-msgstr "Seleziona il tuo fuso orario preferito"
-
-#: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search timezones"
-msgstr "Cerca un fuso orario"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -421,34 +423,30 @@ msgstr ""
 "l'avvio di Vanilla OS."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
-#: vanilla_installer/gtk/widget-partition.ui:54
-#: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:96
-#: vanilla_installer/gtk/widget-partition.ui:117
-#: vanilla_installer/gtk/widget-partition.ui:151
-#: vanilla_installer/defaults/disk.py:402
-msgid "No partition selected"
+#: vanilla_installer/gtk/widget-partition.ui:53
+#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:147
+#, fuzzy
+msgid "No Partition Selected"
 msgstr "Nessuna partizione selezionata"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
-#: vanilla_installer/gtk/widget-partition.ui:55
-#: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:97
-#: vanilla_installer/gtk/widget-partition.ui:118
-#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:74
+#: vanilla_installer/gtk/widget-partition.ui:95
+#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:148
 #: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "Seleziona una partizione dalle opzioni seguenti"
 
-#: vanilla_installer/gtk/widget-partition.ui:45
-msgid "Boot partition is too small."
-msgstr "La partizione di avvio è troppo piccola."
-
-#: vanilla_installer/gtk/widget-partition.ui:50
+#: vanilla_installer/gtk/widget-partition.ui:49
 msgid "EFI Partition"
 msgstr "Partizione EFI"
 
-#: vanilla_installer/gtk/widget-partition.ui:51
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -456,15 +454,11 @@ msgstr ""
 "La partizione da montare in \"/boot/efi\". Questa directory contiene i file "
 "per l'avvio nel bootloader."
 
-#: vanilla_installer/gtk/widget-partition.ui:66
-msgid "EFI partition is too small."
-msgstr "La partizione EFI è troppo piccola."
-
-#: vanilla_installer/gtk/widget-partition.ui:71
+#: vanilla_installer/gtk/widget-partition.ui:69
 msgid "BIOS Boot Partition"
 msgstr "Partizione di avvio del BIOS"
 
-#: vanilla_installer/gtk/widget-partition.ui:72
+#: vanilla_installer/gtk/widget-partition.ui:70
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -474,15 +468,15 @@ msgstr ""
 "sistemi BIOS. Deve trovarsi nei primi 2 TB del disco e deve essere "
 "esattamente 1 Mebibyte (1 MiB)."
 
-#: vanilla_installer/gtk/widget-partition.ui:87
+#: vanilla_installer/gtk/widget-partition.ui:85
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "La partizione del BIOS deve essere esattamente 1 MiB."
 
-#: vanilla_installer/gtk/widget-partition.ui:92
+#: vanilla_installer/gtk/widget-partition.ui:90
 msgid "Root Partition"
 msgstr "Partizione Root"
 
-#: vanilla_installer/gtk/widget-partition.ui:93
+#: vanilla_installer/gtk/widget-partition.ui:91
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
@@ -490,15 +484,11 @@ msgstr ""
 "La partizione da montare in \"/\". Questa sarà automaticamente convertita in "
 "un LVM thin pool durante l'installazione."
 
-#: vanilla_installer/gtk/widget-partition.ui:108
-msgid "Root partition is too small."
-msgstr "La partizione root è troppo piccola."
-
-#: vanilla_installer/gtk/widget-partition.ui:113
+#: vanilla_installer/gtk/widget-partition.ui:110
 msgid "Var Partition"
 msgstr "Partizione Var"
 
-#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:111
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
@@ -506,16 +496,12 @@ msgstr ""
 "La partizione da montare in \"/var\". Questa directory contiene tutti i dati "
 "dell'utente come documenti personali e configurazioni di sistema."
 
-#: vanilla_installer/gtk/widget-partition.ui:129
-msgid "Home partition is too small."
-msgstr "La partizione Home è troppo piccola."
-
+#: vanilla_installer/gtk/widget-partition.ui:130
 #: vanilla_installer/gtk/widget-partition.ui:134
-#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "Partizione Swap"
 
-#: vanilla_installer/gtk/widget-partition.ui:135
+#: vanilla_installer/gtk/widget-partition.ui:131
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -524,7 +510,7 @@ msgstr ""
 "l'ibernazione. Vaniglia OS utilizza già zram per fornire swapping a nessun "
 "costo di archiviazione."
 
-#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -540,8 +526,8 @@ msgstr "Arresta Sistema..."
 msgid "Back"
 msgstr "Indietro"
 
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:371
+#: vanilla_installer/gtk/wireless-row.ui:34
+#: vanilla_installer/defaults/network.py:372
 msgid "Connected"
 msgstr "Connesso"
 
@@ -556,6 +542,10 @@ msgstr "La partizione deve essere almeno {}"
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "La partizione deve ESATTAMENTE {}"
+
+#: vanilla_installer/defaults/disk.py:402
+msgid "No partition selected"
+msgstr "Nessuna partizione selezionata"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -586,69 +576,74 @@ msgstr "Connessione Sicura (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Connessione Sicura (WPA3)"
 
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:375
 msgid "Authentication required"
 msgstr "Autenticazione richiesta"
 
-#: vanilla_installer/defaults/network.py:382
+#: vanilla_installer/defaults/network.py:383
 msgid "Connecting"
 msgstr "Connessione in corso"
 
-#: vanilla_installer/defaults/network.py:384
+#: vanilla_installer/defaults/network.py:385
 msgid "Disconnected"
 msgstr "Disconnesso"
 
-#: vanilla_installer/defaults/network.py:386
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnecting"
 msgstr "Disconnessione in corso"
 
-#: vanilla_installer/defaults/network.py:388
+#: vanilla_installer/defaults/network.py:389
 msgid "Connection Failed"
 msgstr "Connessione Fallita"
 
-#: vanilla_installer/defaults/network.py:390
+#: vanilla_installer/defaults/network.py:391
 msgid "Status Unknown"
 msgstr "Stato Sconosciuto"
 
-#: vanilla_installer/defaults/network.py:392
+#: vanilla_installer/defaults/network.py:393
 msgid "Unmanaged"
 msgstr "Non gestito"
 
-#: vanilla_installer/defaults/network.py:394
+#: vanilla_installer/defaults/network.py:395
 msgid "Unavailable"
 msgstr "Non disponibile"
 
-#: vanilla_installer/defaults/network.py:396
+#: vanilla_installer/defaults/network.py:397
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: vanilla_installer/defaults/network.py:410
+#: vanilla_installer/defaults/network.py:409
 msgid "Cable Unplugged"
 msgstr "Cavo Scollegato"
+
+#: vanilla_installer/defaults/timezone.py:58
+#, python-format
+msgid "(at %s, %s)"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Seleziona almeno un'opzione."
 
-#: vanilla_installer/utils/builder.py:71
+#: vanilla_installer/utils/builder.py:73
 msgid "Missing 'log_file' in the recipe."
 msgstr "'log_file' mancante nella ricetta."
 
-#: vanilla_installer/utils/builder.py:80
+#: vanilla_installer/utils/builder.py:82
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "Impossibile creare il file di log: %s"
 
-#: vanilla_installer/utils/builder.py:81
+#: vanilla_installer/utils/builder.py:83
 msgid "No log will be stored."
 msgstr "Nessun log verrà memorizzato."
 
-#: vanilla_installer/utils/builder.py:88
+#: vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Esecuzione della condizione di visualizzazione: %s"
 
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#: vanilla_installer/utils/builder.py:99 vanilla_installer/utils/builder.py:104
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "Passaggio %s saltato a causa delle condizioni di visualizzazione"
@@ -703,6 +698,27 @@ msgstr "Qualcosa è andato storto"
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Si prega di contattare gli sviluppatori della distribuzione."
+
+#~ msgid "Date & Time"
+#~ msgstr "Data e ora"
+
+#~ msgid "Select your preferred timezone"
+#~ msgstr "Seleziona il tuo fuso orario preferito"
+
+#~ msgid "Search timezones"
+#~ msgstr "Cerca un fuso orario"
+
+#~ msgid "Boot partition is too small."
+#~ msgstr "La partizione di avvio è troppo piccola."
+
+#~ msgid "EFI partition is too small."
+#~ msgstr "La partizione EFI è troppo piccola."
+
+#~ msgid "Root partition is too small."
+#~ msgstr "La partizione root è troppo piccola."
+
+#~ msgid "Home partition is too small."
+#~ msgstr "La partizione Home è troppo piccola."
 
 #~ msgid "Search for a language"
 #~ msgstr "Cerca una lingua"

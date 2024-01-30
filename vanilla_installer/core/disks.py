@@ -1,7 +1,6 @@
 import os
 import subprocess
 
-
 class Diskutils:
     @staticmethod
     def pretty_size(size: int) -> str:
@@ -13,7 +12,6 @@ class Diskutils:
             return f"{round(size / 1024, 2)} KB"
         else:
             return f"{size} B"
-
 
 class Disk:
     def __init__(self, disk: str):
@@ -71,7 +69,6 @@ class Disk:
             return f"{round(size / 1024, 2)} KB"
         else:
             return f"{size} B"
-
 
 class Partition:
     def __init__(self, disk: str, partition: str):
@@ -181,7 +178,6 @@ class Partition:
         if not other:
             return False
         return self.uuid == other.uuid and self.fs_type == other.fs_type
-
 
 class DisksManager:
     def __init__(self):

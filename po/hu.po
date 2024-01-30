@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vanilla-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-27 23:44+0530\n"
+"POT-Creation-Date: 2024-01-30 16:48+0530\n"
 "PO-Revision-Date: 2023-12-29 16:06+0000\n"
 "Last-Translator: Balázs Szeles <zutvas@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/vanilla-os/"
@@ -63,7 +63,6 @@ msgstr "Kérjük várjon, amíg a kapcsolat ellenőrzése befejeződik"
 #: vanilla_installer/gtk/default-language.ui:18
 #: vanilla_installer/gtk/default-network.ui:18
 #: vanilla_installer/gtk/default-theme.ui:49
-#: vanilla_installer/gtk/default-timezone.ui:18
 #: vanilla_installer/gtk/default-users.ui:19
 #: vanilla_installer/gtk/layout-preferences.ui:29
 #: vanilla_installer/gtk/progress.ui:41
@@ -187,11 +186,14 @@ msgstr ""
 "kívánja-e a védjegyzett NVIDIA illesztőprogramokat."
 
 #: vanilla_installer/gtk/default-nvidia.ui:29
+#: vanilla_installer/gtk/default-vm.ui:29
 msgid "Skip"
 msgstr "Átugrás"
 
 #: vanilla_installer/gtk/default-nvidia.ui:38
-msgid "Install  (recommended)"
+#: vanilla_installer/gtk/default-vm.ui:38
+#, fuzzy
+msgid "Install  (Recommended)"
 msgstr "Telepítés (ajánlott)"
 
 #: vanilla_installer/gtk/default-nvidia.ui:70
@@ -210,6 +212,18 @@ msgstr ""
 "\n"
 "A biztonsági és egyéb frissítések az illesztőprogram gyártójától függnek."
 
+#: vanilla_installer/gtk/default-vm.ui:14
+msgid "VM Tools"
+msgstr ""
+
+#: vanilla_installer/gtk/default-vm.ui:15
+#, fuzzy
+msgid ""
+"Choose whether to install VM Tools for better compatibility and performance."
+msgstr ""
+"Válassza ki, hogy a jobb kompatibilitás és teljesítmény érdekében telepíteni "
+"kívánja-e a védjegyzett NVIDIA illesztőprogramokat."
+
 #: vanilla_installer/gtk/default-theme.ui:17
 msgid "Default"
 msgstr "Alapértelmezett"
@@ -225,18 +239,6 @@ msgstr "Színséma"
 #: vanilla_installer/gtk/default-theme.ui:43
 msgid "Choose a color scheme for your system"
 msgstr "Válasszon színsémát a rendszeréhez"
-
-#: vanilla_installer/gtk/default-timezone.ui:28
-msgid "Date & Time"
-msgstr "Dátum és idő"
-
-#: vanilla_installer/gtk/default-timezone.ui:29
-msgid "Select your preferred timezone"
-msgstr "Válassza ki a kívánt időzónát"
-
-#: vanilla_installer/gtk/default-timezone.ui:39
-msgid "Search timezones"
-msgstr "Időzónák keresése"
 
 #: vanilla_installer/gtk/default-users.ui:40
 msgid "Create User"
@@ -417,34 +419,30 @@ msgstr ""
 "való indításhoz szükséges fájlokat."
 
 #: vanilla_installer/gtk/widget-partition.ui:33
-#: vanilla_installer/gtk/widget-partition.ui:54
-#: vanilla_installer/gtk/widget-partition.ui:75
-#: vanilla_installer/gtk/widget-partition.ui:96
-#: vanilla_installer/gtk/widget-partition.ui:117
-#: vanilla_installer/gtk/widget-partition.ui:151
-#: vanilla_installer/defaults/disk.py:402
-msgid "No partition selected"
+#: vanilla_installer/gtk/widget-partition.ui:53
+#: vanilla_installer/gtk/widget-partition.ui:73
+#: vanilla_installer/gtk/widget-partition.ui:94
+#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:147
+#, fuzzy
+msgid "No Partition Selected"
 msgstr "Nincs kiválasztott partíció"
 
 #: vanilla_installer/gtk/widget-partition.ui:34
-#: vanilla_installer/gtk/widget-partition.ui:55
-#: vanilla_installer/gtk/widget-partition.ui:76
-#: vanilla_installer/gtk/widget-partition.ui:97
-#: vanilla_installer/gtk/widget-partition.ui:118
-#: vanilla_installer/gtk/widget-partition.ui:152
+#: vanilla_installer/gtk/widget-partition.ui:54
+#: vanilla_installer/gtk/widget-partition.ui:74
+#: vanilla_installer/gtk/widget-partition.ui:95
+#: vanilla_installer/gtk/widget-partition.ui:115
+#: vanilla_installer/gtk/widget-partition.ui:148
 #: vanilla_installer/defaults/disk.py:404
 msgid "Please select a partition from the options below"
 msgstr "Kérjük, válasszon egy partíciót az alábbi lehetőségek közül"
 
-#: vanilla_installer/gtk/widget-partition.ui:45
-msgid "Boot partition is too small."
-msgstr "A boot partíció túl kicsi."
-
-#: vanilla_installer/gtk/widget-partition.ui:50
+#: vanilla_installer/gtk/widget-partition.ui:49
 msgid "EFI Partition"
 msgstr "EFI partíciók"
 
-#: vanilla_installer/gtk/widget-partition.ui:51
+#: vanilla_installer/gtk/widget-partition.ui:50
 msgid ""
 "The partition to mount under “/boot/efi”. This directory stores files for "
 "booting in the bootloader."
@@ -452,15 +450,11 @@ msgstr ""
 "A \"/boot/efi\" alá csatolandó partíció. Ez a könyvtár tárolja a "
 "bootloaderben való indításhoz szükséges fájlokat."
 
-#: vanilla_installer/gtk/widget-partition.ui:66
-msgid "EFI partition is too small."
-msgstr "Az EFI partíció túl kicsi."
-
-#: vanilla_installer/gtk/widget-partition.ui:71
+#: vanilla_installer/gtk/widget-partition.ui:69
 msgid "BIOS Boot Partition"
 msgstr "BIOS boot partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:72
+#: vanilla_installer/gtk/widget-partition.ui:70
 msgid ""
 "The partition required by GPT-formatted disks to support booting from BIOS "
 "systems. It must be located in the first 2 TB of the disk and must be "
@@ -470,15 +464,15 @@ msgstr ""
 "támogatásához szükséges partíció. A lemez első 2 TB-ján kell elhelyezkednie, "
 "és pontosan 1 Mebibyte (1 MiB) méretűnek kell lennie."
 
-#: vanilla_installer/gtk/widget-partition.ui:87
+#: vanilla_installer/gtk/widget-partition.ui:85
 msgid "BIOS partition must be exactly 1 MiB."
 msgstr "A BIOS partíciónak pontosan 1 MiB-nak kell lennie."
 
-#: vanilla_installer/gtk/widget-partition.ui:92
+#: vanilla_installer/gtk/widget-partition.ui:90
 msgid "Root Partition"
 msgstr "Root partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:93
+#: vanilla_installer/gtk/widget-partition.ui:91
 msgid ""
 "The partition to mount under “/”. It will be automatically converted into an "
 "LVM thin pool during installation."
@@ -486,15 +480,11 @@ msgstr ""
 "A \"/\" alá csatolandó partíció. Ez automatikusan át lesz alakítva egy LVM "
 "thin pool-ba a telepítés során."
 
-#: vanilla_installer/gtk/widget-partition.ui:108
-msgid "Root partition is too small."
-msgstr "A root partíció túl kicsi."
-
-#: vanilla_installer/gtk/widget-partition.ui:113
+#: vanilla_installer/gtk/widget-partition.ui:110
 msgid "Var Partition"
 msgstr "Var partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:114
+#: vanilla_installer/gtk/widget-partition.ui:111
 msgid ""
 "The partition to mount under “/var”. This directory stores all user data "
 "like personal documents and system-wide configuration."
@@ -503,16 +493,12 @@ msgstr ""
 "felhasználói adatot, mint például a személyes dokumentumok és a "
 "rendszerszintű konfiguráció."
 
-#: vanilla_installer/gtk/widget-partition.ui:129
-msgid "Home partition is too small."
-msgstr "A home partíció túl kicsi."
-
+#: vanilla_installer/gtk/widget-partition.ui:130
 #: vanilla_installer/gtk/widget-partition.ui:134
-#: vanilla_installer/gtk/widget-partition.ui:138
 msgid "Swap Partition"
 msgstr "Swap partíció"
 
-#: vanilla_installer/gtk/widget-partition.ui:135
+#: vanilla_installer/gtk/widget-partition.ui:131
 msgid ""
 "Swap acts as a virtual extension of your RAM and enables hibernation. "
 "Vanilla OS already uses zram to provide swapping at no storage cost."
@@ -521,7 +507,7 @@ msgstr ""
 "hibernációt. A Vanilla OS már használja a zramot, hogy tárolási költség "
 "nélkül biztosítsa a swapolást."
 
-#: vanilla_installer/gtk/widget-partition.ui:139
+#: vanilla_installer/gtk/widget-partition.ui:135
 msgid ""
 "Choose a partition to use for swap alongside zram. This is not required for "
 "hibernation."
@@ -537,8 +523,8 @@ msgstr "Kikapcsolás..."
 msgid "Back"
 msgstr "Vissza"
 
-#: vanilla_installer/gtk/wireless-row.ui:33
-#: vanilla_installer/defaults/network.py:371
+#: vanilla_installer/gtk/wireless-row.ui:34
+#: vanilla_installer/defaults/network.py:372
 msgid "Connected"
 msgstr "Csatlakoztatva"
 
@@ -553,6 +539,10 @@ msgstr "A partíciónak legalább {} méretűnek kell lennie"
 #: vanilla_installer/defaults/disk.py:387
 msgid "Partition must EXACTLY {}"
 msgstr "A partíciónak PONTOSAN {} méretűnek kel lennie"
+
+#: vanilla_installer/defaults/disk.py:402
+msgid "No partition selected"
+msgstr "Nincs kiválasztott partíció"
 
 #: vanilla_installer/defaults/disk.py:500
 msgid "Partitions have changed. Current selections have been cleared."
@@ -582,69 +572,74 @@ msgstr "Biztonságos hálózat (WPA2)"
 msgid "Secure network (WPA3)"
 msgstr "Biztonságos hálózat (WPA3)"
 
-#: vanilla_installer/defaults/network.py:374
+#: vanilla_installer/defaults/network.py:375
 msgid "Authentication required"
 msgstr "Hitelesítés szükséges"
 
-#: vanilla_installer/defaults/network.py:382
+#: vanilla_installer/defaults/network.py:383
 msgid "Connecting"
 msgstr "Csatlakozás"
 
-#: vanilla_installer/defaults/network.py:384
+#: vanilla_installer/defaults/network.py:385
 msgid "Disconnected"
 msgstr "Lekapcsolódott"
 
-#: vanilla_installer/defaults/network.py:386
+#: vanilla_installer/defaults/network.py:387
 msgid "Disconnecting"
 msgstr "Lekapcsolódás"
 
-#: vanilla_installer/defaults/network.py:388
+#: vanilla_installer/defaults/network.py:389
 msgid "Connection Failed"
 msgstr "Nem sikerült a kapcsolódás"
 
-#: vanilla_installer/defaults/network.py:390
+#: vanilla_installer/defaults/network.py:391
 msgid "Status Unknown"
 msgstr "Ismeretlen állapot"
 
-#: vanilla_installer/defaults/network.py:392
+#: vanilla_installer/defaults/network.py:393
 msgid "Unmanaged"
 msgstr "Nem kezelt"
 
-#: vanilla_installer/defaults/network.py:394
+#: vanilla_installer/defaults/network.py:395
 msgid "Unavailable"
 msgstr "Nem elérhető"
 
-#: vanilla_installer/defaults/network.py:396
+#: vanilla_installer/defaults/network.py:397
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: vanilla_installer/defaults/network.py:410
+#: vanilla_installer/defaults/network.py:409
 msgid "Cable Unplugged"
 msgstr "Kábel kihúzva"
+
+#: vanilla_installer/defaults/timezone.py:58
+#, python-format
+msgid "(at %s, %s)"
+msgstr ""
 
 #: vanilla_installer/layouts/preferences.py:67
 msgid "Please select at least one option."
 msgstr "Kérjük, válasszon legalább egy lehetőséget."
 
-#: vanilla_installer/utils/builder.py:71
+#: vanilla_installer/utils/builder.py:73
 msgid "Missing 'log_file' in the recipe."
 msgstr "Hiányzik a 'log_file' a receptben."
 
-#: vanilla_installer/utils/builder.py:80
+#: vanilla_installer/utils/builder.py:82
 #, python-format
 msgid "failed to create log file: %s"
 msgstr "nem sikerült naplófájlt létrehozni: %s"
 
-#: vanilla_installer/utils/builder.py:81
+#: vanilla_installer/utils/builder.py:83
 msgid "No log will be stored."
 msgstr "A napló nem kerül tárolásra."
 
-#: vanilla_installer/utils/builder.py:88
+#: vanilla_installer/utils/builder.py:90
 #, python-format
 msgid "Performing display-condition: %s"
 msgstr "Megjelenítési feltétel végrehajtása: %s"
 
-#: vanilla_installer/utils/builder.py:97 vanilla_installer/utils/builder.py:102
+#: vanilla_installer/utils/builder.py:99 vanilla_installer/utils/builder.py:104
 #, python-format
 msgid "Step %s skipped due to display-conditions"
 msgstr "%s lépés kihagyva a megjelenítési feltételek miatt"
@@ -699,6 +694,27 @@ msgstr "Valami hiba történt"
 #: vanilla_installer/views/done.py:56
 msgid "Please contact the distribution developers."
 msgstr "Kérjük, lépjen kapcsolatba a disztribúció fejlesztőivel."
+
+#~ msgid "Date & Time"
+#~ msgstr "Dátum és idő"
+
+#~ msgid "Select your preferred timezone"
+#~ msgstr "Válassza ki a kívánt időzónát"
+
+#~ msgid "Search timezones"
+#~ msgstr "Időzónák keresése"
+
+#~ msgid "Boot partition is too small."
+#~ msgstr "A boot partíció túl kicsi."
+
+#~ msgid "EFI partition is too small."
+#~ msgstr "Az EFI partíció túl kicsi."
+
+#~ msgid "Root partition is too small."
+#~ msgstr "A root partíció túl kicsi."
+
+#~ msgid "Home partition is too small."
+#~ msgstr "A home partíció túl kicsi."
 
 #~ msgid "Don't install"
 #~ msgstr "Ne legyen telepítve"

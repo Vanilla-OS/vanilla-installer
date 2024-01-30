@@ -1,6 +1,6 @@
 # window_unsupported.py
 #
-# Copyright 2023 muqtadir
+# Copyright 2024 muqtadir
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,5 +35,3 @@ class VanillaUnsupportedWindow(Adw.Window):
 
     def __on_poweroff(self, btn):
         subprocess.call(["systemctl", "poweroff"])
-
-
