@@ -109,8 +109,8 @@ class VanillaDefaultConnCheck(Adw.Bin):
     def __on_btn_recheck_clicked(self, widget, *args):
         widget.set_visible(False)
         self.status_page.set_icon_name("content-loading-symbolic")
-        self.status_page.set_title(_("Checking Connection…"))
+        self.status_page.set_title(_("Checking Connection"))
         self.status_page.set_description(
-            _("Please wait until the connection check is done.")
+            _("Please wait until the connection check is done")
         )
         self.__conn_check()
