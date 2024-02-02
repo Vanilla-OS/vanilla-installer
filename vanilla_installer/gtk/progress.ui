@@ -107,7 +107,7 @@
                         <property name="valign">center</property>
                         <property name="margin-top">40</property>
                         <property name="margin-start">40</property>
-                        <property name="label" translatable="yes">Installing...</property>
+                        <property name="label" translatable="yes">Installing</property>
                         <style>
                             <class name="title-4"/>
                         </style>
