@@ -128,7 +128,7 @@
                         <property name="icon-name">media-view-subtitles-symbolic</property>
                         <property name="halign">end</property>
                         <property name="valign">center</property>
-                        <property name="tooltip-text" translatable="yes">Show Console output</property>
+                        <property name="tooltip-text" translatable="yes">Show Console Output</property>
                         <style>
                             <class name="circular" />
                         </style>

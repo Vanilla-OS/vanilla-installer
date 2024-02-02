@@ -33,7 +33,7 @@
                             </child>
                             <child>
                                 <object class="GtkButton" id="btn_yes">
-                                <property name="label" translatable="yes">Yes, enable it</property>
+                                <property name="label" translatable="yes">Enable</property>
                                 <property name="halign">center</property>
                                 <style>
                                     <class name="pill" />

@@ -12,7 +12,7 @@
         <property name="hexpand">true</property>
         <property name="icon-name">video-display-symbolic</property>
         <property name="title" translatable="yes">NVIDIA® Drivers</property>
-        <property name="description" translatable="yes">Choose whether to install proprietary NVIDIA drivers for better compatibility and performance.</property>
+        <property name="description" translatable="yes">Choose whether to install proprietary NVIDIA drivers for better compatibility and performance</property>
         <child>
           <object class="GtkBox">
             <property name="orientation">1</property>
@@ -35,7 +35,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_yes">
-                    <property name="label" translatable="yes">Install  (Recommended)</property>
+                    <property name="label" translatable="yes">Install</property>
                     <property name="halign">3</property>
                     <style>
                       <class name="pill"/>
