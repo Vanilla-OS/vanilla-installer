@@ -55,7 +55,7 @@
                         <child>
                           <object class="AdwActionRow" id="row_firmware_setup">
                             <property name="icon-name">application-x-executable-symbolic</property>
-                            <property name="title" translatable="yes">Restart into Firmware Setup</property>
+                            <property name="title" translatable="yes">Restart Into Firmware Setup</property>
                             <property name="activatable">true</property>
                             <child type="suffix">
                               <object class="GtkImage">

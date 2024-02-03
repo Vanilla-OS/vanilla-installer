@@ -13,22 +13,22 @@
         "welcome": {
             "resource": "/org/vanillaos/Installer/assets/welcome.png",
             "title": "Installing Vanilla OS",
-            "description": "The process could take a few minutes, please be patient."
+            "description": "The process could take a few minutes, please be patient"
         },
         "control": {
             "resource": "/org/vanillaos/Installer/assets/ready.svg",
             "title": "Always Ready",
-            "description": "Don't be held back by your system, use it the way you want."
+            "description": "Don't be held back by your system, use it the way you want"
         },
         "containerized": {
             "resource": "/org/vanillaos/Installer/assets/containerized.svg",
             "title": "Containerized",
-            "description": "You never have to worry about breakage due to incompatible or conflicting packages."
+            "description": "You never have to worry about breakage due to incompatible or conflicting packages"
         },
         "completed": {
             "resource": "/org/vanillaos/Installer/assets/complete.svg",
             "title": "Complete and Reliable",
-            "description": "The largest software catalog at your fingertips."
+            "description": "The largest software catalog at your fingertips"
         }
     },
     "steps": {

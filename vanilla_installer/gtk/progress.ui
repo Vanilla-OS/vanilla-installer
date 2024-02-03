@@ -107,7 +107,7 @@
                         <property name="valign">center</property>
                         <property name="margin-top">40</property>
                         <property name="margin-start">40</property>
-                        <property name="label" translatable="yes">Installing...</property>
+                        <property name="label" translatable="yes">Installing</property>
                         <style>
                             <class name="title-4"/>
                         </style>
@@ -128,7 +128,7 @@
                         <property name="icon-name">media-view-subtitles-symbolic</property>
                         <property name="halign">end</property>
                         <property name="valign">center</property>
-                        <property name="tooltip-text" translatable="yes">Show Console output</property>
+                        <property name="tooltip-text" translatable="yes">Show Console Output</property>
                         <style>
                             <class name="circular" />
                         </style>
