@@ -159,6 +159,7 @@ class PartitionSelector(Adw.PreferencesPage):
     swap_part_expand = Gtk.Template.Child()
 
     use_swap_part = Gtk.Template.Child()
+    keep_efi_part = Gtk.Template.Child()
 
     boot_small_error = Gtk.Template.Child()
     efi_small_error = Gtk.Template.Child()
@@ -213,6 +214,7 @@ class PartitionSelector(Adw.PreferencesPage):
 
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
+        self.keep_efi_part.connect("state-set", self.__on_keep_efi_toggled)
 
         self.__boot_part_rows = self.__generate_partition_list_widgets(
             self.boot_part_expand, "ext4", False
@@ -406,6 +408,14 @@ class PartitionSelector(Adw.PreferencesPage):
             self.update_partition_rows()
 
         self.update_apply_button_status()
+
+    def __on_keep_efi_toggled(self, widget, state):
+        print(state)
+        if state:
+            self.__selected_partitions["efi_part_expand"]["fstype"] = "unformatted"
+        else:
+            self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
+        print(self.__selected_partitions["efi_part_expand"]["fstype"])
 
     def update_partition_rows(self):
         rows = [
