@@ -32,7 +32,7 @@ class VanillaRamWindow(Adw.Window):
         super().__init__(**kwargs)
 
         self.description_label.set_label(_("Your computer does have enough RAM to run %s (minimum 4GB)") % RecipeLoader().raw['distro_name'])
-        self.btn_continue.connect("clicked", self.__continue())
+        self.btn_continue.connect("clicked", self.__continue)
 
     def __continue(self, btn):
         subprocess.Popen("IGNORE_RAM=1 vanilla-installer", shell=True)
