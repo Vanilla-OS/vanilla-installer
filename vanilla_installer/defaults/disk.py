@@ -410,12 +410,10 @@ class PartitionSelector(Adw.PreferencesPage):
         self.update_apply_button_status()
 
     def __on_keep_efi_toggled(self, widget, state):
-        print(state)
         if state:
             self.__selected_partitions["efi_part_expand"]["fstype"] = "unformatted"
         else:
             self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
-        print(self.__selected_partitions["efi_part_expand"]["fstype"])
 
     def update_partition_rows(self):
         rows = [
