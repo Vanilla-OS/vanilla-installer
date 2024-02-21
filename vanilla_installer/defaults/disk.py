@@ -571,12 +571,19 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                 if partition == "disk":
                     continue
                 entry.set_title(partition)
-                entry.set_subtitle(
-                    _("Will be formatted in {} and mounted in {}").format(
-                        partition_recipe[partition]["fs"],
-                        partition_recipe[partition]["mp"],
+                if partition_recipe[partition]["fs"] == "unformatted":
+                    entry.set_subtitle(
+                        _("Will be mounted in {}").format(
+                            partition_recipe[partition]["mp"],
+                        )
                     )
-                )
+                else:
+                    entry.set_subtitle(
+                        _("Will be formatted in {} and mounted in {}").format(
+                            partition_recipe[partition]["fs"],
+                            partition_recipe[partition]["mp"],
+                        )
+                    )
             self.group_partitions.add(entry)
 
     def __on_btn_cancel_clicked(self, widget):
