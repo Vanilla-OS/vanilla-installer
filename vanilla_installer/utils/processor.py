@@ -745,15 +745,16 @@ class Processor:
                     recipe.add_postinstall_step("locale", [value], chroot=True)
                 # Set keyboard
                 if key == "keyboard":
-                    recipe.add_postinstall_step(
-                        "keyboard",
-                        [
-                            value["layout"],
-                            value["model"],
-                            value["variant"],
-                        ],
-                        chroot=True,
-                    )
+                    for i in value:
+                        recipe.add_postinstall_step(
+                            "keyboard",
+                            [
+                                i["layout"],
+                                i["model"],
+                                i["variant"],
+                            ],
+                            chroot=True,
+                        )
 
         # Create /abimage.abr
         with open("/tmp/abimage.abr", "w") as file:
