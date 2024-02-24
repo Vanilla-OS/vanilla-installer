@@ -48,8 +48,13 @@ class KeyboardRow(Adw.ActionRow):
         self.select_button.connect("toggled", self.__on_check_button_toggled)
 
     def __on_check_button_toggled(self, widget):
-        self.__selected_keyboard["layout"] = self.__layout
-        self.__selected_keyboard["variant"] = self.__variant
+        if widget.get_active():
+            self.__selected_keyboard.append({"layout": self.__layout, "model": "pc105", "variant": self.__variant})
+            self.get_parent().emit("selected-rows-changed")
+        else:
+            self.__selected_keyboard.remove({"layout": self.__layout, "model": "pc105", "variant": self.__variant})
+            self.get_parent().emit("selected-rows-changed")
+
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-keyboard.ui")
@@ -60,7 +65,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
     entry_test = Gtk.Template.Child()
     entry_search_keyboard = Gtk.Template.Child()
     all_keyboards_group = Gtk.Template.Child()
-    selected_keyboard = {"layout": None, "model": "pc105", "variant": None}
+    selected_keyboard = []
 
     search_controller = Gtk.EventControllerKey.new()
     test_focus_controller = Gtk.EventControllerFocus.new()
@@ -99,7 +104,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
             self.test_focus_controller.connect("enter", self.__apply_layout)
 
     def __keyboard_verify(self, *args):
-        if self.selected_keyboard["layout"] is not None:
+        if self.selected_keyboard != []:
             self.btn_next.set_sensitive(True)
         else:
             self.btn_next.set_sensitive(False)
@@ -111,24 +116,18 @@ class VanillaDefaultKeyboard(Adw.Bin):
             self.__window.next(None, self.__apply_layout)
 
     def get_finals(self):
-        variant = self.selected_keyboard["variant"]
 
-        if variant is None:
+        if self.selected_keyboard == []:
             return {
-                "keyboard": {"layout": "us", "model": "pc105", "variant": ""}
+                "keyboard": [{"layout": "us", "model": "pc105", "variant": ""}]
             }  # fallback
 
         return {
-            "keyboard": {
-                "layout": self.selected_keyboard["layout"],
-                "model": "pc105",
-                "variant": self.selected_keyboard["variant"],
-            }
+            "keyboard": self.selected_keyboard 
         }
 
     def __generate_keyboard_list_widgets(self, selected_keyboard):
         keyboard_widgets = []
-        current_layout, current_variant = self.__get_current_layout()
 
         all_keyboard_layouts = {
             value["display_name"]: {
@@ -161,52 +160,16 @@ class VanillaDefaultKeyboard(Adw.Bin):
                 selected_keyboard,
             )
 
-            if len(keyboard_widgets) > 0:
-                keyboard_row.select_button.set_group(keyboard_widgets[0].select_button)
             keyboard_widgets.append(keyboard_row)
-
-            # set up current keyboard
-            if (
-                current_layout == keyboard_layout
-                and current_variant == keyboard_variant
-            ):
-                keyboard_row.select_button.set_active(True)
-                self.selected_keyboard["layout"] = current_layout
-                self.selected_keyboard["variant"] = current_variant
 
         return keyboard_widgets
 
-    def __get_current_layout(self):
-        res = subprocess.run(
-            ["setxkbmap", "-query"], capture_output=True, text=True
-        ).stdout.splitlines()
-
-        current_layout = [
-            line.split(": ")[1] for line in res if line.startswith("layout")
-        ][0]
-        current_variant = None
-
-        if "," in current_layout:
-            current_layout = current_layout.split(",")[0].strip()
-
-        with contextlib.suppress(IndexError):
-            current_variant = [
-                line.split(": ")[1] for line in res if line.startswith("variant")
-            ][0]
-            if "," in current_variant:
-                current_variant = current_variant.split(",")[0].strip()
-
-        return current_layout, current_variant
-
     def __apply_layout(self, *args):
-        layout = self.selected_keyboard["layout"]
-        variant = self.selected_keyboard["variant"]
-
-        if variant is None:
+        if self.selected_keyboard == []:
             return
 
         # set the layout
-        self.__set_keyboard_layout(layout, variant)
+        self.__set_keyboard_layout(self.selected_keyboard)
 
     def __on_search_key_pressed(self, *args):
         keywords = self.match_regex.sub(
@@ -221,20 +184,20 @@ class VanillaDefaultKeyboard(Adw.Bin):
             search_text = row_title + " " + row_subtitle + " " + row_label
             row.set_visible(re.search(keywords, search_text, re.IGNORECASE) is not None)
 
-    def __set_keyboard_layout(self, layout, variant=None):
-        value = layout
-
-        if variant != "":
-            value = layout + "+" + variant
-
+    def __set_keyboard_layout(self, selected_keyboard):
         Gio.Settings.new("org.gnome.desktop.input-sources").set_value(
             "sources",
             GLib.Variant.new_array(
                 GLib.VariantType("(ss)"),
-                [
-                    GLib.Variant.new_tuple(
-                        GLib.Variant.new_string("xkb"), GLib.Variant.new_string(value)
-                    )
-                ],
+                self.__create_keyboard_layout_array(selected_keyboard) 
             ),
         )
+    
+    def __create_keyboard_layout_array(self, selected_keyboard):
+        keyboard_layout_array = []
+        for i in selected_keyboard:
+            value = i["layout"]
+            if i["variant"] != "":
+                value += "+" + i["variant"]
+            keyboard_layout_array.append(GLib.Variant.new_tuple(GLib.Variant.new_string("xkb"), GLib.Variant.new_string(value)))
+        return keyboard_layout_array
