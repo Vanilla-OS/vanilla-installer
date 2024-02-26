@@ -113,19 +113,14 @@ class VanillaDefaultKeyboard(Adw.Bin):
             self.__window.next(None, self.__apply_layout)
 
     def get_finals(self):
-        variant = self.selected_keyboard["variant"]
 
-        if variant is None:
+        if self.selected_keyboard == []:
             return {
-                "keyboard": {"layout": "us", "model": "pc105", "variant": ""}
+                "keyboard": [{"layout": "us", "model": "pc105", "variant": ""}]
             }  # fallback
 
         return {
-            "keyboard": {
-                "layout": self.selected_keyboard["layout"],
-                "model": "pc105",
-                "variant": self.selected_keyboard["variant"],
-            }
+            "keyboard": self.selected_keyboard 
         }
 
     def __generate_keyboard_list_widgets(self, selected_keyboard):
