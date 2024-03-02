@@ -39,6 +39,7 @@ from vanilla_installer.core.system import Systeminfo
 
 
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("Installer::Main")
 
 
 class VanillaInstaller(Adw.Application):
@@ -69,7 +70,9 @@ class VanillaInstaller(Adw.Application):
             elif not Systeminfo.is_uefi():
                 win = VanillaUnsupportedWindow(application=self)  # Not UEFI
             else:
+                logger.info("Creating main window")
                 win = VanillaWindow(application=self)  # All good
+                logger.info("Main window created")
         win.present()
 
     def create_action(self, name, callback, shortcuts=None):

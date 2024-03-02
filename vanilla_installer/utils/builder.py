@@ -83,11 +83,17 @@ class Builder:
                 logging.warning(_("No log will be stored."))
 
         for i, (key, step) in enumerate(self.__recipe.raw["steps"].items()):
+            logger.info(_("(%s) Processing step...") % key)
+
             if step.get("display-conditions"):
                 _condition_met = False
+                logger.info(_("(%s) Display-conditions found") % key)
+
                 for command in step["display-conditions"]:
                     try:
-                        logger.info(_("Performing display-condition: %s") % command)
+                        logger.info(
+                            _("(%s) Performing display-condition: %s") % (key, command)
+                        )
                         output = subprocess.check_output(
                             command, shell=True, stderr=subprocess.STDOUT
                         )
@@ -95,10 +101,9 @@ class Builder:
                             output.decode("utf-8") == ""
                             or output.decode("utf-8") == "1"
                         ):
-                            logger.info(
-                                _("Step %s skipped due to display-conditions") % key
-                            )
+                            logger.info(_("(%s) Display-conditions not met") % key)
                             break
+                        logger.info(_("(%s) Display-conditions met") % key)
                     except subprocess.CalledProcessError:
                         logger.info(
                             _("Step %s skipped due to display-conditions") % key
@@ -111,10 +116,15 @@ class Builder:
                     continue
 
             if step["template"] in templates:
+                logger.info(
+                    _("(%s) Initializing widgets for template: %s")
+                    % (key, step["template"])
+                )
                 step["num"] = i
                 _widget = templates[step["template"]](
                     self.__window, self.distro_info, key, step
                 )
+                logger.info(_("(%s) Widgets initialized") % key)
                 self.__register_widgets.append(_widget)
 
     def get_finals(self):
