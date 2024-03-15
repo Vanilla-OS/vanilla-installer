@@ -16,6 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
 import json
 import os
 
@@ -26,6 +27,8 @@ from vanilla_installer.utils.processor import Processor
 from vanilla_installer.views.confirm import VanillaConfirm
 from vanilla_installer.views.done import VanillaDone
 from vanilla_installer.views.progress import VanillaProgress
+
+logger = logging.getLogger("Installer::Window")
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/window.ui")
@@ -66,6 +69,7 @@ class VanillaWindow(Adw.ApplicationWindow):
     def __build_ui(self):
         if "VANILLA_FORCE_TOUR" not in os.environ:
             for widget in self.__builder.widgets:
+                logger.info(f"(%s) Adding widget to carousel", widget)
                 self.carousel.append(widget)
         else:
             self.__on_page_changed()
@@ -78,11 +82,16 @@ class VanillaWindow(Adw.ApplicationWindow):
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index)
 
+        logger.info(f"(%s) Page is changing...", page)
+
         if page not in [self.__view_progress, self.__view_done]:
+            logger.info(f"(%s) It is not a final page", page)
             self.btn_back.set_visible(cur_index != 0.0)
             self.btn_back.set_sensitive(cur_index != 0.0)
             self.carousel_indicator_dots.set_visible(cur_index != 0.0)
             return
+
+        logger.info(f"(%s) It is a final page", page)
 
         self.btn_back.set_visible(False)
         self.btn_back.set_sensitive(False)
@@ -90,6 +99,7 @@ class VanillaWindow(Adw.ApplicationWindow):
 
         # keep the btn_back button locked if this is the last page
         if page == self.__view_done:
+            logger.info(f"(%s) It is the DONE page", page)
             return
 
     def update_finals(self, *args):
@@ -111,6 +121,8 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.__view_progress.start(recipe)
 
     def next(self, widget=None, fn=None, *args):
+        logger.info("Going to next page")
+
         if fn is not None:
             fn()
 
@@ -119,6 +131,8 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.carousel.scroll_to(page, True)
 
     def back(self, *args):
+        logger.info("Going to previous page")
+
         cur_index = self.carousel.get_position()
         page = self.carousel.get_nth_page(cur_index - 1)
         self.carousel.scroll_to(page, True)
