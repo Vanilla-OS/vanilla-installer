@@ -76,11 +76,7 @@ class VanillaConfirm(Adw.Bin):
                         )
                     )
                 elif key == "keyboard":
-                    self.active_widgets.append(
-                        VanillaChoiceEntry(
-                            _("Keyboard"), value["layout"], "input-keyboard-symbolic"
-                        )
-                    )
+                    self.process_keyboards(value)
                 elif key == "timezone":
                     self.active_widgets.append(
                         VanillaChoiceEntry(
@@ -141,3 +137,19 @@ class VanillaConfirm(Adw.Bin):
     def __on_confirm(self, widget):
         self.emit("installation-confirmed")
         self.btn_confirm.disconnect(self._btn_confirm_signal)
+
+    def process_keyboards(self, selected_keyboards):
+        keyboard_index = ""
+        if len(selected_keyboards) > 1:
+           keyboard_index = 0 
+        for i in selected_keyboards:
+            value = i["layout"]
+            if i["variant"] != "":
+                value = f"{i['layout']}+{i['variant']}"
+            if len(selected_keyboards) > 1:
+                keyboard_index += 1
+            self.active_widgets.append(
+                VanillaChoiceEntry(
+                    _(f"Keyboard {keyboard_index}"), value,"input-keyboard-symbolic"
+                )
+            )
