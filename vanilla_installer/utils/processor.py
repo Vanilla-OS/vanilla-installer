@@ -334,6 +334,9 @@ class Processor:
             def setup_partition(
                 part_name: str, encrypt: bool = False, password: str = None
             ):
+                mountpoints.append([part, values["mp"]])
+                if values["fs"] == "unformatted":
+                    return
                 format_args = [part_number, values["fs"]]
                 if encrypt:
                     operation = "luks-format"
@@ -343,7 +346,6 @@ class Processor:
                     operation = "format"
                 format_args.append(part_name)
                 setup_steps.append([part_disk, operation, format_args])
-                mountpoints.append([part, values["mp"]])
 
             if values["mp"] == "/":
                 part_prefix = (
