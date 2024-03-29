@@ -577,7 +577,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                         partition_recipe[partition]["mp"],
                     )
                 )
-                self.group_partitions.add(entry)
+            self.group_partitions.add(entry)
         
         if "auto" in partition_recipe:
             for vg in partition_recipe["auto"]["vgs_to_remove"]:
