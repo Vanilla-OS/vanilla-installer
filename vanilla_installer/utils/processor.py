@@ -23,6 +23,7 @@ from datetime import datetime
 from typing import Any, Union
 
 from vanilla_installer.core.system import Systeminfo
+from vanilla_installer.core.disks import Diskutils
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -326,10 +327,7 @@ class Processor:
         # we don't need to create any partitions or label disks (for now).
         # But we still need to format partitions.
         for part, values in disk_final.items():
-            disk_regex = r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?"
-            part_regex = r".*[a-z]([0-9]+)"
-            part_disk = re.match(disk_regex, part, re.MULTILINE)[0]
-            part_number = re.sub(part_regex, r"\1", part)
+            part_disk, part_number = Diskutils.separate_device_and_partn(part)
 
             def setup_partition(
                 part_name: str, encrypt: bool = False, password: str = None
@@ -346,14 +344,9 @@ class Processor:
                 mountpoints.append([part, values["mp"]])
 
             if values["mp"] == "/":
-                part_prefix = (
-                    f"{part_disk}p"
-                    if re.match(r"[0-9]", part_disk[-1])
-                    else f"{part_disk}"
-                )
-                setup_steps.append([part_disk, "pvcreate", [part_prefix + part_number]])
+                setup_steps.append([part_disk, "pvcreate", [part]])
                 setup_steps.append(
-                    [part_disk, "vgcreate", ["vos-root", [part_prefix + part_number]]]
+                    [part_disk, "vgcreate", ["vos-root", [part]]]
                 )
                 setup_steps.append(
                     [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
@@ -498,9 +491,7 @@ class Processor:
             root_b_part,
             var_part,
         ) = Processor.__find_partitions(recipe)
-        boot_disk = re.match(
-            r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", boot_part, re.MULTILINE
-        )[0]
+        boot_disk, _ = Diskutils.separate_device_and_partn(boot_part)
 
         # Create SystemD units to setup mountpoints
         extra_target = "cryptsetup" if encrypt else ""
