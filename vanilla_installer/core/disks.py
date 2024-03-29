@@ -31,6 +31,19 @@ class Diskutils:
         
         return "/dev/" + info["pkname"], str(info["partn"])
 
+    @staticmethod
+    def fetch_lvm_pvs() -> list[list[str]]:
+        output_json = subprocess.check_output(
+            "sudo pvs --reportformat=json", shell=True
+        ).decode("utf-8")
+        output_pvs = json.loads(output_json)["report"][0]["pv"]
+        pv_with_vgs = []
+        for pv_output in output_pvs:
+            pv_name = pv_output["pv_name"]
+            vg_name = pv_output["vg_name"] if pv_output["vg_name"] != "" else None
+            pv_with_vgs.append([pv_name, vg_name])
+        return pv_with_vgs
+
 class Disk:
     def __init__(self, disk: str):
         self.__disk = disk

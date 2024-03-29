@@ -242,11 +242,19 @@ class AlbiusRecipe:
 class Processor:
     @staticmethod
     def __gen_auto_partition_steps(
-        disk: str, encrypt: bool, root_size: int, password: str | None = None
+        disk: str, encrypt: bool, root_size: int, 
+        existing_pvs: list[str] | None, existing_vgs: list[str] | None,
+        password: str | None = None,
     ):
         setup_steps = []
         mountpoints = []
         post_install_steps = []
+
+        # Before we do anything, we need to remove conflicting LVM objects
+        for vg in existing_vgs:
+            setup_steps.append([disk, "vgremove", [vg]])
+        for pv in existing_pvs:
+            setup_steps.append([disk, "pvremove", [pv]])
 
         setup_steps.append([disk, "label", ["gpt"]])
         # Boot
@@ -322,6 +330,25 @@ class Processor:
         setup_steps = []
         mountpoints = []
         post_install_steps = []
+
+        # Before we do anything, we need to remove conflicting LVM objects
+        vgs_to_remove = []
+        pvs_to_remove = []
+        for part, values in disk_final.items():
+            pv = values["existing_pv"]
+            vg = values["existing_vg"]
+            if pv is None:
+                continue
+            disk, _ = Diskutils.separate_device_and_partn(pv)
+            pvs_to_remove.append([pv, disk])
+            if vg is not None and vg not in vgs_to_remove: 
+                vgs_to_remove.append([vg, disk])
+
+        for vg, disk in vgs_to_remove:
+            setup_steps.append([disk, "vgremove", [vg]]) 
+        for pv, disk in pvs_to_remove:
+            setup_steps.append([disk, "pvremove", [pv]])
+
 
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
@@ -459,7 +486,9 @@ class Processor:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
                     part_info = Processor.__gen_auto_partition_steps(
-                        final["disk"]["auto"]["disk"], encrypt, root_size, password
+                        final["disk"]["auto"]["disk"], encrypt, root_size,
+                        final["disk"]["auto"]["pvs_to_remove"], final["disk"]["auto"]["vgs_to_remove"],
+                        password,
                     )
                 else:
                     part_info = Processor.__gen_manual_partition_steps(
