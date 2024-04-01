@@ -1,5 +1,6 @@
 import os
 import subprocess
+import json
 
 class Diskutils:
     @staticmethod
@@ -12,6 +13,36 @@ class Diskutils:
             return f"{round(size / 1024, 2)} KB"
         else:
             return f"{size} B"
+    
+    @staticmethod
+    def separate_device_and_partn(part_dev: str) -> tuple[str, str|None]:
+        info_json = subprocess.check_output(
+            "lsblk --json -o NAME,PKNAME,PARTN " + part_dev, shell=True
+        ).decode("utf-8")
+        info_multiple = json.loads(info_json)["blockdevices"]
+        
+        if len(info_multiple) > 1:
+            raise ValueError(f'{part_dev} returned more than one device')
+        info = info_multiple[0]
+        
+        if info["partn"] == None:
+            # part_dev is actually a device, not a partition
+            return "/dev/" + info["name"], None
+        
+        return "/dev/" + info["pkname"], str(info["partn"])
+
+    @staticmethod
+    def fetch_lvm_pvs() -> list[list[str]]:
+        output_json = subprocess.check_output(
+            "sudo pvs --reportformat=json", shell=True
+        ).decode("utf-8")
+        output_pvs = json.loads(output_json)["report"][0]["pv"]
+        pv_with_vgs = []
+        for pv_output in output_pvs:
+            pv_name = pv_output["pv_name"]
+            vg_name = pv_output["vg_name"] if pv_output["vg_name"] != "" else None
+            pv_with_vgs.append([pv_name, vg_name])
+        return pv_with_vgs
 
 class Disk:
     def __init__(self, disk: str):

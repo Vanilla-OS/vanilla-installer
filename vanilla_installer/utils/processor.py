@@ -23,6 +23,7 @@ from datetime import datetime
 from typing import Any, Union
 
 from vanilla_installer.core.system import Systeminfo
+from vanilla_installer.core.disks import Diskutils
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -241,11 +242,19 @@ class AlbiusRecipe:
 class Processor:
     @staticmethod
     def __gen_auto_partition_steps(
-        disk: str, encrypt: bool, root_size: int, password: str | None = None
+        disk: str, encrypt: bool, root_size: int, 
+        existing_pvs: list[str] | None, existing_vgs: list[str] | None,
+        password: str | None = None,
     ):
         setup_steps = []
         mountpoints = []
         post_install_steps = []
+
+        # Before we do anything, we need to remove conflicting LVM objects
+        for vg in existing_vgs:
+            setup_steps.append([disk, "vgremove", [vg]])
+        for pv in existing_pvs:
+            setup_steps.append([disk, "pvremove", [pv]])
 
         setup_steps.append([disk, "label", ["gpt"]])
         # Boot
@@ -322,14 +331,30 @@ class Processor:
         mountpoints = []
         post_install_steps = []
 
+        # Before we do anything, we need to remove conflicting LVM objects
+        vgs_to_remove = []
+        pvs_to_remove = []
+        for part, values in disk_final.items():
+            pv = values["existing_pv"]
+            vg = values["existing_vg"]
+            if pv is None:
+                continue
+            disk, _ = Diskutils.separate_device_and_partn(pv)
+            pvs_to_remove.append([pv, disk])
+            if vg is not None and vg not in vgs_to_remove: 
+                vgs_to_remove.append([vg, disk])
+
+        for vg, disk in vgs_to_remove:
+            setup_steps.append([disk, "vgremove", [vg]]) 
+        for pv, disk in pvs_to_remove:
+            setup_steps.append([disk, "pvremove", [pv]])
+
+
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
         # But we still need to format partitions.
         for part, values in disk_final.items():
-            disk_regex = r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?"
-            part_regex = r".*[a-z]([0-9]+)"
-            part_disk = re.match(disk_regex, part, re.MULTILINE)[0]
-            part_number = re.sub(part_regex, r"\1", part)
+            part_disk, part_number = Diskutils.separate_device_and_partn(part)
 
             def setup_partition(
                 part_name: str, encrypt: bool = False, password: str = None
@@ -348,14 +373,9 @@ class Processor:
                 setup_steps.append([part_disk, operation, format_args])
 
             if values["mp"] == "/":
-                part_prefix = (
-                    f"{part_disk}p"
-                    if re.match(r"[0-9]", part_disk[-1])
-                    else f"{part_disk}"
-                )
-                setup_steps.append([part_disk, "pvcreate", [part_prefix + part_number]])
+                setup_steps.append([part_disk, "pvcreate", [part]])
                 setup_steps.append(
-                    [part_disk, "vgcreate", ["vos-root", [part_prefix + part_number]]]
+                    [part_disk, "vgcreate", ["vos-root", [part]]]
                 )
                 setup_steps.append(
                     [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
@@ -468,7 +488,9 @@ class Processor:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
                     part_info = Processor.__gen_auto_partition_steps(
-                        final["disk"]["auto"]["disk"], encrypt, root_size, password
+                        final["disk"]["auto"]["disk"], encrypt, root_size,
+                        final["disk"]["auto"]["pvs_to_remove"], final["disk"]["auto"]["vgs_to_remove"],
+                        password,
                     )
                 else:
                     part_info = Processor.__gen_manual_partition_steps(
@@ -500,9 +522,7 @@ class Processor:
             root_b_part,
             var_part,
         ) = Processor.__find_partitions(recipe)
-        boot_disk = re.match(
-            r"^/dev/[a-zA-Z]+([0-9]+[a-z][0-9]+)?", boot_part, re.MULTILINE
-        )[0]
+        boot_disk, _ = Diskutils.separate_device_and_partn(boot_part)
 
         # Create SystemD units to setup mountpoints
         extra_target = "cryptsetup" if encrypt else ""

@@ -526,16 +526,27 @@ class VanillaDefaultDiskPartModal(Adw.Window):
     def partition_recipe(self):
         recipe = {}
 
+        pv_list = Diskutils.fetch_lvm_pvs()
+
         for __, info in self.__partition_selector.selected_partitions.items():
             # Partition can be None if user didn't configure swap
             if not isinstance(info["partition"], Partition):
                 continue
+
+            pv_to_remove = None
+            vg_to_remove = None
+            for pv, vg in pv_list:
+                if pv == info["partition"].partition:
+                    pv_to_remove = pv
+                    vg_to_remove = vg
 
             recipe[info["partition"].partition] = {
                 "fs": info["fstype"],
                 "mp": info["mountpoint"],
                 "pretty_size": info["partition"].pretty_size,
                 "size": info["partition"].size,
+                "existing_pv": pv_to_remove,
+                "existing_vg": vg_to_remove
             }
 
         return recipe
@@ -565,7 +576,6 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                 entry.set_title(partition_recipe[partition]["disk"])
                 entry.set_subtitle(_("Entire disk will be used."))
             else:
-                self.set_default_size(self.default_width, 650)
                 if partition == "disk":
                     continue
                 entry.set_title(partition)
@@ -583,6 +593,38 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                         )
                     )
             self.group_partitions.add(entry)
+        
+        if "auto" in partition_recipe:
+            for vg in partition_recipe["auto"]["vgs_to_remove"]:
+                entry = Adw.ActionRow()
+                entry.set_title("LVM volume group: " + vg)
+                entry.set_subtitle(_("Volume group will be removed."))
+                self.group_partitions.add(entry)
+            for pv in partition_recipe["auto"]["pvs_to_remove"]:
+                entry = Adw.ActionRow()
+                entry.set_title("LVM physical volume: " + pv)
+                entry.set_subtitle(_("Physical volume will be removed."))
+                self.group_partitions.add(entry)
+        else:
+            vgs_to_remove = []
+            for partition, values in partition_recipe.items():
+                if partition == "disk":
+                    continue
+                pv = values["existing_pv"]
+                vg = values["existing_vg"]
+                if pv is None:
+                    continue
+                if vg is not None and vg not in vgs_to_remove:
+                    vgs_to_remove.append(values["existing_vg"])
+                entry = Adw.ActionRow()
+                entry.set_title("LVM physical volume: " + pv)
+                entry.set_subtitle(_("Physical volume will be removed."))
+                self.group_partitions.add(entry)
+            for vg in vgs_to_remove:
+                entry = Adw.ActionRow()
+                entry.set_title("LVM volume group: " + vg)
+                entry.set_subtitle(_("Volume group will be removed."))
+                self.group_partitions.add(entry)
 
     def __on_btn_cancel_clicked(self, widget):
         self.destroy()
@@ -641,11 +683,23 @@ class VanillaDefaultDisk(Adw.Bin):
         self.btn_next.set_sensitive(self.__partition_recipe is not None)
 
     def __on_auto_clicked(self, button):
+        pvs_to_remove = []
+        vgs_to_remove = []
+        for pv, vg in Diskutils.fetch_lvm_pvs():
+            pv_disk, _ = Diskutils.separate_device_and_partn(pv)
+            if pv_disk != self.__selected_disks[0].disk:
+                continue
+            pvs_to_remove.append(pv)
+            if vg is not None and vg not in vgs_to_remove:
+                vgs_to_remove.append(vg)
+
         self.__partition_recipe = {
             "auto": {
                 "disk": self.__selected_disks[0].disk,
                 "pretty_size": self.__selected_disks[0].pretty_size,
                 "size": self.__selected_disks[0].size,
+                "vgs_to_remove": vgs_to_remove,
+                "pvs_to_remove": pvs_to_remove,
             }
         }
         modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)

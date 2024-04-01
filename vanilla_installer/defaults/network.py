@@ -495,4 +495,3 @@ class VanillaDefaultNetwork(Adw.Bin):
             [it[0] for it in list(self.__wireless_children.values())],
             (("connected", True), ("signal_strength", True), ("ssid", True)),
         )
-
