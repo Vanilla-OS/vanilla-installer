@@ -578,7 +578,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                     )
                 )
             self.group_partitions.add(entry)
-        
+
         if "auto" in partition_recipe:
             for vg in partition_recipe["auto"]["vgs_to_remove"]:
                 entry = Adw.ActionRow()

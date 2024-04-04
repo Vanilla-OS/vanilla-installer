@@ -19,6 +19,7 @@ from gi.repository import Adw, Gtk
 from vanilla_installer.windows.dialog_recovery import VanillaRecoveryDialog
 from vanilla_installer.windows.dialog_poweroff import VanillaPoweroffDialog
 
+
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-welcome.ui")
 class VanillaDefaultWelcome(Adw.Bin):
     __gtype_name__ = "VanillaDefaultWelcome"
@@ -37,7 +38,7 @@ class VanillaDefaultWelcome(Adw.Bin):
 
         distro_name = self.__distro_info.get("name", "Vanilla OS")
         distro_logo = self.__distro_info.get("logo", "org.vanillaos.Installer-flower")
-        
+
         self.status_page.set_icon_name(distro_logo)
         self.status_page.set_title(f"Welcome to {distro_name}!")
 
