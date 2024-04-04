@@ -14,18 +14,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
 import re
+import threading
 import unicodedata
-
-from gi.repository import Adw, Gtk, GLib
 from gettext import gettext as _
+
+from gi.repository import Adw, GLib, Gtk
 
 from vanilla_installer.core.timezones import (
     all_timezones,
     get_location,
     get_timezone_preview,
 )
-from vanilla_installer.utils.run_async import RunAsync
+
+logger = logging.getLogger("VanillaInstaller::Timezone")
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-timezone.ui")
@@ -35,30 +38,22 @@ class TimezoneRow(Adw.ActionRow):
     select_button = Gtk.Template.Child()
     country_label = Gtk.Template.Child()
 
-    def __init__(self, title, subtitle, tz_name, parent, **kwargs):
+    def __init__(self, title, subtitle, tz_name, toggled_callback, parent_expander, **kwargs):
         super().__init__(**kwargs)
         self.title = title
         self.subtitle = subtitle
-        self.parent = parent
         self.tz_name = tz_name
-
-        tz_time, tz_date = get_timezone_preview(tz_name)
+        self.parent_expander = parent_expander
 
         self.set_title(title)
-        self.set_subtitle(f"{tz_time} • {tz_date}")
         self.country_label.set_label(tz_name)
 
-        self.select_button.connect("toggled", self.__on_check_button_toggled)
+        self.select_button.connect("toggled", toggled_callback, self)
+        self.parent_expander.connect("notify::expanded", self.update_time_preview)
 
-    def __on_check_button_toggled(self, widget):
-        tz_split = self.tz_name.split("/", 1)
-        self.parent.selected_timezone["region"] = tz_split[0]
-        self.parent.selected_timezone["zone"] = tz_split[1]
-        self.parent.current_tz_label.set_label(self.tz_name)
-        self.parent.current_location_label.set_label(
-            _("(at %s, %s)") % (self.title, self.subtitle)
-        )
-        self.parent.timezone_verify()
+    def update_time_preview(self, *args):
+        tz_time, tz_date = get_timezone_preview(self.tz_name)
+        self.set_subtitle(f"{tz_time} • {tz_date}")
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-timezone.ui")
@@ -74,11 +69,15 @@ class VanillaDefaultTimezone(Adw.Bin):
     search_controller = Gtk.EventControllerKey.new()
     selected_timezone = {"region": "Europe", "zone": None}
 
-    expanders_list = {
-        country: region
-        for region, countries in all_timezones.items()
-        for country in countries.keys()
-    }
+    expanders_list = dict(
+        sorted(
+            {
+                country: region
+                for region, countries in all_timezones.items()
+                for country in countries.keys()
+            }.items()
+        )
+    )
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -86,6 +85,7 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.__step_num = step["num"]
 
         self.__expanders = []
         self.__tz_entries = []
@@ -98,12 +98,24 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
 
-    def timezone_verify(self, *args):
-        valid = (
-            self.selected_timezone["region"]
-            and self.selected_timezone["zone"] is not None
-        )
-        self.btn_next.set_sensitive(valid)
+    def timezone_verify(self, carousel=None, idx=None):
+        if idx is not None and idx != self.__step_num:
+            return
+
+        def timezone_verify_callback(result, *args):
+            if result:
+                current_city = result.get_city_name()
+                current_country = result.get_country_name()
+                for entry in self.__tz_entries:
+                    if current_city == entry.title and current_country == entry.subtitle:
+                        self.selected_timezone["zone"] = current_city
+                        self.selected_timezone["region"] = current_country
+                        entry.select_button.set_active(True)
+                        return
+                self.btn_next.set_sensitive(True)
+
+        thread = threading.Thread(target=get_location, args=(timezone_verify_callback,))
+        thread.start()
 
     def get_finals(self):
         try:
@@ -118,11 +130,7 @@ class VanillaDefaultTimezone(Adw.Bin):
 
     def __on_search_key_pressed(self, *args):
         def remove_accents(msg: str):
-            out = (
-                unicodedata.normalize("NFD", msg)
-                .encode("ascii", "ignore")
-                .decode("utf-8")
-            )
+            out = unicodedata.normalize("NFD", msg).encode("ascii", "ignore").decode("utf-8")
             return str(out)
 
         search_entry = self.entry_search_timezone.get_text().lower()
@@ -147,48 +155,30 @@ class VanillaDefaultTimezone(Adw.Bin):
                 visible_entries = 0
                 current_country = entry.subtitle
                 current_expander += 1
-            visible_entries += 1 if match else 0
+            visible_entries += match
+
+    def __on_row_toggle(self, __check_button, widget):
+        tz_split = widget.tz_name.split("/", 1)
+        self.selected_timezone["region"] = tz_split[0]
+        self.selected_timezone["zone"] = tz_split[1]
+        self.current_tz_label.set_label(widget.tz_name)
+        self.current_location_label.set_label(_("(at %s, %s)") % (widget.title, widget.subtitle))
+        self.btn_next.set_sensitive(True)
 
     def __generate_timezone_list_widgets(self):
-        def __populate_expanders():
-            widgets = {}
-            first_elem = None
-            for country, region in dict(sorted(self.expanders_list.items())).items():
-                if len(all_timezones[region][country]) > 0:
-                    country_tz_expander_row = Adw.ExpanderRow.new()
-                    country_tz_expander_row.set_title(country)
-                    country_tz_expander_row.set_subtitle(region)
-                    widgets[country_tz_expander_row] = []
-                    for city, tzname in sorted(all_timezones[region][country].items()):
-                        timezone_row = TimezoneRow(city, country, tzname, self)
-                        if first_elem is None:
-                            first_elem = timezone_row
-                        else:
-                            timezone_row.select_button.set_group(
-                                first_elem.select_button
-                            )
-                        widgets[country_tz_expander_row].append(timezone_row)
-            return widgets
+        def __populate_expander(expander, region, country, *args):
+            for city, tzname in all_timezones[region][country].items():
+                timezone_row = TimezoneRow(city, country, tzname, self.__on_row_toggle, expander)
+                self.__tz_entries.append(timezone_row)
+                if len(self.__tz_entries) > 0:
+                    timezone_row.select_button.set_group(self.__tz_entries[0].select_button)
+                expander.add_row(timezone_row)
 
-        def __set_located_timezone(result, *args):
-            if not result:
-                return
-            current_city = result.get_city_name()
-            current_country = result.get_country_name()
-            for entry in self.__tz_entries:
-                if current_city == entry.title and current_country == entry.subtitle:
-                    self.selected_timezone["zone"] = current_city
-                    self.selected_timezone["region"] = current_country
-                    entry.select_button.set_active(True)
-                    return
-
-        def __callback(widgets, *args):
-            for expander, timezone_rows in widgets.items():
+        for country, region in self.expanders_list.items():
+            if len(all_timezones[region][country]) > 0:
+                expander = Adw.ExpanderRow.new()
+                expander.set_title(country)
+                expander.set_subtitle(region)
                 self.all_timezones_group.add(expander)
                 self.__expanders.append(expander)
-                for timezone_row in timezone_rows:
-                    expander.add_row(timezone_row)
-                    self.__tz_entries.append(timezone_row)
-            RunAsync(get_location, __set_located_timezone)
-
-        RunAsync(__populate_expanders, __callback)
+                GLib.idle_add(__populate_expander, expander, region, country)

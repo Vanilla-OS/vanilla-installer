@@ -22,7 +22,7 @@ from gettext import gettext as _
 from operator import attrgetter
 from threading import Lock, Timer
 
-from gi.repository import NM, NMA4, Adw, Gtk, GLib
+from gi.repository import NM, NMA4, Adw, GLib, Gtk
 
 from vanilla_installer.utils.run_async import RunAsync
 
@@ -115,9 +115,7 @@ class WirelessRow(Adw.ActionRow):
             if not secure:
                 self.secure_icon.set_from_icon_name("warning-small-symbolic")
             else:
-                self.secure_icon.set_from_icon_name(
-                    "network-wireless-encrypted-symbolic"
-                )
+                self.secure_icon.set_from_icon_name("network-wireless-encrypted-symbolic")
 
         self.secure_icon.set_visible(secure is not None)
         if tooltip is not None:
@@ -254,6 +252,7 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__nm_client = NM.Client.new()
+        self.__step_num = step["num"]
 
         self.__devices = []
         self.__wired_children = []
@@ -280,9 +279,12 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__nm_client.connect("device-added", self.__add_new_device)
         self.__nm_client.connect("device-added", self.__remove_device)
         self.btn_next.connect("clicked", self.__window.next)
-        self.connect("realize", self.__try_skip_page)
+        self.__window.carousel.connect("page-changed", self.__try_skip_page)
 
-    def __try_skip_page(self, data):
+    def __try_skip_page(self, carousel=None, idx=None):
+        if idx is not None and idx != self.__step_num:
+            return
+
         # Skip page if already connected to the internet
         if self.has_eth_connection or self.has_wifi_connection:
             self.__window.next()
@@ -316,9 +318,7 @@ class VanillaDefaultNetwork(Adw.Bin):
                     eth_devices += 1
                 elif device_type == NM.DeviceType.WIFI:
                     device.connect("state-changed", self.__on_state_changed)
-                    self.has_wifi_connection = (
-                        device.get_active_connection() is not None
-                    )
+                    self.has_wifi_connection = device.get_active_connection() is not None
                     self.__refresh_wifi_list(device)
                     wifi_devices += 1
                 else:
@@ -419,7 +419,7 @@ class VanillaDefaultNetwork(Adw.Bin):
         GLib.idle_add(self.__refresh_wifi_list, conn)
 
     def __refresh_wifi_list(self, conn: NM.DeviceWifi):
-        networks = {}
+        networks: dict[str, list[NM.AccessPoint]] = {}
         for ap in conn.get_access_points():
             ssid = ap.get_ssid()
             if ssid is None:
