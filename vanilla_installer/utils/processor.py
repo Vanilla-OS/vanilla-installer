@@ -321,7 +321,7 @@ class Processor:
         mountpoints.append(["/dev/vos-root/root-b", "/"])
         mountpoints.append(["/dev/vos-var/var", "/var"])
 
-        return setup_steps, mountpoints, post_install_steps
+        return setup_steps, mountpoints, post_install_steps, disk
 
     @staticmethod
     def __gen_manual_partition_steps(
@@ -349,6 +349,7 @@ class Processor:
         for pv, disk in pvs_to_remove:
             setup_steps.append([disk, "pvremove", [pv]])
 
+        boot_disk = None
 
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
@@ -425,6 +426,7 @@ class Processor:
                 mountpoints.append(["/dev/vos-root/root-b", "/"])
             elif values["mp"] == "/boot":
                 setup_partition("vos-boot")
+                boot_disk = part_disk
             elif values["mp"] == "/boot/efi":
                 setup_partition("vos-efi")
             elif values["mp"] == "/var":
@@ -432,7 +434,7 @@ class Processor:
             elif values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
 
-        return setup_steps, mountpoints, post_install_steps
+        return setup_steps, mountpoints, post_install_steps, boot_disk
 
     @staticmethod
     def __find_partitions(recipe: AlbiusRecipe) -> tuple[str, str, str, str, str]:
@@ -481,6 +483,8 @@ class Processor:
                 encrypt = final["encryption"]["use_encryption"]
                 password = final["encryption"]["encryption_key"] if encrypt else None
 
+        boot_disk = None
+
         # Setup disks and mountpoints
         for final in finals:
             if "disk" in final.keys():
@@ -495,7 +499,7 @@ class Processor:
                         final["disk"], encrypt, password
                     )
 
-                setup_steps, mountpoints, post_install_steps = part_info
+                setup_steps, mountpoints, post_install_steps, boot_disk = part_info
                 for step in setup_steps:
                     recipe.add_setup_step(*step)
                 for mount in mountpoints:
@@ -520,7 +524,6 @@ class Processor:
             root_b_part,
             var_part,
         ) = Processor.__find_partitions(recipe)
-        boot_disk, _ = Diskutils.separate_device_and_partn(boot_part)
 
         # Create SystemD units to setup mountpoints
         extra_target = "cryptsetup" if encrypt else ""
