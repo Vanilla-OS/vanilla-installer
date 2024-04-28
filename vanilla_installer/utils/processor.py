@@ -263,6 +263,7 @@ class Processor:
         # Boot
         setup_steps.append([disk, "mkpart", ["vos-boot", "ext4", 1, 1025]])
         setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
+        setup_steps.append([disk, "setflag", ["2", "esp", True]])
 
         # LVM PVs
         setup_steps.append([disk, "mkpart", ["vos-root", "none", 1537, 23556]])
