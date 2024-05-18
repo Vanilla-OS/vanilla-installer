@@ -115,7 +115,9 @@ class WirelessRow(Adw.ActionRow):
             if not secure:
                 self.secure_icon.set_from_icon_name("warning-small-symbolic")
             else:
-                self.secure_icon.set_from_icon_name("network-wireless-encrypted-symbolic")
+                self.secure_icon.set_from_icon_name(
+                    "network-wireless-encrypted-symbolic"
+                )
 
         self.secure_icon.set_visible(secure is not None)
         if tooltip is not None:
@@ -318,7 +320,9 @@ class VanillaDefaultNetwork(Adw.Bin):
                     eth_devices += 1
                 elif device_type == NM.DeviceType.WIFI:
                     device.connect("state-changed", self.__on_state_changed)
-                    self.has_wifi_connection = device.get_active_connection() is not None
+                    self.has_wifi_connection = (
+                        device.get_active_connection() is not None
+                    )
                     self.__refresh_wifi_list(device)
                     wifi_devices += 1
                 else:
@@ -421,6 +425,9 @@ class VanillaDefaultNetwork(Adw.Bin):
     def __refresh_wifi_list(self, conn: NM.DeviceWifi):
         networks: dict[str, list[NM.AccessPoint]] = {}
         for ap in conn.get_access_points():
+            if ap is None:
+                continue
+
             ssid = ap.get_ssid()
             if ssid is None:
                 continue
