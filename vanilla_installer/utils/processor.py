@@ -282,7 +282,9 @@ class Processor:
 
         # LVM root thin pool
         setup_steps.append([disk, "lvcreate", ["root", "vos-root", "linear", 19456]])
-        setup_steps.append([disk, "lvcreate", ["root-meta", "vos-root", "linear", 1024]])
+        setup_steps.append(
+            [disk, "lvcreate", ["root-meta", "vos-root", "linear", 1024]]
+        )
         setup_steps.append(
             [
                 disk,
@@ -290,8 +292,12 @@ class Processor:
                 ["vos-root/root", "vos-root/root-meta"],
             ]
         )
-        setup_steps.append([disk, "lvcreate-thin", ["root-a", "vos-root", 19456, "root"]])
-        setup_steps.append([disk, "lvcreate-thin", ["root-b", "vos-root", 19456, "root"]])
+        setup_steps.append(
+            [disk, "lvcreate-thin", ["root-a", "vos-root", 19456, "root"]]
+        )
+        setup_steps.append(
+            [disk, "lvcreate-thin", ["root-b", "vos-root", 19456, "root"]]
+        )
         setup_steps.append([disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]])
         setup_steps.append([disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]])
 
@@ -299,8 +305,11 @@ class Processor:
         setup_steps.append([disk, "lvcreate", ["var", "vos-var", "linear", "100%FREE"]])
         lvm_var_args = ["vos-var/var", "btrfs", "vos-var"]
         if encrypt:
+            assert password
             lvm_var_args.insert(2, password)
-        setup_steps.append([disk, "lvm-luks-format" if encrypt else "lvm-format", lvm_var_args])
+        setup_steps.append(
+            [disk, "lvm-luks-format" if encrypt else "lvm-format", lvm_var_args]
+        )
 
         # Mountpoints
         if not re.match(r"[0-9]", disk[-1]):
@@ -320,7 +329,9 @@ class Processor:
         return setup_steps, mountpoints, post_install_steps, disk
 
     @staticmethod
-    def __gen_manual_partition_steps(disk_final: dict, encrypt: bool, password: str | None = None):
+    def __gen_manual_partition_steps(
+        disk_final: dict, encrypt: bool, password: str | None = None
+    ):
         setup_steps = []
         mountpoints = []
         post_install_steps = []
@@ -351,7 +362,9 @@ class Processor:
         for part, values in disk_final.items():
             part_disk, part_number = Diskutils.separate_device_and_partn(part)
 
-            def setup_partition(part_name: str, encrypt: bool = False, password: str = None):
+            def setup_partition(
+                part_name: str, encrypt: bool = False, password: str | None = None
+            ):
                 format_args = [part_number, values["fs"]]
                 if encrypt:
                     operation = "luks-format"
@@ -366,8 +379,12 @@ class Processor:
             if values["mp"] == "/":
                 setup_steps.append([part_disk, "pvcreate", [part]])
                 setup_steps.append([part_disk, "vgcreate", ["vos-root", [part]]])
-                setup_steps.append([part_disk, "lvcreate", ["init", "vos-root", "linear", 512]])
-                setup_steps.append([part_disk, "lvm-format", ["vos-root/init", "ext4", "vos-init"]])
+                setup_steps.append(
+                    [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvm-format", ["vos-root/init", "ext4", "vos-init"]]
+                )
 
                 # LVM root thin pool
                 # Total pool size is the disk size, subtracted by:
@@ -402,8 +419,12 @@ class Processor:
                         ["root-b", "vos-root", thin_size, "root"],
                     ]
                 )
-                setup_steps.append([part_disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]])
-                setup_steps.append([part_disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]])
+                setup_steps.append(
+                    [part_disk, "lvm-format", ["vos-root/root-a", "btrfs", "vos-a"]]
+                )
+                setup_steps.append(
+                    [part_disk, "lvm-format", ["vos-root/root-b", "btrfs", "vos-b"]]
+                )
                 mountpoints.append(["/dev/vos-root/root-a", "/"])
                 mountpoints.append(["/dev/vos-root/root-b", "/"])
             elif values["mp"] == "/boot":
@@ -411,6 +432,7 @@ class Processor:
                 boot_disk = part_disk
             elif values["mp"] == "/boot/efi":
                 setup_partition("vos-efi")
+                setup_steps.append([part_disk, "setflag", [part_number, "esp", True]])
             elif values["mp"] == "/var":
                 setup_partition("vos-var", encrypt, password)
             elif values["mp"] == "swap":
@@ -553,7 +575,10 @@ class Processor:
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
-                    *[f"ln -rs /mnt/a/{path} /mnt/a/.system/" for path in _REL_SYSTEM_LINKS],
+                    *[
+                        f"ln -rs /mnt/a/{path} /mnt/a/.system/"
+                        for path in _REL_SYSTEM_LINKS
+                    ],
                     f"mount {var_label} /mnt/a/var",
                     f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
                 ],
@@ -618,7 +643,9 @@ class Processor:
             )
 
             # Run `grub-mkconfig` to generate files for the boot partition
-            recipe.add_postinstall_step("grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True)
+            recipe.add_postinstall_step(
+                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+            )
 
             # Replace main GRUB entry in the boot partition
             with open("/tmp/boot-grub.cfg", "w") as file:
@@ -633,7 +660,9 @@ class Processor:
             )
 
             # Run `grub-mkconfig` inside the root partition
-            recipe.add_postinstall_step("grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True)
+            recipe.add_postinstall_step(
+                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+            )
 
             # Copy init files to init LV
             recipe.add_postinstall_step(
