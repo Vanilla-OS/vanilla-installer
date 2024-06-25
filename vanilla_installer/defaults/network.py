@@ -216,6 +216,7 @@ class WirelessRow(Adw.ActionRow):
         connection = NM.SimpleConnection.new()
         s_con = NM.SettingConnection.new()
         s_con.set_property(NM.SETTING_CONNECTION_ID, self.ssid)
+        s_con.set_property(NM.SETTING_CONNECTION_UUID, NM.utils_uuid_generate())
         s_con.set_property(NM.SETTING_CONNECTION_TYPE, "802-11-wireless")
         s_wifi = NM.SettingWireless.new()
         s_wifi.set_property(NM.SETTING_WIRELESS_SSID, self.ap.get_ssid())
