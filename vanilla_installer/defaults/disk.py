@@ -159,6 +159,7 @@ class PartitionSelector(Adw.PreferencesPage):
     swap_part_expand = Gtk.Template.Child()
 
     use_swap_part = Gtk.Template.Child()
+    keep_efi_part = Gtk.Template.Child()
 
     boot_small_error = Gtk.Template.Child()
     efi_small_error = Gtk.Template.Child()
@@ -213,6 +214,7 @@ class PartitionSelector(Adw.PreferencesPage):
 
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
+        self.keep_efi_part.connect("state-set", self.__on_keep_efi_toggled)
 
         self.__boot_part_rows = self.__generate_partition_list_widgets(
             self.boot_part_expand, "ext4", False
@@ -407,6 +409,12 @@ class PartitionSelector(Adw.PreferencesPage):
 
         self.update_apply_button_status()
 
+    def __on_keep_efi_toggled(self, widget, state):
+        if state:
+            self.__selected_partitions["efi_part_expand"]["fstype"] = "unformatted"
+        else:
+            self.__selected_partitions["efi_part_expand"]["fstype"] = "fat32"
+
     def update_partition_rows(self):
         rows = [
             self.__boot_part_rows,
@@ -571,12 +579,19 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
                 if partition == "disk":
                     continue
                 entry.set_title(partition)
-                entry.set_subtitle(
-                    _("Will be formatted in {} and mounted in {}").format(
-                        partition_recipe[partition]["fs"],
-                        partition_recipe[partition]["mp"],
+                if partition_recipe[partition]["fs"] == "unformatted":
+                    entry.set_subtitle(
+                        _("Will be mounted in {}").format(
+                            partition_recipe[partition]["mp"],
+                        )
                     )
-                )
+                else:
+                    entry.set_subtitle(
+                        _("Will be formatted in {} and mounted in {}").format(
+                            partition_recipe[partition]["fs"],
+                            partition_recipe[partition]["mp"],
+                        )
+                    )
             self.group_partitions.add(entry)
 
         if "auto" in partition_recipe:
