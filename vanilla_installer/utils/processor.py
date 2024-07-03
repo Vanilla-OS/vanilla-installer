@@ -38,7 +38,7 @@ _REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
 _ROOT_GRUB_CFG = """insmod gzio
 insmod part_gpt
 insmod ext2
-linux   (lvm/vos--root-init)/vos-a/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff
+linux   (lvm/vos--root-init)/vos-a/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff lsm=integrity
 initrd  (lvm/vos--root-init)/vos-a/initrd.img-%s
 """
 
