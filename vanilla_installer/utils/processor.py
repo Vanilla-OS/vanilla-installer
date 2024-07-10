@@ -725,8 +725,6 @@ class Processor:
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                     "mount -o bind,ro /.system/usr /usr",
-                    "mkdir -p /var/lib/abroot/etc/vos-a/locales",
-                    "mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale",
                 ],
                 chroot=True,
             )
