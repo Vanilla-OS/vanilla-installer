@@ -141,38 +141,6 @@ _ABIMAGE_FILE = """{
 }
 """
 
-_SYSTEMD_MOUNT_UNIT = """[Unit]
-Description=Mounts %s from var
-After=local-fs-pre.target %s
-Before=local-fs.target nss-user-lookup.target
-RequiresMountsFor=/var
-
-[Mount]
-What=%s
-Where=%s
-Type=%s
-Options=%s
-"""
-
-systemd_mount_unit_contents = [
-    ["/var/home", "/home", "none", "bind", "home.mount"],
-    ["/var/opt", "/opt", "none", "bind", "opt.mount"],
-    [
-        "/var/lib/abroot/etc/vos-a/locales",
-        "/.system/usr/lib/locale",
-        "none",
-        "bind",
-        "\\x2esystem-usr-lib-locale.mount",
-    ],
-    [
-        "overlay",
-        "/.system/etc",
-        "overlay",
-        "lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work",
-        "\\x2esystem-etc.mount",
-    ],
-]
-
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
@@ -532,29 +500,6 @@ class Processor:
             var_part,
         ) = Processor.__find_partitions(recipe)
 
-        # Create SystemD units to setup mountpoints
-        extra_target = "cryptsetup" if encrypt else ""
-        for systemd_mount in systemd_mount_unit_contents:
-            source = systemd_mount[0]
-            destination = systemd_mount[1]
-            fs_type = systemd_mount[2]
-            options = systemd_mount[3]
-            filename = systemd_mount[4]
-            filename_escaped = filename.replace("\\", "\\\\")
-            with open("/tmp/" + filename, "w") as file:
-                file.write(
-                    _SYSTEMD_MOUNT_UNIT
-                    % (destination, extra_target, source, destination, fs_type, options)
-                )
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    f"cp /tmp/{filename_escaped} /mnt/a/etc/systemd/system/{filename_escaped}",
-                    "mkdir -p /mnt/a/etc/systemd/system/local-fs.target.wants",
-                    f"ln -s ../{filename_escaped} /mnt/a/etc/systemd/system/local-fs.target.wants/{filename_escaped}",
-                ],
-            )
-
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
             if encrypt:
@@ -696,19 +641,6 @@ class Processor:
                         envsubst < /tmp/abroot.cfg > /mnt/a/.system/boot/init/vos-a/abroot.cfg \
                         '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
                     )
-                ],
-            )
-
-            # Delete everything but root A entry from fstab and add /.system/usr and /var mounts
-            var_location_prefix = "/dev/mapper/luks-" if encrypt else "UUID="
-            fstab_regex = r"/^[^#]\S+\s+\/\S+\s+.+$/d"
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
-                    f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
-                    "echo '/.system/usr  /.system/usr  none  bind,ro' >> /mnt/a/etc/fstab",
-                    f'VAR_UUID=$(lsblk -d -n -o UUID {var_part}) && echo "{var_location_prefix}$VAR_UUID /var  auto  defaults  0  0" >> /mnt/a/etc/fstab',
                 ],
             )
 
