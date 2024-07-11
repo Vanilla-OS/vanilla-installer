@@ -642,7 +642,7 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__partition_recipe = None
         self.__selected_disks_sum = 0
 
-        self.min_disk_size = self.__window.recipe.get("min_disk_size", 28680)
+        self.min_disk_size = self.__window.recipe.get("min_disk_size", 51200)
         self.disk_space_err_label.set_label(
             self.disk_space_err_label.get_label()
             % Diskutils.pretty_size(self.min_disk_size * 1_048_576)
