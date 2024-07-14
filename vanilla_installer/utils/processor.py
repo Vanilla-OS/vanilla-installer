@@ -22,8 +22,8 @@ import tempfile
 from datetime import datetime
 from typing import Any, Union
 
-from vanilla_installer.core.system import Systeminfo
 from vanilla_installer.core.disks import Diskutils
+from vanilla_installer.core.system import Systeminfo
 
 logger = logging.getLogger("Installer::Processor")
 
@@ -38,7 +38,7 @@ _REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
 _ROOT_GRUB_CFG = """insmod gzio
 insmod part_gpt
 insmod ext2
-linux   (lvm/vos--root-init)/vos-a/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff
+linux   (lvm/vos--root-init)/vos-a/vmlinuz-%s root=%s quiet splash bgrt_disable $vt_handoff lsm=integrity
 initrd  (lvm/vos--root-init)/vos-a/initrd.img-%s
 """
 
@@ -141,38 +141,6 @@ _ABIMAGE_FILE = """{
 }
 """
 
-_SYSTEMD_MOUNT_UNIT = """[Unit]
-Description=Mounts %s from var
-After=local-fs-pre.target %s
-Before=local-fs.target nss-user-lookup.target
-RequiresMountsFor=/var
-
-[Mount]
-What=%s
-Where=%s
-Type=%s
-Options=%s
-"""
-
-systemd_mount_unit_contents = [
-    ["/var/home", "/home", "none", "bind", "home.mount"],
-    ["/var/opt", "/opt", "none", "bind", "opt.mount"],
-    [
-        "/var/lib/abroot/etc/vos-a/locales",
-        "/.system/usr/lib/locale",
-        "none",
-        "bind",
-        "\\x2esystem-usr-lib-locale.mount",
-    ],
-    [
-        "overlay",
-        "/.system/etc",
-        "overlay",
-        "lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work",
-        "\\x2esystem-etc.mount",
-    ],
-]
-
 
 AlbiusSetupStep = dict[str, Union[str, list[Any]]]
 AlbiusMountpoint = dict[str, str]
@@ -242,8 +210,11 @@ class AlbiusRecipe:
 class Processor:
     @staticmethod
     def __gen_auto_partition_steps(
-        disk: str, encrypt: bool, root_size: int, 
-        existing_pvs: list[str] | None, existing_vgs: list[str] | None,
+        disk: str,
+        encrypt: bool,
+        root_size: int,
+        existing_pvs: list[str] | None,
+        existing_vgs: list[str] | None,
         password: str | None = None,
     ):
         setup_steps = []
@@ -260,6 +231,7 @@ class Processor:
         # Boot
         setup_steps.append([disk, "mkpart", ["vos-boot", "ext4", 1, 1025]])
         setup_steps.append([disk, "mkpart", ["vos-efi", "fat32", 1025, 1537]])
+        setup_steps.append([disk, "setflag", ["2", "esp", True]])
 
         # LVM PVs
         setup_steps.append([disk, "mkpart", ["vos-root", "none", 1537, 23556]])
@@ -301,6 +273,7 @@ class Processor:
         setup_steps.append([disk, "lvcreate", ["var", "vos-var", "linear", "100%FREE"]])
         lvm_var_args = ["vos-var/var", "btrfs", "vos-var"]
         if encrypt:
+            assert password
             lvm_var_args.insert(2, password)
         setup_steps.append(
             [disk, "lvm-luks-format" if encrypt else "lvm-format", lvm_var_args]
@@ -321,7 +294,7 @@ class Processor:
         mountpoints.append(["/dev/vos-root/root-b", "/"])
         mountpoints.append(["/dev/vos-var/var", "/var"])
 
-        return setup_steps, mountpoints, post_install_steps
+        return setup_steps, mountpoints, post_install_steps, disk
 
     @staticmethod
     def __gen_manual_partition_steps(
@@ -341,14 +314,15 @@ class Processor:
                 continue
             disk, _ = Diskutils.separate_device_and_partn(pv)
             pvs_to_remove.append([pv, disk])
-            if vg is not None and vg not in vgs_to_remove: 
+            if vg is not None and vg not in vgs_to_remove:
                 vgs_to_remove.append([vg, disk])
 
         for vg, disk in vgs_to_remove:
-            setup_steps.append([disk, "vgremove", [vg]]) 
+            setup_steps.append([disk, "vgremove", [vg]])
         for pv, disk in pvs_to_remove:
             setup_steps.append([disk, "pvremove", [pv]])
 
+        boot_disk = None
 
         # Since manual partitioning uses GParted to handle partitions (for now),
         # we don't need to create any partitions or label disks (for now).
@@ -357,7 +331,7 @@ class Processor:
             part_disk, part_number = Diskutils.separate_device_and_partn(part)
 
             def setup_partition(
-                part_name: str, encrypt: bool = False, password: str = None
+                part_name: str, encrypt: bool = False, password: str | None = None
             ):
                 mountpoints.append([part, values["mp"]])
                 if values["fs"] == "unformatted":
@@ -374,9 +348,7 @@ class Processor:
 
             if values["mp"] == "/":
                 setup_steps.append([part_disk, "pvcreate", [part]])
-                setup_steps.append(
-                    [part_disk, "vgcreate", ["vos-root", [part]]]
-                )
+                setup_steps.append([part_disk, "vgcreate", ["vos-root", [part]]])
                 setup_steps.append(
                     [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
                 )
@@ -427,14 +399,16 @@ class Processor:
                 mountpoints.append(["/dev/vos-root/root-b", "/"])
             elif values["mp"] == "/boot":
                 setup_partition("vos-boot")
+                boot_disk = part_disk
             elif values["mp"] == "/boot/efi":
                 setup_partition("vos-efi")
+                setup_steps.append([part_disk, "setflag", [part_number, "esp", True]])
             elif values["mp"] == "/var":
                 setup_partition("vos-var", encrypt, password)
             elif values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
 
-        return setup_steps, mountpoints, post_install_steps
+        return setup_steps, mountpoints, post_install_steps, boot_disk
 
     @staticmethod
     def __find_partitions(recipe: AlbiusRecipe) -> tuple[str, str, str, str, str]:
@@ -483,13 +457,18 @@ class Processor:
                 encrypt = final["encryption"]["use_encryption"]
                 password = final["encryption"]["encryption_key"] if encrypt else None
 
+        boot_disk = None
+
         # Setup disks and mountpoints
         for final in finals:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
                     part_info = Processor.__gen_auto_partition_steps(
-                        final["disk"]["auto"]["disk"], encrypt, root_size,
-                        final["disk"]["auto"]["pvs_to_remove"], final["disk"]["auto"]["vgs_to_remove"],
+                        final["disk"]["auto"]["disk"],
+                        encrypt,
+                        root_size,
+                        final["disk"]["auto"]["pvs_to_remove"],
+                        final["disk"]["auto"]["vgs_to_remove"],
                         password,
                     )
                 else:
@@ -497,7 +476,7 @@ class Processor:
                         final["disk"], encrypt, password
                     )
 
-                setup_steps, mountpoints, post_install_steps = part_info
+                setup_steps, mountpoints, post_install_steps, boot_disk = part_info
                 for step in setup_steps:
                     recipe.add_setup_step(*step)
                 for mount in mountpoints:
@@ -522,30 +501,6 @@ class Processor:
             root_b_part,
             var_part,
         ) = Processor.__find_partitions(recipe)
-        boot_disk, _ = Diskutils.separate_device_and_partn(boot_part)
-
-        # Create SystemD units to setup mountpoints
-        extra_target = "cryptsetup" if encrypt else ""
-        for systemd_mount in systemd_mount_unit_contents:
-            source = systemd_mount[0]
-            destination = systemd_mount[1]
-            fs_type = systemd_mount[2]
-            options = systemd_mount[3]
-            filename = systemd_mount[4]
-            filename_escaped = filename.replace("\\", "\\\\")
-            with open("/tmp/" + filename, "w") as file:
-                file.write(
-                    _SYSTEMD_MOUNT_UNIT
-                    % (destination, extra_target, source, destination, fs_type, options)
-                )
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    f"cp /tmp/{filename_escaped} /mnt/a/etc/systemd/system/{filename_escaped}",
-                    f"mkdir -p /mnt/a/etc/systemd/system/local-fs.target.wants",
-                    f"ln -s ../{filename_escaped} /mnt/a/etc/systemd/system/local-fs.target.wants/{filename_escaped}",
-                ],
-            )
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
@@ -691,19 +646,6 @@ class Processor:
                 ],
             )
 
-            # Delete everything but root A entry from fstab and add /.system/usr and /var mounts
-            var_location_prefix = "/dev/mapper/luks-" if encrypt else "UUID="
-            fstab_regex = r"/^[^#]\S+\s+\/\S+\s+.+$/d"
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    f'ROOTB_UUID=$(lsblk -d -y -n -o UUID {root_b_part}) && sed -i "/UUID=$ROOTB_UUID/d" /mnt/a/etc/fstab',
-                    f"sed -i -r '{fstab_regex}' /mnt/a/etc/fstab",
-                    "echo '/.system/usr  /.system/usr  none  bind,ro' >> /mnt/a/etc/fstab",
-                    f'VAR_UUID=$(lsblk -d -n -o UUID {var_part}) && echo "{var_location_prefix}$VAR_UUID /var  auto  defaults  0  0" >> /mnt/a/etc/fstab',
-                ],
-            )
-
             # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
             recipe.add_postinstall_step(
                 "shell",
@@ -717,8 +659,6 @@ class Processor:
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                     "mount -o bind,ro /.system/usr /usr",
-                    "mkdir -p /var/lib/abroot/etc/vos-a/locales",
-                    "mount -o bind /var/lib/abroot/etc/vos-a/locales /usr/lib/locale",
                 ],
                 chroot=True,
             )
@@ -737,15 +677,16 @@ class Processor:
                     recipe.add_postinstall_step("locale", [value], chroot=True)
                 # Set keyboard
                 if key == "keyboard":
-                    recipe.add_postinstall_step(
-                        "keyboard",
-                        [
-                            value["layout"],
-                            value["model"],
-                            value["variant"],
-                        ],
-                        chroot=True,
-                    )
+                    for i in value:
+                        recipe.add_postinstall_step(
+                            "keyboard",
+                            [
+                                i["layout"],
+                                i["model"],
+                                i["variant"],
+                            ],
+                            chroot=True,
+                        )
 
         # Create /abimage.abr
         with open("/tmp/abimage.abr", "w") as file:
@@ -781,6 +722,7 @@ class Processor:
             [
                 "mkdir -p /etc/abroot",
                 'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n    \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
+                'cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json',
             ],
             chroot=True,
         )

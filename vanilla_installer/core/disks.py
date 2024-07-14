@@ -1,6 +1,7 @@
+import json
 import os
 import subprocess
-import json
+
 
 class Diskutils:
     @staticmethod
@@ -13,29 +14,29 @@ class Diskutils:
             return f"{round(size / 1024, 2)} KB"
         else:
             return f"{size} B"
-    
+
     @staticmethod
-    def separate_device_and_partn(part_dev: str) -> tuple[str, str|None]:
+    def separate_device_and_partn(part_dev: str) -> tuple[str, str | None]:
         info_json = subprocess.check_output(
             "lsblk --json -o NAME,PKNAME,PARTN " + part_dev, shell=True
         ).decode("utf-8")
         info_multiple = json.loads(info_json)["blockdevices"]
-        
+
         if len(info_multiple) > 1:
-            raise ValueError(f'{part_dev} returned more than one device')
+            raise ValueError(f"{part_dev} returned more than one device")
         info = info_multiple[0]
-        
-        if info["partn"] == None:
+
+        if info["partn"] is None:
             # part_dev is actually a device, not a partition
             return "/dev/" + info["name"], None
-        
+
         return "/dev/" + info["pkname"], str(info["partn"])
 
     @staticmethod
     def fetch_lvm_pvs() -> list[list[str]]:
-        output_json = subprocess.check_output(
-            "sudo pvs --reportformat=json", shell=True
-        ).decode("utf-8")
+        output_json = subprocess.check_output("sudo pvs --reportformat=json", shell=True).decode(
+            "utf-8"
+        )
         output_pvs = json.loads(output_json)["report"][0]["pv"]
         pv_with_vgs = []
         for pv_output in output_pvs:
@@ -43,6 +44,7 @@ class Diskutils:
             vg_name = pv_output["vg_name"] if pv_output["vg_name"] != "" else None
             pv_with_vgs.append([pv_name, vg_name])
         return pv_with_vgs
+
 
 class Disk:
     def __init__(self, disk: str):
@@ -101,6 +103,7 @@ class Disk:
         else:
             return f"{size} B"
 
+
 class Partition:
     def __init__(self, disk: str, partition: str):
         self.__disk = disk
@@ -114,9 +117,7 @@ class Partition:
     def __get_mountpoint(self):
         try:
             return (
-                subprocess.check_output(
-                    f"findmnt -n -o TARGET {self.partition}", shell=True
-                )
+                subprocess.check_output(f"findmnt -n -o TARGET {self.partition}", shell=True)
                 .decode("utf-8")
                 .strip()
             )
@@ -129,9 +130,7 @@ class Partition:
     def __get_fs_type(self):
         try:
             return (
-                subprocess.check_output(
-                    f"lsblk -d -n -o FSTYPE {self.partition}", shell=True
-                )
+                subprocess.check_output(f"lsblk -d -n -o FSTYPE {self.partition}", shell=True)
                 .decode("utf-8")
                 .strip()
             )
@@ -141,9 +140,7 @@ class Partition:
     def __get_uuid(self):
         try:
             return (
-                subprocess.check_output(
-                    f"lsblk -d -n -o UUID {self.partition}", shell=True
-                )
+                subprocess.check_output(f"lsblk -d -n -o UUID {self.partition}", shell=True)
                 .decode("utf-8")
                 .strip()
             )
@@ -153,9 +150,7 @@ class Partition:
     def __get_label(self):
         try:
             return (
-                subprocess.check_output(
-                    f"findmnt -n -o LABEL {self.partition}", shell=True
-                )
+                subprocess.check_output(f"findmnt -n -o LABEL {self.partition}", shell=True)
                 .decode("utf-8")
                 .strip()
             )
@@ -209,6 +204,7 @@ class Partition:
         if not other:
             return False
         return self.uuid == other.uuid and self.fs_type == other.fs_type
+
 
 class DisksManager:
     def __init__(self):

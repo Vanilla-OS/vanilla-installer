@@ -26,6 +26,7 @@ Architecture: any
 Depends: python3,
          python3-requests,
          python3-gi,
+         python3-tz,
          libadwaita-1-0,
          libgnome-desktop-4-2,
          libgweather-4-0,

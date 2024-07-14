@@ -22,7 +22,7 @@ from gettext import gettext as _
 from operator import attrgetter
 from threading import Lock, Timer
 
-from gi.repository import NM, NMA4, Adw, Gtk, GLib
+from gi.repository import NM, NMA4, Adw, GLib, Gtk
 
 from vanilla_installer.utils.run_async import RunAsync
 
@@ -216,6 +216,7 @@ class WirelessRow(Adw.ActionRow):
         connection = NM.SimpleConnection.new()
         s_con = NM.SettingConnection.new()
         s_con.set_property(NM.SETTING_CONNECTION_ID, self.ssid)
+        s_con.set_property(NM.SETTING_CONNECTION_UUID, NM.utils_uuid_generate())
         s_con.set_property(NM.SETTING_CONNECTION_TYPE, "802-11-wireless")
         s_wifi = NM.SettingWireless.new()
         s_wifi.set_property(NM.SETTING_WIRELESS_SSID, self.ap.get_ssid())
@@ -254,6 +255,7 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__nm_client = NM.Client.new()
+        self.__step_num = step["num"]
 
         self.__devices = []
         self.__wired_children = []
@@ -280,9 +282,12 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__nm_client.connect("device-added", self.__add_new_device)
         self.__nm_client.connect("device-added", self.__remove_device)
         self.btn_next.connect("clicked", self.__window.next)
-        self.connect("realize", self.__try_skip_page)
+        self.__window.carousel.connect("page-changed", self.__try_skip_page)
 
-    def __try_skip_page(self, data):
+    def __try_skip_page(self, carousel=None, idx=None):
+        if idx is not None and idx != self.__step_num:
+            return
+
         # Skip page if already connected to the internet
         if self.has_eth_connection or self.has_wifi_connection:
             self.__window.next()
@@ -419,8 +424,11 @@ class VanillaDefaultNetwork(Adw.Bin):
         GLib.idle_add(self.__refresh_wifi_list, conn)
 
     def __refresh_wifi_list(self, conn: NM.DeviceWifi):
-        networks = {}
+        networks: dict[str, list[NM.AccessPoint]] = {}
         for ap in conn.get_access_points():
+            if ap is None:
+                continue
+
             ssid = ap.get_ssid()
             if ssid is None:
                 continue
