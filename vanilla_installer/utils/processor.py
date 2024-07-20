@@ -620,7 +620,6 @@ class Processor:
                     "mkdir /.system/boot/init/vos-a",
                     "mkdir /.system/boot/init/vos-b",
                     "mv /.system/boot/vmlinuz* /.system/boot/init/vos-a",
-                    "mv /.system/boot/initrd* /.system/boot/init/vos-a",
                 ],
                 chroot=True,
             )
@@ -658,7 +657,6 @@ class Processor:
                     "mv /var/storage /var/lib/abroot/",
                     "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
-                    "mount -o bind,ro /.system/usr /usr",
                 ],
                 chroot=True,
             )
@@ -723,6 +721,24 @@ class Processor:
                 "mkdir -p /etc/abroot",
                 'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n    \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
                 'cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json',
+            ],
+            chroot=True,
+        )
+
+        # Set up initramfs after all configuration is done
+        # Need to mount boot for initramfs generated
+        # Need to unmount afterwards to access init partition
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                f"mount {boot_part} /boot",
+                f"mount {efi_part} /boot/efi",
+                "update-initramfs -c -k all",
+                "mkdir /var/tmp/vanilla-generated-initrd",
+                "cp -a /boot/initrd* /var/tmp/vanilla-generated-initrd/",
+                "umount -l /boot/efi",
+                "umount -l /boot",
+                "mv /var/tmp/vanilla-generated-initrd/initrd* /.system/boot/init/vos-a",
             ],
             chroot=True,
         )
