@@ -211,6 +211,7 @@ class PartitionSelector(Adw.PreferencesPage):
         super().__init__(**kwargs)
         self.__parent = parent
         self.__partitions = sorted(partitions)
+        self.__recipe = self.__parent.recipe
 
         self.launch_gparted.connect("clicked", self.__on_launch_gparted)
         self.use_swap_part.connect("state-set", self.__on_use_swap_toggled)
@@ -289,6 +290,8 @@ class PartitionSelector(Adw.PreferencesPage):
             )
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
+        for widget in [self.boot_part, self.efi_part, self.root_part, self.var_part]:
+            widget.set_description(widget.get_description() + self.get_partition_size_string(widget) + ".")
         self.update_apply_button_status()
 
     def __on_launch_gparted(self, widget):
@@ -395,6 +398,22 @@ class PartitionSelector(Adw.PreferencesPage):
                     self.bios_small_error.set_description(error_description)
                     self.bios_small_error.set_visible(True)
 
+    def get_partition_size_string(self, widget):
+        size = 0
+        if widget == self.boot_part:
+            size = self.__recipe["min_partition_sizes"]["/boot"]
+        if widget == self.efi_part:
+            size = self.__recipe["min_partition_sizes"]["/boot/efi"]
+        if widget == self.root_part:
+            size = self.__recipe["min_partition_sizes"]["/"]
+        if widget == self.var_part:
+            size = self.__recipe["min_partition_sizes"]["/var"]
+        if size > 1024:
+            return str(int(size/1024)) + "GiB"
+        else:
+            return str(size) + "MiB"
+
+
     def __on_use_swap_toggled(self, widget, state):
         if not state:
             for child_row in self.__swap_part_rows:
@@ -474,6 +493,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
         self.__parent = parent
         self.__disks = disks
         self.set_transient_for(self.__window)
+        self.recipe = window.recipe
 
         self.__partitions = []
         for disk in self.__disks:
