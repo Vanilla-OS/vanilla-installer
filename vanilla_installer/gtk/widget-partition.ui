@@ -27,7 +27,7 @@
     <child>
       <object class="AdwPreferencesGroup" id="boot_part">
         <property name="title" translatable="yes">Boot Partition</property>
-        <property name="description" translatable="yes">The partition to mount under “/boot”. This directory stores files for booting into Vanilla OS.</property>
+        <property name="description" translatable="yes">The partition to mount under “/boot”. This directory stores files for booting into Vanilla OS. Minimum space required in the partition is </property>
         <child>
           <object class="AdwExpanderRow" id="boot_part_expand">
             <property name="title" translatable="yes">No Partition Selected</property>
@@ -47,7 +47,7 @@
     <child>
       <object class="AdwPreferencesGroup" id="efi_part">
         <property name="title" translatable="yes">EFI Partition</property>
-        <property name="description" translatable="yes">The partition to mount under “/boot/efi”. This directory stores files for booting in the bootloader.</property>
+        <property name="description" translatable="yes">The partition to mount under “/boot/efi”. This directory stores files for booting in the bootloader. Minimum space required in the partition is </property>
         <child>
           <object class="AdwExpanderRow" id="efi_part_expand">
             <property name="title" translatable="yes">No Partition Selected</property>
@@ -100,7 +100,7 @@
     <child>
       <object class="AdwPreferencesGroup" id="root_part">
         <property name="title" translatable="yes">Root Partition</property>
-        <property name="description" translatable="yes">The partition to mount under “/”. It will be automatically converted into an LVM thin pool during installation.</property>
+        <property name="description" translatable="yes">The partition to mount under “/”. It will be automatically converted into an LVM thin pool during installation. Minimum space required in the partition is </property>
         <child>
           <object class="AdwExpanderRow" id="root_part_expand">
             <property name="title" translatable="yes">No Partition Selected</property>
@@ -120,7 +120,7 @@
     <child>
       <object class="AdwPreferencesGroup" id="var_part">
         <property name="title" translatable="yes">Var Partition</property>
-        <property name="description" translatable="yes">The partition to mount under “/var”. This directory stores all user data like personal documents and system-wide configuration.</property>
+        <property name="description" translatable="yes">The partition to mount under “/var”. This directory stores all user data like personal documents and system-wide configuration. Minimum space required in the partition is </property>
         <child>
           <object class="AdwExpanderRow" id="var_part_expand">
             <property name="title" translatable="yes">No Partition Selected</property>
