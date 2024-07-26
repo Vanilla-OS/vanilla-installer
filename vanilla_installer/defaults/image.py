@@ -46,9 +46,14 @@ class VanillaDefaultImage(Adw.Bin):
         self.__update_btn_next()
 
     def get_finals(self):
-        return {
-            "custom_image": self.image_url_entry.get_text(),
-        }
+        if self.use_image_switch.get_active():
+            return {
+                "custom_image": self.image_url_entry.get_text(),
+            }
+        else:
+            return {
+                "default_image": True
+            }
 
     def __on_image_switch_set(self, state, user_data):
         self.__update_btn_next()
