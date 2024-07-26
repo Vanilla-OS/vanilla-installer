@@ -62,6 +62,9 @@
                 "grep 'hypervisor' /proc/cpuinfo"
             ]
         },
+        "image": {
+            "template": "image"
+        },
         "disk": {
             "template": "disk"
         },

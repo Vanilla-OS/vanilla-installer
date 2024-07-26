@@ -126,6 +126,14 @@ class VanillaConfirm(Adw.Bin):
                                     "drive-harddisk-system-symbolic",
                                 )
                             )
+                elif key == "custom_image":
+                    self.active_widgets.append(
+                        VanillaChoiceEntry(
+                            _("Image"),
+                            f"{value}",
+                            "image-missing-symbolic"
+                        )
+                    )
 
         for widget in self.active_widgets:
             self.group_changes.add(widget)

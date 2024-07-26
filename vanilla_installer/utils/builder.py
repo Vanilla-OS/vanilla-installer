@@ -23,6 +23,7 @@ from gettext import gettext as _
 from vanilla_installer.defaults.conn_check import VanillaDefaultConnCheck
 from vanilla_installer.defaults.disk import VanillaDefaultDisk
 from vanilla_installer.defaults.encryption import VanillaDefaultEncryption
+from vanilla_installer.defaults.image import VanillaDefaultImage
 from vanilla_installer.defaults.keyboard import VanillaDefaultKeyboard
 from vanilla_installer.defaults.language import VanillaDefaultLanguage
 from vanilla_installer.defaults.network import VanillaDefaultNetwork
@@ -47,6 +48,7 @@ templates = {
     "preferences": VanillaLayoutPreferences,
     "disk": VanillaDefaultDisk,
     "encryption": VanillaDefaultEncryption,
+    "image": VanillaDefaultImage,
     "nvidia": VanillaDefaultNvidia,
     "vm": VanillaDefaultVm,
     "yes-no": VanillaLayoutYesNo,

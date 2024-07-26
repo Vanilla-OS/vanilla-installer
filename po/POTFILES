@@ -9,6 +9,7 @@ vanilla_installer/gtk/default-encryption.ui
 vanilla_installer/gtk/default-keyboard.ui
 vanilla_installer/gtk/default-language.ui
 vanilla_installer/gtk/default-network.ui
+vanilla_installer/gtk/default-image.ui
 vanilla_installer/gtk/default-nvidia.ui
 vanilla_installer/gtk/default-vm.ui
 vanilla_installer/gtk/default-theme.ui
@@ -43,6 +44,7 @@ vanilla_installer/defaults/encryption.py
 vanilla_installer/defaults/keyboard.py
 vanilla_installer/defaults/language.py
 vanilla_installer/defaults/network.py
+vanilla_installer/defaults/image.py
 vanilla_installer/defaults/nvidia.py
 vanilla_installer/defaults/vm.py
 vanilla_installer/defaults/theme.py

@@ -483,6 +483,8 @@ class Processor:
                     recipe.add_mountpoint(*mount)
                 for step in post_install_steps:
                     recipe.add_postinstall_step(*step)
+            elif "custom_image" in final.keys():
+                oci_image = final["custom_image"]
             elif "nvidia" in final.keys():
                 if final["nvidia"]["use-proprietary"]:
                     oci_image = images["nvidia"]
