@@ -22,9 +22,6 @@ class VanillaDefaultImage(Adw.Bin):
     __gtype_name__ = "VanillaDefaultImage"
 
     btn_next = Gtk.Template.Child()
-
-    use_image_switch = Gtk.Template.Child()
-
     image_url_entry = Gtk.Template.Child()
 
     def __init__(self, window, distro_info, key, step, **kwargs):
@@ -35,34 +32,17 @@ class VanillaDefaultImage(Adw.Bin):
         self.__step = step
 
         self.btn_next.connect("clicked", self.__window.next)
-        self.use_image_switch.connect(
-            "state-set", self.__on_image_switch_set)
         self.image_url_entry.connect(
             "changed", self.__on_url_changed
         )
 
         self.image_url_filled = False
 
-        self.__update_btn_next()
-
     def get_finals(self):
-        if self.use_image_switch.get_active():
-            return {
-                "custom_image": self.image_url_entry.get_text(),
-            }
-        else:
-            return {
-                "default_image": True
-            }
-
-    def __on_image_switch_set(self, state, user_data):
-        self.__update_btn_next()
+       return {"custom_image": self.image_url_entry.get_text(),}
 
     def __on_url_changed(self, *args):
-        image_url = self.image_url_entry.get_text()
-        if (
-            image_url == self.image_url_entry.get_text()
-        ):
+        if self.image_url_entry.get_text():
             self.image_url_filled = True
             self.image_url_entry.remove_css_class("error")
         else:
@@ -72,5 +52,5 @@ class VanillaDefaultImage(Adw.Bin):
         self.__update_btn_next()
 
     def __update_btn_next(self):
-        rule = self.image_url_filled or self.use_image_switch.get_active() is False
+        rule = self.image_url_filled
         self.btn_next.set_sensitive(rule)
