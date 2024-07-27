@@ -16,6 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from gi.repository import Adw, Gtk
+import re
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-image.ui")
 class VanillaDefaultImage(Adw.Bin):
@@ -42,7 +43,7 @@ class VanillaDefaultImage(Adw.Bin):
        return {"custom_image": self.image_url_entry.get_text(),}
 
     def __on_url_changed(self, *args):
-        if self.image_url_entry.get_text():
+        if self.image_url_entry.get_text() and re.match("^((?![a-z\\-]+\\.[a-z/\\-]+:.+).+)$", self.image_url_entry.get_text()) == None:
             self.image_url_filled = True
             self.image_url_entry.remove_css_class("error")
         else:
