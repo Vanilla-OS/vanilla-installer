@@ -33,7 +33,8 @@
     },
     "steps": {
         "welcome": {
-            "template": "welcome"
+            "template": "welcome",
+            "protected": true
         },
         "language": {
             "template": "language"
@@ -54,16 +55,19 @@
             "template": "nvidia",
             "display-conditions": [
                 "lspci | grep -i '.* nvidia .*'"
-            ]
+            ],
+            "default_image": true
         },
         "vm": {
             "template": "vm",
             "display-conditions": [
                 "grep 'hypervisor' /proc/cpuinfo"
-            ]
+            ],
+            "default_image": true
         },
         "image": {
-            "template": "image"
+            "template": "image",
+            "custom_image": true
         },
         "disk": {
             "template": "disk"

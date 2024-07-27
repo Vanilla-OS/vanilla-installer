@@ -26,6 +26,7 @@ class VanillaDefaultWelcome(Adw.Bin):
 
     status_page = Gtk.Template.Child()
     row_install = Gtk.Template.Child()
+    row_install_custom = Gtk.Template.Child()
     row_recovery = Gtk.Template.Child()
     row_poweroff = Gtk.Template.Child()
 
@@ -43,7 +44,8 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.status_page.set_title(f"Welcome to {distro_name}!")
 
         # signals
-        self.row_install.connect("activated", self.__window.next)
+        self.row_install.connect("activated", self.__install)
+        self.row_install_custom.connect("activated", self.__install_custom)
         self.row_recovery.connect("activated", self.__on_recovery_clicked)
         self.row_poweroff.connect("activated", self.__on_poweroff_clicked)
 
@@ -55,3 +57,13 @@ class VanillaDefaultWelcome(Adw.Bin):
 
     def __on_poweroff_clicked(self, row):
         VanillaPoweroffDialog(self.__window).show()
+
+    def __install(self, _):
+        if self.__window.install_mode == 1:
+            self.__window.rebuild_ui(0)
+        self.__window.next()
+
+    def __install_custom(self, _):
+        if self.__window.install_mode == 0:
+            self.__window.rebuild_ui()
+        self.__window.next()

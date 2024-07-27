@@ -61,6 +61,7 @@ class Builder:
         self.__recipe = RecipeLoader()
         self.__register_widgets = []
         self.__register_finals = []
+        self.__property_list = []
         self.__load()
 
     def __load(self):
@@ -128,6 +129,7 @@ class Builder:
                 )
                 logger.info(_("(%s) Widgets initialized") % key)
                 self.__register_widgets.append(_widget)
+            self.__property_list.append(step)
 
     def get_finals(self):
         self.__register_finals = []
@@ -144,6 +146,10 @@ class Builder:
     @property
     def recipe(self):
         return self.__recipe.raw
+
+    @property
+    def property_list(self):
+        return self.__property_list
 
     @property
     def distro_info(self):

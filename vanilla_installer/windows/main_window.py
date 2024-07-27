@@ -58,15 +58,38 @@ class VanillaWindow(Adw.ApplicationWindow):
         # connect system signals
         self.__connect_signals()
 
+        # some variables to track state
+        self.install_mode = 0
+
     def __connect_signals(self):
         self.btn_back.connect("clicked", self.back)
         self.carousel.connect("page-changed", self.__on_page_changed)
         self.__builder.widgets[-1].btn_next.connect("clicked", self.update_finals)
         self.__view_confirm.connect("installation-confirmed", self.on_installation_confirmed)
 
-    def __build_ui(self):
+    def rebuild_ui(self, mode=1):
+        self.install_mode = mode
+        self.__build_ui(True, mode)
+
+    def __build_ui(self, rebuild=False, mode=0):
+        property_list = self.__builder.property_list
+
+        if rebuild:
+            self.carousel.remove(self.__view_confirm)
+            self.carousel.remove(self.__view_progress)
+            self.carousel.remove(self.__view_done)
+
         if "VANILLA_FORCE_TOUR" not in os.environ:
-            for widget in self.__builder.widgets:
+            for i, widget in enumerate(self.__builder.widgets):
+                if rebuild:
+                    if "protected" in property_list[i]:
+                        continue
+                    else:
+                        self.carousel.remove(widget)
+                if "custom_image" in property_list[i] and mode == 0:
+                    continue
+                if "default_image" in property_list[i] and mode == 1:
+                    continue
                 logger.info("(%s) Adding widget to carousel", widget.__gtype_name__)
                 self.carousel.append(widget)
         else:
