@@ -40,7 +40,10 @@ class VanillaDefaultImage(Adw.Bin):
         self.image_url_filled = False
 
     def get_finals(self):
-       return {"custom_image": self.image_url_entry.get_text(),}
+        if self.__window.install_mode == 1:
+            return {"custom_image": self.image_url_entry.get_text(),}
+        else:
+            return {"default-image": True,}
 
     def __on_url_changed(self, *args):
         if self.image_url_entry.get_text() and re.match("^((?![a-z\\-]+\\.[a-z/\\-]+:.+).+)$", self.image_url_entry.get_text()) == None:
