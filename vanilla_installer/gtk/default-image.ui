@@ -27,7 +27,7 @@
           <object class="AdwStatusPage" id="status_page">
             <property name="icon-name">image-missing-symbolic</property>
             <property name="title" translatable="yes">Custom Image</property>
-            <property name="description" translatable="yes">Enter the URL of the custom image here. Note that the Vanilla OS team is not responsible for any issues that arise from using a custom image. Only install images from people you trust, as using their images gives them full control over your system.</property>
+            <property name="description" translatable="yes">Enter the URL of the custom image here. Note that the Vanilla OS team is not responsible for any issues that arise from using a custom image. Only install images from people you trust, as using their images gives them full control over your host system.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
