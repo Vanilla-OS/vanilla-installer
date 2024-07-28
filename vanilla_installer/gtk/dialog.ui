@@ -2,21 +2,15 @@
 <interface>
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.0"/>
-    <template class="VanillaDialog" parent="AdwWindow">
+    <template class="VanillaDialog" parent="AdwDialog">
         <property name="title" translatable="yes">Showing Information</property>
-        <property name="default-width">500</property>
-        <property name="modal">True</property>
+        <property name="content-width">500</property>
         <child>
-            <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
-                    <object class="AdwHeaderBar">
-                        <style>
-                            <class name="flat"/>
-                        </style>
-                    </object>
+            <object class="AdwToolbarView">
+                <child type="top">
+                    <object class="AdwHeaderBar" />
                 </child>
-                <child>
+                <property name="content">
                   <object class="GtkLabel" id="label_text">
                     <property name="margin-top">10</property>
                     <property name="margin-start">10</property>
@@ -24,7 +18,7 @@
                     <property name="margin-bottom">20</property>
                     <property name="wrap">True</property>
                   </object>
-                </child>
+                </property>
             </object>
         </child>
     </template>

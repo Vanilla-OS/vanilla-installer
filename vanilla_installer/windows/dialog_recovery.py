@@ -21,7 +21,7 @@ from gi.repository import Adw, GLib, Gtk
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-recovery.ui")
-class VanillaRecoveryDialog(Adw.Window):
+class VanillaRecoveryDialog(Adw.Dialog):
     __gtype_name__ = "VanillaRecoveryDialog"
 
     row_console = Gtk.Template.Child()
@@ -30,9 +30,8 @@ class VanillaRecoveryDialog(Adw.Window):
     row_handbook = Gtk.Template.Child()
     row_web = Gtk.Template.Child()
 
-    def __init__(self, window, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.set_transient_for(window)
 
         # signals
         self.row_console.connect("activated", self.__on_console_activated)

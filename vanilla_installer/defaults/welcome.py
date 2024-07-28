@@ -51,7 +51,7 @@ class VanillaDefaultWelcome(Adw.Bin):
         return {}
 
     def __on_recovery_clicked(self, row):
-        VanillaRecoveryDialog(self.__window).show()
+        VanillaRecoveryDialog().present(self.__window)
 
     def __on_poweroff_clicked(self, row):
-        VanillaPoweroffDialog(self.__window).show()
+        VanillaPoweroffDialog().present(self.__window)

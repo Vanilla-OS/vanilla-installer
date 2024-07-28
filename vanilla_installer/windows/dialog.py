@@ -20,13 +20,12 @@ from gi.repository import Adw, Gtk
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog.ui")
-class VanillaDialog(Adw.Window):
+class VanillaDialog(Adw.Dialog):
     __gtype_name__ = "VanillaDialog"
 
     label_text = Gtk.Template.Child()
 
-    def __init__(self, window, title, text, **kwargs):
+    def __init__(self, title, text, **kwargs):
         super().__init__(**kwargs)
-        self.set_transient_for(window)
         self.set_title(title)
         self.label_text.set_text(text)

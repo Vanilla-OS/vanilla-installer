@@ -62,11 +62,10 @@ class VanillaLayoutYesNo(Adw.Bin):
             return
 
         dialog = VanillaDialog(
-            self.__window,
             self.__step["buttons"]["info"]["title"],
             self.__step["buttons"]["info"]["text"],
         )
-        dialog.show()
+        dialog.present(self.__window)
 
     def get_finals(self):
         return {

@@ -66,5 +66,5 @@ class VanillaDone(Adw.Bin):
 
     def __on_log_clicked(self, button):
         if self.__terminal:
-            dialog = VanillaDialogOutput(self.__window, self.__terminal)
-            dialog.present()
+            dialog = VanillaDialogOutput(self.__terminal)
+            dialog.present(self.__window)

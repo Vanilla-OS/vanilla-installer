@@ -512,12 +512,12 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     def __on_btn_cancel_clicked(self, widget):
         self.__partition_selector.cleanup()
-        self.destroy()
+        self.force_close()
 
     def __on_btn_apply_clicked(self, widget):
         self.__parent.set_partition_recipe(self.partition_recipe)
         self.emit("partitioning-set", "")
-        self.destroy()
+        self.force_close()
 
     def set_btn_apply_sensitive(self, val):
         self.btn_apply.set_sensitive(val)
@@ -553,7 +553,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-disk-confirm.ui")
-class VanillaDefaultDiskConfirmModal(Adw.Window):
+class VanillaDefaultDiskConfirmModal(Adw.Dialog):
     __gtype_name__ = "VanillaDefaultDiskConfirmModal"
 
     btn_cancel = Gtk.Template.Child()
@@ -563,7 +563,6 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
     def __init__(self, window, partition_recipe, **kwargs):
         super().__init__(**kwargs)
         self.__window = window
-        self.set_transient_for(self.__window)
         self.default_width, self.default_height = self.get_default_size()
 
         # signals
@@ -631,7 +630,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
 
     def __on_btn_apply_clicked(self, widget):
         self.__window.next()
-        self.destroy()
+        self.force_close()
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-disk.ui")

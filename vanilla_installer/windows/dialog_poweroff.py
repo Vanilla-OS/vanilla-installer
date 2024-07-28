@@ -23,16 +23,15 @@ from gi.repository import Adw, GLib, Gtk
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-poweroff.ui")
-class VanillaPoweroffDialog(Adw.Window):
+class VanillaPoweroffDialog(Adw.Dialog):
     __gtype_name__ = "VanillaPoweroffDialog"
 
     row_poweroff = Gtk.Template.Child()
     row_reboot = Gtk.Template.Child()
     row_firmware_setup = Gtk.Template.Child()
 
-    def __init__(self, window, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.set_transient_for(window)
 
         # signals
         self.row_poweroff.connect("activated", self.__on_poweroff)
