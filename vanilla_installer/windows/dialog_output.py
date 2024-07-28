@@ -20,13 +20,12 @@ from gi.repository import Adw, GObject, Gtk
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-output.ui")
-class VanillaDialogOutput(Adw.Window):
+class VanillaDialogOutput(Adw.Dialog):
     __gtype_name__ = "VanillaDialogOutput"
 
     main_box = Gtk.Template.Child()
 
-    def __init__(self, window, terminal, **kwargs):
+    def __init__(self, terminal, **kwargs):
         super().__init__(**kwargs)
-        self.set_transient_for(window)
 
         self.main_box.append(terminal)

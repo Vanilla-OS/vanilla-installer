@@ -2,21 +2,15 @@
 <interface>
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.0"/>
-    <template class="VanillaPoweroffDialog" parent="AdwWindow">
+    <template class="VanillaPoweroffDialog" parent="AdwDialog">
         <property name="title" translatable="yes">Power Off</property>
-        <property name="default-width">500</property>
-        <property name="modal">true</property>
+        <property name="content-width">500</property>
         <child>
-            <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
-                    <object class="AdwHeaderBar">
-                        <style>
-                            <class name="flat"/>
-                        </style>
-                    </object>
+            <object class="AdwToolbarView">
+                <child type="top">
+                    <object class="AdwHeaderBar" />
                 </child>
-                <child>
+                <property name="content">
                   <object class="AdwPreferencesPage">
                     <child>
                       <object class="AdwPreferencesGroup">
@@ -71,7 +65,7 @@
                       </object>
                     </child>
                   </object>
-                </child>
+                </property>
             </object>
         </child>
     </template>

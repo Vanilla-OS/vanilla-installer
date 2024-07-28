@@ -69,11 +69,10 @@ class VanillaLayoutPreferences(Adw.Bin):
 
             if ws.get("message", None):
                 dialog = VanillaDialog(
-                    self.__window,
                     ws.get("title", "No selection"),
                     ws.get("message"),
                 )
-                dialog.show()
+                dialog.present(self.__window)
         self.__window.next()
 
     def get_finals(self):
