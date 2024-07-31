@@ -37,6 +37,7 @@ class VanillaDefaultEncryption(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = False
 
         self.btn_next.connect("clicked", self.__window.next)
         self.use_encryption_switch.connect(

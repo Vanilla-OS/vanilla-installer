@@ -145,6 +145,10 @@ class VanillaWindow(Adw.ApplicationWindow):
         logger.info("Going to next page")
 
         cur_index = self.carousel.get_position()
+        page = self.carousel.get_nth_page(cur_index)
+        if page.delta:
+            logger.info(f"Removing deltas of page {int(cur_index)}")
+            page.del_deltas()
         logger.info(f"Next page is {int(cur_index + 1)}")
 
         if fn is not None:
@@ -154,15 +158,23 @@ class VanillaWindow(Adw.ApplicationWindow):
 
         page = self.carousel.get_nth_page(cur_index + 1)
         self.carousel.scroll_to(page, True)
+        if page.delta:
+            logger.info(f"Generating deltas of page {int(cur_index + 1)}")
+            page.gen_deltas()
 
     def back(self, *args):
         logger.info("Going to previous page")
 
         cur_index = self.carousel.get_position()
+        page = self.carousel.get_nth_page(cur_index)
+        if page.delta:
+            page.del_deltas()
         logger.info(f"Previous page is {int(cur_index - 1)}")
 
         page = self.carousel.get_nth_page(cur_index - 1)
         self.carousel.scroll_to(page, True)
+        if page.delta:
+            page.gen_deltas()
 
     def toast(self, message, timeout=3):
         toast = Adw.Toast.new(message)

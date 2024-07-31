@@ -60,10 +60,8 @@ class VanillaDefaultLanguage(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__language_rows = []
-
+        self.delta = True
         self.__generate_language_list_widgets()
-        for widget in self.__language_rows:
-            self.all_languages_group.append(widget)
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
@@ -76,6 +74,15 @@ class VanillaDefaultLanguage(Adw.Bin):
 
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_language.add_controller(self.search_controller)
+
+
+    def gen_deltas(self):
+        for widget in self.__language_rows:
+            self.all_languages_group.append(widget)
+
+
+    def del_deltas(self):
+        self.all_languages_group.remove_all()
 
     def __language_verify(self, *args):
         if self.selected_language["language_subtitle"] is not None:

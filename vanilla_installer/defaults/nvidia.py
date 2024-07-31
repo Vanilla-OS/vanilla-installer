@@ -34,6 +34,7 @@ class VanillaDefaultNvidia(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = False
 
         self.btn_yes.connect("clicked", self.use_proprietary_drivers)
         self.btn_no.connect("clicked", self.use_open_drivers)

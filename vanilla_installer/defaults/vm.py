@@ -33,6 +33,7 @@ class VanillaDefaultVm(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = False
 
         self.btn_yes.connect("clicked", self.use_vm_tools_fn)
         self.btn_no.connect("clicked", self.skip_vm_tools_fn)
