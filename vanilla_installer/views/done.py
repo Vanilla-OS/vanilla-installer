@@ -35,6 +35,7 @@ class VanillaDone(Adw.Bin):
         super().__init__(**kwargs)
         self.__window = window
         self.__log = None
+        self.delta = False
 
         self.status_page.set_description(
             _("Restart your device to enjoy your {} experience.").format(

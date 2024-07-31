@@ -31,6 +31,7 @@ class VanillaDefaultTheme(Gtk.Box):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = False
 
         self.__build_ui()
 

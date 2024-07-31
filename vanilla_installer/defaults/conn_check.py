@@ -42,6 +42,7 @@ class VanillaDefaultConnCheck(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__step_num = step["num"]
+        self.delta = False
 
         self.__ignore_callback = False
 

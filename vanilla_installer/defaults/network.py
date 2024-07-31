@@ -256,6 +256,7 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__step = step
         self.__nm_client = NM.Client.new()
         self.__step_num = step["num"]
+        self.delta = False
 
         self.__devices = []
         self.__wired_children = []

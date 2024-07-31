@@ -78,11 +78,14 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = True
         self.__keymaps = KeyMaps()
-
         self.__keyboard_rows = self.__generate_keyboard_list_widgets(
             self.selected_keyboard
         )
+
+
+    def gen_deltas(self):
         for i, widget in enumerate(self.__keyboard_rows):
             self.all_keyboards_group.append(widget)
 
@@ -102,6 +105,11 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         if "VANILLA_NO_APPLY_XKB" not in os.environ:
             self.test_focus_controller.connect("enter", self.__apply_layout)
+
+
+    def del_deltas(self):
+        self.all_keyboards_group.remove_all()
+
 
     def __keyboard_verify(self, *args):
         if self.selected_keyboard != []:
@@ -192,7 +200,7 @@ class VanillaDefaultKeyboard(Adw.Bin):
                 self.__create_keyboard_layout_array(selected_keyboard) 
             ),
         )
-    
+
     def __create_keyboard_layout_array(self, selected_keyboard):
         keyboard_layout_array = []
         for i in selected_keyboard:

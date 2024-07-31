@@ -671,6 +671,7 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = False
         self.__registry_disks = []
         self.__selected_disks = []
         self.__disks = DisksManager()
