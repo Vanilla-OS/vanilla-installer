@@ -64,7 +64,7 @@ class PartitionRow(Adw.ActionRow):
 
     __siblings: list
 
-    __partition_fs_types = ["btrfs", "ext4", "ext3", "fat32", "xfs"]
+    __partition_fs_types = ["unformatted", "btrfs", "ext4", "ext3", "fat32", "xfs"]
 
     def __init__(self, page, parent, partition, modifiable, default_fs, **kwargs):
         super().__init__(**kwargs)

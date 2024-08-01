@@ -335,6 +335,9 @@ class Processor:
             ):
                 mountpoints.append([part, values["mp"]])
                 if values["fs"] == "unformatted":
+                    operation = "setlabel"
+                    format_args = [part_number, part_name]
+                    setup_steps.append([part_disk, operation, format_args])
                     return
                 format_args = [part_number, values["fs"]]
                 if encrypt:
