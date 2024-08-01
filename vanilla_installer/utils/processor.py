@@ -487,6 +487,8 @@ class Processor:
                 oci_image = final["custom_image"]
             elif "nvidia" in final.keys():
                 if final["nvidia"]["use-proprietary"]:
+                    oci_image = images["nvidia-propietary"]
+                if final["nvidia"]["use-open"]:
                     oci_image = images["nvidia"]
             elif "vm" in final.keys():
                 if final["vm"]["use-vm-tools"]:
@@ -722,7 +724,7 @@ class Processor:
             [
                 "mkdir -p /etc/abroot",
                 'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n  \\"PartCryptVar\\": \\"/dev/mapper/vos--var-var\\",\n  \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
-                'cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json',
+                "cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json",
             ],
             chroot=True,
         )
