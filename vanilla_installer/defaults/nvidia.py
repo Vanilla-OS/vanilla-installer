@@ -16,6 +16,9 @@
 
 from gi.repository import Adw, Gtk
 
+import subprocess
+
+
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-nvidia.ui")
 class VanillaDefaultNvidia(Adw.Bin):
     __gtype_name__ = "VanillaDefaultNvidia"
@@ -27,6 +30,8 @@ class VanillaDefaultNvidia(Adw.Bin):
     info_popover = Gtk.Template.Child()
 
     use_proprietary = None
+    use_open = None
+    suggested_drivers = None
 
     def __init__(self, window, distro_info, key, step, **kwargs):
         super().__init__(**kwargs)
@@ -36,24 +41,49 @@ class VanillaDefaultNvidia(Adw.Bin):
         self.__step = step
         self.delta = False
 
-        self.btn_yes.connect("clicked", self.use_proprietary_drivers)
-        self.btn_no.connect("clicked", self.use_open_drivers)
+        self.suggested_drivers = self.get_suggested_drivers()
+
+        if self.suggested_drivers == "open":
+            self.info_popover.set_visible(False)
+
+        self.btn_yes.connect("clicked", self.use_drivers)
+        self.btn_no.connect("clicked", self.no_drivers)
         self.btn_info.connect("clicked", self.show_info_popover)
 
     def get_finals(self):
         return {
             "nvidia": {
                 "use-proprietary": self.use_proprietary,
+                "use-open": self.use_open,
             }
         }
 
-    def use_open_drivers(self, _):
-        self.use_proprietary = False
+    def use_drivers(self, _):
+        self.use_open = self.suggested_drivers == "open"
+        self.use_proprietary = self.suggested_drivers == "proprietary"
+
         self.__window.next()
 
-    def use_proprietary_drivers(self, _):
-        self.use_proprietary = True
+    def no_drivers(self, _):
+        self.use_proprietary = False
+        self.use_open = False
         self.__window.next()
 
     def show_info_popover(self, _):
         self.info_popover.popup()
+
+    def get_suggested_drivers(self):
+        """
+        lspci | grep -E 'NVIDIA.*(GeForce [4-8][0-9]{2}|GeForce GTX [6-9]..)' && exit 0 || exit 1
+        0 is legacy, 1 is non-legacy
+        """
+        res = subprocess.run(
+            "lspci | grep -E 'NVIDIA.*(GeForce [4-8][0-9]{2}|GeForce GTX [6-9]..)' && exit 0 || exit 1",
+            shell=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if res.returncode == 0:
+            return "proprietary"
+
+        return "open"
