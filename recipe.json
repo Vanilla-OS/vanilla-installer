@@ -5,6 +5,7 @@
     "images": {
         "default": "ghcr.io/vanilla-os/desktop:main",
         "nvidia": "ghcr.io/vanilla-os/nvidia:main",
+        "nvidia-proprietary": "ghcr.io/vanilla-os/nvidia-proprietary:main",
         "vm": "ghcr.io/vanilla-os/vm:main"
     },
     "default_root_size": 12288,
