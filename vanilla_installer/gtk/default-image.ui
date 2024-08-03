@@ -35,6 +35,7 @@
                     <child>
                       <object class="AdwEntryRow" id="image_url_entry">
                         <property name="title" translatable="yes">URL</property>
+                        <property name="text" translatable="yes">ghcr.io/vanilla-os/desktop:main</property>
                       </object>
                     </child>
                   </object>
