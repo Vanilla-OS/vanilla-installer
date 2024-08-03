@@ -662,6 +662,7 @@ class VanillaDefaultDisk(Adw.Bin):
     btn_auto = Gtk.Template.Child()
     btn_manual = Gtk.Template.Child()
     group_disks = Gtk.Template.Child()
+    removable_disks = Gtk.Template.Child()
     disk_space_err_box = Gtk.Template.Child()
     disk_space_err_label = Gtk.Template.Child()
 
@@ -673,8 +674,10 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__step = step
         self.delta = False
         self.__registry_disks = []
+        self.__registry_removable_disks = []
         self.__selected_disks = []
         self.__disks = DisksManager()
+        self.__removable_disks = DisksManager(removableDevices=True)
         self.__partition_recipe = None
         self.__selected_disks_sum = 0
 
@@ -690,6 +693,12 @@ class VanillaDefaultDisk(Adw.Bin):
             self.group_disks.add(entry)
 
             self.__registry_disks.append(entry)
+
+        for disk in self.__removable_disks.all_disks:
+            entry = VanillaDefaultDiskEntry(self, disk)
+            self.removable_disks.add_row(entry)
+
+            self.__registry_removable_disks.append(entry)
 
         # signals
         self.btn_next.connect("clicked", self.__on_btn_next_clicked)
