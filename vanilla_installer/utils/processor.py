@@ -487,8 +487,6 @@ class Processor:
                 oci_image = final["custom_image"]
             elif "nvidia" in final.keys():
                 if final["nvidia"]["use-proprietary"]:
-                    oci_image = images["nvidia-proprietary"]
-                if final["nvidia"]["use-open"]:
                     oci_image = images["nvidia"]
             elif "vm" in final.keys():
                 if final["vm"]["use-vm-tools"]:
