@@ -48,6 +48,7 @@ class VanillaProgress(Gtk.Box):
         self.__font.set_weight(Pango.Weight.NORMAL)
         self.__font.set_stretch(Pango.Stretch.NORMAL)
         self.style_manager = Adw.StyleManager().get_default()
+        self.delta = False
 
         self.__build_ui()
         self.__on_setup_terminal_colors()

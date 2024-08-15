@@ -36,6 +36,7 @@ class VanillaDefaultWelcome(Adw.Bin):
         self.__distro_info = distro_info
         self.__key = key
         self.__step = step
+        self.delta = False
 
         distro_name = self.__distro_info.get("name", "Vanilla OS")
         distro_logo = self.__distro_info.get("logo", "org.vanillaos.Installer-flower")

@@ -58,6 +58,7 @@ class VanillaConfirm(Adw.Bin):
 
     def __init__(self, window, **kwargs):
         super().__init__(**kwargs)
+        self.delta = False
 
     def update(self, finals):
         try:

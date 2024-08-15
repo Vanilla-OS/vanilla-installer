@@ -86,10 +86,7 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__key = key
         self.__step = step
         self.__step_num = step["num"]
-
-        self.__expanders = []
-        self.__tz_entries = []
-        self.__generate_timezone_list_widgets()
+        self.delta = True
 
         # signals
         self.btn_next.connect("clicked", self.__window.next)
@@ -97,6 +94,20 @@ class VanillaDefaultTimezone(Adw.Bin):
 
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
+
+
+    def gen_deltas(self):
+        self.__expanders = []
+        self.__tz_entries = []
+        self.__generate_timezone_list_widgets()
+
+
+    def del_deltas(self):
+        self.__tz_entries = []
+        for i in self.__expanders:
+            self.all_timezones_group.remove(i)
+        self.__expanders = []
+
 
     def timezone_verify(self, carousel=None, idx=None):
         if idx is not None and idx != self.__step_num:
