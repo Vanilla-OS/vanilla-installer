@@ -722,7 +722,7 @@ class Processor:
             [
                 "mkdir -p /etc/abroot",
                 'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n  \\"PartCryptVar\\": \\"/dev/mapper/vos--var-var\\",\n  \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
-                'cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json',
+                "cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json",
             ],
             chroot=True,
         )

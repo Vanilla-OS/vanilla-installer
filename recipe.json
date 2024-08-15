@@ -9,6 +9,12 @@
     },
     "default_root_size": 12288,
     "min_disk_size": 51200,
+    "min_partition_sizes": {
+        "/boot": 900,
+        "/boot/efi": 512,
+        "/": 21504,
+        "/var": 25600
+    },
     "tour": {
         "welcome": {
             "resource": "/org/vanillaos/Installer/assets/welcome.png",
