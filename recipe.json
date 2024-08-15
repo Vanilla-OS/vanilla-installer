@@ -5,7 +5,6 @@
     "images": {
         "default": "ghcr.io/vanilla-os/desktop:main",
         "nvidia": "ghcr.io/vanilla-os/nvidia:main",
-        "nvidia-proprietary": "ghcr.io/vanilla-os/nvidia-proprietary:main",
         "vm": "ghcr.io/vanilla-os/vm:main"
     },
     "default_root_size": 12288,
@@ -14,7 +13,7 @@
         "/boot": 900,
         "/boot/efi": 512,
         "/": 21504,
-       "/var": 25600
+        "/var": 25600
     },
     "tour": {
         "welcome": {
