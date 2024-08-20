@@ -149,6 +149,7 @@ class PartitionSelector(Adw.PreferencesPage):
     bios_part = Gtk.Template.Child()
     root_part = Gtk.Template.Child()
     var_part = Gtk.Template.Child()
+    home_part = Gtk.Template.Child()
     swap_part = Gtk.Template.Child()
 
     boot_part_expand = Gtk.Template.Child()
@@ -156,6 +157,7 @@ class PartitionSelector(Adw.PreferencesPage):
     bios_part_expand = Gtk.Template.Child()
     root_part_expand = Gtk.Template.Child()
     var_part_expand = Gtk.Template.Child()
+    home_part_expand = Gtk.Template.Child()
     swap_part_expand = Gtk.Template.Child()
 
     use_swap_part = Gtk.Template.Child()
@@ -196,6 +198,12 @@ class PartitionSelector(Adw.PreferencesPage):
         "var_part_expand": {
             "mountpoint": "/var",
             "min_size": 5_368_709_120,  # 5 GB
+            "partition": None,
+            "fstype": None,
+        },
+        "home_part_expand": {
+            "mountpoint": "/var/home",
+            "min_size": 5_368_709_120, # 5 GB
             "partition": None,
             "fstype": None,
         },
@@ -280,6 +288,16 @@ class PartitionSelector(Adw.PreferencesPage):
             )
             self.__selected_partitions["var_part_expand"]["fstype"] = "btrfs"
 
+        self.__home_part_rows = self.__generate_partition_list_widgets(
+            self.home_part_expand, "ext4"
+        )
+        for i, widget in enumerate(self.__home_part_rows):
+            self.home_part_expand.add_row(widget)
+            widget.add_siblings(
+                self.__home_part_rows[:i] + self.__home_part_rows[i + 1 :]
+            )
+            self.__selected_partitions["home_part_expand"]["fstype"] = "ext4"
+
         self.__swap_part_rows = self.__generate_partition_list_widgets(
             self.swap_part_expand, "swap", False
         )
@@ -290,7 +308,7 @@ class PartitionSelector(Adw.PreferencesPage):
             )
             self.__selected_partitions["swap_part_expand"]["fstype"] = "swap"
 
-        for widget in [self.boot_part, self.efi_part, self.root_part, self.var_part]:
+        for widget in [self.boot_part, self.efi_part, self.root_part, self.var_part, self.home_part]:
             widget.set_description(widget.get_description() + self.get_partition_size_string(widget) + ".")
         self.update_apply_button_status()
 
@@ -360,6 +378,8 @@ class PartitionSelector(Adw.PreferencesPage):
             self.root_part_expand.get_style_context().remove_class("error")
         if self.var_part_expand.get_style_context().has_class("error"):
             self.var_part_expand.get_style_context().remove_class("error")
+        if self.home_part_expand.get_style_context().has_class("error"):
+            self.home_part_expand.get_style_context().remove_class("error")
 
         for partition, info in self.__selected_partitions.items():
             if "min_size" in info and info["partition"] is not None:
@@ -384,6 +404,10 @@ class PartitionSelector(Adw.PreferencesPage):
                         self.var_part_expand.get_style_context().add_class("error")
                         self.var_small_error.set_description(error_description)
                         self.var_small_error.set_visible(True)
+                    elif partition == "home_part_expand":
+                        self.home_part_expand.get_style_context().add_class("error")
+                        self.home_small_error.set_description(error_description)
+                        self.home_small_error.set_visible(True)
 
         # Special case for BIOS, where the partitions needs to be EXACTLY 1 MiB
         if not Systeminfo.is_uefi():
@@ -408,6 +432,8 @@ class PartitionSelector(Adw.PreferencesPage):
             size = self.__recipe["min_partition_sizes"]["/"]
         if widget == self.var_part:
             size = self.__recipe["min_partition_sizes"]["/var"]
+        if widget == self.home_part:
+            size = self.__recipe["min_partition_sizes"]["/var/home"]
         if size > 1024:
             return str(int(size/1024)) + "GiB"
         else:
@@ -439,6 +465,7 @@ class PartitionSelector(Adw.PreferencesPage):
             self.__boot_part_rows,
             self.__root_part_rows,
             self.__var_part_rows,
+            self.__home_part_rows,
             self.__swap_part_rows,
         ]
 
