@@ -168,6 +168,7 @@ class PartitionSelector(Adw.PreferencesPage):
     bios_small_error = Gtk.Template.Child()
     root_small_error = Gtk.Template.Child()
     var_small_error = Gtk.Template.Child()
+    home_small_error = Gtk.Template.Child()
 
     # NOTE: Keys must be the same name as template children
     __selected_partitions: dict[str, dict[str, Union[Partition, str, None]]] = {
