@@ -140,7 +140,7 @@
     <child>
       <object class="AdwPreferencesGroup" id="home_part">
         <property name="title" translatable="yes">Home Partition</property>
-        <property name="description" translatable="yes">A custom home partition allows you to store your files in a seperate partition from your system so that you can keep your files when changing Linux distributions.</property>
+        <property name="description" translatable="yes">A custom home partition allows you to store your files in a seperate partition from your system so that you can keep your files when changing Linux distributions. The minimum size for this partition is </property>
         <child>
           <object class="AdwActionRow">
             <property name="title" translatable="yes">Home Partition</property>
