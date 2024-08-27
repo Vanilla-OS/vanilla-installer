@@ -18,6 +18,7 @@
 
 import logging
 import time
+import subprocess
 from gettext import gettext as _
 from operator import attrgetter
 from threading import Lock, Timer
@@ -158,83 +159,90 @@ class WirelessRow(Adw.ActionRow):
         else:
             return AP_SECURITY_TYPES["wpa2"]
 
-    @property
-    def __key_mgmt(self):
-        # Key management used for the connection. One of "none" (WEP or no
-        # password protection), "ieee8021x" (Dynamic WEP), "owe" (Opportunistic
-        # Wireless Encryption), "wpa-psk" (WPA2 + WPA3 personal), "sae" (WPA3
-        # personal only), "wpa-eap" (WPA2 + WPA3 enterprise) or
-        # "wpa-eap-suite-b-192" (WPA3 enterprise only).
-        rsn_flags = self.ap.get_rsn_flags()
-        wpa_flags = self.ap.get_wpa_flags()
+    # disabled due to a crashing issue
+    # @property
+    # def __key_mgmt(self):
+    #     # Key management used for the connection. One of "none" (WEP or no
+    #     # password protection), "ieee8021x" (Dynamic WEP), "owe" (Opportunistic
+    #     # Wireless Encryption), "wpa-psk" (WPA2 + WPA3 personal), "sae" (WPA3
+    #     # personal only), "wpa-eap" (WPA2 + WPA3 enterprise) or
+    #     # "wpa-eap-suite-b-192" (WPA3 enterprise only).
+    #     rsn_flags = self.ap.get_rsn_flags()
+    #     wpa_flags = self.ap.get_wpa_flags()
 
-        if wpa_flags == NM_802_11_AP_SEC_NONE and rsn_flags == NM_802_11_AP_SEC_NONE:
-            return "none"
-        elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_802_1X:
-            return "ieee8021x"
-        elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_EAP_SUITE_B_192:
-            return "wpa-eap-suite-b-192"
-        elif (
-            rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_OWE
-            or rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_OWE_TM
-        ):
-            return "owe"
-        elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_PSK:
-            return "wpa-psk"
-        elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_SAE:
-            return "sae"
+    #     if wpa_flags == NM_802_11_AP_SEC_NONE and rsn_flags == NM_802_11_AP_SEC_NONE:
+    #         return "none"
+    #     elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_802_1X:
+    #         return "ieee8021x"
+    #     elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_EAP_SUITE_B_192:
+    #         return "wpa-eap-suite-b-192"
+    #     elif (
+    #         rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_OWE
+    #         or rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_OWE_TM
+    #     ):
+    #         return "owe"
+    #     elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_PSK:
+    #         return "wpa-psk"
+    #     elif rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_SAE:
+    #         return "sae"
 
     def __show_connect_dialog(self, data):
-        dialog = NMA4.WifiDialog.new(
-            self.client, self.__construct_connection(), self.device, self.ap, False
-        )
-        dialog.set_modal(True)
-        dialog.set_transient_for(self.__window)
+        subprocess.Popen(["/usr/bin/gnome-control-center", "wifi"])
 
-        dialog.connect("response", self.__on_dialog_response)
+        # The following is disabled temporarily to prevent crashes until a fix is found:
+        # dialog = NMA4.WifiDialog.new(
+        #     self.client, self.__construct_connection(), self.device, self.ap, False
+        # )
+        # dialog.set_modal(True)
+        # dialog.set_transient_for(self.__window)
 
-        dialog.show()
+        # dialog.connect("response", self.__on_dialog_response)
 
-    def __on_dialog_response(self, dialog, response_id):
-        def connect_cb(client, result, data):
-            try:
-                ac = client.add_and_activate_connection_finish(result)
-                logger.debug("ActiveConnection {}".format(ac.get_path()))
-            except Exception as e:
-                logger.error("Error:", e)
+        # dialog.show()
 
-        if response_id == -6:
-            dialog.close()
-        elif response_id == -5:
-            conn, _, _ = dialog.get_connection()
-            self.client.add_and_activate_connection_async(
-                conn, self.device, self.ap.get_path(), None, connect_cb, None
-            )
-            dialog.close()
 
-    def __construct_connection(self):
-        connection = NM.SimpleConnection.new()
-        s_con = NM.SettingConnection.new()
-        s_con.set_property(NM.SETTING_CONNECTION_ID, self.ssid)
-        s_con.set_property(NM.SETTING_CONNECTION_UUID, NM.utils_uuid_generate())
-        s_con.set_property(NM.SETTING_CONNECTION_TYPE, "802-11-wireless")
-        s_wifi = NM.SettingWireless.new()
-        s_wifi.set_property(NM.SETTING_WIRELESS_SSID, self.ap.get_ssid())
-        s_wifi.set_property(NM.SETTING_WIRELESS_MODE, "infrastructure")
-        s_wsec = NM.SettingWirelessSecurity.new()
-        s_wsec.set_property(NM.SETTING_WIRELESS_SECURITY_KEY_MGMT, self.__key_mgmt)
-        s_ip4 = NM.SettingIP4Config.new()
-        s_ip4.set_property(NM.SETTING_IP_CONFIG_METHOD, "auto")
-        s_ip6 = NM.SettingIP6Config.new()
-        s_ip6.set_property(NM.SETTING_IP_CONFIG_METHOD, "auto")
+    # disabled due to a crashing issue
+    # def __on_dialog_response(self, dialog, response_id):
+    #     def connect_cb(client, result, data):
+    #         try:
+    #             ac = client.add_and_activate_connection_finish(result)
+    #             logger.debug("ActiveConnection {}".format(ac.get_path()))
+    #         except Exception as e:
+    #             logger.error("Error:", e)
 
-        connection.add_setting(s_con)
-        connection.add_setting(s_wifi)
-        connection.add_setting(s_wsec)
-        connection.add_setting(s_ip4)
-        connection.add_setting(s_ip6)
+    #     if response_id == -6:
+    #         dialog.close()
+    #     elif response_id == -5:
+    #         conn, _, _ = dialog.get_connection()
+    #         self.client.add_and_activate_connection_async(
+    #             conn, self.device, self.ap.get_path(), None, connect_cb, None
+    #         )
+    #         dialog.close()
 
-        return connection
+    # disabled due to a crashing issue
+    # def __construct_connection(self):
+    #     connection = NM.SimpleConnection.new()
+    #     s_con = NM.SettingConnection.new()
+    #     s_con.set_property(NM.SETTING_CONNECTION_ID, self.ssid)
+    #     s_con.set_property(NM.SETTING_CONNECTION_UUID, NM.utils_uuid_generate())
+    #     s_con.set_property(NM.SETTING_CONNECTION_TYPE, "802-11-wireless")
+    #     s_wifi = NM.SettingWireless.new()
+    #     s_wifi.set_property(NM.SETTING_WIRELESS_SSID, self.ap.get_ssid())
+    #     s_wifi.set_property(NM.SETTING_WIRELESS_MODE, "infrastructure")
+    #     s_wsec = NM.SettingWirelessSecurity.new()
+    #     s_wsec.set_property(NM.SETTING_WIRELESS_SECURITY_KEY_MGMT, self.__key_mgmt)
+    #     s_ip4 = NM.SettingIP4Config.new()
+    #     s_ip4.set_property(NM.SETTING_IP_CONFIG_METHOD, "auto")
+    #     s_ip6 = NM.SettingIP6Config.new()
+    #     s_ip6.set_property(NM.SETTING_IP_CONFIG_METHOD, "auto")
+
+    #     connection.add_setting(s_con)
+    #     connection.add_setting(s_wifi)
+    #     connection.add_setting(s_wsec)
+    #     connection.add_setting(s_ip4)
+    #     connection.add_setting(s_ip6)
+
+    #     return connection
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-network.ui")
