@@ -434,7 +434,7 @@ class Processor:
                     root_b_partition = mnt["partition"]
             elif mnt["target"] == "/var":
                 var_partition = mnt["partition"]
-            elif mnt["target"] == "/var":
+            elif mnt["target"] == "/var/home":
                 home_partition = mnt["partition"]
 
         return (
@@ -540,10 +540,29 @@ class Processor:
                         for path in _REL_SYSTEM_LINKS
                     ],
                     f"mount {var_label} /mnt/a/var",
-                    f"mount {home_label} /mnt/a/var/home"
+                    f"mount {home_label} /mnt/a/var/home" if home_label != "" else "",
                     f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
                 ],
             )
+
+            # Setup the home partition in /etc/fstab
+            if home_label != "":
+                i = 0
+                while i < len(finals):
+                    if "disk" in finals[i]:
+                        break
+                    i += 1
+                home_type = finals[i]["disk"][home_part]["fs"]
+                i = 0
+
+                recipe.add_postinstall_step(
+                    "shell",
+                    [
+                        "touch /etc/fstab",
+                        f"echo \"{home_part} /var/home {home_type} defaults  0 2\" >> /etc/fstab",
+                    ],
+                    chroot=True
+                )
 
             # Create default user
             # This needs to be done after mounting `/etc` overlay, so set it as
@@ -669,7 +688,6 @@ class Processor:
                     "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
                     "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
                     "mv /var/storage /var/lib/abroot/",
-                    "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                 ],
                 chroot=True,
