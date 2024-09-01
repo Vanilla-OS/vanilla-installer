@@ -361,7 +361,7 @@ class Processor:
                 # - 512 MiB from the init LV
                 # - 1024 MiB from the metadata LV
                 # - 1028 MiB from LVM's internals (4 MiB header and 1024 MiB for thin)
-                thin_size = (values["size"] / 1_048_576) - 1024 - 512 - 1028
+                thin_size = (values["size"] / 1_048_576) - 1024 - 512 - 1068
                 setup_steps.append(
                     [part_disk, "lvcreate", ["root-meta", "vos-root", "linear", 1024]]
                 )
