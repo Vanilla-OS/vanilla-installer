@@ -83,7 +83,10 @@ class PartitionRow(Adw.ActionRow):
             self.__add_dropdown()
 
     def __add_dropdown(self):
-        fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
+        if self.__partition.fs_type in self.__partition_fs_types:
+            fs_dropdown = Gtk.DropDown.new_from_strings(["unformatted"] + self.__partition_fs_types)
+        else:
+            fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
         fs_dropdown.set_valign(Gtk.Align.CENTER)
         fs_dropdown.set_visible(False)
 
