@@ -88,8 +88,6 @@ class PartitionRow(Adw.ActionRow):
         fs_dropdown.set_visible(False)
 
         selected_fs = self.__default_fs
-        if self.__partition.fs_type in self.__partition_fs_types:
-            selected_fs = self.__partition.fs_type
 
         fs_dropdown.set_selected(self.__partition_fs_types.index(selected_fs))
         fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
