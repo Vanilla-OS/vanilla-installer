@@ -47,7 +47,7 @@ class VanillaDefaultImage(Adw.Bin):
             return {"default-image": True,}
 
     def __on_url_changed(self, *args):
-        if self.image_url_entry.get_text() and re.match("^((?![a-z\\-]+\\.[a-z/\\-]+:.+).+)$", self.image_url_entry.get_text()) == None:
+        if self.image_url_entry.get_text() and re.match("^(.*/.*:.*)$", self.image_url_entry.get_text()) is not None:
             self.image_url_filled = True
             self.image_url_entry.remove_css_class("error")
         else:
