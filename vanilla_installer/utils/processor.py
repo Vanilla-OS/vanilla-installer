@@ -609,8 +609,10 @@ class Processor:
             )
 
             # Run `grub-mkconfig` inside the root partition
+            # Since /usr/sbin/grub-mkconfig deletes itself after the first invocation
+            # we need to use the alternative path
             recipe.add_postinstall_step(
-                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+                "/usr/libexec/grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
             )
 
             # Copy init files to init LV
