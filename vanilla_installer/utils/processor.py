@@ -547,6 +547,7 @@ class Processor:
                     "vanilla",
                     ["sudo", "lpadmin"],
                     "vanilla",
+                    1200,
                 ],
                 chroot=True,
                 late=True,
