@@ -702,9 +702,10 @@ class VanillaDefaultDisk(Adw.Bin):
     def get_finals(self):
         return {"disk": self.__partition_recipe}
 
-    def __on_modal_close_request(self, *args):
+    def __on_close_default_disk_part_modal(self, *args):
         self.btn_next.set_visible(self.__partition_recipe is not None)
         self.btn_next.set_sensitive(self.__partition_recipe is not None)
+        self.confirm_partition_changes()
 
     def __on_auto_clicked(self, button):
         pvs_to_remove = []
@@ -726,12 +727,11 @@ class VanillaDefaultDisk(Adw.Bin):
                 "pvs_to_remove": pvs_to_remove,
             }
         }
-        modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
-        modal.present()
+        self.confirm_partition_changes()
 
     def __on_manual_clicked(self, button):
         modal = VanillaDefaultDiskPartModal(self.__window, self, self.__selected_disks)
-        modal.connect("partitioning-set", self.__on_modal_close_request)
+        modal.connect("partitioning-set", self.__on_close_default_disk_part_modal)
         modal.present()
 
     def on_disk_entry_toggled(self, widget, disk):
@@ -758,5 +758,8 @@ class VanillaDefaultDisk(Adw.Bin):
         self.__partition_recipe = recipe
 
     def __on_btn_next_clicked(self, button):
+        self.confirm_partition_changes()
+
+    def confirm_partition_changes(self):
         modal = VanillaDefaultDiskConfirmModal(self.__window, self.__partition_recipe)
         modal.present()
