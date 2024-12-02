@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.0"/>
+    <requires lib="gtk" version="4.0" />
     <requires lib="libadwaita" version="1.0" />
     <template class="VanillaDefaultConnCheck" parent="AdwBin">
         <property name="halign">fill</property>
@@ -10,9 +10,12 @@
             <object class="AdwStatusPage" id="status_page">
                 <property name="icon-name">content-loading-symbolic</property>
                 <property name="title" translatable="yes">Checking Connection</property>
-                <property name="description" translatable="yes">Please wait until the connection check is done</property>
+                <property name="description" translatable="yes">
+                    Checking your internet connection, please wait
+                </property>
                 <child>
                     <object class="GtkButton" id="btn_recheck">
+                        <property name="visible">false</property>
                         <property name="label">Check Again</property>
                         <property name="halign">center</property>
                         <style>
