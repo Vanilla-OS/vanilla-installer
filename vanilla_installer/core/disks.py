@@ -207,10 +207,10 @@ class Partition:
 
 
 class DisksManager:
-    def __init__(self):
-        self.__disks = self.__get_disks()
+    def __init__(self, removableDevices=False):
+        self.__disks = self.__get_disks(removableDevices)
 
-    def __get_disks(self):
+    def __get_disks(self, removableDevices):
         disks = []
 
         for disk in os.listdir("/sys/block"):
@@ -221,7 +221,9 @@ class DisksManager:
                 with open("/sys/block/" + disk + "/removable") as f:
                     removable = int(f.readlines()[0].strip())
 
-                if removable == 1:
+                if removable == 1 and not removableDevices:
+                    continue
+                if removable == 0 and removableDevices:
                     continue
 
             disks.append(Disk(disk))

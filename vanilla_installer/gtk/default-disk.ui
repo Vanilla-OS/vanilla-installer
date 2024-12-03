@@ -36,6 +36,15 @@
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
+                      <object class="AdwExpanderRow" id="removable_disks">
+                        <property name="title" translatable="yes">Removable Drives</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
                       <object class="GtkBox">
                         <property name="halign">3</property>
                         <property name="spacing">10</property>
