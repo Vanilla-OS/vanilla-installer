@@ -40,6 +40,7 @@ class LanguageRow(Adw.ActionRow):
     def __on_check_button_toggled(self, widget):
         self.__selected_language["language_title"] = self.__title
         self.__selected_language["language_subtitle"] = self.__subtitle
+        self.get_parent().emit("selected-rows-changed")
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-language.ui")
