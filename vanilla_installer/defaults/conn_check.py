@@ -99,9 +99,9 @@ class VanillaDefaultConnCheck(Adw.Bin):
                 return
 
             self.status_page.set_icon_name("network-wired-disconnected-symbolic")
-            self.status_page.set_title(_("No Internet Connection!"))
+            self.status_page.set_title(_("No Internet Connection"))
             self.status_page.set_description(
-                _("Installer requires an active internet connection")
+                _("An active internet connection is required to install Vanilla OS")
             )
             self.btn_recheck.set_visible(True)
 
@@ -112,6 +112,6 @@ class VanillaDefaultConnCheck(Adw.Bin):
         self.status_page.set_icon_name("content-loading-symbolic")
         self.status_page.set_title(_("Checking Connection"))
         self.status_page.set_description(
-            _("Please wait until the connection check is done")
+            _("Checking your internet connection, please wait")
         )
         self.__conn_check()
