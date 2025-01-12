@@ -1,3 +1,4 @@
+[Recovered_tp_debug_info.txt](https://github.com/user-attachments/files/18388449/Recovered_tp_debug_info.txt)
 <div align="center">
     <img src="data/icons/hicolor/scalable/apps/org.vanillaos.Installer.svg" height="64">
     <h1>Vanilla OS Installer</h1>
