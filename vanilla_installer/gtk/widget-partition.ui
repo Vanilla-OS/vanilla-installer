@@ -139,6 +139,7 @@
     </child>
     <child>
       <object class="AdwPreferencesGroup" id="swap_part">
+        <property name="visible">False</property>
         <property name="title" translatable="yes">Swap Partition</property>
         <property name="description" translatable="yes">Swap acts as a virtual extension of your RAM and enables hibernation. Vanilla OS already uses zram to provide swapping at no storage cost.</property>
         <child>
