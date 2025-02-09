@@ -103,6 +103,16 @@ class Disk:
         else:
             return f"{size} B"
 
+    @property
+    def is_removable(self):
+        if os.path.isfile("/sys/block/" + self.__disk + "/removable"):
+            with open("/sys/block/" + self.__disk + "/removable") as f:
+                removable = int(f.readlines()[0].strip())
+                if removable == 1:
+                    return True
+    
+        return False
+
 
 class Partition:
     def __init__(self, disk: str, partition: str):
@@ -217,23 +227,24 @@ class DisksManager:
             if disk.startswith(("loop", "ram", "sr", "zram", "dm-")):
                 continue
 
-            if os.path.isfile("/sys/block/" + disk + "/removable"):
-                with open("/sys/block/" + disk + "/removable") as f:
-                    removable = int(f.readlines()[0].strip())
-
-                if removable == 1:
-                    continue
 
             disks.append(Disk(disk))
 
         return disks
 
-    @property
-    def all_disks(self):
-        return self.__disks
+    def all_disks(self, include_removable: bool = True):
+        selected_disks = []
+        if include_removable:
+            selected_disks = self.__disks
+        else:
+            for disk in self.__disks:
+                if not disk.is_removable:
+                    selected_disks.append(disk)
+
+        return selected_disks
 
     def get_disk(self, disk: str):
-        for disk in self.all_disks:
+        for disk in self.all_disks():
             if disk.disk == disk:
                 return disk
 
