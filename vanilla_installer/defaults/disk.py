@@ -688,19 +688,32 @@ class VanillaDefaultDisk(Adw.Bin):
         )
 
         # append the disks widgets
-        for disk in self.__disks.all_disks:
+        for disk in self.__disks.all_disks(include_removable=False):
             entry = VanillaDefaultDiskEntry(self, disk)
             self.group_disks.add(entry)
 
             self.__registry_disks.append(entry)
 
+        all_disks_button = Adw.ButtonRow()
+        all_disks_button.set_title(_("Show removable disks"))
+        self.group_disks.add(all_disks_button)
+
         # signals
+        all_disks_button.connect("activated", self.__on_btn_all_disks)
         self.btn_next.connect("clicked", self.__on_btn_next_clicked)
         self.btn_auto.connect("clicked", self.__on_auto_clicked)
         self.btn_manual.connect("clicked", self.__on_manual_clicked)
 
     def get_finals(self):
         return {"disk": self.__partition_recipe}
+
+    def __on_btn_all_disks(self, widget):
+        widget.set_visible(False)
+        for disk in self.__disks.all_disks(include_removable=True):
+            if disk.is_removable:
+                entry = VanillaDefaultDiskEntry(self, disk)
+                self.group_disks.add(entry)
+                self.__registry_disks.append(entry)
 
     def __on_close_default_disk_part_modal(self, *args):
         self.btn_next.set_visible(self.__partition_recipe is not None)
