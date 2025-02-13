@@ -192,7 +192,7 @@ class PartitionSelector(Adw.PreferencesPage):
         },
         "root_part_expand": {
             "mountpoint": "/",
-            "min_size": 22_011_707_392,  # 20.5 GB
+            "min_size": 22_523_707_392,  # 20.5 GB
             "partition": None,
             "fstype": None,
         },
