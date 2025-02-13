@@ -234,8 +234,8 @@ class Processor:
         setup_steps.append([disk, "setflag", ["2", "esp", True]])
 
         # LVM PVs
-        setup_steps.append([disk, "mkpart", ["vos-root", "none", 1537, 23656]])
-        setup_steps.append([disk, "mkpart", ["vos-var", "none", 23656, -1]])
+        setup_steps.append([disk, "mkpart", ["vos-root", "none", 1537, 24168]])
+        setup_steps.append([disk, "mkpart", ["vos-var", "none", 24168, -1]])
         part_prefix = f"{disk}p" if re.match(r"[0-9]", disk[-1]) else f"{disk}"
         setup_steps.append([disk, "pvcreate", [part_prefix + "3"]])
         setup_steps.append([disk, "pvcreate", [part_prefix + "4"]])
@@ -245,7 +245,7 @@ class Processor:
         setup_steps.append([disk, "vgcreate", ["vos-var", [part_prefix + "4"]]])
 
         # Init files LV
-        setup_steps.append([disk, "lvcreate", ["init", "vos-root", "linear", 512]])
+        setup_steps.append([disk, "lvcreate", ["init", "vos-root", "linear", 1024]])
         setup_steps.append([disk, "lvm-format", ["vos-root/init", "ext4", "vos-init"]])
 
         # LVM root thin pool
@@ -353,7 +353,7 @@ class Processor:
                 setup_steps.append([part_disk, "pvcreate", [part]])
                 setup_steps.append([part_disk, "vgcreate", ["vos-root", [part]]])
                 setup_steps.append(
-                    [part_disk, "lvcreate", ["init", "vos-root", "linear", 512]]
+                    [part_disk, "lvcreate", ["init", "vos-root", "linear", 1024]]
                 )
                 setup_steps.append(
                     [part_disk, "lvm-format", ["vos-root/init", "ext4", "vos-init"]]
@@ -361,11 +361,11 @@ class Processor:
 
                 # LVM root thin pool
                 # Total pool size is the disk size, subtracted by:
-                # - 512 MiB from the init LV
+                # - 1024 MiB from the init LV
                 # - 1024 MiB from the metadata LV
                 # - 1028 MiB from LVM's internals (4 MiB header and 1024 MiB for thin)
                 # - 100 MiB to account for various alignment issues
-                thin_size = (values["size"] / 1_048_576) - 1024 - 512 - 1028 - 100
+                thin_size = (values["size"] / 1_048_576) - 1024 - 1024 - 1028 - 100
                 setup_steps.append(
                     [part_disk, "lvcreate", ["root-meta", "vos-root", "linear", 1024]]
                 )
