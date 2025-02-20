@@ -28,10 +28,11 @@ from vanilla_installer.core.system import Systeminfo
 logger = logging.getLogger("Installer::Processor")
 
 # fmt: off
-_BASE_DIRS = ["boot", "dev", "home", "media", "mnt", "var", "opt",
-              "part-future", "proc", "root", "run", "srv", "sys", "tmp"]
+_BASE_DIRS = ["boot", "dev", "home", "var", "opt",
+              "part-future", "proc", "run", "srv", "sys", "tmp"]
 _REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
               "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
+_REL_VAR_LINKS = ["mnt", "media", "root"]
 _REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
 # fmt: on
 
@@ -527,6 +528,9 @@ class Processor:
                     "rm -rf /mnt/a/.system/tmp-boot",
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
+                    *[f"rm -rf /mnt/a/{path}" for path in _REL_VAR_LINKS],
+                    *[f"mkdir var/{path} /mnt/a/" for path in _REL_VAR_LINKS],
+                    *[f"ln -s var/{path} /mnt/a/" for path in _REL_VAR_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
                     *[
                         f"ln -rs /mnt/a/{path} /mnt/a/.system/"
@@ -667,9 +671,12 @@ class Processor:
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    "mv /.system/home /var",
-                    "mv /.system/opt /var",
-                    "mv /.system/tmp /var",
+                    "mkdir -p /var/home",
+                    "mkdir -p /var/opt",
+                    "mkdir -p /var/tmp",
+                    "mkdir -p /var/mnt",
+                    "mkdir -p /var/media",
+                    "mkdir -p /var/root",
                     "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
                     "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
                     "mv /var/storage /var/lib/abroot/",
