@@ -545,11 +545,19 @@ class Processor:
             # This needs to be done after mounting `/etc` overlay, so set it as
             # late post-install
             recipe.add_postinstall_step(
+                "shell",
+                [
+                    "groupadd -g 1201 vanilla-first-setup",
+                ],
+                chroot=True,
+                late=True,
+            )
+            recipe.add_postinstall_step(
                 "adduser",
                 [
                     "vanilla",
                     "vanilla",
-                    ["sudo", "lpadmin"],
+                    ["sudo", "lpadmin", "vanilla-first-setup"],
                     "vanilla",
                     1200,
                 ],
