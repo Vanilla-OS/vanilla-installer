@@ -529,8 +529,8 @@ class Processor:
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
                     *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/{path}" for path in _REL_VAR_LINKS],
-                    *[f"mkdir var/{path} /mnt/a/" for path in _REL_VAR_LINKS],
-                    *[f"ln -s var/{path} /mnt/a/" for path in _REL_VAR_LINKS],
+                    *[f"mkdir -p /mnt/a/var/{path}" for path in _REL_VAR_LINKS],
+                    *[f"ln -s var/{path} /mnt/a/{path}" for path in _REL_VAR_LINKS],
                     *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
                     *[
                         f"ln -rs /mnt/a/{path} /mnt/a/.system/"
