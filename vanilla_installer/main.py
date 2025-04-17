@@ -63,9 +63,9 @@ class VanillaInstaller(Adw.Application):
 
         win = self.props.active_window
         if not win:
-            if not Systeminfo.is_ram_enough() and "IGNORE_RAM" not in os.environ:
+            if "IGNORE_RAM" not in os.environ and not Systeminfo.is_ram_enough():
                 win = VanillaRamWindow(application=self)  # Not enough RAM
-            elif not Systeminfo.is_cpu_enough() and "IGNORE_CPU" not in os.environ:
+            elif "IGNORE_CPU" not in os.environ and not Systeminfo.is_cpu_enough():
                 win = VanillaCpuWindow(application=self)  # Not enough CPU
             elif not Systeminfo.is_uefi():
                 win = VanillaUnsupportedWindow(application=self)  # Not UEFI
