@@ -22,7 +22,7 @@ import tempfile
 from datetime import datetime
 from typing import Any, Union
 
-from vanilla_installer.core.disks import Diskutils
+from vanilla_installer.core.disks import Diskutils, Disk
 from vanilla_installer.core.system import Systeminfo
 
 logger = logging.getLogger("Installer::Processor")
@@ -497,6 +497,9 @@ class Processor:
                 if final["vm"]["use-vm-tools"]:
                     oci_image = images["vm"]
 
+        if boot_disk == None:
+            return
+
         # Installation
         recipe.set_installation("oci", oci_image)
 
@@ -598,14 +601,11 @@ class Processor:
                 late=True,
             )
 
-            # TODO: Install grub-pc if target is BIOS
+            is_removable = Disk(boot_disk).is_removable
+
             # Run `grub-install` with the boot partition as target
-            grub_type = "efi" if Systeminfo.is_uefi() else "bios"
             recipe.add_postinstall_step(
-                "grub-install", ["/mnt/a/boot", boot_disk, grub_type, efi_part]
-            )
-            recipe.add_postinstall_step(
-                "grub-install", ["/boot", boot_disk, grub_type, efi_part], chroot=True
+                "grub-install", ["/boot", boot_disk, "efi", "vanilla", is_removable, efi_part], chroot=True
             )
 
             # Run `grub-mkconfig` to generate files for the boot partition
