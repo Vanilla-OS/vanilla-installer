@@ -445,7 +445,7 @@ class Processor:
         )
 
     @staticmethod
-    def gen_install_recipe(log_path, finals, sys_recipe):
+    def gen_install_recipe(log_path, finals, sys_recipe, keep_var_data: bool) -> str|None:
         logger.info("processing the following final data: %s", finals)
 
         recipe = AlbiusRecipe()
@@ -462,12 +462,18 @@ class Processor:
                 encrypt = final["encryption"]["use_encryption"]
                 password = final["encryption"]["encryption_key"] if encrypt else None
 
+        if encrypt and keep_var_data:
+            raise AssertionError("can't encrypt while keeping var data")
+
         boot_disk = None
 
         # Setup disks and mountpoints
         for final in finals:
             if "disk" in final.keys():
                 if "auto" in final["disk"].keys():
+                    if keep_var_data:
+                        raise AssertionError("can't keep var data with automatic partitioning")
+                    
                     part_info = Processor.__gen_auto_partition_steps(
                         final["disk"]["auto"]["disk"],
                         encrypt,
@@ -513,37 +519,217 @@ class Processor:
         ) = Processor.__find_partitions(recipe)
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
-            # Adapt root A filesystem structure
-            if encrypt:
-                var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_part})"
-            else:
-                var_label = var_part
+            return Processor.write_recipe_to_file(recipe)
+
+        # Adapt root A filesystem structure
+        if encrypt:
+            var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_part})"
+        else:
+            var_label = var_part
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                "umount /mnt/a/var",
+                "mkdir /mnt/a/tmp-boot",
+                "cp -r /mnt/a/boot /mnt/a/tmp-boot",
+                f"umount -l {boot_part}",
+                "mkdir -p /mnt/a/.system",
+                "mv /mnt/a/* /mnt/a/.system/",
+                "mv /mnt/a/.system/tmp-boot/boot/* /mnt/a/.system/boot",
+                "rm -rf /mnt/a/.system/tmp-boot",
+                *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
+                *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
+                *[f"rm -rf /mnt/a/{path}" for path in _REL_VAR_LINKS],
+                *[f"mkdir -p /mnt/a/var/{path}" for path in _REL_VAR_LINKS],
+                *[f"ln -s var/{path} /mnt/a/{path}" for path in _REL_VAR_LINKS],
+                *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
+                *[
+                    f"ln -rs /mnt/a/{path} /mnt/a/.system/"
+                    for path in _REL_SYSTEM_LINKS
+                ],
+                f"mount {var_label} /mnt/a/var",
+                f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
+            ],
+        )
+
+        is_removable = Disk(boot_disk).is_removable
+
+        # Run `grub-install` with the boot partition as target
+        recipe.add_postinstall_step(
+            "grub-install", ["/boot", boot_disk, "efi", "vanilla", is_removable, efi_part], chroot=True
+        )
+
+        # Run `grub-mkconfig` to generate files for the boot partition
+        recipe.add_postinstall_step(
+            "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+        )
+
+        # Replace main GRUB entry in the boot partition
+        with open("/tmp/boot-grub.cfg", "w") as file:
+            file.write(_BOOT_GRUB_CFG)
+        recipe.add_postinstall_step(
+            "shell", ["cp /tmp/boot-grub.cfg /mnt/a/boot/grub/grub.cfg"]
+        )
+
+        # Unmount boot partition so we can modify the root GRUB config
+        recipe.add_postinstall_step(
+            "shell", ["umount -l /mnt/a/boot", "mkdir -p /mnt/a/boot/grub"]
+        )
+
+        # Since /usr/sbin/grub-mkconfig deletes itself after the first invocation
+        # we need to use the alternative path
+        recipe.add_postinstall_step(
+            "shell", ["ln -s /usr/libexec/grub-mkconfig /usr/sbin/grub-mkconfig"], chroot=True
+        )
+
+        # Run `grub-mkconfig` inside the root partition
+        recipe.add_postinstall_step(
+            "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
+        )
+
+        # Delete link again so that users don't break their system with it
+        recipe.add_postinstall_step(
+            "shell", ["rm /usr/sbin/grub-mkconfig"], chroot=True
+        )
+
+        # Copy init files to init LV
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                "mkdir /.system/boot/init",
+                "mount /dev/vos-root/init /.system/boot/init",
+                "mkdir /.system/boot/init/vos-a",
+                "mkdir /.system/boot/init/vos-b",
+                "mv /.system/boot/vmlinuz* /.system/boot/init/vos-a",
+            ],
+            chroot=True,
+        )
+
+        # Add `/boot/grub/abroot.cfg` to the root partition
+        with open("/tmp/abroot.cfg", "w") as file:
+            root_entry = _ROOT_GRUB_CFG % (
+                "$KERNEL_VERSION",
+                "UUID=$ROOTA_UUID",
+                "$KERNEL_VERSION",
+            )
+            file.write(root_entry)
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                " ".join(
+                    f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_part}) \
+                    ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_part}) \
+                    KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
+                    envsubst < /tmp/abroot.cfg > /mnt/a/.system/boot/init/vos-a/abroot.cfg \
+                    '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
+                )
+            ],
+        )
+
+        # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                "mkdir -p /var/home",
+                "mkdir -p /var/opt",
+                "mkdir -p /var/tmp",
+                "mkdir -p /var/mnt",
+                "mkdir -p /var/media",
+                "mkdir -p /var/root",
+                "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
+                "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
+                "mount -o bind /var/home /home",
+                "mount -o bind /var/opt /opt",
+            ],
+            chroot=True,
+        )
+
+        if not keep_var_data:
+            # Reuse downloaded image for abroot
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    "umount /mnt/a/var",
-                    "mkdir /mnt/a/tmp-boot",
-                    "cp -r /mnt/a/boot /mnt/a/tmp-boot",
-                    f"umount -l {boot_part}",
-                    "mkdir -p /mnt/a/.system",
-                    "mv /mnt/a/* /mnt/a/.system/",
-                    "mv /mnt/a/.system/tmp-boot/boot/* /mnt/a/.system/boot",
-                    "rm -rf /mnt/a/.system/tmp-boot",
-                    *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
-                    *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
-                    *[f"rm -rf /mnt/a/{path}" for path in _REL_VAR_LINKS],
-                    *[f"mkdir -p /mnt/a/var/{path}" for path in _REL_VAR_LINKS],
-                    *[f"ln -s var/{path} /mnt/a/{path}" for path in _REL_VAR_LINKS],
-                    *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
-                    *[
-                        f"ln -rs /mnt/a/{path} /mnt/a/.system/"
-                        for path in _REL_SYSTEM_LINKS
-                    ],
-                    f"mount {var_label} /mnt/a/var",
-                    f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
+                    "mv /var/storage /var/lib/abroot/",
                 ],
+                chroot=True,
             )
 
+            # Set hostname
+            recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
+            for final in finals:
+                for key, value in final.items():
+                    # Set timezone
+                    if key == "timezone":
+                        recipe.add_postinstall_step(
+                            "timezone", [f"{value['region']}/{value['zone']}"], chroot=True
+                        )
+                    # Set locale
+                    if key == "language":
+                        recipe.add_postinstall_step("locale", [value], chroot=True)
+                    # Set keyboard
+                    if key == "keyboard":
+                        for i in value:
+                            recipe.add_postinstall_step(
+                                "keyboard",
+                                [
+                                    i["layout"],
+                                    i["model"],
+                                    i["variant"],
+                                ],
+                                chroot=True,
+                            )
+
+        # Create /abimage.abr
+        with open("/tmp/abimage.abr", "w") as file:
+            abimage = _ABIMAGE_FILE % (
+                "$IMAGE_DIGEST",
+                datetime.now().astimezone().isoformat(),
+                oci_image,
+            )
+            file.write(abimage)
+
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                " ".join(
+                    "IMAGE_DIGEST=$(cat /mnt/a/.oci_digest) \
+                    envsubst < /tmp/abimage.abr > /mnt/a/abimage.abr \
+                    '$IMAGE_DIGEST'".split()
+                )
+            ],
+        )
+
+
+        # Set ABRoot Thin-Provisioning option
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                "mkdir -p /etc/abroot",
+                'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n  \\"PartCryptVar\\": \\"/dev/mapper/vos--var-var\\",\n  \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
+                "cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json",
+            ],
+            chroot=True,
+        )
+
+        # Set up initramfs after all configuration is done
+        # Need to mount boot for initramfs generated
+        # Need to unmount afterwards to access init partition
+        recipe.add_postinstall_step(
+            "shell",
+            [
+                f"mount {boot_part} /boot",
+                f"mount {efi_part} /boot/efi",
+                "update-initramfs -c -k all",
+                "mkdir /var/tmp/vanilla-generated-initrd",
+                "cp -a /boot/initrd* /var/tmp/vanilla-generated-initrd/",
+                "umount -l /boot/efi",
+                "umount -l /boot",
+                "mv /var/tmp/vanilla-generated-initrd/initrd* /.system/boot/init/vos-a",
+            ],
+            chroot=True,
+        )
+
+        if not keep_var_data:
             # Create default user
             # This needs to be done after mounting `/etc` overlay, so set it as
             # late post-install
@@ -601,183 +787,20 @@ class Processor:
                 late=True,
             )
 
-            is_removable = Disk(boot_disk).is_removable
-
-            # Run `grub-install` with the boot partition as target
-            recipe.add_postinstall_step(
-                "grub-install", ["/boot", boot_disk, "efi", "vanilla", is_removable, efi_part], chroot=True
-            )
-
-            # Run `grub-mkconfig` to generate files for the boot partition
-            recipe.add_postinstall_step(
-                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
-            )
-
-            # Replace main GRUB entry in the boot partition
-            with open("/tmp/boot-grub.cfg", "w") as file:
-                file.write(_BOOT_GRUB_CFG)
-            recipe.add_postinstall_step(
-                "shell", ["cp /tmp/boot-grub.cfg /mnt/a/boot/grub/grub.cfg"]
-            )
-
-            # Unmount boot partition so we can modify the root GRUB config
-            recipe.add_postinstall_step(
-                "shell", ["umount -l /mnt/a/boot", "mkdir -p /mnt/a/boot/grub"]
-            )
-
-            # Since /usr/sbin/grub-mkconfig deletes itself after the first invocation
-            # we need to use the alternative path
-            recipe.add_postinstall_step(
-                "shell", ["ln -s /usr/libexec/grub-mkconfig /usr/sbin/grub-mkconfig"], chroot=True
-            )
-
-            # Run `grub-mkconfig` inside the root partition
-            recipe.add_postinstall_step(
-                "grub-mkconfig", ["/boot/grub/grub.cfg"], chroot=True
-            )
-
-            # Delete link again so that users don't break their system with it
-            recipe.add_postinstall_step(
-                "shell", ["rm /usr/sbin/grub-mkconfig"], chroot=True
-            )
-
-            # Copy init files to init LV
+            # Set the default user as the owner of it's home directory
             recipe.add_postinstall_step(
                 "shell",
-                [
-                    "mkdir /.system/boot/init",
-                    "mount /dev/vos-root/init /.system/boot/init",
-                    "mkdir /.system/boot/init/vos-a",
-                    "mkdir /.system/boot/init/vos-b",
-                    "mv /.system/boot/vmlinuz* /.system/boot/init/vos-a",
-                ],
+                ["chown -R vanilla:vanilla /home/vanilla"],
                 chroot=True,
+                late=True,
             )
-
-            # Add `/boot/grub/abroot.cfg` to the root partition
-            with open("/tmp/abroot.cfg", "w") as file:
-                root_entry = _ROOT_GRUB_CFG % (
-                    "$KERNEL_VERSION",
-                    "UUID=$ROOTA_UUID",
-                    "$KERNEL_VERSION",
-                )
-                file.write(root_entry)
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    " ".join(
-                        f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_part}) \
-                        ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_part}) \
-                        KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
-                        envsubst < /tmp/abroot.cfg > /mnt/a/.system/boot/init/vos-a/abroot.cfg \
-                        '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
-                    )
-                ],
-            )
-
-            # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "mkdir -p /var/home",
-                    "mkdir -p /var/opt",
-                    "mkdir -p /var/tmp",
-                    "mkdir -p /var/mnt",
-                    "mkdir -p /var/media",
-                    "mkdir -p /var/root",
-                    "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
-                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
-                    "mv /var/storage /var/lib/abroot/",
-                    "mount -o bind /var/home /home",
-                    "mount -o bind /var/opt /opt",
-                ],
-                chroot=True,
-            )
-
-        # Set hostname
-        recipe.add_postinstall_step("hostname", ["vanilla"], chroot=True)
-        for final in finals:
-            for key, value in final.items():
-                # Set timezone
-                if key == "timezone":
-                    recipe.add_postinstall_step(
-                        "timezone", [f"{value['region']}/{value['zone']}"], chroot=True
-                    )
-                # Set locale
-                if key == "language":
-                    recipe.add_postinstall_step("locale", [value], chroot=True)
-                # Set keyboard
-                if key == "keyboard":
-                    for i in value:
-                        recipe.add_postinstall_step(
-                            "keyboard",
-                            [
-                                i["layout"],
-                                i["model"],
-                                i["variant"],
-                            ],
-                            chroot=True,
-                        )
-
-        # Create /abimage.abr
-        with open("/tmp/abimage.abr", "w") as file:
-            abimage = _ABIMAGE_FILE % (
-                "$IMAGE_DIGEST",
-                datetime.now().astimezone().isoformat(),
-                oci_image,
-            )
-            file.write(abimage)
-
-        recipe.add_postinstall_step(
-            "shell",
-            [
-                " ".join(
-                    "IMAGE_DIGEST=$(cat /mnt/a/.oci_digest) \
-                    envsubst < /tmp/abimage.abr > /mnt/a/abimage.abr \
-                    '$IMAGE_DIGEST'".split()
-                )
-            ],
-        )
-
-        # Set the default user as the owner of it's home directory
-        recipe.add_postinstall_step(
-            "shell",
-            ["chown -R vanilla:vanilla /home/vanilla"],
-            chroot=True,
-            late=True,
-        )
-
-        # Set ABRoot Thin-Provisioning option
-        recipe.add_postinstall_step(
-            "shell",
-            [
-                "mkdir -p /etc/abroot",
-                'echo "$(head -n-1 /usr/share/abroot/abroot.json),\n  \\"PartCryptVar\\": \\"/dev/mapper/vos--var-var\\",\n  \\"thinProvisioning\\": true,\n    \\"thinInitVolume\\": \\"vos-init\\"\n}" > /etc/abroot/abroot.json',
-                "cp /etc/abroot/abroot.json /usr/share/abroot/abroot.json",
-            ],
-            chroot=True,
-        )
-
-        # Set up initramfs after all configuration is done
-        # Need to mount boot for initramfs generated
-        # Need to unmount afterwards to access init partition
-        recipe.add_postinstall_step(
-            "shell",
-            [
-                f"mount {boot_part} /boot",
-                f"mount {efi_part} /boot/efi",
-                "update-initramfs -c -k all",
-                "mkdir /var/tmp/vanilla-generated-initrd",
-                "cp -a /boot/initrd* /var/tmp/vanilla-generated-initrd/",
-                "umount -l /boot/efi",
-                "umount -l /boot",
-                "mv /var/tmp/vanilla-generated-initrd/initrd* /.system/boot/init/vos-a",
-            ],
-            chroot=True,
-        )
 
         recipe.merge_postinstall_steps()
 
+        return Processor.write_recipe_to_file(recipe)
+
+    @staticmethod
+    def write_recipe_to_file(recipe: AlbiusRecipe) -> str | None:
         if "VANILLA_FAKE" in os.environ:
             logger.info(json.dumps(recipe, default=vars))
             return None

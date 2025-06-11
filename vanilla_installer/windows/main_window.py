@@ -137,6 +137,7 @@ class VanillaWindow(Adw.ApplicationWindow):
             self.recipe.get("log_file", "/tmp/vanilla_installer.log"),
             self.finals,
             self.recipe,
+            False,
         )
         self.next()
         self.__view_progress.start(recipe)
