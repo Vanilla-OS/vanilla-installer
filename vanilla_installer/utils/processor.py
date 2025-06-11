@@ -214,8 +214,8 @@ class Processor:
         disk: str,
         encrypt: bool,
         root_size: int,
-        existing_pvs: list[str] | None,
-        existing_vgs: list[str] | None,
+        existing_pvs: list[str],
+        existing_vgs: list[str],
         password: str | None = None,
     ):
         setup_steps = []
