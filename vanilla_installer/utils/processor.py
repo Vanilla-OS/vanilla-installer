@@ -601,7 +601,7 @@ class Processor:
                 late=True,
             )
 
-            is_removable = Disk(boot_disk).is_removable
+            is_removable = Disk(boot_disk.removeprefix("/dev/")).is_removable
 
             # Run `grub-install` with the boot partition as target
             recipe.add_postinstall_step(
