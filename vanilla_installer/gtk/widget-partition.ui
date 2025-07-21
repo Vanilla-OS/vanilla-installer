@@ -138,6 +138,39 @@
       </object>
     </child>
     <child>
+      <object class="AdwPreferencesGroup" id="home_part">
+        <property name="title" translatable="yes">Home Partition</property>
+        <property name="description" translatable="yes">A custom home partition allows you to store your files in a seperate partition from your system so that you can keep your files when changing Linux distributions. The minimum size for this partition is </property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Home Partition</property>
+            <property name="subtitle" translatable="yes">Choose a partition to use as a home partition</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="use_home_part">
+                <property name="valign">3</property>
+              </object>
+            </child>
+            <property name="activatable-widget">use_home_part</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwExpanderRow" id="home_part_expand">
+            <property name="visible" bind-source="use_home_part" bind-property="active" bind-flags="sync-create"/>
+            <property name="title" translatable="yes">No Partition Selected</property>
+            <property name="subtitle" translatable="yes">Please select a partition from the options below</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup" id="home_small_error">
+        <style>
+          <class name="error"/>
+        </style>
+        <property name="visible">false</property>
+      </object>
+    </child>
+    <child>
       <object class="AdwPreferencesGroup" id="swap_part">
         <property name="visible">False</property>
         <property name="title" translatable="yes">Swap Partition</property>
