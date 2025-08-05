@@ -22,7 +22,7 @@ Vcs-Git: https://github.com/Vanilla-OS/vanilla-installer.git
 Rules-Requires-Root: no
 
 Package: vanilla-installer
-Architecture: any
+Architecture: all
 Depends: python3,
          python3-requests,
          python3-gi,
