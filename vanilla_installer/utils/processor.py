@@ -601,6 +601,11 @@ class Processor:
                 late=True,
             )
 
+            # Generate SSH host keys
+            recipe.add_postinstall_step(
+                "shell", ["ssh-keygen -A"], chroot=True, late=True
+            )
+
             is_removable = Disk(boot_disk.removeprefix("/dev/")).is_removable
 
             # Run `grub-install` with the boot partition as target
