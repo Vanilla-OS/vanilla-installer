@@ -9,16 +9,6 @@ install_data(
 )
 
 install_data(
-    'installer.session',
-    install_dir: join_paths(get_option('datadir'), 'gnome-session', 'sessions')
-)
-
-install_data(
-    'installer.session.conf',
-    install_dir: join_paths(get_option('datadir'), '..', 'lib', 'systemd', 'user', 'gnome-session@installer.target.d')
-)
-
-install_data(
     'org.vanillaos.Installer.policy',
     install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions')
 )
