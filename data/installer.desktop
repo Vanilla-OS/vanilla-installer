@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Installer
 Comment=This session provides an installer interface
-Exec=env GNOME_SHELL_SESSION_MODE=installer gnome-session
-TryExec=gnome-shell
+Exec=env GNOME_SHELL_SESSION_MODE=installer /usr/bin/gnome-session
+TryExec=/usr/bin/gnome-session
 Icon=
 Type=Application
 DesktopNames=vanilla:GNOME
