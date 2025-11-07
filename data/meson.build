@@ -4,6 +4,16 @@ install_data(
 )
 
 install_data(
+    'installer.desktop',
+    install_dir: join_paths(get_option('datadir'), 'wayland-sessions')
+)
+
+install_data(
+    'installer.desktop',
+    install_dir: join_paths(get_option('datadir'), 'gnome-session', 'sessions')
+)
+
+install_data(
     'installer.json',
     install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'modes')
 )
