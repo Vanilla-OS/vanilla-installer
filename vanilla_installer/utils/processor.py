@@ -294,6 +294,7 @@ class Processor:
         mountpoints.append(["/dev/vos-root/root-a", "/"])
         mountpoints.append(["/dev/vos-root/root-b", "/"])
         mountpoints.append(["/dev/vos-var/var", "/var"])
+        mountpoints.append(["/dev/vos-home/home", "/var/home"])
 
         return setup_steps, mountpoints, post_install_steps, disk
 
@@ -410,6 +411,8 @@ class Processor:
                 setup_steps.append([part_disk, "setflag", [part_number, "esp", True]])
             elif values["mp"] == "/var":
                 setup_partition("vos-var", encrypt, password)
+            elif values["mp"] == "/var/home":
+                setup_partition("vos-home", encrypt, password)
             elif values["mp"] == "swap":
                 post_install_steps.append(["swapon", [part], True])
 
@@ -422,6 +425,7 @@ class Processor:
         root_a_partition = ""
         root_b_partition = ""
         var_partition = ""
+        home_partition = ""
 
         for mnt in recipe.mountpoints:
             if mnt["target"] == "/boot":
@@ -435,6 +439,8 @@ class Processor:
                     root_b_partition = mnt["partition"]
             elif mnt["target"] == "/var":
                 var_partition = mnt["partition"]
+            elif mnt["target"] == "/var/home":
+                home_partition = mnt["partition"]
 
         return (
             boot_partition,
@@ -442,6 +448,7 @@ class Processor:
             root_a_partition,
             root_b_partition,
             var_partition,
+            home_partition,
         )
 
     @staticmethod
@@ -510,17 +517,21 @@ class Processor:
             root_a_part,
             root_b_part,
             var_part,
+            home_part
         ) = Processor.__find_partitions(recipe)
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
             if encrypt:
                 var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_part})"
+                home_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {home_part})"
             else:
                 var_label = var_part
+                home_label = home_part
             recipe.add_postinstall_step(
                 "shell",
                 [
+                    "unmount /mnt/a/var/home",
                     "umount /mnt/a/var",
                     "mkdir /mnt/a/tmp-boot",
                     "cp -r /mnt/a/boot /mnt/a/tmp-boot",
@@ -540,9 +551,29 @@ class Processor:
                         for path in _REL_SYSTEM_LINKS
                     ],
                     f"mount {var_label} /mnt/a/var",
+                    f"mount {home_label} /mnt/a/var/home" if home_label != "" else "",
                     f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
                 ],
             )
+
+            # Setup the home partition in /etc/fstab
+            if home_label != "":
+                i = 0
+                while i < len(finals):
+                    if "disk" in finals[i]:
+                        break
+                    i += 1
+                home_type = finals[i]["disk"][home_part]["fs"]
+                i = 0
+
+                recipe.add_postinstall_step(
+                    "shell",
+                    [
+                        "touch /etc/fstab",
+                        f"echo \"{home_part} /var/home {home_type} defaults  0 2\" >> /etc/fstab",
+                    ],
+                    chroot=True
+                )
 
             # Create default user
             # This needs to be done after mounting `/etc` overlay, so set it as
@@ -693,7 +724,6 @@ class Processor:
                     "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
                     "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
                     "mv /var/storage /var/lib/abroot/",
-                    "mount -o bind /var/home /home",
                     "mount -o bind /var/opt /opt",
                 ],
                 chroot=True,
