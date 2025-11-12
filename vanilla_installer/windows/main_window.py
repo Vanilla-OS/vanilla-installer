@@ -71,6 +71,19 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.install_mode = mode
         self.__build_ui(True, mode)
 
+    def rebuild_all(self):
+        cur_position = self.carousel.get_position()
+        self.carousel.remove(self.__view_confirm)
+        self.carousel.remove(self.__view_progress)
+        self.carousel.remove(self.__view_done)
+
+        if "VANILLA_FORCE_TOUR" not in os.environ:
+            for i, widget in enumerate(self.__builder.widgets):
+                self.carousel.remove(widget)
+
+        self.__builder = Builder(self)
+        self.__build_ui(mode=self.install_mode)
+
     def __build_ui(self, rebuild=False, mode=0):
         property_list = self.__builder.property_list
 
