@@ -8,7 +8,7 @@
         <property name="hexpand">true</property>
         <child>
             <object class="AdwStatusPage" id="status_page">
-                <property name="icon-name">emblem-default-symbolic</property>
+                <property name="icon-name">emblem-default</property>
                 <property name="title" translatable="yes">Finished!</property>
                 <property name="description" translatable="yes">Restart your device to enjoy your Vanilla OS experience</property>
                 <property name="halign">fill</property>
