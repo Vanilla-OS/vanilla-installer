@@ -28,12 +28,8 @@ from vanilla_installer.core.system import Systeminfo
 logger = logging.getLogger("Installer::Processor")
 
 # fmt: off
-_BASE_DIRS = ["boot", "dev", "home", "var", "opt",
-              "part-future", "proc", "run", "srv", "sys", "tmp"]
-_REL_LINKS = ["usr", "etc", "usr/bin", "usr/lib",
-              "usr/lib32", "usr/lib64", "usr/libx32", "usr/sbin"]
-_REL_VAR_LINKS = ["mnt", "media", "root"]
-_REL_SYSTEM_LINKS = ["dev", "proc", "run", "srv", "sys", "media"]
+_BASE_DIRS = ["part-future"]
+_REL_VAR_LINKS = ["home", "media", "mnt", "root", "srv"]
 # fmt: on
 
 _ROOT_GRUB_CFG = """insmod gzio
@@ -514,33 +510,13 @@ class Processor:
 
         if "VANILLA_SKIP_POSTINSTALL" not in os.environ:
             # Adapt root A filesystem structure
-            if encrypt:
-                var_label = f"/dev/mapper/luks-$(lsblk -d -y -n -o UUID {var_part})"
-            else:
-                var_label = var_part
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    "umount /mnt/a/var",
-                    "mkdir /mnt/a/tmp-boot",
-                    "cp -r /mnt/a/boot /mnt/a/tmp-boot",
-                    f"umount -l {boot_part}",
-                    "mkdir -p /mnt/a/.system",
-                    "mv /mnt/a/* /mnt/a/.system/",
-                    "mv /mnt/a/.system/tmp-boot/boot/* /mnt/a/.system/boot",
-                    "rm -rf /mnt/a/.system/tmp-boot",
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
-                    *[f"ln -rs /mnt/a/.system/{path} /mnt/a/" for path in _REL_LINKS],
                     *[f"rm -rf /mnt/a/{path}" for path in _REL_VAR_LINKS],
                     *[f"mkdir -p /mnt/a/var/{path}" for path in _REL_VAR_LINKS],
-                    *[f"ln -s var/{path} /mnt/a/{path}" for path in _REL_VAR_LINKS],
-                    *[f"rm -rf /mnt/a/.system/{path}" for path in _REL_SYSTEM_LINKS],
-                    *[
-                        f"ln -rs /mnt/a/{path} /mnt/a/.system/"
-                        for path in _REL_SYSTEM_LINKS
-                    ],
-                    f"mount {var_label} /mnt/a/var",
-                    f"mount {boot_part} /mnt/a/boot{f' && mount {efi_part} /mnt/a/boot/efi' if efi_part else ''}",
+                    *[f"ln -s var/{path} /mnt/a/" for path in _REL_VAR_LINKS],
                 ],
             )
 
@@ -620,15 +596,13 @@ class Processor:
                 "shell", ["cp /tmp/boot-grub.cfg /mnt/a/boot/grub/grub.cfg"]
             )
 
-            # Copy init files to init LV
+            # Mount init LV
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    "mkdir /.system/boot/init",
-                    "mount /dev/vos-root/init /.system/boot/init",
-                    "mkdir /.system/boot/init/vos-a",
-                    "mkdir /.system/boot/init/vos-b",
-                    "mv /.system/boot/vmlinuz* /.system/boot/init/vos-a",
+                    "mkdir /boot/init",
+                    "mount /dev/vos-root/init /boot/init",
+                    "mkdir /boot/init/vos-a /boot/init/vos-b",
                 ],
                 chroot=True,
             )
@@ -648,27 +622,19 @@ class Processor:
                         f"BOOT_UUID=$(lsblk -d -n -o UUID {boot_part}) \
                         ROOTA_UUID=$(lsblk -d -n -o UUID {root_a_part}) \
                         KERNEL_VERSION=$(ls -1 /mnt/a/usr/lib/modules | sed '1p;d') \
-                        envsubst < /tmp/abroot.cfg > /mnt/a/.system/boot/init/vos-a/abroot.cfg \
+                        envsubst < /tmp/abroot.cfg > /mnt/a/boot/init/vos-a/abroot.cfg \
                         '$BOOT_UUID $ROOTA_UUID $KERNEL_VERSION'".split()
                     )
                 ],
             )
 
-            # Mount `/etc` as overlay; `/home`, `/opt` and `/usr` as bind
+            # Mount `/etc` as overlay
             recipe.add_postinstall_step(
                 "shell",
                 [
-                    "mkdir -p /var/home",
-                    "mkdir -p /var/opt",
-                    "mkdir -p /var/tmp",
-                    "mkdir -p /var/mnt",
-                    "mkdir -p /var/media",
-                    "mkdir -p /var/root",
                     "mkdir -p /var/lib/abroot/etc/vos-a /var/lib/abroot/etc/vos-b /var/lib/abroot/etc/vos-a-work /var/lib/abroot/etc/vos-b-work",
-                    "mount -t overlay overlay -o lowerdir=/.system/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
+                    "mount -t overlay overlay -o lowerdir=/etc,upperdir=/var/lib/abroot/etc/vos-a,workdir=/var/lib/abroot/etc/vos-a-work /etc",
                     "mv /var/storage /var/lib/abroot/",
-                    "mount -o bind /var/home /home",
-                    "mount -o bind /var/opt /opt",
                 ],
                 chroot=True,
             )
@@ -738,19 +704,11 @@ class Processor:
         )
 
         # Set up initramfs after all configuration is done
-        # Need to mount boot for initramfs generated
-        # Need to unmount afterwards to access init partition
         recipe.add_postinstall_step(
             "shell",
             [
-                f"mount {boot_part} /boot",
-                f"mount {efi_part} /boot/efi",
                 "update-initramfs -c -k all",
-                "mkdir /var/tmp/vanilla-generated-initrd",
-                "cp -a /boot/initrd* /var/tmp/vanilla-generated-initrd/",
-                "umount -l /boot/efi",
-                "umount -l /boot",
-                "mv /var/tmp/vanilla-generated-initrd/initrd* /.system/boot/init/vos-a",
+                "mv /boot/config* /boot/initrd.img* /boot/System.map* /boot/vmlinuz* /boot/init/vos-a",
             ],
             chroot=True,
         )
