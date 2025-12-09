@@ -29,7 +29,8 @@ logger = logging.getLogger("Installer::Processor")
 
 # fmt: off
 _BASE_DIRS = ["part-future"]
-_REL_VAR_LINKS = ["home", "media", "mnt", "root", "srv"]
+_REL_RUN_LINKS = ["media"]
+_REL_VAR_LINKS = ["home", "mnt", "root", "srv"]
 # fmt: on
 
 _ROOT_GRUB_CFG = """insmod gzio
@@ -514,6 +515,8 @@ class Processor:
                 "shell",
                 [
                     *[f"mkdir -p /mnt/a/{path}" for path in _BASE_DIRS],
+                    *[f"rm -rf /mnt/a/{path}" for path in _REL_RUN_LINKS],
+                    *[f"ln -s run/{path} /mnt/a/" for path in _REL_RUN_LINKS],
                     *[f"rm -rf /mnt/a/{path}" for path in _REL_VAR_LINKS],
                     *[f"mkdir -p /mnt/a/var/{path}" for path in _REL_VAR_LINKS],
                     *[f"ln -s var/{path} /mnt/a/" for path in _REL_VAR_LINKS],
