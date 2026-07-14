@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import re
 from gi.repository import Adw, Gtk
 from vanilla_installer.core.languages import all_languages, current_language
@@ -42,7 +43,6 @@ class LanguageRow(Adw.ActionRow):
         self.__selected_language["language_subtitle"] = self.__subtitle
         self.get_parent().emit("selected-rows-changed")
 
-
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/default-language.ui")
 class VanillaDefaultLanguage(Adw.Bin):
     __gtype_name__ = "VanillaDefaultLanguage"
@@ -65,7 +65,7 @@ class VanillaDefaultLanguage(Adw.Bin):
         self.__generate_language_list_widgets()
 
         # signals
-        self.btn_next.connect("clicked", self.__window.next)
+        self.btn_next.connect("clicked", self.__next)
         self.all_languages_group.connect(
             "selected-rows-changed", self.__language_verify
         )
@@ -106,6 +106,12 @@ class VanillaDefaultLanguage(Adw.Bin):
                 language_row.select_button.set_active(True)
                 self.selected_language["language_title"] = language_title
                 self.selected_language["language_subtitle"] = language_code
+
+    def __next(self, _):
+        if os.environ["LANG"] != self.selected_language["language_subtitle"]:
+            os.environ["LANG"] = self.selected_language["language_subtitle"]
+            self.__window.rebuild_all()
+        self.__window.next()
 
     def get_finals(self):
         return {"language": self.selected_language["language_subtitle"]}
