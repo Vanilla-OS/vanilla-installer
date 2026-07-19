@@ -1,10 +1,5 @@
 install_data(
     'installer.desktop',
-    install_dir: join_paths(get_option('datadir'), 'xsessions')
-)
-
-install_data(
-    'installer.desktop',
     install_dir: join_paths(get_option('datadir'), 'wayland-sessions')
 )
 
