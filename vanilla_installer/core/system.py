@@ -30,16 +30,11 @@ class Systeminfo:
     @staticmethod
     def is_cpu_enough() -> bool:
         if not Systeminfo.cpu:
-            proc1 = subprocess.Popen(
-                "lscpu | grep -E 'Core\\(s\\)' | awk '{print $4}'",
+            proc = subprocess.Popen(
+                "nproc",
                 shell=True,
                 stdout=subprocess.PIPE
             ).stdout.read().decode()
-            proc2 = subprocess.Popen(
-                "lscpu | grep -E 'Socket\\(s\\)' | awk '{print $2}'",
-                shell=True,
-                stdout=subprocess.PIPE
-            ).stdout .read().decode()
-            Systeminfo.cpu = (int(proc1) * int(proc2)) >= 2
+            Systeminfo.cpu = int(proc) >= 2
 
         return Systeminfo.cpu
