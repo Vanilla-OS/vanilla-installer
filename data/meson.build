@@ -16,6 +16,7 @@ install_data(
 install_data(
     'installer.session.conf',
     install_dir: join_paths(get_option('prefix'), 'lib', 'systemd', 'user', 'gnome-session@installer.target.d')
+)
 
 install_data(
     'org.vanillaos.Installer.policy',
