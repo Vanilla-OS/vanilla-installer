@@ -523,63 +523,6 @@ class Processor:
                 ],
             )
 
-            # Create default user
-            # This needs to be done after mounting `/etc` overlay, so set it as
-            # late post-install
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "groupadd -g 1201 vanilla-first-setup",
-                ],
-                chroot=True,
-                late=True,
-            )
-            recipe.add_postinstall_step(
-                "adduser",
-                [
-                    "vanilla",
-                    "vanilla",
-                    ["sudo", "lpadmin", "vanilla-first-setup"],
-                    "vanilla",
-                    1200,
-                ],
-                chroot=True,
-                late=True,
-            )
-
-            # Set vanilla user to autologin
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "mkdir -p /etc/gdm3",
-                    "echo '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/daemon.conf",
-                    "mkdir -p /home/vanilla/.config/dconf",
-                    "chmod 700 /home/vanilla/.config/dconf",
-                ],
-                chroot=True,
-            )
-
-            # Make sure the vanilla user uses the first-setup session
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "mkdir -p /var/lib/AccountsService/users",
-                    "echo '[User]\nSession=firstsetup' > /var/lib/AccountsService/users/vanilla",
-                ],
-                chroot=True,
-            )
-
-            # Add autostart script to vanilla-first-setup
-            recipe.add_postinstall_step(
-                "shell",
-                [
-                    "mkdir -p /home/vanilla/.config/autostart",
-                    "cp /usr/share/applications/org.vanillaos.FirstSetup.desktop /home/vanilla/.config/autostart",
-                ],
-                chroot=True,
-                late=True,
-            )
-
             # Generate SSH host keys
             recipe.add_postinstall_step(
                 "shell", ["ssh-keygen -A"], chroot=True, late=True
@@ -685,14 +628,6 @@ class Processor:
                     '$IMAGE_DIGEST'".split()
                 )
             ],
-        )
-
-        # Set the default user as the owner of it's home directory
-        recipe.add_postinstall_step(
-            "shell",
-            ["chown -R vanilla:vanilla /home/vanilla"],
-            chroot=True,
-            late=True,
         )
 
         # Set ABRoot Thin-Provisioning option
