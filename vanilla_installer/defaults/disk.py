@@ -63,6 +63,7 @@ class PartitionRow(Adw.ActionRow):
     suffix_bin = Gtk.Template.Child()
 
     __siblings: list
+    __dropdown_items: list
 
     __partition_fs_types = ["btrfs", "ext4", "ext3", "fat32", "xfs"]
 
@@ -73,6 +74,7 @@ class PartitionRow(Adw.ActionRow):
         self.__partition = partition
         self.__modifiable = modifiable
         self.__default_fs = default_fs
+        self.__dropdown_items = []
 
         self.set_title(partition.partition)
         self.set_subtitle(partition.pretty_size)
@@ -83,18 +85,19 @@ class PartitionRow(Adw.ActionRow):
             self.__add_dropdown()
 
     def __add_dropdown(self):
+
         if self.__partition.fs_type in self.__partition_fs_types:
-            fs_dropdown = Gtk.DropDown.new_from_strings(["unformatted"] + self.__partition_fs_types)
+            self.__dropdown_items = ["unformatted"] + self.__partition_fs_types
+            selected_fs = self.__partition.fs_type
         else:
-            fs_dropdown = Gtk.DropDown.new_from_strings(self.__partition_fs_types)
+            self.__dropdown_items = list(self.__partition_fs_types)
+            selected_fs = self.__default_fs
+
+        fs_dropdown = Gtk.DropDown.new_from_strings(self.__dropdown_items)
         fs_dropdown.set_valign(Gtk.Align.CENTER)
         fs_dropdown.set_visible(False)
 
-        selected_fs = self.__default_fs
-        if self.__partition.fs_type in self.__partition_fs_types:
-            selected_fs = self.__partition.fs_type
-
-        fs_dropdown.set_selected(self.__partition_fs_types.index(selected_fs))
+        fs_dropdown.set_selected(self.__dropdown_items.index(selected_fs))
         fs_dropdown.connect("notify::selected", self.__on_dropdown_selected)
         self.suffix_bin.set_child(fs_dropdown)
 
@@ -103,6 +106,7 @@ class PartitionRow(Adw.ActionRow):
 
     def __on_check_button_toggled(self, widget):
         dropdown = self.suffix_bin.get_child()
+        is_active = self.select_button.get_active()
 
         # Sets all sibling dropdowns as not visible
         for sibling in self.__siblings:
@@ -111,11 +115,16 @@ class PartitionRow(Adw.ActionRow):
                 sibling_dropdown.set_visible(False)
 
         # Only the currently selected partition can be edited
-        if dropdown:
+        if dropdown and is_active:
             dropdown.set_visible(True)
-            fs_type = self.__partition_fs_types[dropdown.get_selected()]
+            fs_type = self.__dropdown_items[dropdown.get_selected()]
             self.__parent.set_subtitle(f"{self.__partition.pretty_size} ({fs_type})")
+            self.__page.selected_partitions[self.__parent.get_buildable_id()][
+                "fstype"
+            ] = fs_type
         else:
+            if dropdown:
+                dropdown.set_visible(False)
             self.__parent.set_subtitle(f"{self.__partition.pretty_size}")
 
         self.__parent.set_title(self.__partition.partition)
@@ -131,7 +140,7 @@ class PartitionRow(Adw.ActionRow):
         self.__page.update_apply_button_status()
 
     def __on_dropdown_selected(self, widget, _):
-        fs_type = self.__partition_fs_types[widget.get_selected()]
+        fs_type = self.__dropdown_items[widget.get_selected()]
         size = self.__partition.pretty_size
         self.__page.selected_partitions[self.__parent.get_buildable_id()][
             "fstype"
