@@ -282,6 +282,10 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.has_eth_connection = False
         self.has_wifi_connection = False
 
+        # the widget keeps refreshing itself in background, so it needs a
+        # way to know when it has been disposed
+        self.__alive = True
+
         self.__get_network_devices()
         self.__start_auto_refresh()
 
@@ -291,7 +295,13 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__nm_client.connect("device-added", self.__add_new_device)
         self.__nm_client.connect("device-added", self.__remove_device)
         self.btn_next.connect("clicked", self.__window.next)
-        self.__window.carousel.connect("page-changed", self.__try_skip_page)
+        self.__carousel_handler = self.__window.carousel.connect(
+            "page-changed", self.__try_skip_page
+        )
+
+    def cleanup(self):
+        self.__alive = False
+        self.__window.carousel.disconnect(self.__carousel_handler)
 
     def __try_skip_page(self, carousel=None, idx=None):
         if idx is not None and idx != self.__step_num:
@@ -374,6 +384,8 @@ class VanillaDefaultNetwork(Adw.Bin):
             return time.sleep(10)
 
         def callback(*args):
+            if not self.__alive:
+                return
             self.__refresh()
             RunAsync(run_async, callback)
 
@@ -427,12 +439,15 @@ class VanillaDefaultNetwork(Adw.Bin):
         self.__wired_children.append(eth_conn)
 
     def __poll_wifi_scan(self, conn: NM.DeviceWifi, last_known_scan: int):
-        while conn.get_last_scan() == last_known_scan:
+        while self.__alive and conn.get_last_scan() == last_known_scan:
             time.sleep(0.25)
 
-        GLib.idle_add(self.__refresh_wifi_list, conn)
+        if self.__alive:
+            GLib.idle_add(self.__refresh_wifi_list, conn)
 
     def __refresh_wifi_list(self, conn: NM.DeviceWifi):
+        if not self.__alive:
+            return
         networks: dict[str, list[NM.AccessPoint]] = {}
         for ap in conn.get_access_points():
             if ap is None:

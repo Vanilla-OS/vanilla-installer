@@ -1,4 +1,6 @@
+import gettext
 import locale
+import os
 
 from gi.repository import GnomeDesktop
 
@@ -167,11 +169,37 @@ all_locale = [
     "pt_PT.UTF-8",
 ]
 all_languages = {}
+all_language_names = {}
 
 for _locale in all_locale:
-    all_languages[_locale] = GnomeDesktop.get_language_from_locale(_locale, None)
 
-all_languages = dict(sorted(all_languages.items(), key=lambda item: item[1]))
+    _native_name = GnomeDesktop.get_language_from_locale(_locale, _locale)
+    # english name, kept as an extra search keyword
+    _english_name = (
+        GnomeDesktop.get_language_from_locale(_locale, "en_GB.UTF-8") or _locale
+    )
+
+    all_languages[_locale] = _native_name or _english_name
+    all_language_names[_locale] = _english_name
+
+all_languages = dict(
+    sorted(all_languages.items(), key=lambda item: all_language_names[item[0]])
+)
 current_language = "{}.{}".format(
     locale.getdefaultlocale()[0], locale.getdefaultlocale()[1]
 )
+
+
+def set_language(locale_code: str) -> None:
+    global current_language
+
+    current_language = locale_code
+    os.environ["LANGUAGE"] = locale_code.split(".")[0]
+
+    try:
+        locale.setlocale(locale.LC_MESSAGES, "C")
+        locale.setlocale(locale.LC_MESSAGES, locale_code)
+    except locale.Error:
+        locale.setlocale(locale.LC_MESSAGES, "C.UTF-8")
+
+    gettext._translations.clear()
