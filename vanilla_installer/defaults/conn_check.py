@@ -45,13 +45,21 @@ class VanillaDefaultConnCheck(Adw.Bin):
         self.delta = False
 
         self.__ignore_callback = False
+        self.__disposed = False
 
         # signals
         self.btn_recheck.connect("clicked", self.__on_btn_recheck_clicked)
-        self.__window.carousel.connect("page-changed", self.__conn_check)
-        self.__window.btn_back.connect(
+        self.__carousel_handler = self.__window.carousel.connect(
+            "page-changed", self.__conn_check
+        )
+        self.__btn_back_handler = self.__window.btn_back.connect(
             "clicked", self.__on_btn_back_clicked, self.__window.carousel.get_position()
         )
+
+    def cleanup(self):
+        self.__disposed = True
+        self.__window.carousel.disconnect(self.__carousel_handler)
+        self.__window.btn_back.disconnect(self.__btn_back_handler)
 
     @property
     def step_id(self):
@@ -90,6 +98,9 @@ class VanillaDefaultConnCheck(Adw.Bin):
                 return False
 
         def callback(res, *args):
+            if self.__disposed:
+                return
+
             if self.__ignore_callback:
                 self.__ignore_callback = False
                 return

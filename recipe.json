@@ -38,12 +38,11 @@
         }
     },
     "steps": {
-        "welcome": {
-            "template": "welcome",
-            "protected": true
-        },
         "language": {
             "template": "language"
+        },
+        "welcome": {
+            "template": "welcome"
         },
         "keyboard": {
             "template": "keyboard"

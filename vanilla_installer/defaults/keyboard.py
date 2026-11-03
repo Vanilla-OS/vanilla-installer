@@ -67,9 +67,6 @@ class VanillaDefaultKeyboard(Adw.Bin):
     all_keyboards_group = Gtk.Template.Child()
     selected_keyboard = []
 
-    search_controller = Gtk.EventControllerKey.new()
-    test_focus_controller = Gtk.EventControllerFocus.new()
-
     match_regex = re.compile(r"[^a-zA-Z0-9 ]")
 
     def __init__(self, window, distro_info, key, step, **kwargs):
@@ -79,19 +76,26 @@ class VanillaDefaultKeyboard(Adw.Bin):
         self.__key = key
         self.__step = step
         self.delta = True
+        self.__carousel_handler = None
         self.__keymaps = KeyMaps()
         self.__keyboard_rows = self.__generate_keyboard_list_widgets(
             self.selected_keyboard
         )
 
+        # controllers
+        self.search_controller = Gtk.EventControllerKey.new()
+        self.test_focus_controller = Gtk.EventControllerFocus.new()
+        self.entry_search_keyboard.add_controller(self.search_controller)
+        self.entry_test.add_controller(self.test_focus_controller)
+
+        self.search_controller.connect("key-released", self.__on_search_key_pressed)
+        if "VANILLA_NO_APPLY_XKB" not in os.environ:
+            self.test_focus_controller.connect("enter", self.__apply_layout)
+
 
     def gen_deltas(self):
         for i, widget in enumerate(self.__keyboard_rows):
             self.all_keyboards_group.append(widget)
-
-        # controllers
-        self.entry_search_keyboard.add_controller(self.search_controller)
-        self.entry_test.add_controller(self.test_focus_controller)
 
         # signals
         self.btn_next.connect("clicked", self.__next)
@@ -100,12 +104,15 @@ class VanillaDefaultKeyboard(Adw.Bin):
         )
         self.all_keyboards_group.connect("row-selected", self.__keyboard_verify)
         self.all_keyboards_group.connect("row-activated", self.__keyboard_verify)
-        self.__window.carousel.connect("page-changed", self.__keyboard_verify)
+        if self.__carousel_handler is None:
+            self.__carousel_handler = self.__window.carousel.connect(
+                "page-changed", self.__keyboard_verify
+            )
 
-        self.search_controller.connect("key-released", self.__on_search_key_pressed)
-        if "VANILLA_NO_APPLY_XKB" not in os.environ:
-            self.test_focus_controller.connect("enter", self.__apply_layout)
-
+    def cleanup(self):
+        if self.__carousel_handler is not None:
+            self.__window.carousel.disconnect(self.__carousel_handler)
+            self.__carousel_handler = None
 
     def del_deltas(self):
         self.all_keyboards_group.remove_all()
