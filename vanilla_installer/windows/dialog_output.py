@@ -18,6 +18,8 @@ from gettext import gettext as _
 
 from gi.repository import Adw, GObject, Gtk
 
+from vanilla_installer.utils.i18n import translate_widget_tree
+
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/dialog-output.ui")
 class VanillaDialogOutput(Adw.Window):
@@ -28,5 +30,6 @@ class VanillaDialogOutput(Adw.Window):
     def __init__(self, window, terminal, **kwargs):
         super().__init__(**kwargs)
         self.set_transient_for(window)
+        translate_widget_tree(self)
 
         self.main_box.append(terminal)

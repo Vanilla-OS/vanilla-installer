@@ -19,10 +19,12 @@
 import json
 import logging
 import os
+from gettext import gettext as _
 
 from gi.repository import Adw, Gtk
 
 from vanilla_installer.utils.builder import Builder
+from vanilla_installer.utils.i18n import translate_widget_tree
 from vanilla_installer.utils.processor import Processor
 from vanilla_installer.views.confirm import VanillaConfirm
 from vanilla_installer.views.done import VanillaDone
@@ -43,6 +45,18 @@ class VanillaWindow(Adw.ApplicationWindow):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        # some variables to track state
+        self.install_mode = 0
+
+        # the carousel is kept across reloads, so its page-changed handler
+        # must be tracked to be disconnected on teardown
+        self.__carousel_handler = None
+
+        self.btn_back.connect("clicked", self.back)
+
+        self.__setup()
+
+    def __setup(self):
         # this starts the builder and generates the widgets
         # to put in the carousel
         self.__builder = Builder(self)
@@ -58,18 +72,55 @@ class VanillaWindow(Adw.ApplicationWindow):
         # connect system signals
         self.__connect_signals()
 
-        # some variables to track state
-        self.install_mode = 0
+        self.set_title(_("Vanilla OS Installer"))
+        self.btn_back.set_tooltip_text(_("Back"))
+
+        # the .ui strings are translated by glibc only when the locale is
+        # generated, which is not the case on a live system
+        translate_widget_tree(self)
+
+    def __teardown(self):
+        if self.__carousel_handler is not None:
+            self.carousel.disconnect(self.__carousel_handler)
+            self.__carousel_handler = None
+
+        for widget in self.__builder.widgets:
+            cleanup = getattr(widget, "cleanup", None)
+            if cleanup is not None:
+                cleanup()
+            if widget.get_parent() is self.carousel:
+                self.carousel.remove(widget)
+
+        self.carousel.remove(self.__view_confirm)
+        self.carousel.remove(self.__view_progress)
+        self.carousel.remove(self.__view_done)
 
     def __connect_signals(self):
-        self.btn_back.connect("clicked", self.back)
-        self.carousel.connect("page-changed", self.__on_page_changed)
+        self.__carousel_handler = self.carousel.connect(
+            "page-changed", self.__on_page_changed
+        )
         self.__builder.widgets[-1].btn_next.connect("clicked", self.update_finals)
         self.__view_confirm.connect("installation-confirmed", self.on_installation_confirmed)
 
     def rebuild_ui(self, mode=1):
         self.install_mode = mode
         self.__build_ui(True, mode)
+
+    def reload_language(self, advance=False):
+        index = int(self.carousel.get_position())
+        if advance:
+            index += 1
+
+        self.__teardown()
+        self.__setup()
+
+        page = self.carousel.get_nth_page(index)
+        if page is not None:
+            if page.delta:
+                page.gen_deltas()
+            self.carousel.scroll_to(page, False)
+
+        self.__on_page_changed()
 
     def __build_ui(self, rebuild=False, mode=0):
         property_list = self.__builder.property_list
@@ -82,10 +133,7 @@ class VanillaWindow(Adw.ApplicationWindow):
         if "VANILLA_FORCE_TOUR" not in os.environ:
             for i, widget in enumerate(self.__builder.widgets):
                 if rebuild:
-                    if "protected" in property_list[i]:
-                        continue
-                    else:
-                        self.carousel.remove(widget)
+                    self.carousel.remove(widget)
                 if "custom_image" in property_list[i] and mode == 0:
                     continue
                 if "default_image" in property_list[i] and mode == 1:

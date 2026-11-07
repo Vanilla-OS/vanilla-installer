@@ -18,13 +18,11 @@ class Systeminfo:
     @staticmethod
     def is_ram_enough() -> bool:
         if not Systeminfo.ram:
-            proc = subprocess.Popen(
-                "free -b | grep Mem | awk '{print $2}'",
-                shell=True,
-                stdout=subprocess.PIPE
-            ).stdout.read().decode()
-            Systeminfo.ram = int(proc) >= 3800000000
-
+            with open("/proc/meminfo") as f:
+                for line in f:
+                    if line.startswith("MemTotal:"):
+                        Systeminfo.ram = int(line.split()[1]) * 1024 >= 3800000000
+                        break
         return Systeminfo.ram
 
     @staticmethod

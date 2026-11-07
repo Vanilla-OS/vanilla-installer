@@ -66,7 +66,6 @@ class VanillaDefaultTimezone(Adw.Bin):
     current_tz_label = Gtk.Template.Child()
     current_location_label = Gtk.Template.Child()
 
-    search_controller = Gtk.EventControllerKey.new()
     selected_timezone = {"region": "Europe", "zone": None}
 
     expanders_list = dict(
@@ -88,12 +87,19 @@ class VanillaDefaultTimezone(Adw.Bin):
         self.__step_num = step["num"]
         self.delta = True
 
+        self.search_controller = Gtk.EventControllerKey.new()
+
         # signals
         self.btn_next.connect("clicked", self.__window.next)
-        self.__window.carousel.connect("page-changed", self.timezone_verify)
+        self.__carousel_handler = self.__window.carousel.connect(
+            "page-changed", self.timezone_verify
+        )
 
         self.search_controller.connect("key-released", self.__on_search_key_pressed)
         self.entry_search_timezone.add_controller(self.search_controller)
+
+    def cleanup(self):
+        self.__window.carousel.disconnect(self.__carousel_handler)
 
 
     def gen_deltas(self):

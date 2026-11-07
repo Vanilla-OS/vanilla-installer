@@ -22,6 +22,7 @@ from gi.repository import Adw, GObject, Gtk
 
 from vanilla_installer.core.disks import DisksManager, Diskutils, Partition
 from vanilla_installer.core.system import Systeminfo
+from vanilla_installer.utils.i18n import translate_widget_tree
 
 
 @Gtk.Template(resource_path="/org/vanillaos/Installer/gtk/widget-disk.ui")
@@ -492,6 +493,7 @@ class VanillaDefaultDiskPartModal(Adw.Window):
 
     def __init__(self, window, parent, disks, **kwargs):
         super().__init__(**kwargs)
+        translate_widget_tree(self)
         self.__window = window
         self.__parent = parent
         self.__disks = disks
@@ -585,6 +587,7 @@ class VanillaDefaultDiskConfirmModal(Adw.Window):
 
     def __init__(self, window, partition_recipe, **kwargs):
         super().__init__(**kwargs)
+        translate_widget_tree(self)
         self.__window = window
         self.set_transient_for(self.__window)
         self.default_width, self.default_height = self.get_default_size()

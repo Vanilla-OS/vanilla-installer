@@ -1,4 +1,5 @@
 import locale
+import os
 
 from gi.repository import GnomeDesktop
 
@@ -167,11 +168,49 @@ all_locale = [
     "pt_PT.UTF-8",
 ]
 all_languages = {}
+all_language_names = {}
 
 for _locale in all_locale:
-    all_languages[_locale] = GnomeDesktop.get_language_from_locale(_locale, None)
 
-all_languages = dict(sorted(all_languages.items(), key=lambda item: item[1]))
-current_language = "{}.{}".format(
-    locale.getdefaultlocale()[0], locale.getdefaultlocale()[1]
+    _native_name = GnomeDesktop.get_language_from_locale(_locale, _locale)
+    # english name, kept as an extra search keyword
+    _english_name = (
+        GnomeDesktop.get_language_from_locale(_locale, "en_GB.UTF-8") or _locale
+    )
+
+    all_languages[_locale] = _native_name or _english_name
+    all_language_names[_locale] = _english_name
+
+all_languages = dict(
+    sorted(all_languages.items(), key=lambda item: all_language_names[item[0]])
 )
+
+
+def _get_current_language() -> str:
+    for variable in ("LC_ALL", "LC_MESSAGES", "LANG"):
+        code = os.environ.get(variable, "").split(":")[0].strip()
+        if code and code not in ("C", "POSIX"):
+            return code if "." in code else "{}.UTF-8".format(code)
+
+    return "en_US.UTF-8"
+
+
+def apply_locale(locale_code: str) -> bool:
+    try:
+        locale.setlocale(locale.LC_MESSAGES, locale_code)
+    except locale.Error:
+        return False
+
+    return True
+
+
+current_language = _get_current_language()
+
+
+def set_language(locale_code: str) -> None:
+    global current_language
+
+    current_language = locale_code
+    os.environ["LANGUAGE"] = locale_code.partition(".")[0]
+
+    apply_locale(locale_code)
